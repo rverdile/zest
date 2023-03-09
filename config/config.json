@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "4.3.1",
+    "generators": { 
+      "v3.0": { 
+        "generatorName": "go",
+        "output": "packages/pulpGoBinding/",
+	"additionalProperties": {
+          "structPrefix": true
+	},
+	"structPrefix": true
+      }
+    }
+  }
+}
+
