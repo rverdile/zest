@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
-**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
+**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Sha256** | Pointer to **string** | The SHA-256 checksum if available. | [optional] [readonly] 
 **Md5** | Pointer to **string** | The MD5 checksum if available. | [optional] [readonly] 
 **Sha1** | Pointer to **string** | The SHA-1 checksum if available. | [optional] [readonly] 
@@ -76,31 +76,6 @@ SetArtifact sets Artifact field to given value.
 
 HasArtifact returns a boolean if a field has been set.
 
-### GetPulpCreated
-
-`func (o *AnsibleCollectionVersionResponse) GetPulpCreated() time.Time`
-
-GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
-
-### GetPulpCreatedOk
-
-`func (o *AnsibleCollectionVersionResponse) GetPulpCreatedOk() (*time.Time, bool)`
-
-GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPulpCreated
-
-`func (o *AnsibleCollectionVersionResponse) SetPulpCreated(v time.Time)`
-
-SetPulpCreated sets PulpCreated field to given value.
-
-### HasPulpCreated
-
-`func (o *AnsibleCollectionVersionResponse) HasPulpCreated() bool`
-
-HasPulpCreated returns a boolean if a field has been set.
-
 ### GetPulpHref
 
 `func (o *AnsibleCollectionVersionResponse) GetPulpHref() string`
@@ -125,6 +100,31 @@ SetPulpHref sets PulpHref field to given value.
 `func (o *AnsibleCollectionVersionResponse) HasPulpHref() bool`
 
 HasPulpHref returns a boolean if a field has been set.
+
+### GetPulpCreated
+
+`func (o *AnsibleCollectionVersionResponse) GetPulpCreated() time.Time`
+
+GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
+
+### GetPulpCreatedOk
+
+`func (o *AnsibleCollectionVersionResponse) GetPulpCreatedOk() (*time.Time, bool)`
+
+GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPulpCreated
+
+`func (o *AnsibleCollectionVersionResponse) SetPulpCreated(v time.Time)`
+
+SetPulpCreated sets PulpCreated field to given value.
+
+### HasPulpCreated
+
+`func (o *AnsibleCollectionVersionResponse) HasPulpCreated() bool`
+
+HasPulpCreated returns a boolean if a field has been set.
 
 ### GetSha256
 
