@@ -20,43 +20,43 @@ var _ MappedNullable = &AnsibleGitRemote{}
 
 // AnsibleGitRemote A serializer for Git Collection Remotes.
 type AnsibleGitRemote struct {
+	// The password to authenticate to the proxy. Extra leading and trailing whitespace characters are not trimmed.
+	ProxyPassword NullableString `json:"proxy_password,omitempty"`
+	// Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used.
+	MaxRetries NullableInt32 `json:"max_retries,omitempty"`
+	// aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	ConnectTimeout NullableFloat64 `json:"connect_timeout,omitempty"`
+	// aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	TotalTimeout NullableFloat64 `json:"total_timeout,omitempty"`
+	// The username to authenticte to the proxy.
+	ProxyUsername NullableString `json:"proxy_username,omitempty"`
+	// Headers for aiohttp.Clientsession
+	Headers []map[string]interface{} `json:"headers,omitempty"`
+	// A PEM encoded client certificate used for authentication.
+	ClientCert NullableString `json:"client_cert,omitempty"`
 	// A PEM encoded CA certificate used to validate the server certificate presented by the remote server.
 	CaCert NullableString `json:"ca_cert,omitempty"`
 	// The password to be used for authentication when syncing. Extra leading and trailing whitespace characters are not trimmed.
 	Password NullableString `json:"password,omitempty"`
-	// The password to authenticate to the proxy. Extra leading and trailing whitespace characters are not trimmed.
-	ProxyPassword NullableString `json:"proxy_password,omitempty"`
-	// The username to be used for authentication when syncing.
-	Username NullableString `json:"username,omitempty"`
-	// aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	SockReadTimeout NullableFloat64 `json:"sock_read_timeout,omitempty"`
-	// Headers for aiohttp.Clientsession
-	Headers []map[string]interface{} `json:"headers,omitempty"`
-	// Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used.
-	MaxRetries NullableInt32 `json:"max_retries,omitempty"`
-	// aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	SockConnectTimeout NullableFloat64 `json:"sock_connect_timeout,omitempty"`
-	// A PEM encoded private key used for authentication.
-	ClientKey NullableString `json:"client_key,omitempty"`
-	// A PEM encoded client certificate used for authentication.
-	ClientCert NullableString `json:"client_cert,omitempty"`
-	// aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	ConnectTimeout NullableFloat64 `json:"connect_timeout,omitempty"`
-	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
-	// Limits requests per second for each concurrent downloader
-	RateLimit NullableInt32 `json:"rate_limit,omitempty"`
-	// If True, TLS peer validation must be performed.
-	TlsValidation *bool `json:"tls_validation,omitempty"`
-	// The username to authenticte to the proxy.
-	ProxyUsername NullableString `json:"proxy_username,omitempty"`
 	// A unique name for this remote.
 	Name string `json:"name"`
-	// aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	TotalTimeout NullableFloat64 `json:"total_timeout,omitempty"`
-	// Total number of simultaneous connections. If not set then the default value will be used.
-	DownloadConcurrency NullableInt32 `json:"download_concurrency,omitempty"`
+	// aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	SockConnectTimeout NullableFloat64 `json:"sock_connect_timeout,omitempty"`
+	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
+	// A PEM encoded private key used for authentication.
+	ClientKey NullableString `json:"client_key,omitempty"`
+	// aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	SockReadTimeout NullableFloat64 `json:"sock_read_timeout,omitempty"`
+	// The username to be used for authentication when syncing.
+	Username NullableString `json:"username,omitempty"`
 	// The proxy URL. Format: scheme://host:port
 	ProxyUrl NullableString `json:"proxy_url,omitempty"`
+	// Limits requests per second for each concurrent downloader
+	RateLimit NullableInt32 `json:"rate_limit,omitempty"`
+	// Total number of simultaneous connections. If not set then the default value will be used.
+	DownloadConcurrency NullableInt32 `json:"download_concurrency,omitempty"`
+	// If True, TLS peer validation must be performed.
+	TlsValidation *bool `json:"tls_validation,omitempty"`
 	// The URL of an external content source.
 	Url string `json:"url"`
 	// If True, only metadata about the content will be stored in Pulp. Clients will retrieve content from the remote URL.
@@ -82,6 +82,290 @@ func NewAnsibleGitRemote(name string, url string) *AnsibleGitRemote {
 func NewAnsibleGitRemoteWithDefaults() *AnsibleGitRemote {
 	this := AnsibleGitRemote{}
 	return &this
+}
+
+// GetProxyPassword returns the ProxyPassword field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetProxyPassword() string {
+	if o == nil || IsNil(o.ProxyPassword.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProxyPassword.Get()
+}
+
+// GetProxyPasswordOk returns a tuple with the ProxyPassword field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetProxyPasswordOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProxyPassword.Get(), o.ProxyPassword.IsSet()
+}
+
+// HasProxyPassword returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasProxyPassword() bool {
+	if o != nil && o.ProxyPassword.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProxyPassword gets a reference to the given NullableString and assigns it to the ProxyPassword field.
+func (o *AnsibleGitRemote) SetProxyPassword(v string) {
+	o.ProxyPassword.Set(&v)
+}
+// SetProxyPasswordNil sets the value for ProxyPassword to be an explicit nil
+func (o *AnsibleGitRemote) SetProxyPasswordNil() {
+	o.ProxyPassword.Set(nil)
+}
+
+// UnsetProxyPassword ensures that no value is present for ProxyPassword, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetProxyPassword() {
+	o.ProxyPassword.Unset()
+}
+
+// GetMaxRetries returns the MaxRetries field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetMaxRetries() int32 {
+	if o == nil || IsNil(o.MaxRetries.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MaxRetries.Get()
+}
+
+// GetMaxRetriesOk returns a tuple with the MaxRetries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetMaxRetriesOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MaxRetries.Get(), o.MaxRetries.IsSet()
+}
+
+// HasMaxRetries returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasMaxRetries() bool {
+	if o != nil && o.MaxRetries.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxRetries gets a reference to the given NullableInt32 and assigns it to the MaxRetries field.
+func (o *AnsibleGitRemote) SetMaxRetries(v int32) {
+	o.MaxRetries.Set(&v)
+}
+// SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
+func (o *AnsibleGitRemote) SetMaxRetriesNil() {
+	o.MaxRetries.Set(nil)
+}
+
+// UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetMaxRetries() {
+	o.MaxRetries.Unset()
+}
+
+// GetConnectTimeout returns the ConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetConnectTimeout() float64 {
+	if o == nil || IsNil(o.ConnectTimeout.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.ConnectTimeout.Get()
+}
+
+// GetConnectTimeoutOk returns a tuple with the ConnectTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetConnectTimeoutOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ConnectTimeout.Get(), o.ConnectTimeout.IsSet()
+}
+
+// HasConnectTimeout returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasConnectTimeout() bool {
+	if o != nil && o.ConnectTimeout.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetConnectTimeout gets a reference to the given NullableFloat64 and assigns it to the ConnectTimeout field.
+func (o *AnsibleGitRemote) SetConnectTimeout(v float64) {
+	o.ConnectTimeout.Set(&v)
+}
+// SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
+func (o *AnsibleGitRemote) SetConnectTimeoutNil() {
+	o.ConnectTimeout.Set(nil)
+}
+
+// UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetConnectTimeout() {
+	o.ConnectTimeout.Unset()
+}
+
+// GetTotalTimeout returns the TotalTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetTotalTimeout() float64 {
+	if o == nil || IsNil(o.TotalTimeout.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.TotalTimeout.Get()
+}
+
+// GetTotalTimeoutOk returns a tuple with the TotalTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetTotalTimeoutOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalTimeout.Get(), o.TotalTimeout.IsSet()
+}
+
+// HasTotalTimeout returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasTotalTimeout() bool {
+	if o != nil && o.TotalTimeout.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalTimeout gets a reference to the given NullableFloat64 and assigns it to the TotalTimeout field.
+func (o *AnsibleGitRemote) SetTotalTimeout(v float64) {
+	o.TotalTimeout.Set(&v)
+}
+// SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
+func (o *AnsibleGitRemote) SetTotalTimeoutNil() {
+	o.TotalTimeout.Set(nil)
+}
+
+// UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetTotalTimeout() {
+	o.TotalTimeout.Unset()
+}
+
+// GetProxyUsername returns the ProxyUsername field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetProxyUsername() string {
+	if o == nil || IsNil(o.ProxyUsername.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProxyUsername.Get()
+}
+
+// GetProxyUsernameOk returns a tuple with the ProxyUsername field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetProxyUsernameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProxyUsername.Get(), o.ProxyUsername.IsSet()
+}
+
+// HasProxyUsername returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasProxyUsername() bool {
+	if o != nil && o.ProxyUsername.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProxyUsername gets a reference to the given NullableString and assigns it to the ProxyUsername field.
+func (o *AnsibleGitRemote) SetProxyUsername(v string) {
+	o.ProxyUsername.Set(&v)
+}
+// SetProxyUsernameNil sets the value for ProxyUsername to be an explicit nil
+func (o *AnsibleGitRemote) SetProxyUsernameNil() {
+	o.ProxyUsername.Set(nil)
+}
+
+// UnsetProxyUsername ensures that no value is present for ProxyUsername, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetProxyUsername() {
+	o.ProxyUsername.Unset()
+}
+
+// GetHeaders returns the Headers field value if set, zero value otherwise.
+func (o *AnsibleGitRemote) GetHeaders() []map[string]interface{} {
+	if o == nil || IsNil(o.Headers) {
+		var ret []map[string]interface{}
+		return ret
+	}
+	return o.Headers
+}
+
+// GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemote) GetHeadersOk() ([]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Headers) {
+		return nil, false
+	}
+	return o.Headers, true
+}
+
+// HasHeaders returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasHeaders() bool {
+	if o != nil && !IsNil(o.Headers) {
+		return true
+	}
+
+	return false
+}
+
+// SetHeaders gets a reference to the given []map[string]interface{} and assigns it to the Headers field.
+func (o *AnsibleGitRemote) SetHeaders(v []map[string]interface{}) {
+	o.Headers = v
+}
+
+// GetClientCert returns the ClientCert field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetClientCert() string {
+	if o == nil || IsNil(o.ClientCert.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ClientCert.Get()
+}
+
+// GetClientCertOk returns a tuple with the ClientCert field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetClientCertOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ClientCert.Get(), o.ClientCert.IsSet()
+}
+
+// HasClientCert returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasClientCert() bool {
+	if o != nil && o.ClientCert.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientCert gets a reference to the given NullableString and assigns it to the ClientCert field.
+func (o *AnsibleGitRemote) SetClientCert(v string) {
+	o.ClientCert.Set(&v)
+}
+// SetClientCertNil sets the value for ClientCert to be an explicit nil
+func (o *AnsibleGitRemote) SetClientCertNil() {
+	o.ClientCert.Set(nil)
+}
+
+// UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetClientCert() {
+	o.ClientCert.Unset()
 }
 
 // GetCaCert returns the CaCert field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -168,204 +452,28 @@ func (o *AnsibleGitRemote) UnsetPassword() {
 	o.Password.Unset()
 }
 
-// GetProxyPassword returns the ProxyPassword field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetProxyPassword() string {
-	if o == nil || IsNil(o.ProxyPassword.Get()) {
+// GetName returns the Name field value
+func (o *AnsibleGitRemote) GetName() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ProxyPassword.Get()
+
+	return o.Name
 }
 
-// GetProxyPasswordOk returns a tuple with the ProxyPassword field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetProxyPasswordOk() (*string, bool) {
+func (o *AnsibleGitRemote) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ProxyPassword.Get(), o.ProxyPassword.IsSet()
+	return &o.Name, true
 }
 
-// HasProxyPassword returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasProxyPassword() bool {
-	if o != nil && o.ProxyPassword.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetProxyPassword gets a reference to the given NullableString and assigns it to the ProxyPassword field.
-func (o *AnsibleGitRemote) SetProxyPassword(v string) {
-	o.ProxyPassword.Set(&v)
-}
-// SetProxyPasswordNil sets the value for ProxyPassword to be an explicit nil
-func (o *AnsibleGitRemote) SetProxyPasswordNil() {
-	o.ProxyPassword.Set(nil)
-}
-
-// UnsetProxyPassword ensures that no value is present for ProxyPassword, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetProxyPassword() {
-	o.ProxyPassword.Unset()
-}
-
-// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetUsername() string {
-	if o == nil || IsNil(o.Username.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Username.Get()
-}
-
-// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetUsernameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Username.Get(), o.Username.IsSet()
-}
-
-// HasUsername returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasUsername() bool {
-	if o != nil && o.Username.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
-func (o *AnsibleGitRemote) SetUsername(v string) {
-	o.Username.Set(&v)
-}
-// SetUsernameNil sets the value for Username to be an explicit nil
-func (o *AnsibleGitRemote) SetUsernameNil() {
-	o.Username.Set(nil)
-}
-
-// UnsetUsername ensures that no value is present for Username, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetUsername() {
-	o.Username.Unset()
-}
-
-// GetSockReadTimeout returns the SockReadTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetSockReadTimeout() float64 {
-	if o == nil || IsNil(o.SockReadTimeout.Get()) {
-		var ret float64
-		return ret
-	}
-	return *o.SockReadTimeout.Get()
-}
-
-// GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetSockReadTimeoutOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.SockReadTimeout.Get(), o.SockReadTimeout.IsSet()
-}
-
-// HasSockReadTimeout returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasSockReadTimeout() bool {
-	if o != nil && o.SockReadTimeout.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetSockReadTimeout gets a reference to the given NullableFloat64 and assigns it to the SockReadTimeout field.
-func (o *AnsibleGitRemote) SetSockReadTimeout(v float64) {
-	o.SockReadTimeout.Set(&v)
-}
-// SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
-func (o *AnsibleGitRemote) SetSockReadTimeoutNil() {
-	o.SockReadTimeout.Set(nil)
-}
-
-// UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetSockReadTimeout() {
-	o.SockReadTimeout.Unset()
-}
-
-// GetHeaders returns the Headers field value if set, zero value otherwise.
-func (o *AnsibleGitRemote) GetHeaders() []map[string]interface{} {
-	if o == nil || IsNil(o.Headers) {
-		var ret []map[string]interface{}
-		return ret
-	}
-	return o.Headers
-}
-
-// GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemote) GetHeadersOk() ([]map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Headers) {
-		return nil, false
-	}
-	return o.Headers, true
-}
-
-// HasHeaders returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasHeaders() bool {
-	if o != nil && !IsNil(o.Headers) {
-		return true
-	}
-
-	return false
-}
-
-// SetHeaders gets a reference to the given []map[string]interface{} and assigns it to the Headers field.
-func (o *AnsibleGitRemote) SetHeaders(v []map[string]interface{}) {
-	o.Headers = v
-}
-
-// GetMaxRetries returns the MaxRetries field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetMaxRetries() int32 {
-	if o == nil || IsNil(o.MaxRetries.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.MaxRetries.Get()
-}
-
-// GetMaxRetriesOk returns a tuple with the MaxRetries field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetMaxRetriesOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.MaxRetries.Get(), o.MaxRetries.IsSet()
-}
-
-// HasMaxRetries returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasMaxRetries() bool {
-	if o != nil && o.MaxRetries.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxRetries gets a reference to the given NullableInt32 and assigns it to the MaxRetries field.
-func (o *AnsibleGitRemote) SetMaxRetries(v int32) {
-	o.MaxRetries.Set(&v)
-}
-// SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
-func (o *AnsibleGitRemote) SetMaxRetriesNil() {
-	o.MaxRetries.Set(nil)
-}
-
-// UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetMaxRetries() {
-	o.MaxRetries.Unset()
+// SetName sets field value
+func (o *AnsibleGitRemote) SetName(v string) {
+	o.Name = v
 }
 
 // GetSockConnectTimeout returns the SockConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -410,6 +518,38 @@ func (o *AnsibleGitRemote) UnsetSockConnectTimeout() {
 	o.SockConnectTimeout.Unset()
 }
 
+// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
+func (o *AnsibleGitRemote) GetPulpLabels() map[string]string {
+	if o == nil || IsNil(o.PulpLabels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.PulpLabels
+}
+
+// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemote) GetPulpLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.PulpLabels) {
+		return nil, false
+	}
+	return o.PulpLabels, true
+}
+
+// HasPulpLabels returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasPulpLabels() bool {
+	if o != nil && !IsNil(o.PulpLabels) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
+func (o *AnsibleGitRemote) SetPulpLabels(v map[string]string) {
+	o.PulpLabels = &v
+}
+
 // GetClientKey returns the ClientKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AnsibleGitRemote) GetClientKey() string {
 	if o == nil || IsNil(o.ClientKey.Get()) {
@@ -452,120 +592,130 @@ func (o *AnsibleGitRemote) UnsetClientKey() {
 	o.ClientKey.Unset()
 }
 
-// GetClientCert returns the ClientCert field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetClientCert() string {
-	if o == nil || IsNil(o.ClientCert.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ClientCert.Get()
-}
-
-// GetClientCertOk returns a tuple with the ClientCert field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetClientCertOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ClientCert.Get(), o.ClientCert.IsSet()
-}
-
-// HasClientCert returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasClientCert() bool {
-	if o != nil && o.ClientCert.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetClientCert gets a reference to the given NullableString and assigns it to the ClientCert field.
-func (o *AnsibleGitRemote) SetClientCert(v string) {
-	o.ClientCert.Set(&v)
-}
-// SetClientCertNil sets the value for ClientCert to be an explicit nil
-func (o *AnsibleGitRemote) SetClientCertNil() {
-	o.ClientCert.Set(nil)
-}
-
-// UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetClientCert() {
-	o.ClientCert.Unset()
-}
-
-// GetConnectTimeout returns the ConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetConnectTimeout() float64 {
-	if o == nil || IsNil(o.ConnectTimeout.Get()) {
+// GetSockReadTimeout returns the SockReadTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetSockReadTimeout() float64 {
+	if o == nil || IsNil(o.SockReadTimeout.Get()) {
 		var ret float64
 		return ret
 	}
-	return *o.ConnectTimeout.Get()
+	return *o.SockReadTimeout.Get()
 }
 
-// GetConnectTimeoutOk returns a tuple with the ConnectTimeout field value if set, nil otherwise
+// GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetConnectTimeoutOk() (*float64, bool) {
+func (o *AnsibleGitRemote) GetSockReadTimeoutOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ConnectTimeout.Get(), o.ConnectTimeout.IsSet()
+	return o.SockReadTimeout.Get(), o.SockReadTimeout.IsSet()
 }
 
-// HasConnectTimeout returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasConnectTimeout() bool {
-	if o != nil && o.ConnectTimeout.IsSet() {
+// HasSockReadTimeout returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasSockReadTimeout() bool {
+	if o != nil && o.SockReadTimeout.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetConnectTimeout gets a reference to the given NullableFloat64 and assigns it to the ConnectTimeout field.
-func (o *AnsibleGitRemote) SetConnectTimeout(v float64) {
-	o.ConnectTimeout.Set(&v)
+// SetSockReadTimeout gets a reference to the given NullableFloat64 and assigns it to the SockReadTimeout field.
+func (o *AnsibleGitRemote) SetSockReadTimeout(v float64) {
+	o.SockReadTimeout.Set(&v)
 }
-// SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
-func (o *AnsibleGitRemote) SetConnectTimeoutNil() {
-	o.ConnectTimeout.Set(nil)
-}
-
-// UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetConnectTimeout() {
-	o.ConnectTimeout.Unset()
+// SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
+func (o *AnsibleGitRemote) SetSockReadTimeoutNil() {
+	o.SockReadTimeout.Set(nil)
 }
 
-// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
-func (o *AnsibleGitRemote) GetPulpLabels() map[string]string {
-	if o == nil || IsNil(o.PulpLabels) {
-		var ret map[string]string
+// UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetSockReadTimeout() {
+	o.SockReadTimeout.Unset()
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetUsername() string {
+	if o == nil || IsNil(o.Username.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.PulpLabels
+	return *o.Username.Get()
 }
 
-// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnsibleGitRemote) GetPulpLabelsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.PulpLabels) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetUsernameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PulpLabels, true
+	return o.Username.Get(), o.Username.IsSet()
 }
 
-// HasPulpLabels returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasPulpLabels() bool {
-	if o != nil && !IsNil(o.PulpLabels) {
+// HasUsername returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasUsername() bool {
+	if o != nil && o.Username.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
-func (o *AnsibleGitRemote) SetPulpLabels(v map[string]string) {
-	o.PulpLabels = &v
+// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
+func (o *AnsibleGitRemote) SetUsername(v string) {
+	o.Username.Set(&v)
+}
+// SetUsernameNil sets the value for Username to be an explicit nil
+func (o *AnsibleGitRemote) SetUsernameNil() {
+	o.Username.Set(nil)
+}
+
+// UnsetUsername ensures that no value is present for Username, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetUsername() {
+	o.Username.Unset()
+}
+
+// GetProxyUrl returns the ProxyUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemote) GetProxyUrl() string {
+	if o == nil || IsNil(o.ProxyUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProxyUrl.Get()
+}
+
+// GetProxyUrlOk returns a tuple with the ProxyUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemote) GetProxyUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProxyUrl.Get(), o.ProxyUrl.IsSet()
+}
+
+// HasProxyUrl returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasProxyUrl() bool {
+	if o != nil && o.ProxyUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProxyUrl gets a reference to the given NullableString and assigns it to the ProxyUrl field.
+func (o *AnsibleGitRemote) SetProxyUrl(v string) {
+	o.ProxyUrl.Set(&v)
+}
+// SetProxyUrlNil sets the value for ProxyUrl to be an explicit nil
+func (o *AnsibleGitRemote) SetProxyUrlNil() {
+	o.ProxyUrl.Set(nil)
+}
+
+// UnsetProxyUrl ensures that no value is present for ProxyUrl, not even an explicit nil
+func (o *AnsibleGitRemote) UnsetProxyUrl() {
+	o.ProxyUrl.Unset()
 }
 
 // GetRateLimit returns the RateLimit field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -610,146 +760,6 @@ func (o *AnsibleGitRemote) UnsetRateLimit() {
 	o.RateLimit.Unset()
 }
 
-// GetTlsValidation returns the TlsValidation field value if set, zero value otherwise.
-func (o *AnsibleGitRemote) GetTlsValidation() bool {
-	if o == nil || IsNil(o.TlsValidation) {
-		var ret bool
-		return ret
-	}
-	return *o.TlsValidation
-}
-
-// GetTlsValidationOk returns a tuple with the TlsValidation field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemote) GetTlsValidationOk() (*bool, bool) {
-	if o == nil || IsNil(o.TlsValidation) {
-		return nil, false
-	}
-	return o.TlsValidation, true
-}
-
-// HasTlsValidation returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasTlsValidation() bool {
-	if o != nil && !IsNil(o.TlsValidation) {
-		return true
-	}
-
-	return false
-}
-
-// SetTlsValidation gets a reference to the given bool and assigns it to the TlsValidation field.
-func (o *AnsibleGitRemote) SetTlsValidation(v bool) {
-	o.TlsValidation = &v
-}
-
-// GetProxyUsername returns the ProxyUsername field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetProxyUsername() string {
-	if o == nil || IsNil(o.ProxyUsername.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ProxyUsername.Get()
-}
-
-// GetProxyUsernameOk returns a tuple with the ProxyUsername field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetProxyUsernameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ProxyUsername.Get(), o.ProxyUsername.IsSet()
-}
-
-// HasProxyUsername returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasProxyUsername() bool {
-	if o != nil && o.ProxyUsername.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetProxyUsername gets a reference to the given NullableString and assigns it to the ProxyUsername field.
-func (o *AnsibleGitRemote) SetProxyUsername(v string) {
-	o.ProxyUsername.Set(&v)
-}
-// SetProxyUsernameNil sets the value for ProxyUsername to be an explicit nil
-func (o *AnsibleGitRemote) SetProxyUsernameNil() {
-	o.ProxyUsername.Set(nil)
-}
-
-// UnsetProxyUsername ensures that no value is present for ProxyUsername, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetProxyUsername() {
-	o.ProxyUsername.Unset()
-}
-
-// GetName returns the Name field value
-func (o *AnsibleGitRemote) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemote) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *AnsibleGitRemote) SetName(v string) {
-	o.Name = v
-}
-
-// GetTotalTimeout returns the TotalTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetTotalTimeout() float64 {
-	if o == nil || IsNil(o.TotalTimeout.Get()) {
-		var ret float64
-		return ret
-	}
-	return *o.TotalTimeout.Get()
-}
-
-// GetTotalTimeoutOk returns a tuple with the TotalTimeout field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetTotalTimeoutOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TotalTimeout.Get(), o.TotalTimeout.IsSet()
-}
-
-// HasTotalTimeout returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasTotalTimeout() bool {
-	if o != nil && o.TotalTimeout.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalTimeout gets a reference to the given NullableFloat64 and assigns it to the TotalTimeout field.
-func (o *AnsibleGitRemote) SetTotalTimeout(v float64) {
-	o.TotalTimeout.Set(&v)
-}
-// SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
-func (o *AnsibleGitRemote) SetTotalTimeoutNil() {
-	o.TotalTimeout.Set(nil)
-}
-
-// UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetTotalTimeout() {
-	o.TotalTimeout.Unset()
-}
-
 // GetDownloadConcurrency returns the DownloadConcurrency field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AnsibleGitRemote) GetDownloadConcurrency() int32 {
 	if o == nil || IsNil(o.DownloadConcurrency.Get()) {
@@ -792,46 +802,36 @@ func (o *AnsibleGitRemote) UnsetDownloadConcurrency() {
 	o.DownloadConcurrency.Unset()
 }
 
-// GetProxyUrl returns the ProxyUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemote) GetProxyUrl() string {
-	if o == nil || IsNil(o.ProxyUrl.Get()) {
-		var ret string
+// GetTlsValidation returns the TlsValidation field value if set, zero value otherwise.
+func (o *AnsibleGitRemote) GetTlsValidation() bool {
+	if o == nil || IsNil(o.TlsValidation) {
+		var ret bool
 		return ret
 	}
-	return *o.ProxyUrl.Get()
+	return *o.TlsValidation
 }
 
-// GetProxyUrlOk returns a tuple with the ProxyUrl field value if set, nil otherwise
+// GetTlsValidationOk returns a tuple with the TlsValidation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemote) GetProxyUrlOk() (*string, bool) {
-	if o == nil {
+func (o *AnsibleGitRemote) GetTlsValidationOk() (*bool, bool) {
+	if o == nil || IsNil(o.TlsValidation) {
 		return nil, false
 	}
-	return o.ProxyUrl.Get(), o.ProxyUrl.IsSet()
+	return o.TlsValidation, true
 }
 
-// HasProxyUrl returns a boolean if a field has been set.
-func (o *AnsibleGitRemote) HasProxyUrl() bool {
-	if o != nil && o.ProxyUrl.IsSet() {
+// HasTlsValidation returns a boolean if a field has been set.
+func (o *AnsibleGitRemote) HasTlsValidation() bool {
+	if o != nil && !IsNil(o.TlsValidation) {
 		return true
 	}
 
 	return false
 }
 
-// SetProxyUrl gets a reference to the given NullableString and assigns it to the ProxyUrl field.
-func (o *AnsibleGitRemote) SetProxyUrl(v string) {
-	o.ProxyUrl.Set(&v)
-}
-// SetProxyUrlNil sets the value for ProxyUrl to be an explicit nil
-func (o *AnsibleGitRemote) SetProxyUrlNil() {
-	o.ProxyUrl.Set(nil)
-}
-
-// UnsetProxyUrl ensures that no value is present for ProxyUrl, not even an explicit nil
-func (o *AnsibleGitRemote) UnsetProxyUrl() {
-	o.ProxyUrl.Unset()
+// SetTlsValidation gets a reference to the given bool and assigns it to the TlsValidation field.
+func (o *AnsibleGitRemote) SetTlsValidation(v bool) {
+	o.TlsValidation = &v
 }
 
 // GetUrl returns the Url field value
@@ -932,60 +932,60 @@ func (o AnsibleGitRemote) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleGitRemote) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.ProxyPassword.IsSet() {
+		toSerialize["proxy_password"] = o.ProxyPassword.Get()
+	}
+	if o.MaxRetries.IsSet() {
+		toSerialize["max_retries"] = o.MaxRetries.Get()
+	}
+	if o.ConnectTimeout.IsSet() {
+		toSerialize["connect_timeout"] = o.ConnectTimeout.Get()
+	}
+	if o.TotalTimeout.IsSet() {
+		toSerialize["total_timeout"] = o.TotalTimeout.Get()
+	}
+	if o.ProxyUsername.IsSet() {
+		toSerialize["proxy_username"] = o.ProxyUsername.Get()
+	}
+	if !IsNil(o.Headers) {
+		toSerialize["headers"] = o.Headers
+	}
+	if o.ClientCert.IsSet() {
+		toSerialize["client_cert"] = o.ClientCert.Get()
+	}
 	if o.CaCert.IsSet() {
 		toSerialize["ca_cert"] = o.CaCert.Get()
 	}
 	if o.Password.IsSet() {
 		toSerialize["password"] = o.Password.Get()
 	}
-	if o.ProxyPassword.IsSet() {
-		toSerialize["proxy_password"] = o.ProxyPassword.Get()
-	}
-	if o.Username.IsSet() {
-		toSerialize["username"] = o.Username.Get()
-	}
-	if o.SockReadTimeout.IsSet() {
-		toSerialize["sock_read_timeout"] = o.SockReadTimeout.Get()
-	}
-	if !IsNil(o.Headers) {
-		toSerialize["headers"] = o.Headers
-	}
-	if o.MaxRetries.IsSet() {
-		toSerialize["max_retries"] = o.MaxRetries.Get()
-	}
+	toSerialize["name"] = o.Name
 	if o.SockConnectTimeout.IsSet() {
 		toSerialize["sock_connect_timeout"] = o.SockConnectTimeout.Get()
-	}
-	if o.ClientKey.IsSet() {
-		toSerialize["client_key"] = o.ClientKey.Get()
-	}
-	if o.ClientCert.IsSet() {
-		toSerialize["client_cert"] = o.ClientCert.Get()
-	}
-	if o.ConnectTimeout.IsSet() {
-		toSerialize["connect_timeout"] = o.ConnectTimeout.Get()
 	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
 	}
+	if o.ClientKey.IsSet() {
+		toSerialize["client_key"] = o.ClientKey.Get()
+	}
+	if o.SockReadTimeout.IsSet() {
+		toSerialize["sock_read_timeout"] = o.SockReadTimeout.Get()
+	}
+	if o.Username.IsSet() {
+		toSerialize["username"] = o.Username.Get()
+	}
+	if o.ProxyUrl.IsSet() {
+		toSerialize["proxy_url"] = o.ProxyUrl.Get()
+	}
 	if o.RateLimit.IsSet() {
 		toSerialize["rate_limit"] = o.RateLimit.Get()
-	}
-	if !IsNil(o.TlsValidation) {
-		toSerialize["tls_validation"] = o.TlsValidation
-	}
-	if o.ProxyUsername.IsSet() {
-		toSerialize["proxy_username"] = o.ProxyUsername.Get()
-	}
-	toSerialize["name"] = o.Name
-	if o.TotalTimeout.IsSet() {
-		toSerialize["total_timeout"] = o.TotalTimeout.Get()
 	}
 	if o.DownloadConcurrency.IsSet() {
 		toSerialize["download_concurrency"] = o.DownloadConcurrency.Get()
 	}
-	if o.ProxyUrl.IsSet() {
-		toSerialize["proxy_url"] = o.ProxyUrl.Get()
+	if !IsNil(o.TlsValidation) {
+		toSerialize["tls_validation"] = o.TlsValidation
 	}
 	toSerialize["url"] = o.Url
 	if !IsNil(o.MetadataOnly) {

@@ -21,40 +21,40 @@ var _ MappedNullable = &AnsibleGitRemoteResponse{}
 
 // AnsibleGitRemoteResponse A serializer for Git Collection Remotes.
 type AnsibleGitRemoteResponse struct {
-	// A PEM encoded CA certificate used to validate the server certificate presented by the remote server.
-	CaCert NullableString `json:"ca_cert,omitempty"`
-	// List of hidden (write only) fields
-	HiddenFields []RemoteResponseHiddenFieldsInner `json:"hidden_fields,omitempty"`
-	// aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	SockReadTimeout NullableFloat64 `json:"sock_read_timeout,omitempty"`
-	// Headers for aiohttp.Clientsession
-	Headers []map[string]interface{} `json:"headers,omitempty"`
 	// Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used.
 	MaxRetries NullableInt32 `json:"max_retries,omitempty"`
-	// aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	SockConnectTimeout NullableFloat64 `json:"sock_connect_timeout,omitempty"`
-	// A PEM encoded client certificate used for authentication.
-	ClientCert NullableString `json:"client_cert,omitempty"`
 	// aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
 	ConnectTimeout NullableFloat64 `json:"connect_timeout,omitempty"`
-	// Timestamp of creation.
-	PulpCreated *time.Time `json:"pulp_created,omitempty"`
-	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
-	// Limits requests per second for each concurrent downloader
-	RateLimit NullableInt32 `json:"rate_limit,omitempty"`
-	// Timestamp of the most recent update of the remote.
-	PulpLastUpdated *time.Time `json:"pulp_last_updated,omitempty"`
-	// If True, TLS peer validation must be performed.
-	TlsValidation *bool `json:"tls_validation,omitempty"`
-	// A unique name for this remote.
-	Name string `json:"name"`
 	// aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
 	TotalTimeout NullableFloat64 `json:"total_timeout,omitempty"`
-	// Total number of simultaneous connections. If not set then the default value will be used.
-	DownloadConcurrency NullableInt32 `json:"download_concurrency,omitempty"`
+	// Headers for aiohttp.Clientsession
+	Headers []map[string]interface{} `json:"headers,omitempty"`
+	// Timestamp of the most recent update of the remote.
+	PulpLastUpdated *time.Time `json:"pulp_last_updated,omitempty"`
+	// A PEM encoded client certificate used for authentication.
+	ClientCert NullableString `json:"client_cert,omitempty"`
+	// Timestamp of creation.
+	PulpCreated *time.Time `json:"pulp_created,omitempty"`
+	// A PEM encoded CA certificate used to validate the server certificate presented by the remote server.
+	CaCert NullableString `json:"ca_cert,omitempty"`
+	// A unique name for this remote.
+	Name string `json:"name"`
+	// aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	SockConnectTimeout NullableFloat64 `json:"sock_connect_timeout,omitempty"`
+	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
+	PulpHref *string `json:"pulp_href,omitempty"`
+	// aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	SockReadTimeout NullableFloat64 `json:"sock_read_timeout,omitempty"`
+	// List of hidden (write only) fields
+	HiddenFields []RemoteResponseHiddenFieldsInner `json:"hidden_fields,omitempty"`
 	// The proxy URL. Format: scheme://host:port
 	ProxyUrl NullableString `json:"proxy_url,omitempty"`
-	PulpHref *string `json:"pulp_href,omitempty"`
+	// Limits requests per second for each concurrent downloader
+	RateLimit NullableInt32 `json:"rate_limit,omitempty"`
+	// Total number of simultaneous connections. If not set then the default value will be used.
+	DownloadConcurrency NullableInt32 `json:"download_concurrency,omitempty"`
+	// If True, TLS peer validation must be performed.
+	TlsValidation *bool `json:"tls_validation,omitempty"`
 	// The URL of an external content source.
 	Url string `json:"url"`
 	// If True, only metadata about the content will be stored in Pulp. Clients will retrieve content from the remote URL.
@@ -80,154 +80,6 @@ func NewAnsibleGitRemoteResponse(name string, url string) *AnsibleGitRemoteRespo
 func NewAnsibleGitRemoteResponseWithDefaults() *AnsibleGitRemoteResponse {
 	this := AnsibleGitRemoteResponse{}
 	return &this
-}
-
-// GetCaCert returns the CaCert field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemoteResponse) GetCaCert() string {
-	if o == nil || IsNil(o.CaCert.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CaCert.Get()
-}
-
-// GetCaCertOk returns a tuple with the CaCert field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemoteResponse) GetCaCertOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CaCert.Get(), o.CaCert.IsSet()
-}
-
-// HasCaCert returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasCaCert() bool {
-	if o != nil && o.CaCert.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCaCert gets a reference to the given NullableString and assigns it to the CaCert field.
-func (o *AnsibleGitRemoteResponse) SetCaCert(v string) {
-	o.CaCert.Set(&v)
-}
-// SetCaCertNil sets the value for CaCert to be an explicit nil
-func (o *AnsibleGitRemoteResponse) SetCaCertNil() {
-	o.CaCert.Set(nil)
-}
-
-// UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
-func (o *AnsibleGitRemoteResponse) UnsetCaCert() {
-	o.CaCert.Unset()
-}
-
-// GetHiddenFields returns the HiddenFields field value if set, zero value otherwise.
-func (o *AnsibleGitRemoteResponse) GetHiddenFields() []RemoteResponseHiddenFieldsInner {
-	if o == nil || IsNil(o.HiddenFields) {
-		var ret []RemoteResponseHiddenFieldsInner
-		return ret
-	}
-	return o.HiddenFields
-}
-
-// GetHiddenFieldsOk returns a tuple with the HiddenFields field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetHiddenFieldsOk() ([]RemoteResponseHiddenFieldsInner, bool) {
-	if o == nil || IsNil(o.HiddenFields) {
-		return nil, false
-	}
-	return o.HiddenFields, true
-}
-
-// HasHiddenFields returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasHiddenFields() bool {
-	if o != nil && !IsNil(o.HiddenFields) {
-		return true
-	}
-
-	return false
-}
-
-// SetHiddenFields gets a reference to the given []RemoteResponseHiddenFieldsInner and assigns it to the HiddenFields field.
-func (o *AnsibleGitRemoteResponse) SetHiddenFields(v []RemoteResponseHiddenFieldsInner) {
-	o.HiddenFields = v
-}
-
-// GetSockReadTimeout returns the SockReadTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemoteResponse) GetSockReadTimeout() float64 {
-	if o == nil || IsNil(o.SockReadTimeout.Get()) {
-		var ret float64
-		return ret
-	}
-	return *o.SockReadTimeout.Get()
-}
-
-// GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemoteResponse) GetSockReadTimeoutOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.SockReadTimeout.Get(), o.SockReadTimeout.IsSet()
-}
-
-// HasSockReadTimeout returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasSockReadTimeout() bool {
-	if o != nil && o.SockReadTimeout.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetSockReadTimeout gets a reference to the given NullableFloat64 and assigns it to the SockReadTimeout field.
-func (o *AnsibleGitRemoteResponse) SetSockReadTimeout(v float64) {
-	o.SockReadTimeout.Set(&v)
-}
-// SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
-func (o *AnsibleGitRemoteResponse) SetSockReadTimeoutNil() {
-	o.SockReadTimeout.Set(nil)
-}
-
-// UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
-func (o *AnsibleGitRemoteResponse) UnsetSockReadTimeout() {
-	o.SockReadTimeout.Unset()
-}
-
-// GetHeaders returns the Headers field value if set, zero value otherwise.
-func (o *AnsibleGitRemoteResponse) GetHeaders() []map[string]interface{} {
-	if o == nil || IsNil(o.Headers) {
-		var ret []map[string]interface{}
-		return ret
-	}
-	return o.Headers
-}
-
-// GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetHeadersOk() ([]map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Headers) {
-		return nil, false
-	}
-	return o.Headers, true
-}
-
-// HasHeaders returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasHeaders() bool {
-	if o != nil && !IsNil(o.Headers) {
-		return true
-	}
-
-	return false
-}
-
-// SetHeaders gets a reference to the given []map[string]interface{} and assigns it to the Headers field.
-func (o *AnsibleGitRemoteResponse) SetHeaders(v []map[string]interface{}) {
-	o.Headers = v
 }
 
 // GetMaxRetries returns the MaxRetries field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -272,90 +124,6 @@ func (o *AnsibleGitRemoteResponse) UnsetMaxRetries() {
 	o.MaxRetries.Unset()
 }
 
-// GetSockConnectTimeout returns the SockConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemoteResponse) GetSockConnectTimeout() float64 {
-	if o == nil || IsNil(o.SockConnectTimeout.Get()) {
-		var ret float64
-		return ret
-	}
-	return *o.SockConnectTimeout.Get()
-}
-
-// GetSockConnectTimeoutOk returns a tuple with the SockConnectTimeout field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemoteResponse) GetSockConnectTimeoutOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.SockConnectTimeout.Get(), o.SockConnectTimeout.IsSet()
-}
-
-// HasSockConnectTimeout returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasSockConnectTimeout() bool {
-	if o != nil && o.SockConnectTimeout.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetSockConnectTimeout gets a reference to the given NullableFloat64 and assigns it to the SockConnectTimeout field.
-func (o *AnsibleGitRemoteResponse) SetSockConnectTimeout(v float64) {
-	o.SockConnectTimeout.Set(&v)
-}
-// SetSockConnectTimeoutNil sets the value for SockConnectTimeout to be an explicit nil
-func (o *AnsibleGitRemoteResponse) SetSockConnectTimeoutNil() {
-	o.SockConnectTimeout.Set(nil)
-}
-
-// UnsetSockConnectTimeout ensures that no value is present for SockConnectTimeout, not even an explicit nil
-func (o *AnsibleGitRemoteResponse) UnsetSockConnectTimeout() {
-	o.SockConnectTimeout.Unset()
-}
-
-// GetClientCert returns the ClientCert field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemoteResponse) GetClientCert() string {
-	if o == nil || IsNil(o.ClientCert.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ClientCert.Get()
-}
-
-// GetClientCertOk returns a tuple with the ClientCert field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemoteResponse) GetClientCertOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ClientCert.Get(), o.ClientCert.IsSet()
-}
-
-// HasClientCert returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasClientCert() bool {
-	if o != nil && o.ClientCert.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetClientCert gets a reference to the given NullableString and assigns it to the ClientCert field.
-func (o *AnsibleGitRemoteResponse) SetClientCert(v string) {
-	o.ClientCert.Set(&v)
-}
-// SetClientCertNil sets the value for ClientCert to be an explicit nil
-func (o *AnsibleGitRemoteResponse) SetClientCertNil() {
-	o.ClientCert.Set(nil)
-}
-
-// UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
-func (o *AnsibleGitRemoteResponse) UnsetClientCert() {
-	o.ClientCert.Unset()
-}
-
 // GetConnectTimeout returns the ConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AnsibleGitRemoteResponse) GetConnectTimeout() float64 {
 	if o == nil || IsNil(o.ConnectTimeout.Get()) {
@@ -396,200 +164,6 @@ func (o *AnsibleGitRemoteResponse) SetConnectTimeoutNil() {
 // UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
 func (o *AnsibleGitRemoteResponse) UnsetConnectTimeout() {
 	o.ConnectTimeout.Unset()
-}
-
-// GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
-func (o *AnsibleGitRemoteResponse) GetPulpCreated() time.Time {
-	if o == nil || IsNil(o.PulpCreated) {
-		var ret time.Time
-		return ret
-	}
-	return *o.PulpCreated
-}
-
-// GetPulpCreatedOk returns a tuple with the PulpCreated field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetPulpCreatedOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.PulpCreated) {
-		return nil, false
-	}
-	return o.PulpCreated, true
-}
-
-// HasPulpCreated returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasPulpCreated() bool {
-	if o != nil && !IsNil(o.PulpCreated) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpCreated gets a reference to the given time.Time and assigns it to the PulpCreated field.
-func (o *AnsibleGitRemoteResponse) SetPulpCreated(v time.Time) {
-	o.PulpCreated = &v
-}
-
-// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
-func (o *AnsibleGitRemoteResponse) GetPulpLabels() map[string]string {
-	if o == nil || IsNil(o.PulpLabels) {
-		var ret map[string]string
-		return ret
-	}
-	return *o.PulpLabels
-}
-
-// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetPulpLabelsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.PulpLabels) {
-		return nil, false
-	}
-	return o.PulpLabels, true
-}
-
-// HasPulpLabels returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasPulpLabels() bool {
-	if o != nil && !IsNil(o.PulpLabels) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
-func (o *AnsibleGitRemoteResponse) SetPulpLabels(v map[string]string) {
-	o.PulpLabels = &v
-}
-
-// GetRateLimit returns the RateLimit field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemoteResponse) GetRateLimit() int32 {
-	if o == nil || IsNil(o.RateLimit.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.RateLimit.Get()
-}
-
-// GetRateLimitOk returns a tuple with the RateLimit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemoteResponse) GetRateLimitOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.RateLimit.Get(), o.RateLimit.IsSet()
-}
-
-// HasRateLimit returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasRateLimit() bool {
-	if o != nil && o.RateLimit.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRateLimit gets a reference to the given NullableInt32 and assigns it to the RateLimit field.
-func (o *AnsibleGitRemoteResponse) SetRateLimit(v int32) {
-	o.RateLimit.Set(&v)
-}
-// SetRateLimitNil sets the value for RateLimit to be an explicit nil
-func (o *AnsibleGitRemoteResponse) SetRateLimitNil() {
-	o.RateLimit.Set(nil)
-}
-
-// UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
-func (o *AnsibleGitRemoteResponse) UnsetRateLimit() {
-	o.RateLimit.Unset()
-}
-
-// GetPulpLastUpdated returns the PulpLastUpdated field value if set, zero value otherwise.
-func (o *AnsibleGitRemoteResponse) GetPulpLastUpdated() time.Time {
-	if o == nil || IsNil(o.PulpLastUpdated) {
-		var ret time.Time
-		return ret
-	}
-	return *o.PulpLastUpdated
-}
-
-// GetPulpLastUpdatedOk returns a tuple with the PulpLastUpdated field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetPulpLastUpdatedOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.PulpLastUpdated) {
-		return nil, false
-	}
-	return o.PulpLastUpdated, true
-}
-
-// HasPulpLastUpdated returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasPulpLastUpdated() bool {
-	if o != nil && !IsNil(o.PulpLastUpdated) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpLastUpdated gets a reference to the given time.Time and assigns it to the PulpLastUpdated field.
-func (o *AnsibleGitRemoteResponse) SetPulpLastUpdated(v time.Time) {
-	o.PulpLastUpdated = &v
-}
-
-// GetTlsValidation returns the TlsValidation field value if set, zero value otherwise.
-func (o *AnsibleGitRemoteResponse) GetTlsValidation() bool {
-	if o == nil || IsNil(o.TlsValidation) {
-		var ret bool
-		return ret
-	}
-	return *o.TlsValidation
-}
-
-// GetTlsValidationOk returns a tuple with the TlsValidation field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetTlsValidationOk() (*bool, bool) {
-	if o == nil || IsNil(o.TlsValidation) {
-		return nil, false
-	}
-	return o.TlsValidation, true
-}
-
-// HasTlsValidation returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasTlsValidation() bool {
-	if o != nil && !IsNil(o.TlsValidation) {
-		return true
-	}
-
-	return false
-}
-
-// SetTlsValidation gets a reference to the given bool and assigns it to the TlsValidation field.
-func (o *AnsibleGitRemoteResponse) SetTlsValidation(v bool) {
-	o.TlsValidation = &v
-}
-
-// GetName returns the Name field value
-func (o *AnsibleGitRemoteResponse) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *AnsibleGitRemoteResponse) SetName(v string) {
-	o.Name = v
 }
 
 // GetTotalTimeout returns the TotalTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -634,46 +208,388 @@ func (o *AnsibleGitRemoteResponse) UnsetTotalTimeout() {
 	o.TotalTimeout.Unset()
 }
 
-// GetDownloadConcurrency returns the DownloadConcurrency field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AnsibleGitRemoteResponse) GetDownloadConcurrency() int32 {
-	if o == nil || IsNil(o.DownloadConcurrency.Get()) {
-		var ret int32
+// GetHeaders returns the Headers field value if set, zero value otherwise.
+func (o *AnsibleGitRemoteResponse) GetHeaders() []map[string]interface{} {
+	if o == nil || IsNil(o.Headers) {
+		var ret []map[string]interface{}
 		return ret
 	}
-	return *o.DownloadConcurrency.Get()
+	return o.Headers
 }
 
-// GetDownloadConcurrencyOk returns a tuple with the DownloadConcurrency field value if set, nil otherwise
+// GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AnsibleGitRemoteResponse) GetDownloadConcurrencyOk() (*int32, bool) {
-	if o == nil {
+func (o *AnsibleGitRemoteResponse) GetHeadersOk() ([]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Headers) {
 		return nil, false
 	}
-	return o.DownloadConcurrency.Get(), o.DownloadConcurrency.IsSet()
+	return o.Headers, true
 }
 
-// HasDownloadConcurrency returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasDownloadConcurrency() bool {
-	if o != nil && o.DownloadConcurrency.IsSet() {
+// HasHeaders returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasHeaders() bool {
+	if o != nil && !IsNil(o.Headers) {
 		return true
 	}
 
 	return false
 }
 
-// SetDownloadConcurrency gets a reference to the given NullableInt32 and assigns it to the DownloadConcurrency field.
-func (o *AnsibleGitRemoteResponse) SetDownloadConcurrency(v int32) {
-	o.DownloadConcurrency.Set(&v)
-}
-// SetDownloadConcurrencyNil sets the value for DownloadConcurrency to be an explicit nil
-func (o *AnsibleGitRemoteResponse) SetDownloadConcurrencyNil() {
-	o.DownloadConcurrency.Set(nil)
+// SetHeaders gets a reference to the given []map[string]interface{} and assigns it to the Headers field.
+func (o *AnsibleGitRemoteResponse) SetHeaders(v []map[string]interface{}) {
+	o.Headers = v
 }
 
-// UnsetDownloadConcurrency ensures that no value is present for DownloadConcurrency, not even an explicit nil
-func (o *AnsibleGitRemoteResponse) UnsetDownloadConcurrency() {
-	o.DownloadConcurrency.Unset()
+// GetPulpLastUpdated returns the PulpLastUpdated field value if set, zero value otherwise.
+func (o *AnsibleGitRemoteResponse) GetPulpLastUpdated() time.Time {
+	if o == nil || IsNil(o.PulpLastUpdated) {
+		var ret time.Time
+		return ret
+	}
+	return *o.PulpLastUpdated
+}
+
+// GetPulpLastUpdatedOk returns a tuple with the PulpLastUpdated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemoteResponse) GetPulpLastUpdatedOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.PulpLastUpdated) {
+		return nil, false
+	}
+	return o.PulpLastUpdated, true
+}
+
+// HasPulpLastUpdated returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasPulpLastUpdated() bool {
+	if o != nil && !IsNil(o.PulpLastUpdated) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpLastUpdated gets a reference to the given time.Time and assigns it to the PulpLastUpdated field.
+func (o *AnsibleGitRemoteResponse) SetPulpLastUpdated(v time.Time) {
+	o.PulpLastUpdated = &v
+}
+
+// GetClientCert returns the ClientCert field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemoteResponse) GetClientCert() string {
+	if o == nil || IsNil(o.ClientCert.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ClientCert.Get()
+}
+
+// GetClientCertOk returns a tuple with the ClientCert field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemoteResponse) GetClientCertOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ClientCert.Get(), o.ClientCert.IsSet()
+}
+
+// HasClientCert returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasClientCert() bool {
+	if o != nil && o.ClientCert.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientCert gets a reference to the given NullableString and assigns it to the ClientCert field.
+func (o *AnsibleGitRemoteResponse) SetClientCert(v string) {
+	o.ClientCert.Set(&v)
+}
+// SetClientCertNil sets the value for ClientCert to be an explicit nil
+func (o *AnsibleGitRemoteResponse) SetClientCertNil() {
+	o.ClientCert.Set(nil)
+}
+
+// UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
+func (o *AnsibleGitRemoteResponse) UnsetClientCert() {
+	o.ClientCert.Unset()
+}
+
+// GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
+func (o *AnsibleGitRemoteResponse) GetPulpCreated() time.Time {
+	if o == nil || IsNil(o.PulpCreated) {
+		var ret time.Time
+		return ret
+	}
+	return *o.PulpCreated
+}
+
+// GetPulpCreatedOk returns a tuple with the PulpCreated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemoteResponse) GetPulpCreatedOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.PulpCreated) {
+		return nil, false
+	}
+	return o.PulpCreated, true
+}
+
+// HasPulpCreated returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasPulpCreated() bool {
+	if o != nil && !IsNil(o.PulpCreated) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpCreated gets a reference to the given time.Time and assigns it to the PulpCreated field.
+func (o *AnsibleGitRemoteResponse) SetPulpCreated(v time.Time) {
+	o.PulpCreated = &v
+}
+
+// GetCaCert returns the CaCert field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemoteResponse) GetCaCert() string {
+	if o == nil || IsNil(o.CaCert.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CaCert.Get()
+}
+
+// GetCaCertOk returns a tuple with the CaCert field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemoteResponse) GetCaCertOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CaCert.Get(), o.CaCert.IsSet()
+}
+
+// HasCaCert returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasCaCert() bool {
+	if o != nil && o.CaCert.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCaCert gets a reference to the given NullableString and assigns it to the CaCert field.
+func (o *AnsibleGitRemoteResponse) SetCaCert(v string) {
+	o.CaCert.Set(&v)
+}
+// SetCaCertNil sets the value for CaCert to be an explicit nil
+func (o *AnsibleGitRemoteResponse) SetCaCertNil() {
+	o.CaCert.Set(nil)
+}
+
+// UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
+func (o *AnsibleGitRemoteResponse) UnsetCaCert() {
+	o.CaCert.Unset()
+}
+
+// GetName returns the Name field value
+func (o *AnsibleGitRemoteResponse) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemoteResponse) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *AnsibleGitRemoteResponse) SetName(v string) {
+	o.Name = v
+}
+
+// GetSockConnectTimeout returns the SockConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemoteResponse) GetSockConnectTimeout() float64 {
+	if o == nil || IsNil(o.SockConnectTimeout.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.SockConnectTimeout.Get()
+}
+
+// GetSockConnectTimeoutOk returns a tuple with the SockConnectTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemoteResponse) GetSockConnectTimeoutOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SockConnectTimeout.Get(), o.SockConnectTimeout.IsSet()
+}
+
+// HasSockConnectTimeout returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasSockConnectTimeout() bool {
+	if o != nil && o.SockConnectTimeout.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSockConnectTimeout gets a reference to the given NullableFloat64 and assigns it to the SockConnectTimeout field.
+func (o *AnsibleGitRemoteResponse) SetSockConnectTimeout(v float64) {
+	o.SockConnectTimeout.Set(&v)
+}
+// SetSockConnectTimeoutNil sets the value for SockConnectTimeout to be an explicit nil
+func (o *AnsibleGitRemoteResponse) SetSockConnectTimeoutNil() {
+	o.SockConnectTimeout.Set(nil)
+}
+
+// UnsetSockConnectTimeout ensures that no value is present for SockConnectTimeout, not even an explicit nil
+func (o *AnsibleGitRemoteResponse) UnsetSockConnectTimeout() {
+	o.SockConnectTimeout.Unset()
+}
+
+// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
+func (o *AnsibleGitRemoteResponse) GetPulpLabels() map[string]string {
+	if o == nil || IsNil(o.PulpLabels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.PulpLabels
+}
+
+// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemoteResponse) GetPulpLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.PulpLabels) {
+		return nil, false
+	}
+	return o.PulpLabels, true
+}
+
+// HasPulpLabels returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasPulpLabels() bool {
+	if o != nil && !IsNil(o.PulpLabels) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
+func (o *AnsibleGitRemoteResponse) SetPulpLabels(v map[string]string) {
+	o.PulpLabels = &v
+}
+
+// GetPulpHref returns the PulpHref field value if set, zero value otherwise.
+func (o *AnsibleGitRemoteResponse) GetPulpHref() string {
+	if o == nil || IsNil(o.PulpHref) {
+		var ret string
+		return ret
+	}
+	return *o.PulpHref
+}
+
+// GetPulpHrefOk returns a tuple with the PulpHref field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemoteResponse) GetPulpHrefOk() (*string, bool) {
+	if o == nil || IsNil(o.PulpHref) {
+		return nil, false
+	}
+	return o.PulpHref, true
+}
+
+// HasPulpHref returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasPulpHref() bool {
+	if o != nil && !IsNil(o.PulpHref) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
+func (o *AnsibleGitRemoteResponse) SetPulpHref(v string) {
+	o.PulpHref = &v
+}
+
+// GetSockReadTimeout returns the SockReadTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemoteResponse) GetSockReadTimeout() float64 {
+	if o == nil || IsNil(o.SockReadTimeout.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.SockReadTimeout.Get()
+}
+
+// GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemoteResponse) GetSockReadTimeoutOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SockReadTimeout.Get(), o.SockReadTimeout.IsSet()
+}
+
+// HasSockReadTimeout returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasSockReadTimeout() bool {
+	if o != nil && o.SockReadTimeout.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSockReadTimeout gets a reference to the given NullableFloat64 and assigns it to the SockReadTimeout field.
+func (o *AnsibleGitRemoteResponse) SetSockReadTimeout(v float64) {
+	o.SockReadTimeout.Set(&v)
+}
+// SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
+func (o *AnsibleGitRemoteResponse) SetSockReadTimeoutNil() {
+	o.SockReadTimeout.Set(nil)
+}
+
+// UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
+func (o *AnsibleGitRemoteResponse) UnsetSockReadTimeout() {
+	o.SockReadTimeout.Unset()
+}
+
+// GetHiddenFields returns the HiddenFields field value if set, zero value otherwise.
+func (o *AnsibleGitRemoteResponse) GetHiddenFields() []RemoteResponseHiddenFieldsInner {
+	if o == nil || IsNil(o.HiddenFields) {
+		var ret []RemoteResponseHiddenFieldsInner
+		return ret
+	}
+	return o.HiddenFields
+}
+
+// GetHiddenFieldsOk returns a tuple with the HiddenFields field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemoteResponse) GetHiddenFieldsOk() ([]RemoteResponseHiddenFieldsInner, bool) {
+	if o == nil || IsNil(o.HiddenFields) {
+		return nil, false
+	}
+	return o.HiddenFields, true
+}
+
+// HasHiddenFields returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasHiddenFields() bool {
+	if o != nil && !IsNil(o.HiddenFields) {
+		return true
+	}
+
+	return false
+}
+
+// SetHiddenFields gets a reference to the given []RemoteResponseHiddenFieldsInner and assigns it to the HiddenFields field.
+func (o *AnsibleGitRemoteResponse) SetHiddenFields(v []RemoteResponseHiddenFieldsInner) {
+	o.HiddenFields = v
 }
 
 // GetProxyUrl returns the ProxyUrl field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -718,36 +634,120 @@ func (o *AnsibleGitRemoteResponse) UnsetProxyUrl() {
 	o.ProxyUrl.Unset()
 }
 
-// GetPulpHref returns the PulpHref field value if set, zero value otherwise.
-func (o *AnsibleGitRemoteResponse) GetPulpHref() string {
-	if o == nil || IsNil(o.PulpHref) {
-		var ret string
+// GetRateLimit returns the RateLimit field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemoteResponse) GetRateLimit() int32 {
+	if o == nil || IsNil(o.RateLimit.Get()) {
+		var ret int32
 		return ret
 	}
-	return *o.PulpHref
+	return *o.RateLimit.Get()
 }
 
-// GetPulpHrefOk returns a tuple with the PulpHref field value if set, nil otherwise
+// GetRateLimitOk returns a tuple with the RateLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnsibleGitRemoteResponse) GetPulpHrefOk() (*string, bool) {
-	if o == nil || IsNil(o.PulpHref) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemoteResponse) GetRateLimitOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PulpHref, true
+	return o.RateLimit.Get(), o.RateLimit.IsSet()
 }
 
-// HasPulpHref returns a boolean if a field has been set.
-func (o *AnsibleGitRemoteResponse) HasPulpHref() bool {
-	if o != nil && !IsNil(o.PulpHref) {
+// HasRateLimit returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasRateLimit() bool {
+	if o != nil && o.RateLimit.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
-func (o *AnsibleGitRemoteResponse) SetPulpHref(v string) {
-	o.PulpHref = &v
+// SetRateLimit gets a reference to the given NullableInt32 and assigns it to the RateLimit field.
+func (o *AnsibleGitRemoteResponse) SetRateLimit(v int32) {
+	o.RateLimit.Set(&v)
+}
+// SetRateLimitNil sets the value for RateLimit to be an explicit nil
+func (o *AnsibleGitRemoteResponse) SetRateLimitNil() {
+	o.RateLimit.Set(nil)
+}
+
+// UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
+func (o *AnsibleGitRemoteResponse) UnsetRateLimit() {
+	o.RateLimit.Unset()
+}
+
+// GetDownloadConcurrency returns the DownloadConcurrency field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnsibleGitRemoteResponse) GetDownloadConcurrency() int32 {
+	if o == nil || IsNil(o.DownloadConcurrency.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.DownloadConcurrency.Get()
+}
+
+// GetDownloadConcurrencyOk returns a tuple with the DownloadConcurrency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnsibleGitRemoteResponse) GetDownloadConcurrencyOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DownloadConcurrency.Get(), o.DownloadConcurrency.IsSet()
+}
+
+// HasDownloadConcurrency returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasDownloadConcurrency() bool {
+	if o != nil && o.DownloadConcurrency.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDownloadConcurrency gets a reference to the given NullableInt32 and assigns it to the DownloadConcurrency field.
+func (o *AnsibleGitRemoteResponse) SetDownloadConcurrency(v int32) {
+	o.DownloadConcurrency.Set(&v)
+}
+// SetDownloadConcurrencyNil sets the value for DownloadConcurrency to be an explicit nil
+func (o *AnsibleGitRemoteResponse) SetDownloadConcurrencyNil() {
+	o.DownloadConcurrency.Set(nil)
+}
+
+// UnsetDownloadConcurrency ensures that no value is present for DownloadConcurrency, not even an explicit nil
+func (o *AnsibleGitRemoteResponse) UnsetDownloadConcurrency() {
+	o.DownloadConcurrency.Unset()
+}
+
+// GetTlsValidation returns the TlsValidation field value if set, zero value otherwise.
+func (o *AnsibleGitRemoteResponse) GetTlsValidation() bool {
+	if o == nil || IsNil(o.TlsValidation) {
+		var ret bool
+		return ret
+	}
+	return *o.TlsValidation
+}
+
+// GetTlsValidationOk returns a tuple with the TlsValidation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleGitRemoteResponse) GetTlsValidationOk() (*bool, bool) {
+	if o == nil || IsNil(o.TlsValidation) {
+		return nil, false
+	}
+	return o.TlsValidation, true
+}
+
+// HasTlsValidation returns a boolean if a field has been set.
+func (o *AnsibleGitRemoteResponse) HasTlsValidation() bool {
+	if o != nil && !IsNil(o.TlsValidation) {
+		return true
+	}
+
+	return false
+}
+
+// SetTlsValidation gets a reference to the given bool and assigns it to the TlsValidation field.
+func (o *AnsibleGitRemoteResponse) SetTlsValidation(v bool) {
+	o.TlsValidation = &v
 }
 
 // GetUrl returns the Url field value
@@ -848,50 +848,50 @@ func (o AnsibleGitRemoteResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleGitRemoteResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CaCert.IsSet() {
-		toSerialize["ca_cert"] = o.CaCert.Get()
-	}
-	// skip: hidden_fields is readOnly
-	if o.SockReadTimeout.IsSet() {
-		toSerialize["sock_read_timeout"] = o.SockReadTimeout.Get()
-	}
-	if !IsNil(o.Headers) {
-		toSerialize["headers"] = o.Headers
-	}
 	if o.MaxRetries.IsSet() {
 		toSerialize["max_retries"] = o.MaxRetries.Get()
-	}
-	if o.SockConnectTimeout.IsSet() {
-		toSerialize["sock_connect_timeout"] = o.SockConnectTimeout.Get()
-	}
-	if o.ClientCert.IsSet() {
-		toSerialize["client_cert"] = o.ClientCert.Get()
 	}
 	if o.ConnectTimeout.IsSet() {
 		toSerialize["connect_timeout"] = o.ConnectTimeout.Get()
 	}
+	if o.TotalTimeout.IsSet() {
+		toSerialize["total_timeout"] = o.TotalTimeout.Get()
+	}
+	if !IsNil(o.Headers) {
+		toSerialize["headers"] = o.Headers
+	}
+	// skip: pulp_last_updated is readOnly
+	if o.ClientCert.IsSet() {
+		toSerialize["client_cert"] = o.ClientCert.Get()
+	}
 	// skip: pulp_created is readOnly
+	if o.CaCert.IsSet() {
+		toSerialize["ca_cert"] = o.CaCert.Get()
+	}
+	toSerialize["name"] = o.Name
+	if o.SockConnectTimeout.IsSet() {
+		toSerialize["sock_connect_timeout"] = o.SockConnectTimeout.Get()
+	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
+	}
+	// skip: pulp_href is readOnly
+	if o.SockReadTimeout.IsSet() {
+		toSerialize["sock_read_timeout"] = o.SockReadTimeout.Get()
+	}
+	// skip: hidden_fields is readOnly
+	if o.ProxyUrl.IsSet() {
+		toSerialize["proxy_url"] = o.ProxyUrl.Get()
 	}
 	if o.RateLimit.IsSet() {
 		toSerialize["rate_limit"] = o.RateLimit.Get()
 	}
-	// skip: pulp_last_updated is readOnly
-	if !IsNil(o.TlsValidation) {
-		toSerialize["tls_validation"] = o.TlsValidation
-	}
-	toSerialize["name"] = o.Name
-	if o.TotalTimeout.IsSet() {
-		toSerialize["total_timeout"] = o.TotalTimeout.Get()
-	}
 	if o.DownloadConcurrency.IsSet() {
 		toSerialize["download_concurrency"] = o.DownloadConcurrency.Get()
 	}
-	if o.ProxyUrl.IsSet() {
-		toSerialize["proxy_url"] = o.ProxyUrl.Get()
+	if !IsNil(o.TlsValidation) {
+		toSerialize["tls_validation"] = o.TlsValidation
 	}
-	// skip: pulp_href is readOnly
 	toSerialize["url"] = o.Url
 	if !IsNil(o.MetadataOnly) {
 		toSerialize["metadata_only"] = o.MetadataOnly
