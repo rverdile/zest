@@ -1,5 +1,6 @@
 name: Update pulp binding if new release
 on:
+   push:
    schedule:
     - cron: "0 7 * * *"
 jobs:
@@ -56,7 +57,7 @@ jobs:
           -g go \
           -o /local/packages/pulpGoBinding --minimal-update --skip-validate-spec \
           --git-user-id=content-services --git-repo-id=zest/packages/pulpGoBinding \
-          --package-name=pulpGoBinding -p enumClassPrefix=true  -p structPrefix=true \
+          --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=v${{ steps.pulpRelease.outputs.PULP_TAG }}
 
