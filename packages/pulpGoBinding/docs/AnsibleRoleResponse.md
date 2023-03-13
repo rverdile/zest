@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Artifact** | **string** | Artifact file representing the physical content | 
-**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
+**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **Version** | **string** |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
@@ -50,31 +50,6 @@ and a boolean to check if the value has been set.
 SetArtifact sets Artifact field to given value.
 
 
-### GetPulpHref
-
-`func (o *AnsibleRoleResponse) GetPulpHref() string`
-
-GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
-
-### GetPulpHrefOk
-
-`func (o *AnsibleRoleResponse) GetPulpHrefOk() (*string, bool)`
-
-GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPulpHref
-
-`func (o *AnsibleRoleResponse) SetPulpHref(v string)`
-
-SetPulpHref sets PulpHref field to given value.
-
-### HasPulpHref
-
-`func (o *AnsibleRoleResponse) HasPulpHref() bool`
-
-HasPulpHref returns a boolean if a field has been set.
-
 ### GetPulpCreated
 
 `func (o *AnsibleRoleResponse) GetPulpCreated() time.Time`
@@ -99,6 +74,31 @@ SetPulpCreated sets PulpCreated field to given value.
 `func (o *AnsibleRoleResponse) HasPulpCreated() bool`
 
 HasPulpCreated returns a boolean if a field has been set.
+
+### GetPulpHref
+
+`func (o *AnsibleRoleResponse) GetPulpHref() string`
+
+GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
+
+### GetPulpHrefOk
+
+`func (o *AnsibleRoleResponse) GetPulpHrefOk() (*string, bool)`
+
+GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPulpHref
+
+`func (o *AnsibleRoleResponse) SetPulpHref(v string)`
+
+SetPulpHref sets PulpHref field to given value.
+
+### HasPulpHref
+
+`func (o *AnsibleRoleResponse) HasPulpHref() bool`
+
+HasPulpHref returns a boolean if a field has been set.
 
 ### GetVersion
 

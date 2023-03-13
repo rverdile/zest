@@ -20,45 +20,45 @@ var _ MappedNullable = &PatchedansibleGitRemote{}
 
 // PatchedansibleGitRemote A serializer for Git Collection Remotes.
 type PatchedansibleGitRemote struct {
-	// The password to authenticate to the proxy. Extra leading and trailing whitespace characters are not trimmed.
-	ProxyPassword NullableString `json:"proxy_password,omitempty"`
-	// Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used.
-	MaxRetries NullableInt32 `json:"max_retries,omitempty"`
-	// aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	ConnectTimeout NullableFloat64 `json:"connect_timeout,omitempty"`
-	// aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	TotalTimeout NullableFloat64 `json:"total_timeout,omitempty"`
-	// The username to authenticte to the proxy.
-	ProxyUsername NullableString `json:"proxy_username,omitempty"`
-	// Headers for aiohttp.Clientsession
-	Headers []map[string]interface{} `json:"headers,omitempty"`
-	// A PEM encoded client certificate used for authentication.
-	ClientCert NullableString `json:"client_cert,omitempty"`
-	// A PEM encoded CA certificate used to validate the server certificate presented by the remote server.
-	CaCert NullableString `json:"ca_cert,omitempty"`
-	// The password to be used for authentication when syncing. Extra leading and trailing whitespace characters are not trimmed.
-	Password NullableString `json:"password,omitempty"`
-	// A unique name for this remote.
-	Name *string `json:"name,omitempty"`
+	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
+	// The URL of an external content source.
+	Url *string `json:"url,omitempty"`
 	// aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
 	SockConnectTimeout NullableFloat64 `json:"sock_connect_timeout,omitempty"`
-	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
-	// A PEM encoded private key used for authentication.
-	ClientKey NullableString `json:"client_key,omitempty"`
-	// aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
-	SockReadTimeout NullableFloat64 `json:"sock_read_timeout,omitempty"`
-	// The username to be used for authentication when syncing.
-	Username NullableString `json:"username,omitempty"`
-	// The proxy URL. Format: scheme://host:port
-	ProxyUrl NullableString `json:"proxy_url,omitempty"`
+	// A PEM encoded CA certificate used to validate the server certificate presented by the remote server.
+	CaCert NullableString `json:"ca_cert,omitempty"`
 	// Limits requests per second for each concurrent downloader
 	RateLimit NullableInt32 `json:"rate_limit,omitempty"`
+	// The password to be used for authentication when syncing. Extra leading and trailing whitespace characters are not trimmed.
+	Password NullableString `json:"password,omitempty"`
+	// A PEM encoded client certificate used for authentication.
+	ClientCert NullableString `json:"client_cert,omitempty"`
+	// Headers for aiohttp.Clientsession
+	Headers []map[string]interface{} `json:"headers,omitempty"`
+	// The proxy URL. Format: scheme://host:port
+	ProxyUrl NullableString `json:"proxy_url,omitempty"`
+	// A PEM encoded private key used for authentication.
+	ClientKey NullableString `json:"client_key,omitempty"`
+	// Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used.
+	MaxRetries NullableInt32 `json:"max_retries,omitempty"`
+	// aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	TotalTimeout NullableFloat64 `json:"total_timeout,omitempty"`
+	// The username to be used for authentication when syncing.
+	Username NullableString `json:"username,omitempty"`
 	// Total number of simultaneous connections. If not set then the default value will be used.
 	DownloadConcurrency NullableInt32 `json:"download_concurrency,omitempty"`
 	// If True, TLS peer validation must be performed.
 	TlsValidation *bool `json:"tls_validation,omitempty"`
-	// The URL of an external content source.
-	Url *string `json:"url,omitempty"`
+	// A unique name for this remote.
+	Name *string `json:"name,omitempty"`
+	// aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	SockReadTimeout NullableFloat64 `json:"sock_read_timeout,omitempty"`
+	// The password to authenticate to the proxy. Extra leading and trailing whitespace characters are not trimmed.
+	ProxyPassword NullableString `json:"proxy_password,omitempty"`
+	// aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
+	ConnectTimeout NullableFloat64 `json:"connect_timeout,omitempty"`
+	// The username to authenticte to the proxy.
+	ProxyUsername NullableString `json:"proxy_username,omitempty"`
 	// If True, only metadata about the content will be stored in Pulp. Clients will retrieve content from the remote URL.
 	MetadataOnly *bool `json:"metadata_only,omitempty"`
 	// A git ref. e.g.: branch, tag, or commit sha.
@@ -82,404 +82,68 @@ func NewPatchedansibleGitRemoteWithDefaults() *PatchedansibleGitRemote {
 	return &this
 }
 
-// GetProxyPassword returns the ProxyPassword field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetProxyPassword() string {
-	if o == nil || IsNil(o.ProxyPassword.Get()) {
+// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
+func (o *PatchedansibleGitRemote) GetPulpLabels() map[string]string {
+	if o == nil || IsNil(o.PulpLabels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.PulpLabels
+}
+
+// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PatchedansibleGitRemote) GetPulpLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.PulpLabels) {
+		return nil, false
+	}
+	return o.PulpLabels, true
+}
+
+// HasPulpLabels returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasPulpLabels() bool {
+	if o != nil && !IsNil(o.PulpLabels) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
+func (o *PatchedansibleGitRemote) SetPulpLabels(v map[string]string) {
+	o.PulpLabels = &v
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise.
+func (o *PatchedansibleGitRemote) GetUrl() string {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.ProxyPassword.Get()
+	return *o.Url
 }
 
-// GetProxyPasswordOk returns a tuple with the ProxyPassword field value if set, nil otherwise
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetProxyPasswordOk() (*string, bool) {
-	if o == nil {
+func (o *PatchedansibleGitRemote) GetUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.ProxyPassword.Get(), o.ProxyPassword.IsSet()
+	return o.Url, true
 }
 
-// HasProxyPassword returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasProxyPassword() bool {
-	if o != nil && o.ProxyPassword.IsSet() {
+// HasUrl returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasUrl() bool {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetProxyPassword gets a reference to the given NullableString and assigns it to the ProxyPassword field.
-func (o *PatchedansibleGitRemote) SetProxyPassword(v string) {
-	o.ProxyPassword.Set(&v)
-}
-// SetProxyPasswordNil sets the value for ProxyPassword to be an explicit nil
-func (o *PatchedansibleGitRemote) SetProxyPasswordNil() {
-	o.ProxyPassword.Set(nil)
-}
-
-// UnsetProxyPassword ensures that no value is present for ProxyPassword, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetProxyPassword() {
-	o.ProxyPassword.Unset()
-}
-
-// GetMaxRetries returns the MaxRetries field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetMaxRetries() int32 {
-	if o == nil || IsNil(o.MaxRetries.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.MaxRetries.Get()
-}
-
-// GetMaxRetriesOk returns a tuple with the MaxRetries field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetMaxRetriesOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.MaxRetries.Get(), o.MaxRetries.IsSet()
-}
-
-// HasMaxRetries returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasMaxRetries() bool {
-	if o != nil && o.MaxRetries.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxRetries gets a reference to the given NullableInt32 and assigns it to the MaxRetries field.
-func (o *PatchedansibleGitRemote) SetMaxRetries(v int32) {
-	o.MaxRetries.Set(&v)
-}
-// SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
-func (o *PatchedansibleGitRemote) SetMaxRetriesNil() {
-	o.MaxRetries.Set(nil)
-}
-
-// UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetMaxRetries() {
-	o.MaxRetries.Unset()
-}
-
-// GetConnectTimeout returns the ConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetConnectTimeout() float64 {
-	if o == nil || IsNil(o.ConnectTimeout.Get()) {
-		var ret float64
-		return ret
-	}
-	return *o.ConnectTimeout.Get()
-}
-
-// GetConnectTimeoutOk returns a tuple with the ConnectTimeout field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetConnectTimeoutOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ConnectTimeout.Get(), o.ConnectTimeout.IsSet()
-}
-
-// HasConnectTimeout returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasConnectTimeout() bool {
-	if o != nil && o.ConnectTimeout.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetConnectTimeout gets a reference to the given NullableFloat64 and assigns it to the ConnectTimeout field.
-func (o *PatchedansibleGitRemote) SetConnectTimeout(v float64) {
-	o.ConnectTimeout.Set(&v)
-}
-// SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
-func (o *PatchedansibleGitRemote) SetConnectTimeoutNil() {
-	o.ConnectTimeout.Set(nil)
-}
-
-// UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetConnectTimeout() {
-	o.ConnectTimeout.Unset()
-}
-
-// GetTotalTimeout returns the TotalTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetTotalTimeout() float64 {
-	if o == nil || IsNil(o.TotalTimeout.Get()) {
-		var ret float64
-		return ret
-	}
-	return *o.TotalTimeout.Get()
-}
-
-// GetTotalTimeoutOk returns a tuple with the TotalTimeout field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetTotalTimeoutOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TotalTimeout.Get(), o.TotalTimeout.IsSet()
-}
-
-// HasTotalTimeout returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasTotalTimeout() bool {
-	if o != nil && o.TotalTimeout.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalTimeout gets a reference to the given NullableFloat64 and assigns it to the TotalTimeout field.
-func (o *PatchedansibleGitRemote) SetTotalTimeout(v float64) {
-	o.TotalTimeout.Set(&v)
-}
-// SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
-func (o *PatchedansibleGitRemote) SetTotalTimeoutNil() {
-	o.TotalTimeout.Set(nil)
-}
-
-// UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetTotalTimeout() {
-	o.TotalTimeout.Unset()
-}
-
-// GetProxyUsername returns the ProxyUsername field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetProxyUsername() string {
-	if o == nil || IsNil(o.ProxyUsername.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ProxyUsername.Get()
-}
-
-// GetProxyUsernameOk returns a tuple with the ProxyUsername field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetProxyUsernameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ProxyUsername.Get(), o.ProxyUsername.IsSet()
-}
-
-// HasProxyUsername returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasProxyUsername() bool {
-	if o != nil && o.ProxyUsername.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetProxyUsername gets a reference to the given NullableString and assigns it to the ProxyUsername field.
-func (o *PatchedansibleGitRemote) SetProxyUsername(v string) {
-	o.ProxyUsername.Set(&v)
-}
-// SetProxyUsernameNil sets the value for ProxyUsername to be an explicit nil
-func (o *PatchedansibleGitRemote) SetProxyUsernameNil() {
-	o.ProxyUsername.Set(nil)
-}
-
-// UnsetProxyUsername ensures that no value is present for ProxyUsername, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetProxyUsername() {
-	o.ProxyUsername.Unset()
-}
-
-// GetHeaders returns the Headers field value if set, zero value otherwise.
-func (o *PatchedansibleGitRemote) GetHeaders() []map[string]interface{} {
-	if o == nil || IsNil(o.Headers) {
-		var ret []map[string]interface{}
-		return ret
-	}
-	return o.Headers
-}
-
-// GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PatchedansibleGitRemote) GetHeadersOk() ([]map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Headers) {
-		return nil, false
-	}
-	return o.Headers, true
-}
-
-// HasHeaders returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasHeaders() bool {
-	if o != nil && !IsNil(o.Headers) {
-		return true
-	}
-
-	return false
-}
-
-// SetHeaders gets a reference to the given []map[string]interface{} and assigns it to the Headers field.
-func (o *PatchedansibleGitRemote) SetHeaders(v []map[string]interface{}) {
-	o.Headers = v
-}
-
-// GetClientCert returns the ClientCert field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetClientCert() string {
-	if o == nil || IsNil(o.ClientCert.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ClientCert.Get()
-}
-
-// GetClientCertOk returns a tuple with the ClientCert field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetClientCertOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ClientCert.Get(), o.ClientCert.IsSet()
-}
-
-// HasClientCert returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasClientCert() bool {
-	if o != nil && o.ClientCert.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetClientCert gets a reference to the given NullableString and assigns it to the ClientCert field.
-func (o *PatchedansibleGitRemote) SetClientCert(v string) {
-	o.ClientCert.Set(&v)
-}
-// SetClientCertNil sets the value for ClientCert to be an explicit nil
-func (o *PatchedansibleGitRemote) SetClientCertNil() {
-	o.ClientCert.Set(nil)
-}
-
-// UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetClientCert() {
-	o.ClientCert.Unset()
-}
-
-// GetCaCert returns the CaCert field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetCaCert() string {
-	if o == nil || IsNil(o.CaCert.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CaCert.Get()
-}
-
-// GetCaCertOk returns a tuple with the CaCert field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetCaCertOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CaCert.Get(), o.CaCert.IsSet()
-}
-
-// HasCaCert returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasCaCert() bool {
-	if o != nil && o.CaCert.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCaCert gets a reference to the given NullableString and assigns it to the CaCert field.
-func (o *PatchedansibleGitRemote) SetCaCert(v string) {
-	o.CaCert.Set(&v)
-}
-// SetCaCertNil sets the value for CaCert to be an explicit nil
-func (o *PatchedansibleGitRemote) SetCaCertNil() {
-	o.CaCert.Set(nil)
-}
-
-// UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetCaCert() {
-	o.CaCert.Unset()
-}
-
-// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetPassword() string {
-	if o == nil || IsNil(o.Password.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Password.Get()
-}
-
-// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetPasswordOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Password.Get(), o.Password.IsSet()
-}
-
-// HasPassword returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasPassword() bool {
-	if o != nil && o.Password.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
-func (o *PatchedansibleGitRemote) SetPassword(v string) {
-	o.Password.Set(&v)
-}
-// SetPasswordNil sets the value for Password to be an explicit nil
-func (o *PatchedansibleGitRemote) SetPasswordNil() {
-	o.Password.Set(nil)
-}
-
-// UnsetPassword ensures that no value is present for Password, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetPassword() {
-	o.Password.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *PatchedansibleGitRemote) GetName() string {
-	if o == nil || IsNil(o.Name) {
-		var ret string
-		return ret
-	}
-	return *o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PatchedansibleGitRemote) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
-		return nil, false
-	}
-	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *PatchedansibleGitRemote) SetName(v string) {
-	o.Name = &v
+// SetUrl gets a reference to the given string and assigns it to the Url field.
+func (o *PatchedansibleGitRemote) SetUrl(v string) {
+	o.Url = &v
 }
 
 // GetSockConnectTimeout returns the SockConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -524,162 +188,204 @@ func (o *PatchedansibleGitRemote) UnsetSockConnectTimeout() {
 	o.SockConnectTimeout.Unset()
 }
 
-// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
-func (o *PatchedansibleGitRemote) GetPulpLabels() map[string]string {
-	if o == nil || IsNil(o.PulpLabels) {
-		var ret map[string]string
-		return ret
-	}
-	return *o.PulpLabels
-}
-
-// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PatchedansibleGitRemote) GetPulpLabelsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.PulpLabels) {
-		return nil, false
-	}
-	return o.PulpLabels, true
-}
-
-// HasPulpLabels returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasPulpLabels() bool {
-	if o != nil && !IsNil(o.PulpLabels) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
-func (o *PatchedansibleGitRemote) SetPulpLabels(v map[string]string) {
-	o.PulpLabels = &v
-}
-
-// GetClientKey returns the ClientKey field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetClientKey() string {
-	if o == nil || IsNil(o.ClientKey.Get()) {
+// GetCaCert returns the CaCert field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetCaCert() string {
+	if o == nil || IsNil(o.CaCert.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ClientKey.Get()
+	return *o.CaCert.Get()
 }
 
-// GetClientKeyOk returns a tuple with the ClientKey field value if set, nil otherwise
+// GetCaCertOk returns a tuple with the CaCert field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetClientKeyOk() (*string, bool) {
+func (o *PatchedansibleGitRemote) GetCaCertOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ClientKey.Get(), o.ClientKey.IsSet()
+	return o.CaCert.Get(), o.CaCert.IsSet()
 }
 
-// HasClientKey returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasClientKey() bool {
-	if o != nil && o.ClientKey.IsSet() {
+// HasCaCert returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasCaCert() bool {
+	if o != nil && o.CaCert.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetClientKey gets a reference to the given NullableString and assigns it to the ClientKey field.
-func (o *PatchedansibleGitRemote) SetClientKey(v string) {
-	o.ClientKey.Set(&v)
+// SetCaCert gets a reference to the given NullableString and assigns it to the CaCert field.
+func (o *PatchedansibleGitRemote) SetCaCert(v string) {
+	o.CaCert.Set(&v)
 }
-// SetClientKeyNil sets the value for ClientKey to be an explicit nil
-func (o *PatchedansibleGitRemote) SetClientKeyNil() {
-	o.ClientKey.Set(nil)
-}
-
-// UnsetClientKey ensures that no value is present for ClientKey, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetClientKey() {
-	o.ClientKey.Unset()
+// SetCaCertNil sets the value for CaCert to be an explicit nil
+func (o *PatchedansibleGitRemote) SetCaCertNil() {
+	o.CaCert.Set(nil)
 }
 
-// GetSockReadTimeout returns the SockReadTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetSockReadTimeout() float64 {
-	if o == nil || IsNil(o.SockReadTimeout.Get()) {
-		var ret float64
+// UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetCaCert() {
+	o.CaCert.Unset()
+}
+
+// GetRateLimit returns the RateLimit field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetRateLimit() int32 {
+	if o == nil || IsNil(o.RateLimit.Get()) {
+		var ret int32
 		return ret
 	}
-	return *o.SockReadTimeout.Get()
+	return *o.RateLimit.Get()
 }
 
-// GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field value if set, nil otherwise
+// GetRateLimitOk returns a tuple with the RateLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetSockReadTimeoutOk() (*float64, bool) {
+func (o *PatchedansibleGitRemote) GetRateLimitOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.SockReadTimeout.Get(), o.SockReadTimeout.IsSet()
+	return o.RateLimit.Get(), o.RateLimit.IsSet()
 }
 
-// HasSockReadTimeout returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasSockReadTimeout() bool {
-	if o != nil && o.SockReadTimeout.IsSet() {
+// HasRateLimit returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasRateLimit() bool {
+	if o != nil && o.RateLimit.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSockReadTimeout gets a reference to the given NullableFloat64 and assigns it to the SockReadTimeout field.
-func (o *PatchedansibleGitRemote) SetSockReadTimeout(v float64) {
-	o.SockReadTimeout.Set(&v)
+// SetRateLimit gets a reference to the given NullableInt32 and assigns it to the RateLimit field.
+func (o *PatchedansibleGitRemote) SetRateLimit(v int32) {
+	o.RateLimit.Set(&v)
 }
-// SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
-func (o *PatchedansibleGitRemote) SetSockReadTimeoutNil() {
-	o.SockReadTimeout.Set(nil)
-}
-
-// UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetSockReadTimeout() {
-	o.SockReadTimeout.Unset()
+// SetRateLimitNil sets the value for RateLimit to be an explicit nil
+func (o *PatchedansibleGitRemote) SetRateLimitNil() {
+	o.RateLimit.Set(nil)
 }
 
-// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetUsername() string {
-	if o == nil || IsNil(o.Username.Get()) {
+// UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetRateLimit() {
+	o.RateLimit.Unset()
+}
+
+// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetPassword() string {
+	if o == nil || IsNil(o.Password.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Username.Get()
+	return *o.Password.Get()
 }
 
-// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetUsernameOk() (*string, bool) {
+func (o *PatchedansibleGitRemote) GetPasswordOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Username.Get(), o.Username.IsSet()
+	return o.Password.Get(), o.Password.IsSet()
 }
 
-// HasUsername returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasUsername() bool {
-	if o != nil && o.Username.IsSet() {
+// HasPassword returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasPassword() bool {
+	if o != nil && o.Password.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
-func (o *PatchedansibleGitRemote) SetUsername(v string) {
-	o.Username.Set(&v)
+// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
+func (o *PatchedansibleGitRemote) SetPassword(v string) {
+	o.Password.Set(&v)
 }
-// SetUsernameNil sets the value for Username to be an explicit nil
-func (o *PatchedansibleGitRemote) SetUsernameNil() {
-	o.Username.Set(nil)
+// SetPasswordNil sets the value for Password to be an explicit nil
+func (o *PatchedansibleGitRemote) SetPasswordNil() {
+	o.Password.Set(nil)
 }
 
-// UnsetUsername ensures that no value is present for Username, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetUsername() {
-	o.Username.Unset()
+// UnsetPassword ensures that no value is present for Password, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetPassword() {
+	o.Password.Unset()
+}
+
+// GetClientCert returns the ClientCert field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetClientCert() string {
+	if o == nil || IsNil(o.ClientCert.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ClientCert.Get()
+}
+
+// GetClientCertOk returns a tuple with the ClientCert field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetClientCertOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ClientCert.Get(), o.ClientCert.IsSet()
+}
+
+// HasClientCert returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasClientCert() bool {
+	if o != nil && o.ClientCert.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientCert gets a reference to the given NullableString and assigns it to the ClientCert field.
+func (o *PatchedansibleGitRemote) SetClientCert(v string) {
+	o.ClientCert.Set(&v)
+}
+// SetClientCertNil sets the value for ClientCert to be an explicit nil
+func (o *PatchedansibleGitRemote) SetClientCertNil() {
+	o.ClientCert.Set(nil)
+}
+
+// UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetClientCert() {
+	o.ClientCert.Unset()
+}
+
+// GetHeaders returns the Headers field value if set, zero value otherwise.
+func (o *PatchedansibleGitRemote) GetHeaders() []map[string]interface{} {
+	if o == nil || IsNil(o.Headers) {
+		var ret []map[string]interface{}
+		return ret
+	}
+	return o.Headers
+}
+
+// GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PatchedansibleGitRemote) GetHeadersOk() ([]map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Headers) {
+		return nil, false
+	}
+	return o.Headers, true
+}
+
+// HasHeaders returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasHeaders() bool {
+	if o != nil && !IsNil(o.Headers) {
+		return true
+	}
+
+	return false
+}
+
+// SetHeaders gets a reference to the given []map[string]interface{} and assigns it to the Headers field.
+func (o *PatchedansibleGitRemote) SetHeaders(v []map[string]interface{}) {
+	o.Headers = v
 }
 
 // GetProxyUrl returns the ProxyUrl field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -724,46 +430,172 @@ func (o *PatchedansibleGitRemote) UnsetProxyUrl() {
 	o.ProxyUrl.Unset()
 }
 
-// GetRateLimit returns the RateLimit field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedansibleGitRemote) GetRateLimit() int32 {
-	if o == nil || IsNil(o.RateLimit.Get()) {
-		var ret int32
+// GetClientKey returns the ClientKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetClientKey() string {
+	if o == nil || IsNil(o.ClientKey.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.RateLimit.Get()
+	return *o.ClientKey.Get()
 }
 
-// GetRateLimitOk returns a tuple with the RateLimit field value if set, nil otherwise
+// GetClientKeyOk returns a tuple with the ClientKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedansibleGitRemote) GetRateLimitOk() (*int32, bool) {
+func (o *PatchedansibleGitRemote) GetClientKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RateLimit.Get(), o.RateLimit.IsSet()
+	return o.ClientKey.Get(), o.ClientKey.IsSet()
 }
 
-// HasRateLimit returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasRateLimit() bool {
-	if o != nil && o.RateLimit.IsSet() {
+// HasClientKey returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasClientKey() bool {
+	if o != nil && o.ClientKey.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRateLimit gets a reference to the given NullableInt32 and assigns it to the RateLimit field.
-func (o *PatchedansibleGitRemote) SetRateLimit(v int32) {
-	o.RateLimit.Set(&v)
+// SetClientKey gets a reference to the given NullableString and assigns it to the ClientKey field.
+func (o *PatchedansibleGitRemote) SetClientKey(v string) {
+	o.ClientKey.Set(&v)
 }
-// SetRateLimitNil sets the value for RateLimit to be an explicit nil
-func (o *PatchedansibleGitRemote) SetRateLimitNil() {
-	o.RateLimit.Set(nil)
+// SetClientKeyNil sets the value for ClientKey to be an explicit nil
+func (o *PatchedansibleGitRemote) SetClientKeyNil() {
+	o.ClientKey.Set(nil)
 }
 
-// UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
-func (o *PatchedansibleGitRemote) UnsetRateLimit() {
-	o.RateLimit.Unset()
+// UnsetClientKey ensures that no value is present for ClientKey, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetClientKey() {
+	o.ClientKey.Unset()
+}
+
+// GetMaxRetries returns the MaxRetries field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetMaxRetries() int32 {
+	if o == nil || IsNil(o.MaxRetries.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MaxRetries.Get()
+}
+
+// GetMaxRetriesOk returns a tuple with the MaxRetries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetMaxRetriesOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MaxRetries.Get(), o.MaxRetries.IsSet()
+}
+
+// HasMaxRetries returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasMaxRetries() bool {
+	if o != nil && o.MaxRetries.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxRetries gets a reference to the given NullableInt32 and assigns it to the MaxRetries field.
+func (o *PatchedansibleGitRemote) SetMaxRetries(v int32) {
+	o.MaxRetries.Set(&v)
+}
+// SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
+func (o *PatchedansibleGitRemote) SetMaxRetriesNil() {
+	o.MaxRetries.Set(nil)
+}
+
+// UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetMaxRetries() {
+	o.MaxRetries.Unset()
+}
+
+// GetTotalTimeout returns the TotalTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetTotalTimeout() float64 {
+	if o == nil || IsNil(o.TotalTimeout.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.TotalTimeout.Get()
+}
+
+// GetTotalTimeoutOk returns a tuple with the TotalTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetTotalTimeoutOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalTimeout.Get(), o.TotalTimeout.IsSet()
+}
+
+// HasTotalTimeout returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasTotalTimeout() bool {
+	if o != nil && o.TotalTimeout.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalTimeout gets a reference to the given NullableFloat64 and assigns it to the TotalTimeout field.
+func (o *PatchedansibleGitRemote) SetTotalTimeout(v float64) {
+	o.TotalTimeout.Set(&v)
+}
+// SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
+func (o *PatchedansibleGitRemote) SetTotalTimeoutNil() {
+	o.TotalTimeout.Set(nil)
+}
+
+// UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetTotalTimeout() {
+	o.TotalTimeout.Unset()
+}
+
+// GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetUsername() string {
+	if o == nil || IsNil(o.Username.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Username.Get()
+}
+
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetUsernameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Username.Get(), o.Username.IsSet()
+}
+
+// HasUsername returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasUsername() bool {
+	if o != nil && o.Username.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given NullableString and assigns it to the Username field.
+func (o *PatchedansibleGitRemote) SetUsername(v string) {
+	o.Username.Set(&v)
+}
+// SetUsernameNil sets the value for Username to be an explicit nil
+func (o *PatchedansibleGitRemote) SetUsernameNil() {
+	o.Username.Set(nil)
+}
+
+// UnsetUsername ensures that no value is present for Username, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetUsername() {
+	o.Username.Unset()
 }
 
 // GetDownloadConcurrency returns the DownloadConcurrency field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -840,36 +672,204 @@ func (o *PatchedansibleGitRemote) SetTlsValidation(v bool) {
 	o.TlsValidation = &v
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
-func (o *PatchedansibleGitRemote) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *PatchedansibleGitRemote) GetName() string {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Url
+	return *o.Name
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchedansibleGitRemote) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
+func (o *PatchedansibleGitRemote) GetNameOk() (*string, bool) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Url, true
+	return o.Name, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *PatchedansibleGitRemote) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
+// HasName returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given string and assigns it to the Url field.
-func (o *PatchedansibleGitRemote) SetUrl(v string) {
-	o.Url = &v
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *PatchedansibleGitRemote) SetName(v string) {
+	o.Name = &v
+}
+
+// GetSockReadTimeout returns the SockReadTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetSockReadTimeout() float64 {
+	if o == nil || IsNil(o.SockReadTimeout.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.SockReadTimeout.Get()
+}
+
+// GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetSockReadTimeoutOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SockReadTimeout.Get(), o.SockReadTimeout.IsSet()
+}
+
+// HasSockReadTimeout returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasSockReadTimeout() bool {
+	if o != nil && o.SockReadTimeout.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSockReadTimeout gets a reference to the given NullableFloat64 and assigns it to the SockReadTimeout field.
+func (o *PatchedansibleGitRemote) SetSockReadTimeout(v float64) {
+	o.SockReadTimeout.Set(&v)
+}
+// SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
+func (o *PatchedansibleGitRemote) SetSockReadTimeoutNil() {
+	o.SockReadTimeout.Set(nil)
+}
+
+// UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetSockReadTimeout() {
+	o.SockReadTimeout.Unset()
+}
+
+// GetProxyPassword returns the ProxyPassword field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetProxyPassword() string {
+	if o == nil || IsNil(o.ProxyPassword.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProxyPassword.Get()
+}
+
+// GetProxyPasswordOk returns a tuple with the ProxyPassword field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetProxyPasswordOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProxyPassword.Get(), o.ProxyPassword.IsSet()
+}
+
+// HasProxyPassword returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasProxyPassword() bool {
+	if o != nil && o.ProxyPassword.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProxyPassword gets a reference to the given NullableString and assigns it to the ProxyPassword field.
+func (o *PatchedansibleGitRemote) SetProxyPassword(v string) {
+	o.ProxyPassword.Set(&v)
+}
+// SetProxyPasswordNil sets the value for ProxyPassword to be an explicit nil
+func (o *PatchedansibleGitRemote) SetProxyPasswordNil() {
+	o.ProxyPassword.Set(nil)
+}
+
+// UnsetProxyPassword ensures that no value is present for ProxyPassword, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetProxyPassword() {
+	o.ProxyPassword.Unset()
+}
+
+// GetConnectTimeout returns the ConnectTimeout field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetConnectTimeout() float64 {
+	if o == nil || IsNil(o.ConnectTimeout.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.ConnectTimeout.Get()
+}
+
+// GetConnectTimeoutOk returns a tuple with the ConnectTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetConnectTimeoutOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ConnectTimeout.Get(), o.ConnectTimeout.IsSet()
+}
+
+// HasConnectTimeout returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasConnectTimeout() bool {
+	if o != nil && o.ConnectTimeout.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetConnectTimeout gets a reference to the given NullableFloat64 and assigns it to the ConnectTimeout field.
+func (o *PatchedansibleGitRemote) SetConnectTimeout(v float64) {
+	o.ConnectTimeout.Set(&v)
+}
+// SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
+func (o *PatchedansibleGitRemote) SetConnectTimeoutNil() {
+	o.ConnectTimeout.Set(nil)
+}
+
+// UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetConnectTimeout() {
+	o.ConnectTimeout.Unset()
+}
+
+// GetProxyUsername returns the ProxyUsername field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedansibleGitRemote) GetProxyUsername() string {
+	if o == nil || IsNil(o.ProxyUsername.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProxyUsername.Get()
+}
+
+// GetProxyUsernameOk returns a tuple with the ProxyUsername field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedansibleGitRemote) GetProxyUsernameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProxyUsername.Get(), o.ProxyUsername.IsSet()
+}
+
+// HasProxyUsername returns a boolean if a field has been set.
+func (o *PatchedansibleGitRemote) HasProxyUsername() bool {
+	if o != nil && o.ProxyUsername.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProxyUsername gets a reference to the given NullableString and assigns it to the ProxyUsername field.
+func (o *PatchedansibleGitRemote) SetProxyUsername(v string) {
+	o.ProxyUsername.Set(&v)
+}
+// SetProxyUsernameNil sets the value for ProxyUsername to be an explicit nil
+func (o *PatchedansibleGitRemote) SetProxyUsernameNil() {
+	o.ProxyUsername.Set(nil)
+}
+
+// UnsetProxyUsername ensures that no value is present for ProxyUsername, not even an explicit nil
+func (o *PatchedansibleGitRemote) UnsetProxyUsername() {
+	o.ProxyUsername.Unset()
 }
 
 // GetMetadataOnly returns the MetadataOnly field value if set, zero value otherwise.
@@ -946,56 +946,44 @@ func (o PatchedansibleGitRemote) MarshalJSON() ([]byte, error) {
 
 func (o PatchedansibleGitRemote) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ProxyPassword.IsSet() {
-		toSerialize["proxy_password"] = o.ProxyPassword.Get()
+	if !IsNil(o.PulpLabels) {
+		toSerialize["pulp_labels"] = o.PulpLabels
 	}
-	if o.MaxRetries.IsSet() {
-		toSerialize["max_retries"] = o.MaxRetries.Get()
-	}
-	if o.ConnectTimeout.IsSet() {
-		toSerialize["connect_timeout"] = o.ConnectTimeout.Get()
-	}
-	if o.TotalTimeout.IsSet() {
-		toSerialize["total_timeout"] = o.TotalTimeout.Get()
-	}
-	if o.ProxyUsername.IsSet() {
-		toSerialize["proxy_username"] = o.ProxyUsername.Get()
-	}
-	if !IsNil(o.Headers) {
-		toSerialize["headers"] = o.Headers
-	}
-	if o.ClientCert.IsSet() {
-		toSerialize["client_cert"] = o.ClientCert.Get()
-	}
-	if o.CaCert.IsSet() {
-		toSerialize["ca_cert"] = o.CaCert.Get()
-	}
-	if o.Password.IsSet() {
-		toSerialize["password"] = o.Password.Get()
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
 	if o.SockConnectTimeout.IsSet() {
 		toSerialize["sock_connect_timeout"] = o.SockConnectTimeout.Get()
 	}
-	if !IsNil(o.PulpLabels) {
-		toSerialize["pulp_labels"] = o.PulpLabels
+	if o.CaCert.IsSet() {
+		toSerialize["ca_cert"] = o.CaCert.Get()
 	}
-	if o.ClientKey.IsSet() {
-		toSerialize["client_key"] = o.ClientKey.Get()
+	if o.RateLimit.IsSet() {
+		toSerialize["rate_limit"] = o.RateLimit.Get()
 	}
-	if o.SockReadTimeout.IsSet() {
-		toSerialize["sock_read_timeout"] = o.SockReadTimeout.Get()
+	if o.Password.IsSet() {
+		toSerialize["password"] = o.Password.Get()
 	}
-	if o.Username.IsSet() {
-		toSerialize["username"] = o.Username.Get()
+	if o.ClientCert.IsSet() {
+		toSerialize["client_cert"] = o.ClientCert.Get()
+	}
+	if !IsNil(o.Headers) {
+		toSerialize["headers"] = o.Headers
 	}
 	if o.ProxyUrl.IsSet() {
 		toSerialize["proxy_url"] = o.ProxyUrl.Get()
 	}
-	if o.RateLimit.IsSet() {
-		toSerialize["rate_limit"] = o.RateLimit.Get()
+	if o.ClientKey.IsSet() {
+		toSerialize["client_key"] = o.ClientKey.Get()
+	}
+	if o.MaxRetries.IsSet() {
+		toSerialize["max_retries"] = o.MaxRetries.Get()
+	}
+	if o.TotalTimeout.IsSet() {
+		toSerialize["total_timeout"] = o.TotalTimeout.Get()
+	}
+	if o.Username.IsSet() {
+		toSerialize["username"] = o.Username.Get()
 	}
 	if o.DownloadConcurrency.IsSet() {
 		toSerialize["download_concurrency"] = o.DownloadConcurrency.Get()
@@ -1003,8 +991,20 @@ func (o PatchedansibleGitRemote) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TlsValidation) {
 		toSerialize["tls_validation"] = o.TlsValidation
 	}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if o.SockReadTimeout.IsSet() {
+		toSerialize["sock_read_timeout"] = o.SockReadTimeout.Get()
+	}
+	if o.ProxyPassword.IsSet() {
+		toSerialize["proxy_password"] = o.ProxyPassword.Get()
+	}
+	if o.ConnectTimeout.IsSet() {
+		toSerialize["connect_timeout"] = o.ConnectTimeout.Get()
+	}
+	if o.ProxyUsername.IsSet() {
+		toSerialize["proxy_username"] = o.ProxyUsername.Get()
 	}
 	if !IsNil(o.MetadataOnly) {
 		toSerialize["metadata_only"] = o.MetadataOnly

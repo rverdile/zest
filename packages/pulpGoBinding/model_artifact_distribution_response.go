@@ -21,18 +21,18 @@ var _ MappedNullable = &ArtifactDistributionResponse{}
 
 // ArtifactDistributionResponse A serializer for ArtifactDistribution.
 type ArtifactDistributionResponse struct {
-	PulpHref *string `json:"pulp_href,omitempty"`
 	// An optional content-guard.
 	ContentGuard NullableString `json:"content_guard,omitempty"`
+	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// The URL for accessing the publication as defined by this distribution.
 	BaseUrl *string `json:"base_url,omitempty"`
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
-	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// A unique name. Ex, `rawhide` and `stable`.
 	Name string `json:"name"`
 	// The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \"foo\" and \"foo/bar\")
 	BasePath string `json:"base_path"`
+	PulpHref *string `json:"pulp_href,omitempty"`
 }
 
 // NewArtifactDistributionResponse instantiates a new ArtifactDistributionResponse object
@@ -52,38 +52,6 @@ func NewArtifactDistributionResponse(name string, basePath string) *ArtifactDist
 func NewArtifactDistributionResponseWithDefaults() *ArtifactDistributionResponse {
 	this := ArtifactDistributionResponse{}
 	return &this
-}
-
-// GetPulpHref returns the PulpHref field value if set, zero value otherwise.
-func (o *ArtifactDistributionResponse) GetPulpHref() string {
-	if o == nil || IsNil(o.PulpHref) {
-		var ret string
-		return ret
-	}
-	return *o.PulpHref
-}
-
-// GetPulpHrefOk returns a tuple with the PulpHref field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ArtifactDistributionResponse) GetPulpHrefOk() (*string, bool) {
-	if o == nil || IsNil(o.PulpHref) {
-		return nil, false
-	}
-	return o.PulpHref, true
-}
-
-// HasPulpHref returns a boolean if a field has been set.
-func (o *ArtifactDistributionResponse) HasPulpHref() bool {
-	if o != nil && !IsNil(o.PulpHref) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
-func (o *ArtifactDistributionResponse) SetPulpHref(v string) {
-	o.PulpHref = &v
 }
 
 // GetContentGuard returns the ContentGuard field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -126,6 +94,38 @@ func (o *ArtifactDistributionResponse) SetContentGuardNil() {
 // UnsetContentGuard ensures that no value is present for ContentGuard, not even an explicit nil
 func (o *ArtifactDistributionResponse) UnsetContentGuard() {
 	o.ContentGuard.Unset()
+}
+
+// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
+func (o *ArtifactDistributionResponse) GetPulpLabels() map[string]string {
+	if o == nil || IsNil(o.PulpLabels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.PulpLabels
+}
+
+// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ArtifactDistributionResponse) GetPulpLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.PulpLabels) {
+		return nil, false
+	}
+	return o.PulpLabels, true
+}
+
+// HasPulpLabels returns a boolean if a field has been set.
+func (o *ArtifactDistributionResponse) HasPulpLabels() bool {
+	if o != nil && !IsNil(o.PulpLabels) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
+func (o *ArtifactDistributionResponse) SetPulpLabels(v map[string]string) {
+	o.PulpLabels = &v
 }
 
 // GetBaseUrl returns the BaseUrl field value if set, zero value otherwise.
@@ -192,38 +192,6 @@ func (o *ArtifactDistributionResponse) SetPulpCreated(v time.Time) {
 	o.PulpCreated = &v
 }
 
-// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
-func (o *ArtifactDistributionResponse) GetPulpLabels() map[string]string {
-	if o == nil || IsNil(o.PulpLabels) {
-		var ret map[string]string
-		return ret
-	}
-	return *o.PulpLabels
-}
-
-// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ArtifactDistributionResponse) GetPulpLabelsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.PulpLabels) {
-		return nil, false
-	}
-	return o.PulpLabels, true
-}
-
-// HasPulpLabels returns a boolean if a field has been set.
-func (o *ArtifactDistributionResponse) HasPulpLabels() bool {
-	if o != nil && !IsNil(o.PulpLabels) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
-func (o *ArtifactDistributionResponse) SetPulpLabels(v map[string]string) {
-	o.PulpLabels = &v
-}
-
 // GetName returns the Name field value
 func (o *ArtifactDistributionResponse) GetName() string {
 	if o == nil {
@@ -272,6 +240,38 @@ func (o *ArtifactDistributionResponse) SetBasePath(v string) {
 	o.BasePath = v
 }
 
+// GetPulpHref returns the PulpHref field value if set, zero value otherwise.
+func (o *ArtifactDistributionResponse) GetPulpHref() string {
+	if o == nil || IsNil(o.PulpHref) {
+		var ret string
+		return ret
+	}
+	return *o.PulpHref
+}
+
+// GetPulpHrefOk returns a tuple with the PulpHref field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ArtifactDistributionResponse) GetPulpHrefOk() (*string, bool) {
+	if o == nil || IsNil(o.PulpHref) {
+		return nil, false
+	}
+	return o.PulpHref, true
+}
+
+// HasPulpHref returns a boolean if a field has been set.
+func (o *ArtifactDistributionResponse) HasPulpHref() bool {
+	if o != nil && !IsNil(o.PulpHref) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
+func (o *ArtifactDistributionResponse) SetPulpHref(v string) {
+	o.PulpHref = &v
+}
+
 func (o ArtifactDistributionResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -282,17 +282,17 @@ func (o ArtifactDistributionResponse) MarshalJSON() ([]byte, error) {
 
 func (o ArtifactDistributionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
 	if o.ContentGuard.IsSet() {
 		toSerialize["content_guard"] = o.ContentGuard.Get()
 	}
-	// skip: base_url is readOnly
-	// skip: pulp_created is readOnly
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
 	}
+	// skip: base_url is readOnly
+	// skip: pulp_created is readOnly
 	toSerialize["name"] = o.Name
 	toSerialize["base_path"] = o.BasePath
+	// skip: pulp_href is readOnly
 	return toSerialize, nil
 }
 

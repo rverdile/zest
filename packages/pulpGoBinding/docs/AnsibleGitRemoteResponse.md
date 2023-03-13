@@ -4,25 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxRetries** | Pointer to **NullableInt32** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
-**ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
-**TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
-**Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
-**PulpLastUpdated** | Pointer to **time.Time** | Timestamp of the most recent update of the remote. | [optional] [readonly] 
-**ClientCert** | Pointer to **NullableString** | A PEM encoded client certificate used for authentication. | [optional] 
-**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
-**CaCert** | Pointer to **NullableString** | A PEM encoded CA certificate used to validate the server certificate presented by the remote server. | [optional] 
-**Name** | **string** | A unique name for this remote. | 
-**SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
-**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
-**SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
-**HiddenFields** | Pointer to [**[]RemoteResponseHiddenFieldsInner**](RemoteResponseHiddenFieldsInner.md) | List of hidden (write only) fields | [optional] [readonly] 
-**ProxyUrl** | Pointer to **NullableString** | The proxy URL. Format: scheme://host:port | [optional] 
+**Url** | **string** | The URL of an external content source. | 
+**SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
+**CaCert** | Pointer to **NullableString** | A PEM encoded CA certificate used to validate the server certificate presented by the remote server. | [optional] 
+**PulpLastUpdated** | Pointer to **time.Time** | Timestamp of the most recent update of the remote. | [optional] [readonly] 
 **RateLimit** | Pointer to **NullableInt32** | Limits requests per second for each concurrent downloader | [optional] 
+**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
+**ClientCert** | Pointer to **NullableString** | A PEM encoded client certificate used for authentication. | [optional] 
+**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
+**Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
+**ProxyUrl** | Pointer to **NullableString** | The proxy URL. Format: scheme://host:port | [optional] 
+**MaxRetries** | Pointer to **NullableInt32** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
+**TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **DownloadConcurrency** | Pointer to **NullableInt32** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
 **TlsValidation** | Pointer to **bool** | If True, TLS peer validation must be performed. | [optional] 
-**Url** | **string** | The URL of an external content source. | 
+**Name** | **string** | A unique name for this remote. | 
+**HiddenFields** | Pointer to [**[]RemoteResponseHiddenFieldsInner**](RemoteResponseHiddenFieldsInner.md) | List of hidden (write only) fields | [optional] [readonly] 
+**SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
+**ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **MetadataOnly** | Pointer to **bool** | If True, only metadata about the content will be stored in Pulp. Clients will retrieve content from the remote URL. | [optional] 
 **GitRef** | Pointer to **string** | A git ref. e.g.: branch, tag, or commit sha. | [optional] 
 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewAnsibleGitRemoteResponse
 
-`func NewAnsibleGitRemoteResponse(name string, url string, ) *AnsibleGitRemoteResponse`
+`func NewAnsibleGitRemoteResponse(url string, name string, ) *AnsibleGitRemoteResponse`
 
 NewAnsibleGitRemoteResponse instantiates a new AnsibleGitRemoteResponse object
 This constructor will assign default values to properties that have it defined,
@@ -45,274 +45,49 @@ NewAnsibleGitRemoteResponseWithDefaults instantiates a new AnsibleGitRemoteRespo
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetMaxRetries
+### GetPulpLabels
 
-`func (o *AnsibleGitRemoteResponse) GetMaxRetries() int32`
+`func (o *AnsibleGitRemoteResponse) GetPulpLabels() map[string]string`
 
-GetMaxRetries returns the MaxRetries field if non-nil, zero value otherwise.
+GetPulpLabels returns the PulpLabels field if non-nil, zero value otherwise.
 
-### GetMaxRetriesOk
+### GetPulpLabelsOk
 
-`func (o *AnsibleGitRemoteResponse) GetMaxRetriesOk() (*int32, bool)`
+`func (o *AnsibleGitRemoteResponse) GetPulpLabelsOk() (*map[string]string, bool)`
 
-GetMaxRetriesOk returns a tuple with the MaxRetries field if it's non-nil, zero value otherwise
+GetPulpLabelsOk returns a tuple with the PulpLabels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxRetries
+### SetPulpLabels
 
-`func (o *AnsibleGitRemoteResponse) SetMaxRetries(v int32)`
+`func (o *AnsibleGitRemoteResponse) SetPulpLabels(v map[string]string)`
 
-SetMaxRetries sets MaxRetries field to given value.
+SetPulpLabels sets PulpLabels field to given value.
 
-### HasMaxRetries
+### HasPulpLabels
 
-`func (o *AnsibleGitRemoteResponse) HasMaxRetries() bool`
+`func (o *AnsibleGitRemoteResponse) HasPulpLabels() bool`
 
-HasMaxRetries returns a boolean if a field has been set.
+HasPulpLabels returns a boolean if a field has been set.
 
-### SetMaxRetriesNil
+### GetUrl
 
-`func (o *AnsibleGitRemoteResponse) SetMaxRetriesNil(b bool)`
+`func (o *AnsibleGitRemoteResponse) GetUrl() string`
 
- SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
+GetUrl returns the Url field if non-nil, zero value otherwise.
 
-### UnsetMaxRetries
-`func (o *AnsibleGitRemoteResponse) UnsetMaxRetries()`
+### GetUrlOk
 
-UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
-### GetConnectTimeout
+`func (o *AnsibleGitRemoteResponse) GetUrlOk() (*string, bool)`
 
-`func (o *AnsibleGitRemoteResponse) GetConnectTimeout() float64`
-
-GetConnectTimeout returns the ConnectTimeout field if non-nil, zero value otherwise.
-
-### GetConnectTimeoutOk
-
-`func (o *AnsibleGitRemoteResponse) GetConnectTimeoutOk() (*float64, bool)`
-
-GetConnectTimeoutOk returns a tuple with the ConnectTimeout field if it's non-nil, zero value otherwise
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConnectTimeout
+### SetUrl
 
-`func (o *AnsibleGitRemoteResponse) SetConnectTimeout(v float64)`
+`func (o *AnsibleGitRemoteResponse) SetUrl(v string)`
 
-SetConnectTimeout sets ConnectTimeout field to given value.
-
-### HasConnectTimeout
-
-`func (o *AnsibleGitRemoteResponse) HasConnectTimeout() bool`
-
-HasConnectTimeout returns a boolean if a field has been set.
-
-### SetConnectTimeoutNil
-
-`func (o *AnsibleGitRemoteResponse) SetConnectTimeoutNil(b bool)`
-
- SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
-
-### UnsetConnectTimeout
-`func (o *AnsibleGitRemoteResponse) UnsetConnectTimeout()`
-
-UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
-### GetTotalTimeout
-
-`func (o *AnsibleGitRemoteResponse) GetTotalTimeout() float64`
-
-GetTotalTimeout returns the TotalTimeout field if non-nil, zero value otherwise.
-
-### GetTotalTimeoutOk
-
-`func (o *AnsibleGitRemoteResponse) GetTotalTimeoutOk() (*float64, bool)`
-
-GetTotalTimeoutOk returns a tuple with the TotalTimeout field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalTimeout
-
-`func (o *AnsibleGitRemoteResponse) SetTotalTimeout(v float64)`
-
-SetTotalTimeout sets TotalTimeout field to given value.
-
-### HasTotalTimeout
-
-`func (o *AnsibleGitRemoteResponse) HasTotalTimeout() bool`
-
-HasTotalTimeout returns a boolean if a field has been set.
-
-### SetTotalTimeoutNil
-
-`func (o *AnsibleGitRemoteResponse) SetTotalTimeoutNil(b bool)`
-
- SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
-
-### UnsetTotalTimeout
-`func (o *AnsibleGitRemoteResponse) UnsetTotalTimeout()`
-
-UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
-### GetHeaders
-
-`func (o *AnsibleGitRemoteResponse) GetHeaders() []map[string]interface{}`
-
-GetHeaders returns the Headers field if non-nil, zero value otherwise.
-
-### GetHeadersOk
-
-`func (o *AnsibleGitRemoteResponse) GetHeadersOk() (*[]map[string]interface{}, bool)`
-
-GetHeadersOk returns a tuple with the Headers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHeaders
-
-`func (o *AnsibleGitRemoteResponse) SetHeaders(v []map[string]interface{})`
-
-SetHeaders sets Headers field to given value.
-
-### HasHeaders
-
-`func (o *AnsibleGitRemoteResponse) HasHeaders() bool`
-
-HasHeaders returns a boolean if a field has been set.
-
-### GetPulpLastUpdated
-
-`func (o *AnsibleGitRemoteResponse) GetPulpLastUpdated() time.Time`
-
-GetPulpLastUpdated returns the PulpLastUpdated field if non-nil, zero value otherwise.
-
-### GetPulpLastUpdatedOk
-
-`func (o *AnsibleGitRemoteResponse) GetPulpLastUpdatedOk() (*time.Time, bool)`
-
-GetPulpLastUpdatedOk returns a tuple with the PulpLastUpdated field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPulpLastUpdated
-
-`func (o *AnsibleGitRemoteResponse) SetPulpLastUpdated(v time.Time)`
-
-SetPulpLastUpdated sets PulpLastUpdated field to given value.
-
-### HasPulpLastUpdated
-
-`func (o *AnsibleGitRemoteResponse) HasPulpLastUpdated() bool`
-
-HasPulpLastUpdated returns a boolean if a field has been set.
-
-### GetClientCert
-
-`func (o *AnsibleGitRemoteResponse) GetClientCert() string`
-
-GetClientCert returns the ClientCert field if non-nil, zero value otherwise.
-
-### GetClientCertOk
-
-`func (o *AnsibleGitRemoteResponse) GetClientCertOk() (*string, bool)`
-
-GetClientCertOk returns a tuple with the ClientCert field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClientCert
-
-`func (o *AnsibleGitRemoteResponse) SetClientCert(v string)`
-
-SetClientCert sets ClientCert field to given value.
-
-### HasClientCert
-
-`func (o *AnsibleGitRemoteResponse) HasClientCert() bool`
-
-HasClientCert returns a boolean if a field has been set.
-
-### SetClientCertNil
-
-`func (o *AnsibleGitRemoteResponse) SetClientCertNil(b bool)`
-
- SetClientCertNil sets the value for ClientCert to be an explicit nil
-
-### UnsetClientCert
-`func (o *AnsibleGitRemoteResponse) UnsetClientCert()`
-
-UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
-### GetPulpCreated
-
-`func (o *AnsibleGitRemoteResponse) GetPulpCreated() time.Time`
-
-GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
-
-### GetPulpCreatedOk
-
-`func (o *AnsibleGitRemoteResponse) GetPulpCreatedOk() (*time.Time, bool)`
-
-GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPulpCreated
-
-`func (o *AnsibleGitRemoteResponse) SetPulpCreated(v time.Time)`
-
-SetPulpCreated sets PulpCreated field to given value.
-
-### HasPulpCreated
-
-`func (o *AnsibleGitRemoteResponse) HasPulpCreated() bool`
-
-HasPulpCreated returns a boolean if a field has been set.
-
-### GetCaCert
-
-`func (o *AnsibleGitRemoteResponse) GetCaCert() string`
-
-GetCaCert returns the CaCert field if non-nil, zero value otherwise.
-
-### GetCaCertOk
-
-`func (o *AnsibleGitRemoteResponse) GetCaCertOk() (*string, bool)`
-
-GetCaCertOk returns a tuple with the CaCert field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCaCert
-
-`func (o *AnsibleGitRemoteResponse) SetCaCert(v string)`
-
-SetCaCert sets CaCert field to given value.
-
-### HasCaCert
-
-`func (o *AnsibleGitRemoteResponse) HasCaCert() bool`
-
-HasCaCert returns a boolean if a field has been set.
-
-### SetCaCertNil
-
-`func (o *AnsibleGitRemoteResponse) SetCaCertNil(b bool)`
-
- SetCaCertNil sets the value for CaCert to be an explicit nil
-
-### UnsetCaCert
-`func (o *AnsibleGitRemoteResponse) UnsetCaCert()`
-
-UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
-### GetName
-
-`func (o *AnsibleGitRemoteResponse) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *AnsibleGitRemoteResponse) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *AnsibleGitRemoteResponse) SetName(v string)`
-
-SetName sets Name field to given value.
+SetUrl sets Url field to given value.
 
 
 ### GetSockConnectTimeout
@@ -350,31 +125,161 @@ HasSockConnectTimeout returns a boolean if a field has been set.
 `func (o *AnsibleGitRemoteResponse) UnsetSockConnectTimeout()`
 
 UnsetSockConnectTimeout ensures that no value is present for SockConnectTimeout, not even an explicit nil
-### GetPulpLabels
+### GetCaCert
 
-`func (o *AnsibleGitRemoteResponse) GetPulpLabels() map[string]string`
+`func (o *AnsibleGitRemoteResponse) GetCaCert() string`
 
-GetPulpLabels returns the PulpLabels field if non-nil, zero value otherwise.
+GetCaCert returns the CaCert field if non-nil, zero value otherwise.
 
-### GetPulpLabelsOk
+### GetCaCertOk
 
-`func (o *AnsibleGitRemoteResponse) GetPulpLabelsOk() (*map[string]string, bool)`
+`func (o *AnsibleGitRemoteResponse) GetCaCertOk() (*string, bool)`
 
-GetPulpLabelsOk returns a tuple with the PulpLabels field if it's non-nil, zero value otherwise
+GetCaCertOk returns a tuple with the CaCert field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPulpLabels
+### SetCaCert
 
-`func (o *AnsibleGitRemoteResponse) SetPulpLabels(v map[string]string)`
+`func (o *AnsibleGitRemoteResponse) SetCaCert(v string)`
 
-SetPulpLabels sets PulpLabels field to given value.
+SetCaCert sets CaCert field to given value.
 
-### HasPulpLabels
+### HasCaCert
 
-`func (o *AnsibleGitRemoteResponse) HasPulpLabels() bool`
+`func (o *AnsibleGitRemoteResponse) HasCaCert() bool`
 
-HasPulpLabels returns a boolean if a field has been set.
+HasCaCert returns a boolean if a field has been set.
 
+### SetCaCertNil
+
+`func (o *AnsibleGitRemoteResponse) SetCaCertNil(b bool)`
+
+ SetCaCertNil sets the value for CaCert to be an explicit nil
+
+### UnsetCaCert
+`func (o *AnsibleGitRemoteResponse) UnsetCaCert()`
+
+UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
+### GetPulpLastUpdated
+
+`func (o *AnsibleGitRemoteResponse) GetPulpLastUpdated() time.Time`
+
+GetPulpLastUpdated returns the PulpLastUpdated field if non-nil, zero value otherwise.
+
+### GetPulpLastUpdatedOk
+
+`func (o *AnsibleGitRemoteResponse) GetPulpLastUpdatedOk() (*time.Time, bool)`
+
+GetPulpLastUpdatedOk returns a tuple with the PulpLastUpdated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPulpLastUpdated
+
+`func (o *AnsibleGitRemoteResponse) SetPulpLastUpdated(v time.Time)`
+
+SetPulpLastUpdated sets PulpLastUpdated field to given value.
+
+### HasPulpLastUpdated
+
+`func (o *AnsibleGitRemoteResponse) HasPulpLastUpdated() bool`
+
+HasPulpLastUpdated returns a boolean if a field has been set.
+
+### GetRateLimit
+
+`func (o *AnsibleGitRemoteResponse) GetRateLimit() int32`
+
+GetRateLimit returns the RateLimit field if non-nil, zero value otherwise.
+
+### GetRateLimitOk
+
+`func (o *AnsibleGitRemoteResponse) GetRateLimitOk() (*int32, bool)`
+
+GetRateLimitOk returns a tuple with the RateLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRateLimit
+
+`func (o *AnsibleGitRemoteResponse) SetRateLimit(v int32)`
+
+SetRateLimit sets RateLimit field to given value.
+
+### HasRateLimit
+
+`func (o *AnsibleGitRemoteResponse) HasRateLimit() bool`
+
+HasRateLimit returns a boolean if a field has been set.
+
+### SetRateLimitNil
+
+`func (o *AnsibleGitRemoteResponse) SetRateLimitNil(b bool)`
+
+ SetRateLimitNil sets the value for RateLimit to be an explicit nil
+
+### UnsetRateLimit
+`func (o *AnsibleGitRemoteResponse) UnsetRateLimit()`
+
+UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
+### GetPulpCreated
+
+`func (o *AnsibleGitRemoteResponse) GetPulpCreated() time.Time`
+
+GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
+
+### GetPulpCreatedOk
+
+`func (o *AnsibleGitRemoteResponse) GetPulpCreatedOk() (*time.Time, bool)`
+
+GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPulpCreated
+
+`func (o *AnsibleGitRemoteResponse) SetPulpCreated(v time.Time)`
+
+SetPulpCreated sets PulpCreated field to given value.
+
+### HasPulpCreated
+
+`func (o *AnsibleGitRemoteResponse) HasPulpCreated() bool`
+
+HasPulpCreated returns a boolean if a field has been set.
+
+### GetClientCert
+
+`func (o *AnsibleGitRemoteResponse) GetClientCert() string`
+
+GetClientCert returns the ClientCert field if non-nil, zero value otherwise.
+
+### GetClientCertOk
+
+`func (o *AnsibleGitRemoteResponse) GetClientCertOk() (*string, bool)`
+
+GetClientCertOk returns a tuple with the ClientCert field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClientCert
+
+`func (o *AnsibleGitRemoteResponse) SetClientCert(v string)`
+
+SetClientCert sets ClientCert field to given value.
+
+### HasClientCert
+
+`func (o *AnsibleGitRemoteResponse) HasClientCert() bool`
+
+HasClientCert returns a boolean if a field has been set.
+
+### SetClientCertNil
+
+`func (o *AnsibleGitRemoteResponse) SetClientCertNil(b bool)`
+
+ SetClientCertNil sets the value for ClientCert to be an explicit nil
+
+### UnsetClientCert
+`func (o *AnsibleGitRemoteResponse) UnsetClientCert()`
+
+UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
 ### GetPulpHref
 
 `func (o *AnsibleGitRemoteResponse) GetPulpHref() string`
@@ -400,65 +305,30 @@ SetPulpHref sets PulpHref field to given value.
 
 HasPulpHref returns a boolean if a field has been set.
 
-### GetSockReadTimeout
+### GetHeaders
 
-`func (o *AnsibleGitRemoteResponse) GetSockReadTimeout() float64`
+`func (o *AnsibleGitRemoteResponse) GetHeaders() []map[string]interface{}`
 
-GetSockReadTimeout returns the SockReadTimeout field if non-nil, zero value otherwise.
+GetHeaders returns the Headers field if non-nil, zero value otherwise.
 
-### GetSockReadTimeoutOk
+### GetHeadersOk
 
-`func (o *AnsibleGitRemoteResponse) GetSockReadTimeoutOk() (*float64, bool)`
+`func (o *AnsibleGitRemoteResponse) GetHeadersOk() (*[]map[string]interface{}, bool)`
 
-GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field if it's non-nil, zero value otherwise
+GetHeadersOk returns a tuple with the Headers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSockReadTimeout
+### SetHeaders
 
-`func (o *AnsibleGitRemoteResponse) SetSockReadTimeout(v float64)`
+`func (o *AnsibleGitRemoteResponse) SetHeaders(v []map[string]interface{})`
 
-SetSockReadTimeout sets SockReadTimeout field to given value.
+SetHeaders sets Headers field to given value.
 
-### HasSockReadTimeout
+### HasHeaders
 
-`func (o *AnsibleGitRemoteResponse) HasSockReadTimeout() bool`
+`func (o *AnsibleGitRemoteResponse) HasHeaders() bool`
 
-HasSockReadTimeout returns a boolean if a field has been set.
-
-### SetSockReadTimeoutNil
-
-`func (o *AnsibleGitRemoteResponse) SetSockReadTimeoutNil(b bool)`
-
- SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
-
-### UnsetSockReadTimeout
-`func (o *AnsibleGitRemoteResponse) UnsetSockReadTimeout()`
-
-UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
-### GetHiddenFields
-
-`func (o *AnsibleGitRemoteResponse) GetHiddenFields() []RemoteResponseHiddenFieldsInner`
-
-GetHiddenFields returns the HiddenFields field if non-nil, zero value otherwise.
-
-### GetHiddenFieldsOk
-
-`func (o *AnsibleGitRemoteResponse) GetHiddenFieldsOk() (*[]RemoteResponseHiddenFieldsInner, bool)`
-
-GetHiddenFieldsOk returns a tuple with the HiddenFields field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHiddenFields
-
-`func (o *AnsibleGitRemoteResponse) SetHiddenFields(v []RemoteResponseHiddenFieldsInner)`
-
-SetHiddenFields sets HiddenFields field to given value.
-
-### HasHiddenFields
-
-`func (o *AnsibleGitRemoteResponse) HasHiddenFields() bool`
-
-HasHiddenFields returns a boolean if a field has been set.
+HasHeaders returns a boolean if a field has been set.
 
 ### GetProxyUrl
 
@@ -495,41 +365,76 @@ HasProxyUrl returns a boolean if a field has been set.
 `func (o *AnsibleGitRemoteResponse) UnsetProxyUrl()`
 
 UnsetProxyUrl ensures that no value is present for ProxyUrl, not even an explicit nil
-### GetRateLimit
+### GetMaxRetries
 
-`func (o *AnsibleGitRemoteResponse) GetRateLimit() int32`
+`func (o *AnsibleGitRemoteResponse) GetMaxRetries() int32`
 
-GetRateLimit returns the RateLimit field if non-nil, zero value otherwise.
+GetMaxRetries returns the MaxRetries field if non-nil, zero value otherwise.
 
-### GetRateLimitOk
+### GetMaxRetriesOk
 
-`func (o *AnsibleGitRemoteResponse) GetRateLimitOk() (*int32, bool)`
+`func (o *AnsibleGitRemoteResponse) GetMaxRetriesOk() (*int32, bool)`
 
-GetRateLimitOk returns a tuple with the RateLimit field if it's non-nil, zero value otherwise
+GetMaxRetriesOk returns a tuple with the MaxRetries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRateLimit
+### SetMaxRetries
 
-`func (o *AnsibleGitRemoteResponse) SetRateLimit(v int32)`
+`func (o *AnsibleGitRemoteResponse) SetMaxRetries(v int32)`
 
-SetRateLimit sets RateLimit field to given value.
+SetMaxRetries sets MaxRetries field to given value.
 
-### HasRateLimit
+### HasMaxRetries
 
-`func (o *AnsibleGitRemoteResponse) HasRateLimit() bool`
+`func (o *AnsibleGitRemoteResponse) HasMaxRetries() bool`
 
-HasRateLimit returns a boolean if a field has been set.
+HasMaxRetries returns a boolean if a field has been set.
 
-### SetRateLimitNil
+### SetMaxRetriesNil
 
-`func (o *AnsibleGitRemoteResponse) SetRateLimitNil(b bool)`
+`func (o *AnsibleGitRemoteResponse) SetMaxRetriesNil(b bool)`
 
- SetRateLimitNil sets the value for RateLimit to be an explicit nil
+ SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
 
-### UnsetRateLimit
-`func (o *AnsibleGitRemoteResponse) UnsetRateLimit()`
+### UnsetMaxRetries
+`func (o *AnsibleGitRemoteResponse) UnsetMaxRetries()`
 
-UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
+UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
+### GetTotalTimeout
+
+`func (o *AnsibleGitRemoteResponse) GetTotalTimeout() float64`
+
+GetTotalTimeout returns the TotalTimeout field if non-nil, zero value otherwise.
+
+### GetTotalTimeoutOk
+
+`func (o *AnsibleGitRemoteResponse) GetTotalTimeoutOk() (*float64, bool)`
+
+GetTotalTimeoutOk returns a tuple with the TotalTimeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalTimeout
+
+`func (o *AnsibleGitRemoteResponse) SetTotalTimeout(v float64)`
+
+SetTotalTimeout sets TotalTimeout field to given value.
+
+### HasTotalTimeout
+
+`func (o *AnsibleGitRemoteResponse) HasTotalTimeout() bool`
+
+HasTotalTimeout returns a boolean if a field has been set.
+
+### SetTotalTimeoutNil
+
+`func (o *AnsibleGitRemoteResponse) SetTotalTimeoutNil(b bool)`
+
+ SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
+
+### UnsetTotalTimeout
+`func (o *AnsibleGitRemoteResponse) UnsetTotalTimeout()`
+
+UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
 ### GetDownloadConcurrency
 
 `func (o *AnsibleGitRemoteResponse) GetDownloadConcurrency() int32`
@@ -590,26 +495,121 @@ SetTlsValidation sets TlsValidation field to given value.
 
 HasTlsValidation returns a boolean if a field has been set.
 
-### GetUrl
+### GetName
 
-`func (o *AnsibleGitRemoteResponse) GetUrl() string`
+`func (o *AnsibleGitRemoteResponse) GetName() string`
 
-GetUrl returns the Url field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetUrlOk
+### GetNameOk
 
-`func (o *AnsibleGitRemoteResponse) GetUrlOk() (*string, bool)`
+`func (o *AnsibleGitRemoteResponse) GetNameOk() (*string, bool)`
 
-GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUrl
+### SetName
 
-`func (o *AnsibleGitRemoteResponse) SetUrl(v string)`
+`func (o *AnsibleGitRemoteResponse) SetName(v string)`
 
-SetUrl sets Url field to given value.
+SetName sets Name field to given value.
 
 
+### GetHiddenFields
+
+`func (o *AnsibleGitRemoteResponse) GetHiddenFields() []RemoteResponseHiddenFieldsInner`
+
+GetHiddenFields returns the HiddenFields field if non-nil, zero value otherwise.
+
+### GetHiddenFieldsOk
+
+`func (o *AnsibleGitRemoteResponse) GetHiddenFieldsOk() (*[]RemoteResponseHiddenFieldsInner, bool)`
+
+GetHiddenFieldsOk returns a tuple with the HiddenFields field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHiddenFields
+
+`func (o *AnsibleGitRemoteResponse) SetHiddenFields(v []RemoteResponseHiddenFieldsInner)`
+
+SetHiddenFields sets HiddenFields field to given value.
+
+### HasHiddenFields
+
+`func (o *AnsibleGitRemoteResponse) HasHiddenFields() bool`
+
+HasHiddenFields returns a boolean if a field has been set.
+
+### GetSockReadTimeout
+
+`func (o *AnsibleGitRemoteResponse) GetSockReadTimeout() float64`
+
+GetSockReadTimeout returns the SockReadTimeout field if non-nil, zero value otherwise.
+
+### GetSockReadTimeoutOk
+
+`func (o *AnsibleGitRemoteResponse) GetSockReadTimeoutOk() (*float64, bool)`
+
+GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSockReadTimeout
+
+`func (o *AnsibleGitRemoteResponse) SetSockReadTimeout(v float64)`
+
+SetSockReadTimeout sets SockReadTimeout field to given value.
+
+### HasSockReadTimeout
+
+`func (o *AnsibleGitRemoteResponse) HasSockReadTimeout() bool`
+
+HasSockReadTimeout returns a boolean if a field has been set.
+
+### SetSockReadTimeoutNil
+
+`func (o *AnsibleGitRemoteResponse) SetSockReadTimeoutNil(b bool)`
+
+ SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
+
+### UnsetSockReadTimeout
+`func (o *AnsibleGitRemoteResponse) UnsetSockReadTimeout()`
+
+UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
+### GetConnectTimeout
+
+`func (o *AnsibleGitRemoteResponse) GetConnectTimeout() float64`
+
+GetConnectTimeout returns the ConnectTimeout field if non-nil, zero value otherwise.
+
+### GetConnectTimeoutOk
+
+`func (o *AnsibleGitRemoteResponse) GetConnectTimeoutOk() (*float64, bool)`
+
+GetConnectTimeoutOk returns a tuple with the ConnectTimeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectTimeout
+
+`func (o *AnsibleGitRemoteResponse) SetConnectTimeout(v float64)`
+
+SetConnectTimeout sets ConnectTimeout field to given value.
+
+### HasConnectTimeout
+
+`func (o *AnsibleGitRemoteResponse) HasConnectTimeout() bool`
+
+HasConnectTimeout returns a boolean if a field has been set.
+
+### SetConnectTimeoutNil
+
+`func (o *AnsibleGitRemoteResponse) SetConnectTimeoutNil(b bool)`
+
+ SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
+
+### UnsetConnectTimeout
+`func (o *AnsibleGitRemoteResponse) UnsetConnectTimeout()`
+
+UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
 ### GetMetadataOnly
 
 `func (o *AnsibleGitRemoteResponse) GetMetadataOnly() bool`

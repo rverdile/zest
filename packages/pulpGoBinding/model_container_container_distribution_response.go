@@ -21,18 +21,18 @@ var _ MappedNullable = &ContainerContainerDistributionResponse{}
 
 // ContainerContainerDistributionResponse A serializer for ContainerDistribution.
 type ContainerContainerDistributionResponse struct {
-	PulpHref *string `json:"pulp_href,omitempty"`
 	// An optional content-guard. If none is specified, a default one will be used.
 	ContentGuard *string `json:"content_guard,omitempty"`
+	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// The latest RepositoryVersion for this Repository will be served.
 	Repository NullableString `json:"repository,omitempty"`
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
-	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// A unique name. Ex, `rawhide` and `stable`.
 	Name string `json:"name"`
 	// The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \"foo\" and \"foo/bar\")
 	BasePath string `json:"base_path"`
+	PulpHref *string `json:"pulp_href,omitempty"`
 	// RepositoryVersion to be served
 	RepositoryVersion NullableString `json:"repository_version,omitempty"`
 	// The Registry hostname/name/ to use with docker pull command defined by this distribution.
@@ -62,38 +62,6 @@ func NewContainerContainerDistributionResponse(name string, basePath string) *Co
 func NewContainerContainerDistributionResponseWithDefaults() *ContainerContainerDistributionResponse {
 	this := ContainerContainerDistributionResponse{}
 	return &this
-}
-
-// GetPulpHref returns the PulpHref field value if set, zero value otherwise.
-func (o *ContainerContainerDistributionResponse) GetPulpHref() string {
-	if o == nil || IsNil(o.PulpHref) {
-		var ret string
-		return ret
-	}
-	return *o.PulpHref
-}
-
-// GetPulpHrefOk returns a tuple with the PulpHref field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContainerContainerDistributionResponse) GetPulpHrefOk() (*string, bool) {
-	if o == nil || IsNil(o.PulpHref) {
-		return nil, false
-	}
-	return o.PulpHref, true
-}
-
-// HasPulpHref returns a boolean if a field has been set.
-func (o *ContainerContainerDistributionResponse) HasPulpHref() bool {
-	if o != nil && !IsNil(o.PulpHref) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
-func (o *ContainerContainerDistributionResponse) SetPulpHref(v string) {
-	o.PulpHref = &v
 }
 
 // GetContentGuard returns the ContentGuard field value if set, zero value otherwise.
@@ -126,6 +94,38 @@ func (o *ContainerContainerDistributionResponse) HasContentGuard() bool {
 // SetContentGuard gets a reference to the given string and assigns it to the ContentGuard field.
 func (o *ContainerContainerDistributionResponse) SetContentGuard(v string) {
 	o.ContentGuard = &v
+}
+
+// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
+func (o *ContainerContainerDistributionResponse) GetPulpLabels() map[string]string {
+	if o == nil || IsNil(o.PulpLabels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.PulpLabels
+}
+
+// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerContainerDistributionResponse) GetPulpLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.PulpLabels) {
+		return nil, false
+	}
+	return o.PulpLabels, true
+}
+
+// HasPulpLabels returns a boolean if a field has been set.
+func (o *ContainerContainerDistributionResponse) HasPulpLabels() bool {
+	if o != nil && !IsNil(o.PulpLabels) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
+func (o *ContainerContainerDistributionResponse) SetPulpLabels(v map[string]string) {
+	o.PulpLabels = &v
 }
 
 // GetRepository returns the Repository field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -202,38 +202,6 @@ func (o *ContainerContainerDistributionResponse) SetPulpCreated(v time.Time) {
 	o.PulpCreated = &v
 }
 
-// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
-func (o *ContainerContainerDistributionResponse) GetPulpLabels() map[string]string {
-	if o == nil || IsNil(o.PulpLabels) {
-		var ret map[string]string
-		return ret
-	}
-	return *o.PulpLabels
-}
-
-// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContainerContainerDistributionResponse) GetPulpLabelsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.PulpLabels) {
-		return nil, false
-	}
-	return o.PulpLabels, true
-}
-
-// HasPulpLabels returns a boolean if a field has been set.
-func (o *ContainerContainerDistributionResponse) HasPulpLabels() bool {
-	if o != nil && !IsNil(o.PulpLabels) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
-func (o *ContainerContainerDistributionResponse) SetPulpLabels(v map[string]string) {
-	o.PulpLabels = &v
-}
-
 // GetName returns the Name field value
 func (o *ContainerContainerDistributionResponse) GetName() string {
 	if o == nil {
@@ -280,6 +248,38 @@ func (o *ContainerContainerDistributionResponse) GetBasePathOk() (*string, bool)
 // SetBasePath sets field value
 func (o *ContainerContainerDistributionResponse) SetBasePath(v string) {
 	o.BasePath = v
+}
+
+// GetPulpHref returns the PulpHref field value if set, zero value otherwise.
+func (o *ContainerContainerDistributionResponse) GetPulpHref() string {
+	if o == nil || IsNil(o.PulpHref) {
+		var ret string
+		return ret
+	}
+	return *o.PulpHref
+}
+
+// GetPulpHrefOk returns a tuple with the PulpHref field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerContainerDistributionResponse) GetPulpHrefOk() (*string, bool) {
+	if o == nil || IsNil(o.PulpHref) {
+		return nil, false
+	}
+	return o.PulpHref, true
+}
+
+// HasPulpHref returns a boolean if a field has been set.
+func (o *ContainerContainerDistributionResponse) HasPulpHref() bool {
+	if o != nil && !IsNil(o.PulpHref) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
+func (o *ContainerContainerDistributionResponse) SetPulpHref(v string) {
+	o.PulpHref = &v
 }
 
 // GetRepositoryVersion returns the RepositoryVersion field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -472,19 +472,19 @@ func (o ContainerContainerDistributionResponse) MarshalJSON() ([]byte, error) {
 
 func (o ContainerContainerDistributionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
 	if !IsNil(o.ContentGuard) {
 		toSerialize["content_guard"] = o.ContentGuard
+	}
+	if !IsNil(o.PulpLabels) {
+		toSerialize["pulp_labels"] = o.PulpLabels
 	}
 	if o.Repository.IsSet() {
 		toSerialize["repository"] = o.Repository.Get()
 	}
 	// skip: pulp_created is readOnly
-	if !IsNil(o.PulpLabels) {
-		toSerialize["pulp_labels"] = o.PulpLabels
-	}
 	toSerialize["name"] = o.Name
 	toSerialize["base_path"] = o.BasePath
+	// skip: pulp_href is readOnly
 	if o.RepositoryVersion.IsSet() {
 		toSerialize["repository_version"] = o.RepositoryVersion.Get()
 	}

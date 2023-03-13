@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **NullableString** | An optional description. | [optional] 
-**RetainRepoVersions** | Pointer to **NullableInt32** | Retain X versions of the repository. Default is null which retains all versions. This is provided as a tech preview in Pulp 3 and may change in the future. | [optional] 
-**ManifestSigningService** | Pointer to **NullableString** | A reference to an associated signing service. | [optional] 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
+**RetainRepoVersions** | Pointer to **NullableInt32** | Retain X versions of the repository. Default is null which retains all versions. This is provided as a tech preview in Pulp 3 and may change in the future. | [optional] 
 **Name** | **string** | A unique name for this repository. | 
+**ManifestSigningService** | Pointer to **NullableString** | A reference to an associated signing service. | [optional] 
+**Description** | Pointer to **NullableString** | An optional description. | [optional] 
 
 ## Methods
 
@@ -29,41 +29,31 @@ NewContainerContainerPushRepositoryWithDefaults instantiates a new ContainerCont
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDescription
+### GetPulpLabels
 
-`func (o *ContainerContainerPushRepository) GetDescription() string`
+`func (o *ContainerContainerPushRepository) GetPulpLabels() map[string]string`
 
-GetDescription returns the Description field if non-nil, zero value otherwise.
+GetPulpLabels returns the PulpLabels field if non-nil, zero value otherwise.
 
-### GetDescriptionOk
+### GetPulpLabelsOk
 
-`func (o *ContainerContainerPushRepository) GetDescriptionOk() (*string, bool)`
+`func (o *ContainerContainerPushRepository) GetPulpLabelsOk() (*map[string]string, bool)`
 
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+GetPulpLabelsOk returns a tuple with the PulpLabels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDescription
+### SetPulpLabels
 
-`func (o *ContainerContainerPushRepository) SetDescription(v string)`
+`func (o *ContainerContainerPushRepository) SetPulpLabels(v map[string]string)`
 
-SetDescription sets Description field to given value.
+SetPulpLabels sets PulpLabels field to given value.
 
-### HasDescription
+### HasPulpLabels
 
-`func (o *ContainerContainerPushRepository) HasDescription() bool`
+`func (o *ContainerContainerPushRepository) HasPulpLabels() bool`
 
-HasDescription returns a boolean if a field has been set.
+HasPulpLabels returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *ContainerContainerPushRepository) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *ContainerContainerPushRepository) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetRetainRepoVersions
 
 `func (o *ContainerContainerPushRepository) GetRetainRepoVersions() int32`
@@ -99,6 +89,26 @@ HasRetainRepoVersions returns a boolean if a field has been set.
 `func (o *ContainerContainerPushRepository) UnsetRetainRepoVersions()`
 
 UnsetRetainRepoVersions ensures that no value is present for RetainRepoVersions, not even an explicit nil
+### GetName
+
+`func (o *ContainerContainerPushRepository) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ContainerContainerPushRepository) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ContainerContainerPushRepository) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
 ### GetManifestSigningService
 
 `func (o *ContainerContainerPushRepository) GetManifestSigningService() string`
@@ -134,51 +144,41 @@ HasManifestSigningService returns a boolean if a field has been set.
 `func (o *ContainerContainerPushRepository) UnsetManifestSigningService()`
 
 UnsetManifestSigningService ensures that no value is present for ManifestSigningService, not even an explicit nil
-### GetPulpLabels
+### GetDescription
 
-`func (o *ContainerContainerPushRepository) GetPulpLabels() map[string]string`
+`func (o *ContainerContainerPushRepository) GetDescription() string`
 
-GetPulpLabels returns the PulpLabels field if non-nil, zero value otherwise.
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-### GetPulpLabelsOk
+### GetDescriptionOk
 
-`func (o *ContainerContainerPushRepository) GetPulpLabelsOk() (*map[string]string, bool)`
+`func (o *ContainerContainerPushRepository) GetDescriptionOk() (*string, bool)`
 
-GetPulpLabelsOk returns a tuple with the PulpLabels field if it's non-nil, zero value otherwise
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPulpLabels
+### SetDescription
 
-`func (o *ContainerContainerPushRepository) SetPulpLabels(v map[string]string)`
+`func (o *ContainerContainerPushRepository) SetDescription(v string)`
 
-SetPulpLabels sets PulpLabels field to given value.
+SetDescription sets Description field to given value.
 
-### HasPulpLabels
+### HasDescription
 
-`func (o *ContainerContainerPushRepository) HasPulpLabels() bool`
+`func (o *ContainerContainerPushRepository) HasDescription() bool`
 
-HasPulpLabels returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
 
-### GetName
+### SetDescriptionNil
 
-`func (o *ContainerContainerPushRepository) GetName() string`
+`func (o *ContainerContainerPushRepository) SetDescriptionNil(b bool)`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+ SetDescriptionNil sets the value for Description to be an explicit nil
 
-### GetNameOk
+### UnsetDescription
+`func (o *ContainerContainerPushRepository) UnsetDescription()`
 
-`func (o *ContainerContainerPushRepository) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *ContainerContainerPushRepository) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
