@@ -1,9 +1,9 @@
 name: Update pulp binding if new release
 on:
-  schedule:
-  - cron: "0 7 * * *"
+   schedule:
+    - cron: "0 7 * * *"
 jobs:
-  docker:
+  CheckLatestVersionAndRun:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
@@ -23,26 +23,30 @@ jobs:
         run: echo "PULP_TAG=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
-      - name: Compare latest pulp release against latest build release
-        if: ${{ steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag }}
+      - name: Update version
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: echo "New pulp version available >> ${{ steps.pulpRelease.outputs.PULP_TAG }}! (Current build version ${{ steps.repoRelease.outputs.tag }})"
 
       - name: Setup docker compose
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         uses: isbang/compose-action@v1.4.1
         with:
           compose-file: ./docker/docker-compose.yml
           down-flags: --volumes
 
       - name: Remove old files
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           rm -rf packages/
 
       - name: Wait for pulp
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           docker run --network=host --rm -v ${PWD}:/local curlimages/curl  \
             curl --retry-all-errors --retry-delay 10 --retry 32 --retry-max-time 240 http://localhost:8080/pulp/api/v3/docs/api.json    
 
       - name: Build binding
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           curl http://localhost:8080/pulp/api/v3/docs/api.json > pulp_api.json
           patch -p0 < pulp_api.patch
@@ -57,6 +61,7 @@ jobs:
           -p packageVersion=v${{ steps.pulpRelease.outputs.PULP_TAG }}
 
       - name: Commit new client
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           git config --global user.name ${{secrets.GIT_USER_NAME}}
           git config --global user.email ${{secrets.GIT_USER_EMAIL}}
@@ -65,7 +70,8 @@ jobs:
           git push
 
       # This pushes an update and release after build <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-      - name: Tag and Release ${{ steps.pulpRelease.outputs.PULP_TAG }}
+      - name: Tag and Release version
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         uses: avakar/tag-and-release@v1
         with:
           tag_name: ${{ steps.pulpRelease.outputs.PULP_TAG }}
