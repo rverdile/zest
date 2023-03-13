@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
+**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
 **Sha256** | Pointer to **string** | The SHA-256 checksum if available. | [optional] [readonly] 
 **Md5** | Pointer to **string** | The MD5 checksum if available. | [optional] [readonly] 
 **Sha1** | Pointer to **string** | The SHA-1 checksum if available. | [optional] [readonly] 
@@ -50,31 +50,6 @@ will change when the set of required properties is changed
 NewAnsibleCollectionVersionResponseWithDefaults instantiates a new AnsibleCollectionVersionResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetArtifact
-
-`func (o *AnsibleCollectionVersionResponse) GetArtifact() string`
-
-GetArtifact returns the Artifact field if non-nil, zero value otherwise.
-
-### GetArtifactOk
-
-`func (o *AnsibleCollectionVersionResponse) GetArtifactOk() (*string, bool)`
-
-GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetArtifact
-
-`func (o *AnsibleCollectionVersionResponse) SetArtifact(v string)`
-
-SetArtifact sets Artifact field to given value.
-
-### HasArtifact
-
-`func (o *AnsibleCollectionVersionResponse) HasArtifact() bool`
-
-HasArtifact returns a boolean if a field has been set.
 
 ### GetPulpCreated
 
@@ -125,6 +100,31 @@ SetPulpHref sets PulpHref field to given value.
 `func (o *AnsibleCollectionVersionResponse) HasPulpHref() bool`
 
 HasPulpHref returns a boolean if a field has been set.
+
+### GetArtifact
+
+`func (o *AnsibleCollectionVersionResponse) GetArtifact() string`
+
+GetArtifact returns the Artifact field if non-nil, zero value otherwise.
+
+### GetArtifactOk
+
+`func (o *AnsibleCollectionVersionResponse) GetArtifactOk() (*string, bool)`
+
+GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArtifact
+
+`func (o *AnsibleCollectionVersionResponse) SetArtifact(v string)`
+
+SetArtifact sets Artifact field to given value.
+
+### HasArtifact
+
+`func (o *AnsibleCollectionVersionResponse) HasArtifact() bool`
+
+HasArtifact returns a boolean if a field has been set.
 
 ### GetSha256
 

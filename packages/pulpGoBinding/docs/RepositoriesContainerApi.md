@@ -43,7 +43,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -115,7 +115,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -187,7 +187,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -265,7 +265,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -337,7 +337,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -409,7 +409,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -475,7 +475,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -545,7 +545,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -633,7 +633,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -707,7 +707,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -781,7 +781,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -853,7 +853,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -927,7 +927,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -999,7 +999,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -1071,7 +1071,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -1143,7 +1143,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -1215,7 +1215,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -1287,7 +1287,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -1359,7 +1359,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {

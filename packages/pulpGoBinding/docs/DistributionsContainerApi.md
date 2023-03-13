@@ -34,7 +34,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -106,11 +106,11 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
-    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("Name_example", "BasePath_example") // ContainerContainerDistribution | 
+    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("BasePath_example", "Name_example") // ContainerContainerDistribution | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -172,7 +172,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -242,7 +242,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -340,7 +340,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -414,7 +414,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -488,7 +488,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -560,7 +560,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -634,7 +634,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
@@ -706,12 +706,12 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/pulpGoBinding/packages/pulpGoBinding"
+    openapiclient "github.com/content-services/zest/packages/pulpGoBinding"
 )
 
 func main() {
     containerContainerDistributionHref := "containerContainerDistributionHref_example" // string | 
-    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("Name_example", "BasePath_example") // ContainerContainerDistribution | 
+    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("BasePath_example", "Name_example") // ContainerContainerDistribution | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
