@@ -55,8 +55,8 @@ jobs:
           -i /local/pulp_api.json \
           -t /local/templates/ \
           -g go \
-          -o /local/packages/pulpGoBinding --minimal-update --skip-validate-spec \
-          --git-user-id=content-services --git-repo-id=zest/packages/pulpGoBinding \
+          -o /local/release --minimal-update --skip-validate-spec \
+          --git-user-id=content-services --git-repo-id=zest/release \
           --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=v${{ steps.pulpRelease.outputs.PULP_TAG }}
