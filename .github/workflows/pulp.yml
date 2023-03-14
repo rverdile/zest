@@ -59,9 +59,10 @@ jobs:
           --git-user-id=content-services --git-repo-id=zest/release \
           --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
-          -p packageVersion=v${{ steps.pulpRelease.outputs.PULP_TAG }}
+          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
 
       - name: Commit new client
+        id: commit
         if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           git config --global user.name ${{secrets.GIT_USER_NAME}}
@@ -69,12 +70,15 @@ jobs:
           git add release/
           git commit -am "Update pulp bindings to ${{ steps.pulpRelease.outputs.PULP_TAG }}"
           git push
+          echo "NEW_SHA=`git rev-parse HEAD`" >> $GITHUB_OUTPUT
 
       # This pushes an update and release after build <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       - name: Tag and Release version
         if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         uses: avakar/tag-and-release@v1
-        with:
+        with: 
+          commit: ${{steps.commit.outputs.NEW_SHA}}
           tag_name: ${{ steps.pulpRelease.outputs.PULP_TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
