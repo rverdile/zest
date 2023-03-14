@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Environment id. | 
 **Name** | **string** | Environment name. | 
 **Description** | **string** | Environment description. | 
-**DisplayOrder** | **NullableInt32** | Environment display order. | 
+**DisplayOrder** | **NullableInt64** | Environment display order. | 
 **GroupIds** | **map[string]interface{}** | Environment group list. | 
 **OptionIds** | **map[string]interface{}** | Environment option ids | 
 **DescByLang** | **map[string]interface{}** | Environment description by language. | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewRpmPackageEnvironmentResponse
 
-`func NewRpmPackageEnvironmentResponse(id string, name string, description string, displayOrder NullableInt32, groupIds map[string]interface{}, optionIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string, ) *RpmPackageEnvironmentResponse`
+`func NewRpmPackageEnvironmentResponse(id string, name string, description string, displayOrder NullableInt64, groupIds map[string]interface{}, optionIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string, ) *RpmPackageEnvironmentResponse`
 
 NewRpmPackageEnvironmentResponse instantiates a new RpmPackageEnvironmentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -147,20 +147,20 @@ SetDescription sets Description field to given value.
 
 ### GetDisplayOrder
 
-`func (o *RpmPackageEnvironmentResponse) GetDisplayOrder() int32`
+`func (o *RpmPackageEnvironmentResponse) GetDisplayOrder() int64`
 
 GetDisplayOrder returns the DisplayOrder field if non-nil, zero value otherwise.
 
 ### GetDisplayOrderOk
 
-`func (o *RpmPackageEnvironmentResponse) GetDisplayOrderOk() (*int32, bool)`
+`func (o *RpmPackageEnvironmentResponse) GetDisplayOrderOk() (*int64, bool)`
 
 GetDisplayOrderOk returns a tuple with the DisplayOrder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisplayOrder
 
-`func (o *RpmPackageEnvironmentResponse) SetDisplayOrder(v int32)`
+`func (o *RpmPackageEnvironmentResponse) SetDisplayOrder(v int64)`
 
 SetDisplayOrder sets DisplayOrder field to given value.
 

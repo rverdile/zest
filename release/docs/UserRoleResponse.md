@@ -7,9 +7,10 @@ Name | Type | Description | Notes
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Role** | **string** |  | 
-**ContentObject** | **NullableString** | pulp_href of the object for which role permissions should be asserted. If set to &#39;null&#39;, permissions will act on the model-level. | 
+**ContentObject** | **NullableString** | pulp_href of the object for which role permissions should be asserted. If set to &#39;null&#39;, permissions will act on either domain or model-level. | 
 **Description** | Pointer to **string** |  | [optional] [readonly] 
 **Permissions** | Pointer to **[]string** |  | [optional] [readonly] 
+**Domain** | Pointer to **NullableString** | Domain this role should be applied on, mutually exclusive with content_object. | [optional] 
 
 ## Methods
 
@@ -180,6 +181,41 @@ SetPermissions sets Permissions field to given value.
 
 HasPermissions returns a boolean if a field has been set.
 
+### GetDomain
+
+`func (o *UserRoleResponse) GetDomain() string`
+
+GetDomain returns the Domain field if non-nil, zero value otherwise.
+
+### GetDomainOk
+
+`func (o *UserRoleResponse) GetDomainOk() (*string, bool)`
+
+GetDomainOk returns a tuple with the Domain field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomain
+
+`func (o *UserRoleResponse) SetDomain(v string)`
+
+SetDomain sets Domain field to given value.
+
+### HasDomain
+
+`func (o *UserRoleResponse) HasDomain() bool`
+
+HasDomain returns a boolean if a field has been set.
+
+### SetDomainNil
+
+`func (o *UserRoleResponse) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *UserRoleResponse) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

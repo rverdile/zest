@@ -27,7 +27,7 @@ type ArtifactResponse struct {
 	// The stored file.
 	File string `json:"file"`
 	// The size of the file in bytes.
-	Size *int32 `json:"size,omitempty"`
+	Size *int64 `json:"size,omitempty"`
 	// The MD5 checksum of the file if available.
 	Md5 NullableString `json:"md5,omitempty"`
 	// The SHA-1 checksum of the file if available.
@@ -149,9 +149,9 @@ func (o *ArtifactResponse) SetFile(v string) {
 }
 
 // GetSize returns the Size field value if set, zero value otherwise.
-func (o *ArtifactResponse) GetSize() int32 {
+func (o *ArtifactResponse) GetSize() int64 {
 	if o == nil || IsNil(o.Size) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Size
@@ -159,7 +159,7 @@ func (o *ArtifactResponse) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ArtifactResponse) GetSizeOk() (*int32, bool) {
+func (o *ArtifactResponse) GetSizeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
@@ -175,8 +175,8 @@ func (o *ArtifactResponse) HasSize() bool {
 	return false
 }
 
-// SetSize gets a reference to the given int32 and assigns it to the Size field.
-func (o *ArtifactResponse) SetSize(v int32) {
+// SetSize gets a reference to the given int64 and assigns it to the Size field.
+func (o *ArtifactResponse) SetSize(v int64) {
 	o.Size = &v
 }
 

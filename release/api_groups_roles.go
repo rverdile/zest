@@ -46,8 +46,6 @@ GroupsRolesCreate Create a group role
 
 ViewSet for GroupRole.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
  @return GroupsRolesApiGroupsRolesCreateRequest
@@ -157,8 +155,6 @@ GroupsRolesDelete Delete a group role
 
 ViewSet for GroupRole.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupsGroupRoleHref
  @return GroupsRolesApiGroupsRolesDeleteRequest
@@ -242,6 +238,7 @@ type GroupsRolesApiGroupsRolesListRequest struct {
 	ApiService *GroupsRolesApiService
 	groupHref string
 	contentObject *string
+	domain *string
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -257,6 +254,12 @@ type GroupsRolesApiGroupsRolesListRequest struct {
 // content_object
 func (r GroupsRolesApiGroupsRolesListRequest) ContentObject(contentObject string) GroupsRolesApiGroupsRolesListRequest {
 	r.contentObject = &contentObject
+	return r
+}
+
+// Foreign Key referenced by HREF
+func (r GroupsRolesApiGroupsRolesListRequest) Domain(domain string) GroupsRolesApiGroupsRolesListRequest {
+	r.domain = &domain
 	return r
 }
 
@@ -325,8 +328,6 @@ GroupsRolesList List group roles
 
 ViewSet for GroupRole.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
  @return GroupsRolesApiGroupsRolesListRequest
@@ -364,6 +365,9 @@ func (a *GroupsRolesApiService) GroupsRolesListExecute(r GroupsRolesApiGroupsRol
 
 	if r.contentObject != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "content_object", r.contentObject, "")
+	}
+	if r.domain != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "")
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
@@ -493,8 +497,6 @@ func (r GroupsRolesApiGroupsRolesReadRequest) Execute() (*GroupRoleResponse, *ht
 GroupsRolesRead Inspect a group role
 
 ViewSet for GroupRole.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupsGroupRoleHref

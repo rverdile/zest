@@ -46,9 +46,9 @@ type RpmDistributionTreeResponse struct {
 	// Relative path to Anaconda stage2 image.
 	Mainimage NullableString `json:"mainimage"`
 	// Disc number.
-	Discnum NullableInt32 `json:"discnum"`
+	Discnum NullableInt64 `json:"discnum"`
 	// Number of discs in media set.
-	Totaldiscs NullableInt32 `json:"totaldiscs"`
+	Totaldiscs NullableInt64 `json:"totaldiscs"`
 	Addons []AddonResponse `json:"addons"`
 	Checksums []ChecksumResponse `json:"checksums"`
 	Images []ImageResponse `json:"images"`
@@ -59,7 +59,7 @@ type RpmDistributionTreeResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRpmDistributionTreeResponse(headerVersion string, releaseName string, releaseShort string, releaseVersion string, releaseIsLayered bool, baseProductName NullableString, baseProductShort NullableString, baseProductVersion NullableString, arch string, buildTimestamp float64, instimage NullableString, mainimage NullableString, discnum NullableInt32, totaldiscs NullableInt32, addons []AddonResponse, checksums []ChecksumResponse, images []ImageResponse, variants []VariantResponse) *RpmDistributionTreeResponse {
+func NewRpmDistributionTreeResponse(headerVersion string, releaseName string, releaseShort string, releaseVersion string, releaseIsLayered bool, baseProductName NullableString, baseProductShort NullableString, baseProductVersion NullableString, arch string, buildTimestamp float64, instimage NullableString, mainimage NullableString, discnum NullableInt64, totaldiscs NullableInt64, addons []AddonResponse, checksums []ChecksumResponse, images []ImageResponse, variants []VariantResponse) *RpmDistributionTreeResponse {
 	this := RpmDistributionTreeResponse{}
 	this.HeaderVersion = headerVersion
 	this.ReleaseName = releaseName
@@ -421,10 +421,10 @@ func (o *RpmDistributionTreeResponse) SetMainimage(v string) {
 }
 
 // GetDiscnum returns the Discnum field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *RpmDistributionTreeResponse) GetDiscnum() int32 {
+// If the value is explicit nil, the zero value for int64 will be returned
+func (o *RpmDistributionTreeResponse) GetDiscnum() int64 {
 	if o == nil || o.Discnum.Get() == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -434,7 +434,7 @@ func (o *RpmDistributionTreeResponse) GetDiscnum() int32 {
 // GetDiscnumOk returns a tuple with the Discnum field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RpmDistributionTreeResponse) GetDiscnumOk() (*int32, bool) {
+func (o *RpmDistributionTreeResponse) GetDiscnumOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -442,15 +442,15 @@ func (o *RpmDistributionTreeResponse) GetDiscnumOk() (*int32, bool) {
 }
 
 // SetDiscnum sets field value
-func (o *RpmDistributionTreeResponse) SetDiscnum(v int32) {
+func (o *RpmDistributionTreeResponse) SetDiscnum(v int64) {
 	o.Discnum.Set(&v)
 }
 
 // GetTotaldiscs returns the Totaldiscs field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *RpmDistributionTreeResponse) GetTotaldiscs() int32 {
+// If the value is explicit nil, the zero value for int64 will be returned
+func (o *RpmDistributionTreeResponse) GetTotaldiscs() int64 {
 	if o == nil || o.Totaldiscs.Get() == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -460,7 +460,7 @@ func (o *RpmDistributionTreeResponse) GetTotaldiscs() int32 {
 // GetTotaldiscsOk returns a tuple with the Totaldiscs field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RpmDistributionTreeResponse) GetTotaldiscsOk() (*int32, bool) {
+func (o *RpmDistributionTreeResponse) GetTotaldiscsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -468,7 +468,7 @@ func (o *RpmDistributionTreeResponse) GetTotaldiscsOk() (*int32, bool) {
 }
 
 // SetTotaldiscs sets field value
-func (o *RpmDistributionTreeResponse) SetTotaldiscs(v int32) {
+func (o *RpmDistributionTreeResponse) SetTotaldiscs(v int64) {
 	o.Totaldiscs.Set(&v)
 }
 

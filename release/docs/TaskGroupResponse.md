@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **Description** | **string** | A description of the task group. | 
 **AllTasksDispatched** | **bool** | Whether all tasks have been spawned for this task group. | 
-**Waiting** | Pointer to **int32** | Number of tasks in the &#39;waiting&#39; state | [optional] [readonly] 
-**Skipped** | Pointer to **int32** | Number of tasks in the &#39;skipped&#39; state | [optional] [readonly] 
-**Running** | Pointer to **int32** | Number of tasks in the &#39;running&#39; state | [optional] [readonly] 
-**Completed** | Pointer to **int32** | Number of tasks in the &#39;completed&#39; state | [optional] [readonly] 
-**Canceled** | Pointer to **int32** | Number of tasks in the &#39;canceled&#39; state | [optional] [readonly] 
-**Failed** | Pointer to **int32** | Number of tasks in the &#39;failed&#39; state | [optional] [readonly] 
-**Canceling** | Pointer to **int32** | Number of tasks in the &#39;canceling&#39; state | [optional] [readonly] 
+**Waiting** | Pointer to **int64** | Number of tasks in the &#39;waiting&#39; state | [optional] [readonly] 
+**Skipped** | Pointer to **int64** | Number of tasks in the &#39;skipped&#39; state | [optional] [readonly] 
+**Running** | Pointer to **int64** | Number of tasks in the &#39;running&#39; state | [optional] [readonly] 
+**Completed** | Pointer to **int64** | Number of tasks in the &#39;completed&#39; state | [optional] [readonly] 
+**Canceled** | Pointer to **int64** | Number of tasks in the &#39;canceled&#39; state | [optional] [readonly] 
+**Failed** | Pointer to **int64** | Number of tasks in the &#39;failed&#39; state | [optional] [readonly] 
+**Canceling** | Pointer to **int64** | Number of tasks in the &#39;canceling&#39; state | [optional] [readonly] 
 **GroupProgressReports** | Pointer to [**[]GroupProgressReportResponse**](GroupProgressReportResponse.md) |  | [optional] [readonly] 
 **Tasks** | Pointer to [**[]MinimalTaskResponse**](MinimalTaskResponse.md) |  | [optional] [readonly] 
 
@@ -103,20 +103,20 @@ SetAllTasksDispatched sets AllTasksDispatched field to given value.
 
 ### GetWaiting
 
-`func (o *TaskGroupResponse) GetWaiting() int32`
+`func (o *TaskGroupResponse) GetWaiting() int64`
 
 GetWaiting returns the Waiting field if non-nil, zero value otherwise.
 
 ### GetWaitingOk
 
-`func (o *TaskGroupResponse) GetWaitingOk() (*int32, bool)`
+`func (o *TaskGroupResponse) GetWaitingOk() (*int64, bool)`
 
 GetWaitingOk returns a tuple with the Waiting field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWaiting
 
-`func (o *TaskGroupResponse) SetWaiting(v int32)`
+`func (o *TaskGroupResponse) SetWaiting(v int64)`
 
 SetWaiting sets Waiting field to given value.
 
@@ -128,20 +128,20 @@ HasWaiting returns a boolean if a field has been set.
 
 ### GetSkipped
 
-`func (o *TaskGroupResponse) GetSkipped() int32`
+`func (o *TaskGroupResponse) GetSkipped() int64`
 
 GetSkipped returns the Skipped field if non-nil, zero value otherwise.
 
 ### GetSkippedOk
 
-`func (o *TaskGroupResponse) GetSkippedOk() (*int32, bool)`
+`func (o *TaskGroupResponse) GetSkippedOk() (*int64, bool)`
 
 GetSkippedOk returns a tuple with the Skipped field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSkipped
 
-`func (o *TaskGroupResponse) SetSkipped(v int32)`
+`func (o *TaskGroupResponse) SetSkipped(v int64)`
 
 SetSkipped sets Skipped field to given value.
 
@@ -153,20 +153,20 @@ HasSkipped returns a boolean if a field has been set.
 
 ### GetRunning
 
-`func (o *TaskGroupResponse) GetRunning() int32`
+`func (o *TaskGroupResponse) GetRunning() int64`
 
 GetRunning returns the Running field if non-nil, zero value otherwise.
 
 ### GetRunningOk
 
-`func (o *TaskGroupResponse) GetRunningOk() (*int32, bool)`
+`func (o *TaskGroupResponse) GetRunningOk() (*int64, bool)`
 
 GetRunningOk returns a tuple with the Running field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRunning
 
-`func (o *TaskGroupResponse) SetRunning(v int32)`
+`func (o *TaskGroupResponse) SetRunning(v int64)`
 
 SetRunning sets Running field to given value.
 
@@ -178,20 +178,20 @@ HasRunning returns a boolean if a field has been set.
 
 ### GetCompleted
 
-`func (o *TaskGroupResponse) GetCompleted() int32`
+`func (o *TaskGroupResponse) GetCompleted() int64`
 
 GetCompleted returns the Completed field if non-nil, zero value otherwise.
 
 ### GetCompletedOk
 
-`func (o *TaskGroupResponse) GetCompletedOk() (*int32, bool)`
+`func (o *TaskGroupResponse) GetCompletedOk() (*int64, bool)`
 
 GetCompletedOk returns a tuple with the Completed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompleted
 
-`func (o *TaskGroupResponse) SetCompleted(v int32)`
+`func (o *TaskGroupResponse) SetCompleted(v int64)`
 
 SetCompleted sets Completed field to given value.
 
@@ -203,20 +203,20 @@ HasCompleted returns a boolean if a field has been set.
 
 ### GetCanceled
 
-`func (o *TaskGroupResponse) GetCanceled() int32`
+`func (o *TaskGroupResponse) GetCanceled() int64`
 
 GetCanceled returns the Canceled field if non-nil, zero value otherwise.
 
 ### GetCanceledOk
 
-`func (o *TaskGroupResponse) GetCanceledOk() (*int32, bool)`
+`func (o *TaskGroupResponse) GetCanceledOk() (*int64, bool)`
 
 GetCanceledOk returns a tuple with the Canceled field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCanceled
 
-`func (o *TaskGroupResponse) SetCanceled(v int32)`
+`func (o *TaskGroupResponse) SetCanceled(v int64)`
 
 SetCanceled sets Canceled field to given value.
 
@@ -228,20 +228,20 @@ HasCanceled returns a boolean if a field has been set.
 
 ### GetFailed
 
-`func (o *TaskGroupResponse) GetFailed() int32`
+`func (o *TaskGroupResponse) GetFailed() int64`
 
 GetFailed returns the Failed field if non-nil, zero value otherwise.
 
 ### GetFailedOk
 
-`func (o *TaskGroupResponse) GetFailedOk() (*int32, bool)`
+`func (o *TaskGroupResponse) GetFailedOk() (*int64, bool)`
 
 GetFailedOk returns a tuple with the Failed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFailed
 
-`func (o *TaskGroupResponse) SetFailed(v int32)`
+`func (o *TaskGroupResponse) SetFailed(v int64)`
 
 SetFailed sets Failed field to given value.
 
@@ -253,20 +253,20 @@ HasFailed returns a boolean if a field has been set.
 
 ### GetCanceling
 
-`func (o *TaskGroupResponse) GetCanceling() int32`
+`func (o *TaskGroupResponse) GetCanceling() int64`
 
 GetCanceling returns the Canceling field if non-nil, zero value otherwise.
 
 ### GetCancelingOk
 
-`func (o *TaskGroupResponse) GetCancelingOk() (*int32, bool)`
+`func (o *TaskGroupResponse) GetCancelingOk() (*int64, bool)`
 
 GetCancelingOk returns a tuple with the Canceling field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCanceling
 
-`func (o *TaskGroupResponse) SetCanceling(v int32)`
+`func (o *TaskGroupResponse) SetCanceling(v int64)`
 
 SetCanceling sets Canceling field to given value.
 

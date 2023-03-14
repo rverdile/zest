@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Role** | **string** |  | 
-**ContentObject** | **NullableString** | pulp_href of the object for which role permissions should be asserted. If set to &#39;null&#39;, permissions will act on the model-level. | 
+**ContentObject** | **NullableString** | pulp_href of the object for which role permissions should be asserted. If set to &#39;null&#39;, permissions will act on either domain or model-level. | 
+**Domain** | Pointer to **NullableString** | Domain this role should be applied on, mutually exclusive with content_object. | [optional] 
 
 ## Methods
 
@@ -76,6 +77,41 @@ SetContentObject sets ContentObject field to given value.
 `func (o *UserRole) UnsetContentObject()`
 
 UnsetContentObject ensures that no value is present for ContentObject, not even an explicit nil
+### GetDomain
+
+`func (o *UserRole) GetDomain() string`
+
+GetDomain returns the Domain field if non-nil, zero value otherwise.
+
+### GetDomainOk
+
+`func (o *UserRole) GetDomainOk() (*string, bool)`
+
+GetDomainOk returns a tuple with the Domain field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomain
+
+`func (o *UserRole) SetDomain(v string)`
+
+SetDomain sets Domain field to given value.
+
+### HasDomain
+
+`func (o *UserRole) HasDomain() bool`
+
+HasDomain returns a boolean if a field has been set.
+
+### SetDomainNil
+
+`func (o *UserRole) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *UserRole) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

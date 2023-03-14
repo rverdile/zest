@@ -31,7 +31,7 @@ type RpmPackageCategoryResponse struct {
 	// Category description.
 	Description string `json:"description"`
 	// Category display order.
-	DisplayOrder NullableInt32 `json:"display_order"`
+	DisplayOrder NullableInt64 `json:"display_order"`
 	// Category group list.
 	GroupIds map[string]interface{} `json:"group_ids"`
 	// Category description by language.
@@ -46,7 +46,7 @@ type RpmPackageCategoryResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRpmPackageCategoryResponse(id string, name string, description string, displayOrder NullableInt32, groupIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string) *RpmPackageCategoryResponse {
+func NewRpmPackageCategoryResponse(id string, name string, description string, displayOrder NullableInt64, groupIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string) *RpmPackageCategoryResponse {
 	this := RpmPackageCategoryResponse{}
 	this.Id = id
 	this.Name = name
@@ -204,10 +204,10 @@ func (o *RpmPackageCategoryResponse) SetDescription(v string) {
 }
 
 // GetDisplayOrder returns the DisplayOrder field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *RpmPackageCategoryResponse) GetDisplayOrder() int32 {
+// If the value is explicit nil, the zero value for int64 will be returned
+func (o *RpmPackageCategoryResponse) GetDisplayOrder() int64 {
 	if o == nil || o.DisplayOrder.Get() == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -217,7 +217,7 @@ func (o *RpmPackageCategoryResponse) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RpmPackageCategoryResponse) GetDisplayOrderOk() (*int32, bool) {
+func (o *RpmPackageCategoryResponse) GetDisplayOrderOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -225,7 +225,7 @@ func (o *RpmPackageCategoryResponse) GetDisplayOrderOk() (*int32, bool) {
 }
 
 // SetDisplayOrder sets field value
-func (o *RpmPackageCategoryResponse) SetDisplayOrder(v int32) {
+func (o *RpmPackageCategoryResponse) SetDisplayOrder(v int64) {
 	o.DisplayOrder.Set(&v)
 }
 

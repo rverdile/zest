@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## DistributionsCoreArtifactsList
 
-> PaginatedArtifactDistributionResponseList DistributionsCoreArtifactsList(ctx).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedArtifactDistributionResponseList DistributionsCoreArtifactsList(ctx).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List artifact distributions
 
@@ -43,13 +43,15 @@ func main() {
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     ordering := []string{"Ordering_example"} // []string | Ordering (optional)
     pulpLabelSelect := "pulpLabelSelect_example" // string | Filter labels by search string (optional)
+    repository := "repository_example" // string | Filter results where repository matches value (optional)
+    repositoryIn := []string{"Inner_example"} // []string | Filter results where repository is in a comma-separated list of values (optional)
     withContent := "withContent_example" // string | Filter distributions based on the content served by them (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
     excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DistributionsArtifactsApi.DistributionsCoreArtifactsList(context.Background()).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.DistributionsArtifactsApi.DistributionsCoreArtifactsList(context.Background()).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DistributionsArtifactsApi.DistributionsCoreArtifactsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -83,6 +85,8 @@ Name | Type | Description  | Notes
  **offset** | **int32** | The initial index from which to return the results. | 
  **ordering** | **[]string** | Ordering | 
  **pulpLabelSelect** | **string** | Filter labels by search string | 
+ **repository** | **string** | Filter results where repository matches value | 
+ **repositoryIn** | **[]string** | Filter results where repository is in a comma-separated list of values | 
  **withContent** | **string** | Filter distributions based on the content served by them | 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 

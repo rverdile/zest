@@ -153,7 +153,7 @@ func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsDeleteRequest
 /*
 ExportersCoreFilesystemExportsDelete Delete a filesystem export
 
-Endpoint for managing FilesystemExports. This endpoint is provided as a tech preview.
+Endpoint for managing FilesystemExports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemFilesystemExportHref
@@ -274,7 +274,7 @@ func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest) 
 /*
 ExportersCoreFilesystemExportsList List filesystem exports
 
-Endpoint for managing FilesystemExports. This endpoint is provided as a tech preview.
+Endpoint for managing FilesystemExports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemExporterHref
@@ -420,7 +420,7 @@ func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest) 
 /*
 ExportersCoreFilesystemExportsRead Inspect a filesystem export
 
-Endpoint for managing FilesystemExports. This endpoint is provided as a tech preview.
+Endpoint for managing FilesystemExports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemFilesystemExportHref

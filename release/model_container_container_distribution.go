@@ -22,13 +22,13 @@ var _ MappedNullable = &ContainerContainerDistribution{}
 type ContainerContainerDistribution struct {
 	// A unique name. Ex, `rawhide` and `stable`.
 	Name string `json:"name"`
-	// The latest RepositoryVersion for this Repository will be served.
-	Repository NullableString `json:"repository,omitempty"`
-	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \"foo\" and \"foo/bar\")
 	BasePath string `json:"base_path"`
 	// An optional content-guard. If none is specified, a default one will be used.
 	ContentGuard *string `json:"content_guard,omitempty"`
+	// The latest RepositoryVersion for this Repository will be served.
+	Repository NullableString `json:"repository,omitempty"`
+	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// RepositoryVersion to be served
 	RepositoryVersion NullableString `json:"repository_version,omitempty"`
 	// Restrict pull access to explicitly authorized users. Defaults to unrestricted pull access.
@@ -78,6 +78,62 @@ func (o *ContainerContainerDistribution) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *ContainerContainerDistribution) SetName(v string) {
 	o.Name = v
+}
+
+// GetBasePath returns the BasePath field value
+func (o *ContainerContainerDistribution) GetBasePath() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.BasePath
+}
+
+// GetBasePathOk returns a tuple with the BasePath field value
+// and a boolean to check if the value has been set.
+func (o *ContainerContainerDistribution) GetBasePathOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BasePath, true
+}
+
+// SetBasePath sets field value
+func (o *ContainerContainerDistribution) SetBasePath(v string) {
+	o.BasePath = v
+}
+
+// GetContentGuard returns the ContentGuard field value if set, zero value otherwise.
+func (o *ContainerContainerDistribution) GetContentGuard() string {
+	if o == nil || IsNil(o.ContentGuard) {
+		var ret string
+		return ret
+	}
+	return *o.ContentGuard
+}
+
+// GetContentGuardOk returns a tuple with the ContentGuard field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ContainerContainerDistribution) GetContentGuardOk() (*string, bool) {
+	if o == nil || IsNil(o.ContentGuard) {
+		return nil, false
+	}
+	return o.ContentGuard, true
+}
+
+// HasContentGuard returns a boolean if a field has been set.
+func (o *ContainerContainerDistribution) HasContentGuard() bool {
+	if o != nil && !IsNil(o.ContentGuard) {
+		return true
+	}
+
+	return false
+}
+
+// SetContentGuard gets a reference to the given string and assigns it to the ContentGuard field.
+func (o *ContainerContainerDistribution) SetContentGuard(v string) {
+	o.ContentGuard = &v
 }
 
 // GetRepository returns the Repository field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -152,62 +208,6 @@ func (o *ContainerContainerDistribution) HasPulpLabels() bool {
 // SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
 func (o *ContainerContainerDistribution) SetPulpLabels(v map[string]string) {
 	o.PulpLabels = &v
-}
-
-// GetBasePath returns the BasePath field value
-func (o *ContainerContainerDistribution) GetBasePath() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.BasePath
-}
-
-// GetBasePathOk returns a tuple with the BasePath field value
-// and a boolean to check if the value has been set.
-func (o *ContainerContainerDistribution) GetBasePathOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BasePath, true
-}
-
-// SetBasePath sets field value
-func (o *ContainerContainerDistribution) SetBasePath(v string) {
-	o.BasePath = v
-}
-
-// GetContentGuard returns the ContentGuard field value if set, zero value otherwise.
-func (o *ContainerContainerDistribution) GetContentGuard() string {
-	if o == nil || IsNil(o.ContentGuard) {
-		var ret string
-		return ret
-	}
-	return *o.ContentGuard
-}
-
-// GetContentGuardOk returns a tuple with the ContentGuard field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContainerContainerDistribution) GetContentGuardOk() (*string, bool) {
-	if o == nil || IsNil(o.ContentGuard) {
-		return nil, false
-	}
-	return o.ContentGuard, true
-}
-
-// HasContentGuard returns a boolean if a field has been set.
-func (o *ContainerContainerDistribution) HasContentGuard() bool {
-	if o != nil && !IsNil(o.ContentGuard) {
-		return true
-	}
-
-	return false
-}
-
-// SetContentGuard gets a reference to the given string and assigns it to the ContentGuard field.
-func (o *ContainerContainerDistribution) SetContentGuard(v string) {
-	o.ContentGuard = &v
 }
 
 // GetRepositoryVersion returns the RepositoryVersion field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -337,15 +337,15 @@ func (o ContainerContainerDistribution) MarshalJSON() ([]byte, error) {
 func (o ContainerContainerDistribution) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
+	toSerialize["base_path"] = o.BasePath
+	if !IsNil(o.ContentGuard) {
+		toSerialize["content_guard"] = o.ContentGuard
+	}
 	if o.Repository.IsSet() {
 		toSerialize["repository"] = o.Repository.Get()
 	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
-	}
-	toSerialize["base_path"] = o.BasePath
-	if !IsNil(o.ContentGuard) {
-		toSerialize["content_guard"] = o.ContentGuard
 	}
 	if o.RepositoryVersion.IsSet() {
 		toSerialize["repository_version"] = o.RepositoryVersion.Get()

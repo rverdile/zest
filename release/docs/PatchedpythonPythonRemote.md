@@ -16,20 +16,20 @@ Name | Type | Description | Notes
 **Username** | Pointer to **NullableString** | The username to be used for authentication when syncing. | [optional] 
 **Password** | Pointer to **NullableString** | The password to be used for authentication when syncing. Extra leading and trailing whitespace characters are not trimmed. | [optional] 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
-**DownloadConcurrency** | Pointer to **NullableInt32** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
-**MaxRetries** | Pointer to **NullableInt32** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
+**DownloadConcurrency** | Pointer to **NullableInt64** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
+**MaxRetries** | Pointer to **NullableInt64** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
 **Policy** | Pointer to [**Policy762Enum**](Policy762Enum.md) |  | [optional] 
 **TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
-**RateLimit** | Pointer to **NullableInt32** | Limits requests per second for each concurrent downloader | [optional] 
+**RateLimit** | Pointer to **NullableInt64** | Limits requests per second for each concurrent downloader | [optional] 
 **Includes** | Pointer to **map[string]interface{}** | A JSON list containing project specifiers for Python packages to include. | [optional] 
 **Excludes** | Pointer to **map[string]interface{}** | A JSON list containing project specifiers for Python packages to exclude. | [optional] 
 **Prereleases** | Pointer to **bool** | Whether or not to include pre-release packages in the sync. | [optional] 
 **PackageTypes** | Pointer to [**[]PackageTypesEnum**](PackageTypesEnum.md) | The package types to sync for Python content. Leave blank to get everypackage type. | [optional] 
-**KeepLatestPackages** | Pointer to **int32** | The amount of latest versions of a package to keep on sync, includespre-releases if synced. Default 0 keeps all versions. | [optional] [default to 0]
+**KeepLatestPackages** | Pointer to **int64** | The amount of latest versions of a package to keep on sync, includespre-releases if synced. Default 0 keeps all versions. | [optional] [default to 0]
 **ExcludePlatforms** | Pointer to [**[]ExcludePlatformsEnum**](ExcludePlatformsEnum.md) | List of platforms to exclude syncing Python packages for. Possible valuesinclude: windows, macos, freebsd, and linux. | [optional] 
 
 ## Methods
@@ -433,20 +433,20 @@ HasPulpLabels returns a boolean if a field has been set.
 
 ### GetDownloadConcurrency
 
-`func (o *PatchedpythonPythonRemote) GetDownloadConcurrency() int32`
+`func (o *PatchedpythonPythonRemote) GetDownloadConcurrency() int64`
 
 GetDownloadConcurrency returns the DownloadConcurrency field if non-nil, zero value otherwise.
 
 ### GetDownloadConcurrencyOk
 
-`func (o *PatchedpythonPythonRemote) GetDownloadConcurrencyOk() (*int32, bool)`
+`func (o *PatchedpythonPythonRemote) GetDownloadConcurrencyOk() (*int64, bool)`
 
 GetDownloadConcurrencyOk returns a tuple with the DownloadConcurrency field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDownloadConcurrency
 
-`func (o *PatchedpythonPythonRemote) SetDownloadConcurrency(v int32)`
+`func (o *PatchedpythonPythonRemote) SetDownloadConcurrency(v int64)`
 
 SetDownloadConcurrency sets DownloadConcurrency field to given value.
 
@@ -468,20 +468,20 @@ HasDownloadConcurrency returns a boolean if a field has been set.
 UnsetDownloadConcurrency ensures that no value is present for DownloadConcurrency, not even an explicit nil
 ### GetMaxRetries
 
-`func (o *PatchedpythonPythonRemote) GetMaxRetries() int32`
+`func (o *PatchedpythonPythonRemote) GetMaxRetries() int64`
 
 GetMaxRetries returns the MaxRetries field if non-nil, zero value otherwise.
 
 ### GetMaxRetriesOk
 
-`func (o *PatchedpythonPythonRemote) GetMaxRetriesOk() (*int32, bool)`
+`func (o *PatchedpythonPythonRemote) GetMaxRetriesOk() (*int64, bool)`
 
 GetMaxRetriesOk returns a tuple with the MaxRetries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaxRetries
 
-`func (o *PatchedpythonPythonRemote) SetMaxRetries(v int32)`
+`func (o *PatchedpythonPythonRemote) SetMaxRetries(v int64)`
 
 SetMaxRetries sets MaxRetries field to given value.
 
@@ -693,20 +693,20 @@ HasHeaders returns a boolean if a field has been set.
 
 ### GetRateLimit
 
-`func (o *PatchedpythonPythonRemote) GetRateLimit() int32`
+`func (o *PatchedpythonPythonRemote) GetRateLimit() int64`
 
 GetRateLimit returns the RateLimit field if non-nil, zero value otherwise.
 
 ### GetRateLimitOk
 
-`func (o *PatchedpythonPythonRemote) GetRateLimitOk() (*int32, bool)`
+`func (o *PatchedpythonPythonRemote) GetRateLimitOk() (*int64, bool)`
 
 GetRateLimitOk returns a tuple with the RateLimit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRateLimit
 
-`func (o *PatchedpythonPythonRemote) SetRateLimit(v int32)`
+`func (o *PatchedpythonPythonRemote) SetRateLimit(v int64)`
 
 SetRateLimit sets RateLimit field to given value.
 
@@ -828,20 +828,20 @@ HasPackageTypes returns a boolean if a field has been set.
 
 ### GetKeepLatestPackages
 
-`func (o *PatchedpythonPythonRemote) GetKeepLatestPackages() int32`
+`func (o *PatchedpythonPythonRemote) GetKeepLatestPackages() int64`
 
 GetKeepLatestPackages returns the KeepLatestPackages field if non-nil, zero value otherwise.
 
 ### GetKeepLatestPackagesOk
 
-`func (o *PatchedpythonPythonRemote) GetKeepLatestPackagesOk() (*int32, bool)`
+`func (o *PatchedpythonPythonRemote) GetKeepLatestPackagesOk() (*int64, bool)`
 
 GetKeepLatestPackagesOk returns a tuple with the KeepLatestPackages field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKeepLatestPackages
 
-`func (o *PatchedpythonPythonRemote) SetKeepLatestPackages(v int32)`
+`func (o *PatchedpythonPythonRemote) SetKeepLatestPackages(v int64)`
 
 SetKeepLatestPackages sets KeepLatestPackages field to given value.
 

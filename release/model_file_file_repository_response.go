@@ -31,8 +31,8 @@ type FileFileRepositoryResponse struct {
 	Name string `json:"name"`
 	// An optional description.
 	Description NullableString `json:"description,omitempty"`
-	// Retain X versions of the repository. Default is null which retains all versions. This is provided as a tech preview in Pulp 3 and may change in the future.
-	RetainRepoVersions NullableInt32 `json:"retain_repo_versions,omitempty"`
+	// Retain X versions of the repository. Default is null which retains all versions.
+	RetainRepoVersions NullableInt64 `json:"retain_repo_versions,omitempty"`
 	// An optional remote to use by default when syncing.
 	Remote NullableString `json:"remote,omitempty"`
 	// Whether to automatically create publications for new repository versions, and update any distributions pointing to this repository.
@@ -294,9 +294,9 @@ func (o *FileFileRepositoryResponse) UnsetDescription() {
 }
 
 // GetRetainRepoVersions returns the RetainRepoVersions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileFileRepositoryResponse) GetRetainRepoVersions() int32 {
+func (o *FileFileRepositoryResponse) GetRetainRepoVersions() int64 {
 	if o == nil || IsNil(o.RetainRepoVersions.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RetainRepoVersions.Get()
@@ -305,7 +305,7 @@ func (o *FileFileRepositoryResponse) GetRetainRepoVersions() int32 {
 // GetRetainRepoVersionsOk returns a tuple with the RetainRepoVersions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileFileRepositoryResponse) GetRetainRepoVersionsOk() (*int32, bool) {
+func (o *FileFileRepositoryResponse) GetRetainRepoVersionsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -321,8 +321,8 @@ func (o *FileFileRepositoryResponse) HasRetainRepoVersions() bool {
 	return false
 }
 
-// SetRetainRepoVersions gets a reference to the given NullableInt32 and assigns it to the RetainRepoVersions field.
-func (o *FileFileRepositoryResponse) SetRetainRepoVersions(v int32) {
+// SetRetainRepoVersions gets a reference to the given NullableInt64 and assigns it to the RetainRepoVersions field.
+func (o *FileFileRepositoryResponse) SetRetainRepoVersions(v int64) {
 	o.RetainRepoVersions.Set(&v)
 }
 // SetRetainRepoVersionsNil sets the value for RetainRepoVersions to be an explicit nil

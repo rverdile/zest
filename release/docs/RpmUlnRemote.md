@@ -16,15 +16,15 @@ Name | Type | Description | Notes
 **Username** | **string** | Your ULN account username. | 
 **Password** | **string** | Your ULN account password. | 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
-**DownloadConcurrency** | Pointer to **NullableInt32** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
-**MaxRetries** | Pointer to **NullableInt32** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
+**DownloadConcurrency** | Pointer to **NullableInt64** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
+**MaxRetries** | Pointer to **NullableInt64** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
 **Policy** | Pointer to [**Policy762Enum**](Policy762Enum.md) |  | [optional] 
 **TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
-**RateLimit** | Pointer to **NullableInt32** | Limits requests per second for each concurrent downloader | [optional] 
+**RateLimit** | Pointer to **NullableInt64** | Limits requests per second for each concurrent downloader | [optional] 
 **UlnServerBaseUrl** | Pointer to **NullableString** | Base URL of the ULN server. If the uln_server_base_url is not provided pulp_rpm willuse the contents of the DEFAULT_ULN_SERVER_BASE_URL setting instead. | [optional] 
 
 ## Methods
@@ -388,20 +388,20 @@ HasPulpLabels returns a boolean if a field has been set.
 
 ### GetDownloadConcurrency
 
-`func (o *RpmUlnRemote) GetDownloadConcurrency() int32`
+`func (o *RpmUlnRemote) GetDownloadConcurrency() int64`
 
 GetDownloadConcurrency returns the DownloadConcurrency field if non-nil, zero value otherwise.
 
 ### GetDownloadConcurrencyOk
 
-`func (o *RpmUlnRemote) GetDownloadConcurrencyOk() (*int32, bool)`
+`func (o *RpmUlnRemote) GetDownloadConcurrencyOk() (*int64, bool)`
 
 GetDownloadConcurrencyOk returns a tuple with the DownloadConcurrency field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDownloadConcurrency
 
-`func (o *RpmUlnRemote) SetDownloadConcurrency(v int32)`
+`func (o *RpmUlnRemote) SetDownloadConcurrency(v int64)`
 
 SetDownloadConcurrency sets DownloadConcurrency field to given value.
 
@@ -423,20 +423,20 @@ HasDownloadConcurrency returns a boolean if a field has been set.
 UnsetDownloadConcurrency ensures that no value is present for DownloadConcurrency, not even an explicit nil
 ### GetMaxRetries
 
-`func (o *RpmUlnRemote) GetMaxRetries() int32`
+`func (o *RpmUlnRemote) GetMaxRetries() int64`
 
 GetMaxRetries returns the MaxRetries field if non-nil, zero value otherwise.
 
 ### GetMaxRetriesOk
 
-`func (o *RpmUlnRemote) GetMaxRetriesOk() (*int32, bool)`
+`func (o *RpmUlnRemote) GetMaxRetriesOk() (*int64, bool)`
 
 GetMaxRetriesOk returns a tuple with the MaxRetries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaxRetries
 
-`func (o *RpmUlnRemote) SetMaxRetries(v int32)`
+`func (o *RpmUlnRemote) SetMaxRetries(v int64)`
 
 SetMaxRetries sets MaxRetries field to given value.
 
@@ -648,20 +648,20 @@ HasHeaders returns a boolean if a field has been set.
 
 ### GetRateLimit
 
-`func (o *RpmUlnRemote) GetRateLimit() int32`
+`func (o *RpmUlnRemote) GetRateLimit() int64`
 
 GetRateLimit returns the RateLimit field if non-nil, zero value otherwise.
 
 ### GetRateLimitOk
 
-`func (o *RpmUlnRemote) GetRateLimitOk() (*int32, bool)`
+`func (o *RpmUlnRemote) GetRateLimitOk() (*int64, bool)`
 
 GetRateLimitOk returns a tuple with the RateLimit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRateLimit
 
-`func (o *RpmUlnRemote) SetRateLimit(v int32)`
+`func (o *RpmUlnRemote) SetRateLimit(v int64)`
 
 SetRateLimit sets RateLimit field to given value.
 

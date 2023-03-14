@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddContentUnits** | Pointer to **[]interface{}** | A list of content units to add to a new repository version. This content is added after remove_content_units are removed. | [optional] 
-**RemoveContentUnits** | Pointer to **[]interface{}** | A list of content units to remove from the latest repository version. You may also specify &#39;*&#39; as an entry to remove all content. This content is removed before add_content_units are added. | [optional] 
+**AddContentUnits** | Pointer to **[]string** | A list of content units to add to a new repository version. This content is added after remove_content_units are removed. | [optional] 
+**RemoveContentUnits** | Pointer to **[]string** | A list of content units to remove from the latest repository version. You may also specify &#39;*&#39; as an entry to remove all content. This content is removed before add_content_units are added. | [optional] 
 **BaseVersion** | Pointer to **string** | A repository version whose content will be used as the initial set of content for the new repository version | [optional] 
 
 ## Methods
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAddContentUnits
 
-`func (o *RepositoryAddRemoveContent) GetAddContentUnits() []interface{}`
+`func (o *RepositoryAddRemoveContent) GetAddContentUnits() []string`
 
 GetAddContentUnits returns the AddContentUnits field if non-nil, zero value otherwise.
 
 ### GetAddContentUnitsOk
 
-`func (o *RepositoryAddRemoveContent) GetAddContentUnitsOk() (*[]interface{}, bool)`
+`func (o *RepositoryAddRemoveContent) GetAddContentUnitsOk() (*[]string, bool)`
 
 GetAddContentUnitsOk returns a tuple with the AddContentUnits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAddContentUnits
 
-`func (o *RepositoryAddRemoveContent) SetAddContentUnits(v []interface{})`
+`func (o *RepositoryAddRemoveContent) SetAddContentUnits(v []string)`
 
 SetAddContentUnits sets AddContentUnits field to given value.
 
@@ -54,20 +54,20 @@ HasAddContentUnits returns a boolean if a field has been set.
 
 ### GetRemoveContentUnits
 
-`func (o *RepositoryAddRemoveContent) GetRemoveContentUnits() []interface{}`
+`func (o *RepositoryAddRemoveContent) GetRemoveContentUnits() []string`
 
 GetRemoveContentUnits returns the RemoveContentUnits field if non-nil, zero value otherwise.
 
 ### GetRemoveContentUnitsOk
 
-`func (o *RepositoryAddRemoveContent) GetRemoveContentUnitsOk() (*[]interface{}, bool)`
+`func (o *RepositoryAddRemoveContent) GetRemoveContentUnitsOk() (*[]string, bool)`
 
 GetRemoveContentUnitsOk returns a tuple with the RemoveContentUnits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRemoveContentUnits
 
-`func (o *RepositoryAddRemoveContent) SetRemoveContentUnits(v []interface{})`
+`func (o *RepositoryAddRemoveContent) SetRemoveContentUnits(v []string)`
 
 SetRemoveContentUnits sets RemoveContentUnits field to given value.
 

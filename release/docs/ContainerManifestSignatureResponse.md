@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Digest** | **string** | sha256 digest of the signature blob | 
 **Type** | **string** | Container signature type, e.g. &#39;atomic&#39; | 
 **KeyId** | **string** | Signing key ID | 
-**Timestamp** | **int32** | Timestamp of a signature | 
+**Timestamp** | **int64** | Timestamp of a signature | 
 **Creator** | **string** | Signature creator | 
 **SignedManifest** | **string** | Manifest that is signed | 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewContainerManifestSignatureResponse
 
-`func NewContainerManifestSignatureResponse(name string, digest string, type_ string, keyId string, timestamp int32, creator string, signedManifest string, ) *ContainerManifestSignatureResponse`
+`func NewContainerManifestSignatureResponse(name string, digest string, type_ string, keyId string, timestamp int64, creator string, signedManifest string, ) *ContainerManifestSignatureResponse`
 
 NewContainerManifestSignatureResponse instantiates a new ContainerManifestSignatureResponse object
 This constructor will assign default values to properties that have it defined,
@@ -165,20 +165,20 @@ SetKeyId sets KeyId field to given value.
 
 ### GetTimestamp
 
-`func (o *ContainerManifestSignatureResponse) GetTimestamp() int32`
+`func (o *ContainerManifestSignatureResponse) GetTimestamp() int64`
 
 GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
 
 ### GetTimestampOk
 
-`func (o *ContainerManifestSignatureResponse) GetTimestampOk() (*int32, bool)`
+`func (o *ContainerManifestSignatureResponse) GetTimestampOk() (*int64, bool)`
 
 GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimestamp
 
-`func (o *ContainerManifestSignatureResponse) SetTimestamp(v int32)`
+`func (o *ContainerManifestSignatureResponse) SetTimestamp(v int64)`
 
 SetTimestamp sets Timestamp field to given value.
 

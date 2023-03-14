@@ -95,21 +95,21 @@ type RpmPackageResponse struct {
 	// Name of the organization that produced the package
 	RpmVendor *string `json:"rpm_vendor,omitempty"`
 	// First byte of the header
-	RpmHeaderStart *int32 `json:"rpm_header_start,omitempty"`
+	RpmHeaderStart *int64 `json:"rpm_header_start,omitempty"`
 	// Last byte of the header
-	RpmHeaderEnd *int32 `json:"rpm_header_end,omitempty"`
+	RpmHeaderEnd *int64 `json:"rpm_header_end,omitempty"`
 	// Flag to identify if the package is modular
 	IsModular *bool `json:"is_modular,omitempty"`
 	// Size, in bytes, of the archive portion of the original package file
-	SizeArchive *int32 `json:"size_archive,omitempty"`
+	SizeArchive *int64 `json:"size_archive,omitempty"`
 	// Total size, in bytes, of every file installed by this package
-	SizeInstalled *int32 `json:"size_installed,omitempty"`
+	SizeInstalled *int64 `json:"size_installed,omitempty"`
 	// Size, in bytes, of the package
-	SizePackage *int32 `json:"size_package,omitempty"`
+	SizePackage *int64 `json:"size_package,omitempty"`
 	// Time the package was built in seconds since the epoch
-	TimeBuild *int32 `json:"time_build,omitempty"`
+	TimeBuild *int64 `json:"time_build,omitempty"`
 	// The 'file' time attribute in the primary XML - file mtime in seconds since the epoch.
-	TimeFile *int32 `json:"time_file,omitempty"`
+	TimeFile *int64 `json:"time_file,omitempty"`
 }
 
 // NewRpmPackageResponse instantiates a new RpmPackageResponse object
@@ -1314,9 +1314,9 @@ func (o *RpmPackageResponse) SetRpmVendor(v string) {
 }
 
 // GetRpmHeaderStart returns the RpmHeaderStart field value if set, zero value otherwise.
-func (o *RpmPackageResponse) GetRpmHeaderStart() int32 {
+func (o *RpmPackageResponse) GetRpmHeaderStart() int64 {
 	if o == nil || IsNil(o.RpmHeaderStart) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RpmHeaderStart
@@ -1324,7 +1324,7 @@ func (o *RpmPackageResponse) GetRpmHeaderStart() int32 {
 
 // GetRpmHeaderStartOk returns a tuple with the RpmHeaderStart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmPackageResponse) GetRpmHeaderStartOk() (*int32, bool) {
+func (o *RpmPackageResponse) GetRpmHeaderStartOk() (*int64, bool) {
 	if o == nil || IsNil(o.RpmHeaderStart) {
 		return nil, false
 	}
@@ -1340,15 +1340,15 @@ func (o *RpmPackageResponse) HasRpmHeaderStart() bool {
 	return false
 }
 
-// SetRpmHeaderStart gets a reference to the given int32 and assigns it to the RpmHeaderStart field.
-func (o *RpmPackageResponse) SetRpmHeaderStart(v int32) {
+// SetRpmHeaderStart gets a reference to the given int64 and assigns it to the RpmHeaderStart field.
+func (o *RpmPackageResponse) SetRpmHeaderStart(v int64) {
 	o.RpmHeaderStart = &v
 }
 
 // GetRpmHeaderEnd returns the RpmHeaderEnd field value if set, zero value otherwise.
-func (o *RpmPackageResponse) GetRpmHeaderEnd() int32 {
+func (o *RpmPackageResponse) GetRpmHeaderEnd() int64 {
 	if o == nil || IsNil(o.RpmHeaderEnd) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RpmHeaderEnd
@@ -1356,7 +1356,7 @@ func (o *RpmPackageResponse) GetRpmHeaderEnd() int32 {
 
 // GetRpmHeaderEndOk returns a tuple with the RpmHeaderEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmPackageResponse) GetRpmHeaderEndOk() (*int32, bool) {
+func (o *RpmPackageResponse) GetRpmHeaderEndOk() (*int64, bool) {
 	if o == nil || IsNil(o.RpmHeaderEnd) {
 		return nil, false
 	}
@@ -1372,8 +1372,8 @@ func (o *RpmPackageResponse) HasRpmHeaderEnd() bool {
 	return false
 }
 
-// SetRpmHeaderEnd gets a reference to the given int32 and assigns it to the RpmHeaderEnd field.
-func (o *RpmPackageResponse) SetRpmHeaderEnd(v int32) {
+// SetRpmHeaderEnd gets a reference to the given int64 and assigns it to the RpmHeaderEnd field.
+func (o *RpmPackageResponse) SetRpmHeaderEnd(v int64) {
 	o.RpmHeaderEnd = &v
 }
 
@@ -1410,9 +1410,9 @@ func (o *RpmPackageResponse) SetIsModular(v bool) {
 }
 
 // GetSizeArchive returns the SizeArchive field value if set, zero value otherwise.
-func (o *RpmPackageResponse) GetSizeArchive() int32 {
+func (o *RpmPackageResponse) GetSizeArchive() int64 {
 	if o == nil || IsNil(o.SizeArchive) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SizeArchive
@@ -1420,7 +1420,7 @@ func (o *RpmPackageResponse) GetSizeArchive() int32 {
 
 // GetSizeArchiveOk returns a tuple with the SizeArchive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmPackageResponse) GetSizeArchiveOk() (*int32, bool) {
+func (o *RpmPackageResponse) GetSizeArchiveOk() (*int64, bool) {
 	if o == nil || IsNil(o.SizeArchive) {
 		return nil, false
 	}
@@ -1436,15 +1436,15 @@ func (o *RpmPackageResponse) HasSizeArchive() bool {
 	return false
 }
 
-// SetSizeArchive gets a reference to the given int32 and assigns it to the SizeArchive field.
-func (o *RpmPackageResponse) SetSizeArchive(v int32) {
+// SetSizeArchive gets a reference to the given int64 and assigns it to the SizeArchive field.
+func (o *RpmPackageResponse) SetSizeArchive(v int64) {
 	o.SizeArchive = &v
 }
 
 // GetSizeInstalled returns the SizeInstalled field value if set, zero value otherwise.
-func (o *RpmPackageResponse) GetSizeInstalled() int32 {
+func (o *RpmPackageResponse) GetSizeInstalled() int64 {
 	if o == nil || IsNil(o.SizeInstalled) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SizeInstalled
@@ -1452,7 +1452,7 @@ func (o *RpmPackageResponse) GetSizeInstalled() int32 {
 
 // GetSizeInstalledOk returns a tuple with the SizeInstalled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmPackageResponse) GetSizeInstalledOk() (*int32, bool) {
+func (o *RpmPackageResponse) GetSizeInstalledOk() (*int64, bool) {
 	if o == nil || IsNil(o.SizeInstalled) {
 		return nil, false
 	}
@@ -1468,15 +1468,15 @@ func (o *RpmPackageResponse) HasSizeInstalled() bool {
 	return false
 }
 
-// SetSizeInstalled gets a reference to the given int32 and assigns it to the SizeInstalled field.
-func (o *RpmPackageResponse) SetSizeInstalled(v int32) {
+// SetSizeInstalled gets a reference to the given int64 and assigns it to the SizeInstalled field.
+func (o *RpmPackageResponse) SetSizeInstalled(v int64) {
 	o.SizeInstalled = &v
 }
 
 // GetSizePackage returns the SizePackage field value if set, zero value otherwise.
-func (o *RpmPackageResponse) GetSizePackage() int32 {
+func (o *RpmPackageResponse) GetSizePackage() int64 {
 	if o == nil || IsNil(o.SizePackage) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SizePackage
@@ -1484,7 +1484,7 @@ func (o *RpmPackageResponse) GetSizePackage() int32 {
 
 // GetSizePackageOk returns a tuple with the SizePackage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmPackageResponse) GetSizePackageOk() (*int32, bool) {
+func (o *RpmPackageResponse) GetSizePackageOk() (*int64, bool) {
 	if o == nil || IsNil(o.SizePackage) {
 		return nil, false
 	}
@@ -1500,15 +1500,15 @@ func (o *RpmPackageResponse) HasSizePackage() bool {
 	return false
 }
 
-// SetSizePackage gets a reference to the given int32 and assigns it to the SizePackage field.
-func (o *RpmPackageResponse) SetSizePackage(v int32) {
+// SetSizePackage gets a reference to the given int64 and assigns it to the SizePackage field.
+func (o *RpmPackageResponse) SetSizePackage(v int64) {
 	o.SizePackage = &v
 }
 
 // GetTimeBuild returns the TimeBuild field value if set, zero value otherwise.
-func (o *RpmPackageResponse) GetTimeBuild() int32 {
+func (o *RpmPackageResponse) GetTimeBuild() int64 {
 	if o == nil || IsNil(o.TimeBuild) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.TimeBuild
@@ -1516,7 +1516,7 @@ func (o *RpmPackageResponse) GetTimeBuild() int32 {
 
 // GetTimeBuildOk returns a tuple with the TimeBuild field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmPackageResponse) GetTimeBuildOk() (*int32, bool) {
+func (o *RpmPackageResponse) GetTimeBuildOk() (*int64, bool) {
 	if o == nil || IsNil(o.TimeBuild) {
 		return nil, false
 	}
@@ -1532,15 +1532,15 @@ func (o *RpmPackageResponse) HasTimeBuild() bool {
 	return false
 }
 
-// SetTimeBuild gets a reference to the given int32 and assigns it to the TimeBuild field.
-func (o *RpmPackageResponse) SetTimeBuild(v int32) {
+// SetTimeBuild gets a reference to the given int64 and assigns it to the TimeBuild field.
+func (o *RpmPackageResponse) SetTimeBuild(v int64) {
 	o.TimeBuild = &v
 }
 
 // GetTimeFile returns the TimeFile field value if set, zero value otherwise.
-func (o *RpmPackageResponse) GetTimeFile() int32 {
+func (o *RpmPackageResponse) GetTimeFile() int64 {
 	if o == nil || IsNil(o.TimeFile) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.TimeFile
@@ -1548,7 +1548,7 @@ func (o *RpmPackageResponse) GetTimeFile() int32 {
 
 // GetTimeFileOk returns a tuple with the TimeFile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmPackageResponse) GetTimeFileOk() (*int32, bool) {
+func (o *RpmPackageResponse) GetTimeFileOk() (*int64, bool) {
 	if o == nil || IsNil(o.TimeFile) {
 		return nil, false
 	}
@@ -1564,8 +1564,8 @@ func (o *RpmPackageResponse) HasTimeFile() bool {
 	return false
 }
 
-// SetTimeFile gets a reference to the given int32 and assigns it to the TimeFile field.
-func (o *RpmPackageResponse) SetTimeFile(v int32) {
+// SetTimeFile gets a reference to the given int64 and assigns it to the TimeFile field.
+func (o *RpmPackageResponse) SetTimeFile(v int64) {
 	o.TimeFile = &v
 }
 

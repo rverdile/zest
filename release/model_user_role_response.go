@@ -25,10 +25,12 @@ type UserRoleResponse struct {
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
 	Role string `json:"role"`
-	// pulp_href of the object for which role permissions should be asserted. If set to 'null', permissions will act on the model-level.
+	// pulp_href of the object for which role permissions should be asserted. If set to 'null', permissions will act on either domain or model-level.
 	ContentObject NullableString `json:"content_object"`
 	Description *string `json:"description,omitempty"`
 	Permissions []string `json:"permissions,omitempty"`
+	// Domain this role should be applied on, mutually exclusive with content_object.
+	Domain NullableString `json:"domain,omitempty"`
 }
 
 // NewUserRoleResponse instantiates a new UserRoleResponse object
@@ -228,6 +230,48 @@ func (o *UserRoleResponse) SetPermissions(v []string) {
 	o.Permissions = v
 }
 
+// GetDomain returns the Domain field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UserRoleResponse) GetDomain() string {
+	if o == nil || IsNil(o.Domain.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Domain.Get()
+}
+
+// GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UserRoleResponse) GetDomainOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Domain.Get(), o.Domain.IsSet()
+}
+
+// HasDomain returns a boolean if a field has been set.
+func (o *UserRoleResponse) HasDomain() bool {
+	if o != nil && o.Domain.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDomain gets a reference to the given NullableString and assigns it to the Domain field.
+func (o *UserRoleResponse) SetDomain(v string) {
+	o.Domain.Set(&v)
+}
+// SetDomainNil sets the value for Domain to be an explicit nil
+func (o *UserRoleResponse) SetDomainNil() {
+	o.Domain.Set(nil)
+}
+
+// UnsetDomain ensures that no value is present for Domain, not even an explicit nil
+func (o *UserRoleResponse) UnsetDomain() {
+	o.Domain.Unset()
+}
+
 func (o UserRoleResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -244,6 +288,9 @@ func (o UserRoleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["content_object"] = o.ContentObject.Get()
 	// skip: description is readOnly
 	// skip: permissions is readOnly
+	if o.Domain.IsSet() {
+		toSerialize["domain"] = o.Domain.Get()
+	}
 	return toSerialize, nil
 }
 

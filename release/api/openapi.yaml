@@ -13,15 +13,16 @@ info:
   x-logo:
     url: https://pulp.plan.io/attachments/download/517478/pulp_logo_word_rectangle.svg
   x-pulp-app-versions:
-    core: 3.22.3
-    rpm: 3.19.1
-    python: 3.8.0
-    deb: 2.20.1
-    container: 2.14.3
-    file: 1.12.0
-    certguard: 1.5.8
+    core: 3.23.0
     ansible: 0.16.1
+    certguard: 1.5.8
+    container: 2.14.3
+    deb: 2.20.1
+    file: 1.12.0
     maven: 0.3.3
+    python: 3.8.0
+    rpm: 3.19.1
+  x-pulp-domain-enabled: false
 servers:
 - url: http://localhost:8080/
 paths:
@@ -10905,6 +10906,27 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
+        style: form
       - description: Filter distributions based on the content served by them
         explode: true
         in: query
@@ -11078,6 +11100,27 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
         style: form
       - description: Filter distributions based on the content served by them
         explode: true
@@ -11437,6 +11480,27 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
         style: form
       - description: Filter distributions based on the content served by them
         explode: true
@@ -11946,6 +12010,27 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
+        style: form
       - description: Filter distributions based on the content served by them
         explode: true
         in: query
@@ -12169,6 +12254,27 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
         style: form
       - description: Filter distributions based on the content served by them
         explode: true
@@ -12523,6 +12629,27 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
         style: form
       - description: Filter distributions based on the content served by them
         explode: true
@@ -13033,6 +13160,27 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
+        style: form
       - description: Filter distributions based on the content served by them
         explode: true
         in: query
@@ -13382,6 +13530,27 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
+        style: form
       - description: Filter distributions based on the content served by them
         explode: true
         in: query
@@ -13730,6 +13899,27 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Filter results where repository matches value
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: Filter results where repository is in a comma-separated list
+          of values
+        explode: false
+        in: query
+        name: repository__in
+        required: false
+        schema:
+          items:
+            format: uri
+            type: string
+          type: array
         style: form
       - description: Filter distributions based on the content served by them
         explode: true
@@ -14391,10 +14581,314 @@ paths:
           description: ""
       tags:
       - "Docs: Api.Yaml"
+  /pulp/api/v3/domains/:
+    get:
+      description: |-
+        ViewSet for Domain.
+
+        NOTE: This API endpoint is in "tech preview" and subject to change
+      operationId: domains_list
+      parameters:
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where name matches value
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name is in a comma-separated list of values
+        explode: false
+        in: query
+        name: name__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name starts with value
+        explode: true
+        in: query
+        name: name__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: ordering
+        required: false
+        schema:
+          items:
+            enum:
+            - -description
+            - -hide_guarded_distributions
+            - -name
+            - -pk
+            - -pulp_created
+            - -pulp_id
+            - -pulp_last_updated
+            - -redirect_to_object_storage
+            - -storage_class
+            - -storage_settings
+            - description
+            - hide_guarded_distributions
+            - name
+            - pk
+            - pulp_created
+            - pulp_id
+            - pulp_last_updated
+            - redirect_to_object_storage
+            - storage_class
+            - storage_settings
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDomainResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: List domains
+      tags:
+      - Domains
+    post:
+      description: |-
+        ViewSet for Domain.
+
+        NOTE: This API endpoint is in "tech preview" and subject to change
+      operationId: domains_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Domain'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Domain'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Domain'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Create a domain
+      tags:
+      - Domains
+  '{domain_href}':
+    delete:
+      description: Trigger an asynchronous delete task
+      operationId: domains_delete
+      parameters:
+      - explode: false
+        in: path
+        name: domain_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Delete a domain
+      tags:
+      - Domains
+    get:
+      description: |-
+        ViewSet for Domain.
+
+        NOTE: This API endpoint is in "tech preview" and subject to change
+      operationId: domains_read
+      parameters:
+      - explode: false
+        in: path
+        name: domain_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Inspect a domain
+      tags:
+      - Domains
+    patch:
+      description: Trigger an asynchronous partial update task
+      operationId: domains_partial_update
+      parameters:
+      - explode: false
+        in: path
+        name: domain_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDomain'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedDomain'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedDomain'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Update a domain
+      tags:
+      - Domains
+    put:
+      description: Trigger an asynchronous update task
+      operationId: domains_update
+      parameters:
+      - explode: false
+        in: path
+        name: domain_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Domain'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Domain'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Domain'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Update a domain
+      tags:
+      - Domains
   /pulp/api/v3/exporters/core/filesystem/:
     get:
-      description: Endpoint for managing FilesystemExporters. FilesystemExporters
-        are provided as a tech preview.
+      description: Endpoint for managing FilesystemExporters.
       operationId: exporters_core_filesystem_list
       parameters:
       - description: Number of results to return per page.
@@ -14516,8 +15010,7 @@ paths:
       tags:
       - "Exporters: Filesystem"
     post:
-      description: Endpoint for managing FilesystemExporters. FilesystemExporters
-        are provided as a tech preview.
+      description: Endpoint for managing FilesystemExporters.
       operationId: exporters_core_filesystem_create
       requestBody:
         content:
@@ -14546,8 +15039,7 @@ paths:
       - "Exporters: Filesystem"
   '{filesystem_exporter_href}exports/':
     get:
-      description: Endpoint for managing FilesystemExports. This endpoint is provided
-        as a tech preview.
+      description: Endpoint for managing FilesystemExports.
       operationId: exporters_core_filesystem_exports_list
       parameters:
       - explode: false
@@ -14644,8 +15136,7 @@ paths:
       - "Exporters: Filesystem Exports"
   '{filesystem_filesystem_export_href}':
     delete:
-      description: Endpoint for managing FilesystemExports. This endpoint is provided
-        as a tech preview.
+      description: Endpoint for managing FilesystemExports.
       operationId: exporters_core_filesystem_exports_delete
       parameters:
       - explode: false
@@ -14665,8 +15156,7 @@ paths:
       tags:
       - "Exporters: Filesystem Exports"
     get:
-      description: Endpoint for managing FilesystemExports. This endpoint is provided
-        as a tech preview.
+      description: Endpoint for managing FilesystemExports.
       operationId: exporters_core_filesystem_exports_read
       parameters:
       - explode: false
@@ -14735,8 +15225,7 @@ paths:
       tags:
       - "Exporters: Filesystem"
     get:
-      description: Endpoint for managing FilesystemExporters. FilesystemExporters
-        are provided as a tech preview.
+      description: Endpoint for managing FilesystemExporters.
       operationId: exporters_core_filesystem_read
       parameters:
       - explode: false
@@ -15305,10 +15794,7 @@ paths:
       - "Exporters: Pulp"
   /pulp/api/v3/groups/:
     get:
-      description: |-
-        ViewSet for Group.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Group.
       operationId: groups_list
       parameters:
       - description: Filter results where id matches value
@@ -15438,10 +15924,7 @@ paths:
       tags:
       - Groups
     post:
-      description: |-
-        ViewSet for Group.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Group.
       operationId: groups_create
       requestBody:
         content:
@@ -15470,10 +15953,7 @@ paths:
       - Groups
   '{group_href}roles/':
     get:
-      description: |-
-        ViewSet for GroupRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for GroupRole.
       operationId: groups_roles_list
       parameters:
       - description: content_object
@@ -15482,6 +15962,15 @@ paths:
         name: content_object
         required: false
         schema:
+          type: string
+        style: form
+      - description: Foreign Key referenced by HREF
+        explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          format: uri
           type: string
         style: form
       - explode: false
@@ -15598,10 +16087,7 @@ paths:
       tags:
       - "Groups: Roles"
     post:
-      description: |-
-        ViewSet for GroupRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for GroupRole.
       operationId: groups_roles_create
       parameters:
       - explode: false
@@ -15638,10 +16124,7 @@ paths:
       - "Groups: Roles"
   '{groups_group_role_href}':
     delete:
-      description: |-
-        ViewSet for GroupRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for GroupRole.
       operationId: groups_roles_delete
       parameters:
       - explode: false
@@ -15661,10 +16144,7 @@ paths:
       tags:
       - "Groups: Roles"
     get:
-      description: |-
-        ViewSet for GroupRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for GroupRole.
       operationId: groups_roles_read
       parameters:
       - explode: false
@@ -15827,10 +16307,7 @@ paths:
       - "Groups: Users"
   '{group_href}':
     delete:
-      description: |-
-        ViewSet for Group.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Group.
       operationId: groups_delete
       parameters:
       - explode: false
@@ -15850,10 +16327,7 @@ paths:
       tags:
       - Groups
     get:
-      description: |-
-        ViewSet for Group.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Group.
       operationId: groups_read
       parameters:
       - explode: false
@@ -15897,10 +16371,7 @@ paths:
       tags:
       - Groups
     patch:
-      description: |-
-        ViewSet for Group.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Group.
       operationId: groups_partial_update
       parameters:
       - explode: false
@@ -15936,10 +16407,7 @@ paths:
       tags:
       - Groups
     put:
-      description: |-
-        ViewSet for Group.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Group.
       operationId: groups_update
       parameters:
       - explode: false
@@ -24037,6 +24505,75 @@ paths:
           format: uri
           type: string
         style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -24182,6 +24719,75 @@ paths:
         schema:
           format: uri
           type: string
+        style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -24994,6 +25600,75 @@ paths:
           format: uri
           type: string
         style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -25172,6 +25847,75 @@ paths:
         schema:
           format: uri
           type: string
+        style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -27068,6 +27812,75 @@ paths:
           format: uri
           type: string
         style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -27790,6 +28603,75 @@ paths:
         schema:
           format: uri
           type: string
+        style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -28665,6 +29547,75 @@ paths:
           format: uri
           type: string
         style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -29296,6 +30247,75 @@ paths:
         schema:
           format: uri
           type: string
+        style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -30036,6 +31056,75 @@ paths:
         schema:
           format: uri
           type: string
+        style: form
+      - description: Filter results where retain_repo_versions matches value
+        explode: true
+        in: query
+        name: retain_repo_versions
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than value
+        explode: true
+        in: query
+        name: retain_repo_versions__gt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is greater than or
+          equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__gte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions has a null value
+        explode: true
+        in: query
+        name: retain_repo_versions__isnull
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter results where retain_repo_versions is less than value
+        explode: true
+        in: query
+        name: retain_repo_versions__lt
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is less than or equal
+          to value
+        explode: true
+        in: query
+        name: retain_repo_versions__lte
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions not equal to value
+        explode: true
+        in: query
+        name: retain_repo_versions__ne
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where retain_repo_versions is between two comma
+          separated values
+        explode: false
+        in: query
+        name: retain_repo_versions__range
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -30992,10 +32081,7 @@ paths:
       - Repository_Versions
   /pulp/api/v3/roles/:
     get:
-      description: |-
-        ViewSet for Role.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Role.
       operationId: roles_list
       parameters:
       - description: Filter roles that have any of the permissions in the list.
@@ -31174,10 +32260,7 @@ paths:
       tags:
       - Roles
     post:
-      description: |-
-        ViewSet for Role.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Role.
       operationId: roles_create
       requestBody:
         content:
@@ -31206,10 +32289,7 @@ paths:
       - Roles
   '{role_href}':
     delete:
-      description: |-
-        ViewSet for Role.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Role.
       operationId: roles_delete
       parameters:
       - explode: false
@@ -31229,10 +32309,7 @@ paths:
       tags:
       - Roles
     get:
-      description: |-
-        ViewSet for Role.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Role.
       operationId: roles_read
       parameters:
       - explode: false
@@ -31276,10 +32353,7 @@ paths:
       tags:
       - Roles
     patch:
-      description: |-
-        ViewSet for Role.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Role.
       operationId: roles_partial_update
       parameters:
       - explode: false
@@ -31315,10 +32389,7 @@ paths:
       tags:
       - Roles
     put:
-      description: |-
-        ViewSet for Role.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for Role.
       operationId: roles_update
       parameters:
       - explode: false
@@ -31703,10 +32774,7 @@ paths:
       - Task-Groups
   /pulp/api/v3/task-schedules/:
     get:
-      description: |-
-        ViewSet to monitor task schedules.
-
-        NOTE: This feature is in tech-preview and may change in backwards incompatible ways.
+      description: ViewSet to monitor task schedules.
       operationId: task_schedules_list
       parameters:
       - description: Number of results to return per page.
@@ -31819,10 +32887,7 @@ paths:
       - Task-Schedules
   '{task_schedule_href}':
     get:
-      description: |-
-        ViewSet to monitor task schedules.
-
-        NOTE: This feature is in tech-preview and may change in backwards incompatible ways.
+      description: ViewSet to monitor task schedules.
       operationId: task_schedules_read
       parameters:
       - explode: false
@@ -32738,9 +33803,8 @@ paths:
       - Tasks
   /pulp/api/v3/tasks/purge/:
     post:
-      description: "Trigger an asynchronous task that deletes completed tasks that\
-        \ finished prior to a specified timestamp (tech-preview, may change in the\
-        \ future)."
+      description: Trigger an asynchronous task that deletes completed tasks that
+        finished prior to a specified timestamp.
       operationId: tasks_purge
       requestBody:
         content:
@@ -33209,12 +34273,272 @@ paths:
       - basicAuth: []
       tags:
       - Uploads
+  /pulp/api/v3/upstream-pulps/:
+    get:
+      description: API for configuring an upstream Pulp to replicate. This API is
+        provided as a tech preview.
+      operationId: upstream_pulps_list
+      parameters:
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUpstreamPulpResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: List upstream pulps
+      tags:
+      - Upstream-Pulps
+    post:
+      description: API for configuring an upstream Pulp to replicate. This API is
+        provided as a tech preview.
+      operationId: upstream_pulps_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpstreamPulpResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Create an upstream pulp
+      tags:
+      - Upstream-Pulps
+  '{upstream_pulp_href}':
+    delete:
+      description: API for configuring an upstream Pulp to replicate. This API is
+        provided as a tech preview.
+      operationId: upstream_pulps_delete
+      parameters:
+      - explode: false
+        in: path
+        name: upstream_pulp_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No response body
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Delete an upstream pulp
+      tags:
+      - Upstream-Pulps
+    get:
+      description: API for configuring an upstream Pulp to replicate. This API is
+        provided as a tech preview.
+      operationId: upstream_pulps_read
+      parameters:
+      - explode: false
+        in: path
+        name: upstream_pulp_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpstreamPulpResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Inspect an upstream pulp
+      tags:
+      - Upstream-Pulps
+    patch:
+      description: API for configuring an upstream Pulp to replicate. This API is
+        provided as a tech preview.
+      operationId: upstream_pulps_partial_update
+      parameters:
+      - explode: false
+        in: path
+        name: upstream_pulp_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUpstreamPulp'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUpstreamPulp'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUpstreamPulp'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpstreamPulpResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Update an upstream pulp
+      tags:
+      - Upstream-Pulps
+    put:
+      description: API for configuring an upstream Pulp to replicate. This API is
+        provided as a tech preview.
+      operationId: upstream_pulps_update
+      parameters:
+      - explode: false
+        in: path
+        name: upstream_pulp_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpstreamPulpResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Update an upstream pulp
+      tags:
+      - Upstream-Pulps
+  '{upstream_pulp_href}replicate/':
+    post:
+      description: Trigger an asynchronous repository replication task group. This
+        API is provided as a tech preview.
+      operationId: upstream_pulps_replicate
+      parameters:
+      - explode: false
+        in: path
+        name: upstream_pulp_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UpstreamPulp'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Replicate
+      tags:
+      - Upstream-Pulps
   /pulp/api/v3/users/:
     get:
-      description: |-
-        ViewSet for User.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for User.
       operationId: users_list
       parameters:
       - description: Filter results where email matches value
@@ -33489,10 +34813,7 @@ paths:
       tags:
       - Users
     post:
-      description: |-
-        ViewSet for User.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for User.
       operationId: users_create
       requestBody:
         content:
@@ -33521,10 +34842,7 @@ paths:
       - Users
   '{auth_user_href}':
     delete:
-      description: |-
-        ViewSet for User.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for User.
       operationId: users_delete
       parameters:
       - explode: false
@@ -33544,10 +34862,7 @@ paths:
       tags:
       - Users
     get:
-      description: |-
-        ViewSet for User.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for User.
       operationId: users_read
       parameters:
       - explode: false
@@ -33591,10 +34906,7 @@ paths:
       tags:
       - Users
     patch:
-      description: |-
-        ViewSet for User.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for User.
       operationId: users_partial_update
       parameters:
       - explode: false
@@ -33630,10 +34942,7 @@ paths:
       tags:
       - Users
     put:
-      description: |-
-        ViewSet for User.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for User.
       operationId: users_update
       parameters:
       - explode: false
@@ -33670,10 +34979,7 @@ paths:
       - Users
   '{auth_user_href}roles/':
     get:
-      description: |-
-        ViewSet for UserRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for UserRole.
       operationId: users_roles_list
       parameters:
       - explode: false
@@ -33689,6 +34995,15 @@ paths:
         name: content_object
         required: false
         schema:
+          type: string
+        style: form
+      - description: Foreign Key referenced by HREF
+        explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          format: uri
           type: string
         style: form
       - description: Number of results to return per page.
@@ -33798,10 +35113,7 @@ paths:
       tags:
       - "Users: Roles"
     post:
-      description: |-
-        ViewSet for UserRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for UserRole.
       operationId: users_roles_create
       parameters:
       - explode: false
@@ -33838,10 +35150,7 @@ paths:
       - "Users: Roles"
   '{auth_users_user_role_href}':
     delete:
-      description: |-
-        ViewSet for UserRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for UserRole.
       operationId: users_roles_delete
       parameters:
       - explode: false
@@ -33861,10 +35170,7 @@ paths:
       tags:
       - "Users: Roles"
     get:
-      description: |-
-        ViewSet for UserRole.
-
-        NOTE: This API endpoint is in "tech preview" and subject to change
+      description: ViewSet for UserRole.
       operationId: users_roles_read
       parameters:
       - explode: false
@@ -34075,12 +35381,14 @@ paths:
             - -pulp_created
             - -pulp_id
             - -pulp_last_updated
+            - -versions
             - last_heartbeat
             - name
             - pk
             - pulp_created
             - pulp_id
             - pulp_last_updated
+            - versions
             type: string
           type: array
         style: form
@@ -38727,6 +40035,7 @@ components:
           type: string
         size:
           description: The size of the file in bytes.
+          format: int64
           type: integer
         md5:
           description: The MD5 checksum of the file if available.
@@ -38764,9 +40073,9 @@ components:
     ArtifactDistributionResponse:
       description: A serializer for ArtifactDistribution.
       example:
-        pulp_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
+        pulp_href: https://openapi-generator.tech
         name: name
         base_url: base_url
         base_path: base_path
@@ -38776,19 +40085,6 @@ components:
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
           type: string
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
-        base_url:
-          description: The URL for accessing the publication as defined by this distribution.
-          readOnly: true
-          type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         base_path:
           description: The base (relative) path component of the published url. Avoid
             paths that                     overlap with other distribution base paths
@@ -38804,6 +40100,19 @@ components:
           format: date-time
           readOnly: true
           type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        base_url:
+          description: The URL for accessing the publication as defined by this distribution.
+          readOnly: true
+          type: string
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
       required:
       - base_path
       - name
@@ -38816,6 +40125,7 @@ components:
         sha256:
           type: string
         size:
+          format: int64
           type: integer
       required:
       - filename
@@ -38857,6 +40167,7 @@ components:
           type: string
         size:
           description: The size of the file in bytes.
+          format: int64
           type: integer
         md5:
           description: The MD5 checksum of the file if available.
@@ -39519,6 +40830,97 @@ components:
       - base_path
       - name
       type: object
+    Domain:
+      description: Serializer for Domain.
+      example:
+        storage_class: ""
+        name: name
+        description: description
+        redirect_to_object_storage: true
+        storage_settings: "{}"
+        hide_guarded_distributions: false
+      properties:
+        name:
+          description: A name for this domain.
+          minLength: 1
+          pattern: "^[-a-zA-Z0-9_]+$"
+          type: string
+        description:
+          description: An optional description.
+          minLength: 1
+          nullable: true
+          type: string
+        storage_class:
+          allOf:
+          - $ref: '#/components/schemas/StorageClassEnum'
+          description: Backend storage class for domain.
+        storage_settings:
+          description: Settings for storage class.
+          type: object
+        redirect_to_object_storage:
+          default: true
+          description: Boolean to have the content app redirect to object storage.
+          type: boolean
+        hide_guarded_distributions:
+          default: false
+          description: Boolean to hide distributions with a content guard in the content
+            app.
+          type: boolean
+      required:
+      - name
+      - storage_class
+      - storage_settings
+      type: object
+    DomainResponse:
+      description: Serializer for Domain.
+      example:
+        storage_class: ""
+        pulp_href: https://openapi-generator.tech
+        name: name
+        description: description
+        redirect_to_object_storage: true
+        pulp_created: 2000-01-23T04:56:07.000+00:00
+        storage_settings: "{}"
+        hide_guarded_distributions: false
+      properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: A name for this domain.
+          pattern: "^[-a-zA-Z0-9_]+$"
+          type: string
+        description:
+          description: An optional description.
+          nullable: true
+          type: string
+        storage_class:
+          allOf:
+          - $ref: '#/components/schemas/StorageClassEnum'
+          description: Backend storage class for domain.
+        storage_settings:
+          description: Settings for storage class.
+          type: object
+        redirect_to_object_storage:
+          default: true
+          description: Boolean to have the content app redirect to object storage.
+          type: boolean
+        hide_guarded_distributions:
+          default: false
+          description: Boolean to hide distributions with a content guard in the content
+            app.
+          type: boolean
+      required:
+      - name
+      - storage_class
+      - storage_settings
+      type: object
     EvaluationResponse:
       description: Results from evaluating a proposed parameter to a PulpImport call.
       properties:
@@ -39846,10 +41248,12 @@ components:
           type: string
         total:
           description: The total count of items.
+          format: int64
           readOnly: true
           type: integer
         done:
           description: The count of items already processed. Defaults to 0.
+          format: int64
           readOnly: true
           type: integer
         suffix:
@@ -39874,6 +41278,7 @@ components:
           readOnly: true
           type: string
         id:
+          format: int64
           readOnly: true
           type: integer
       required:
@@ -39884,6 +41289,7 @@ components:
       example:
         content_object: content_object
         role: role
+        domain: https://openapi-generator.tech
       properties:
         role:
           minLength: 1
@@ -39892,6 +41298,12 @@ components:
           description: "pulp_href of the object for which role permissions should\
             \ be asserted. If set to 'null', permissions will act on the model-level."
           minLength: 1
+          nullable: true
+          type: string
+        domain:
+          description: "Domain this role should be applied on, mutually exclusive\
+            \ with content_object."
+          format: uri
           nullable: true
           type: string
       required:
@@ -39907,6 +41319,7 @@ components:
         permissions:
         - permissions
         - permissions
+        domain: https://openapi-generator.tech
         description: description
         pulp_created: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -39934,6 +41347,12 @@ components:
             type: string
           readOnly: true
           type: array
+        domain:
+          description: "Domain this role should be applied on, mutually exclusive\
+            \ with content_object."
+          format: uri
+          nullable: true
+          type: string
       required:
       - content_object
       - role
@@ -40197,14 +41616,19 @@ components:
         users:
           default: []
           items:
+            description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
+              \ only."
+            minLength: 1
             type: string
           type: array
         groups:
           default: []
           items:
+            minLength: 1
             type: string
           type: array
         role:
+          minLength: 1
           type: string
       required:
       - role
@@ -40227,6 +41651,8 @@ components:
         users:
           default: []
           items:
+            description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
+              \ only."
             type: string
           type: array
         groups:
@@ -40310,6 +41736,7 @@ components:
             \ task otherwise any content created during that task could be cleaned\
             \ up before the task finishes. If not specified, a default value is taken\
             \ from the setting ORPHAN_PROTECTION_TIME."
+          format: int64
           nullable: true
           type: integer
       type: object
@@ -40333,6 +41760,7 @@ components:
       properties:
         last_serial:
           description: Cache value from last PyPI sync
+          format: int64
           type: integer
         info:
           description: Core metadata of the package
@@ -40460,17 +41888,17 @@ components:
         previous: http://api.example.org/accounts/?offset=200&limit=100
         count: 123
         results:
-        - pulp_href: https://openapi-generator.tech
-          pulp_labels:
+        - pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           base_url: base_url
           base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
           content_guard: https://openapi-generator.tech
-        - pulp_href: https://openapi-generator.tech
-          pulp_labels:
+        - pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           base_url: base_url
           base_path: base_path
@@ -40713,6 +42141,47 @@ components:
         results:
           items:
             $ref: '#/components/schemas/DistributionResponse'
+          type: array
+      type: object
+    PaginatedDomainResponseList:
+      example:
+        next: http://api.example.org/accounts/?offset=400&limit=100
+        previous: http://api.example.org/accounts/?offset=200&limit=100
+        count: 123
+        results:
+        - storage_class: ""
+          pulp_href: https://openapi-generator.tech
+          name: name
+          description: description
+          redirect_to_object_storage: true
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          storage_settings: "{}"
+          hide_guarded_distributions: false
+        - storage_class: ""
+          pulp_href: https://openapi-generator.tech
+          name: name
+          description: description
+          redirect_to_object_storage: true
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          storage_settings: "{}"
+          hide_guarded_distributions: false
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?offset=400&limit=100
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?offset=200&limit=100
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/DomainResponse'
           type: array
       type: object
     PaginatedFilesystemExportResponseList:
@@ -41002,6 +42471,7 @@ components:
           permissions:
           - permissions
           - permissions
+          domain: https://openapi-generator.tech
           description: description
           pulp_created: 2000-01-23T04:56:07.000+00:00
         - content_object: content_object
@@ -41010,6 +42480,7 @@ components:
           permissions:
           - permissions
           - permissions
+          domain: https://openapi-generator.tech
           description: description
           pulp_created: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -41861,6 +43332,63 @@ components:
             $ref: '#/components/schemas/UploadResponse'
           type: array
       type: object
+    PaginatedUpstreamPulpResponseList:
+      example:
+        next: http://api.example.org/accounts/?offset=400&limit=100
+        previous: http://api.example.org/accounts/?offset=200&limit=100
+        count: 123
+        results:
+        - pulp_href: https://openapi-generator.tech
+          tls_validation: true
+          client_cert: client_cert
+          pulp_label_select: pulp_label_select
+          domain: domain
+          name: name
+          base_url: base_url
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          hidden_fields:
+          - is_set: true
+            name: name
+          - is_set: true
+            name: name
+          pulp_last_updated: 2000-01-23T04:56:07.000+00:00
+          ca_cert: ca_cert
+          api_root: api_root
+        - pulp_href: https://openapi-generator.tech
+          tls_validation: true
+          client_cert: client_cert
+          pulp_label_select: pulp_label_select
+          domain: domain
+          name: name
+          base_url: base_url
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          hidden_fields:
+          - is_set: true
+            name: name
+          - is_set: true
+            name: name
+          pulp_last_updated: 2000-01-23T04:56:07.000+00:00
+          ca_cert: ca_cert
+          api_root: api_root
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?offset=400&limit=100
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?offset=200&limit=100
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/UpstreamPulpResponse'
+          type: array
+      type: object
     PaginatedUserResponseList:
       example:
         next: http://api.example.org/accounts/?offset=400&limit=100
@@ -41936,6 +43464,7 @@ components:
           permissions:
           - permissions
           - permissions
+          domain: https://openapi-generator.tech
           description: description
           pulp_created: 2000-01-23T04:56:07.000+00:00
         - content_object: content_object
@@ -41944,6 +43473,7 @@ components:
           permissions:
           - permissions
           - permissions
+          domain: https://openapi-generator.tech
           description: description
           pulp_created: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -42345,14 +43875,14 @@ components:
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 2
+          rate_limit: 5
           max_retries: 0
           pulp_href: https://openapi-generator.tech
-          connect_timeout: 0.5637376656633328
           tls_validation: true
+          connect_timeout: 0.7061401241503109
           client_cert: client_cert
-          sock_read_timeout: 0.6027456183070403
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
+          sock_read_timeout: 0.23021358869347652
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -42360,7 +43890,7 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.14658129805029452
+          sock_connect_timeout: 0.6027456183070403
           hidden_fields:
           - is_set: true
             name: name
@@ -42369,18 +43899,18 @@ components:
           pulp_created: 2000-01-23T04:56:07.000+00:00
           proxy_url: proxy_url
           ca_cert: ca_cert
-          total_timeout: 0.7061401241503109
+          total_timeout: 0.5962133916683182
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 2
+          rate_limit: 5
           max_retries: 0
           pulp_href: https://openapi-generator.tech
-          connect_timeout: 0.5637376656633328
           tls_validation: true
+          connect_timeout: 0.7061401241503109
           client_cert: client_cert
-          sock_read_timeout: 0.6027456183070403
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
+          sock_read_timeout: 0.23021358869347652
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -42388,7 +43918,7 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.14658129805029452
+          sock_connect_timeout: 0.6027456183070403
           hidden_fields:
           - is_set: true
             name: name
@@ -42397,7 +43927,7 @@ components:
           pulp_created: 2000-01-23T04:56:07.000+00:00
           proxy_url: proxy_url
           ca_cert: ca_cert
-          total_timeout: 0.7061401241503109
+          total_timeout: 0.5962133916683182
       properties:
         count:
           example: 123
@@ -42643,9 +44173,9 @@ components:
         count: 123
         results:
         - private: true
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           namespace: https://openapi-generator.tech
           description: description
@@ -42656,9 +44186,9 @@ components:
           content_guard: https://openapi-generator.tech
           registry_path: registry_path
         - private: true
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           namespace: https://openapi-generator.tech
           description: description
@@ -42727,9 +44257,9 @@ components:
         - manifest_signing_service: https://openapi-generator.tech
           latest_version_href: https://openapi-generator.tech
           versions_href: https://openapi-generator.tech
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           description: description
           retain_repo_versions: 1
@@ -42737,9 +44267,9 @@ components:
         - manifest_signing_service: https://openapi-generator.tech
           latest_version_href: https://openapi-generator.tech
           versions_href: https://openapi-generator.tech
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           description: description
           retain_repo_versions: 1
@@ -45641,6 +47171,43 @@ components:
           nullable: true
           type: string
       type: object
+    PatchedDomain:
+      description: Serializer for Domain.
+      example:
+        storage_class: ""
+        name: name
+        description: description
+        redirect_to_object_storage: true
+        storage_settings: "{}"
+        hide_guarded_distributions: false
+      properties:
+        name:
+          description: A name for this domain.
+          minLength: 1
+          pattern: "^[-a-zA-Z0-9_]+$"
+          type: string
+        description:
+          description: An optional description.
+          minLength: 1
+          nullable: true
+          type: string
+        storage_class:
+          allOf:
+          - $ref: '#/components/schemas/StorageClassEnum'
+          description: Backend storage class for domain.
+        storage_settings:
+          description: Settings for storage class.
+          type: object
+        redirect_to_object_storage:
+          default: true
+          description: Boolean to have the content app redirect to object storage.
+          type: boolean
+        hide_guarded_distributions:
+          default: false
+          description: Boolean to hide distributions with a content guard in the content
+            app.
+          type: boolean
+      type: object
     PatchedFilesystemExporter:
       description: Serializer for FilesystemExporters.
       example:
@@ -45784,6 +47351,78 @@ components:
           minLength: 1
           type: string
       type: object
+    PatchedUpstreamPulp:
+      description: Serializer for a Server.
+      example:
+        client_key: client_key
+        password: password
+        tls_validation: true
+        client_cert: client_cert
+        pulp_label_select: pulp_label_select
+        domain: domain
+        name: name
+        base_url: base_url
+        ca_cert: ca_cert
+        api_root: api_root
+        username: username
+      properties:
+        name:
+          description: A unique name for this Pulp server.
+          minLength: 1
+          type: string
+        base_url:
+          description: "The transport, hostname, and an optional port of the Pulp\
+            \ server. e.g. https://example.com"
+          minLength: 1
+          type: string
+        api_root:
+          description: The API root. Defaults to '/pulp/'.
+          minLength: 1
+          type: string
+        domain:
+          description: The domain of the Pulp server if enabled.
+          minLength: 1
+          nullable: true
+          type: string
+        ca_cert:
+          description: A PEM encoded CA certificate used to validate the server certificate
+            presented by the remote server.
+          minLength: 1
+          nullable: true
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        password:
+          description: The password to be used for authentication when syncing. Extra
+            leading and trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        pulp_label_select:
+          description: "One or more comma separated labels that will be used to filter\
+            \ distributions on the upstream Pulp. E.g. \"foo=bar,key=val\" or \"foo,key\""
+          nullable: true
+          type: string
+      type: object
     PatchedUser:
       description: Serializer for User.
       example:
@@ -45881,8 +47520,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -45972,12 +47611,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -46021,6 +47662,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         requirements_file:
@@ -46056,23 +47698,15 @@ components:
     Patchedansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
-        url:
-          description: The URL of an external content source.
+        client_key:
+          description: A PEM encoded private key used for authentication.
           minLength: 1
-          type: string
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
           nullable: true
-          type: integer
+          type: string
+          writeOnly: true
         name:
           description: A unique name for this remote.
           minLength: 1
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          minLength: 1
-          nullable: true
           type: string
         password:
           description: The password to be used for authentication when syncing. Extra
@@ -46081,31 +47715,23 @@ components:
           nullable: true
           type: string
           writeOnly: true
-        username:
-          description: The username to be used for authentication when syncing.
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
+        ca_cert:
+          description: A PEM encoded CA certificate used to validate the server certificate
+            presented by the remote server.
           minLength: 1
           nullable: true
           type: string
-          writeOnly: true
-        client_key:
-          description: A PEM encoded private key used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        sock_read_timeout:
-          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
         sock_connect_timeout:
           description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -46114,17 +47740,35 @@ components:
           minimum: 0.0
           nullable: true
           type: number
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
-        ca_cert:
-          description: A PEM encoded CA certificate used to validate the server certificate
-            presented by the remote server.
+        url:
+          description: The URL of an external content source.
           minLength: 1
-          nullable: true
           type: string
         proxy_password:
           description: The password to authenticate to the proxy. Extra leading and
@@ -46133,31 +47777,6 @@ components:
           nullable: true
           type: string
           writeOnly: true
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          nullable: true
-          type: integer
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         total_timeout:
           description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -46172,6 +47791,32 @@ components:
           nullable: true
           type: string
           writeOnly: true
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
+        sock_read_timeout:
+          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
+          minLength: 1
+          nullable: true
+          type: string
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -46251,12 +47896,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -46300,6 +47947,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
       type: object
@@ -46346,16 +47994,6 @@ components:
           description: "A unique name. Ex, `rawhide` and `stable`."
           minLength: 1
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
-          type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         base_path:
           description: The base (relative) path component of the published url. Avoid
             paths that                     overlap with other distribution base paths
@@ -46367,6 +48005,16 @@ components:
             \ one will be used."
           format: uri
           type: string
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
         repository_version:
           description: RepositoryVersion to be served
           format: uri
@@ -46385,20 +48033,25 @@ components:
     Patchedcontainer.ContainerPushRepository:
       description: Serializer for Container Push Repositories.
       properties:
-        retain_repo_versions:
-          description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
-          minimum: 1
-          nullable: true
-          type: integer
         name:
           description: A unique name for this repository.
           minLength: 1
           type: string
+        retain_repo_versions:
+          description: Retain X versions of the repository. Default is null which
+            retains all versions.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
         manifest_signing_service:
           description: A reference to an associated signing service.
           format: uri
+          nullable: true
+          type: string
+        description:
+          description: An optional description.
+          minLength: 1
           nullable: true
           type: string
         pulp_labels:
@@ -46406,11 +48059,6 @@ components:
             nullable: true
             type: string
           type: object
-        description:
-          description: An optional description.
-          minLength: 1
-          nullable: true
-          type: string
       type: object
     Patchedcontainer.ContainerRemote:
       description: A Serializer for ContainerRemote.
@@ -46482,12 +48130,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -46531,6 +48181,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         upstream_name:
@@ -46582,8 +48233,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -46702,12 +48353,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -46751,6 +48404,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         distributions:
@@ -46813,8 +48467,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -46952,12 +48606,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -47001,6 +48657,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
       type: object
@@ -47023,8 +48680,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -47161,12 +48818,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -47210,6 +48869,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
       type: object
@@ -47232,8 +48892,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -47357,12 +49017,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -47406,6 +49068,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         includes:
@@ -47429,6 +49092,7 @@ components:
           default: 0
           description: "The amount of latest versions of a package to keep on sync,\
             \ includespre-releases if synced. Default 0 keeps all versions."
+          format: int64
           type: integer
         exclude_platforms:
           description: "List of platforms to exclude syncing Python packages for.\
@@ -47456,8 +49120,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -47600,12 +49264,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -47649,6 +49315,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         sles_auth_token:
@@ -47676,8 +49343,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -47700,6 +49367,7 @@ components:
           description: "The number of versions of each package to keep in the repository;\
             \ older versions will be purged. The default is '0', which will disable\
             \ this feature and keep all versions of each package."
+          format: int64
           minimum: 0
           type: integer
         metadata_checksum_type:
@@ -47716,6 +49384,7 @@ components:
           default: 0
           description: An option specifying whether a client should perform a GPG
             signature check on packages.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -47723,6 +49392,7 @@ components:
           default: 0
           description: An option specifying whether a client should perform a GPG
             signature check on the repodata.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -47800,12 +49470,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -47849,6 +49521,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         uln_server_base_url:
@@ -47903,10 +49576,12 @@ components:
           type: string
         total:
           description: The total count of items.
+          format: int64
           readOnly: true
           type: integer
         done:
           description: The count of items already processed. Defaults to 0.
+          format: int64
           readOnly: true
           type: integer
         suffix:
@@ -48486,12 +50161,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -48535,6 +50212,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -48619,22 +50297,26 @@ components:
       example:
         base_version: https://openapi-generator.tech
         remove_content_units:
-        - ""
-        - ""
+        - remove_content_units
+        - remove_content_units
         add_content_units:
-        - ""
-        - ""
+        - add_content_units
+        - add_content_units
       properties:
         add_content_units:
           description: A list of content units to add to a new repository version.
             This content is added after remove_content_units are removed.
-          items: {}
+          items:
+            minLength: 1
+            type: string
           type: array
         remove_content_units:
           description: A list of content units to remove from the latest repository
             version. You may also specify '*' as an entry to remove all content. This
             content is removed before add_content_units are added.
-          items: {}
+          items:
+            minLength: 1
+            type: string
           type: array
         base_version:
           description: A repository version whose content will be used as the initial
@@ -48694,8 +50376,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -48775,6 +50457,7 @@ components:
           readOnly: true
           type: string
         number:
+          format: int64
           readOnly: true
           type: integer
         repository:
@@ -48953,13 +50636,16 @@ components:
     StatusResponse:
       description: Serializer for the status information of the app
       example:
+        domain_enabled: true
         redis_connection: null
         versions:
         - component: component
           package: package
+          domain_compatible: true
           version: version
         - component: component
           package: package
+          domain_compatible: true
           version: version
         online_workers:
         - pulp_href: https://openapi-generator.tech
@@ -49006,26 +50692,39 @@ components:
           $ref: '#/components/schemas/StatusResponse_storage'
         content_settings:
           $ref: '#/components/schemas/StatusResponse_content_settings'
+        domain_enabled:
+          description: Is Domains enabled
+          type: boolean
       required:
       - content_settings
       - database_connection
+      - domain_enabled
       - online_content_apps
       - online_workers
       - versions
       type: object
+    StorageClassEnum:
+      enum:
+      - pulpcore.app.models.storage.FileSystem
+      - storages.backends.s3boto3.S3Boto3Storage
+      - storages.backends.azure_storage.AzureStorage
+      type: string
     StorageResponse:
       description: Serializer for information about the storage system
       properties:
         total:
           description: Total number of bytes
+          format: int64
           minimum: 0
           type: integer
         used:
           description: Number of bytes in use
+          format: int64
           minimum: 0
           type: integer
         free:
           description: Number of free bytes
+          format: int64
           minimum: 0
           type: integer
       required:
@@ -49042,12 +50741,15 @@ components:
       properties:
         projects:
           description: Number of Python projects in index
+          format: int64
           type: integer
         releases:
           description: Number of Python distribution releases in index
+          format: int64
           type: integer
         files:
           description: Number of files for all distributions in index
+          format: int64
           type: integer
       required:
       - files
@@ -49184,30 +50886,37 @@ components:
           type: boolean
         waiting:
           description: Number of tasks in the 'waiting' state
+          format: int64
           readOnly: true
           type: integer
         skipped:
           description: Number of tasks in the 'skipped' state
+          format: int64
           readOnly: true
           type: integer
         running:
           description: Number of tasks in the 'running' state
+          format: int64
           readOnly: true
           type: integer
         completed:
           description: Number of tasks in the 'completed' state
+          format: int64
           readOnly: true
           type: integer
         canceled:
           description: Number of tasks in the 'canceled' state
+          format: int64
           readOnly: true
           type: integer
         failed:
           description: Number of tasks in the 'failed' state
+          format: int64
           readOnly: true
           type: integer
         canceling:
           description: Number of tasks in the 'canceling' state
+          format: int64
           readOnly: true
           type: integer
         group_progress_reports:
@@ -49493,6 +51202,7 @@ components:
       properties:
         size:
           description: The size of the upload in bytes.
+          format: int64
           type: integer
       required:
       - size
@@ -49521,9 +51231,11 @@ components:
         size: 1
       properties:
         offset:
+          format: int64
           readOnly: true
           type: integer
         size:
+          format: int64
           readOnly: true
           type: integer
       type: object
@@ -49563,6 +51275,7 @@ components:
           type: string
         size:
           description: The size of the upload in bytes.
+          format: int64
           type: integer
         completed:
           description: Timestamp when upload is committed.
@@ -49596,6 +51309,7 @@ components:
           type: string
         size:
           description: The size of the upload in bytes.
+          format: int64
           type: integer
         completed:
           description: Timestamp when upload is committed.
@@ -49604,6 +51318,158 @@ components:
           type: string
       required:
       - size
+      type: object
+    UpstreamPulp:
+      description: Serializer for a Server.
+      example:
+        client_key: client_key
+        password: password
+        tls_validation: true
+        client_cert: client_cert
+        pulp_label_select: pulp_label_select
+        domain: domain
+        name: name
+        base_url: base_url
+        ca_cert: ca_cert
+        api_root: api_root
+        username: username
+      properties:
+        name:
+          description: A unique name for this Pulp server.
+          minLength: 1
+          type: string
+        base_url:
+          description: "The transport, hostname, and an optional port of the Pulp\
+            \ server. e.g. https://example.com"
+          minLength: 1
+          type: string
+        api_root:
+          description: The API root. Defaults to '/pulp/'.
+          minLength: 1
+          type: string
+        domain:
+          description: The domain of the Pulp server if enabled.
+          minLength: 1
+          nullable: true
+          type: string
+        ca_cert:
+          description: A PEM encoded CA certificate used to validate the server certificate
+            presented by the remote server.
+          minLength: 1
+          nullable: true
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        password:
+          description: The password to be used for authentication when syncing. Extra
+            leading and trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        pulp_label_select:
+          description: "One or more comma separated labels that will be used to filter\
+            \ distributions on the upstream Pulp. E.g. \"foo=bar,key=val\" or \"foo,key\""
+          nullable: true
+          type: string
+      required:
+      - api_root
+      - base_url
+      - name
+      type: object
+    UpstreamPulpResponse:
+      description: Serializer for a Server.
+      example:
+        pulp_href: https://openapi-generator.tech
+        tls_validation: true
+        client_cert: client_cert
+        pulp_label_select: pulp_label_select
+        domain: domain
+        name: name
+        base_url: base_url
+        pulp_created: 2000-01-23T04:56:07.000+00:00
+        hidden_fields:
+        - is_set: true
+          name: name
+        - is_set: true
+          name: name
+        pulp_last_updated: 2000-01-23T04:56:07.000+00:00
+        ca_cert: ca_cert
+        api_root: api_root
+      properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: A unique name for this Pulp server.
+          type: string
+        base_url:
+          description: "The transport, hostname, and an optional port of the Pulp\
+            \ server. e.g. https://example.com"
+          type: string
+        api_root:
+          description: The API root. Defaults to '/pulp/'.
+          type: string
+        domain:
+          description: The domain of the Pulp server if enabled.
+          nullable: true
+          type: string
+        ca_cert:
+          description: A PEM encoded CA certificate used to validate the server certificate
+            presented by the remote server.
+          nullable: true
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          nullable: true
+          type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        pulp_last_updated:
+          description: Timestamp of the most recent update of the remote.
+          format: date-time
+          readOnly: true
+          type: string
+        hidden_fields:
+          description: List of hidden (write only) fields
+          items:
+            $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
+          readOnly: true
+          type: array
+        pulp_label_select:
+          description: "One or more comma separated labels that will be used to filter\
+            \ distributions on the upstream Pulp. E.g. \"foo=bar,key=val\" or \"foo,key\""
+          nullable: true
+          type: string
+      required:
+      - api_root
+      - base_url
+      - name
       type: object
     User:
       description: Serializer for User.
@@ -49707,6 +51573,7 @@ components:
           readOnly: true
           type: string
         id:
+          format: int64
           readOnly: true
           type: integer
         username:
@@ -49758,14 +51625,22 @@ components:
       example:
         content_object: content_object
         role: role
+        domain: https://openapi-generator.tech
       properties:
         role:
           minLength: 1
           type: string
         content_object:
           description: "pulp_href of the object for which role permissions should\
-            \ be asserted. If set to 'null', permissions will act on the model-level."
+            \ be asserted. If set to 'null', permissions will act on either domain\
+            \ or model-level."
           minLength: 1
+          nullable: true
+          type: string
+        domain:
+          description: "Domain this role should be applied on, mutually exclusive\
+            \ with content_object."
+          format: uri
           nullable: true
           type: string
       required:
@@ -49781,6 +51656,7 @@ components:
         permissions:
         - permissions
         - permissions
+        domain: https://openapi-generator.tech
         description: description
         pulp_created: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -49797,7 +51673,8 @@ components:
           type: string
         content_object:
           description: "pulp_href of the object for which role permissions should\
-            \ be asserted. If set to 'null', permissions will act on the model-level."
+            \ be asserted. If set to 'null', permissions will act on either domain\
+            \ or model-level."
           nullable: true
           type: string
         description:
@@ -49808,6 +51685,12 @@ components:
             type: string
           readOnly: true
           type: array
+        domain:
+          description: "Domain this role should be applied on, mutually exclusive\
+            \ with content_object."
+          format: uri
+          nullable: true
+          type: string
       required:
       - content_object
       - role
@@ -49878,6 +51761,7 @@ components:
       example:
         component: component
         package: package
+        domain_compatible: true
         version: version
       properties:
         component:
@@ -49889,8 +51773,12 @@ components:
         package:
           description: Python package name providing the component
           type: string
+        domain_compatible:
+          description: Domain feature compatibility of component
+          type: boolean
       required:
       - component
+      - domain_compatible
       - package
       - version
       type: object
@@ -50050,8 +51938,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -50120,8 +52008,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -50227,12 +52115,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -50276,6 +52166,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         requirements_file:
@@ -50390,12 +52281,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -50439,6 +52332,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -50489,6 +52383,16 @@ components:
     ansible.CollectionVersion:
       description: A serializer for CollectionVersion Content.
       properties:
+        file:
+          description: An uploaded file that may be turned into the artifact of the
+            content unit.
+          format: binary
+          type: string
+          writeOnly: true
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
+          type: string
         upload:
           description: An uncommitted upload that may be turned into the artifact
             of the content unit.
@@ -50501,16 +52405,6 @@ components:
           format: uri
           type: string
           writeOnly: true
-        file:
-          description: An uploaded file that may be turned into the artifact of the
-            content unit.
-          format: binary
-          type: string
-          writeOnly: true
-        artifact:
-          description: Artifact file representing the physical content
-          format: uri
-          type: string
         expected_name:
           description: The name of the collection.
           maxLength: 64
@@ -50571,14 +52465,14 @@ components:
           format: uri
           readOnly: true
           type: string
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
+          type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
           readOnly: true
-          type: string
-        artifact:
-          description: Artifact file representing the physical content
-          format: uri
           type: string
         sha256:
           description: The SHA-256 checksum if available.
@@ -50758,23 +52652,15 @@ components:
     ansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
-        url:
-          description: The URL of an external content source.
+        client_key:
+          description: A PEM encoded private key used for authentication.
           minLength: 1
-          type: string
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
           nullable: true
-          type: integer
+          type: string
+          writeOnly: true
         name:
           description: A unique name for this remote.
           minLength: 1
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          minLength: 1
-          nullable: true
           type: string
         password:
           description: The password to be used for authentication when syncing. Extra
@@ -50783,31 +52669,23 @@ components:
           nullable: true
           type: string
           writeOnly: true
-        username:
-          description: The username to be used for authentication when syncing.
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
+        ca_cert:
+          description: A PEM encoded CA certificate used to validate the server certificate
+            presented by the remote server.
           minLength: 1
           nullable: true
           type: string
-          writeOnly: true
-        client_key:
-          description: A PEM encoded private key used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        sock_read_timeout:
-          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
         sock_connect_timeout:
           description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -50816,17 +52694,35 @@ components:
           minimum: 0.0
           nullable: true
           type: number
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
-        ca_cert:
-          description: A PEM encoded CA certificate used to validate the server certificate
-            presented by the remote server.
+        url:
+          description: The URL of an external content source.
           minLength: 1
-          nullable: true
           type: string
         proxy_password:
           description: The password to authenticate to the proxy. Extra leading and
@@ -50835,31 +52731,6 @@ components:
           nullable: true
           type: string
           writeOnly: true
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          nullable: true
-          type: integer
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         total_timeout:
           description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -50874,6 +52745,32 @@ components:
           nullable: true
           type: string
           writeOnly: true
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
+        sock_read_timeout:
+          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
+          minLength: 1
+          nullable: true
+          type: string
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -50892,14 +52789,14 @@ components:
         headers:
         - "{}"
         - "{}"
-        rate_limit: 2
+        rate_limit: 5
         max_retries: 0
         pulp_href: https://openapi-generator.tech
-        connect_timeout: 0.5637376656633328
         tls_validation: true
+        connect_timeout: 0.7061401241503109
         client_cert: client_cert
-        sock_read_timeout: 0.6027456183070403
         pulp_last_updated: 2000-01-23T04:56:07.000+00:00
+        sock_read_timeout: 0.23021358869347652
         url: url
         download_concurrency: 1
         pulp_labels:
@@ -50907,7 +52804,7 @@ components:
         metadata_only: true
         name: name
         git_ref: git_ref
-        sock_connect_timeout: 0.14658129805029452
+        sock_connect_timeout: 0.6027456183070403
         hidden_fields:
         - is_set: true
           name: name
@@ -50916,36 +52813,89 @@ components:
         pulp_created: 2000-01-23T04:56:07.000+00:00
         proxy_url: proxy_url
         ca_cert: ca_cert
-        total_timeout: 0.7061401241503109
+        total_timeout: 0.5962133916683182
       properties:
+        name:
+          description: A unique name for this remote.
+          type: string
         hidden_fields:
           description: List of hidden (write only) fields
           items:
             $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
           readOnly: true
           type: array
-        url:
-          description: The URL of an external content source.
+        pulp_last_updated:
+          description: Timestamp of the most recent update of the remote.
+          format: date-time
+          readOnly: true
           type: string
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
+        ca_cert:
+          description: A PEM encoded CA certificate used to validate the server certificate
+            presented by the remote server.
+          nullable: true
+          type: string
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
         pulp_href:
           format: uri
           readOnly: true
-          type: string
-        name:
-          description: A unique name for this remote.
           type: string
         client_cert:
           description: A PEM encoded client certificate used for authentication.
           nullable: true
           type: string
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        download_concurrency:
+          description: Total number of simultaneous connections. If not set then the
+            default value will be used.
+          format: int64
+          minimum: 1
           nullable: true
+          type: integer
+        url:
+          description: The URL of an external content source.
+          type: string
+        total_timeout:
+          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
         sock_read_timeout:
           description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
@@ -50955,28 +52905,8 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        download_concurrency:
-          description: Total number of simultaneous connections. If not set then the
-            default value will be used.
-          minimum: 1
-          nullable: true
-          type: integer
-        pulp_last_updated:
-          description: Timestamp of the most recent update of the remote.
-          format: date-time
-          readOnly: true
-          type: string
-        ca_cert:
-          description: A PEM encoded CA certificate used to validate the server certificate
-            presented by the remote server.
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
           nullable: true
           type: string
         connect_timeout:
@@ -50987,36 +52917,6 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          nullable: true
-          type: integer
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
-        total_timeout:
-          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -51120,12 +53020,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -51169,6 +53071,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
       required:
@@ -51250,12 +53153,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -51299,6 +53204,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -51321,18 +53227,18 @@ components:
         pulp_created: 2000-01-23T04:56:07.000+00:00
         version: version
       properties:
-        pulp_href:
+        artifact:
+          description: Artifact file representing the physical content
           format: uri
-          readOnly: true
           type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
           readOnly: true
           type: string
-        artifact:
-          description: Artifact file representing the physical content
+        pulp_href:
           format: uri
+          readOnly: true
           type: string
         version:
           type: string
@@ -51503,16 +53409,6 @@ components:
           description: "A unique name. Ex, `rawhide` and `stable`."
           minLength: 1
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
-          type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         base_path:
           description: The base (relative) path component of the published url. Avoid
             paths that                     overlap with other distribution base paths
@@ -51524,6 +53420,16 @@ components:
             \ one will be used."
           format: uri
           type: string
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
         repository_version:
           description: RepositoryVersion to be served
           format: uri
@@ -51546,9 +53452,9 @@ components:
       description: A serializer for ContainerDistribution.
       example:
         private: true
-        pulp_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
+        pulp_href: https://openapi-generator.tech
         name: name
         namespace: https://openapi-generator.tech
         description: description
@@ -51562,20 +53468,6 @@ components:
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
           type: string
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
-          type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         base_path:
           description: The base (relative) path component of the published url. Avoid
             paths that                     overlap with other distribution base paths
@@ -51586,9 +53478,23 @@ components:
             \ one will be used."
           format: uri
           type: string
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
+          readOnly: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        pulp_href:
+          format: uri
           readOnly: true
           type: string
         repository_version:
@@ -51651,20 +53557,25 @@ components:
     container.ContainerPushRepository:
       description: Serializer for Container Push Repositories.
       properties:
-        retain_repo_versions:
-          description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
-          minimum: 1
-          nullable: true
-          type: integer
         name:
           description: A unique name for this repository.
           minLength: 1
           type: string
+        retain_repo_versions:
+          description: Retain X versions of the repository. Default is null which
+            retains all versions.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
         manifest_signing_service:
           description: A reference to an associated signing service.
           format: uri
+          nullable: true
+          type: string
+        description:
+          description: An optional description.
+          minLength: 1
           nullable: true
           type: string
         pulp_labels:
@@ -51672,11 +53583,6 @@ components:
             nullable: true
             type: string
           type: object
-        description:
-          description: An optional description.
-          minLength: 1
-          nullable: true
-          type: string
       required:
       - name
       type: object
@@ -51686,29 +53592,29 @@ components:
         manifest_signing_service: https://openapi-generator.tech
         latest_version_href: https://openapi-generator.tech
         versions_href: https://openapi-generator.tech
-        pulp_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
+        pulp_href: https://openapi-generator.tech
         name: name
         description: description
         retain_repo_versions: 1
         pulp_created: 2000-01-23T04:56:07.000+00:00
       properties:
-        versions_href:
+        name:
+          description: A unique name for this repository.
+          type: string
+        latest_version_href:
           format: uri
           readOnly: true
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
-        name:
-          description: A unique name for this repository.
-          type: string
-        pulp_href:
+        versions_href:
           format: uri
           readOnly: true
           type: string
@@ -51717,22 +53623,22 @@ components:
           format: uri
           nullable: true
           type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
-        latest_version_href:
-          format: uri
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
           readOnly: true
           type: string
         description:
           description: An optional description.
           nullable: true
           type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        pulp_href:
+          format: uri
           readOnly: true
           type: string
       required:
@@ -51808,12 +53714,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -51857,6 +53765,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         upstream_name:
@@ -51976,12 +53885,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -52025,6 +53936,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -52082,8 +53994,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -52146,8 +54058,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -52199,6 +54111,7 @@ components:
           type: string
         schema_version:
           description: Manifest schema version
+          format: int64
           type: integer
         media_type:
           description: Manifest media type of the file
@@ -52263,6 +54176,7 @@ components:
           type: string
         timestamp:
           description: Timestamp of a signature
+          format: int64
           type: integer
         creator:
           description: Signature creator
@@ -52539,12 +54453,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -52588,6 +54504,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         distributions:
@@ -52718,12 +54635,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -52767,6 +54686,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -52835,8 +54755,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -52893,8 +54813,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -54008,12 +55928,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -54057,6 +55979,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
       required:
@@ -54138,12 +56061,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -54187,6 +56112,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -54218,8 +56144,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -54290,8 +56216,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -54552,12 +56478,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -54601,6 +56529,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
       required:
@@ -54692,12 +56621,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -54741,6 +56672,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -54772,8 +56704,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -54830,8 +56762,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -55347,12 +57279,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -55396,6 +57330,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         includes:
@@ -55419,6 +57354,7 @@ components:
           default: 0
           description: "The amount of latest versions of a package to keep on sync,\
             \ includespre-releases if synced. Default 0 keeps all versions."
+          format: int64
           type: integer
         exclude_platforms:
           description: "List of platforms to exclude syncing Python packages for.\
@@ -55515,12 +57451,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -55564,6 +57502,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -55593,6 +57532,7 @@ components:
           default: 0
           description: "The amount of latest versions of a package to keep on sync,\
             \ includespre-releases if synced. Default 0 keeps all versions."
+          format: int64
           type: integer
         exclude_platforms:
           description: "List of platforms to exclude syncing Python packages for.\
@@ -55623,8 +57563,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -55687,8 +57627,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -55818,10 +57758,12 @@ components:
           type: string
         discnum:
           description: Disc number.
+          format: int64
           nullable: true
           type: integer
         totaldiscs:
           description: Number of discs in media set.
+          format: int64
           nullable: true
           type: integer
         addons:
@@ -56260,6 +58202,7 @@ components:
           type: string
         display_order:
           description: Category display order.
+          format: int64
           nullable: true
           type: integer
         group_ids:
@@ -56322,6 +58265,7 @@ components:
           type: string
         display_order:
           description: Environment display order.
+          format: int64
           nullable: true
           type: integer
         group_ids:
@@ -56391,6 +58335,7 @@ components:
           type: boolean
         display_order:
           description: PackageGroup display order.
+          format: int64
           nullable: true
           type: integer
         name:
@@ -56662,10 +58607,12 @@ components:
           type: string
         rpm_header_start:
           description: First byte of the header
+          format: int64
           readOnly: true
           type: integer
         rpm_header_end:
           description: Last byte of the header
+          format: int64
           readOnly: true
           type: integer
         is_modular:
@@ -56675,23 +58622,28 @@ components:
         size_archive:
           description: "Size, in bytes, of the archive portion of the original package\
             \ file"
+          format: int64
           readOnly: true
           type: integer
         size_installed:
           description: "Total size, in bytes, of every file installed by this package"
+          format: int64
           readOnly: true
           type: integer
         size_package:
           description: "Size, in bytes, of the package"
+          format: int64
           readOnly: true
           type: integer
         time_build:
           description: Time the package was built in seconds since the epoch
+          format: int64
           readOnly: true
           type: integer
         time_file:
           description: The 'file' time attribute in the primary XML - file mtime in
             seconds since the epoch.
+          format: int64
           readOnly: true
           type: integer
       type: object
@@ -56954,12 +58906,14 @@ components:
         gpgcheck:
           description: An option specifying whether a client should perform a GPG
             signature check on packages.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
         repo_gpgcheck:
           description: An option specifying whether a client should perform a GPG
             signature check on the repodata.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -57009,12 +58963,14 @@ components:
         gpgcheck:
           description: An option specifying whether a client should perform a GPG
             signature check on packages.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
         repo_gpgcheck:
           description: An option specifying whether a client should perform a GPG
             signature check on the repodata.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -57094,12 +59050,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -57143,6 +59101,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         sles_auth_token:
@@ -57230,12 +59189,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -57279,6 +59240,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:
@@ -57314,8 +59276,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -57338,6 +59300,7 @@ components:
           description: "The number of versions of each package to keep in the repository;\
             \ older versions will be purged. The default is '0', which will disable\
             \ this feature and keep all versions of each package."
+          format: int64
           minimum: 0
           type: integer
         metadata_checksum_type:
@@ -57354,6 +59317,7 @@ components:
           default: 0
           description: An option specifying whether a client should perform a GPG
             signature check on packages.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -57361,6 +59325,7 @@ components:
           default: 0
           description: An option specifying whether a client should perform a GPG
             signature check on the repodata.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -57425,8 +59390,8 @@ components:
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
-            retains all versions. This is provided as a tech preview in Pulp 3 and
-            may change in the future.
+            retains all versions.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
@@ -57449,6 +59414,7 @@ components:
           description: "The number of versions of each package to keep in the repository;\
             \ older versions will be purged. The default is '0', which will disable\
             \ this feature and keep all versions of each package."
+          format: int64
           minimum: 0
           type: integer
         metadata_checksum_type:
@@ -57465,6 +59431,7 @@ components:
           default: 0
           description: An option specifying whether a client should perform a GPG
             signature check on packages.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -57472,6 +59439,7 @@ components:
           default: 0
           description: An option specifying whether a client should perform a GPG
             signature check on the repodata.
+          format: int64
           maximum: 1
           minimum: 0
           type: integer
@@ -57551,12 +59519,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -57600,6 +59570,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         uln_server_base_url:
@@ -57692,12 +59663,14 @@ components:
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
+          format: int64
           minimum: 1
           nullable: true
           type: integer
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
+          format: int64
           nullable: true
           type: integer
         policy:
@@ -57741,6 +59714,7 @@ components:
           type: array
         rate_limit:
           description: Limits requests per second for each concurrent downloader
+          format: int64
           nullable: true
           type: integer
         hidden_fields:

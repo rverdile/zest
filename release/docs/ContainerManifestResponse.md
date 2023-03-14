@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Artifact** | **string** | Artifact file representing the physical content | 
 **Digest** | **string** | sha256 of the Manifest file | 
-**SchemaVersion** | **int32** | Manifest schema version | 
+**SchemaVersion** | **int64** | Manifest schema version | 
 **MediaType** | **string** | Manifest media type of the file | 
 **ListedManifests** | **[]string** | Manifests that are referenced by this Manifest List | 
 **ConfigBlob** | Pointer to **string** | Blob that contains configuration for this Manifest | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewContainerManifestResponse
 
-`func NewContainerManifestResponse(artifact string, digest string, schemaVersion int32, mediaType string, listedManifests []string, blobs []string, ) *ContainerManifestResponse`
+`func NewContainerManifestResponse(artifact string, digest string, schemaVersion int64, mediaType string, listedManifests []string, blobs []string, ) *ContainerManifestResponse`
 
 NewContainerManifestResponse instantiates a new ContainerManifestResponse object
 This constructor will assign default values to properties that have it defined,
@@ -125,20 +125,20 @@ SetDigest sets Digest field to given value.
 
 ### GetSchemaVersion
 
-`func (o *ContainerManifestResponse) GetSchemaVersion() int32`
+`func (o *ContainerManifestResponse) GetSchemaVersion() int64`
 
 GetSchemaVersion returns the SchemaVersion field if non-nil, zero value otherwise.
 
 ### GetSchemaVersionOk
 
-`func (o *ContainerManifestResponse) GetSchemaVersionOk() (*int32, bool)`
+`func (o *ContainerManifestResponse) GetSchemaVersionOk() (*int64, bool)`
 
 GetSchemaVersionOk returns a tuple with the SchemaVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSchemaVersion
 
-`func (o *ContainerManifestResponse) SetSchemaVersion(v int32)`
+`func (o *ContainerManifestResponse) SetSchemaVersion(v int64)`
 
 SetSchemaVersion sets SchemaVersion field to given value.
 

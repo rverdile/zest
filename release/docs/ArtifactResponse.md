@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **File** | **string** | The stored file. | 
-**Size** | Pointer to **int32** | The size of the file in bytes. | [optional] 
+**Size** | Pointer to **int64** | The size of the file in bytes. | [optional] 
 **Md5** | Pointer to **NullableString** | The MD5 checksum of the file if available. | [optional] 
 **Sha1** | Pointer to **NullableString** | The SHA-1 checksum of the file if available. | [optional] 
 **Sha224** | Pointer to **NullableString** | The SHA-224 checksum of the file if available. | [optional] 
@@ -106,20 +106,20 @@ SetFile sets File field to given value.
 
 ### GetSize
 
-`func (o *ArtifactResponse) GetSize() int32`
+`func (o *ArtifactResponse) GetSize() int64`
 
 GetSize returns the Size field if non-nil, zero value otherwise.
 
 ### GetSizeOk
 
-`func (o *ArtifactResponse) GetSizeOk() (*int32, bool)`
+`func (o *ArtifactResponse) GetSizeOk() (*int64, bool)`
 
 GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSize
 
-`func (o *ArtifactResponse) SetSize(v int32)`
+`func (o *ArtifactResponse) SetSize(v int64)`
 
 SetSize sets Size field to given value.
 

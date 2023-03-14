@@ -29,25 +29,13 @@ type ContentCollectionVersionsApiService service
 type ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentCollectionVersionsApiService
-	upload *string
-	repository *string
 	file *os.File
 	artifact *string
+	upload *string
+	repository *string
 	expectedName *string
 	expectedNamespace *string
 	expectedVersion *string
-}
-
-// An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Upload(upload string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	r.upload = &upload
-	return r
-}
-
-// A URI of a repository the new content unit should be associated with.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	r.repository = &repository
-	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
@@ -59,6 +47,18 @@ func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateReques
 // Artifact file representing the physical content
 func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
 	r.artifact = &artifact
+	return r
+}
+
+// An uncommitted upload that may be turned into the artifact of the content unit.
+func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Upload(upload string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+	r.upload = &upload
+	return r
+}
+
+// A URI of a repository the new content unit should be associated with.
+func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+	r.repository = &repository
 	return r
 }
 
@@ -136,12 +136,6 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.upload != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
-	}
-	if r.repository != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
-	}
 	var fileLocalVarFormFileName string
 	var fileLocalVarFileName     string
 	var fileLocalVarFileBytes    []byte
@@ -161,6 +155,12 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	}
 	if r.artifact != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
+	}
+	if r.upload != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
+	}
+	if r.repository != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
 	}
 	if r.expectedName != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "expected_name", r.expectedName, "")

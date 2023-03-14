@@ -26,17 +26,20 @@ type VersionResponse struct {
 	Version string `json:"version"`
 	// Python package name providing the component
 	Package string `json:"package"`
+	// Domain feature compatibility of component
+	DomainCompatible bool `json:"domain_compatible"`
 }
 
 // NewVersionResponse instantiates a new VersionResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVersionResponse(component string, version string, package_ string) *VersionResponse {
+func NewVersionResponse(component string, version string, package_ string, domainCompatible bool) *VersionResponse {
 	this := VersionResponse{}
 	this.Component = component
 	this.Version = version
 	this.Package = package_
+	this.DomainCompatible = domainCompatible
 	return &this
 }
 
@@ -120,6 +123,30 @@ func (o *VersionResponse) SetPackage(v string) {
 	o.Package = v
 }
 
+// GetDomainCompatible returns the DomainCompatible field value
+func (o *VersionResponse) GetDomainCompatible() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.DomainCompatible
+}
+
+// GetDomainCompatibleOk returns a tuple with the DomainCompatible field value
+// and a boolean to check if the value has been set.
+func (o *VersionResponse) GetDomainCompatibleOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DomainCompatible, true
+}
+
+// SetDomainCompatible sets field value
+func (o *VersionResponse) SetDomainCompatible(v bool) {
+	o.DomainCompatible = v
+}
+
 func (o VersionResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,6 +160,7 @@ func (o VersionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["component"] = o.Component
 	toSerialize["version"] = o.Version
 	toSerialize["package"] = o.Package
+	toSerialize["domain_compatible"] = o.DomainCompatible
 	return toSerialize, nil
 }
 

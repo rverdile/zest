@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **BuildTimestamp** | **float64** | Tree build time timestamp. | 
 **Instimage** | **NullableString** | Relative path to Anaconda instimage. | 
 **Mainimage** | **NullableString** | Relative path to Anaconda stage2 image. | 
-**Discnum** | **NullableInt32** | Disc number. | 
-**Totaldiscs** | **NullableInt32** | Number of discs in media set. | 
+**Discnum** | **NullableInt64** | Disc number. | 
+**Totaldiscs** | **NullableInt64** | Number of discs in media set. | 
 **Addons** | [**[]AddonResponse**](AddonResponse.md) |  | 
 **Checksums** | [**[]ChecksumResponse**](ChecksumResponse.md) |  | 
 **Images** | [**[]ImageResponse**](ImageResponse.md) |  | 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewRpmDistributionTreeResponse
 
-`func NewRpmDistributionTreeResponse(headerVersion string, releaseName string, releaseShort string, releaseVersion string, releaseIsLayered bool, baseProductName NullableString, baseProductShort NullableString, baseProductVersion NullableString, arch string, buildTimestamp float64, instimage NullableString, mainimage NullableString, discnum NullableInt32, totaldiscs NullableInt32, addons []AddonResponse, checksums []ChecksumResponse, images []ImageResponse, variants []VariantResponse, ) *RpmDistributionTreeResponse`
+`func NewRpmDistributionTreeResponse(headerVersion string, releaseName string, releaseShort string, releaseVersion string, releaseIsLayered bool, baseProductName NullableString, baseProductShort NullableString, baseProductVersion NullableString, arch string, buildTimestamp float64, instimage NullableString, mainimage NullableString, discnum NullableInt64, totaldiscs NullableInt64, addons []AddonResponse, checksums []ChecksumResponse, images []ImageResponse, variants []VariantResponse, ) *RpmDistributionTreeResponse`
 
 NewRpmDistributionTreeResponse instantiates a new RpmDistributionTreeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -360,20 +360,20 @@ SetMainimage sets Mainimage field to given value.
 UnsetMainimage ensures that no value is present for Mainimage, not even an explicit nil
 ### GetDiscnum
 
-`func (o *RpmDistributionTreeResponse) GetDiscnum() int32`
+`func (o *RpmDistributionTreeResponse) GetDiscnum() int64`
 
 GetDiscnum returns the Discnum field if non-nil, zero value otherwise.
 
 ### GetDiscnumOk
 
-`func (o *RpmDistributionTreeResponse) GetDiscnumOk() (*int32, bool)`
+`func (o *RpmDistributionTreeResponse) GetDiscnumOk() (*int64, bool)`
 
 GetDiscnumOk returns a tuple with the Discnum field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDiscnum
 
-`func (o *RpmDistributionTreeResponse) SetDiscnum(v int32)`
+`func (o *RpmDistributionTreeResponse) SetDiscnum(v int64)`
 
 SetDiscnum sets Discnum field to given value.
 
@@ -390,20 +390,20 @@ SetDiscnum sets Discnum field to given value.
 UnsetDiscnum ensures that no value is present for Discnum, not even an explicit nil
 ### GetTotaldiscs
 
-`func (o *RpmDistributionTreeResponse) GetTotaldiscs() int32`
+`func (o *RpmDistributionTreeResponse) GetTotaldiscs() int64`
 
 GetTotaldiscs returns the Totaldiscs field if non-nil, zero value otherwise.
 
 ### GetTotaldiscsOk
 
-`func (o *RpmDistributionTreeResponse) GetTotaldiscsOk() (*int32, bool)`
+`func (o *RpmDistributionTreeResponse) GetTotaldiscsOk() (*int64, bool)`
 
 GetTotaldiscsOk returns a tuple with the Totaldiscs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotaldiscs
 
-`func (o *RpmDistributionTreeResponse) SetTotaldiscs(v int32)`
+`func (o *RpmDistributionTreeResponse) SetTotaldiscs(v int64)`
 
 SetTotaldiscs sets Totaldiscs field to given value.
 

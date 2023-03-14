@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Offset** | Pointer to **int32** |  | [optional] [readonly] 
-**Size** | Pointer to **int32** |  | [optional] [readonly] 
+**Offset** | Pointer to **int64** |  | [optional] [readonly] 
+**Size** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetOffset
 
-`func (o *UploadChunkResponse) GetOffset() int32`
+`func (o *UploadChunkResponse) GetOffset() int64`
 
 GetOffset returns the Offset field if non-nil, zero value otherwise.
 
 ### GetOffsetOk
 
-`func (o *UploadChunkResponse) GetOffsetOk() (*int32, bool)`
+`func (o *UploadChunkResponse) GetOffsetOk() (*int64, bool)`
 
 GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOffset
 
-`func (o *UploadChunkResponse) SetOffset(v int32)`
+`func (o *UploadChunkResponse) SetOffset(v int64)`
 
 SetOffset sets Offset field to given value.
 
@@ -53,20 +53,20 @@ HasOffset returns a boolean if a field has been set.
 
 ### GetSize
 
-`func (o *UploadChunkResponse) GetSize() int32`
+`func (o *UploadChunkResponse) GetSize() int64`
 
 GetSize returns the Size field if non-nil, zero value otherwise.
 
 ### GetSizeOk
 
-`func (o *UploadChunkResponse) GetSizeOk() (*int32, bool)`
+`func (o *UploadChunkResponse) GetSizeOk() (*int64, bool)`
 
 GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSize
 
-`func (o *UploadChunkResponse) SetSize(v int32)`
+`func (o *UploadChunkResponse) SetSize(v int64)`
 
 SetSize sets Size field to given value.
 

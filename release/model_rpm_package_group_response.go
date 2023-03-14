@@ -31,7 +31,7 @@ type RpmPackageGroupResponse struct {
 	// PackageGroup user visibility.
 	UserVisible *bool `json:"user_visible,omitempty"`
 	// PackageGroup display order.
-	DisplayOrder NullableInt32 `json:"display_order"`
+	DisplayOrder NullableInt64 `json:"display_order"`
 	// PackageGroup name.
 	Name string `json:"name"`
 	// PackageGroup description.
@@ -52,7 +52,7 @@ type RpmPackageGroupResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRpmPackageGroupResponse(id string, displayOrder NullableInt32, name string, description string, packages map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string) *RpmPackageGroupResponse {
+func NewRpmPackageGroupResponse(id string, displayOrder NullableInt64, name string, description string, packages map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string) *RpmPackageGroupResponse {
 	this := RpmPackageGroupResponse{}
 	this.Id = id
 	this.DisplayOrder = displayOrder
@@ -226,10 +226,10 @@ func (o *RpmPackageGroupResponse) SetUserVisible(v bool) {
 }
 
 // GetDisplayOrder returns the DisplayOrder field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *RpmPackageGroupResponse) GetDisplayOrder() int32 {
+// If the value is explicit nil, the zero value for int64 will be returned
+func (o *RpmPackageGroupResponse) GetDisplayOrder() int64 {
 	if o == nil || o.DisplayOrder.Get() == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -239,7 +239,7 @@ func (o *RpmPackageGroupResponse) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RpmPackageGroupResponse) GetDisplayOrderOk() (*int32, bool) {
+func (o *RpmPackageGroupResponse) GetDisplayOrderOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -247,7 +247,7 @@ func (o *RpmPackageGroupResponse) GetDisplayOrderOk() (*int32, bool) {
 }
 
 // SetDisplayOrder sets field value
-func (o *RpmPackageGroupResponse) SetDisplayOrder(v int32) {
+func (o *RpmPackageGroupResponse) SetDisplayOrder(v int64) {
 	o.DisplayOrder.Set(&v)
 }
 

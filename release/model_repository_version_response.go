@@ -24,7 +24,7 @@ type RepositoryVersionResponse struct {
 	PulpHref *string `json:"pulp_href,omitempty"`
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
-	Number *int32 `json:"number,omitempty"`
+	Number *int64 `json:"number,omitempty"`
 	Repository *string `json:"repository,omitempty"`
 	// A repository version whose content was used as the initial set of content for this repository version
 	BaseVersion *string `json:"base_version,omitempty"`
@@ -113,9 +113,9 @@ func (o *RepositoryVersionResponse) SetPulpCreated(v time.Time) {
 }
 
 // GetNumber returns the Number field value if set, zero value otherwise.
-func (o *RepositoryVersionResponse) GetNumber() int32 {
+func (o *RepositoryVersionResponse) GetNumber() int64 {
 	if o == nil || IsNil(o.Number) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Number
@@ -123,7 +123,7 @@ func (o *RepositoryVersionResponse) GetNumber() int32 {
 
 // GetNumberOk returns a tuple with the Number field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RepositoryVersionResponse) GetNumberOk() (*int32, bool) {
+func (o *RepositoryVersionResponse) GetNumberOk() (*int64, bool) {
 	if o == nil || IsNil(o.Number) {
 		return nil, false
 	}
@@ -139,8 +139,8 @@ func (o *RepositoryVersionResponse) HasNumber() bool {
 	return false
 }
 
-// SetNumber gets a reference to the given int32 and assigns it to the Number field.
-func (o *RepositoryVersionResponse) SetNumber(v int32) {
+// SetNumber gets a reference to the given int64 and assigns it to the Number field.
+func (o *RepositoryVersionResponse) SetNumber(v int64) {
 	o.Number = &v
 }
 

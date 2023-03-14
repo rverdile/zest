@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Message** | Pointer to **string** | The message shown to the user for the progress report. | [optional] [readonly] 
 **Code** | Pointer to **string** | Identifies the type of progress report&#39;. | [optional] [readonly] 
 **State** | Pointer to **string** | The current state of the progress report. The possible values are: &#39;waiting&#39;, &#39;skipped&#39;, &#39;running&#39;, &#39;completed&#39;, &#39;failed&#39;, &#39;canceled&#39; and &#39;canceling&#39;. The default is &#39;waiting&#39;. | [optional] [readonly] 
-**Total** | Pointer to **int32** | The total count of items. | [optional] [readonly] 
-**Done** | Pointer to **int32** | The count of items already processed. Defaults to 0. | [optional] [readonly] 
+**Total** | Pointer to **int64** | The total count of items. | [optional] [readonly] 
+**Done** | Pointer to **int64** | The count of items already processed. Defaults to 0. | [optional] [readonly] 
 **Suffix** | Pointer to **NullableString** | The suffix to be shown with the progress report. | [optional] [readonly] 
 
 ## Methods
@@ -107,20 +107,20 @@ HasState returns a boolean if a field has been set.
 
 ### GetTotal
 
-`func (o *ProgressReportResponse) GetTotal() int32`
+`func (o *ProgressReportResponse) GetTotal() int64`
 
 GetTotal returns the Total field if non-nil, zero value otherwise.
 
 ### GetTotalOk
 
-`func (o *ProgressReportResponse) GetTotalOk() (*int32, bool)`
+`func (o *ProgressReportResponse) GetTotalOk() (*int64, bool)`
 
 GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotal
 
-`func (o *ProgressReportResponse) SetTotal(v int32)`
+`func (o *ProgressReportResponse) SetTotal(v int64)`
 
 SetTotal sets Total field to given value.
 
@@ -132,20 +132,20 @@ HasTotal returns a boolean if a field has been set.
 
 ### GetDone
 
-`func (o *ProgressReportResponse) GetDone() int32`
+`func (o *ProgressReportResponse) GetDone() int64`
 
 GetDone returns the Done field if non-nil, zero value otherwise.
 
 ### GetDoneOk
 
-`func (o *ProgressReportResponse) GetDoneOk() (*int32, bool)`
+`func (o *ProgressReportResponse) GetDoneOk() (*int64, bool)`
 
 GetDoneOk returns a tuple with the Done field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDone
 
-`func (o *ProgressReportResponse) SetDone(v int32)`
+`func (o *ProgressReportResponse) SetDone(v int64)`
 
 SetDone sets Done field to given value.
 

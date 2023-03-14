@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LastSerial** | **int32** | Cache value from last PyPI sync | 
+**LastSerial** | **int64** | Cache value from last PyPI sync | 
 **Info** | **map[string]interface{}** | Core metadata of the package | 
 **Releases** | **map[string]interface{}** | List of all the releases of the package | 
 **Urls** | **map[string]interface{}** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewPackageMetadataResponse
 
-`func NewPackageMetadataResponse(lastSerial int32, info map[string]interface{}, releases map[string]interface{}, urls map[string]interface{}, ) *PackageMetadataResponse`
+`func NewPackageMetadataResponse(lastSerial int64, info map[string]interface{}, releases map[string]interface{}, urls map[string]interface{}, ) *PackageMetadataResponse`
 
 NewPackageMetadataResponse instantiates a new PackageMetadataResponse object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLastSerial
 
-`func (o *PackageMetadataResponse) GetLastSerial() int32`
+`func (o *PackageMetadataResponse) GetLastSerial() int64`
 
 GetLastSerial returns the LastSerial field if non-nil, zero value otherwise.
 
 ### GetLastSerialOk
 
-`func (o *PackageMetadataResponse) GetLastSerialOk() (*int32, bool)`
+`func (o *PackageMetadataResponse) GetLastSerialOk() (*int64, bool)`
 
 GetLastSerialOk returns a tuple with the LastSerial field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastSerial
 
-`func (o *PackageMetadataResponse) SetLastSerial(v int32)`
+`func (o *PackageMetadataResponse) SetLastSerial(v int64)`
 
 SetLastSerial sets LastSerial field to given value.
 

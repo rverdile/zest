@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
 **Name** | **string** | A unique name for this repository. | 
 **Description** | Pointer to **NullableString** | An optional description. | [optional] 
-**RetainRepoVersions** | Pointer to **NullableInt32** | Retain X versions of the repository. Default is null which retains all versions. This is provided as a tech preview in Pulp 3 and may change in the future. | [optional] 
+**RetainRepoVersions** | Pointer to **NullableInt64** | Retain X versions of the repository. Default is null which retains all versions. | [optional] 
 **Remote** | Pointer to **NullableString** | An optional remote to use by default when syncing. | [optional] 
 
 ## Methods
@@ -111,20 +111,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetRetainRepoVersions
 
-`func (o *MavenMavenRepository) GetRetainRepoVersions() int32`
+`func (o *MavenMavenRepository) GetRetainRepoVersions() int64`
 
 GetRetainRepoVersions returns the RetainRepoVersions field if non-nil, zero value otherwise.
 
 ### GetRetainRepoVersionsOk
 
-`func (o *MavenMavenRepository) GetRetainRepoVersionsOk() (*int32, bool)`
+`func (o *MavenMavenRepository) GetRetainRepoVersionsOk() (*int64, bool)`
 
 GetRetainRepoVersionsOk returns a tuple with the RetainRepoVersions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRetainRepoVersions
 
-`func (o *MavenMavenRepository) SetRetainRepoVersions(v int32)`
+`func (o *MavenMavenRepository) SetRetainRepoVersions(v int64)`
 
 SetRetainRepoVersions sets RetainRepoVersions field to given value.
 

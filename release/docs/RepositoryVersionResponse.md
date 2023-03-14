@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
-**Number** | Pointer to **int32** |  | [optional] [readonly] 
+**Number** | Pointer to **int64** |  | [optional] [readonly] 
 **Repository** | Pointer to **string** |  | [optional] [readonly] 
 **BaseVersion** | Pointer to **string** | A repository version whose content was used as the initial set of content for this repository version | [optional] 
 **ContentSummary** | Pointer to [**RepositoryVersionResponseContentSummary**](RepositoryVersionResponseContentSummary.md) |  | [optional] 
@@ -82,20 +82,20 @@ HasPulpCreated returns a boolean if a field has been set.
 
 ### GetNumber
 
-`func (o *RepositoryVersionResponse) GetNumber() int32`
+`func (o *RepositoryVersionResponse) GetNumber() int64`
 
 GetNumber returns the Number field if non-nil, zero value otherwise.
 
 ### GetNumberOk
 
-`func (o *RepositoryVersionResponse) GetNumberOk() (*int32, bool)`
+`func (o *RepositoryVersionResponse) GetNumberOk() (*int64, bool)`
 
 GetNumberOk returns a tuple with the Number field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNumber
 
-`func (o *RepositoryVersionResponse) SetNumber(v int32)`
+`func (o *RepositoryVersionResponse) SetNumber(v int64)`
 
 SetNumber sets Number field to given value.
 

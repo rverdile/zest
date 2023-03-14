@@ -45,8 +45,6 @@ UsersCreate Create an user
 
 ViewSet for User.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return UsersApiUsersCreateRequest
 */
@@ -150,8 +148,6 @@ func (r UsersApiUsersDeleteRequest) Execute() (*http.Response, error) {
 UsersDelete Delete an user
 
 ViewSet for User.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
@@ -434,8 +430,6 @@ UsersList List users
 
 ViewSet for User.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return UsersApiUsersListRequest
 */
@@ -638,8 +632,6 @@ UsersPartialUpdate Update an user
 
 ViewSet for User.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
  @return UsersApiUsersPartialUpdateRequest
@@ -762,8 +754,6 @@ func (r UsersApiUsersReadRequest) Execute() (*UserResponse, *http.Response, erro
 UsersRead Inspect an user
 
 ViewSet for User.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
@@ -896,8 +886,6 @@ func (r UsersApiUsersUpdateRequest) Execute() (*UserResponse, *http.Response, er
 UsersUpdate Update an user
 
 ViewSet for User.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref

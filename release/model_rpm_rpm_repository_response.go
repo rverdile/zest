@@ -31,8 +31,8 @@ type RpmRpmRepositoryResponse struct {
 	Name string `json:"name"`
 	// An optional description.
 	Description NullableString `json:"description,omitempty"`
-	// Retain X versions of the repository. Default is null which retains all versions. This is provided as a tech preview in Pulp 3 and may change in the future.
-	RetainRepoVersions NullableInt32 `json:"retain_repo_versions,omitempty"`
+	// Retain X versions of the repository. Default is null which retains all versions.
+	RetainRepoVersions NullableInt64 `json:"retain_repo_versions,omitempty"`
 	// An optional remote to use by default when syncing.
 	Remote NullableString `json:"remote,omitempty"`
 	// Whether to automatically create publications for new repository versions, and update any distributions pointing to this repository.
@@ -40,13 +40,13 @@ type RpmRpmRepositoryResponse struct {
 	// A reference to an associated signing service.
 	MetadataSigningService NullableString `json:"metadata_signing_service,omitempty"`
 	// The number of versions of each package to keep in the repository; older versions will be purged. The default is '0', which will disable this feature and keep all versions of each package.
-	RetainPackageVersions *int32 `json:"retain_package_versions,omitempty"`
+	RetainPackageVersions *int64 `json:"retain_package_versions,omitempty"`
 	MetadataChecksumType NullableMetadataChecksumTypeEnum `json:"metadata_checksum_type,omitempty"`
 	PackageChecksumType NullablePackageChecksumTypeEnum `json:"package_checksum_type,omitempty"`
 	// An option specifying whether a client should perform a GPG signature check on packages.
-	Gpgcheck *int32 `json:"gpgcheck,omitempty"`
+	Gpgcheck *int64 `json:"gpgcheck,omitempty"`
 	// An option specifying whether a client should perform a GPG signature check on the repodata.
-	RepoGpgcheck *int32 `json:"repo_gpgcheck,omitempty"`
+	RepoGpgcheck *int64 `json:"repo_gpgcheck,omitempty"`
 	// DEPRECATED: An option specifying whether Pulp should generate SQLite metadata.
 	SqliteMetadata *bool `json:"sqlite_metadata,omitempty"`
 }
@@ -60,9 +60,9 @@ func NewRpmRpmRepositoryResponse(name string) *RpmRpmRepositoryResponse {
 	this.Name = name
 	var autopublish bool = false
 	this.Autopublish = &autopublish
-	var gpgcheck int32 = 0
+	var gpgcheck int64 = 0
 	this.Gpgcheck = &gpgcheck
-	var repoGpgcheck int32 = 0
+	var repoGpgcheck int64 = 0
 	this.RepoGpgcheck = &repoGpgcheck
 	var sqliteMetadata bool = false
 	this.SqliteMetadata = &sqliteMetadata
@@ -76,9 +76,9 @@ func NewRpmRpmRepositoryResponseWithDefaults() *RpmRpmRepositoryResponse {
 	this := RpmRpmRepositoryResponse{}
 	var autopublish bool = false
 	this.Autopublish = &autopublish
-	var gpgcheck int32 = 0
+	var gpgcheck int64 = 0
 	this.Gpgcheck = &gpgcheck
-	var repoGpgcheck int32 = 0
+	var repoGpgcheck int64 = 0
 	this.RepoGpgcheck = &repoGpgcheck
 	var sqliteMetadata bool = false
 	this.SqliteMetadata = &sqliteMetadata
@@ -312,9 +312,9 @@ func (o *RpmRpmRepositoryResponse) UnsetDescription() {
 }
 
 // GetRetainRepoVersions returns the RetainRepoVersions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RpmRpmRepositoryResponse) GetRetainRepoVersions() int32 {
+func (o *RpmRpmRepositoryResponse) GetRetainRepoVersions() int64 {
 	if o == nil || IsNil(o.RetainRepoVersions.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RetainRepoVersions.Get()
@@ -323,7 +323,7 @@ func (o *RpmRpmRepositoryResponse) GetRetainRepoVersions() int32 {
 // GetRetainRepoVersionsOk returns a tuple with the RetainRepoVersions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RpmRpmRepositoryResponse) GetRetainRepoVersionsOk() (*int32, bool) {
+func (o *RpmRpmRepositoryResponse) GetRetainRepoVersionsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -339,8 +339,8 @@ func (o *RpmRpmRepositoryResponse) HasRetainRepoVersions() bool {
 	return false
 }
 
-// SetRetainRepoVersions gets a reference to the given NullableInt32 and assigns it to the RetainRepoVersions field.
-func (o *RpmRpmRepositoryResponse) SetRetainRepoVersions(v int32) {
+// SetRetainRepoVersions gets a reference to the given NullableInt64 and assigns it to the RetainRepoVersions field.
+func (o *RpmRpmRepositoryResponse) SetRetainRepoVersions(v int64) {
 	o.RetainRepoVersions.Set(&v)
 }
 // SetRetainRepoVersionsNil sets the value for RetainRepoVersions to be an explicit nil
@@ -470,9 +470,9 @@ func (o *RpmRpmRepositoryResponse) UnsetMetadataSigningService() {
 }
 
 // GetRetainPackageVersions returns the RetainPackageVersions field value if set, zero value otherwise.
-func (o *RpmRpmRepositoryResponse) GetRetainPackageVersions() int32 {
+func (o *RpmRpmRepositoryResponse) GetRetainPackageVersions() int64 {
 	if o == nil || IsNil(o.RetainPackageVersions) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RetainPackageVersions
@@ -480,7 +480,7 @@ func (o *RpmRpmRepositoryResponse) GetRetainPackageVersions() int32 {
 
 // GetRetainPackageVersionsOk returns a tuple with the RetainPackageVersions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmRpmRepositoryResponse) GetRetainPackageVersionsOk() (*int32, bool) {
+func (o *RpmRpmRepositoryResponse) GetRetainPackageVersionsOk() (*int64, bool) {
 	if o == nil || IsNil(o.RetainPackageVersions) {
 		return nil, false
 	}
@@ -496,8 +496,8 @@ func (o *RpmRpmRepositoryResponse) HasRetainPackageVersions() bool {
 	return false
 }
 
-// SetRetainPackageVersions gets a reference to the given int32 and assigns it to the RetainPackageVersions field.
-func (o *RpmRpmRepositoryResponse) SetRetainPackageVersions(v int32) {
+// SetRetainPackageVersions gets a reference to the given int64 and assigns it to the RetainPackageVersions field.
+func (o *RpmRpmRepositoryResponse) SetRetainPackageVersions(v int64) {
 	o.RetainPackageVersions = &v
 }
 
@@ -586,9 +586,9 @@ func (o *RpmRpmRepositoryResponse) UnsetPackageChecksumType() {
 }
 
 // GetGpgcheck returns the Gpgcheck field value if set, zero value otherwise.
-func (o *RpmRpmRepositoryResponse) GetGpgcheck() int32 {
+func (o *RpmRpmRepositoryResponse) GetGpgcheck() int64 {
 	if o == nil || IsNil(o.Gpgcheck) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Gpgcheck
@@ -596,7 +596,7 @@ func (o *RpmRpmRepositoryResponse) GetGpgcheck() int32 {
 
 // GetGpgcheckOk returns a tuple with the Gpgcheck field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmRpmRepositoryResponse) GetGpgcheckOk() (*int32, bool) {
+func (o *RpmRpmRepositoryResponse) GetGpgcheckOk() (*int64, bool) {
 	if o == nil || IsNil(o.Gpgcheck) {
 		return nil, false
 	}
@@ -612,15 +612,15 @@ func (o *RpmRpmRepositoryResponse) HasGpgcheck() bool {
 	return false
 }
 
-// SetGpgcheck gets a reference to the given int32 and assigns it to the Gpgcheck field.
-func (o *RpmRpmRepositoryResponse) SetGpgcheck(v int32) {
+// SetGpgcheck gets a reference to the given int64 and assigns it to the Gpgcheck field.
+func (o *RpmRpmRepositoryResponse) SetGpgcheck(v int64) {
 	o.Gpgcheck = &v
 }
 
 // GetRepoGpgcheck returns the RepoGpgcheck field value if set, zero value otherwise.
-func (o *RpmRpmRepositoryResponse) GetRepoGpgcheck() int32 {
+func (o *RpmRpmRepositoryResponse) GetRepoGpgcheck() int64 {
 	if o == nil || IsNil(o.RepoGpgcheck) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RepoGpgcheck
@@ -628,7 +628,7 @@ func (o *RpmRpmRepositoryResponse) GetRepoGpgcheck() int32 {
 
 // GetRepoGpgcheckOk returns a tuple with the RepoGpgcheck field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmRpmRepositoryResponse) GetRepoGpgcheckOk() (*int32, bool) {
+func (o *RpmRpmRepositoryResponse) GetRepoGpgcheckOk() (*int64, bool) {
 	if o == nil || IsNil(o.RepoGpgcheck) {
 		return nil, false
 	}
@@ -644,8 +644,8 @@ func (o *RpmRpmRepositoryResponse) HasRepoGpgcheck() bool {
 	return false
 }
 
-// SetRepoGpgcheck gets a reference to the given int32 and assigns it to the RepoGpgcheck field.
-func (o *RpmRpmRepositoryResponse) SetRepoGpgcheck(v int32) {
+// SetRepoGpgcheck gets a reference to the given int64 and assigns it to the RepoGpgcheck field.
+func (o *RpmRpmRepositoryResponse) SetRepoGpgcheck(v int64) {
 	o.RepoGpgcheck = &v
 }
 

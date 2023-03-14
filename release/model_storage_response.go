@@ -21,18 +21,18 @@ var _ MappedNullable = &StorageResponse{}
 // StorageResponse Serializer for information about the storage system
 type StorageResponse struct {
 	// Total number of bytes
-	Total int32 `json:"total"`
+	Total int64 `json:"total"`
 	// Number of bytes in use
-	Used int32 `json:"used"`
+	Used int64 `json:"used"`
 	// Number of free bytes
-	Free int32 `json:"free"`
+	Free int64 `json:"free"`
 }
 
 // NewStorageResponse instantiates a new StorageResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStorageResponse(total int32, used int32, free int32) *StorageResponse {
+func NewStorageResponse(total int64, used int64, free int64) *StorageResponse {
 	this := StorageResponse{}
 	this.Total = total
 	this.Used = used
@@ -49,9 +49,9 @@ func NewStorageResponseWithDefaults() *StorageResponse {
 }
 
 // GetTotal returns the Total field value
-func (o *StorageResponse) GetTotal() int32 {
+func (o *StorageResponse) GetTotal() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *StorageResponse) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *StorageResponse) GetTotalOk() (*int32, bool) {
+func (o *StorageResponse) GetTotalOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +68,14 @@ func (o *StorageResponse) GetTotalOk() (*int32, bool) {
 }
 
 // SetTotal sets field value
-func (o *StorageResponse) SetTotal(v int32) {
+func (o *StorageResponse) SetTotal(v int64) {
 	o.Total = v
 }
 
 // GetUsed returns the Used field value
-func (o *StorageResponse) GetUsed() int32 {
+func (o *StorageResponse) GetUsed() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *StorageResponse) GetUsed() int32 {
 
 // GetUsedOk returns a tuple with the Used field value
 // and a boolean to check if the value has been set.
-func (o *StorageResponse) GetUsedOk() (*int32, bool) {
+func (o *StorageResponse) GetUsedOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,14 +92,14 @@ func (o *StorageResponse) GetUsedOk() (*int32, bool) {
 }
 
 // SetUsed sets field value
-func (o *StorageResponse) SetUsed(v int32) {
+func (o *StorageResponse) SetUsed(v int64) {
 	o.Used = v
 }
 
 // GetFree returns the Free field value
-func (o *StorageResponse) GetFree() int32 {
+func (o *StorageResponse) GetFree() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -108,7 +108,7 @@ func (o *StorageResponse) GetFree() int32 {
 
 // GetFreeOk returns a tuple with the Free field value
 // and a boolean to check if the value has been set.
-func (o *StorageResponse) GetFreeOk() (*int32, bool) {
+func (o *StorageResponse) GetFreeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,7 +116,7 @@ func (o *StorageResponse) GetFreeOk() (*int32, bool) {
 }
 
 // SetFree sets field value
-func (o *StorageResponse) SetFree(v int32) {
+func (o *StorageResponse) SetFree(v int64) {
 	o.Free = v
 }
 

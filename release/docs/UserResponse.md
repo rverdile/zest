@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
-**Id** | Pointer to **int32** |  | [optional] [readonly] 
+**Id** | Pointer to **int64** |  | [optional] [readonly] 
 **Username** | **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | 
 **FirstName** | Pointer to **string** | First name | [optional] 
 **LastName** | Pointer to **string** | Last name | [optional] 
@@ -62,20 +62,20 @@ HasPulpHref returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *UserResponse) GetId() int32`
+`func (o *UserResponse) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *UserResponse) GetIdOk() (*int32, bool)`
+`func (o *UserResponse) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *UserResponse) SetId(v int32)`
+`func (o *UserResponse) SetId(v int64)`
 
 SetId sets Id field to given value.
 

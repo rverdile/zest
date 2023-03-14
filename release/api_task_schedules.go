@@ -217,8 +217,6 @@ TaskSchedulesList List task schedules
 
 ViewSet to monitor task schedules.
 
-NOTE: This feature is in tech-preview and may change in backwards incompatible ways.
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return TaskSchedulesApiTaskSchedulesListRequest
 */
@@ -654,8 +652,6 @@ func (r TaskSchedulesApiTaskSchedulesReadRequest) Execute() (*TaskScheduleRespon
 TaskSchedulesRead Inspect a task schedule
 
 ViewSet to monitor task schedules.
-
-NOTE: This feature is in tech-preview and may change in backwards incompatible ways.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskScheduleHref

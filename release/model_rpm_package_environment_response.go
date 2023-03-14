@@ -31,7 +31,7 @@ type RpmPackageEnvironmentResponse struct {
 	// Environment description.
 	Description string `json:"description"`
 	// Environment display order.
-	DisplayOrder NullableInt32 `json:"display_order"`
+	DisplayOrder NullableInt64 `json:"display_order"`
 	// Environment group list.
 	GroupIds map[string]interface{} `json:"group_ids"`
 	// Environment option ids
@@ -48,7 +48,7 @@ type RpmPackageEnvironmentResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRpmPackageEnvironmentResponse(id string, name string, description string, displayOrder NullableInt32, groupIds map[string]interface{}, optionIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string) *RpmPackageEnvironmentResponse {
+func NewRpmPackageEnvironmentResponse(id string, name string, description string, displayOrder NullableInt64, groupIds map[string]interface{}, optionIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string) *RpmPackageEnvironmentResponse {
 	this := RpmPackageEnvironmentResponse{}
 	this.Id = id
 	this.Name = name
@@ -207,10 +207,10 @@ func (o *RpmPackageEnvironmentResponse) SetDescription(v string) {
 }
 
 // GetDisplayOrder returns the DisplayOrder field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *RpmPackageEnvironmentResponse) GetDisplayOrder() int32 {
+// If the value is explicit nil, the zero value for int64 will be returned
+func (o *RpmPackageEnvironmentResponse) GetDisplayOrder() int64 {
 	if o == nil || o.DisplayOrder.Get() == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -220,7 +220,7 @@ func (o *RpmPackageEnvironmentResponse) GetDisplayOrder() int32 {
 // GetDisplayOrderOk returns a tuple with the DisplayOrder field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RpmPackageEnvironmentResponse) GetDisplayOrderOk() (*int32, bool) {
+func (o *RpmPackageEnvironmentResponse) GetDisplayOrderOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -228,7 +228,7 @@ func (o *RpmPackageEnvironmentResponse) GetDisplayOrderOk() (*int32, bool) {
 }
 
 // SetDisplayOrder sets field value
-func (o *RpmPackageEnvironmentResponse) SetDisplayOrder(v int32) {
+func (o *RpmPackageEnvironmentResponse) SetDisplayOrder(v int64) {
 	o.DisplayOrder.Set(&v)
 }
 

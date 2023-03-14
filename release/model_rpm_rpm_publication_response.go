@@ -32,9 +32,9 @@ type RpmRpmPublicationResponse struct {
 	// The checksum type for packages.
 	PackageChecksumType *PackageChecksumTypeEnum `json:"package_checksum_type,omitempty"`
 	// An option specifying whether a client should perform a GPG signature check on packages.
-	Gpgcheck *int32 `json:"gpgcheck,omitempty"`
+	Gpgcheck *int64 `json:"gpgcheck,omitempty"`
 	// An option specifying whether a client should perform a GPG signature check on the repodata.
-	RepoGpgcheck *int32 `json:"repo_gpgcheck,omitempty"`
+	RepoGpgcheck *int64 `json:"repo_gpgcheck,omitempty"`
 	// DEPRECATED: An option specifying whether Pulp should generate SQLite metadata.
 	SqliteMetadata *bool `json:"sqlite_metadata,omitempty"`
 }
@@ -253,9 +253,9 @@ func (o *RpmRpmPublicationResponse) SetPackageChecksumType(v PackageChecksumType
 }
 
 // GetGpgcheck returns the Gpgcheck field value if set, zero value otherwise.
-func (o *RpmRpmPublicationResponse) GetGpgcheck() int32 {
+func (o *RpmRpmPublicationResponse) GetGpgcheck() int64 {
 	if o == nil || IsNil(o.Gpgcheck) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Gpgcheck
@@ -263,7 +263,7 @@ func (o *RpmRpmPublicationResponse) GetGpgcheck() int32 {
 
 // GetGpgcheckOk returns a tuple with the Gpgcheck field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmRpmPublicationResponse) GetGpgcheckOk() (*int32, bool) {
+func (o *RpmRpmPublicationResponse) GetGpgcheckOk() (*int64, bool) {
 	if o == nil || IsNil(o.Gpgcheck) {
 		return nil, false
 	}
@@ -279,15 +279,15 @@ func (o *RpmRpmPublicationResponse) HasGpgcheck() bool {
 	return false
 }
 
-// SetGpgcheck gets a reference to the given int32 and assigns it to the Gpgcheck field.
-func (o *RpmRpmPublicationResponse) SetGpgcheck(v int32) {
+// SetGpgcheck gets a reference to the given int64 and assigns it to the Gpgcheck field.
+func (o *RpmRpmPublicationResponse) SetGpgcheck(v int64) {
 	o.Gpgcheck = &v
 }
 
 // GetRepoGpgcheck returns the RepoGpgcheck field value if set, zero value otherwise.
-func (o *RpmRpmPublicationResponse) GetRepoGpgcheck() int32 {
+func (o *RpmRpmPublicationResponse) GetRepoGpgcheck() int64 {
 	if o == nil || IsNil(o.RepoGpgcheck) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RepoGpgcheck
@@ -295,7 +295,7 @@ func (o *RpmRpmPublicationResponse) GetRepoGpgcheck() int32 {
 
 // GetRepoGpgcheckOk returns a tuple with the RepoGpgcheck field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RpmRpmPublicationResponse) GetRepoGpgcheckOk() (*int32, bool) {
+func (o *RpmRpmPublicationResponse) GetRepoGpgcheckOk() (*int64, bool) {
 	if o == nil || IsNil(o.RepoGpgcheck) {
 		return nil, false
 	}
@@ -311,8 +311,8 @@ func (o *RpmRpmPublicationResponse) HasRepoGpgcheck() bool {
 	return false
 }
 
-// SetRepoGpgcheck gets a reference to the given int32 and assigns it to the RepoGpgcheck field.
-func (o *RpmRpmPublicationResponse) SetRepoGpgcheck(v int32) {
+// SetRepoGpgcheck gets a reference to the given int64 and assigns it to the RepoGpgcheck field.
+func (o *RpmRpmPublicationResponse) SetRepoGpgcheck(v int64) {
 	o.RepoGpgcheck = &v
 }
 

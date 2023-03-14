@@ -16,15 +16,15 @@ Name | Type | Description | Notes
 **Username** | Pointer to **NullableString** | The username to be used for authentication when syncing. | [optional] 
 **Password** | Pointer to **NullableString** | The password to be used for authentication when syncing. Extra leading and trailing whitespace characters are not trimmed. | [optional] 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
-**DownloadConcurrency** | Pointer to **NullableInt32** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
-**MaxRetries** | Pointer to **NullableInt32** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
+**DownloadConcurrency** | Pointer to **NullableInt64** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
+**MaxRetries** | Pointer to **NullableInt64** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
 **Policy** | Pointer to [**Policy762Enum**](Policy762Enum.md) |  | [optional] 
 **TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
-**RateLimit** | Pointer to **NullableInt32** | Limits requests per second for each concurrent downloader | [optional] 
+**RateLimit** | Pointer to **NullableInt64** | Limits requests per second for each concurrent downloader | [optional] 
 **UpstreamName** | **string** | Name of the upstream repository | 
 **IncludeTags** | Pointer to **[]string** |              A list of tags to include during sync.             Wildcards *, ? are recognized.             &#39;include_tags&#39; is evaluated before &#39;exclude_tags&#39;.              | [optional] 
 **ExcludeTags** | Pointer to **[]string** |              A list of tags to exclude during sync.             Wildcards *, ? are recognized.             &#39;exclude_tags&#39; is evaluated after &#39;include_tags&#39;.              | [optional] 
@@ -421,20 +421,20 @@ HasPulpLabels returns a boolean if a field has been set.
 
 ### GetDownloadConcurrency
 
-`func (o *ContainerContainerRemote) GetDownloadConcurrency() int32`
+`func (o *ContainerContainerRemote) GetDownloadConcurrency() int64`
 
 GetDownloadConcurrency returns the DownloadConcurrency field if non-nil, zero value otherwise.
 
 ### GetDownloadConcurrencyOk
 
-`func (o *ContainerContainerRemote) GetDownloadConcurrencyOk() (*int32, bool)`
+`func (o *ContainerContainerRemote) GetDownloadConcurrencyOk() (*int64, bool)`
 
 GetDownloadConcurrencyOk returns a tuple with the DownloadConcurrency field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDownloadConcurrency
 
-`func (o *ContainerContainerRemote) SetDownloadConcurrency(v int32)`
+`func (o *ContainerContainerRemote) SetDownloadConcurrency(v int64)`
 
 SetDownloadConcurrency sets DownloadConcurrency field to given value.
 
@@ -456,20 +456,20 @@ HasDownloadConcurrency returns a boolean if a field has been set.
 UnsetDownloadConcurrency ensures that no value is present for DownloadConcurrency, not even an explicit nil
 ### GetMaxRetries
 
-`func (o *ContainerContainerRemote) GetMaxRetries() int32`
+`func (o *ContainerContainerRemote) GetMaxRetries() int64`
 
 GetMaxRetries returns the MaxRetries field if non-nil, zero value otherwise.
 
 ### GetMaxRetriesOk
 
-`func (o *ContainerContainerRemote) GetMaxRetriesOk() (*int32, bool)`
+`func (o *ContainerContainerRemote) GetMaxRetriesOk() (*int64, bool)`
 
 GetMaxRetriesOk returns a tuple with the MaxRetries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaxRetries
 
-`func (o *ContainerContainerRemote) SetMaxRetries(v int32)`
+`func (o *ContainerContainerRemote) SetMaxRetries(v int64)`
 
 SetMaxRetries sets MaxRetries field to given value.
 
@@ -681,20 +681,20 @@ HasHeaders returns a boolean if a field has been set.
 
 ### GetRateLimit
 
-`func (o *ContainerContainerRemote) GetRateLimit() int32`
+`func (o *ContainerContainerRemote) GetRateLimit() int64`
 
 GetRateLimit returns the RateLimit field if non-nil, zero value otherwise.
 
 ### GetRateLimitOk
 
-`func (o *ContainerContainerRemote) GetRateLimitOk() (*int32, bool)`
+`func (o *ContainerContainerRemote) GetRateLimitOk() (*int64, bool)`
 
 GetRateLimitOk returns a tuple with the RateLimit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRateLimit
 
-`func (o *ContainerContainerRemote) SetRateLimit(v int32)`
+`func (o *ContainerContainerRemote) SetRateLimit(v int64)`
 
 SetRateLimit sets RateLimit field to given value.
 

@@ -254,6 +254,8 @@ type DistributionsMavenApiDistributionsMavenMavenListRequest struct {
 	offset *int32
 	ordering *[]string
 	pulpLabelSelect *string
+	repository *string
+	repositoryIn *[]string
 	withContent *string
 	fields *[]string
 	excludeFields *[]string
@@ -334,6 +336,18 @@ func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Ordering(orderi
 // Filter labels by search string
 func (r DistributionsMavenApiDistributionsMavenMavenListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsMavenApiDistributionsMavenMavenListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
+	return r
+}
+
+// Filter results where repository matches value
+func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Repository(repository string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+	r.repository = &repository
+	return r
+}
+
+// Filter results where repository is in a comma-separated list of values
+func (r DistributionsMavenApiDistributionsMavenMavenListRequest) RepositoryIn(repositoryIn []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+	r.repositoryIn = &repositoryIn
 	return r
 }
 
@@ -432,6 +446,12 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenListExecute(r Dist
 	}
 	if r.pulpLabelSelect != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_label_select", r.pulpLabelSelect, "")
+	}
+	if r.repository != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "repository", r.repository, "")
+	}
+	if r.repositoryIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "repository__in", r.repositoryIn, "csv")
 	}
 	if r.withContent != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")

@@ -26,19 +26,19 @@ type TaskGroupResponse struct {
 	// Whether all tasks have been spawned for this task group.
 	AllTasksDispatched bool `json:"all_tasks_dispatched"`
 	// Number of tasks in the 'waiting' state
-	Waiting *int32 `json:"waiting,omitempty"`
+	Waiting *int64 `json:"waiting,omitempty"`
 	// Number of tasks in the 'skipped' state
-	Skipped *int32 `json:"skipped,omitempty"`
+	Skipped *int64 `json:"skipped,omitempty"`
 	// Number of tasks in the 'running' state
-	Running *int32 `json:"running,omitempty"`
+	Running *int64 `json:"running,omitempty"`
 	// Number of tasks in the 'completed' state
-	Completed *int32 `json:"completed,omitempty"`
+	Completed *int64 `json:"completed,omitempty"`
 	// Number of tasks in the 'canceled' state
-	Canceled *int32 `json:"canceled,omitempty"`
+	Canceled *int64 `json:"canceled,omitempty"`
 	// Number of tasks in the 'failed' state
-	Failed *int32 `json:"failed,omitempty"`
+	Failed *int64 `json:"failed,omitempty"`
 	// Number of tasks in the 'canceling' state
-	Canceling *int32 `json:"canceling,omitempty"`
+	Canceling *int64 `json:"canceling,omitempty"`
 	GroupProgressReports []GroupProgressReportResponse `json:"group_progress_reports,omitempty"`
 	Tasks []MinimalTaskResponse `json:"tasks,omitempty"`
 }
@@ -143,9 +143,9 @@ func (o *TaskGroupResponse) SetAllTasksDispatched(v bool) {
 }
 
 // GetWaiting returns the Waiting field value if set, zero value otherwise.
-func (o *TaskGroupResponse) GetWaiting() int32 {
+func (o *TaskGroupResponse) GetWaiting() int64 {
 	if o == nil || IsNil(o.Waiting) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Waiting
@@ -153,7 +153,7 @@ func (o *TaskGroupResponse) GetWaiting() int32 {
 
 // GetWaitingOk returns a tuple with the Waiting field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskGroupResponse) GetWaitingOk() (*int32, bool) {
+func (o *TaskGroupResponse) GetWaitingOk() (*int64, bool) {
 	if o == nil || IsNil(o.Waiting) {
 		return nil, false
 	}
@@ -169,15 +169,15 @@ func (o *TaskGroupResponse) HasWaiting() bool {
 	return false
 }
 
-// SetWaiting gets a reference to the given int32 and assigns it to the Waiting field.
-func (o *TaskGroupResponse) SetWaiting(v int32) {
+// SetWaiting gets a reference to the given int64 and assigns it to the Waiting field.
+func (o *TaskGroupResponse) SetWaiting(v int64) {
 	o.Waiting = &v
 }
 
 // GetSkipped returns the Skipped field value if set, zero value otherwise.
-func (o *TaskGroupResponse) GetSkipped() int32 {
+func (o *TaskGroupResponse) GetSkipped() int64 {
 	if o == nil || IsNil(o.Skipped) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Skipped
@@ -185,7 +185,7 @@ func (o *TaskGroupResponse) GetSkipped() int32 {
 
 // GetSkippedOk returns a tuple with the Skipped field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskGroupResponse) GetSkippedOk() (*int32, bool) {
+func (o *TaskGroupResponse) GetSkippedOk() (*int64, bool) {
 	if o == nil || IsNil(o.Skipped) {
 		return nil, false
 	}
@@ -201,15 +201,15 @@ func (o *TaskGroupResponse) HasSkipped() bool {
 	return false
 }
 
-// SetSkipped gets a reference to the given int32 and assigns it to the Skipped field.
-func (o *TaskGroupResponse) SetSkipped(v int32) {
+// SetSkipped gets a reference to the given int64 and assigns it to the Skipped field.
+func (o *TaskGroupResponse) SetSkipped(v int64) {
 	o.Skipped = &v
 }
 
 // GetRunning returns the Running field value if set, zero value otherwise.
-func (o *TaskGroupResponse) GetRunning() int32 {
+func (o *TaskGroupResponse) GetRunning() int64 {
 	if o == nil || IsNil(o.Running) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Running
@@ -217,7 +217,7 @@ func (o *TaskGroupResponse) GetRunning() int32 {
 
 // GetRunningOk returns a tuple with the Running field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskGroupResponse) GetRunningOk() (*int32, bool) {
+func (o *TaskGroupResponse) GetRunningOk() (*int64, bool) {
 	if o == nil || IsNil(o.Running) {
 		return nil, false
 	}
@@ -233,15 +233,15 @@ func (o *TaskGroupResponse) HasRunning() bool {
 	return false
 }
 
-// SetRunning gets a reference to the given int32 and assigns it to the Running field.
-func (o *TaskGroupResponse) SetRunning(v int32) {
+// SetRunning gets a reference to the given int64 and assigns it to the Running field.
+func (o *TaskGroupResponse) SetRunning(v int64) {
 	o.Running = &v
 }
 
 // GetCompleted returns the Completed field value if set, zero value otherwise.
-func (o *TaskGroupResponse) GetCompleted() int32 {
+func (o *TaskGroupResponse) GetCompleted() int64 {
 	if o == nil || IsNil(o.Completed) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Completed
@@ -249,7 +249,7 @@ func (o *TaskGroupResponse) GetCompleted() int32 {
 
 // GetCompletedOk returns a tuple with the Completed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskGroupResponse) GetCompletedOk() (*int32, bool) {
+func (o *TaskGroupResponse) GetCompletedOk() (*int64, bool) {
 	if o == nil || IsNil(o.Completed) {
 		return nil, false
 	}
@@ -265,15 +265,15 @@ func (o *TaskGroupResponse) HasCompleted() bool {
 	return false
 }
 
-// SetCompleted gets a reference to the given int32 and assigns it to the Completed field.
-func (o *TaskGroupResponse) SetCompleted(v int32) {
+// SetCompleted gets a reference to the given int64 and assigns it to the Completed field.
+func (o *TaskGroupResponse) SetCompleted(v int64) {
 	o.Completed = &v
 }
 
 // GetCanceled returns the Canceled field value if set, zero value otherwise.
-func (o *TaskGroupResponse) GetCanceled() int32 {
+func (o *TaskGroupResponse) GetCanceled() int64 {
 	if o == nil || IsNil(o.Canceled) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Canceled
@@ -281,7 +281,7 @@ func (o *TaskGroupResponse) GetCanceled() int32 {
 
 // GetCanceledOk returns a tuple with the Canceled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskGroupResponse) GetCanceledOk() (*int32, bool) {
+func (o *TaskGroupResponse) GetCanceledOk() (*int64, bool) {
 	if o == nil || IsNil(o.Canceled) {
 		return nil, false
 	}
@@ -297,15 +297,15 @@ func (o *TaskGroupResponse) HasCanceled() bool {
 	return false
 }
 
-// SetCanceled gets a reference to the given int32 and assigns it to the Canceled field.
-func (o *TaskGroupResponse) SetCanceled(v int32) {
+// SetCanceled gets a reference to the given int64 and assigns it to the Canceled field.
+func (o *TaskGroupResponse) SetCanceled(v int64) {
 	o.Canceled = &v
 }
 
 // GetFailed returns the Failed field value if set, zero value otherwise.
-func (o *TaskGroupResponse) GetFailed() int32 {
+func (o *TaskGroupResponse) GetFailed() int64 {
 	if o == nil || IsNil(o.Failed) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Failed
@@ -313,7 +313,7 @@ func (o *TaskGroupResponse) GetFailed() int32 {
 
 // GetFailedOk returns a tuple with the Failed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskGroupResponse) GetFailedOk() (*int32, bool) {
+func (o *TaskGroupResponse) GetFailedOk() (*int64, bool) {
 	if o == nil || IsNil(o.Failed) {
 		return nil, false
 	}
@@ -329,15 +329,15 @@ func (o *TaskGroupResponse) HasFailed() bool {
 	return false
 }
 
-// SetFailed gets a reference to the given int32 and assigns it to the Failed field.
-func (o *TaskGroupResponse) SetFailed(v int32) {
+// SetFailed gets a reference to the given int64 and assigns it to the Failed field.
+func (o *TaskGroupResponse) SetFailed(v int64) {
 	o.Failed = &v
 }
 
 // GetCanceling returns the Canceling field value if set, zero value otherwise.
-func (o *TaskGroupResponse) GetCanceling() int32 {
+func (o *TaskGroupResponse) GetCanceling() int64 {
 	if o == nil || IsNil(o.Canceling) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Canceling
@@ -345,7 +345,7 @@ func (o *TaskGroupResponse) GetCanceling() int32 {
 
 // GetCancelingOk returns a tuple with the Canceling field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskGroupResponse) GetCancelingOk() (*int32, bool) {
+func (o *TaskGroupResponse) GetCancelingOk() (*int64, bool) {
 	if o == nil || IsNil(o.Canceling) {
 		return nil, false
 	}
@@ -361,8 +361,8 @@ func (o *TaskGroupResponse) HasCanceling() bool {
 	return false
 }
 
-// SetCanceling gets a reference to the given int32 and assigns it to the Canceling field.
-func (o *TaskGroupResponse) SetCanceling(v int32) {
+// SetCanceling gets a reference to the given int64 and assigns it to the Canceling field.
+func (o *TaskGroupResponse) SetCanceling(v int64) {
 	o.Canceling = &v
 }
 

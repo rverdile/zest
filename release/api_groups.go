@@ -160,8 +160,6 @@ GroupsCreate Create a group
 
 ViewSet for Group.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return GroupsApiGroupsCreateRequest
 */
@@ -265,8 +263,6 @@ func (r GroupsApiGroupsDeleteRequest) Execute() (*http.Response, error) {
 GroupsDelete Delete a group
 
 ViewSet for Group.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
@@ -443,8 +439,6 @@ func (r GroupsApiGroupsListRequest) Execute() (*PaginatedGroupResponseList, *htt
 GroupsList List groups
 
 ViewSet for Group.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return GroupsApiGroupsListRequest
@@ -883,8 +877,6 @@ GroupsPartialUpdate Update a group
 
 ViewSet for Group.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
  @return GroupsApiGroupsPartialUpdateRequest
@@ -1007,8 +999,6 @@ func (r GroupsApiGroupsReadRequest) Execute() (*GroupResponse, *http.Response, e
 GroupsRead Inspect a group
 
 ViewSet for Group.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
@@ -1256,8 +1246,6 @@ func (r GroupsApiGroupsUpdateRequest) Execute() (*GroupResponse, *http.Response,
 GroupsUpdate Update a group
 
 ViewSet for Group.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref

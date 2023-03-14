@@ -164,6 +164,8 @@ type APIClient struct {
 
 	DocsApiYamlApi *DocsApiYamlApiService
 
+	DomainsApi *DomainsApiService
+
 	ExportersFilesystemApi *ExportersFilesystemApiService
 
 	ExportersFilesystemExportsApi *ExportersFilesystemExportsApiService
@@ -364,6 +366,8 @@ type APIClient struct {
 
 	UploadsApi *UploadsApiService
 
+	UpstreamPulpsApi *UpstreamPulpsApiService
+
 	UsersApi *UsersApiService
 
 	UsersRolesApi *UsersRolesApiService
@@ -446,6 +450,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DistributionsRpmApi = (*DistributionsRpmApiService)(&c.common)
 	c.DocsApiJsonApi = (*DocsApiJsonApiService)(&c.common)
 	c.DocsApiYamlApi = (*DocsApiYamlApiService)(&c.common)
+	c.DomainsApi = (*DomainsApiService)(&c.common)
 	c.ExportersFilesystemApi = (*ExportersFilesystemApiService)(&c.common)
 	c.ExportersFilesystemExportsApi = (*ExportersFilesystemExportsApiService)(&c.common)
 	c.ExportersPulpApi = (*ExportersPulpApiService)(&c.common)
@@ -546,6 +551,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TasksApi = (*TasksApiService)(&c.common)
 	c.TokenApi = (*TokenApiService)(&c.common)
 	c.UploadsApi = (*UploadsApiService)(&c.common)
+	c.UpstreamPulpsApi = (*UpstreamPulpsApiService)(&c.common)
 	c.UsersApi = (*UsersApiService)(&c.common)
 	c.UsersRolesApi = (*UsersRolesApiService)(&c.common)
 	c.VersionsApi = (*VersionsApiService)(&c.common)

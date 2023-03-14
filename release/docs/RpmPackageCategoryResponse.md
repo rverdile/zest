@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Category id. | 
 **Name** | **string** | Category name. | 
 **Description** | **string** | Category description. | 
-**DisplayOrder** | **NullableInt32** | Category display order. | 
+**DisplayOrder** | **NullableInt64** | Category display order. | 
 **GroupIds** | **map[string]interface{}** | Category group list. | 
 **DescByLang** | **map[string]interface{}** | Category description by language. | 
 **NameByLang** | **map[string]interface{}** | Category name by language. | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewRpmPackageCategoryResponse
 
-`func NewRpmPackageCategoryResponse(id string, name string, description string, displayOrder NullableInt32, groupIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string, ) *RpmPackageCategoryResponse`
+`func NewRpmPackageCategoryResponse(id string, name string, description string, displayOrder NullableInt64, groupIds map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string, ) *RpmPackageCategoryResponse`
 
 NewRpmPackageCategoryResponse instantiates a new RpmPackageCategoryResponse object
 This constructor will assign default values to properties that have it defined,
@@ -146,20 +146,20 @@ SetDescription sets Description field to given value.
 
 ### GetDisplayOrder
 
-`func (o *RpmPackageCategoryResponse) GetDisplayOrder() int32`
+`func (o *RpmPackageCategoryResponse) GetDisplayOrder() int64`
 
 GetDisplayOrder returns the DisplayOrder field if non-nil, zero value otherwise.
 
 ### GetDisplayOrderOk
 
-`func (o *RpmPackageCategoryResponse) GetDisplayOrderOk() (*int32, bool)`
+`func (o *RpmPackageCategoryResponse) GetDisplayOrderOk() (*int64, bool)`
 
 GetDisplayOrderOk returns a tuple with the DisplayOrder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisplayOrder
 
-`func (o *RpmPackageCategoryResponse) SetDisplayOrder(v int32)`
+`func (o *RpmPackageCategoryResponse) SetDisplayOrder(v int64)`
 
 SetDisplayOrder sets DisplayOrder field to given value.
 

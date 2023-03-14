@@ -21,14 +21,14 @@ var _ MappedNullable = &Upload{}
 // Upload Serializer for chunked uploads.
 type Upload struct {
 	// The size of the upload in bytes.
-	Size int32 `json:"size"`
+	Size int64 `json:"size"`
 }
 
 // NewUpload instantiates a new Upload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpload(size int32) *Upload {
+func NewUpload(size int64) *Upload {
 	this := Upload{}
 	this.Size = size
 	return &this
@@ -43,9 +43,9 @@ func NewUploadWithDefaults() *Upload {
 }
 
 // GetSize returns the Size field value
-func (o *Upload) GetSize() int32 {
+func (o *Upload) GetSize() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -54,7 +54,7 @@ func (o *Upload) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
-func (o *Upload) GetSizeOk() (*int32, bool) {
+func (o *Upload) GetSizeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *Upload) GetSizeOk() (*int32, bool) {
 }
 
 // SetSize sets field value
-func (o *Upload) SetSize(v int32) {
+func (o *Upload) SetSize(v int64) {
 	o.Size = v
 }
 

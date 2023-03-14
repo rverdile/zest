@@ -37,6 +37,14 @@ type RepositoriesApiRepositoriesListRequest struct {
 	ordering *[]string
 	pulpLabelSelect *string
 	remote *string
+	retainRepoVersions *int32
+	retainRepoVersionsGt *int32
+	retainRepoVersionsGte *int32
+	retainRepoVersionsIsnull *bool
+	retainRepoVersionsLt *int32
+	retainRepoVersionsLte *int32
+	retainRepoVersionsNe *int32
+	retainRepoVersionsRange *[]int32
 	fields *[]string
 	excludeFields *[]string
 }
@@ -98,6 +106,54 @@ func (r RepositoriesApiRepositoriesListRequest) PulpLabelSelect(pulpLabelSelect 
 // Foreign Key referenced by HREF
 func (r RepositoriesApiRepositoriesListRequest) Remote(remote string) RepositoriesApiRepositoriesListRequest {
 	r.remote = &remote
+	return r
+}
+
+// Filter results where retain_repo_versions matches value
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersions = &retainRepoVersions
+	return r
+}
+
+// Filter results where retain_repo_versions is greater than value
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersionsGt = &retainRepoVersionsGt
+	return r
+}
+
+// Filter results where retain_repo_versions is greater than or equal to value
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersionsGte = &retainRepoVersionsGte
+	return r
+}
+
+// Filter results where retain_repo_versions has a null value
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
+	return r
+}
+
+// Filter results where retain_repo_versions is less than value
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersionsLt = &retainRepoVersionsLt
+	return r
+}
+
+// Filter results where retain_repo_versions is less than or equal to value
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersionsLte = &retainRepoVersionsLte
+	return r
+}
+
+// Filter results where retain_repo_versions not equal to value
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersionsNe = &retainRepoVersionsNe
+	return r
+}
+
+// Filter results where retain_repo_versions is between two comma separated values
+func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesApiRepositoriesListRequest {
+	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
@@ -181,6 +237,30 @@ func (a *RepositoriesApiService) RepositoriesListExecute(r RepositoriesApiReposi
 	}
 	if r.remote != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "remote", r.remote, "")
+	}
+	if r.retainRepoVersions != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions", r.retainRepoVersions, "")
+	}
+	if r.retainRepoVersionsGt != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__gt", r.retainRepoVersionsGt, "")
+	}
+	if r.retainRepoVersionsGte != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__gte", r.retainRepoVersionsGte, "")
+	}
+	if r.retainRepoVersionsIsnull != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__isnull", r.retainRepoVersionsIsnull, "")
+	}
+	if r.retainRepoVersionsLt != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__lt", r.retainRepoVersionsLt, "")
+	}
+	if r.retainRepoVersionsLte != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__lte", r.retainRepoVersionsLte, "")
+	}
+	if r.retainRepoVersionsNe != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__ne", r.retainRepoVersionsNe, "")
+	}
+	if r.retainRepoVersionsRange != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

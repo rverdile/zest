@@ -60,6 +60,7 @@ api_distributions_pypi.go
 api_distributions_rpm.go
 api_docs_api_json.go
 api_docs_api_yaml.go
+api_domains.go
 api_exporters_filesystem.go
 api_exporters_filesystem_exports.go
 api_exporters_pulp.go
@@ -160,6 +161,7 @@ api_task_schedules.go
 api_tasks.go
 api_token.go
 api_uploads.go
+api_upstream_pulps.go
 api_users.go
 api_users_roles.go
 api_versions.go
@@ -315,6 +317,9 @@ docs/DistributionsPypiApi.md
 docs/DistributionsRpmApi.md
 docs/DocsApiJsonApi.md
 docs/DocsApiYamlApi.md
+docs/Domain.md
+docs/DomainResponse.md
+docs/DomainsApi.md
 docs/EvaluationResponse.md
 docs/ExcludePlatformsEnum.md
 docs/ExportersFilesystemApi.md
@@ -392,6 +397,7 @@ docs/PaginatedCollectionVersionListResponseList.md
 docs/PaginatedContentGuardResponseList.md
 docs/PaginatedContentRedirectContentGuardResponseList.md
 docs/PaginatedDistributionResponseList.md
+docs/PaginatedDomainResponseList.md
 docs/PaginatedFilesystemExportResponseList.md
 docs/PaginatedFilesystemExporterResponseList.md
 docs/PaginatedGalaxyCollectionResponseList.md
@@ -418,6 +424,7 @@ docs/PaginatedTaskGroupResponseList.md
 docs/PaginatedTaskResponseList.md
 docs/PaginatedTaskScheduleResponseList.md
 docs/PaginatedUploadResponseList.md
+docs/PaginatedUpstreamPulpResponseList.md
 docs/PaginatedUserResponseList.md
 docs/PaginatedUserRoleResponseList.md
 docs/PaginatedWorkerResponseList.md
@@ -489,6 +496,7 @@ docs/PaginatedrpmUlnRemoteResponseList.md
 docs/PaginatedrpmUpdateRecordResponseList.md
 docs/PatchedAccessPolicy.md
 docs/PatchedContentRedirectContentGuard.md
+docs/PatchedDomain.md
 docs/PatchedFilesystemExporter.md
 docs/PatchedGroup.md
 docs/PatchedPulpExporter.md
@@ -496,6 +504,7 @@ docs/PatchedPulpImporter.md
 docs/PatchedRBACContentGuard.md
 docs/PatchedRole.md
 docs/PatchedTaskCancel.md
+docs/PatchedUpstreamPulp.md
 docs/PatchedUser.md
 docs/PatchedansibleAnsibleDistribution.md
 docs/PatchedansibleAnsibleRepository.md
@@ -691,6 +700,7 @@ docs/StatusResponseContentSettings.md
 docs/StatusResponseDatabaseConnection.md
 docs/StatusResponseRedisConnection.md
 docs/StatusResponseStorage.md
+docs/StorageClassEnum.md
 docs/StorageResponse.md
 docs/SummaryResponse.md
 docs/SyncPolicyEnum.md
@@ -713,6 +723,9 @@ docs/UploadCommit.md
 docs/UploadDetailResponse.md
 docs/UploadResponse.md
 docs/UploadsApi.md
+docs/UpstreamPulp.md
+docs/UpstreamPulpResponse.md
+docs/UpstreamPulpsApi.md
 docs/User.md
 docs/UserGroup.md
 docs/UserGroupResponse.md
@@ -821,6 +834,8 @@ model_deb_release_response.go
 model_deb_verbatim_publication.go
 model_deb_verbatim_publication_response.go
 model_distribution_response.go
+model_domain.go
+model_domain_response.go
 model_evaluation_response.go
 model_exclude_platforms_enum.go
 model_file_file_alternate_content_source.go
@@ -885,6 +900,7 @@ model_paginated_collection_version_list_response_list.go
 model_paginated_content_guard_response_list.go
 model_paginated_content_redirect_content_guard_response_list.go
 model_paginated_distribution_response_list.go
+model_paginated_domain_response_list.go
 model_paginated_filesystem_export_response_list.go
 model_paginated_filesystem_exporter_response_list.go
 model_paginated_galaxy_collection_response_list.go
@@ -911,6 +927,7 @@ model_paginated_task_group_response_list.go
 model_paginated_task_response_list.go
 model_paginated_task_schedule_response_list.go
 model_paginated_upload_response_list.go
+model_paginated_upstream_pulp_response_list.go
 model_paginated_user_response_list.go
 model_paginated_user_role_response_list.go
 model_paginated_worker_response_list.go
@@ -982,6 +999,7 @@ model_paginatedrpm_uln_remote_response_list.go
 model_paginatedrpm_update_record_response_list.go
 model_patched_access_policy.go
 model_patched_content_redirect_content_guard.go
+model_patched_domain.go
 model_patched_filesystem_exporter.go
 model_patched_group.go
 model_patched_pulp_exporter.go
@@ -989,6 +1007,7 @@ model_patched_pulp_importer.go
 model_patched_rbac_content_guard.go
 model_patched_role.go
 model_patched_task_cancel.go
+model_patched_upstream_pulp.go
 model_patched_user.go
 model_patchedansible_ansible_distribution.go
 model_patchedansible_ansible_repository.go
@@ -1102,6 +1121,7 @@ model_status_response_content_settings.go
 model_status_response_database_connection.go
 model_status_response_redis_connection.go
 model_status_response_storage.go
+model_storage_class_enum.go
 model_storage_response.go
 model_summary_response.go
 model_sync_policy_enum.go
@@ -1119,6 +1139,8 @@ model_upload_chunk_response.go
 model_upload_commit.go
 model_upload_detail_response.go
 model_upload_response.go
+model_upstream_pulp.go
+model_upstream_pulp_response.go
 model_user.go
 model_user_group.go
 model_user_group_response.go
@@ -1186,6 +1208,7 @@ test/api_distributions_rpm_test.go
 test/api_distributions_test.go
 test/api_docs_api_json_test.go
 test/api_docs_api_yaml_test.go
+test/api_domains_test.go
 test/api_exporters_filesystem_exports_test.go
 test/api_exporters_filesystem_test.go
 test/api_exporters_pulp_exports_test.go
@@ -1286,6 +1309,7 @@ test/api_task_schedules_test.go
 test/api_tasks_test.go
 test/api_token_test.go
 test/api_uploads_test.go
+test/api_upstream_pulps_test.go
 test/api_users_roles_test.go
 test/api_users_test.go
 test/api_versions_test.go

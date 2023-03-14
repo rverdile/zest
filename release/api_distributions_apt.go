@@ -254,6 +254,8 @@ type DistributionsAptApiDistributionsDebAptListRequest struct {
 	offset *int32
 	ordering *[]string
 	pulpLabelSelect *string
+	repository *string
+	repositoryIn *[]string
 	withContent *string
 	fields *[]string
 	excludeFields *[]string
@@ -334,6 +336,18 @@ func (r DistributionsAptApiDistributionsDebAptListRequest) Ordering(ordering []s
 // Filter labels by search string
 func (r DistributionsAptApiDistributionsDebAptListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsAptApiDistributionsDebAptListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
+	return r
+}
+
+// Filter results where repository matches value
+func (r DistributionsAptApiDistributionsDebAptListRequest) Repository(repository string) DistributionsAptApiDistributionsDebAptListRequest {
+	r.repository = &repository
+	return r
+}
+
+// Filter results where repository is in a comma-separated list of values
+func (r DistributionsAptApiDistributionsDebAptListRequest) RepositoryIn(repositoryIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+	r.repositoryIn = &repositoryIn
 	return r
 }
 
@@ -436,6 +450,12 @@ func (a *DistributionsAptApiService) DistributionsDebAptListExecute(r Distributi
 	}
 	if r.pulpLabelSelect != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_label_select", r.pulpLabelSelect, "")
+	}
+	if r.repository != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "repository", r.repository, "")
+	}
+	if r.repositoryIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "repository__in", r.repositoryIn, "csv")
 	}
 	if r.withContent != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")

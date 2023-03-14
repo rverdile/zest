@@ -33,7 +33,7 @@ type ContainerManifestSignatureResponse struct {
 	// Signing key ID
 	KeyId string `json:"key_id"`
 	// Timestamp of a signature
-	Timestamp int32 `json:"timestamp"`
+	Timestamp int64 `json:"timestamp"`
 	// Signature creator
 	Creator string `json:"creator"`
 	// Manifest that is signed
@@ -44,7 +44,7 @@ type ContainerManifestSignatureResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerManifestSignatureResponse(name string, digest string, type_ string, keyId string, timestamp int32, creator string, signedManifest string) *ContainerManifestSignatureResponse {
+func NewContainerManifestSignatureResponse(name string, digest string, type_ string, keyId string, timestamp int64, creator string, signedManifest string) *ContainerManifestSignatureResponse {
 	this := ContainerManifestSignatureResponse{}
 	this.Name = name
 	this.Digest = digest
@@ -225,9 +225,9 @@ func (o *ContainerManifestSignatureResponse) SetKeyId(v string) {
 }
 
 // GetTimestamp returns the Timestamp field value
-func (o *ContainerManifestSignatureResponse) GetTimestamp() int32 {
+func (o *ContainerManifestSignatureResponse) GetTimestamp() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -236,7 +236,7 @@ func (o *ContainerManifestSignatureResponse) GetTimestamp() int32 {
 
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
-func (o *ContainerManifestSignatureResponse) GetTimestampOk() (*int32, bool) {
+func (o *ContainerManifestSignatureResponse) GetTimestampOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -244,7 +244,7 @@ func (o *ContainerManifestSignatureResponse) GetTimestampOk() (*int32, bool) {
 }
 
 // SetTimestamp sets field value
-func (o *ContainerManifestSignatureResponse) SetTimestamp(v int32) {
+func (o *ContainerManifestSignatureResponse) SetTimestamp(v int64) {
 	o.Timestamp = v
 }
 

@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Repository** | Pointer to **string** | A URI of the repository to be published. | [optional] 
 **MetadataChecksumType** | Pointer to [**MetadataChecksumTypeEnum**](MetadataChecksumTypeEnum.md) | The checksum type for metadata. | [optional] 
 **PackageChecksumType** | Pointer to [**PackageChecksumTypeEnum**](PackageChecksumTypeEnum.md) | The checksum type for packages. | [optional] 
-**Gpgcheck** | Pointer to **int32** | An option specifying whether a client should perform a GPG signature check on packages. | [optional] 
-**RepoGpgcheck** | Pointer to **int32** | An option specifying whether a client should perform a GPG signature check on the repodata. | [optional] 
+**Gpgcheck** | Pointer to **int64** | An option specifying whether a client should perform a GPG signature check on packages. | [optional] 
+**RepoGpgcheck** | Pointer to **int64** | An option specifying whether a client should perform a GPG signature check on the repodata. | [optional] 
 **SqliteMetadata** | Pointer to **bool** | DEPRECATED: An option specifying whether Pulp should generate SQLite metadata. | [optional] [default to false]
 
 ## Methods
@@ -133,20 +133,20 @@ HasPackageChecksumType returns a boolean if a field has been set.
 
 ### GetGpgcheck
 
-`func (o *RpmRpmPublication) GetGpgcheck() int32`
+`func (o *RpmRpmPublication) GetGpgcheck() int64`
 
 GetGpgcheck returns the Gpgcheck field if non-nil, zero value otherwise.
 
 ### GetGpgcheckOk
 
-`func (o *RpmRpmPublication) GetGpgcheckOk() (*int32, bool)`
+`func (o *RpmRpmPublication) GetGpgcheckOk() (*int64, bool)`
 
 GetGpgcheckOk returns a tuple with the Gpgcheck field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGpgcheck
 
-`func (o *RpmRpmPublication) SetGpgcheck(v int32)`
+`func (o *RpmRpmPublication) SetGpgcheck(v int64)`
 
 SetGpgcheck sets Gpgcheck field to given value.
 
@@ -158,20 +158,20 @@ HasGpgcheck returns a boolean if a field has been set.
 
 ### GetRepoGpgcheck
 
-`func (o *RpmRpmPublication) GetRepoGpgcheck() int32`
+`func (o *RpmRpmPublication) GetRepoGpgcheck() int64`
 
 GetRepoGpgcheck returns the RepoGpgcheck field if non-nil, zero value otherwise.
 
 ### GetRepoGpgcheckOk
 
-`func (o *RpmRpmPublication) GetRepoGpgcheckOk() (*int32, bool)`
+`func (o *RpmRpmPublication) GetRepoGpgcheckOk() (*int64, bool)`
 
 GetRepoGpgcheckOk returns a tuple with the RepoGpgcheck field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRepoGpgcheck
 
-`func (o *RpmRpmPublication) SetRepoGpgcheck(v int32)`
+`func (o *RpmRpmPublication) SetRepoGpgcheck(v int64)`
 
 SetRepoGpgcheck sets RepoGpgcheck field to given value.
 

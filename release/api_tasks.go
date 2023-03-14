@@ -1178,7 +1178,7 @@ func (r TasksApiTasksPurgeRequest) Execute() (*AsyncOperationResponse, *http.Res
 /*
 TasksPurge Purge Completed Tasks
 
-Trigger an asynchronous task that deletes completed tasks that finished prior to a specified timestamp (tech-preview, may change in the future).
+Trigger an asynchronous task that deletes completed tasks that finished prior to a specified timestamp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return TasksApiTasksPurgeRequest

@@ -46,8 +46,6 @@ UsersRolesCreate Create an user role
 
 ViewSet for UserRole.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
  @return UsersRolesApiUsersRolesCreateRequest
@@ -157,8 +155,6 @@ UsersRolesDelete Delete an user role
 
 ViewSet for UserRole.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUsersUserRoleHref
  @return UsersRolesApiUsersRolesDeleteRequest
@@ -242,6 +238,7 @@ type UsersRolesApiUsersRolesListRequest struct {
 	ApiService *UsersRolesApiService
 	authUserHref string
 	contentObject *string
+	domain *string
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -257,6 +254,12 @@ type UsersRolesApiUsersRolesListRequest struct {
 // content_object
 func (r UsersRolesApiUsersRolesListRequest) ContentObject(contentObject string) UsersRolesApiUsersRolesListRequest {
 	r.contentObject = &contentObject
+	return r
+}
+
+// Foreign Key referenced by HREF
+func (r UsersRolesApiUsersRolesListRequest) Domain(domain string) UsersRolesApiUsersRolesListRequest {
+	r.domain = &domain
 	return r
 }
 
@@ -325,8 +328,6 @@ UsersRolesList List user roles
 
 ViewSet for UserRole.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
  @return UsersRolesApiUsersRolesListRequest
@@ -364,6 +365,9 @@ func (a *UsersRolesApiService) UsersRolesListExecute(r UsersRolesApiUsersRolesLi
 
 	if r.contentObject != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "content_object", r.contentObject, "")
+	}
+	if r.domain != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "")
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
@@ -493,8 +497,6 @@ func (r UsersRolesApiUsersRolesReadRequest) Execute() (*UserRoleResponse, *http.
 UsersRolesRead Inspect an user role
 
 ViewSet for UserRole.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUsersUserRoleHref

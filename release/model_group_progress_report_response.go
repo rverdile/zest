@@ -25,9 +25,9 @@ type GroupProgressReportResponse struct {
 	// Identifies the type of group progress report'.
 	Code *string `json:"code,omitempty"`
 	// The total count of items.
-	Total *int32 `json:"total,omitempty"`
+	Total *int64 `json:"total,omitempty"`
 	// The count of items already processed. Defaults to 0.
-	Done *int32 `json:"done,omitempty"`
+	Done *int64 `json:"done,omitempty"`
 	// The suffix to be shown with the group progress report.
 	Suffix NullableString `json:"suffix,omitempty"`
 }
@@ -114,9 +114,9 @@ func (o *GroupProgressReportResponse) SetCode(v string) {
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *GroupProgressReportResponse) GetTotal() int32 {
+func (o *GroupProgressReportResponse) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Total
@@ -124,7 +124,7 @@ func (o *GroupProgressReportResponse) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupProgressReportResponse) GetTotalOk() (*int32, bool) {
+func (o *GroupProgressReportResponse) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -140,15 +140,15 @@ func (o *GroupProgressReportResponse) HasTotal() bool {
 	return false
 }
 
-// SetTotal gets a reference to the given int32 and assigns it to the Total field.
-func (o *GroupProgressReportResponse) SetTotal(v int32) {
+// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+func (o *GroupProgressReportResponse) SetTotal(v int64) {
 	o.Total = &v
 }
 
 // GetDone returns the Done field value if set, zero value otherwise.
-func (o *GroupProgressReportResponse) GetDone() int32 {
+func (o *GroupProgressReportResponse) GetDone() int64 {
 	if o == nil || IsNil(o.Done) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Done
@@ -156,7 +156,7 @@ func (o *GroupProgressReportResponse) GetDone() int32 {
 
 // GetDoneOk returns a tuple with the Done field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupProgressReportResponse) GetDoneOk() (*int32, bool) {
+func (o *GroupProgressReportResponse) GetDoneOk() (*int64, bool) {
 	if o == nil || IsNil(o.Done) {
 		return nil, false
 	}
@@ -172,8 +172,8 @@ func (o *GroupProgressReportResponse) HasDone() bool {
 	return false
 }
 
-// SetDone gets a reference to the given int32 and assigns it to the Done field.
-func (o *GroupProgressReportResponse) SetDone(v int32) {
+// SetDone gets a reference to the given int64 and assigns it to the Done field.
+func (o *GroupProgressReportResponse) SetDone(v int64) {
 	o.Done = &v
 }
 

@@ -29,7 +29,7 @@ type ContainerManifestResponse struct {
 	// sha256 of the Manifest file
 	Digest string `json:"digest"`
 	// Manifest schema version
-	SchemaVersion int32 `json:"schema_version"`
+	SchemaVersion int64 `json:"schema_version"`
 	// Manifest media type of the file
 	MediaType string `json:"media_type"`
 	// Manifests that are referenced by this Manifest List
@@ -44,7 +44,7 @@ type ContainerManifestResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerManifestResponse(artifact string, digest string, schemaVersion int32, mediaType string, listedManifests []string, blobs []string) *ContainerManifestResponse {
+func NewContainerManifestResponse(artifact string, digest string, schemaVersion int64, mediaType string, listedManifests []string, blobs []string) *ContainerManifestResponse {
 	this := ContainerManifestResponse{}
 	this.Artifact = artifact
 	this.Digest = digest
@@ -176,9 +176,9 @@ func (o *ContainerManifestResponse) SetDigest(v string) {
 }
 
 // GetSchemaVersion returns the SchemaVersion field value
-func (o *ContainerManifestResponse) GetSchemaVersion() int32 {
+func (o *ContainerManifestResponse) GetSchemaVersion() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -187,7 +187,7 @@ func (o *ContainerManifestResponse) GetSchemaVersion() int32 {
 
 // GetSchemaVersionOk returns a tuple with the SchemaVersion field value
 // and a boolean to check if the value has been set.
-func (o *ContainerManifestResponse) GetSchemaVersionOk() (*int32, bool) {
+func (o *ContainerManifestResponse) GetSchemaVersionOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -195,7 +195,7 @@ func (o *ContainerManifestResponse) GetSchemaVersionOk() (*int32, bool) {
 }
 
 // SetSchemaVersion sets field value
-func (o *ContainerManifestResponse) SetSchemaVersion(v int32) {
+func (o *ContainerManifestResponse) SetSchemaVersion(v int64) {
 	o.SchemaVersion = v
 }
 

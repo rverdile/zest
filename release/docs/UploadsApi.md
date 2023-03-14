@@ -39,7 +39,7 @@ import (
 
 func main() {
     uploadHref := "uploadHref_example" // string | 
-    upload := *openapiclient.NewUpload(int32(123)) // Upload | 
+    upload := *openapiclient.NewUpload(int64(123)) // Upload | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -182,7 +182,7 @@ import (
 )
 
 func main() {
-    upload := *openapiclient.NewUpload(int32(123)) // Upload | 
+    upload := *openapiclient.NewUpload(int64(123)) // Upload | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -621,7 +621,7 @@ import (
 
 func main() {
     uploadHref := "uploadHref_example" // string | 
-    upload := *openapiclient.NewUpload(int32(123)) // Upload | 
+    upload := *openapiclient.NewUpload(int64(123)) // Upload | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -23,7 +23,7 @@ type OrphansCleanup struct {
 	// Will delete specified content and associated Artifacts if they are orphans.
 	ContentHrefs []interface{} `json:"content_hrefs,omitempty"`
 	// The time in minutes for how long Pulp will hold orphan Content and Artifacts before they become candidates for deletion by this orphan cleanup task. This should ideally be longer than your longest running task otherwise any content created during that task could be cleaned up before the task finishes. If not specified, a default value is taken from the setting ORPHAN_PROTECTION_TIME.
-	OrphanProtectionTime NullableInt32 `json:"orphan_protection_time,omitempty"`
+	OrphanProtectionTime NullableInt64 `json:"orphan_protection_time,omitempty"`
 }
 
 // NewOrphansCleanup instantiates a new OrphansCleanup object
@@ -76,9 +76,9 @@ func (o *OrphansCleanup) SetContentHrefs(v []interface{}) {
 }
 
 // GetOrphanProtectionTime returns the OrphanProtectionTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrphansCleanup) GetOrphanProtectionTime() int32 {
+func (o *OrphansCleanup) GetOrphanProtectionTime() int64 {
 	if o == nil || IsNil(o.OrphanProtectionTime.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OrphanProtectionTime.Get()
@@ -87,7 +87,7 @@ func (o *OrphansCleanup) GetOrphanProtectionTime() int32 {
 // GetOrphanProtectionTimeOk returns a tuple with the OrphanProtectionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrphansCleanup) GetOrphanProtectionTimeOk() (*int32, bool) {
+func (o *OrphansCleanup) GetOrphanProtectionTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *OrphansCleanup) HasOrphanProtectionTime() bool {
 	return false
 }
 
-// SetOrphanProtectionTime gets a reference to the given NullableInt32 and assigns it to the OrphanProtectionTime field.
-func (o *OrphansCleanup) SetOrphanProtectionTime(v int32) {
+// SetOrphanProtectionTime gets a reference to the given NullableInt64 and assigns it to the OrphanProtectionTime field.
+func (o *OrphansCleanup) SetOrphanProtectionTime(v int64) {
 	o.OrphanProtectionTime.Set(&v)
 }
 // SetOrphanProtectionTimeNil sets the value for OrphanProtectionTime to be an explicit nil

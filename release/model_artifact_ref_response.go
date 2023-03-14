@@ -22,14 +22,14 @@ var _ MappedNullable = &ArtifactRefResponse{}
 type ArtifactRefResponse struct {
 	Filename string `json:"filename"`
 	Sha256 string `json:"sha256"`
-	Size int32 `json:"size"`
+	Size int64 `json:"size"`
 }
 
 // NewArtifactRefResponse instantiates a new ArtifactRefResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewArtifactRefResponse(filename string, sha256 string, size int32) *ArtifactRefResponse {
+func NewArtifactRefResponse(filename string, sha256 string, size int64) *ArtifactRefResponse {
 	this := ArtifactRefResponse{}
 	this.Filename = filename
 	this.Sha256 = sha256
@@ -94,9 +94,9 @@ func (o *ArtifactRefResponse) SetSha256(v string) {
 }
 
 // GetSize returns the Size field value
-func (o *ArtifactRefResponse) GetSize() int32 {
+func (o *ArtifactRefResponse) GetSize() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -105,7 +105,7 @@ func (o *ArtifactRefResponse) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
-func (o *ArtifactRefResponse) GetSizeOk() (*int32, bool) {
+func (o *ArtifactRefResponse) GetSizeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,7 +113,7 @@ func (o *ArtifactRefResponse) GetSizeOk() (*int32, bool) {
 }
 
 // SetSize sets field value
-func (o *ArtifactRefResponse) SetSize(v int32) {
+func (o *ArtifactRefResponse) SetSize(v int64) {
 	o.Size = v
 }
 

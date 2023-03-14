@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContentHrefs** | Pointer to **[]interface{}** | Will delete specified content and associated Artifacts if they are orphans. | [optional] 
-**OrphanProtectionTime** | Pointer to **NullableInt32** | The time in minutes for how long Pulp will hold orphan Content and Artifacts before they become candidates for deletion by this orphan cleanup task. This should ideally be longer than your longest running task otherwise any content created during that task could be cleaned up before the task finishes. If not specified, a default value is taken from the setting ORPHAN_PROTECTION_TIME. | [optional] 
+**OrphanProtectionTime** | Pointer to **NullableInt64** | The time in minutes for how long Pulp will hold orphan Content and Artifacts before they become candidates for deletion by this orphan cleanup task. This should ideally be longer than your longest running task otherwise any content created during that task could be cleaned up before the task finishes. If not specified, a default value is taken from the setting ORPHAN_PROTECTION_TIME. | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasContentHrefs returns a boolean if a field has been set.
 
 ### GetOrphanProtectionTime
 
-`func (o *OrphansCleanup) GetOrphanProtectionTime() int32`
+`func (o *OrphansCleanup) GetOrphanProtectionTime() int64`
 
 GetOrphanProtectionTime returns the OrphanProtectionTime field if non-nil, zero value otherwise.
 
 ### GetOrphanProtectionTimeOk
 
-`func (o *OrphansCleanup) GetOrphanProtectionTimeOk() (*int32, bool)`
+`func (o *OrphansCleanup) GetOrphanProtectionTimeOk() (*int64, bool)`
 
 GetOrphanProtectionTimeOk returns a tuple with the OrphanProtectionTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrphanProtectionTime
 
-`func (o *OrphansCleanup) SetOrphanProtectionTime(v int32)`
+`func (o *OrphansCleanup) SetOrphanProtectionTime(v int64)`
 
 SetOrphanProtectionTime sets OrphanProtectionTime field to given value.
 

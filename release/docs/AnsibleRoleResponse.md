@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
-**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Artifact** | **string** | Artifact file representing the physical content | 
+**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
+**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **Version** | **string** |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
@@ -30,30 +30,25 @@ NewAnsibleRoleResponseWithDefaults instantiates a new AnsibleRoleResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetPulpHref
+### GetArtifact
 
-`func (o *AnsibleRoleResponse) GetPulpHref() string`
+`func (o *AnsibleRoleResponse) GetArtifact() string`
 
-GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
+GetArtifact returns the Artifact field if non-nil, zero value otherwise.
 
-### GetPulpHrefOk
+### GetArtifactOk
 
-`func (o *AnsibleRoleResponse) GetPulpHrefOk() (*string, bool)`
+`func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool)`
 
-GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
+GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPulpHref
+### SetArtifact
 
-`func (o *AnsibleRoleResponse) SetPulpHref(v string)`
+`func (o *AnsibleRoleResponse) SetArtifact(v string)`
 
-SetPulpHref sets PulpHref field to given value.
+SetArtifact sets Artifact field to given value.
 
-### HasPulpHref
-
-`func (o *AnsibleRoleResponse) HasPulpHref() bool`
-
-HasPulpHref returns a boolean if a field has been set.
 
 ### GetPulpCreated
 
@@ -80,25 +75,30 @@ SetPulpCreated sets PulpCreated field to given value.
 
 HasPulpCreated returns a boolean if a field has been set.
 
-### GetArtifact
+### GetPulpHref
 
-`func (o *AnsibleRoleResponse) GetArtifact() string`
+`func (o *AnsibleRoleResponse) GetPulpHref() string`
 
-GetArtifact returns the Artifact field if non-nil, zero value otherwise.
+GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
 
-### GetArtifactOk
+### GetPulpHrefOk
 
-`func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool)`
+`func (o *AnsibleRoleResponse) GetPulpHrefOk() (*string, bool)`
 
-GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
+GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetArtifact
+### SetPulpHref
 
-`func (o *AnsibleRoleResponse) SetArtifact(v string)`
+`func (o *AnsibleRoleResponse) SetPulpHref(v string)`
 
-SetArtifact sets Artifact field to given value.
+SetPulpHref sets PulpHref field to given value.
 
+### HasPulpHref
+
+`func (o *AnsibleRoleResponse) HasPulpHref() bool`
+
+HasPulpHref returns a boolean if a field has been set.
 
 ### GetVersion
 

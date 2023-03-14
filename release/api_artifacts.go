@@ -30,7 +30,7 @@ type ArtifactsApiArtifactsCreateRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	file *os.File
-	size *int32
+	size *int64
 	md5 *string
 	sha1 *string
 	sha224 *string
@@ -46,7 +46,7 @@ func (r ArtifactsApiArtifactsCreateRequest) File(file *os.File) ArtifactsApiArti
 }
 
 // The size of the file in bytes.
-func (r ArtifactsApiArtifactsCreateRequest) Size(size int32) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsApiArtifactsCreateRequest) Size(size int64) ArtifactsApiArtifactsCreateRequest {
 	r.size = &size
 	return r
 }

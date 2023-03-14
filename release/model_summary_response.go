@@ -21,18 +21,18 @@ var _ MappedNullable = &SummaryResponse{}
 // SummaryResponse A Serializer for summary information of an index.
 type SummaryResponse struct {
 	// Number of Python projects in index
-	Projects int32 `json:"projects"`
+	Projects int64 `json:"projects"`
 	// Number of Python distribution releases in index
-	Releases int32 `json:"releases"`
+	Releases int64 `json:"releases"`
 	// Number of files for all distributions in index
-	Files int32 `json:"files"`
+	Files int64 `json:"files"`
 }
 
 // NewSummaryResponse instantiates a new SummaryResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSummaryResponse(projects int32, releases int32, files int32) *SummaryResponse {
+func NewSummaryResponse(projects int64, releases int64, files int64) *SummaryResponse {
 	this := SummaryResponse{}
 	this.Projects = projects
 	this.Releases = releases
@@ -49,9 +49,9 @@ func NewSummaryResponseWithDefaults() *SummaryResponse {
 }
 
 // GetProjects returns the Projects field value
-func (o *SummaryResponse) GetProjects() int32 {
+func (o *SummaryResponse) GetProjects() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *SummaryResponse) GetProjects() int32 {
 
 // GetProjectsOk returns a tuple with the Projects field value
 // and a boolean to check if the value has been set.
-func (o *SummaryResponse) GetProjectsOk() (*int32, bool) {
+func (o *SummaryResponse) GetProjectsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,14 +68,14 @@ func (o *SummaryResponse) GetProjectsOk() (*int32, bool) {
 }
 
 // SetProjects sets field value
-func (o *SummaryResponse) SetProjects(v int32) {
+func (o *SummaryResponse) SetProjects(v int64) {
 	o.Projects = v
 }
 
 // GetReleases returns the Releases field value
-func (o *SummaryResponse) GetReleases() int32 {
+func (o *SummaryResponse) GetReleases() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *SummaryResponse) GetReleases() int32 {
 
 // GetReleasesOk returns a tuple with the Releases field value
 // and a boolean to check if the value has been set.
-func (o *SummaryResponse) GetReleasesOk() (*int32, bool) {
+func (o *SummaryResponse) GetReleasesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,14 +92,14 @@ func (o *SummaryResponse) GetReleasesOk() (*int32, bool) {
 }
 
 // SetReleases sets field value
-func (o *SummaryResponse) SetReleases(v int32) {
+func (o *SummaryResponse) SetReleases(v int64) {
 	o.Releases = v
 }
 
 // GetFiles returns the Files field value
-func (o *SummaryResponse) GetFiles() int32 {
+func (o *SummaryResponse) GetFiles() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -108,7 +108,7 @@ func (o *SummaryResponse) GetFiles() int32 {
 
 // GetFilesOk returns a tuple with the Files field value
 // and a boolean to check if the value has been set.
-func (o *SummaryResponse) GetFilesOk() (*int32, bool) {
+func (o *SummaryResponse) GetFilesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,7 +116,7 @@ func (o *SummaryResponse) GetFilesOk() (*int32, bool) {
 }
 
 // SetFiles sets field value
-func (o *SummaryResponse) SetFiles(v int32) {
+func (o *SummaryResponse) SetFiles(v int64) {
 	o.Files = v
 }
 

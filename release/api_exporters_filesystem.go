@@ -43,7 +43,7 @@ func (r ExportersFilesystemApiExportersCoreFilesystemCreateRequest) Execute() (*
 /*
 ExportersCoreFilesystemCreate Create a filesystem exporter
 
-Endpoint for managing FilesystemExporters. FilesystemExporters are provided as a tech preview.
+Endpoint for managing FilesystemExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ExportersFilesystemApiExportersCoreFilesystemCreateRequest
@@ -320,7 +320,7 @@ func (r ExportersFilesystemApiExportersCoreFilesystemListRequest) Execute() (*Pa
 /*
 ExportersCoreFilesystemList List filesystem exporters
 
-Endpoint for managing FilesystemExporters. FilesystemExporters are provided as a tech preview.
+Endpoint for managing FilesystemExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ExportersFilesystemApiExportersCoreFilesystemListRequest
@@ -594,7 +594,7 @@ func (r ExportersFilesystemApiExportersCoreFilesystemReadRequest) Execute() (*Fi
 /*
 ExportersCoreFilesystemRead Inspect a filesystem exporter
 
-Endpoint for managing FilesystemExporters. FilesystemExporters are provided as a tech preview.
+Endpoint for managing FilesystemExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemExporterHref

@@ -20,8 +20,8 @@ var _ MappedNullable = &UploadChunkResponse{}
 
 // UploadChunkResponse A mixin for validating unknown serializers' fields.
 type UploadChunkResponse struct {
-	Offset *int32 `json:"offset,omitempty"`
-	Size *int32 `json:"size,omitempty"`
+	Offset *int64 `json:"offset,omitempty"`
+	Size *int64 `json:"size,omitempty"`
 }
 
 // NewUploadChunkResponse instantiates a new UploadChunkResponse object
@@ -42,9 +42,9 @@ func NewUploadChunkResponseWithDefaults() *UploadChunkResponse {
 }
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *UploadChunkResponse) GetOffset() int32 {
+func (o *UploadChunkResponse) GetOffset() int64 {
 	if o == nil || IsNil(o.Offset) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Offset
@@ -52,7 +52,7 @@ func (o *UploadChunkResponse) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UploadChunkResponse) GetOffsetOk() (*int32, bool) {
+func (o *UploadChunkResponse) GetOffsetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Offset) {
 		return nil, false
 	}
@@ -68,15 +68,15 @@ func (o *UploadChunkResponse) HasOffset() bool {
 	return false
 }
 
-// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
-func (o *UploadChunkResponse) SetOffset(v int32) {
+// SetOffset gets a reference to the given int64 and assigns it to the Offset field.
+func (o *UploadChunkResponse) SetOffset(v int64) {
 	o.Offset = &v
 }
 
 // GetSize returns the Size field value if set, zero value otherwise.
-func (o *UploadChunkResponse) GetSize() int32 {
+func (o *UploadChunkResponse) GetSize() int64 {
 	if o == nil || IsNil(o.Size) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Size
@@ -84,7 +84,7 @@ func (o *UploadChunkResponse) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UploadChunkResponse) GetSizeOk() (*int32, bool) {
+func (o *UploadChunkResponse) GetSizeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
@@ -100,8 +100,8 @@ func (o *UploadChunkResponse) HasSize() bool {
 	return false
 }
 
-// SetSize gets a reference to the given int32 and assigns it to the Size field.
-func (o *UploadChunkResponse) SetSize(v int32) {
+// SetSize gets a reference to the given int64 and assigns it to the Size field.
+func (o *UploadChunkResponse) SetSize(v int64) {
 	o.Size = &v
 }
 

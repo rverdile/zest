@@ -45,8 +45,6 @@ RolesCreate Create a role
 
 ViewSet for Role.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return RolesApiRolesCreateRequest
 */
@@ -150,8 +148,6 @@ func (r RolesApiRolesDeleteRequest) Execute() (*http.Response, error) {
 RolesDelete Delete a role
 
 ViewSet for Role.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref
@@ -364,8 +360,6 @@ RolesList List roles
 
 ViewSet for Role.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return RolesApiRolesListRequest
 */
@@ -546,8 +540,6 @@ RolesPartialUpdate Update a role
 
 ViewSet for Role.
 
-NOTE: This API endpoint is in "tech preview" and subject to change
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref
  @return RolesApiRolesPartialUpdateRequest
@@ -670,8 +662,6 @@ func (r RolesApiRolesReadRequest) Execute() (*RoleResponse, *http.Response, erro
 RolesRead Inspect a role
 
 ViewSet for Role.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref
@@ -804,8 +794,6 @@ func (r RolesApiRolesUpdateRequest) Execute() (*RoleResponse, *http.Response, er
 RolesUpdate Update a role
 
 ViewSet for Role.
-
-NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref

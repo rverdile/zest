@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Filename** | **string** |  | 
 **Sha256** | **string** |  | 
-**Size** | **int32** |  | 
+**Size** | **int64** |  | 
 
 ## Methods
 
 ### NewArtifactRefResponse
 
-`func NewArtifactRefResponse(filename string, sha256 string, size int32, ) *ArtifactRefResponse`
+`func NewArtifactRefResponse(filename string, sha256 string, size int64, ) *ArtifactRefResponse`
 
 NewArtifactRefResponse instantiates a new ArtifactRefResponse object
 This constructor will assign default values to properties that have it defined,
@@ -69,20 +69,20 @@ SetSha256 sets Sha256 field to given value.
 
 ### GetSize
 
-`func (o *ArtifactRefResponse) GetSize() int32`
+`func (o *ArtifactRefResponse) GetSize() int64`
 
 GetSize returns the Size field if non-nil, zero value otherwise.
 
 ### GetSizeOk
 
-`func (o *ArtifactRefResponse) GetSizeOk() (*int32, bool)`
+`func (o *ArtifactRefResponse) GetSizeOk() (*int64, bool)`
 
 GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSize
 
-`func (o *ArtifactRefResponse) SetSize(v int32)`
+`func (o *ArtifactRefResponse) SetSize(v int64)`
 
 SetSize sets Size field to given value.
 

@@ -21,7 +21,7 @@ var _ MappedNullable = &PackageMetadataResponse{}
 // PackageMetadataResponse A Serializer for a package's metadata.
 type PackageMetadataResponse struct {
 	// Cache value from last PyPI sync
-	LastSerial int32 `json:"last_serial"`
+	LastSerial int64 `json:"last_serial"`
 	// Core metadata of the package
 	Info map[string]interface{} `json:"info"`
 	// List of all the releases of the package
@@ -33,7 +33,7 @@ type PackageMetadataResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPackageMetadataResponse(lastSerial int32, info map[string]interface{}, releases map[string]interface{}, urls map[string]interface{}) *PackageMetadataResponse {
+func NewPackageMetadataResponse(lastSerial int64, info map[string]interface{}, releases map[string]interface{}, urls map[string]interface{}) *PackageMetadataResponse {
 	this := PackageMetadataResponse{}
 	this.LastSerial = lastSerial
 	this.Info = info
@@ -51,9 +51,9 @@ func NewPackageMetadataResponseWithDefaults() *PackageMetadataResponse {
 }
 
 // GetLastSerial returns the LastSerial field value
-func (o *PackageMetadataResponse) GetLastSerial() int32 {
+func (o *PackageMetadataResponse) GetLastSerial() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -62,7 +62,7 @@ func (o *PackageMetadataResponse) GetLastSerial() int32 {
 
 // GetLastSerialOk returns a tuple with the LastSerial field value
 // and a boolean to check if the value has been set.
-func (o *PackageMetadataResponse) GetLastSerialOk() (*int32, bool) {
+func (o *PackageMetadataResponse) GetLastSerialOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,7 +70,7 @@ func (o *PackageMetadataResponse) GetLastSerialOk() (*int32, bool) {
 }
 
 // SetLastSerial sets field value
-func (o *PackageMetadataResponse) SetLastSerial(v int32) {
+func (o *PackageMetadataResponse) SetLastSerial(v int64) {
 	o.LastSerial = v
 }
 

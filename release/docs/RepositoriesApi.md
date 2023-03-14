@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## RepositoriesList
 
-> PaginatedRepositoryResponseList RepositoriesList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).Remote(remote).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedRepositoryResponseList RepositoriesList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).Remote(remote).RetainRepoVersions(retainRepoVersions).RetainRepoVersionsGt(retainRepoVersionsGt).RetainRepoVersionsGte(retainRepoVersionsGte).RetainRepoVersionsIsnull(retainRepoVersionsIsnull).RetainRepoVersionsLt(retainRepoVersionsLt).RetainRepoVersionsLte(retainRepoVersionsLte).RetainRepoVersionsNe(retainRepoVersionsNe).RetainRepoVersionsRange(retainRepoVersionsRange).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List repositories
 
@@ -39,12 +39,20 @@ func main() {
     ordering := []string{"Ordering_example"} // []string | Ordering (optional)
     pulpLabelSelect := "pulpLabelSelect_example" // string | Filter labels by search string (optional)
     remote := "remote_example" // string | Foreign Key referenced by HREF (optional)
+    retainRepoVersions := int32(56) // int32 | Filter results where retain_repo_versions matches value (optional)
+    retainRepoVersionsGt := int32(56) // int32 | Filter results where retain_repo_versions is greater than value (optional)
+    retainRepoVersionsGte := int32(56) // int32 | Filter results where retain_repo_versions is greater than or equal to value (optional)
+    retainRepoVersionsIsnull := true // bool | Filter results where retain_repo_versions has a null value (optional)
+    retainRepoVersionsLt := int32(56) // int32 | Filter results where retain_repo_versions is less than value (optional)
+    retainRepoVersionsLte := int32(56) // int32 | Filter results where retain_repo_versions is less than or equal to value (optional)
+    retainRepoVersionsNe := int32(56) // int32 | Filter results where retain_repo_versions not equal to value (optional)
+    retainRepoVersionsRange := []int32{int32(123)} // []int32 | Filter results where retain_repo_versions is between two comma separated values (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
     excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RepositoriesApi.RepositoriesList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).Remote(remote).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.RepositoriesApi.RepositoriesList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).Remote(remote).RetainRepoVersions(retainRepoVersions).RetainRepoVersionsGt(retainRepoVersionsGt).RetainRepoVersionsGte(retainRepoVersionsGte).RetainRepoVersionsIsnull(retainRepoVersionsIsnull).RetainRepoVersionsLt(retainRepoVersionsLt).RetainRepoVersionsLte(retainRepoVersionsLte).RetainRepoVersionsNe(retainRepoVersionsNe).RetainRepoVersionsRange(retainRepoVersionsRange).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesApi.RepositoriesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -75,6 +83,14 @@ Name | Type | Description  | Notes
  **ordering** | **[]string** | Ordering | 
  **pulpLabelSelect** | **string** | Filter labels by search string | 
  **remote** | **string** | Foreign Key referenced by HREF | 
+ **retainRepoVersions** | **int32** | Filter results where retain_repo_versions matches value | 
+ **retainRepoVersionsGt** | **int32** | Filter results where retain_repo_versions is greater than value | 
+ **retainRepoVersionsGte** | **int32** | Filter results where retain_repo_versions is greater than or equal to value | 
+ **retainRepoVersionsIsnull** | **bool** | Filter results where retain_repo_versions has a null value | 
+ **retainRepoVersionsLt** | **int32** | Filter results where retain_repo_versions is less than value | 
+ **retainRepoVersionsLte** | **int32** | Filter results where retain_repo_versions is less than or equal to value | 
+ **retainRepoVersionsNe** | **int32** | Filter results where retain_repo_versions not equal to value | 
+ **retainRepoVersionsRange** | **[]int32** | Filter results where retain_repo_versions is between two comma separated values | 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
 

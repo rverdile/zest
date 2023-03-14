@@ -41,14 +41,14 @@ Name | Type | Description | Notes
 **RpmPackager** | Pointer to **string** | Person or persons responsible for creating the package | [optional] [readonly] 
 **RpmSourcerpm** | Pointer to **string** | Name of the source package (srpm) the package was built from | [optional] [readonly] 
 **RpmVendor** | Pointer to **string** | Name of the organization that produced the package | [optional] [readonly] 
-**RpmHeaderStart** | Pointer to **int32** | First byte of the header | [optional] [readonly] 
-**RpmHeaderEnd** | Pointer to **int32** | Last byte of the header | [optional] [readonly] 
+**RpmHeaderStart** | Pointer to **int64** | First byte of the header | [optional] [readonly] 
+**RpmHeaderEnd** | Pointer to **int64** | Last byte of the header | [optional] [readonly] 
 **IsModular** | Pointer to **bool** | Flag to identify if the package is modular | [optional] [readonly] 
-**SizeArchive** | Pointer to **int32** | Size, in bytes, of the archive portion of the original package file | [optional] [readonly] 
-**SizeInstalled** | Pointer to **int32** | Total size, in bytes, of every file installed by this package | [optional] [readonly] 
-**SizePackage** | Pointer to **int32** | Size, in bytes, of the package | [optional] [readonly] 
-**TimeBuild** | Pointer to **int32** | Time the package was built in seconds since the epoch | [optional] [readonly] 
-**TimeFile** | Pointer to **int32** | The &#39;file&#39; time attribute in the primary XML - file mtime in seconds since the epoch. | [optional] [readonly] 
+**SizeArchive** | Pointer to **int64** | Size, in bytes, of the archive portion of the original package file | [optional] [readonly] 
+**SizeInstalled** | Pointer to **int64** | Total size, in bytes, of every file installed by this package | [optional] [readonly] 
+**SizePackage** | Pointer to **int64** | Size, in bytes, of the package | [optional] [readonly] 
+**TimeBuild** | Pointer to **int64** | Time the package was built in seconds since the epoch | [optional] [readonly] 
+**TimeFile** | Pointer to **int64** | The &#39;file&#39; time attribute in the primary XML - file mtime in seconds since the epoch. | [optional] [readonly] 
 
 ## Methods
 
@@ -996,20 +996,20 @@ HasRpmVendor returns a boolean if a field has been set.
 
 ### GetRpmHeaderStart
 
-`func (o *RpmPackageResponse) GetRpmHeaderStart() int32`
+`func (o *RpmPackageResponse) GetRpmHeaderStart() int64`
 
 GetRpmHeaderStart returns the RpmHeaderStart field if non-nil, zero value otherwise.
 
 ### GetRpmHeaderStartOk
 
-`func (o *RpmPackageResponse) GetRpmHeaderStartOk() (*int32, bool)`
+`func (o *RpmPackageResponse) GetRpmHeaderStartOk() (*int64, bool)`
 
 GetRpmHeaderStartOk returns a tuple with the RpmHeaderStart field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRpmHeaderStart
 
-`func (o *RpmPackageResponse) SetRpmHeaderStart(v int32)`
+`func (o *RpmPackageResponse) SetRpmHeaderStart(v int64)`
 
 SetRpmHeaderStart sets RpmHeaderStart field to given value.
 
@@ -1021,20 +1021,20 @@ HasRpmHeaderStart returns a boolean if a field has been set.
 
 ### GetRpmHeaderEnd
 
-`func (o *RpmPackageResponse) GetRpmHeaderEnd() int32`
+`func (o *RpmPackageResponse) GetRpmHeaderEnd() int64`
 
 GetRpmHeaderEnd returns the RpmHeaderEnd field if non-nil, zero value otherwise.
 
 ### GetRpmHeaderEndOk
 
-`func (o *RpmPackageResponse) GetRpmHeaderEndOk() (*int32, bool)`
+`func (o *RpmPackageResponse) GetRpmHeaderEndOk() (*int64, bool)`
 
 GetRpmHeaderEndOk returns a tuple with the RpmHeaderEnd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRpmHeaderEnd
 
-`func (o *RpmPackageResponse) SetRpmHeaderEnd(v int32)`
+`func (o *RpmPackageResponse) SetRpmHeaderEnd(v int64)`
 
 SetRpmHeaderEnd sets RpmHeaderEnd field to given value.
 
@@ -1071,20 +1071,20 @@ HasIsModular returns a boolean if a field has been set.
 
 ### GetSizeArchive
 
-`func (o *RpmPackageResponse) GetSizeArchive() int32`
+`func (o *RpmPackageResponse) GetSizeArchive() int64`
 
 GetSizeArchive returns the SizeArchive field if non-nil, zero value otherwise.
 
 ### GetSizeArchiveOk
 
-`func (o *RpmPackageResponse) GetSizeArchiveOk() (*int32, bool)`
+`func (o *RpmPackageResponse) GetSizeArchiveOk() (*int64, bool)`
 
 GetSizeArchiveOk returns a tuple with the SizeArchive field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSizeArchive
 
-`func (o *RpmPackageResponse) SetSizeArchive(v int32)`
+`func (o *RpmPackageResponse) SetSizeArchive(v int64)`
 
 SetSizeArchive sets SizeArchive field to given value.
 
@@ -1096,20 +1096,20 @@ HasSizeArchive returns a boolean if a field has been set.
 
 ### GetSizeInstalled
 
-`func (o *RpmPackageResponse) GetSizeInstalled() int32`
+`func (o *RpmPackageResponse) GetSizeInstalled() int64`
 
 GetSizeInstalled returns the SizeInstalled field if non-nil, zero value otherwise.
 
 ### GetSizeInstalledOk
 
-`func (o *RpmPackageResponse) GetSizeInstalledOk() (*int32, bool)`
+`func (o *RpmPackageResponse) GetSizeInstalledOk() (*int64, bool)`
 
 GetSizeInstalledOk returns a tuple with the SizeInstalled field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSizeInstalled
 
-`func (o *RpmPackageResponse) SetSizeInstalled(v int32)`
+`func (o *RpmPackageResponse) SetSizeInstalled(v int64)`
 
 SetSizeInstalled sets SizeInstalled field to given value.
 
@@ -1121,20 +1121,20 @@ HasSizeInstalled returns a boolean if a field has been set.
 
 ### GetSizePackage
 
-`func (o *RpmPackageResponse) GetSizePackage() int32`
+`func (o *RpmPackageResponse) GetSizePackage() int64`
 
 GetSizePackage returns the SizePackage field if non-nil, zero value otherwise.
 
 ### GetSizePackageOk
 
-`func (o *RpmPackageResponse) GetSizePackageOk() (*int32, bool)`
+`func (o *RpmPackageResponse) GetSizePackageOk() (*int64, bool)`
 
 GetSizePackageOk returns a tuple with the SizePackage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSizePackage
 
-`func (o *RpmPackageResponse) SetSizePackage(v int32)`
+`func (o *RpmPackageResponse) SetSizePackage(v int64)`
 
 SetSizePackage sets SizePackage field to given value.
 
@@ -1146,20 +1146,20 @@ HasSizePackage returns a boolean if a field has been set.
 
 ### GetTimeBuild
 
-`func (o *RpmPackageResponse) GetTimeBuild() int32`
+`func (o *RpmPackageResponse) GetTimeBuild() int64`
 
 GetTimeBuild returns the TimeBuild field if non-nil, zero value otherwise.
 
 ### GetTimeBuildOk
 
-`func (o *RpmPackageResponse) GetTimeBuildOk() (*int32, bool)`
+`func (o *RpmPackageResponse) GetTimeBuildOk() (*int64, bool)`
 
 GetTimeBuildOk returns a tuple with the TimeBuild field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimeBuild
 
-`func (o *RpmPackageResponse) SetTimeBuild(v int32)`
+`func (o *RpmPackageResponse) SetTimeBuild(v int64)`
 
 SetTimeBuild sets TimeBuild field to given value.
 
@@ -1171,20 +1171,20 @@ HasTimeBuild returns a boolean if a field has been set.
 
 ### GetTimeFile
 
-`func (o *RpmPackageResponse) GetTimeFile() int32`
+`func (o *RpmPackageResponse) GetTimeFile() int64`
 
 GetTimeFile returns the TimeFile field if non-nil, zero value otherwise.
 
 ### GetTimeFileOk
 
-`func (o *RpmPackageResponse) GetTimeFileOk() (*int32, bool)`
+`func (o *RpmPackageResponse) GetTimeFileOk() (*int64, bool)`
 
 GetTimeFileOk returns a tuple with the TimeFile field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimeFile
 
-`func (o *RpmPackageResponse) SetTimeFile(v int32)`
+`func (o *RpmPackageResponse) SetTimeFile(v int64)`
 
 SetTimeFile sets TimeFile field to given value.
 

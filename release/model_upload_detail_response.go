@@ -25,7 +25,7 @@ type UploadDetailResponse struct {
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
 	// The size of the upload in bytes.
-	Size int32 `json:"size"`
+	Size int64 `json:"size"`
 	// Timestamp when upload is committed.
 	Completed *time.Time `json:"completed,omitempty"`
 	Chunks []UploadChunkResponse `json:"chunks,omitempty"`
@@ -35,7 +35,7 @@ type UploadDetailResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUploadDetailResponse(size int32) *UploadDetailResponse {
+func NewUploadDetailResponse(size int64) *UploadDetailResponse {
 	this := UploadDetailResponse{}
 	this.Size = size
 	return &this
@@ -114,9 +114,9 @@ func (o *UploadDetailResponse) SetPulpCreated(v time.Time) {
 }
 
 // GetSize returns the Size field value
-func (o *UploadDetailResponse) GetSize() int32 {
+func (o *UploadDetailResponse) GetSize() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -125,7 +125,7 @@ func (o *UploadDetailResponse) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
-func (o *UploadDetailResponse) GetSizeOk() (*int32, bool) {
+func (o *UploadDetailResponse) GetSizeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *UploadDetailResponse) GetSizeOk() (*int32, bool) {
 }
 
 // SetSize sets field value
-func (o *UploadDetailResponse) SetSize(v int32) {
+func (o *UploadDetailResponse) SetSize(v int64) {
 	o.Size = v
 }
 

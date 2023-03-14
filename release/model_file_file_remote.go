@@ -44,9 +44,9 @@ type FileFileRemote struct {
 	Password NullableString `json:"password,omitempty"`
 	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// Total number of simultaneous connections. If not set then the default value will be used.
-	DownloadConcurrency NullableInt32 `json:"download_concurrency,omitempty"`
+	DownloadConcurrency NullableInt64 `json:"download_concurrency,omitempty"`
 	// Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used.
-	MaxRetries NullableInt32 `json:"max_retries,omitempty"`
+	MaxRetries NullableInt64 `json:"max_retries,omitempty"`
 	Policy *Policy762Enum `json:"policy,omitempty"`
 	// aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
 	TotalTimeout NullableFloat64 `json:"total_timeout,omitempty"`
@@ -59,7 +59,7 @@ type FileFileRemote struct {
 	// Headers for aiohttp.Clientsession
 	Headers []map[string]interface{} `json:"headers,omitempty"`
 	// Limits requests per second for each concurrent downloader
-	RateLimit NullableInt32 `json:"rate_limit,omitempty"`
+	RateLimit NullableInt64 `json:"rate_limit,omitempty"`
 }
 
 // NewFileFileRemote instantiates a new FileFileRemote object
@@ -530,9 +530,9 @@ func (o *FileFileRemote) SetPulpLabels(v map[string]string) {
 }
 
 // GetDownloadConcurrency returns the DownloadConcurrency field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileFileRemote) GetDownloadConcurrency() int32 {
+func (o *FileFileRemote) GetDownloadConcurrency() int64 {
 	if o == nil || IsNil(o.DownloadConcurrency.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DownloadConcurrency.Get()
@@ -541,7 +541,7 @@ func (o *FileFileRemote) GetDownloadConcurrency() int32 {
 // GetDownloadConcurrencyOk returns a tuple with the DownloadConcurrency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileFileRemote) GetDownloadConcurrencyOk() (*int32, bool) {
+func (o *FileFileRemote) GetDownloadConcurrencyOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -557,8 +557,8 @@ func (o *FileFileRemote) HasDownloadConcurrency() bool {
 	return false
 }
 
-// SetDownloadConcurrency gets a reference to the given NullableInt32 and assigns it to the DownloadConcurrency field.
-func (o *FileFileRemote) SetDownloadConcurrency(v int32) {
+// SetDownloadConcurrency gets a reference to the given NullableInt64 and assigns it to the DownloadConcurrency field.
+func (o *FileFileRemote) SetDownloadConcurrency(v int64) {
 	o.DownloadConcurrency.Set(&v)
 }
 // SetDownloadConcurrencyNil sets the value for DownloadConcurrency to be an explicit nil
@@ -572,9 +572,9 @@ func (o *FileFileRemote) UnsetDownloadConcurrency() {
 }
 
 // GetMaxRetries returns the MaxRetries field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileFileRemote) GetMaxRetries() int32 {
+func (o *FileFileRemote) GetMaxRetries() int64 {
 	if o == nil || IsNil(o.MaxRetries.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MaxRetries.Get()
@@ -583,7 +583,7 @@ func (o *FileFileRemote) GetMaxRetries() int32 {
 // GetMaxRetriesOk returns a tuple with the MaxRetries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileFileRemote) GetMaxRetriesOk() (*int32, bool) {
+func (o *FileFileRemote) GetMaxRetriesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -599,8 +599,8 @@ func (o *FileFileRemote) HasMaxRetries() bool {
 	return false
 }
 
-// SetMaxRetries gets a reference to the given NullableInt32 and assigns it to the MaxRetries field.
-func (o *FileFileRemote) SetMaxRetries(v int32) {
+// SetMaxRetries gets a reference to the given NullableInt64 and assigns it to the MaxRetries field.
+func (o *FileFileRemote) SetMaxRetries(v int64) {
 	o.MaxRetries.Set(&v)
 }
 // SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
@@ -846,9 +846,9 @@ func (o *FileFileRemote) SetHeaders(v []map[string]interface{}) {
 }
 
 // GetRateLimit returns the RateLimit field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FileFileRemote) GetRateLimit() int32 {
+func (o *FileFileRemote) GetRateLimit() int64 {
 	if o == nil || IsNil(o.RateLimit.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RateLimit.Get()
@@ -857,7 +857,7 @@ func (o *FileFileRemote) GetRateLimit() int32 {
 // GetRateLimitOk returns a tuple with the RateLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FileFileRemote) GetRateLimitOk() (*int32, bool) {
+func (o *FileFileRemote) GetRateLimitOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -873,8 +873,8 @@ func (o *FileFileRemote) HasRateLimit() bool {
 	return false
 }
 
-// SetRateLimit gets a reference to the given NullableInt32 and assigns it to the RateLimit field.
-func (o *FileFileRemote) SetRateLimit(v int32) {
+// SetRateLimit gets a reference to the given NullableInt64 and assigns it to the RateLimit field.
+func (o *FileFileRemote) SetRateLimit(v int64) {
 	o.RateLimit.Set(&v)
 }
 // SetRateLimitNil sets the value for RateLimit to be an explicit nil

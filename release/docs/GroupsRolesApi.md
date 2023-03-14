@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## GroupsRolesList
 
-> PaginatedGroupRoleResponseList GroupsRolesList(ctx, groupHref).ContentObject(contentObject).Limit(limit).Offset(offset).Ordering(ordering).Role(role).RoleContains(roleContains).RoleIcontains(roleIcontains).RoleIn(roleIn).RoleStartswith(roleStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedGroupRoleResponseList GroupsRolesList(ctx, groupHref).ContentObject(contentObject).Domain(domain).Limit(limit).Offset(offset).Ordering(ordering).Role(role).RoleContains(roleContains).RoleIcontains(roleIcontains).RoleIn(roleIn).RoleStartswith(roleStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List group roles
 
@@ -174,6 +174,7 @@ import (
 func main() {
     groupHref := "groupHref_example" // string | 
     contentObject := "contentObject_example" // string | content_object (optional)
+    domain := "domain_example" // string | Foreign Key referenced by HREF (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     ordering := []string{"Ordering_example"} // []string | Ordering (optional)
@@ -187,7 +188,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsRolesApi.GroupsRolesList(context.Background(), groupHref).ContentObject(contentObject).Limit(limit).Offset(offset).Ordering(ordering).Role(role).RoleContains(roleContains).RoleIcontains(roleIcontains).RoleIn(roleIn).RoleStartswith(roleStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.GroupsRolesApi.GroupsRolesList(context.Background(), groupHref).ContentObject(contentObject).Domain(domain).Limit(limit).Offset(offset).Ordering(ordering).Role(role).RoleContains(roleContains).RoleIcontains(roleIcontains).RoleIn(roleIn).RoleStartswith(roleStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsRolesApi.GroupsRolesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -214,6 +215,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **contentObject** | **string** | content_object | 
+ **domain** | **string** | Foreign Key referenced by HREF | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **ordering** | **[]string** | Ordering | 

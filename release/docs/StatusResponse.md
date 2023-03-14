@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **RedisConnection** | Pointer to [**StatusResponseRedisConnection**](StatusResponseRedisConnection.md) |  | [optional] 
 **Storage** | Pointer to [**StatusResponseStorage**](StatusResponseStorage.md) |  | [optional] 
 **ContentSettings** | [**StatusResponseContentSettings**](StatusResponseContentSettings.md) |  | 
+**DomainEnabled** | **bool** | Is Domains enabled | 
 
 ## Methods
 
 ### NewStatusResponse
 
-`func NewStatusResponse(versions []VersionResponse, onlineWorkers []WorkerResponse, onlineContentApps []ContentAppStatusResponse, databaseConnection StatusResponseDatabaseConnection, contentSettings StatusResponseContentSettings, ) *StatusResponse`
+`func NewStatusResponse(versions []VersionResponse, onlineWorkers []WorkerResponse, onlineContentApps []ContentAppStatusResponse, databaseConnection StatusResponseDatabaseConnection, contentSettings StatusResponseContentSettings, domainEnabled bool, ) *StatusResponse`
 
 NewStatusResponse instantiates a new StatusResponse object
 This constructor will assign default values to properties that have it defined,
@@ -179,6 +180,26 @@ and a boolean to check if the value has been set.
 `func (o *StatusResponse) SetContentSettings(v StatusResponseContentSettings)`
 
 SetContentSettings sets ContentSettings field to given value.
+
+
+### GetDomainEnabled
+
+`func (o *StatusResponse) GetDomainEnabled() bool`
+
+GetDomainEnabled returns the DomainEnabled field if non-nil, zero value otherwise.
+
+### GetDomainEnabledOk
+
+`func (o *StatusResponse) GetDomainEnabledOk() (*bool, bool)`
+
+GetDomainEnabledOk returns a tuple with the DomainEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomainEnabled
+
+`func (o *StatusResponse) SetDomainEnabled(v bool)`
+
+SetDomainEnabled sets DomainEnabled field to given value.
 
 
 

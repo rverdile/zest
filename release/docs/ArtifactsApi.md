@@ -33,7 +33,7 @@ import (
 
 func main() {
     file := os.NewFile(1234, "some_file") // *os.File | The stored file.
-    size := int32(56) // int32 | The size of the file in bytes. (optional)
+    size := int64(789) // int64 | The size of the file in bytes. (optional)
     md5 := "md5_example" // string | The MD5 checksum of the file if available. (optional)
     sha1 := "sha1_example" // string | The SHA-1 checksum of the file if available. (optional)
     sha224 := "sha224_example" // string | The SHA-224 checksum of the file if available. (optional)
@@ -65,7 +65,7 @@ Other parameters are passed through a pointer to a apiArtifactsCreateRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | ***os.File** | The stored file. | 
- **size** | **int32** | The size of the file in bytes. | 
+ **size** | **int64** | The size of the file in bytes. | 
  **md5** | **string** | The MD5 checksum of the file if available. | 
  **sha1** | **string** | The SHA-1 checksum of the file if available. | 
  **sha224** | **string** | The SHA-224 checksum of the file if available. | 

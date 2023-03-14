@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
-**Size** | **int32** | The size of the upload in bytes. | 
+**Size** | **int64** | The size of the upload in bytes. | 
 **Completed** | Pointer to **time.Time** | Timestamp when upload is committed. | [optional] [readonly] 
 
 ## Methods
 
 ### NewUploadResponse
 
-`func NewUploadResponse(size int32, ) *UploadResponse`
+`func NewUploadResponse(size int64, ) *UploadResponse`
 
 NewUploadResponse instantiates a new UploadResponse object
 This constructor will assign default values to properties that have it defined,
@@ -80,20 +80,20 @@ HasPulpCreated returns a boolean if a field has been set.
 
 ### GetSize
 
-`func (o *UploadResponse) GetSize() int32`
+`func (o *UploadResponse) GetSize() int64`
 
 GetSize returns the Size field if non-nil, zero value otherwise.
 
 ### GetSizeOk
 
-`func (o *UploadResponse) GetSizeOk() (*int32, bool)`
+`func (o *UploadResponse) GetSizeOk() (*int64, bool)`
 
 GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSize
 
-`func (o *UploadResponse) SetSize(v int32)`
+`func (o *UploadResponse) SetSize(v int64)`
 
 SetSize sets Size field to given value.
 

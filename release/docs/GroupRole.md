@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Role** | **string** |  | 
 **ContentObject** | **NullableString** | pulp_href of the object for which role permissions should be asserted. If set to &#39;null&#39;, permissions will act on the model-level. | 
+**Domain** | Pointer to **NullableString** | Domain this role should be applied on, mutually exclusive with content_object. | [optional] 
 
 ## Methods
 
@@ -76,6 +77,41 @@ SetContentObject sets ContentObject field to given value.
 `func (o *GroupRole) UnsetContentObject()`
 
 UnsetContentObject ensures that no value is present for ContentObject, not even an explicit nil
+### GetDomain
+
+`func (o *GroupRole) GetDomain() string`
+
+GetDomain returns the Domain field if non-nil, zero value otherwise.
+
+### GetDomainOk
+
+`func (o *GroupRole) GetDomainOk() (*string, bool)`
+
+GetDomainOk returns a tuple with the Domain field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomain
+
+`func (o *GroupRole) SetDomain(v string)`
+
+SetDomain sets Domain field to given value.
+
+### HasDomain
+
+`func (o *GroupRole) HasDomain() bool`
+
+HasDomain returns a boolean if a field has been set.
+
+### SetDomainNil
+
+`func (o *GroupRole) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *GroupRole) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

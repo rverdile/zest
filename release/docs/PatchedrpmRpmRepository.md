@@ -7,15 +7,15 @@ Name | Type | Description | Notes
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
 **Name** | Pointer to **string** | A unique name for this repository. | [optional] 
 **Description** | Pointer to **NullableString** | An optional description. | [optional] 
-**RetainRepoVersions** | Pointer to **NullableInt32** | Retain X versions of the repository. Default is null which retains all versions. This is provided as a tech preview in Pulp 3 and may change in the future. | [optional] 
+**RetainRepoVersions** | Pointer to **NullableInt64** | Retain X versions of the repository. Default is null which retains all versions. | [optional] 
 **Remote** | Pointer to **NullableString** | An optional remote to use by default when syncing. | [optional] 
 **Autopublish** | Pointer to **bool** | Whether to automatically create publications for new repository versions, and update any distributions pointing to this repository. | [optional] [default to false]
 **MetadataSigningService** | Pointer to **NullableString** | A reference to an associated signing service. | [optional] 
-**RetainPackageVersions** | Pointer to **int32** | The number of versions of each package to keep in the repository; older versions will be purged. The default is &#39;0&#39;, which will disable this feature and keep all versions of each package. | [optional] 
+**RetainPackageVersions** | Pointer to **int64** | The number of versions of each package to keep in the repository; older versions will be purged. The default is &#39;0&#39;, which will disable this feature and keep all versions of each package. | [optional] 
 **MetadataChecksumType** | Pointer to [**NullableMetadataChecksumTypeEnum**](MetadataChecksumTypeEnum.md) |  | [optional] 
 **PackageChecksumType** | Pointer to [**NullablePackageChecksumTypeEnum**](PackageChecksumTypeEnum.md) |  | [optional] 
-**Gpgcheck** | Pointer to **int32** | An option specifying whether a client should perform a GPG signature check on packages. | [optional] [default to 0]
-**RepoGpgcheck** | Pointer to **int32** | An option specifying whether a client should perform a GPG signature check on the repodata. | [optional] [default to 0]
+**Gpgcheck** | Pointer to **int64** | An option specifying whether a client should perform a GPG signature check on packages. | [optional] [default to 0]
+**RepoGpgcheck** | Pointer to **int64** | An option specifying whether a client should perform a GPG signature check on the repodata. | [optional] [default to 0]
 **SqliteMetadata** | Pointer to **bool** | DEPRECATED: An option specifying whether Pulp should generate SQLite metadata. | [optional] [default to false]
 
 ## Methods
@@ -124,20 +124,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetRetainRepoVersions
 
-`func (o *PatchedrpmRpmRepository) GetRetainRepoVersions() int32`
+`func (o *PatchedrpmRpmRepository) GetRetainRepoVersions() int64`
 
 GetRetainRepoVersions returns the RetainRepoVersions field if non-nil, zero value otherwise.
 
 ### GetRetainRepoVersionsOk
 
-`func (o *PatchedrpmRpmRepository) GetRetainRepoVersionsOk() (*int32, bool)`
+`func (o *PatchedrpmRpmRepository) GetRetainRepoVersionsOk() (*int64, bool)`
 
 GetRetainRepoVersionsOk returns a tuple with the RetainRepoVersions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRetainRepoVersions
 
-`func (o *PatchedrpmRpmRepository) SetRetainRepoVersions(v int32)`
+`func (o *PatchedrpmRpmRepository) SetRetainRepoVersions(v int64)`
 
 SetRetainRepoVersions sets RetainRepoVersions field to given value.
 
@@ -254,20 +254,20 @@ HasMetadataSigningService returns a boolean if a field has been set.
 UnsetMetadataSigningService ensures that no value is present for MetadataSigningService, not even an explicit nil
 ### GetRetainPackageVersions
 
-`func (o *PatchedrpmRpmRepository) GetRetainPackageVersions() int32`
+`func (o *PatchedrpmRpmRepository) GetRetainPackageVersions() int64`
 
 GetRetainPackageVersions returns the RetainPackageVersions field if non-nil, zero value otherwise.
 
 ### GetRetainPackageVersionsOk
 
-`func (o *PatchedrpmRpmRepository) GetRetainPackageVersionsOk() (*int32, bool)`
+`func (o *PatchedrpmRpmRepository) GetRetainPackageVersionsOk() (*int64, bool)`
 
 GetRetainPackageVersionsOk returns a tuple with the RetainPackageVersions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRetainPackageVersions
 
-`func (o *PatchedrpmRpmRepository) SetRetainPackageVersions(v int32)`
+`func (o *PatchedrpmRpmRepository) SetRetainPackageVersions(v int64)`
 
 SetRetainPackageVersions sets RetainPackageVersions field to given value.
 
@@ -349,20 +349,20 @@ HasPackageChecksumType returns a boolean if a field has been set.
 UnsetPackageChecksumType ensures that no value is present for PackageChecksumType, not even an explicit nil
 ### GetGpgcheck
 
-`func (o *PatchedrpmRpmRepository) GetGpgcheck() int32`
+`func (o *PatchedrpmRpmRepository) GetGpgcheck() int64`
 
 GetGpgcheck returns the Gpgcheck field if non-nil, zero value otherwise.
 
 ### GetGpgcheckOk
 
-`func (o *PatchedrpmRpmRepository) GetGpgcheckOk() (*int32, bool)`
+`func (o *PatchedrpmRpmRepository) GetGpgcheckOk() (*int64, bool)`
 
 GetGpgcheckOk returns a tuple with the Gpgcheck field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGpgcheck
 
-`func (o *PatchedrpmRpmRepository) SetGpgcheck(v int32)`
+`func (o *PatchedrpmRpmRepository) SetGpgcheck(v int64)`
 
 SetGpgcheck sets Gpgcheck field to given value.
 
@@ -374,20 +374,20 @@ HasGpgcheck returns a boolean if a field has been set.
 
 ### GetRepoGpgcheck
 
-`func (o *PatchedrpmRpmRepository) GetRepoGpgcheck() int32`
+`func (o *PatchedrpmRpmRepository) GetRepoGpgcheck() int64`
 
 GetRepoGpgcheck returns the RepoGpgcheck field if non-nil, zero value otherwise.
 
 ### GetRepoGpgcheckOk
 
-`func (o *PatchedrpmRpmRepository) GetRepoGpgcheckOk() (*int32, bool)`
+`func (o *PatchedrpmRpmRepository) GetRepoGpgcheckOk() (*int64, bool)`
 
 GetRepoGpgcheckOk returns a tuple with the RepoGpgcheck field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRepoGpgcheck
 
-`func (o *PatchedrpmRpmRepository) SetRepoGpgcheck(v int32)`
+`func (o *PatchedrpmRpmRepository) SetRepoGpgcheck(v int64)`
 
 SetRepoGpgcheck sets RepoGpgcheck field to given value.
 

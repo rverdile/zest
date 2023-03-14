@@ -21,9 +21,9 @@ var _ MappedNullable = &RepositoryAddRemoveContent{}
 // RepositoryAddRemoveContent Base serializer for use with :class:`pulpcore.app.models.Model`  This ensures that all Serializers provide values for the 'pulp_href` field.  The class provides a default for the ``ref_name`` attribute in the ModelSerializers's ``Meta`` class. This ensures that the OpenAPI definitions of plugins are namespaced properly.
 type RepositoryAddRemoveContent struct {
 	// A list of content units to add to a new repository version. This content is added after remove_content_units are removed.
-	AddContentUnits []interface{} `json:"add_content_units,omitempty"`
+	AddContentUnits []string `json:"add_content_units,omitempty"`
 	// A list of content units to remove from the latest repository version. You may also specify '*' as an entry to remove all content. This content is removed before add_content_units are added.
-	RemoveContentUnits []interface{} `json:"remove_content_units,omitempty"`
+	RemoveContentUnits []string `json:"remove_content_units,omitempty"`
 	// A repository version whose content will be used as the initial set of content for the new repository version
 	BaseVersion *string `json:"base_version,omitempty"`
 }
@@ -46,9 +46,9 @@ func NewRepositoryAddRemoveContentWithDefaults() *RepositoryAddRemoveContent {
 }
 
 // GetAddContentUnits returns the AddContentUnits field value if set, zero value otherwise.
-func (o *RepositoryAddRemoveContent) GetAddContentUnits() []interface{} {
+func (o *RepositoryAddRemoveContent) GetAddContentUnits() []string {
 	if o == nil || IsNil(o.AddContentUnits) {
-		var ret []interface{}
+		var ret []string
 		return ret
 	}
 	return o.AddContentUnits
@@ -56,7 +56,7 @@ func (o *RepositoryAddRemoveContent) GetAddContentUnits() []interface{} {
 
 // GetAddContentUnitsOk returns a tuple with the AddContentUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RepositoryAddRemoveContent) GetAddContentUnitsOk() ([]interface{}, bool) {
+func (o *RepositoryAddRemoveContent) GetAddContentUnitsOk() ([]string, bool) {
 	if o == nil || IsNil(o.AddContentUnits) {
 		return nil, false
 	}
@@ -72,15 +72,15 @@ func (o *RepositoryAddRemoveContent) HasAddContentUnits() bool {
 	return false
 }
 
-// SetAddContentUnits gets a reference to the given []interface{} and assigns it to the AddContentUnits field.
-func (o *RepositoryAddRemoveContent) SetAddContentUnits(v []interface{}) {
+// SetAddContentUnits gets a reference to the given []string and assigns it to the AddContentUnits field.
+func (o *RepositoryAddRemoveContent) SetAddContentUnits(v []string) {
 	o.AddContentUnits = v
 }
 
 // GetRemoveContentUnits returns the RemoveContentUnits field value if set, zero value otherwise.
-func (o *RepositoryAddRemoveContent) GetRemoveContentUnits() []interface{} {
+func (o *RepositoryAddRemoveContent) GetRemoveContentUnits() []string {
 	if o == nil || IsNil(o.RemoveContentUnits) {
-		var ret []interface{}
+		var ret []string
 		return ret
 	}
 	return o.RemoveContentUnits
@@ -88,7 +88,7 @@ func (o *RepositoryAddRemoveContent) GetRemoveContentUnits() []interface{} {
 
 // GetRemoveContentUnitsOk returns a tuple with the RemoveContentUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RepositoryAddRemoveContent) GetRemoveContentUnitsOk() ([]interface{}, bool) {
+func (o *RepositoryAddRemoveContent) GetRemoveContentUnitsOk() ([]string, bool) {
 	if o == nil || IsNil(o.RemoveContentUnits) {
 		return nil, false
 	}
@@ -104,8 +104,8 @@ func (o *RepositoryAddRemoveContent) HasRemoveContentUnits() bool {
 	return false
 }
 
-// SetRemoveContentUnits gets a reference to the given []interface{} and assigns it to the RemoveContentUnits field.
-func (o *RepositoryAddRemoveContent) SetRemoveContentUnits(v []interface{}) {
+// SetRemoveContentUnits gets a reference to the given []string and assigns it to the RemoveContentUnits field.
+func (o *RepositoryAddRemoveContent) SetRemoveContentUnits(v []string) {
 	o.RemoveContentUnits = v
 }
 

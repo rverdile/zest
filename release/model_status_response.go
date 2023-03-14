@@ -30,19 +30,22 @@ type StatusResponse struct {
 	RedisConnection *StatusResponseRedisConnection `json:"redis_connection,omitempty"`
 	Storage *StatusResponseStorage `json:"storage,omitempty"`
 	ContentSettings StatusResponseContentSettings `json:"content_settings"`
+	// Is Domains enabled
+	DomainEnabled bool `json:"domain_enabled"`
 }
 
 // NewStatusResponse instantiates a new StatusResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatusResponse(versions []VersionResponse, onlineWorkers []WorkerResponse, onlineContentApps []ContentAppStatusResponse, databaseConnection StatusResponseDatabaseConnection, contentSettings StatusResponseContentSettings) *StatusResponse {
+func NewStatusResponse(versions []VersionResponse, onlineWorkers []WorkerResponse, onlineContentApps []ContentAppStatusResponse, databaseConnection StatusResponseDatabaseConnection, contentSettings StatusResponseContentSettings, domainEnabled bool) *StatusResponse {
 	this := StatusResponse{}
 	this.Versions = versions
 	this.OnlineWorkers = onlineWorkers
 	this.OnlineContentApps = onlineContentApps
 	this.DatabaseConnection = databaseConnection
 	this.ContentSettings = contentSettings
+	this.DomainEnabled = domainEnabled
 	return &this
 }
 
@@ -238,6 +241,30 @@ func (o *StatusResponse) SetContentSettings(v StatusResponseContentSettings) {
 	o.ContentSettings = v
 }
 
+// GetDomainEnabled returns the DomainEnabled field value
+func (o *StatusResponse) GetDomainEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.DomainEnabled
+}
+
+// GetDomainEnabledOk returns a tuple with the DomainEnabled field value
+// and a boolean to check if the value has been set.
+func (o *StatusResponse) GetDomainEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DomainEnabled, true
+}
+
+// SetDomainEnabled sets field value
+func (o *StatusResponse) SetDomainEnabled(v bool) {
+	o.DomainEnabled = v
+}
+
 func (o StatusResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -259,6 +286,7 @@ func (o StatusResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["storage"] = o.Storage
 	}
 	toSerialize["content_settings"] = o.ContentSettings
+	toSerialize["domain_enabled"] = o.DomainEnabled
 	return toSerialize, nil
 }
 

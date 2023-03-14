@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Id** | **string** | PackageGroup id. | 
 **Default** | Pointer to **bool** | PackageGroup default. | [optional] 
 **UserVisible** | Pointer to **bool** | PackageGroup user visibility. | [optional] 
-**DisplayOrder** | **NullableInt32** | PackageGroup display order. | 
+**DisplayOrder** | **NullableInt64** | PackageGroup display order. | 
 **Name** | **string** | PackageGroup name. | 
 **Description** | **string** | PackageGroup description. | 
 **Packages** | **map[string]interface{}** | PackageGroup package list. | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewRpmPackageGroupResponse
 
-`func NewRpmPackageGroupResponse(id string, displayOrder NullableInt32, name string, description string, packages map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string, ) *RpmPackageGroupResponse`
+`func NewRpmPackageGroupResponse(id string, displayOrder NullableInt64, name string, description string, packages map[string]interface{}, descByLang map[string]interface{}, nameByLang map[string]interface{}, digest string, ) *RpmPackageGroupResponse`
 
 NewRpmPackageGroupResponse instantiates a new RpmPackageGroupResponse object
 This constructor will assign default values to properties that have it defined,
@@ -159,20 +159,20 @@ HasUserVisible returns a boolean if a field has been set.
 
 ### GetDisplayOrder
 
-`func (o *RpmPackageGroupResponse) GetDisplayOrder() int32`
+`func (o *RpmPackageGroupResponse) GetDisplayOrder() int64`
 
 GetDisplayOrder returns the DisplayOrder field if non-nil, zero value otherwise.
 
 ### GetDisplayOrderOk
 
-`func (o *RpmPackageGroupResponse) GetDisplayOrderOk() (*int32, bool)`
+`func (o *RpmPackageGroupResponse) GetDisplayOrderOk() (*int64, bool)`
 
 GetDisplayOrderOk returns a tuple with the DisplayOrder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisplayOrder
 
-`func (o *RpmPackageGroupResponse) SetDisplayOrder(v int32)`
+`func (o *RpmPackageGroupResponse) SetDisplayOrder(v int64)`
 
 SetDisplayOrder sets DisplayOrder field to given value.
 
