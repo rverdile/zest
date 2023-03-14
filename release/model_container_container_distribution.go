@@ -20,14 +20,14 @@ var _ MappedNullable = &ContainerContainerDistribution{}
 
 // ContainerContainerDistribution A serializer for ContainerDistribution.
 type ContainerContainerDistribution struct {
+	// The latest RepositoryVersion for this Repository will be served.
+	Repository NullableString `json:"repository,omitempty"`
 	// A unique name. Ex, `rawhide` and `stable`.
 	Name string `json:"name"`
 	// The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \"foo\" and \"foo/bar\")
 	BasePath string `json:"base_path"`
 	// An optional content-guard. If none is specified, a default one will be used.
 	ContentGuard *string `json:"content_guard,omitempty"`
-	// The latest RepositoryVersion for this Repository will be served.
-	Repository NullableString `json:"repository,omitempty"`
 	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// RepositoryVersion to be served
 	RepositoryVersion NullableString `json:"repository_version,omitempty"`
@@ -54,6 +54,48 @@ func NewContainerContainerDistribution(name string, basePath string) *ContainerC
 func NewContainerContainerDistributionWithDefaults() *ContainerContainerDistribution {
 	this := ContainerContainerDistribution{}
 	return &this
+}
+
+// GetRepository returns the Repository field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ContainerContainerDistribution) GetRepository() string {
+	if o == nil || IsNil(o.Repository.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Repository.Get()
+}
+
+// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ContainerContainerDistribution) GetRepositoryOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Repository.Get(), o.Repository.IsSet()
+}
+
+// HasRepository returns a boolean if a field has been set.
+func (o *ContainerContainerDistribution) HasRepository() bool {
+	if o != nil && o.Repository.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRepository gets a reference to the given NullableString and assigns it to the Repository field.
+func (o *ContainerContainerDistribution) SetRepository(v string) {
+	o.Repository.Set(&v)
+}
+// SetRepositoryNil sets the value for Repository to be an explicit nil
+func (o *ContainerContainerDistribution) SetRepositoryNil() {
+	o.Repository.Set(nil)
+}
+
+// UnsetRepository ensures that no value is present for Repository, not even an explicit nil
+func (o *ContainerContainerDistribution) UnsetRepository() {
+	o.Repository.Unset()
 }
 
 // GetName returns the Name field value
@@ -134,48 +176,6 @@ func (o *ContainerContainerDistribution) HasContentGuard() bool {
 // SetContentGuard gets a reference to the given string and assigns it to the ContentGuard field.
 func (o *ContainerContainerDistribution) SetContentGuard(v string) {
 	o.ContentGuard = &v
-}
-
-// GetRepository returns the Repository field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContainerContainerDistribution) GetRepository() string {
-	if o == nil || IsNil(o.Repository.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Repository.Get()
-}
-
-// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContainerContainerDistribution) GetRepositoryOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Repository.Get(), o.Repository.IsSet()
-}
-
-// HasRepository returns a boolean if a field has been set.
-func (o *ContainerContainerDistribution) HasRepository() bool {
-	if o != nil && o.Repository.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRepository gets a reference to the given NullableString and assigns it to the Repository field.
-func (o *ContainerContainerDistribution) SetRepository(v string) {
-	o.Repository.Set(&v)
-}
-// SetRepositoryNil sets the value for Repository to be an explicit nil
-func (o *ContainerContainerDistribution) SetRepositoryNil() {
-	o.Repository.Set(nil)
-}
-
-// UnsetRepository ensures that no value is present for Repository, not even an explicit nil
-func (o *ContainerContainerDistribution) UnsetRepository() {
-	o.Repository.Unset()
 }
 
 // GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
@@ -336,13 +336,13 @@ func (o ContainerContainerDistribution) MarshalJSON() ([]byte, error) {
 
 func (o ContainerContainerDistribution) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Repository.IsSet() {
+		toSerialize["repository"] = o.Repository.Get()
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["base_path"] = o.BasePath
 	if !IsNil(o.ContentGuard) {
 		toSerialize["content_guard"] = o.ContentGuard
-	}
-	if o.Repository.IsSet() {
-		toSerialize["repository"] = o.Repository.Get()
 	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
