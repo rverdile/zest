@@ -26,12 +26,13 @@ jobs:
           echo "PULP_TAG=$pulpTag" >> $GITHUB_OUTPUT
           echo "MAJOR_VERSION=`expr $pulpTag : '^\([v][0-9]*\)'`" >> $GITHUB_OUTPUT
           echo "NEW_TAG_PATH=release/`expr $pulpTag : '^\([v][0-9]*\)'`" >> $GITHUB_OUTPUT
+          echo "NEW_TAG=release/`expr $pulpTag : '^\([v][0-9]*\)'`/$pulpTag" >> $GITHUB_OUTPUT
       
       # If check passes, latest build is up to date and the action stops
       - name: Update version
         if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
-          echo "${{ steps.pulpRelease.outputs.MAJOR_VERSION }} ${{ steps.pulpRelease.outputs.NEW_TAG_PATH }}"
+          echo "${{ steps.pulpRelease.outputs.MAJOR_VERSION }} ${{ steps.pulpRelease.outputs.NEW_TAG_PATH }} ${{steps.pulpRelease.outputs.NEW_TAG}}"
           echo "New pulp version available >> ${{ steps.pulpRelease.outputs.PULP_TAG }}! (Current build version ${{ steps.repoRelease.outputs.tag }})"
 
        
