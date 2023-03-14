@@ -27,7 +27,7 @@ jobs:
       # If check passes, latest build is up to date and the action stops
       - name: Update version
         run: |
-          echo `"${{steps.pulpRelease.outputs.PULP_TAG}}" | sed '[v][0-9]'`
+          echo `"${{steps.pulpRelease.outputs.PULP_TAG}}" | sed ([v][0-9]*)`
           echo "New pulp version available >> ${{ steps.pulpRelease.outputs.PULP_TAG }}! (Current build version ${{ steps.repoRelease.outputs.tag }})"
 
         # if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
