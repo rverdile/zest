@@ -25,7 +25,7 @@ jobs:
           pulpTag=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`
           echo "PULP_TAG=$pulpTag" >> $GITHUB_OUTPUT
           echo "MAJOR_VERSION=`expr $pulpTag : '^\([v][0-9]*\)'`" >> $GITHUB_OUTPUT
-          echo "NEW_TAG_PATH=release/`expr $pulpTag : '^\([v][0-9]*\)'`"
+          echo "NEW_TAG_PATH=release/`expr $pulpTag : '^\([v][0-9]*\)'`" >> $GITHUB_OUTPUT
       
       # If check passes, latest build is up to date and the action stops
       - name: Update version
