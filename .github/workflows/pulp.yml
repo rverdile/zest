@@ -57,7 +57,7 @@ jobs:
           -g go \
           -o /local/release --minimal-update --skip-validate-spec \
           --git-user-id=content-services --git-repo-id=zest/release \
-          --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
+          --package-name=zest --package-version=${{ steps.pulpRelease.outputs.PULP_TAG }} -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
 
