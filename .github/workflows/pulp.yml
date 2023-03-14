@@ -21,7 +21,9 @@ jobs:
 
       - name: Get current pulp version
         id: pulpRelease
-        run: echo "PULP_TAG=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`" >> $GITHUB_OUTPUT
+        run: |
+          echo "PULP_TAG=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`" >> $GITHUB_OUTPUT
+          echo "PULP_TAG_WITHOUT_V=`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
       - name: Update version
@@ -57,9 +59,9 @@ jobs:
           -g go \
           -o /local/release --minimal-update --skip-validate-spec \
           --git-user-id=content-services --git-repo-id=zest/release \
-          --package-name=zest --package-version=${{ steps.pulpRelease.outputs.PULP_TAG }} -p enumClassPrefix=true  -p structPrefix=true \
+          --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
-          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
+          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG_WITHOUT_V }}
 
       - name: Commit new client
         id: commit
