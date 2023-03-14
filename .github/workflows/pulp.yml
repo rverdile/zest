@@ -23,7 +23,6 @@ jobs:
         id: pulpRelease
         run: |
           echo "PULP_TAG=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`" >> $GITHUB_OUTPUT
-          echo "PULP_TAG_WITHOUT_V=`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
       - name: Update version
@@ -61,7 +60,7 @@ jobs:
           --git-user-id=content-services --git-repo-id=zest/release \
           --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
-          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG_WITHOUT_V }}
+          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
 
       - name: Commit new client
         id: commit
@@ -80,7 +79,7 @@ jobs:
         uses: avakar/tag-and-release@v1
         with: 
           commit: ${{steps.commit.outputs.NEW_SHA}}
-          tag_name: ${{ steps.pulpRelease.outputs.PULP_TAG }}
+          tag_name: release/${{ steps.pulpRelease.outputs.PULP_TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
