@@ -22,9 +22,9 @@ jobs:
       - name: Get current pulp version
         id: pulpRelease
         run: |
-          echo "pulpTag=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`"
-          echo "PULP_TAG=${pulpTag}" >> $GITHUB_OUTPUT
-          echo `expr "${pulpTag}" : '^\([v][0-9]*\)'`
+          pulpTag=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`
+          echo "PULP_TAG={{$pulpTag}}" >> $GITHUB_OUTPUT
+          echo `expr $pulpTag : '^\([v][0-9]*\)'`
       
       # If check passes, latest build is up to date and the action stops
       - name: Update version
