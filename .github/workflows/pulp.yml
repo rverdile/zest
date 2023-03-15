@@ -25,7 +25,6 @@ jobs:
           pulpTag=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`
           echo "GIT_TAG=release/$pulpTag" >> $GITHUB_OUTPUT
           echo "PULP_TAG=$pulpTag" >> $GITHUB_OUTPUT
-          echo "NEW_MODULE_PATH=`expr $pulpTag : '^\([v][0-9]*\)'`/release" >> $GITHUB_OUTPUT
       # echo "NEW_TAG=release/`expr $pulpTag : '^\([v][0-9]*\)'`/$pulpTag" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
@@ -62,7 +61,7 @@ jobs:
           -t /local/templates/ \
           -g go \
           -o /local/release --minimal-update --skip-validate-spec \
-          --git-user-id=content-services --git-repo-id=zest/${{steps.pulpRelease.outputs.NEW_MODULE_PATH}} \
+          --git-user-id=content-services --git-repo-id=zest/release/v3 \
           --package-name=zest/release/v3 -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
