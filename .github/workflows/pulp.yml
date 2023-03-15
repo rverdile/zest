@@ -29,30 +29,30 @@ jobs:
 
       # If check passes, latest build is up to date and the action stops
       - name: Update version
-        if: steps.pulpRelease.outputs.NEW_TAG != steps.repoRelease.outputs.tag
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           echo "New pulp version available >> ${{ steps.pulpRelease.outputs.NEW_TAG }}! (Current build version ${{ steps.repoRelease.outputs.tag }})"
 
       - name: Setup docker compose
-        if: steps.pulpRelease.outputs.NEW_TAG != steps.repoRelease.outputs.tag
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         uses: isbang/compose-action@v1.4.1
         with:
           compose-file: ./docker/docker-compose.yml
           down-flags: --volumes
 
       - name: Remove old files
-        if: steps.pulpRelease.outputs.NEW_TAG != steps.repoRelease.outputs.tag
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           rm -rf release/
 
       - name: Wait for pulp
-        if: steps.pulpRelease.outputs.NEW_TAG != steps.repoRelease.outputs.tag
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           docker run --network=host --rm -v ${PWD}:/local curlimages/curl  \
             curl --retry-all-errors --retry-delay 10 --retry 32 --retry-max-time 240 http://localhost:8080/pulp/api/v3/docs/api.json
 
       - name: Build binding
-        if: steps.pulpRelease.outputs.NEW_TAG != steps.repoRelease.outputs.tag
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           curl http://localhost:8080/pulp/api/v3/docs/api.json > pulp_api.json
           patch -p0 < pulp_api.patch
@@ -68,7 +68,7 @@ jobs:
 
       - name: Commit new client
         id: commit
-        if: steps.pulpRelease.outputs.NEW_TAG != steps.repoRelease.outputs.tag
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
           git config --global user.name ${{secrets.GIT_USER_NAME}}
           git config --global user.email ${{secrets.GIT_USER_EMAIL}}
@@ -79,10 +79,10 @@ jobs:
 
       # This pushes an update and release after build <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       - name: Tag and Release version
-        if: steps.pulpRelease.outputs.NEW_TAG != steps.repoRelease.outputs.tag
+        if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         uses: avakar/tag-and-release@v1
         with:
           commit: ${{steps.commit.outputs.NEW_SHA}}
-          tag_name: ${{ steps.pulpRelease.outputs.NEW_TAG }}
+          tag_name: ${{ steps.pulpRelease.outputs.PULP_TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
