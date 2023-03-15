@@ -25,7 +25,7 @@ jobs:
           pulpTag=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`
           echo "GIT_TAG=release/$pulpTag" >> $GITHUB_OUTPUT
           echo "PULP_TAG=$pulpTag" >> $GITHUB_OUTPUT
-      # echo "NEW_TAG=release/`expr $pulpTag : '^\([v][0-9]*\)'`/$pulpTag" >> $GITHUB_OUTPUT
+          echo "V_TAG=`expr $pulpTag : '^\([v][0-9]*\)'`" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
       - name: Update version
@@ -49,20 +49,20 @@ jobs:
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         run: |
           docker run --network=host --rm -v ${PWD}:/local curlimages/curl  \
-            curl --retry-all-errors --retry-delay 10 --retry 32 --retry-max-time 240 http://localhost:8080/pulp/api/v3/docs/api.json
+            curl --retry-all-errors --retry-delay 10 --retry 32 --retry-max-time 240 http://localhost:8080/pulp/api/${{ steps.pulpRelease.outputs.V_TAG }}/docs/api.json
 
       - name: Build binding
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         run: |
-          curl http://localhost:8080/pulp/api/v3/docs/api.json > pulp_api.json
+          curl http://localhost:8080/pulp/api/${{ steps.pulpRelease.outputs.V_TAG }}/docs/api.json > pulp_api.json
           patch -p0 < pulp_api.patch
           docker run --network=host --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
           -i /local/pulp_api.json \
           -t /local/templates/ \
           -g go \
           -o /local/release --minimal-update --skip-validate-spec \
-          --git-user-id=content-services --git-repo-id=zest/release/v3 \
-          --package-name=zest/release/v3 -p enumClassPrefix=true  -p structPrefix=true \
+          --git-user-id=content-services --git-repo-id=zest/release/${{ steps.pulpRelease.outputs.V_TAG }} \
+          --package-name=zest/release/${{ steps.pulpRelease.outputs.V_TAG }} -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
 
