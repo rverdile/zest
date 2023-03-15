@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProxyUsername** | Pointer to **NullableString** | The username to authenticte to the proxy. | [optional] 
-**TlsValidation** | Pointer to **bool** | If True, TLS peer validation must be performed. | [optional] 
-**Url** | Pointer to **string** | The URL of an external content source. | [optional] 
-**SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
-**SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
-**RateLimit** | Pointer to **NullableInt64** | Limits requests per second for each concurrent downloader | [optional] 
-**TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
-**ClientKey** | Pointer to **NullableString** | A PEM encoded private key used for authentication. | [optional] 
-**ProxyPassword** | Pointer to **NullableString** | The password to authenticate to the proxy. Extra leading and trailing whitespace characters are not trimmed. | [optional] 
-**CaCert** | Pointer to **NullableString** | A PEM encoded CA certificate used to validate the server certificate presented by the remote server. | [optional] 
-**ClientCert** | Pointer to **NullableString** | A PEM encoded client certificate used for authentication. | [optional] 
-**ProxyUrl** | Pointer to **NullableString** | The proxy URL. Format: scheme://host:port | [optional] 
-**MaxRetries** | Pointer to **NullableInt64** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
-**DownloadConcurrency** | Pointer to **NullableInt64** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
-**Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
+**ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **Name** | Pointer to **string** | A unique name for this remote. | [optional] 
+**SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
+**TlsValidation** | Pointer to **bool** | If True, TLS peer validation must be performed. | [optional] 
+**ClientCert** | Pointer to **NullableString** | A PEM encoded client certificate used for authentication. | [optional] 
+**Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
+**ClientKey** | Pointer to **NullableString** | A PEM encoded private key used for authentication. | [optional] 
+**RateLimit** | Pointer to **NullableInt64** | Limits requests per second for each concurrent downloader | [optional] 
+**DownloadConcurrency** | Pointer to **NullableInt64** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
 **Password** | Pointer to **NullableString** | The password to be used for authentication when syncing. Extra leading and trailing whitespace characters are not trimmed. | [optional] 
-**ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
+**TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
+**CaCert** | Pointer to **NullableString** | A PEM encoded CA certificate used to validate the server certificate presented by the remote server. | [optional] 
+**Url** | Pointer to **string** | The URL of an external content source. | [optional] 
+**SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
+**ProxyPassword** | Pointer to **NullableString** | The password to authenticate to the proxy. Extra leading and trailing whitespace characters are not trimmed. | [optional] 
+**MaxRetries** | Pointer to **NullableInt64** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
 **Username** | Pointer to **NullableString** | The username to be used for authentication when syncing. | [optional] 
+**ProxyUrl** | Pointer to **NullableString** | The proxy URL. Format: scheme://host:port | [optional] 
+**ProxyUsername** | Pointer to **NullableString** | The username to authenticte to the proxy. | [optional] 
 **MetadataOnly** | Pointer to **bool** | If True, only metadata about the content will be stored in Pulp. Clients will retrieve content from the remote URL. | [optional] 
 **GitRef** | Pointer to **string** | A git ref. e.g.: branch, tag, or commit sha. | [optional] 
 
@@ -46,90 +46,65 @@ NewPatchedansibleGitRemoteWithDefaults instantiates a new PatchedansibleGitRemot
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetProxyUsername
+### GetConnectTimeout
 
-`func (o *PatchedansibleGitRemote) GetProxyUsername() string`
+`func (o *PatchedansibleGitRemote) GetConnectTimeout() float64`
 
-GetProxyUsername returns the ProxyUsername field if non-nil, zero value otherwise.
+GetConnectTimeout returns the ConnectTimeout field if non-nil, zero value otherwise.
 
-### GetProxyUsernameOk
+### GetConnectTimeoutOk
 
-`func (o *PatchedansibleGitRemote) GetProxyUsernameOk() (*string, bool)`
+`func (o *PatchedansibleGitRemote) GetConnectTimeoutOk() (*float64, bool)`
 
-GetProxyUsernameOk returns a tuple with the ProxyUsername field if it's non-nil, zero value otherwise
+GetConnectTimeoutOk returns a tuple with the ConnectTimeout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProxyUsername
+### SetConnectTimeout
 
-`func (o *PatchedansibleGitRemote) SetProxyUsername(v string)`
+`func (o *PatchedansibleGitRemote) SetConnectTimeout(v float64)`
 
-SetProxyUsername sets ProxyUsername field to given value.
+SetConnectTimeout sets ConnectTimeout field to given value.
 
-### HasProxyUsername
+### HasConnectTimeout
 
-`func (o *PatchedansibleGitRemote) HasProxyUsername() bool`
+`func (o *PatchedansibleGitRemote) HasConnectTimeout() bool`
 
-HasProxyUsername returns a boolean if a field has been set.
+HasConnectTimeout returns a boolean if a field has been set.
 
-### SetProxyUsernameNil
+### SetConnectTimeoutNil
 
-`func (o *PatchedansibleGitRemote) SetProxyUsernameNil(b bool)`
+`func (o *PatchedansibleGitRemote) SetConnectTimeoutNil(b bool)`
 
- SetProxyUsernameNil sets the value for ProxyUsername to be an explicit nil
+ SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
 
-### UnsetProxyUsername
-`func (o *PatchedansibleGitRemote) UnsetProxyUsername()`
+### UnsetConnectTimeout
+`func (o *PatchedansibleGitRemote) UnsetConnectTimeout()`
 
-UnsetProxyUsername ensures that no value is present for ProxyUsername, not even an explicit nil
-### GetTlsValidation
+UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
+### GetName
 
-`func (o *PatchedansibleGitRemote) GetTlsValidation() bool`
+`func (o *PatchedansibleGitRemote) GetName() string`
 
-GetTlsValidation returns the TlsValidation field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetTlsValidationOk
+### GetNameOk
 
-`func (o *PatchedansibleGitRemote) GetTlsValidationOk() (*bool, bool)`
+`func (o *PatchedansibleGitRemote) GetNameOk() (*string, bool)`
 
-GetTlsValidationOk returns a tuple with the TlsValidation field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTlsValidation
+### SetName
 
-`func (o *PatchedansibleGitRemote) SetTlsValidation(v bool)`
+`func (o *PatchedansibleGitRemote) SetName(v string)`
 
-SetTlsValidation sets TlsValidation field to given value.
+SetName sets Name field to given value.
 
-### HasTlsValidation
+### HasName
 
-`func (o *PatchedansibleGitRemote) HasTlsValidation() bool`
+`func (o *PatchedansibleGitRemote) HasName() bool`
 
-HasTlsValidation returns a boolean if a field has been set.
-
-### GetUrl
-
-`func (o *PatchedansibleGitRemote) GetUrl() string`
-
-GetUrl returns the Url field if non-nil, zero value otherwise.
-
-### GetUrlOk
-
-`func (o *PatchedansibleGitRemote) GetUrlOk() (*string, bool)`
-
-GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUrl
-
-`func (o *PatchedansibleGitRemote) SetUrl(v string)`
-
-SetUrl sets Url field to given value.
-
-### HasUrl
-
-`func (o *PatchedansibleGitRemote) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
+HasName returns a boolean if a field has been set.
 
 ### GetSockConnectTimeout
 
@@ -166,216 +141,31 @@ HasSockConnectTimeout returns a boolean if a field has been set.
 `func (o *PatchedansibleGitRemote) UnsetSockConnectTimeout()`
 
 UnsetSockConnectTimeout ensures that no value is present for SockConnectTimeout, not even an explicit nil
-### GetSockReadTimeout
+### GetTlsValidation
 
-`func (o *PatchedansibleGitRemote) GetSockReadTimeout() float64`
+`func (o *PatchedansibleGitRemote) GetTlsValidation() bool`
 
-GetSockReadTimeout returns the SockReadTimeout field if non-nil, zero value otherwise.
+GetTlsValidation returns the TlsValidation field if non-nil, zero value otherwise.
 
-### GetSockReadTimeoutOk
+### GetTlsValidationOk
 
-`func (o *PatchedansibleGitRemote) GetSockReadTimeoutOk() (*float64, bool)`
+`func (o *PatchedansibleGitRemote) GetTlsValidationOk() (*bool, bool)`
 
-GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field if it's non-nil, zero value otherwise
+GetTlsValidationOk returns a tuple with the TlsValidation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSockReadTimeout
+### SetTlsValidation
 
-`func (o *PatchedansibleGitRemote) SetSockReadTimeout(v float64)`
+`func (o *PatchedansibleGitRemote) SetTlsValidation(v bool)`
 
-SetSockReadTimeout sets SockReadTimeout field to given value.
+SetTlsValidation sets TlsValidation field to given value.
 
-### HasSockReadTimeout
+### HasTlsValidation
 
-`func (o *PatchedansibleGitRemote) HasSockReadTimeout() bool`
+`func (o *PatchedansibleGitRemote) HasTlsValidation() bool`
 
-HasSockReadTimeout returns a boolean if a field has been set.
+HasTlsValidation returns a boolean if a field has been set.
 
-### SetSockReadTimeoutNil
-
-`func (o *PatchedansibleGitRemote) SetSockReadTimeoutNil(b bool)`
-
- SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
-
-### UnsetSockReadTimeout
-`func (o *PatchedansibleGitRemote) UnsetSockReadTimeout()`
-
-UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
-### GetRateLimit
-
-`func (o *PatchedansibleGitRemote) GetRateLimit() int64`
-
-GetRateLimit returns the RateLimit field if non-nil, zero value otherwise.
-
-### GetRateLimitOk
-
-`func (o *PatchedansibleGitRemote) GetRateLimitOk() (*int64, bool)`
-
-GetRateLimitOk returns a tuple with the RateLimit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRateLimit
-
-`func (o *PatchedansibleGitRemote) SetRateLimit(v int64)`
-
-SetRateLimit sets RateLimit field to given value.
-
-### HasRateLimit
-
-`func (o *PatchedansibleGitRemote) HasRateLimit() bool`
-
-HasRateLimit returns a boolean if a field has been set.
-
-### SetRateLimitNil
-
-`func (o *PatchedansibleGitRemote) SetRateLimitNil(b bool)`
-
- SetRateLimitNil sets the value for RateLimit to be an explicit nil
-
-### UnsetRateLimit
-`func (o *PatchedansibleGitRemote) UnsetRateLimit()`
-
-UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
-### GetTotalTimeout
-
-`func (o *PatchedansibleGitRemote) GetTotalTimeout() float64`
-
-GetTotalTimeout returns the TotalTimeout field if non-nil, zero value otherwise.
-
-### GetTotalTimeoutOk
-
-`func (o *PatchedansibleGitRemote) GetTotalTimeoutOk() (*float64, bool)`
-
-GetTotalTimeoutOk returns a tuple with the TotalTimeout field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalTimeout
-
-`func (o *PatchedansibleGitRemote) SetTotalTimeout(v float64)`
-
-SetTotalTimeout sets TotalTimeout field to given value.
-
-### HasTotalTimeout
-
-`func (o *PatchedansibleGitRemote) HasTotalTimeout() bool`
-
-HasTotalTimeout returns a boolean if a field has been set.
-
-### SetTotalTimeoutNil
-
-`func (o *PatchedansibleGitRemote) SetTotalTimeoutNil(b bool)`
-
- SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
-
-### UnsetTotalTimeout
-`func (o *PatchedansibleGitRemote) UnsetTotalTimeout()`
-
-UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
-### GetClientKey
-
-`func (o *PatchedansibleGitRemote) GetClientKey() string`
-
-GetClientKey returns the ClientKey field if non-nil, zero value otherwise.
-
-### GetClientKeyOk
-
-`func (o *PatchedansibleGitRemote) GetClientKeyOk() (*string, bool)`
-
-GetClientKeyOk returns a tuple with the ClientKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClientKey
-
-`func (o *PatchedansibleGitRemote) SetClientKey(v string)`
-
-SetClientKey sets ClientKey field to given value.
-
-### HasClientKey
-
-`func (o *PatchedansibleGitRemote) HasClientKey() bool`
-
-HasClientKey returns a boolean if a field has been set.
-
-### SetClientKeyNil
-
-`func (o *PatchedansibleGitRemote) SetClientKeyNil(b bool)`
-
- SetClientKeyNil sets the value for ClientKey to be an explicit nil
-
-### UnsetClientKey
-`func (o *PatchedansibleGitRemote) UnsetClientKey()`
-
-UnsetClientKey ensures that no value is present for ClientKey, not even an explicit nil
-### GetProxyPassword
-
-`func (o *PatchedansibleGitRemote) GetProxyPassword() string`
-
-GetProxyPassword returns the ProxyPassword field if non-nil, zero value otherwise.
-
-### GetProxyPasswordOk
-
-`func (o *PatchedansibleGitRemote) GetProxyPasswordOk() (*string, bool)`
-
-GetProxyPasswordOk returns a tuple with the ProxyPassword field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProxyPassword
-
-`func (o *PatchedansibleGitRemote) SetProxyPassword(v string)`
-
-SetProxyPassword sets ProxyPassword field to given value.
-
-### HasProxyPassword
-
-`func (o *PatchedansibleGitRemote) HasProxyPassword() bool`
-
-HasProxyPassword returns a boolean if a field has been set.
-
-### SetProxyPasswordNil
-
-`func (o *PatchedansibleGitRemote) SetProxyPasswordNil(b bool)`
-
- SetProxyPasswordNil sets the value for ProxyPassword to be an explicit nil
-
-### UnsetProxyPassword
-`func (o *PatchedansibleGitRemote) UnsetProxyPassword()`
-
-UnsetProxyPassword ensures that no value is present for ProxyPassword, not even an explicit nil
-### GetCaCert
-
-`func (o *PatchedansibleGitRemote) GetCaCert() string`
-
-GetCaCert returns the CaCert field if non-nil, zero value otherwise.
-
-### GetCaCertOk
-
-`func (o *PatchedansibleGitRemote) GetCaCertOk() (*string, bool)`
-
-GetCaCertOk returns a tuple with the CaCert field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCaCert
-
-`func (o *PatchedansibleGitRemote) SetCaCert(v string)`
-
-SetCaCert sets CaCert field to given value.
-
-### HasCaCert
-
-`func (o *PatchedansibleGitRemote) HasCaCert() bool`
-
-HasCaCert returns a boolean if a field has been set.
-
-### SetCaCertNil
-
-`func (o *PatchedansibleGitRemote) SetCaCertNil(b bool)`
-
- SetCaCertNil sets the value for CaCert to be an explicit nil
-
-### UnsetCaCert
-`func (o *PatchedansibleGitRemote) UnsetCaCert()`
-
-UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
 ### GetClientCert
 
 `func (o *PatchedansibleGitRemote) GetClientCert() string`
@@ -411,76 +201,101 @@ HasClientCert returns a boolean if a field has been set.
 `func (o *PatchedansibleGitRemote) UnsetClientCert()`
 
 UnsetClientCert ensures that no value is present for ClientCert, not even an explicit nil
-### GetProxyUrl
+### GetHeaders
 
-`func (o *PatchedansibleGitRemote) GetProxyUrl() string`
+`func (o *PatchedansibleGitRemote) GetHeaders() []map[string]interface{}`
 
-GetProxyUrl returns the ProxyUrl field if non-nil, zero value otherwise.
+GetHeaders returns the Headers field if non-nil, zero value otherwise.
 
-### GetProxyUrlOk
+### GetHeadersOk
 
-`func (o *PatchedansibleGitRemote) GetProxyUrlOk() (*string, bool)`
+`func (o *PatchedansibleGitRemote) GetHeadersOk() (*[]map[string]interface{}, bool)`
 
-GetProxyUrlOk returns a tuple with the ProxyUrl field if it's non-nil, zero value otherwise
+GetHeadersOk returns a tuple with the Headers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProxyUrl
+### SetHeaders
 
-`func (o *PatchedansibleGitRemote) SetProxyUrl(v string)`
+`func (o *PatchedansibleGitRemote) SetHeaders(v []map[string]interface{})`
 
-SetProxyUrl sets ProxyUrl field to given value.
+SetHeaders sets Headers field to given value.
 
-### HasProxyUrl
+### HasHeaders
 
-`func (o *PatchedansibleGitRemote) HasProxyUrl() bool`
+`func (o *PatchedansibleGitRemote) HasHeaders() bool`
 
-HasProxyUrl returns a boolean if a field has been set.
+HasHeaders returns a boolean if a field has been set.
 
-### SetProxyUrlNil
+### GetClientKey
 
-`func (o *PatchedansibleGitRemote) SetProxyUrlNil(b bool)`
+`func (o *PatchedansibleGitRemote) GetClientKey() string`
 
- SetProxyUrlNil sets the value for ProxyUrl to be an explicit nil
+GetClientKey returns the ClientKey field if non-nil, zero value otherwise.
 
-### UnsetProxyUrl
-`func (o *PatchedansibleGitRemote) UnsetProxyUrl()`
+### GetClientKeyOk
 
-UnsetProxyUrl ensures that no value is present for ProxyUrl, not even an explicit nil
-### GetMaxRetries
+`func (o *PatchedansibleGitRemote) GetClientKeyOk() (*string, bool)`
 
-`func (o *PatchedansibleGitRemote) GetMaxRetries() int64`
-
-GetMaxRetries returns the MaxRetries field if non-nil, zero value otherwise.
-
-### GetMaxRetriesOk
-
-`func (o *PatchedansibleGitRemote) GetMaxRetriesOk() (*int64, bool)`
-
-GetMaxRetriesOk returns a tuple with the MaxRetries field if it's non-nil, zero value otherwise
+GetClientKeyOk returns a tuple with the ClientKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxRetries
+### SetClientKey
 
-`func (o *PatchedansibleGitRemote) SetMaxRetries(v int64)`
+`func (o *PatchedansibleGitRemote) SetClientKey(v string)`
 
-SetMaxRetries sets MaxRetries field to given value.
+SetClientKey sets ClientKey field to given value.
 
-### HasMaxRetries
+### HasClientKey
 
-`func (o *PatchedansibleGitRemote) HasMaxRetries() bool`
+`func (o *PatchedansibleGitRemote) HasClientKey() bool`
 
-HasMaxRetries returns a boolean if a field has been set.
+HasClientKey returns a boolean if a field has been set.
 
-### SetMaxRetriesNil
+### SetClientKeyNil
 
-`func (o *PatchedansibleGitRemote) SetMaxRetriesNil(b bool)`
+`func (o *PatchedansibleGitRemote) SetClientKeyNil(b bool)`
 
- SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
+ SetClientKeyNil sets the value for ClientKey to be an explicit nil
 
-### UnsetMaxRetries
-`func (o *PatchedansibleGitRemote) UnsetMaxRetries()`
+### UnsetClientKey
+`func (o *PatchedansibleGitRemote) UnsetClientKey()`
 
-UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
+UnsetClientKey ensures that no value is present for ClientKey, not even an explicit nil
+### GetRateLimit
+
+`func (o *PatchedansibleGitRemote) GetRateLimit() int64`
+
+GetRateLimit returns the RateLimit field if non-nil, zero value otherwise.
+
+### GetRateLimitOk
+
+`func (o *PatchedansibleGitRemote) GetRateLimitOk() (*int64, bool)`
+
+GetRateLimitOk returns a tuple with the RateLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRateLimit
+
+`func (o *PatchedansibleGitRemote) SetRateLimit(v int64)`
+
+SetRateLimit sets RateLimit field to given value.
+
+### HasRateLimit
+
+`func (o *PatchedansibleGitRemote) HasRateLimit() bool`
+
+HasRateLimit returns a boolean if a field has been set.
+
+### SetRateLimitNil
+
+`func (o *PatchedansibleGitRemote) SetRateLimitNil(b bool)`
+
+ SetRateLimitNil sets the value for RateLimit to be an explicit nil
+
+### UnsetRateLimit
+`func (o *PatchedansibleGitRemote) UnsetRateLimit()`
+
+UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
 ### GetDownloadConcurrency
 
 `func (o *PatchedansibleGitRemote) GetDownloadConcurrency() int64`
@@ -516,56 +331,6 @@ HasDownloadConcurrency returns a boolean if a field has been set.
 `func (o *PatchedansibleGitRemote) UnsetDownloadConcurrency()`
 
 UnsetDownloadConcurrency ensures that no value is present for DownloadConcurrency, not even an explicit nil
-### GetHeaders
-
-`func (o *PatchedansibleGitRemote) GetHeaders() []map[string]interface{}`
-
-GetHeaders returns the Headers field if non-nil, zero value otherwise.
-
-### GetHeadersOk
-
-`func (o *PatchedansibleGitRemote) GetHeadersOk() (*[]map[string]interface{}, bool)`
-
-GetHeadersOk returns a tuple with the Headers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHeaders
-
-`func (o *PatchedansibleGitRemote) SetHeaders(v []map[string]interface{})`
-
-SetHeaders sets Headers field to given value.
-
-### HasHeaders
-
-`func (o *PatchedansibleGitRemote) HasHeaders() bool`
-
-HasHeaders returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *PatchedansibleGitRemote) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *PatchedansibleGitRemote) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *PatchedansibleGitRemote) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *PatchedansibleGitRemote) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
 ### GetPulpLabels
 
 `func (o *PatchedansibleGitRemote) GetPulpLabels() map[string]string`
@@ -626,41 +391,206 @@ HasPassword returns a boolean if a field has been set.
 `func (o *PatchedansibleGitRemote) UnsetPassword()`
 
 UnsetPassword ensures that no value is present for Password, not even an explicit nil
-### GetConnectTimeout
+### GetTotalTimeout
 
-`func (o *PatchedansibleGitRemote) GetConnectTimeout() float64`
+`func (o *PatchedansibleGitRemote) GetTotalTimeout() float64`
 
-GetConnectTimeout returns the ConnectTimeout field if non-nil, zero value otherwise.
+GetTotalTimeout returns the TotalTimeout field if non-nil, zero value otherwise.
 
-### GetConnectTimeoutOk
+### GetTotalTimeoutOk
 
-`func (o *PatchedansibleGitRemote) GetConnectTimeoutOk() (*float64, bool)`
+`func (o *PatchedansibleGitRemote) GetTotalTimeoutOk() (*float64, bool)`
 
-GetConnectTimeoutOk returns a tuple with the ConnectTimeout field if it's non-nil, zero value otherwise
+GetTotalTimeoutOk returns a tuple with the TotalTimeout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConnectTimeout
+### SetTotalTimeout
 
-`func (o *PatchedansibleGitRemote) SetConnectTimeout(v float64)`
+`func (o *PatchedansibleGitRemote) SetTotalTimeout(v float64)`
 
-SetConnectTimeout sets ConnectTimeout field to given value.
+SetTotalTimeout sets TotalTimeout field to given value.
 
-### HasConnectTimeout
+### HasTotalTimeout
 
-`func (o *PatchedansibleGitRemote) HasConnectTimeout() bool`
+`func (o *PatchedansibleGitRemote) HasTotalTimeout() bool`
 
-HasConnectTimeout returns a boolean if a field has been set.
+HasTotalTimeout returns a boolean if a field has been set.
 
-### SetConnectTimeoutNil
+### SetTotalTimeoutNil
 
-`func (o *PatchedansibleGitRemote) SetConnectTimeoutNil(b bool)`
+`func (o *PatchedansibleGitRemote) SetTotalTimeoutNil(b bool)`
 
- SetConnectTimeoutNil sets the value for ConnectTimeout to be an explicit nil
+ SetTotalTimeoutNil sets the value for TotalTimeout to be an explicit nil
 
-### UnsetConnectTimeout
-`func (o *PatchedansibleGitRemote) UnsetConnectTimeout()`
+### UnsetTotalTimeout
+`func (o *PatchedansibleGitRemote) UnsetTotalTimeout()`
 
-UnsetConnectTimeout ensures that no value is present for ConnectTimeout, not even an explicit nil
+UnsetTotalTimeout ensures that no value is present for TotalTimeout, not even an explicit nil
+### GetCaCert
+
+`func (o *PatchedansibleGitRemote) GetCaCert() string`
+
+GetCaCert returns the CaCert field if non-nil, zero value otherwise.
+
+### GetCaCertOk
+
+`func (o *PatchedansibleGitRemote) GetCaCertOk() (*string, bool)`
+
+GetCaCertOk returns a tuple with the CaCert field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCaCert
+
+`func (o *PatchedansibleGitRemote) SetCaCert(v string)`
+
+SetCaCert sets CaCert field to given value.
+
+### HasCaCert
+
+`func (o *PatchedansibleGitRemote) HasCaCert() bool`
+
+HasCaCert returns a boolean if a field has been set.
+
+### SetCaCertNil
+
+`func (o *PatchedansibleGitRemote) SetCaCertNil(b bool)`
+
+ SetCaCertNil sets the value for CaCert to be an explicit nil
+
+### UnsetCaCert
+`func (o *PatchedansibleGitRemote) UnsetCaCert()`
+
+UnsetCaCert ensures that no value is present for CaCert, not even an explicit nil
+### GetUrl
+
+`func (o *PatchedansibleGitRemote) GetUrl() string`
+
+GetUrl returns the Url field if non-nil, zero value otherwise.
+
+### GetUrlOk
+
+`func (o *PatchedansibleGitRemote) GetUrlOk() (*string, bool)`
+
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUrl
+
+`func (o *PatchedansibleGitRemote) SetUrl(v string)`
+
+SetUrl sets Url field to given value.
+
+### HasUrl
+
+`func (o *PatchedansibleGitRemote) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
+
+### GetSockReadTimeout
+
+`func (o *PatchedansibleGitRemote) GetSockReadTimeout() float64`
+
+GetSockReadTimeout returns the SockReadTimeout field if non-nil, zero value otherwise.
+
+### GetSockReadTimeoutOk
+
+`func (o *PatchedansibleGitRemote) GetSockReadTimeoutOk() (*float64, bool)`
+
+GetSockReadTimeoutOk returns a tuple with the SockReadTimeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSockReadTimeout
+
+`func (o *PatchedansibleGitRemote) SetSockReadTimeout(v float64)`
+
+SetSockReadTimeout sets SockReadTimeout field to given value.
+
+### HasSockReadTimeout
+
+`func (o *PatchedansibleGitRemote) HasSockReadTimeout() bool`
+
+HasSockReadTimeout returns a boolean if a field has been set.
+
+### SetSockReadTimeoutNil
+
+`func (o *PatchedansibleGitRemote) SetSockReadTimeoutNil(b bool)`
+
+ SetSockReadTimeoutNil sets the value for SockReadTimeout to be an explicit nil
+
+### UnsetSockReadTimeout
+`func (o *PatchedansibleGitRemote) UnsetSockReadTimeout()`
+
+UnsetSockReadTimeout ensures that no value is present for SockReadTimeout, not even an explicit nil
+### GetProxyPassword
+
+`func (o *PatchedansibleGitRemote) GetProxyPassword() string`
+
+GetProxyPassword returns the ProxyPassword field if non-nil, zero value otherwise.
+
+### GetProxyPasswordOk
+
+`func (o *PatchedansibleGitRemote) GetProxyPasswordOk() (*string, bool)`
+
+GetProxyPasswordOk returns a tuple with the ProxyPassword field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProxyPassword
+
+`func (o *PatchedansibleGitRemote) SetProxyPassword(v string)`
+
+SetProxyPassword sets ProxyPassword field to given value.
+
+### HasProxyPassword
+
+`func (o *PatchedansibleGitRemote) HasProxyPassword() bool`
+
+HasProxyPassword returns a boolean if a field has been set.
+
+### SetProxyPasswordNil
+
+`func (o *PatchedansibleGitRemote) SetProxyPasswordNil(b bool)`
+
+ SetProxyPasswordNil sets the value for ProxyPassword to be an explicit nil
+
+### UnsetProxyPassword
+`func (o *PatchedansibleGitRemote) UnsetProxyPassword()`
+
+UnsetProxyPassword ensures that no value is present for ProxyPassword, not even an explicit nil
+### GetMaxRetries
+
+`func (o *PatchedansibleGitRemote) GetMaxRetries() int64`
+
+GetMaxRetries returns the MaxRetries field if non-nil, zero value otherwise.
+
+### GetMaxRetriesOk
+
+`func (o *PatchedansibleGitRemote) GetMaxRetriesOk() (*int64, bool)`
+
+GetMaxRetriesOk returns a tuple with the MaxRetries field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxRetries
+
+`func (o *PatchedansibleGitRemote) SetMaxRetries(v int64)`
+
+SetMaxRetries sets MaxRetries field to given value.
+
+### HasMaxRetries
+
+`func (o *PatchedansibleGitRemote) HasMaxRetries() bool`
+
+HasMaxRetries returns a boolean if a field has been set.
+
+### SetMaxRetriesNil
+
+`func (o *PatchedansibleGitRemote) SetMaxRetriesNil(b bool)`
+
+ SetMaxRetriesNil sets the value for MaxRetries to be an explicit nil
+
+### UnsetMaxRetries
+`func (o *PatchedansibleGitRemote) UnsetMaxRetries()`
+
+UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
 ### GetUsername
 
 `func (o *PatchedansibleGitRemote) GetUsername() string`
@@ -696,6 +626,76 @@ HasUsername returns a boolean if a field has been set.
 `func (o *PatchedansibleGitRemote) UnsetUsername()`
 
 UnsetUsername ensures that no value is present for Username, not even an explicit nil
+### GetProxyUrl
+
+`func (o *PatchedansibleGitRemote) GetProxyUrl() string`
+
+GetProxyUrl returns the ProxyUrl field if non-nil, zero value otherwise.
+
+### GetProxyUrlOk
+
+`func (o *PatchedansibleGitRemote) GetProxyUrlOk() (*string, bool)`
+
+GetProxyUrlOk returns a tuple with the ProxyUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProxyUrl
+
+`func (o *PatchedansibleGitRemote) SetProxyUrl(v string)`
+
+SetProxyUrl sets ProxyUrl field to given value.
+
+### HasProxyUrl
+
+`func (o *PatchedansibleGitRemote) HasProxyUrl() bool`
+
+HasProxyUrl returns a boolean if a field has been set.
+
+### SetProxyUrlNil
+
+`func (o *PatchedansibleGitRemote) SetProxyUrlNil(b bool)`
+
+ SetProxyUrlNil sets the value for ProxyUrl to be an explicit nil
+
+### UnsetProxyUrl
+`func (o *PatchedansibleGitRemote) UnsetProxyUrl()`
+
+UnsetProxyUrl ensures that no value is present for ProxyUrl, not even an explicit nil
+### GetProxyUsername
+
+`func (o *PatchedansibleGitRemote) GetProxyUsername() string`
+
+GetProxyUsername returns the ProxyUsername field if non-nil, zero value otherwise.
+
+### GetProxyUsernameOk
+
+`func (o *PatchedansibleGitRemote) GetProxyUsernameOk() (*string, bool)`
+
+GetProxyUsernameOk returns a tuple with the ProxyUsername field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProxyUsername
+
+`func (o *PatchedansibleGitRemote) SetProxyUsername(v string)`
+
+SetProxyUsername sets ProxyUsername field to given value.
+
+### HasProxyUsername
+
+`func (o *PatchedansibleGitRemote) HasProxyUsername() bool`
+
+HasProxyUsername returns a boolean if a field has been set.
+
+### SetProxyUsernameNil
+
+`func (o *PatchedansibleGitRemote) SetProxyUsernameNil(b bool)`
+
+ SetProxyUsernameNil sets the value for ProxyUsername to be an explicit nil
+
+### UnsetProxyUsername
+`func (o *PatchedansibleGitRemote) UnsetProxyUsername()`
+
+UnsetProxyUsername ensures that no value is present for ProxyUsername, not even an explicit nil
 ### GetMetadataOnly
 
 `func (o *PatchedansibleGitRemote) GetMetadataOnly() bool`
