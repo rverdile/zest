@@ -24,14 +24,14 @@ jobs:
         run: |
           pulpTag=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`
           echo "PULP_TAG=$pulpTag" >> $GITHUB_OUTPUT
-          echo "NEW_TAG_PATH=release/`expr $pulpTag : '^\([v][0-9]*\)'`" >> $GITHUB_OUTPUT
-          echo "NEW_TAG=release/`expr $pulpTag : '^\([v][0-9]*\)'`/$pulpTag" >> $GITHUB_OUTPUT
+          echo "NEW_MODULE_PATH=`expr $pulpTag : '^\([v][0-9]*\)'`/release" >> $GITHUB_OUTPUT
+      # echo "NEW_TAG=release/`expr $pulpTag : '^\([v][0-9]*\)'`/$pulpTag" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
       - name: Update version
         if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
         run: |
-          echo "New pulp version available >> ${{ steps.pulpRelease.outputs.NEW_TAG }}! (Current build version ${{ steps.repoRelease.outputs.tag }})"
+          echo "New pulp version available >> ${{ steps.pulpRelease.outputs.PULP_TAG }}! (Current build version ${{ steps.repoRelease.outputs.tag }})"
 
       - name: Setup docker compose
         if: steps.pulpRelease.outputs.PULP_TAG != steps.repoRelease.outputs.tag
@@ -60,11 +60,11 @@ jobs:
           -i /local/pulp_api.json \
           -t /local/templates/ \
           -g go \
-          -o /local/${{steps.pulpRelease.outputs.NEW_TAG_PATH}} --minimal-update --skip-validate-spec \
-          --git-user-id=content-services --git-repo-id=zest/${{steps.pulpRelease.outputs.NEW_TAG_PATH}} \
+          -o /local/release --minimal-update --skip-validate-spec \
+          --git-user-id=content-services --git-repo-id=zest/release \
           --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
-          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
+          -p packageVersion=${{ steps.pulpRelease.outputs.NEW_MODULE_PATH }}
 
       - name: Commit new client
         id: commit
@@ -72,7 +72,7 @@ jobs:
         run: |
           git config --global user.name ${{secrets.GIT_USER_NAME}}
           git config --global user.email ${{secrets.GIT_USER_EMAIL}}
-          git add ${{steps.pulpRelease.outputs.NEW_TAG_PATH}}/
+          git add release/
           git commit -am "Update pulp bindings to ${{ steps.pulpRelease.outputs.PULP_TAG }}"
           git push
           echo "NEW_SHA=`git rev-parse HEAD`" >> $GITHUB_OUTPUT
