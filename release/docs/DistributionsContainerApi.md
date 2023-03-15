@@ -34,7 +34,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -106,11 +106,11 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
-    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("Name_example", "BasePath_example") // ContainerContainerDistribution | 
+    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("BasePath_example", "Name_example") // ContainerContainerDistribution | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -172,7 +172,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -242,7 +242,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -344,7 +344,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -418,7 +418,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -492,7 +492,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -564,7 +564,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -638,7 +638,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
@@ -710,12 +710,12 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
     containerContainerDistributionHref := "containerContainerDistributionHref_example" // string | 
-    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("Name_example", "BasePath_example") // ContainerContainerDistribution | 
+    containerContainerDistribution := *openapiclient.NewContainerContainerDistribution("BasePath_example", "Name_example") // ContainerContainerDistribution | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

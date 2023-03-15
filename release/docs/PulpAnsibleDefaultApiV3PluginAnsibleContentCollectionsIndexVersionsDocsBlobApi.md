@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release"
+    openapiclient "github.com/content-services/zest/v3/release--package-name&#x3D;zest"
 )
 
 func main() {
