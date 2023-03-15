@@ -61,10 +61,10 @@ jobs:
           -t /local/templates/ \
           -g go \
           -o /local/release --minimal-update --skip-validate-spec \
-          --git-user-id=content-services --git-repo-id=zest/release \
+          --git-user-id=content-services --git-repo-id=zest/${{steps.pulpRelease.outputs.NEW_MODULE_PATH}}\
           --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
-          -p packageVersion=${{ steps.pulpRelease.outputs.NEW_MODULE_PATH }}
+          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
 
       - name: Commit new client
         id: commit
