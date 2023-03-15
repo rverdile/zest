@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Artifact** | **string** | Artifact file representing the physical content | 
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
-**PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Version** | **string** |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
@@ -29,6 +29,31 @@ will change when the set of required properties is changed
 NewAnsibleRoleResponseWithDefaults instantiates a new AnsibleRoleResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPulpCreated
+
+`func (o *AnsibleRoleResponse) GetPulpCreated() time.Time`
+
+GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
+
+### GetPulpCreatedOk
+
+`func (o *AnsibleRoleResponse) GetPulpCreatedOk() (*time.Time, bool)`
+
+GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPulpCreated
+
+`func (o *AnsibleRoleResponse) SetPulpCreated(v time.Time)`
+
+SetPulpCreated sets PulpCreated field to given value.
+
+### HasPulpCreated
+
+`func (o *AnsibleRoleResponse) HasPulpCreated() bool`
+
+HasPulpCreated returns a boolean if a field has been set.
 
 ### GetArtifact
 
@@ -74,31 +99,6 @@ SetPulpHref sets PulpHref field to given value.
 `func (o *AnsibleRoleResponse) HasPulpHref() bool`
 
 HasPulpHref returns a boolean if a field has been set.
-
-### GetPulpCreated
-
-`func (o *AnsibleRoleResponse) GetPulpCreated() time.Time`
-
-GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
-
-### GetPulpCreatedOk
-
-`func (o *AnsibleRoleResponse) GetPulpCreatedOk() (*time.Time, bool)`
-
-GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPulpCreated
-
-`func (o *AnsibleRoleResponse) SetPulpCreated(v time.Time)`
-
-SetPulpCreated sets PulpCreated field to given value.
-
-### HasPulpCreated
-
-`func (o *AnsibleRoleResponse) HasPulpCreated() bool`
-
-HasPulpCreated returns a boolean if a field has been set.
 
 ### GetVersion
 

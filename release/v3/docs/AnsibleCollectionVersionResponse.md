@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
-**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
+**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **Sha256** | Pointer to **string** | The SHA-256 checksum if available. | [optional] [readonly] 
 **Md5** | Pointer to **string** | The MD5 checksum if available. | [optional] [readonly] 
 **Sha1** | Pointer to **string** | The SHA-1 checksum if available. | [optional] [readonly] 
@@ -76,31 +76,6 @@ SetPulpCreated sets PulpCreated field to given value.
 
 HasPulpCreated returns a boolean if a field has been set.
 
-### GetPulpHref
-
-`func (o *AnsibleCollectionVersionResponse) GetPulpHref() string`
-
-GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
-
-### GetPulpHrefOk
-
-`func (o *AnsibleCollectionVersionResponse) GetPulpHrefOk() (*string, bool)`
-
-GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPulpHref
-
-`func (o *AnsibleCollectionVersionResponse) SetPulpHref(v string)`
-
-SetPulpHref sets PulpHref field to given value.
-
-### HasPulpHref
-
-`func (o *AnsibleCollectionVersionResponse) HasPulpHref() bool`
-
-HasPulpHref returns a boolean if a field has been set.
-
 ### GetArtifact
 
 `func (o *AnsibleCollectionVersionResponse) GetArtifact() string`
@@ -125,6 +100,31 @@ SetArtifact sets Artifact field to given value.
 `func (o *AnsibleCollectionVersionResponse) HasArtifact() bool`
 
 HasArtifact returns a boolean if a field has been set.
+
+### GetPulpHref
+
+`func (o *AnsibleCollectionVersionResponse) GetPulpHref() string`
+
+GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
+
+### GetPulpHrefOk
+
+`func (o *AnsibleCollectionVersionResponse) GetPulpHrefOk() (*string, bool)`
+
+GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPulpHref
+
+`func (o *AnsibleCollectionVersionResponse) SetPulpHref(v string)`
+
+SetPulpHref sets PulpHref field to given value.
+
+### HasPulpHref
+
+`func (o *AnsibleCollectionVersionResponse) HasPulpHref() bool`
+
+HasPulpHref returns a boolean if a field has been set.
 
 ### GetSha256
 

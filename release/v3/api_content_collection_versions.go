@@ -29,19 +29,13 @@ type ContentCollectionVersionsApiService service
 type ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentCollectionVersionsApiService
-	upload *string
 	file *os.File
 	artifact *string
 	repository *string
+	upload *string
 	expectedName *string
 	expectedNamespace *string
 	expectedVersion *string
-}
-
-// An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Upload(upload string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	r.upload = &upload
-	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
@@ -59,6 +53,12 @@ func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateReques
 // A URI of a repository the new content unit should be associated with.
 func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
 	r.repository = &repository
+	return r
+}
+
+// An uncommitted upload that may be turned into the artifact of the content unit.
+func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Upload(upload string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+	r.upload = &upload
 	return r
 }
 
@@ -136,9 +136,6 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.upload != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
-	}
 	var fileLocalVarFormFileName string
 	var fileLocalVarFileName     string
 	var fileLocalVarFileBytes    []byte
@@ -161,6 +158,9 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	}
 	if r.repository != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
+	}
+	if r.upload != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
 	}
 	if r.expectedName != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "expected_name", r.expectedName, "")
