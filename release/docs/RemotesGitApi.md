@@ -30,11 +30,11 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/v3/release"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
-    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Name_example", "Url_example") // AnsibleGitRemote | 
+    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Url_example", "Name_example") // AnsibleGitRemote | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -96,7 +96,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/v3/release"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
@@ -167,7 +167,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "github.com/content-services/zest/v3/release"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
@@ -265,7 +265,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/v3/release"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
@@ -337,7 +337,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/v3/release"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
@@ -411,12 +411,12 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/v3/release"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
     ansibleGitRemoteHref := "ansibleGitRemoteHref_example" // string | 
-    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Name_example", "Url_example") // AnsibleGitRemote | 
+    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Url_example", "Name_example") // AnsibleGitRemote | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
