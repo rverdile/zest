@@ -19,7 +19,7 @@ info:
     container: 2.14.3
     deb: 2.20.1
     file: 1.13.0
-    maven: 0.3.3
+    maven: 0.4.0
     python: 3.8.0
     rpm: 3.19.1
   x-pulp-domain-enabled: false
@@ -35488,6 +35488,77 @@ paths:
       summary: Inspect a worker
       tags:
       - Workers
+  /pulp/maven/{name}/{path}:
+    get:
+      description: Responds to GET requests about manifests by reference
+      operationId: pulp_maven_get
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          pattern: "^[\\w-]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          pattern: ^.*$
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          description: No response body
+      tags:
+      - "Pulp: Maven"
+    put:
+      description: ViewSet for interacting with maven deploy API
+      operationId: pulp_maven_put
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          pattern: "^[\\w-]+$"
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          pattern: ^.*$
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: No response body
+      tags:
+      - "Pulp: Maven"
   /pulp_ansible/galaxy/{path}/api/:
     get:
       description: Return a response to the "GET" action.
@@ -40073,39 +40144,21 @@ components:
     ArtifactDistributionResponse:
       description: A serializer for ArtifactDistribution.
       example:
-        pulp_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
+        pulp_href: https://openapi-generator.tech
         name: name
         base_url: base_url
-        base_path: base_path
         pulp_created: 2000-01-23T04:56:07.000+00:00
+        base_path: base_path
         content_guard: https://openapi-generator.tech
       properties:
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
           type: string
-        base_path:
-          description: The base (relative) path component of the published url. Avoid
-            paths that                     overlap with other distribution base paths
-            (e.g. "foo" and "foo/bar")
-          type: string
-        content_guard:
-          description: An optional content-guard.
-          format: uri
-          nullable: true
-          type: string
-        base_url:
-          description: The URL for accessing the publication as defined by this distribution.
-          readOnly: true
-          type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
-          readOnly: true
-          type: string
-        pulp_href:
-          format: uri
           readOnly: true
           type: string
         pulp_labels:
@@ -40113,6 +40166,24 @@ components:
             nullable: true
             type: string
           type: object
+        content_guard:
+          description: An optional content-guard.
+          format: uri
+          nullable: true
+          type: string
+        base_path:
+          description: The base (relative) path component of the published url. Avoid
+            paths that                     overlap with other distribution base paths
+            (e.g. "foo" and "foo/bar")
+          type: string
+        base_url:
+          description: The URL for accessing the publication as defined by this distribution.
+          readOnly: true
+          type: string
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
       required:
       - base_path
       - name
@@ -41888,21 +41959,21 @@ components:
         previous: http://api.example.org/accounts/?offset=200&limit=100
         count: 123
         results:
-        - pulp_href: https://openapi-generator.tech
-          pulp_labels:
+        - pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           base_url: base_url
-          base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           content_guard: https://openapi-generator.tech
-        - pulp_href: https://openapi-generator.tech
-          pulp_labels:
+        - pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           base_url: base_url
-          base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           content_guard: https://openapi-generator.tech
       properties:
         count:
@@ -43875,14 +43946,14 @@ components:
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 6
+          rate_limit: 1
           max_retries: 0
           tls_validation: true
           connect_timeout: 0.23021358869347652
           pulp_href: https://openapi-generator.tech
           client_cert: client_cert
+          sock_read_timeout: 0.6027456183070403
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-          sock_read_timeout: 0.7061401241503109
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -43890,27 +43961,27 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.14658129805029452
+          sock_connect_timeout: 0.5962133916683182
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           hidden_fields:
           - is_set: true
             name: name
           - is_set: true
             name: name
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           proxy_url: proxy_url
           ca_cert: ca_cert
           total_timeout: 0.5637376656633328
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 6
+          rate_limit: 1
           max_retries: 0
           tls_validation: true
           connect_timeout: 0.23021358869347652
           pulp_href: https://openapi-generator.tech
           client_cert: client_cert
+          sock_read_timeout: 0.6027456183070403
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-          sock_read_timeout: 0.7061401241503109
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -43918,13 +43989,13 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.14658129805029452
+          sock_connect_timeout: 0.5962133916683182
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           hidden_fields:
           - is_set: true
             name: name
           - is_set: true
             name: name
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           proxy_url: proxy_url
           ca_cert: ca_cert
           total_timeout: 0.5637376656633328
@@ -44173,27 +44244,27 @@ components:
         count: 123
         results:
         - private: true
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           namespace: https://openapi-generator.tech
           description: description
-          base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           repository_version: https://openapi-generator.tech
           repository: https://openapi-generator.tech
           content_guard: https://openapi-generator.tech
           registry_path: registry_path
         - private: true
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           namespace: https://openapi-generator.tech
           description: description
-          base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           repository_version: https://openapi-generator.tech
           repository: https://openapi-generator.tech
           content_guard: https://openapi-generator.tech
@@ -44257,9 +44328,9 @@ components:
         - manifest_signing_service: https://openapi-generator.tech
           latest_version_href: https://openapi-generator.tech
           versions_href: https://openapi-generator.tech
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           description: description
           retain_repo_versions: 1
@@ -44267,9 +44338,9 @@ components:
         - manifest_signing_service: https://openapi-generator.tech
           latest_version_href: https://openapi-generator.tech
           versions_href: https://openapi-generator.tech
-          pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
+          pulp_href: https://openapi-generator.tech
           name: name
           description: description
           retain_repo_versions: 1
@@ -47698,108 +47769,31 @@ components:
     Patchedansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
+        name:
+          description: A unique name for this remote.
+          minLength: 1
+          type: string
+        proxy_username:
+          description: The username to authenticte to the proxy.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
           format: int64
           nullable: true
           type: integer
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          format: int64
-          nullable: true
-          type: integer
-        url:
-          description: The URL of an external content source.
-          minLength: 1
-          type: string
-        client_key:
-          description: A PEM encoded private key used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
           minLength: 1
           nullable: true
           type: string
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        download_concurrency:
-          description: Total number of simultaneous connections. If not set then the
-            default value will be used.
-          format: int64
-          minimum: 1
-          nullable: true
-          type: integer
         proxy_password:
           description: The password to authenticate to the proxy. Extra leading and
             trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        password:
-          description: The password to be used for authentication when syncing. Extra
-            leading and trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-        name:
-          description: A unique name for this remote.
-          minLength: 1
-          type: string
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        total_timeout:
-          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        username:
-          description: The username to be used for authentication when syncing.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        proxy_username:
-          description: The username to authenticte to the proxy.
           minLength: 1
           nullable: true
           type: string
@@ -47817,6 +47811,83 @@ components:
             nullable: true
             type: string
           type: object
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
+          minLength: 1
+          nullable: true
+          type: string
+        url:
+          description: The URL of an external content source.
+          minLength: 1
+          type: string
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        total_timeout:
+          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
+        password:
+          description: The password to be used for authentication when syncing. Extra
+            leading and trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        download_concurrency:
+          description: Total number of simultaneous connections. If not set then the
+            default value will be used.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -47994,6 +48065,16 @@ components:
           description: "A unique name. Ex, `rawhide` and `stable`."
           minLength: 1
           type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        content_guard:
+          description: "An optional content-guard. If none is specified, a default\
+            \ one will be used."
+          format: uri
+          type: string
         repository:
           description: The latest RepositoryVersion for this Repository will be served.
           format: uri
@@ -48005,16 +48086,6 @@ components:
             (e.g. "foo" and "foo/bar")
           minLength: 1
           type: string
-        content_guard:
-          description: "An optional content-guard. If none is specified, a default\
-            \ one will be used."
-          format: uri
-          type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         repository_version:
           description: RepositoryVersion to be served
           format: uri
@@ -48037,16 +48108,6 @@ components:
           description: A unique name for this repository.
           minLength: 1
           type: string
-        manifest_signing_service:
-          description: A reference to an associated signing service.
-          format: uri
-          nullable: true
-          type: string
-        description:
-          description: An optional description.
-          minLength: 1
-          nullable: true
-          type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
             retains all versions.
@@ -48054,11 +48115,21 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        description:
+          description: An optional description.
+          minLength: 1
+          nullable: true
+          type: string
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
+        manifest_signing_service:
+          description: A reference to an associated signing service.
+          format: uri
+          nullable: true
+          type: string
       type: object
     Patchedcontainer.ContainerRemote:
       description: A Serializer for ContainerRemote.
@@ -52383,26 +52454,26 @@ components:
     ansible.CollectionVersion:
       description: A serializer for CollectionVersion Content.
       properties:
+        upload:
+          description: An uncommitted upload that may be turned into the artifact
+            of the content unit.
+          format: uri
+          type: string
+          writeOnly: true
         repository:
           description: A URI of a repository the new content unit should be associated
             with.
           format: uri
           type: string
           writeOnly: true
-        file:
-          description: An uploaded file that may be turned into the artifact of the
-            content unit.
-          format: binary
-          type: string
-          writeOnly: true
         artifact:
           description: Artifact file representing the physical content
           format: uri
           type: string
-        upload:
-          description: An uncommitted upload that may be turned into the artifact
-            of the content unit.
-          format: uri
+        file:
+          description: An uploaded file that may be turned into the artifact of the
+            content unit.
+          format: binary
           type: string
           writeOnly: true
         expected_name:
@@ -52461,14 +52532,14 @@ components:
         - authors
         homepage: homepage
       properties:
-        artifact:
-          description: Artifact file representing the physical content
-          format: uri
-          type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
           readOnly: true
+          type: string
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
           type: string
         pulp_href:
           format: uri
@@ -52652,108 +52723,31 @@ components:
     ansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
+        name:
+          description: A unique name for this remote.
+          minLength: 1
+          type: string
+        proxy_username:
+          description: The username to authenticte to the proxy.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
           format: int64
           nullable: true
           type: integer
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          format: int64
-          nullable: true
-          type: integer
-        url:
-          description: The URL of an external content source.
-          minLength: 1
-          type: string
-        client_key:
-          description: A PEM encoded private key used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
           minLength: 1
           nullable: true
           type: string
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        download_concurrency:
-          description: Total number of simultaneous connections. If not set then the
-            default value will be used.
-          format: int64
-          minimum: 1
-          nullable: true
-          type: integer
         proxy_password:
           description: The password to authenticate to the proxy. Extra leading and
             trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        password:
-          description: The password to be used for authentication when syncing. Extra
-            leading and trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-        name:
-          description: A unique name for this remote.
-          minLength: 1
-          type: string
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        total_timeout:
-          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        username:
-          description: The username to be used for authentication when syncing.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        proxy_username:
-          description: The username to authenticte to the proxy.
           minLength: 1
           nullable: true
           type: string
@@ -52771,6 +52765,83 @@ components:
             nullable: true
             type: string
           type: object
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
+          minLength: 1
+          nullable: true
+          type: string
+        url:
+          description: The URL of an external content source.
+          minLength: 1
+          type: string
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        total_timeout:
+          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
+        password:
+          description: The password to be used for authentication when syncing. Extra
+            leading and trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        download_concurrency:
+          description: Total number of simultaneous connections. If not set then the
+            default value will be used.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -52789,14 +52860,14 @@ components:
         headers:
         - "{}"
         - "{}"
-        rate_limit: 6
+        rate_limit: 1
         max_retries: 0
         tls_validation: true
         connect_timeout: 0.23021358869347652
         pulp_href: https://openapi-generator.tech
         client_cert: client_cert
+        sock_read_timeout: 0.6027456183070403
         pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-        sock_read_timeout: 0.7061401241503109
         url: url
         download_concurrency: 1
         pulp_labels:
@@ -52804,36 +52875,79 @@ components:
         metadata_only: true
         name: name
         git_ref: git_ref
-        sock_connect_timeout: 0.14658129805029452
+        sock_connect_timeout: 0.5962133916683182
+        pulp_created: 2000-01-23T04:56:07.000+00:00
         hidden_fields:
         - is_set: true
           name: name
         - is_set: true
           name: name
-        pulp_created: 2000-01-23T04:56:07.000+00:00
         proxy_url: proxy_url
         ca_cert: ca_cert
         total_timeout: 0.5637376656633328
       properties:
+        name:
+          description: A unique name for this remote.
+          type: string
         max_retries:
           description: Maximum number of retry attempts after a download failure.
             If not set then the default value (3) will be used.
           format: int64
           nullable: true
           type: integer
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          format: int64
-          nullable: true
-          type: integer
-        url:
-          description: The URL of an external content source.
-          type: string
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
           nullable: true
           type: string
+        sock_read_timeout:
+          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        pulp_last_updated:
+          description: Timestamp of the most recent update of the remote.
+          format: date-time
+          readOnly: true
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          nullable: true
+          type: string
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
+          nullable: true
+          type: string
+        url:
+          description: The URL of an external content source.
+          type: string
+        hidden_fields:
+          description: List of hidden (write only) fields
+          items:
+            $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
+          readOnly: true
+          type: array
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
         sock_connect_timeout:
           description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -52842,30 +52956,6 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        download_concurrency:
-          description: Total number of simultaneous connections. If not set then the
-            default value will be used.
-          format: int64
-          minimum: 1
-          nullable: true
-          type: integer
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          nullable: true
-          type: string
-        name:
-          description: A unique name for this remote.
-          type: string
-        hidden_fields:
-          description: List of hidden (write only) fields
-          items:
-            $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
-          readOnly: true
-          type: array
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          nullable: true
-          type: string
         total_timeout:
           description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -52874,14 +52964,6 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        pulp_last_updated:
-          description: Timestamp of the most recent update of the remote.
-          format: date-time
-          readOnly: true
-          type: string
         headers:
           description: Headers for aiohttp.Clientsession
           items:
@@ -52895,28 +52977,17 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
         pulp_href:
           format: uri
           readOnly: true
           type: string
-        sock_read_timeout:
-          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
+        download_concurrency:
+          description: Total number of simultaneous connections. If not set then the
+            default value will be used.
+          format: int64
+          minimum: 1
           nullable: true
-          type: number
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
+          type: integer
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -53227,18 +53298,18 @@ components:
         pulp_created: 2000-01-23T04:56:07.000+00:00
         version: version
       properties:
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
           type: string
         pulp_href:
           format: uri
           readOnly: true
           type: string
-        artifact:
-          description: Artifact file representing the physical content
-          format: uri
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
         version:
           type: string
@@ -53409,6 +53480,16 @@ components:
           description: "A unique name. Ex, `rawhide` and `stable`."
           minLength: 1
           type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        content_guard:
+          description: "An optional content-guard. If none is specified, a default\
+            \ one will be used."
+          format: uri
+          type: string
         repository:
           description: The latest RepositoryVersion for this Repository will be served.
           format: uri
@@ -53420,16 +53501,6 @@ components:
             (e.g. "foo" and "foo/bar")
           minLength: 1
           type: string
-        content_guard:
-          description: "An optional content-guard. If none is specified, a default\
-            \ one will be used."
-          format: uri
-          type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         repository_version:
           description: RepositoryVersion to be served
           format: uri
@@ -53452,14 +53523,14 @@ components:
       description: A serializer for ContainerDistribution.
       example:
         private: true
-        pulp_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
+        pulp_href: https://openapi-generator.tech
         name: name
         namespace: https://openapi-generator.tech
         description: description
-        base_path: base_path
         pulp_created: 2000-01-23T04:56:07.000+00:00
+        base_path: base_path
         repository_version: https://openapi-generator.tech
         repository: https://openapi-generator.tech
         content_guard: https://openapi-generator.tech
@@ -53467,6 +53538,21 @@ components:
       properties:
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        content_guard:
+          description: "An optional content-guard. If none is specified, a default\
+            \ one will be used."
+          format: uri
           type: string
         repository:
           description: The latest RepositoryVersion for this Repository will be served.
@@ -53478,25 +53564,10 @@ components:
             paths that                     overlap with other distribution base paths
             (e.g. "foo" and "foo/bar")
           type: string
-        content_guard:
-          description: "An optional content-guard. If none is specified, a default\
-            \ one will be used."
-          format: uri
-          type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
         pulp_href:
           format: uri
           readOnly: true
           type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
         repository_version:
           description: RepositoryVersion to be served
           format: uri
@@ -53561,16 +53632,6 @@ components:
           description: A unique name for this repository.
           minLength: 1
           type: string
-        manifest_signing_service:
-          description: A reference to an associated signing service.
-          format: uri
-          nullable: true
-          type: string
-        description:
-          description: An optional description.
-          minLength: 1
-          nullable: true
-          type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
             retains all versions.
@@ -53578,11 +53639,21 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        description:
+          description: An optional description.
+          minLength: 1
+          nullable: true
+          type: string
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
+        manifest_signing_service:
+          description: A reference to an associated signing service.
+          format: uri
+          nullable: true
+          type: string
       required:
       - name
       type: object
@@ -53592,9 +53663,9 @@ components:
         manifest_signing_service: https://openapi-generator.tech
         latest_version_href: https://openapi-generator.tech
         versions_href: https://openapi-generator.tech
-        pulp_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
+        pulp_href: https://openapi-generator.tech
         name: name
         description: description
         retain_repo_versions: 1
@@ -53603,14 +53674,9 @@ components:
         name:
           description: A unique name for this repository.
           type: string
-        manifest_signing_service:
-          description: A reference to an associated signing service.
+        versions_href:
           format: uri
-          nullable: true
-          type: string
-        description:
-          description: An optional description.
-          nullable: true
+          readOnly: true
           type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
@@ -53619,28 +53685,33 @@ components:
           minimum: 1
           nullable: true
           type: integer
-        versions_href:
-          format: uri
-          readOnly: true
-          type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
-        latest_version_href:
-          format: uri
-          readOnly: true
+        description:
+          description: An optional description.
+          nullable: true
           type: string
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        manifest_signing_service:
+          description: A reference to an associated signing service.
+          format: uri
+          nullable: true
+          type: string
+        latest_version_href:
+          format: uri
+          readOnly: true
+          type: string
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
       required:
       - name
       type: object

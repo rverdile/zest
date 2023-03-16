@@ -448,6 +448,8 @@ Class | Method | HTTP request | Description
 *PulpContainerNamespacesApi* | [**PulpContainerNamespacesMyPermissions**](docs/PulpContainerNamespacesApi.md#pulpcontainernamespacesmypermissions) | **Get** /{container_container_namespace_href}my_permissions/ | 
 *PulpContainerNamespacesApi* | [**PulpContainerNamespacesRead**](docs/PulpContainerNamespacesApi.md#pulpcontainernamespacesread) | **Get** /{container_container_namespace_href} | Inspect a container namespace
 *PulpContainerNamespacesApi* | [**PulpContainerNamespacesRemoveRole**](docs/PulpContainerNamespacesApi.md#pulpcontainernamespacesremoverole) | **Post** /{container_container_namespace_href}remove_role/ | 
+*PulpMavenApi* | [**PulpMavenGet**](docs/PulpMavenApi.md#pulpmavenget) | **Get** /pulp/maven/{name}/{path} | 
+*PulpMavenApi* | [**PulpMavenPut**](docs/PulpMavenApi.md#pulpmavenput) | **Put** /pulp/maven/{name}/{path} | 
 *PypiApi* | [**PypiRead**](docs/PypiApi.md#pypiread) | **Get** /pypi/{path}/ | Get index summary
 *PypiLegacyApi* | [**PypiLegacyCreate**](docs/PypiLegacyApi.md#pypilegacycreate) | **Post** /pypi/{path}/legacy/ | Upload a package
 *PypiMetadataApi* | [**PypiPypiRead**](docs/PypiMetadataApi.md#pypipypiread) | **Get** /pypi/{path}/pypi/{meta}/ | Get package metadata

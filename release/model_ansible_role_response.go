@@ -21,11 +21,11 @@ var _ MappedNullable = &AnsibleRoleResponse{}
 
 // AnsibleRoleResponse A serializer for Role versions.
 type AnsibleRoleResponse struct {
-	// Timestamp of creation.
-	PulpCreated *time.Time `json:"pulp_created,omitempty"`
-	PulpHref *string `json:"pulp_href,omitempty"`
 	// Artifact file representing the physical content
 	Artifact string `json:"artifact"`
+	PulpHref *string `json:"pulp_href,omitempty"`
+	// Timestamp of creation.
+	PulpCreated *time.Time `json:"pulp_created,omitempty"`
 	Version string `json:"version"`
 	Name string `json:"name"`
 	Namespace string `json:"namespace"`
@@ -52,36 +52,28 @@ func NewAnsibleRoleResponseWithDefaults() *AnsibleRoleResponse {
 	return &this
 }
 
-// GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
-func (o *AnsibleRoleResponse) GetPulpCreated() time.Time {
-	if o == nil || IsNil(o.PulpCreated) {
-		var ret time.Time
+// GetArtifact returns the Artifact field value
+func (o *AnsibleRoleResponse) GetArtifact() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
-	return *o.PulpCreated
+
+	return o.Artifact
 }
 
-// GetPulpCreatedOk returns a tuple with the PulpCreated field value if set, nil otherwise
+// GetArtifactOk returns a tuple with the Artifact field value
 // and a boolean to check if the value has been set.
-func (o *AnsibleRoleResponse) GetPulpCreatedOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.PulpCreated) {
+func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PulpCreated, true
+	return &o.Artifact, true
 }
 
-// HasPulpCreated returns a boolean if a field has been set.
-func (o *AnsibleRoleResponse) HasPulpCreated() bool {
-	if o != nil && !IsNil(o.PulpCreated) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpCreated gets a reference to the given time.Time and assigns it to the PulpCreated field.
-func (o *AnsibleRoleResponse) SetPulpCreated(v time.Time) {
-	o.PulpCreated = &v
+// SetArtifact sets field value
+func (o *AnsibleRoleResponse) SetArtifact(v string) {
+	o.Artifact = v
 }
 
 // GetPulpHref returns the PulpHref field value if set, zero value otherwise.
@@ -116,28 +108,36 @@ func (o *AnsibleRoleResponse) SetPulpHref(v string) {
 	o.PulpHref = &v
 }
 
-// GetArtifact returns the Artifact field value
-func (o *AnsibleRoleResponse) GetArtifact() string {
-	if o == nil {
-		var ret string
+// GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
+func (o *AnsibleRoleResponse) GetPulpCreated() time.Time {
+	if o == nil || IsNil(o.PulpCreated) {
+		var ret time.Time
 		return ret
 	}
-
-	return o.Artifact
+	return *o.PulpCreated
 }
 
-// GetArtifactOk returns a tuple with the Artifact field value
+// GetPulpCreatedOk returns a tuple with the PulpCreated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool) {
-	if o == nil {
+func (o *AnsibleRoleResponse) GetPulpCreatedOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.PulpCreated) {
 		return nil, false
 	}
-	return &o.Artifact, true
+	return o.PulpCreated, true
 }
 
-// SetArtifact sets field value
-func (o *AnsibleRoleResponse) SetArtifact(v string) {
-	o.Artifact = v
+// HasPulpCreated returns a boolean if a field has been set.
+func (o *AnsibleRoleResponse) HasPulpCreated() bool {
+	if o != nil && !IsNil(o.PulpCreated) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpCreated gets a reference to the given time.Time and assigns it to the PulpCreated field.
+func (o *AnsibleRoleResponse) SetPulpCreated(v time.Time) {
+	o.PulpCreated = &v
 }
 
 // GetVersion returns the Version field value
@@ -222,9 +222,9 @@ func (o AnsibleRoleResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleRoleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_created is readOnly
-	// skip: pulp_href is readOnly
 	toSerialize["artifact"] = o.Artifact
+	// skip: pulp_href is readOnly
+	// skip: pulp_created is readOnly
 	toSerialize["version"] = o.Version
 	toSerialize["name"] = o.Name
 	toSerialize["namespace"] = o.Namespace

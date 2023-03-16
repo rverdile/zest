@@ -116,6 +116,7 @@ api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index_version
 api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index_versions_docs_blob.go
 api_pulp_ansible_tags.go
 api_pulp_container_namespaces.go
+api_pulp_maven.go
 api_pypi.go
 api_pypi_legacy.go
 api_pypi_metadata.go
@@ -593,6 +594,7 @@ docs/PulpImportCheckResponseRepoMapping.md
 docs/PulpImportCheckResponseToc.md
 docs/PulpImporter.md
 docs/PulpImporterResponse.md
+docs/PulpMavenApi.md
 docs/Purge.md
 docs/PypiApi.md
 docs/PypiLegacyApi.md
@@ -1264,6 +1266,7 @@ test/api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_test.go
 test/api_pulp_ansible_default_api_v3_test.go
 test/api_pulp_ansible_tags_test.go
 test/api_pulp_container_namespaces_test.go
+test/api_pulp_maven_test.go
 test/api_pypi_legacy_test.go
 test/api_pypi_metadata_test.go
 test/api_pypi_simple_test.go

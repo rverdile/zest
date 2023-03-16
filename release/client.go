@@ -276,6 +276,8 @@ type APIClient struct {
 
 	PulpContainerNamespacesApi *PulpContainerNamespacesApiService
 
+	PulpMavenApi *PulpMavenApiService
+
 	PypiApi *PypiApiService
 
 	PypiLegacyApi *PypiLegacyApiService
@@ -506,6 +508,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi = (*PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApiService)(&c.common)
 	c.PulpAnsibleTagsApi = (*PulpAnsibleTagsApiService)(&c.common)
 	c.PulpContainerNamespacesApi = (*PulpContainerNamespacesApiService)(&c.common)
+	c.PulpMavenApi = (*PulpMavenApiService)(&c.common)
 	c.PypiApi = (*PypiApiService)(&c.common)
 	c.PypiLegacyApi = (*PypiLegacyApiService)(&c.common)
 	c.PypiMetadataApi = (*PypiMetadataApiService)(&c.common)
