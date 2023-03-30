@@ -82,6 +82,12 @@ type APIClient struct {
 
 	ContentCollectionVersionsApi *ContentCollectionVersionsApiService
 
+	ContentCommitsApi *ContentCommitsApiService
+
+	ContentConfigsApi *ContentConfigsApiService
+
+	ContentContentApi *ContentContentApiService
+
 	ContentDistributionTreesApi *ContentDistributionTreesApiService
 
 	ContentFilesApi *ContentFilesApiService
@@ -100,6 +106,8 @@ type APIClient struct {
 
 	ContentModulemdsApi *ContentModulemdsApiService
 
+	ContentObjectsApi *ContentObjectsApiService
+
 	ContentPackageIndicesApi *ContentPackageIndicesApiService
 
 	ContentPackageReleaseComponentsApi *ContentPackageReleaseComponentsApiService
@@ -114,6 +122,8 @@ type APIClient struct {
 
 	ContentPackagesApi *ContentPackagesApiService
 
+	ContentRefsApi *ContentRefsApiService
+
 	ContentReleaseArchitecturesApi *ContentReleaseArchitecturesApiService
 
 	ContentReleaseComponentsApi *ContentReleaseComponentsApiService
@@ -127,6 +137,8 @@ type APIClient struct {
 	ContentRolesApi *ContentRolesApiService
 
 	ContentSignaturesApi *ContentSignaturesApiService
+
+	ContentSummariesApi *ContentSummariesApiService
 
 	ContentTagsApi *ContentTagsApiService
 
@@ -155,6 +167,8 @@ type APIClient struct {
 	DistributionsFileApi *DistributionsFileApiService
 
 	DistributionsMavenApi *DistributionsMavenApiService
+
+	DistributionsOstreeApi *DistributionsOstreeApiService
 
 	DistributionsPypiApi *DistributionsPypiApiService
 
@@ -300,6 +314,8 @@ type APIClient struct {
 
 	RemotesMavenApi *RemotesMavenApiService
 
+	RemotesOstreeApi *RemotesOstreeApiService
+
 	RemotesPythonApi *RemotesPythonApiService
 
 	RemotesRoleApi *RemotesRoleApiService
@@ -335,6 +351,10 @@ type APIClient struct {
 	RepositoriesMavenApi *RepositoriesMavenApiService
 
 	RepositoriesMavenVersionsApi *RepositoriesMavenVersionsApiService
+
+	RepositoriesOstreeApi *RepositoriesOstreeApiService
+
+	RepositoriesOstreeVersionsApi *RepositoriesOstreeVersionsApiService
 
 	RepositoriesPythonApi *RepositoriesPythonApiService
 
@@ -411,6 +431,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ContentCollectionDeprecationsApi = (*ContentCollectionDeprecationsApiService)(&c.common)
 	c.ContentCollectionSignaturesApi = (*ContentCollectionSignaturesApiService)(&c.common)
 	c.ContentCollectionVersionsApi = (*ContentCollectionVersionsApiService)(&c.common)
+	c.ContentCommitsApi = (*ContentCommitsApiService)(&c.common)
+	c.ContentConfigsApi = (*ContentConfigsApiService)(&c.common)
+	c.ContentContentApi = (*ContentContentApiService)(&c.common)
 	c.ContentDistributionTreesApi = (*ContentDistributionTreesApiService)(&c.common)
 	c.ContentFilesApi = (*ContentFilesApiService)(&c.common)
 	c.ContentGenericContentsApi = (*ContentGenericContentsApiService)(&c.common)
@@ -420,6 +443,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ContentModulemdDefaultsApi = (*ContentModulemdDefaultsApiService)(&c.common)
 	c.ContentModulemdObsoletesApi = (*ContentModulemdObsoletesApiService)(&c.common)
 	c.ContentModulemdsApi = (*ContentModulemdsApiService)(&c.common)
+	c.ContentObjectsApi = (*ContentObjectsApiService)(&c.common)
 	c.ContentPackageIndicesApi = (*ContentPackageIndicesApiService)(&c.common)
 	c.ContentPackageReleaseComponentsApi = (*ContentPackageReleaseComponentsApiService)(&c.common)
 	c.ContentPackagecategoriesApi = (*ContentPackagecategoriesApiService)(&c.common)
@@ -427,6 +451,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ContentPackagegroupsApi = (*ContentPackagegroupsApiService)(&c.common)
 	c.ContentPackagelangpacksApi = (*ContentPackagelangpacksApiService)(&c.common)
 	c.ContentPackagesApi = (*ContentPackagesApiService)(&c.common)
+	c.ContentRefsApi = (*ContentRefsApiService)(&c.common)
 	c.ContentReleaseArchitecturesApi = (*ContentReleaseArchitecturesApiService)(&c.common)
 	c.ContentReleaseComponentsApi = (*ContentReleaseComponentsApiService)(&c.common)
 	c.ContentReleaseFilesApi = (*ContentReleaseFilesApiService)(&c.common)
@@ -434,6 +459,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ContentRepoMetadataFilesApi = (*ContentRepoMetadataFilesApiService)(&c.common)
 	c.ContentRolesApi = (*ContentRolesApiService)(&c.common)
 	c.ContentSignaturesApi = (*ContentSignaturesApiService)(&c.common)
+	c.ContentSummariesApi = (*ContentSummariesApiService)(&c.common)
 	c.ContentTagsApi = (*ContentTagsApiService)(&c.common)
 	c.ContentguardsApi = (*ContentguardsApiService)(&c.common)
 	c.ContentguardsContentRedirectApi = (*ContentguardsContentRedirectApiService)(&c.common)
@@ -448,6 +474,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DistributionsContainerApi = (*DistributionsContainerApiService)(&c.common)
 	c.DistributionsFileApi = (*DistributionsFileApiService)(&c.common)
 	c.DistributionsMavenApi = (*DistributionsMavenApiService)(&c.common)
+	c.DistributionsOstreeApi = (*DistributionsOstreeApiService)(&c.common)
 	c.DistributionsPypiApi = (*DistributionsPypiApiService)(&c.common)
 	c.DistributionsRpmApi = (*DistributionsRpmApiService)(&c.common)
 	c.DocsApiJsonApi = (*DocsApiJsonApiService)(&c.common)
@@ -520,6 +547,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.RemotesFileApi = (*RemotesFileApiService)(&c.common)
 	c.RemotesGitApi = (*RemotesGitApiService)(&c.common)
 	c.RemotesMavenApi = (*RemotesMavenApiService)(&c.common)
+	c.RemotesOstreeApi = (*RemotesOstreeApiService)(&c.common)
 	c.RemotesPythonApi = (*RemotesPythonApiService)(&c.common)
 	c.RemotesRoleApi = (*RemotesRoleApiService)(&c.common)
 	c.RemotesRpmApi = (*RemotesRpmApiService)(&c.common)
@@ -538,6 +566,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.RepositoriesFileVersionsApi = (*RepositoriesFileVersionsApiService)(&c.common)
 	c.RepositoriesMavenApi = (*RepositoriesMavenApiService)(&c.common)
 	c.RepositoriesMavenVersionsApi = (*RepositoriesMavenVersionsApiService)(&c.common)
+	c.RepositoriesOstreeApi = (*RepositoriesOstreeApiService)(&c.common)
+	c.RepositoriesOstreeVersionsApi = (*RepositoriesOstreeVersionsApiService)(&c.common)
 	c.RepositoriesPythonApi = (*RepositoriesPythonApiService)(&c.common)
 	c.RepositoriesPythonVersionsApi = (*RepositoriesPythonVersionsApiService)(&c.common)
 	c.RepositoriesReclaimSpaceApi = (*RepositoriesReclaimSpaceApiService)(&c.common)

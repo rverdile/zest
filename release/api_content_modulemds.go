@@ -137,6 +137,10 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsCreateExecute(r ContentM
 type ContentModulemdsApiContentRpmModulemdsListRequest struct {
 	ctx context.Context
 	ApiService *ContentModulemdsApiService
+	arch *string
+	archIn *[]string
+	context *string
+	contextIn *[]string
 	limit *int32
 	name *string
 	nameIn *[]string
@@ -148,8 +152,34 @@ type ContentModulemdsApiContentRpmModulemdsListRequest struct {
 	sha256 *string
 	stream *string
 	streamIn *[]string
+	version *string
+	versionIn *[]string
 	fields *[]string
 	excludeFields *[]string
+}
+
+// Filter results where arch matches value
+func (r ContentModulemdsApiContentRpmModulemdsListRequest) Arch(arch string) ContentModulemdsApiContentRpmModulemdsListRequest {
+	r.arch = &arch
+	return r
+}
+
+// Filter results where arch is in a comma-separated list of values
+func (r ContentModulemdsApiContentRpmModulemdsListRequest) ArchIn(archIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+	r.archIn = &archIn
+	return r
+}
+
+// Filter results where context matches value
+func (r ContentModulemdsApiContentRpmModulemdsListRequest) Context(context string) ContentModulemdsApiContentRpmModulemdsListRequest {
+	r.context = &context
+	return r
+}
+
+// Filter results where context is in a comma-separated list of values
+func (r ContentModulemdsApiContentRpmModulemdsListRequest) ContextIn(contextIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+	r.contextIn = &contextIn
+	return r
 }
 
 // Number of results to return per page.
@@ -217,6 +247,18 @@ func (r ContentModulemdsApiContentRpmModulemdsListRequest) StreamIn(streamIn []s
 	return r
 }
 
+// Filter results where version matches value
+func (r ContentModulemdsApiContentRpmModulemdsListRequest) Version(version string) ContentModulemdsApiContentRpmModulemdsListRequest {
+	r.version = &version
+	return r
+}
+
+// Filter results where version is in a comma-separated list of values
+func (r ContentModulemdsApiContentRpmModulemdsListRequest) VersionIn(versionIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+	r.versionIn = &versionIn
+	return r
+}
+
 // A list of fields to include in the response.
 func (r ContentModulemdsApiContentRpmModulemdsListRequest) Fields(fields []string) ContentModulemdsApiContentRpmModulemdsListRequest {
 	r.fields = &fields
@@ -268,6 +310,18 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsListExecute(r ContentMod
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.arch != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "arch", r.arch, "")
+	}
+	if r.archIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "arch__in", r.archIn, "csv")
+	}
+	if r.context != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "context", r.context, "")
+	}
+	if r.contextIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "context__in", r.contextIn, "csv")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -300,6 +354,12 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsListExecute(r ContentMod
 	}
 	if r.streamIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "stream__in", r.streamIn, "csv")
+	}
+	if r.version != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "")
+	}
+	if r.versionIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version__in", r.versionIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

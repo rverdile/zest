@@ -173,7 +173,7 @@ import (
 func main() {
     config := os.NewFile(1234, "some_file") // *os.File | A Bandersnatch config that may be used to construct a Python Remote.
     name := "name_example" // string | A unique name for this remote
-    policy := openapiclient.Policy762Enum("immediate") // Policy762Enum |  (optional)
+    policy := openapiclient.Policy762Enum("immediate") // Policy762Enum |  (optional) (default to "on_demand")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **config** | ***os.File** | A Bandersnatch config that may be used to construct a Python Remote. | 
  **name** | **string** | A unique name for this remote | 
- **policy** | [**Policy762Enum**](Policy762Enum.md) |  | 
+ **policy** | [**Policy762Enum**](Policy762Enum.md) |  | [default to &quot;on_demand&quot;]
 
 ### Return type
 

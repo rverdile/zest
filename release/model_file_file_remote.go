@@ -70,6 +70,8 @@ func NewFileFileRemote(name string, url string) *FileFileRemote {
 	this := FileFileRemote{}
 	this.Name = name
 	this.Url = url
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -78,6 +80,8 @@ func NewFileFileRemote(name string, url string) *FileFileRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewFileFileRemoteWithDefaults() *FileFileRemote {
 	this := FileFileRemote{}
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | A unique name. Ex, &#x60;rawhide&#x60; and &#x60;stable&#x60;. | 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
+**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
+**Name** | **string** | A unique name. Ex, &#x60;rawhide&#x60; and &#x60;stable&#x60;. | 
+**BasePath** | **string** | The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \&quot;foo\&quot; and \&quot;foo/bar\&quot;) | 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
 **ContentGuard** | Pointer to **string** | An optional content-guard. If none is specified, a default one will be used. | [optional] 
 **Repository** | Pointer to **NullableString** | The latest RepositoryVersion for this Repository will be served. | [optional] 
-**BasePath** | **string** | The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \&quot;foo\&quot; and \&quot;foo/bar\&quot;) | 
-**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **RepositoryVersion** | Pointer to **NullableString** | RepositoryVersion to be served | [optional] 
 **RegistryPath** | Pointer to **string** | The Registry hostname/name/ to use with docker pull command defined by this distribution. | [optional] [readonly] 
 **Namespace** | Pointer to **string** | Namespace this distribution belongs to. | [optional] [readonly] 
@@ -36,26 +36,6 @@ NewContainerContainerDistributionResponseWithDefaults instantiates a new Contain
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetName
-
-`func (o *ContainerContainerDistributionResponse) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *ContainerContainerDistributionResponse) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *ContainerContainerDistributionResponse) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
 ### GetPulpCreated
 
 `func (o *ContainerContainerDistributionResponse) GetPulpCreated() time.Time`
@@ -80,6 +60,71 @@ SetPulpCreated sets PulpCreated field to given value.
 `func (o *ContainerContainerDistributionResponse) HasPulpCreated() bool`
 
 HasPulpCreated returns a boolean if a field has been set.
+
+### GetPulpHref
+
+`func (o *ContainerContainerDistributionResponse) GetPulpHref() string`
+
+GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
+
+### GetPulpHrefOk
+
+`func (o *ContainerContainerDistributionResponse) GetPulpHrefOk() (*string, bool)`
+
+GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPulpHref
+
+`func (o *ContainerContainerDistributionResponse) SetPulpHref(v string)`
+
+SetPulpHref sets PulpHref field to given value.
+
+### HasPulpHref
+
+`func (o *ContainerContainerDistributionResponse) HasPulpHref() bool`
+
+HasPulpHref returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *ContainerContainerDistributionResponse) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ContainerContainerDistributionResponse) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ContainerContainerDistributionResponse) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetBasePath
+
+`func (o *ContainerContainerDistributionResponse) GetBasePath() string`
+
+GetBasePath returns the BasePath field if non-nil, zero value otherwise.
+
+### GetBasePathOk
+
+`func (o *ContainerContainerDistributionResponse) GetBasePathOk() (*string, bool)`
+
+GetBasePathOk returns a tuple with the BasePath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBasePath
+
+`func (o *ContainerContainerDistributionResponse) SetBasePath(v string)`
+
+SetBasePath sets BasePath field to given value.
+
 
 ### GetPulpLabels
 
@@ -166,51 +211,6 @@ HasRepository returns a boolean if a field has been set.
 `func (o *ContainerContainerDistributionResponse) UnsetRepository()`
 
 UnsetRepository ensures that no value is present for Repository, not even an explicit nil
-### GetBasePath
-
-`func (o *ContainerContainerDistributionResponse) GetBasePath() string`
-
-GetBasePath returns the BasePath field if non-nil, zero value otherwise.
-
-### GetBasePathOk
-
-`func (o *ContainerContainerDistributionResponse) GetBasePathOk() (*string, bool)`
-
-GetBasePathOk returns a tuple with the BasePath field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBasePath
-
-`func (o *ContainerContainerDistributionResponse) SetBasePath(v string)`
-
-SetBasePath sets BasePath field to given value.
-
-
-### GetPulpHref
-
-`func (o *ContainerContainerDistributionResponse) GetPulpHref() string`
-
-GetPulpHref returns the PulpHref field if non-nil, zero value otherwise.
-
-### GetPulpHrefOk
-
-`func (o *ContainerContainerDistributionResponse) GetPulpHrefOk() (*string, bool)`
-
-GetPulpHrefOk returns a tuple with the PulpHref field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPulpHref
-
-`func (o *ContainerContainerDistributionResponse) SetPulpHref(v string)`
-
-SetPulpHref sets PulpHref field to given value.
-
-### HasPulpHref
-
-`func (o *ContainerContainerDistributionResponse) HasPulpHref() bool`
-
-HasPulpHref returns a boolean if a field has been set.
-
 ### GetRepositoryVersion
 
 `func (o *ContainerContainerDistributionResponse) GetRepositoryVersion() string`

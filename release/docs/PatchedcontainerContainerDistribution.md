@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | A unique name. Ex, &#x60;rawhide&#x60; and &#x60;stable&#x60;. | [optional] 
+**BasePath** | Pointer to **string** | The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \&quot;foo\&quot; and \&quot;foo/bar\&quot;) | [optional] 
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
 **ContentGuard** | Pointer to **string** | An optional content-guard. If none is specified, a default one will be used. | [optional] 
 **Repository** | Pointer to **NullableString** | The latest RepositoryVersion for this Repository will be served. | [optional] 
-**BasePath** | Pointer to **string** | The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \&quot;foo\&quot; and \&quot;foo/bar\&quot;) | [optional] 
 **RepositoryVersion** | Pointer to **NullableString** | RepositoryVersion to be served | [optional] 
 **Private** | Pointer to **bool** | Restrict pull access to explicitly authorized users. Defaults to unrestricted pull access. | [optional] 
 **Description** | Pointer to **NullableString** | An optional description. | [optional] 
@@ -56,6 +56,31 @@ SetName sets Name field to given value.
 `func (o *PatchedcontainerContainerDistribution) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetBasePath
+
+`func (o *PatchedcontainerContainerDistribution) GetBasePath() string`
+
+GetBasePath returns the BasePath field if non-nil, zero value otherwise.
+
+### GetBasePathOk
+
+`func (o *PatchedcontainerContainerDistribution) GetBasePathOk() (*string, bool)`
+
+GetBasePathOk returns a tuple with the BasePath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBasePath
+
+`func (o *PatchedcontainerContainerDistribution) SetBasePath(v string)`
+
+SetBasePath sets BasePath field to given value.
+
+### HasBasePath
+
+`func (o *PatchedcontainerContainerDistribution) HasBasePath() bool`
+
+HasBasePath returns a boolean if a field has been set.
 
 ### GetPulpLabels
 
@@ -142,31 +167,6 @@ HasRepository returns a boolean if a field has been set.
 `func (o *PatchedcontainerContainerDistribution) UnsetRepository()`
 
 UnsetRepository ensures that no value is present for Repository, not even an explicit nil
-### GetBasePath
-
-`func (o *PatchedcontainerContainerDistribution) GetBasePath() string`
-
-GetBasePath returns the BasePath field if non-nil, zero value otherwise.
-
-### GetBasePathOk
-
-`func (o *PatchedcontainerContainerDistribution) GetBasePathOk() (*string, bool)`
-
-GetBasePathOk returns a tuple with the BasePath field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBasePath
-
-`func (o *PatchedcontainerContainerDistribution) SetBasePath(v string)`
-
-SetBasePath sets BasePath field to given value.
-
-### HasBasePath
-
-`func (o *PatchedcontainerContainerDistribution) HasBasePath() bool`
-
-HasBasePath returns a boolean if a field has been set.
-
 ### GetRepositoryVersion
 
 `func (o *PatchedcontainerContainerDistribution) GetRepositoryVersion() string`

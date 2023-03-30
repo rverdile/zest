@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | A name for this domain. | [optional] 
 **Description** | Pointer to **NullableString** | An optional description. | [optional] 
-**StorageClass** | Pointer to [**StorageClassEnum**](StorageClassEnum.md) | Backend storage class for domain. | [optional] 
+**StorageClass** | Pointer to [**StorageClassEnum**](StorageClassEnum.md) |  | [optional] 
 **StorageSettings** | Pointer to **map[string]interface{}** | Settings for storage class. | [optional] 
 **RedirectToObjectStorage** | Pointer to **bool** | Boolean to have the content app redirect to object storage. | [optional] [default to true]
 **HideGuardedDistributions** | Pointer to **bool** | Boolean to hide distributions with a content guard in the content app. | [optional] [default to false]

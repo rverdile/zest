@@ -68,6 +68,8 @@ type PatchedansibleRoleRemote struct {
 // will change when the set of required properties is changed
 func NewPatchedansibleRoleRemote() *PatchedansibleRoleRemote {
 	this := PatchedansibleRoleRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -76,6 +78,8 @@ func NewPatchedansibleRoleRemote() *PatchedansibleRoleRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewPatchedansibleRoleRemoteWithDefaults() *PatchedansibleRoleRemote {
 	this := PatchedansibleRoleRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

@@ -19,6 +19,9 @@ api_content_blobs.go
 api_content_collection_deprecations.go
 api_content_collection_signatures.go
 api_content_collection_versions.go
+api_content_commits.go
+api_content_configs.go
+api_content_content.go
 api_content_distribution_trees.go
 api_content_files.go
 api_content_generic_contents.go
@@ -28,6 +31,7 @@ api_content_manifests.go
 api_content_modulemd_defaults.go
 api_content_modulemd_obsoletes.go
 api_content_modulemds.go
+api_content_objects.go
 api_content_package_indices.go
 api_content_package_release_components.go
 api_content_packagecategories.go
@@ -35,6 +39,7 @@ api_content_packageenvironments.go
 api_content_packagegroups.go
 api_content_packagelangpacks.go
 api_content_packages.go
+api_content_refs.go
 api_content_release_architectures.go
 api_content_release_components.go
 api_content_release_files.go
@@ -42,6 +47,7 @@ api_content_releases.go
 api_content_repo_metadata_files.go
 api_content_roles.go
 api_content_signatures.go
+api_content_summaries.go
 api_content_tags.go
 api_contentguards.go
 api_contentguards_content_redirect.go
@@ -56,6 +62,7 @@ api_distributions_artifacts.go
 api_distributions_container.go
 api_distributions_file.go
 api_distributions_maven.go
+api_distributions_ostree.go
 api_distributions_pypi.go
 api_distributions_rpm.go
 api_docs_api_json.go
@@ -128,6 +135,7 @@ api_remotes_container.go
 api_remotes_file.go
 api_remotes_git.go
 api_remotes_maven.go
+api_remotes_ostree.go
 api_remotes_python.go
 api_remotes_role.go
 api_remotes_rpm.go
@@ -146,6 +154,8 @@ api_repositories_file.go
 api_repositories_file_versions.go
 api_repositories_maven.go
 api_repositories_maven_versions.go
+api_repositories_ostree.go
+api_repositories_ostree_versions.go
 api_repositories_python.go
 api_repositories_python_versions.go
 api_repositories_reclaim_space.go
@@ -243,6 +253,9 @@ docs/ContentBlobsApi.md
 docs/ContentCollectionDeprecationsApi.md
 docs/ContentCollectionSignaturesApi.md
 docs/ContentCollectionVersionsApi.md
+docs/ContentCommitsApi.md
+docs/ContentConfigsApi.md
+docs/ContentContentApi.md
 docs/ContentDistributionTreesApi.md
 docs/ContentFilesApi.md
 docs/ContentGenericContentsApi.md
@@ -253,6 +266,7 @@ docs/ContentManifestsApi.md
 docs/ContentModulemdDefaultsApi.md
 docs/ContentModulemdObsoletesApi.md
 docs/ContentModulemdsApi.md
+docs/ContentObjectsApi.md
 docs/ContentPackageIndicesApi.md
 docs/ContentPackageReleaseComponentsApi.md
 docs/ContentPackagecategoriesApi.md
@@ -262,6 +276,7 @@ docs/ContentPackagelangpacksApi.md
 docs/ContentPackagesApi.md
 docs/ContentRedirectContentGuard.md
 docs/ContentRedirectContentGuardResponse.md
+docs/ContentRefsApi.md
 docs/ContentReleaseArchitecturesApi.md
 docs/ContentReleaseComponentsApi.md
 docs/ContentReleaseFilesApi.md
@@ -270,6 +285,7 @@ docs/ContentRepoMetadataFilesApi.md
 docs/ContentRolesApi.md
 docs/ContentSettingsResponse.md
 docs/ContentSignaturesApi.md
+docs/ContentSummariesApi.md
 docs/ContentSummaryResponse.md
 docs/ContentTagsApi.md
 docs/ContentguardsApi.md
@@ -314,6 +330,7 @@ docs/DistributionsArtifactsApi.md
 docs/DistributionsContainerApi.md
 docs/DistributionsFileApi.md
 docs/DistributionsMavenApi.md
+docs/DistributionsOstreeApi.md
 docs/DistributionsPypiApi.md
 docs/DistributionsRpmApi.md
 docs/DocsApiJsonApi.md
@@ -384,6 +401,20 @@ docs/ObjectRolesResponse.md
 docs/OrphansApi.md
 docs/OrphansCleanup.md
 docs/OrphansCleanupApi.md
+docs/OstreeImportAll.md
+docs/OstreeImportCommitsToRef.md
+docs/OstreeOstreeCommitResponse.md
+docs/OstreeOstreeConfigResponse.md
+docs/OstreeOstreeContentResponse.md
+docs/OstreeOstreeDistribution.md
+docs/OstreeOstreeDistributionResponse.md
+docs/OstreeOstreeObjectResponse.md
+docs/OstreeOstreeRefResponse.md
+docs/OstreeOstreeRemote.md
+docs/OstreeOstreeRemoteResponse.md
+docs/OstreeOstreeRepository.md
+docs/OstreeOstreeRepositoryResponse.md
+docs/OstreeOstreeSummaryResponse.md
 docs/PackageChecksumTypeEnum.md
 docs/PackageMetadataResponse.md
 docs/PackageTypesEnum.md
@@ -473,6 +504,15 @@ docs/PaginatedmavenMavenArtifactResponseList.md
 docs/PaginatedmavenMavenDistributionResponseList.md
 docs/PaginatedmavenMavenRemoteResponseList.md
 docs/PaginatedmavenMavenRepositoryResponseList.md
+docs/PaginatedostreeOstreeCommitResponseList.md
+docs/PaginatedostreeOstreeConfigResponseList.md
+docs/PaginatedostreeOstreeContentResponseList.md
+docs/PaginatedostreeOstreeDistributionResponseList.md
+docs/PaginatedostreeOstreeObjectResponseList.md
+docs/PaginatedostreeOstreeRefResponseList.md
+docs/PaginatedostreeOstreeRemoteResponseList.md
+docs/PaginatedostreeOstreeRepositoryResponseList.md
+docs/PaginatedostreeOstreeSummaryResponseList.md
 docs/PaginatedpythonPythonDistributionResponseList.md
 docs/PaginatedpythonPythonPackageContentResponseList.md
 docs/PaginatedpythonPythonPublicationResponseList.md
@@ -528,6 +568,9 @@ docs/PatchedfileFileRepository.md
 docs/PatchedmavenMavenDistribution.md
 docs/PatchedmavenMavenRemote.md
 docs/PatchedmavenMavenRepository.md
+docs/PatchedostreeOstreeDistribution.md
+docs/PatchedostreeOstreeRemote.md
+docs/PatchedostreeOstreeRepository.md
 docs/PatchedpythonPythonDistribution.md
 docs/PatchedpythonPythonRemote.md
 docs/PatchedpythonPythonRepository.md
@@ -536,6 +579,7 @@ docs/PatchedrpmRpmDistribution.md
 docs/PatchedrpmRpmRemote.md
 docs/PatchedrpmRpmRepository.md
 docs/PatchedrpmUlnRemote.md
+docs/Policy462Enum.md
 docs/Policy762Enum.md
 docs/PolicyDb6Enum.md
 docs/ProgressReportResponse.md
@@ -623,6 +667,7 @@ docs/RemotesContainerApi.md
 docs/RemotesFileApi.md
 docs/RemotesGitApi.md
 docs/RemotesMavenApi.md
+docs/RemotesOstreeApi.md
 docs/RemotesPythonApi.md
 docs/RemotesRoleApi.md
 docs/RemotesRpmApi.md
@@ -646,11 +691,14 @@ docs/RepositoriesFileApi.md
 docs/RepositoriesFileVersionsApi.md
 docs/RepositoriesMavenApi.md
 docs/RepositoriesMavenVersionsApi.md
+docs/RepositoriesOstreeApi.md
+docs/RepositoriesOstreeVersionsApi.md
 docs/RepositoriesPythonApi.md
 docs/RepositoriesPythonVersionsApi.md
 docs/RepositoriesReclaimSpaceApi.md
 docs/RepositoriesRpmApi.md
 docs/RepositoriesRpmVersionsApi.md
+docs/RepositoryAddCachedContent.md
 docs/RepositoryAddRemoveContent.md
 docs/RepositoryResponse.md
 docs/RepositorySign.md
@@ -888,6 +936,20 @@ model_nested_role.go
 model_nested_role_response.go
 model_object_roles_response.go
 model_orphans_cleanup.go
+model_ostree_import_all.go
+model_ostree_import_commits_to_ref.go
+model_ostree_ostree_commit_response.go
+model_ostree_ostree_config_response.go
+model_ostree_ostree_content_response.go
+model_ostree_ostree_distribution.go
+model_ostree_ostree_distribution_response.go
+model_ostree_ostree_object_response.go
+model_ostree_ostree_ref_response.go
+model_ostree_ostree_remote.go
+model_ostree_ostree_remote_response.go
+model_ostree_ostree_repository.go
+model_ostree_ostree_repository_response.go
+model_ostree_ostree_summary_response.go
 model_package_checksum_type_enum.go
 model_package_metadata_response.go
 model_package_types_enum.go
@@ -977,6 +1039,15 @@ model_paginatedmaven_maven_artifact_response_list.go
 model_paginatedmaven_maven_distribution_response_list.go
 model_paginatedmaven_maven_remote_response_list.go
 model_paginatedmaven_maven_repository_response_list.go
+model_paginatedostree_ostree_commit_response_list.go
+model_paginatedostree_ostree_config_response_list.go
+model_paginatedostree_ostree_content_response_list.go
+model_paginatedostree_ostree_distribution_response_list.go
+model_paginatedostree_ostree_object_response_list.go
+model_paginatedostree_ostree_ref_response_list.go
+model_paginatedostree_ostree_remote_response_list.go
+model_paginatedostree_ostree_repository_response_list.go
+model_paginatedostree_ostree_summary_response_list.go
 model_paginatedpython_python_distribution_response_list.go
 model_paginatedpython_python_package_content_response_list.go
 model_paginatedpython_python_publication_response_list.go
@@ -1032,6 +1103,9 @@ model_patchedfile_file_repository.go
 model_patchedmaven_maven_distribution.go
 model_patchedmaven_maven_remote.go
 model_patchedmaven_maven_repository.go
+model_patchedostree_ostree_distribution.go
+model_patchedostree_ostree_remote.go
+model_patchedostree_ostree_repository.go
 model_patchedpython_python_distribution.go
 model_patchedpython_python_remote.go
 model_patchedpython_python_repository.go
@@ -1040,6 +1114,7 @@ model_patchedrpm_rpm_distribution.go
 model_patchedrpm_rpm_remote.go
 model_patchedrpm_rpm_repository.go
 model_patchedrpm_uln_remote.go
+model_policy462_enum.go
 model_policy762_enum.go
 model_policy_db6_enum.go
 model_progress_report_response.go
@@ -1078,6 +1153,7 @@ model_remove_signatures.go
 model_remove_signatures_response.go
 model_repair.go
 model_repo_metadata_response.go
+model_repository_add_cached_content.go
 model_repository_add_remove_content.go
 model_repository_response.go
 model_repository_sign.go
@@ -1168,6 +1244,9 @@ test/api_content_blobs_test.go
 test/api_content_collection_deprecations_test.go
 test/api_content_collection_signatures_test.go
 test/api_content_collection_versions_test.go
+test/api_content_commits_test.go
+test/api_content_configs_test.go
+test/api_content_content_test.go
 test/api_content_distribution_trees_test.go
 test/api_content_files_test.go
 test/api_content_generic_contents_test.go
@@ -1177,6 +1256,7 @@ test/api_content_manifests_test.go
 test/api_content_modulemd_defaults_test.go
 test/api_content_modulemd_obsoletes_test.go
 test/api_content_modulemds_test.go
+test/api_content_objects_test.go
 test/api_content_package_indices_test.go
 test/api_content_package_release_components_test.go
 test/api_content_packagecategories_test.go
@@ -1184,6 +1264,7 @@ test/api_content_packageenvironments_test.go
 test/api_content_packagegroups_test.go
 test/api_content_packagelangpacks_test.go
 test/api_content_packages_test.go
+test/api_content_refs_test.go
 test/api_content_release_architectures_test.go
 test/api_content_release_components_test.go
 test/api_content_release_files_test.go
@@ -1191,6 +1272,7 @@ test/api_content_releases_test.go
 test/api_content_repo_metadata_files_test.go
 test/api_content_roles_test.go
 test/api_content_signatures_test.go
+test/api_content_summaries_test.go
 test/api_content_tags_test.go
 test/api_content_test.go
 test/api_contentguards_content_redirect_test.go
@@ -1205,6 +1287,7 @@ test/api_distributions_artifacts_test.go
 test/api_distributions_container_test.go
 test/api_distributions_file_test.go
 test/api_distributions_maven_test.go
+test/api_distributions_ostree_test.go
 test/api_distributions_pypi_test.go
 test/api_distributions_rpm_test.go
 test/api_distributions_test.go
@@ -1277,6 +1360,7 @@ test/api_remotes_container_test.go
 test/api_remotes_file_test.go
 test/api_remotes_git_test.go
 test/api_remotes_maven_test.go
+test/api_remotes_ostree_test.go
 test/api_remotes_python_test.go
 test/api_remotes_role_test.go
 test/api_remotes_rpm_test.go
@@ -1295,6 +1379,8 @@ test/api_repositories_file_test.go
 test/api_repositories_file_versions_test.go
 test/api_repositories_maven_test.go
 test/api_repositories_maven_versions_test.go
+test/api_repositories_ostree_test.go
+test/api_repositories_ostree_versions_test.go
 test/api_repositories_python_test.go
 test/api_repositories_python_versions_test.go
 test/api_repositories_reclaim_space_test.go

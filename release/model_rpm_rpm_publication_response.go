@@ -27,9 +27,7 @@ type RpmRpmPublicationResponse struct {
 	RepositoryVersion *string `json:"repository_version,omitempty"`
 	// A URI of the repository to be published.
 	Repository *string `json:"repository,omitempty"`
-	// The checksum type for metadata.
 	MetadataChecksumType *MetadataChecksumTypeEnum `json:"metadata_checksum_type,omitempty"`
-	// The checksum type for packages.
 	PackageChecksumType *PackageChecksumTypeEnum `json:"package_checksum_type,omitempty"`
 	// An option specifying whether a client should perform a GPG signature check on packages.
 	Gpgcheck *int64 `json:"gpgcheck,omitempty"`

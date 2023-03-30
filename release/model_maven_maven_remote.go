@@ -70,6 +70,8 @@ func NewMavenMavenRemote(name string, url string) *MavenMavenRemote {
 	this := MavenMavenRemote{}
 	this.Name = name
 	this.Url = url
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -78,6 +80,8 @@ func NewMavenMavenRemote(name string, url string) *MavenMavenRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewMavenMavenRemoteWithDefaults() *MavenMavenRemote {
 	this := MavenMavenRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

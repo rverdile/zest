@@ -18,15 +18,15 @@ Name | Type | Description | Notes
 **PulpLabels** | Pointer to **map[string]string** |  | [optional] 
 **DownloadConcurrency** | Pointer to **NullableInt64** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
 **MaxRetries** | Pointer to **NullableInt64** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
-**Policy** | Pointer to [**Policy762Enum**](Policy762Enum.md) |  | [optional] 
+**Policy** | Pointer to [**Policy762Enum**](Policy762Enum.md) |  | [optional] [default to POLICY762ENUM_ON_DEMAND]
 **TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockReadTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_read (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **Headers** | Pointer to **[]map[string]interface{}** | Headers for aiohttp.Clientsession | [optional] 
 **RateLimit** | Pointer to **NullableInt64** | Limits requests per second for each concurrent downloader | [optional] 
-**Includes** | Pointer to **map[string]interface{}** | A JSON list containing project specifiers for Python packages to include. | [optional] 
-**Excludes** | Pointer to **map[string]interface{}** | A JSON list containing project specifiers for Python packages to exclude. | [optional] 
+**Includes** | Pointer to **[]string** | A list containing project specifiers for Python packages to include. | [optional] 
+**Excludes** | Pointer to **[]string** | A list containing project specifiers for Python packages to exclude. | [optional] 
 **Prereleases** | Pointer to **bool** | Whether or not to include pre-release packages in the sync. | [optional] 
 **PackageTypes** | Pointer to [**[]PackageTypesEnum**](PackageTypesEnum.md) | The package types to sync for Python content. Leave blank to get everypackage type. | [optional] 
 **KeepLatestPackages** | Pointer to **int64** | The amount of latest versions of a package to keep on sync, includespre-releases if synced. Default 0 keeps all versions. | [optional] [default to 0]
@@ -718,20 +718,20 @@ HasRateLimit returns a boolean if a field has been set.
 UnsetRateLimit ensures that no value is present for RateLimit, not even an explicit nil
 ### GetIncludes
 
-`func (o *PythonPythonRemote) GetIncludes() map[string]interface{}`
+`func (o *PythonPythonRemote) GetIncludes() []string`
 
 GetIncludes returns the Includes field if non-nil, zero value otherwise.
 
 ### GetIncludesOk
 
-`func (o *PythonPythonRemote) GetIncludesOk() (*map[string]interface{}, bool)`
+`func (o *PythonPythonRemote) GetIncludesOk() (*[]string, bool)`
 
 GetIncludesOk returns a tuple with the Includes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIncludes
 
-`func (o *PythonPythonRemote) SetIncludes(v map[string]interface{})`
+`func (o *PythonPythonRemote) SetIncludes(v []string)`
 
 SetIncludes sets Includes field to given value.
 
@@ -743,20 +743,20 @@ HasIncludes returns a boolean if a field has been set.
 
 ### GetExcludes
 
-`func (o *PythonPythonRemote) GetExcludes() map[string]interface{}`
+`func (o *PythonPythonRemote) GetExcludes() []string`
 
 GetExcludes returns the Excludes field if non-nil, zero value otherwise.
 
 ### GetExcludesOk
 
-`func (o *PythonPythonRemote) GetExcludesOk() (*map[string]interface{}, bool)`
+`func (o *PythonPythonRemote) GetExcludesOk() (*[]string, bool)`
 
 GetExcludesOk returns a tuple with the Excludes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExcludes
 
-`func (o *PythonPythonRemote) SetExcludes(v map[string]interface{})`
+`func (o *PythonPythonRemote) SetExcludes(v []string)`
 
 SetExcludes sets Excludes field to given value.
 

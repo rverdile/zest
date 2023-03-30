@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Name** | **string** | Unique name of the file system exporter. | 
 **Path** | **string** | File system location to export to. | 
-**Method** | Pointer to [**MethodEnum**](MethodEnum.md) |  | [optional] 
+**Method** | Pointer to [**MethodEnum**](MethodEnum.md) |  | [optional] [default to METHODENUM_WRITE]
 
 ## Methods
 

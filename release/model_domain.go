@@ -24,7 +24,6 @@ type Domain struct {
 	Name string `json:"name"`
 	// An optional description.
 	Description NullableString `json:"description,omitempty"`
-	// Backend storage class for domain.
 	StorageClass StorageClassEnum `json:"storage_class"`
 	// Settings for storage class.
 	StorageSettings map[string]interface{} `json:"storage_settings"`

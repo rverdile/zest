@@ -72,6 +72,8 @@ func NewRpmRpmRemote(name string, url string) *RpmRpmRemote {
 	this := RpmRpmRemote{}
 	this.Name = name
 	this.Url = url
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -80,6 +82,8 @@ func NewRpmRpmRemote(name string, url string) *RpmRpmRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewRpmRpmRemoteWithDefaults() *RpmRpmRemote {
 	this := RpmRpmRemote{}
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

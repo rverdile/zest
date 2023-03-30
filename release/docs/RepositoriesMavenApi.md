@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**RepositoriesMavenMavenAddCachedContent**](RepositoriesMavenApi.md#RepositoriesMavenMavenAddCachedContent) | **Post** /{maven_maven_repository_href}add_cached_content/ | Add cached content
 [**RepositoriesMavenMavenCreate**](RepositoriesMavenApi.md#RepositoriesMavenMavenCreate) | **Post** /pulp/api/v3/repositories/maven/maven/ | Create a maven repository
 [**RepositoriesMavenMavenDelete**](RepositoriesMavenApi.md#RepositoriesMavenMavenDelete) | **Delete** /{maven_maven_repository_href} | Delete a maven repository
 [**RepositoriesMavenMavenList**](RepositoriesMavenApi.md#RepositoriesMavenMavenList) | **Get** /pulp/api/v3/repositories/maven/maven/ | List maven repositorys
@@ -11,6 +12,78 @@ Method | HTTP request | Description
 [**RepositoriesMavenMavenRead**](RepositoriesMavenApi.md#RepositoriesMavenMavenRead) | **Get** /{maven_maven_repository_href} | Inspect a maven repository
 [**RepositoriesMavenMavenUpdate**](RepositoriesMavenApi.md#RepositoriesMavenMavenUpdate) | **Put** /{maven_maven_repository_href} | Update a maven repository
 
+
+
+## RepositoriesMavenMavenAddCachedContent
+
+> AsyncOperationResponse RepositoriesMavenMavenAddCachedContent(ctx, mavenMavenRepositoryHref).RepositoryAddCachedContent(repositoryAddCachedContent).Execute()
+
+Add cached content
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    mavenMavenRepositoryHref := "mavenMavenRepositoryHref_example" // string | 
+    repositoryAddCachedContent := *openapiclient.NewRepositoryAddCachedContent() // RepositoryAddCachedContent | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenAddCachedContent(context.Background(), mavenMavenRepositoryHref).RepositoryAddCachedContent(repositoryAddCachedContent).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesMavenApi.RepositoriesMavenMavenAddCachedContent``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesMavenMavenAddCachedContent`: AsyncOperationResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesMavenApi.RepositoriesMavenMavenAddCachedContent`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**mavenMavenRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesMavenMavenAddCachedContentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **repositoryAddCachedContent** | [**RepositoryAddCachedContent**](RepositoryAddCachedContent.md) |  | 
+
+### Return type
+
+[**AsyncOperationResponse**](AsyncOperationResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## RepositoriesMavenMavenCreate

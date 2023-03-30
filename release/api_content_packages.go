@@ -1117,6 +1117,11 @@ type ContentPackagesApiContentPythonPackagesListRequest struct {
 	requiresPythonIn *[]string
 	sha256 *string
 	sha256In *[]string
+	version *string
+	versionGt *string
+	versionGte *string
+	versionLt *string
+	versionLte *string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -1253,6 +1258,36 @@ func (r ContentPackagesApiContentPythonPackagesListRequest) Sha256In(sha256In []
 	return r
 }
 
+// Filter results where version matches value
+func (r ContentPackagesApiContentPythonPackagesListRequest) Version(version string) ContentPackagesApiContentPythonPackagesListRequest {
+	r.version = &version
+	return r
+}
+
+// Filter results where version is greater than value
+func (r ContentPackagesApiContentPythonPackagesListRequest) VersionGt(versionGt string) ContentPackagesApiContentPythonPackagesListRequest {
+	r.versionGt = &versionGt
+	return r
+}
+
+// Filter results where version is greater than or equal to value
+func (r ContentPackagesApiContentPythonPackagesListRequest) VersionGte(versionGte string) ContentPackagesApiContentPythonPackagesListRequest {
+	r.versionGte = &versionGte
+	return r
+}
+
+// Filter results where version is less than value
+func (r ContentPackagesApiContentPythonPackagesListRequest) VersionLt(versionLt string) ContentPackagesApiContentPythonPackagesListRequest {
+	r.versionLt = &versionLt
+	return r
+}
+
+// Filter results where version is less than or equal to value
+func (r ContentPackagesApiContentPythonPackagesListRequest) VersionLte(versionLte string) ContentPackagesApiContentPythonPackagesListRequest {
+	r.versionLte = &versionLte
+	return r
+}
+
 // A list of fields to include in the response.
 func (r ContentPackagesApiContentPythonPackagesListRequest) Fields(fields []string) ContentPackagesApiContentPythonPackagesListRequest {
 	r.fields = &fields
@@ -1374,6 +1409,21 @@ func (a *ContentPackagesApiService) ContentPythonPackagesListExecute(r ContentPa
 	}
 	if r.sha256In != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sha256__in", r.sha256In, "csv")
+	}
+	if r.version != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "")
+	}
+	if r.versionGt != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version__gt", r.versionGt, "")
+	}
+	if r.versionGte != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version__gte", r.versionGte, "")
+	}
+	if r.versionLt != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version__lt", r.versionLt, "")
+	}
+	if r.versionLte != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version__lte", r.versionLte, "")
 	}
 	if r.fields != nil {
 		t := *r.fields

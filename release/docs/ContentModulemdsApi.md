@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## ContentRpmModulemdsList
 
-> PaginatedrpmModulemdResponseList ContentRpmModulemdsList(ctx).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmModulemdResponseList ContentRpmModulemdsList(ctx).Arch(arch).ArchIn(archIn).Context(context).ContextIn(contextIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Version(version).VersionIn(versionIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List modulemds
 
@@ -97,6 +97,10 @@ import (
 )
 
 func main() {
+    arch := "arch_example" // string | Filter results where arch matches value (optional)
+    archIn := []string{"Inner_example"} // []string | Filter results where arch is in a comma-separated list of values (optional)
+    context := "context_example" // string | Filter results where context matches value (optional)
+    contextIn := []string{"Inner_example"} // []string | Filter results where context is in a comma-separated list of values (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameIn := []string{"Inner_example"} // []string | Filter results where name is in a comma-separated list of values (optional)
@@ -108,12 +112,14 @@ func main() {
     sha256 := "sha256_example" // string |  (optional)
     stream := "stream_example" // string | Filter results where stream matches value (optional)
     streamIn := []string{"Inner_example"} // []string | Filter results where stream is in a comma-separated list of values (optional)
+    version := "version_example" // string | Filter results where version matches value (optional)
+    versionIn := []string{"Inner_example"} // []string | Filter results where version is in a comma-separated list of values (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
     excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentModulemdsApi.ContentRpmModulemdsList(context.Background()).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentModulemdsApi.ContentRpmModulemdsList(context.Background()).Arch(arch).ArchIn(archIn).Context(context).ContextIn(contextIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Version(version).VersionIn(versionIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentModulemdsApi.ContentRpmModulemdsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -134,6 +140,10 @@ Other parameters are passed through a pointer to a apiContentRpmModulemdsListReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **arch** | **string** | Filter results where arch matches value | 
+ **archIn** | **[]string** | Filter results where arch is in a comma-separated list of values | 
+ **context** | **string** | Filter results where context matches value | 
+ **contextIn** | **[]string** | Filter results where context is in a comma-separated list of values | 
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameIn** | **[]string** | Filter results where name is in a comma-separated list of values | 
@@ -145,6 +155,8 @@ Name | Type | Description  | Notes
  **sha256** | **string** |  | 
  **stream** | **string** | Filter results where stream matches value | 
  **streamIn** | **[]string** | Filter results where stream is in a comma-separated list of values | 
+ **version** | **string** | Filter results where version matches value | 
+ **versionIn** | **[]string** | Filter results where version is in a comma-separated list of values | 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
 

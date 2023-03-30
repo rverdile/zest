@@ -25,6 +25,121 @@ import (
 // RepositoriesMavenApiService RepositoriesMavenApi service
 type RepositoriesMavenApiService service
 
+type RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest struct {
+	ctx context.Context
+	ApiService *RepositoriesMavenApiService
+	mavenMavenRepositoryHref string
+	repositoryAddCachedContent *RepositoryAddCachedContent
+}
+
+func (r RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest) RepositoryAddCachedContent(repositoryAddCachedContent RepositoryAddCachedContent) RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest {
+	r.repositoryAddCachedContent = &repositoryAddCachedContent
+	return r
+}
+
+func (r RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+	return r.ApiService.RepositoriesMavenMavenAddCachedContentExecute(r)
+}
+
+/*
+RepositoriesMavenMavenAddCachedContent Add cached content
+
+Trigger an asynchronous task to add cached content to a repository.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param mavenMavenRepositoryHref
+ @return RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest
+*/
+func (a *RepositoriesMavenApiService) RepositoriesMavenMavenAddCachedContent(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest {
+	return RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest{
+		ApiService: a,
+		ctx: ctx,
+		mavenMavenRepositoryHref: mavenMavenRepositoryHref,
+	}
+}
+
+// Execute executes the request
+//  @return AsyncOperationResponse
+func (a *RepositoriesMavenApiService) RepositoriesMavenMavenAddCachedContentExecute(r RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest) (*AsyncOperationResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AsyncOperationResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenAddCachedContent")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/{maven_maven_repository_href}add_cached_content/"
+	localVarPath = strings.Replace(localVarPath, "{"+"maven_maven_repository_href"+"}", url.PathEscape(parameterValueToString(r.mavenMavenRepositoryHref, "mavenMavenRepositoryHref")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.repositoryAddCachedContent == nil {
+		return localVarReturnValue, nil, reportError("repositoryAddCachedContent is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/x-www-form-urlencoded", "multipart/form-data"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.repositoryAddCachedContent
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type RepositoriesMavenApiRepositoriesMavenMavenCreateRequest struct {
 	ctx context.Context
 	ApiService *RepositoriesMavenApiService

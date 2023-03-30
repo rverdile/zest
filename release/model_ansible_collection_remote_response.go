@@ -76,6 +76,8 @@ func NewAnsibleCollectionRemoteResponse(name string, url string) *AnsibleCollect
 	this := AnsibleCollectionRemoteResponse{}
 	this.Name = name
 	this.Url = url
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	var syncDependencies bool = true
 	this.SyncDependencies = &syncDependencies
 	var signedOnly bool = false
@@ -88,6 +90,8 @@ func NewAnsibleCollectionRemoteResponse(name string, url string) *AnsibleCollect
 // but it doesn't guarantee that properties required by API are set
 func NewAnsibleCollectionRemoteResponseWithDefaults() *AnsibleCollectionRemoteResponse {
 	this := AnsibleCollectionRemoteResponse{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	var syncDependencies bool = true
 	this.SyncDependencies = &syncDependencies
 	var signedOnly bool = false

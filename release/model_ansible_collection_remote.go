@@ -80,6 +80,8 @@ func NewAnsibleCollectionRemote(name string, url string) *AnsibleCollectionRemot
 	this := AnsibleCollectionRemote{}
 	this.Name = name
 	this.Url = url
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	var syncDependencies bool = true
 	this.SyncDependencies = &syncDependencies
 	var signedOnly bool = false
@@ -92,6 +94,8 @@ func NewAnsibleCollectionRemote(name string, url string) *AnsibleCollectionRemot
 // but it doesn't guarantee that properties required by API are set
 func NewAnsibleCollectionRemoteWithDefaults() *AnsibleCollectionRemote {
 	this := AnsibleCollectionRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	var syncDependencies bool = true
 	this.SyncDependencies = &syncDependencies
 	var signedOnly bool = false

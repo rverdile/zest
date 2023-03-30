@@ -68,6 +68,8 @@ func NewAnsibleRoleRemoteResponse(name string, url string) *AnsibleRoleRemoteRes
 	this := AnsibleRoleRemoteResponse{}
 	this.Name = name
 	this.Url = url
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -76,6 +78,8 @@ func NewAnsibleRoleRemoteResponse(name string, url string) *AnsibleRoleRemoteRes
 // but it doesn't guarantee that properties required by API are set
 func NewAnsibleRoleRemoteResponseWithDefaults() *AnsibleRoleRemoteResponse {
 	this := AnsibleRoleRemoteResponse{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

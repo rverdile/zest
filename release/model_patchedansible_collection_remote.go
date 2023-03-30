@@ -78,6 +78,8 @@ type PatchedansibleCollectionRemote struct {
 // will change when the set of required properties is changed
 func NewPatchedansibleCollectionRemote() *PatchedansibleCollectionRemote {
 	this := PatchedansibleCollectionRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	var syncDependencies bool = true
 	this.SyncDependencies = &syncDependencies
 	var signedOnly bool = false
@@ -90,6 +92,8 @@ func NewPatchedansibleCollectionRemote() *PatchedansibleCollectionRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewPatchedansibleCollectionRemoteWithDefaults() *PatchedansibleCollectionRemote {
 	this := PatchedansibleCollectionRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	var syncDependencies bool = true
 	this.SyncDependencies = &syncDependencies
 	var signedOnly bool = false

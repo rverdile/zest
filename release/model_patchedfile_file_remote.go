@@ -68,6 +68,8 @@ type PatchedfileFileRemote struct {
 // will change when the set of required properties is changed
 func NewPatchedfileFileRemote() *PatchedfileFileRemote {
 	this := PatchedfileFileRemote{}
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -76,6 +78,8 @@ func NewPatchedfileFileRemote() *PatchedfileFileRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewPatchedfileFileRemoteWithDefaults() *PatchedfileFileRemote {
 	this := PatchedfileFileRemote{}
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

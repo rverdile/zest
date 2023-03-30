@@ -5,8 +5,8 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PypiSimpleCreate**](PypiSimpleApi.md#PypiSimpleCreate) | **Post** /pypi/{path}/simple/ | Upload a package
+[**PypiSimplePackageRead**](PypiSimpleApi.md#PypiSimplePackageRead) | **Get** /pypi/{path}/simple/{package}/ | Get package simple page
 [**PypiSimpleRead**](PypiSimpleApi.md#PypiSimpleRead) | **Get** /pypi/{path}/simple/ | Get index simple page
-[**PypiSimpleReadPackage**](PypiSimpleApi.md#PypiSimpleReadPackage) | **Get** /pypi/{path}/simple/{package}/ | Get package simple page
 
 
 
@@ -86,6 +86,81 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## PypiSimplePackageRead
+
+> PypiSimplePackageRead(ctx, package_, path).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+Get package simple page
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    package_ := "package__example" // string | 
+    path := "path_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.PypiSimpleApi.PypiSimplePackageRead(context.Background(), package_, path).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PypiSimpleApi.PypiSimplePackageRead``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**package_** | **string** |  | 
+**path** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPypiSimplePackageReadRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PypiSimpleRead
 
 > PypiSimpleRead(ctx, path).Fields(fields).ExcludeFields(excludeFields).Execute()
@@ -136,81 +211,6 @@ Other parameters are passed through a pointer to a apiPypiSimpleReadRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **fields** | **[]string** | A list of fields to include in the response. | 
- **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## PypiSimpleReadPackage
-
-> PypiSimpleReadPackage(ctx, package_, path).Fields(fields).ExcludeFields(excludeFields).Execute()
-
-Get package simple page
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/content-services/zest/release/v3"
-)
-
-func main() {
-    package_ := "package__example" // string | 
-    path := "path_example" // string | 
-    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
-    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PypiSimpleApi.PypiSimpleReadPackage(context.Background(), package_, path).Fields(fields).ExcludeFields(excludeFields).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PypiSimpleApi.PypiSimpleReadPackage``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**package_** | **string** |  | 
-**path** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPypiSimpleReadPackageRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 

@@ -39,6 +39,8 @@ func NewFilesystemExporterResponse(name string, path string) *FilesystemExporter
 	this := FilesystemExporterResponse{}
 	this.Name = name
 	this.Path = path
+	var method MethodEnum = METHODENUM_WRITE
+	this.Method = &method
 	return &this
 }
 
@@ -47,6 +49,8 @@ func NewFilesystemExporterResponse(name string, path string) *FilesystemExporter
 // but it doesn't guarantee that properties required by API are set
 func NewFilesystemExporterResponseWithDefaults() *FilesystemExporterResponse {
 	this := FilesystemExporterResponse{}
+	var method MethodEnum = METHODENUM_WRITE
+	this.Method = &method
 	return &this
 }
 

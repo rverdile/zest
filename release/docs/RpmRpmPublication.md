@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RepositoryVersion** | Pointer to **string** |  | [optional] 
 **Repository** | Pointer to **string** | A URI of the repository to be published. | [optional] 
-**MetadataChecksumType** | Pointer to [**MetadataChecksumTypeEnum**](MetadataChecksumTypeEnum.md) | The checksum type for metadata. | [optional] 
-**PackageChecksumType** | Pointer to [**PackageChecksumTypeEnum**](PackageChecksumTypeEnum.md) | The checksum type for packages. | [optional] 
+**MetadataChecksumType** | Pointer to [**MetadataChecksumTypeEnum**](MetadataChecksumTypeEnum.md) |  | [optional] 
+**PackageChecksumType** | Pointer to [**PackageChecksumTypeEnum**](PackageChecksumTypeEnum.md) |  | [optional] 
 **Gpgcheck** | Pointer to **int64** | An option specifying whether a client should perform a GPG signature check on packages. | [optional] 
 **RepoGpgcheck** | Pointer to **int64** | An option specifying whether a client should perform a GPG signature check on the repodata. | [optional] 
 **SqliteMetadata** | Pointer to **bool** | DEPRECATED: An option specifying whether Pulp should generate SQLite metadata. | [optional] [default to false]

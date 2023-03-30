@@ -78,6 +78,8 @@ func NewContainerContainerRemote(name string, url string, upstreamName string) *
 	this := ContainerContainerRemote{}
 	this.Name = name
 	this.Url = url
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	this.UpstreamName = upstreamName
 	return &this
 }
@@ -87,6 +89,8 @@ func NewContainerContainerRemote(name string, url string, upstreamName string) *
 // but it doesn't guarantee that properties required by API are set
 func NewContainerContainerRemoteWithDefaults() *ContainerContainerRemote {
 	this := ContainerContainerRemote{}
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

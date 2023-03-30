@@ -86,6 +86,8 @@ func NewDebAptRemote(name string, url string, distributions string) *DebAptRemot
 	this := DebAptRemote{}
 	this.Name = name
 	this.Url = url
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	this.Distributions = distributions
 	return &this
 }
@@ -95,6 +97,8 @@ func NewDebAptRemote(name string, url string, distributions string) *DebAptRemot
 // but it doesn't guarantee that properties required by API are set
 func NewDebAptRemoteWithDefaults() *DebAptRemote {
 	this := DebAptRemote{}
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

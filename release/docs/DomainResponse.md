@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Name** | **string** | A name for this domain. | 
 **Description** | Pointer to **NullableString** | An optional description. | [optional] 
-**StorageClass** | [**StorageClassEnum**](StorageClassEnum.md) | Backend storage class for domain. | 
+**StorageClass** | [**StorageClassEnum**](StorageClassEnum.md) |  | 
 **StorageSettings** | **map[string]interface{}** | Settings for storage class. | 
 **RedirectToObjectStorage** | Pointer to **bool** | Boolean to have the content app redirect to object storage. | [optional] [default to true]
 **HideGuardedDistributions** | Pointer to **bool** | Boolean to hide distributions with a content guard in the content app. | [optional] [default to false]

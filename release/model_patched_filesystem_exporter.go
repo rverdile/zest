@@ -33,6 +33,8 @@ type PatchedFilesystemExporter struct {
 // will change when the set of required properties is changed
 func NewPatchedFilesystemExporter() *PatchedFilesystemExporter {
 	this := PatchedFilesystemExporter{}
+	var method MethodEnum = METHODENUM_WRITE
+	this.Method = &method
 	return &this
 }
 
@@ -41,6 +43,8 @@ func NewPatchedFilesystemExporter() *PatchedFilesystemExporter {
 // but it doesn't guarantee that properties required by API are set
 func NewPatchedFilesystemExporterWithDefaults() *PatchedFilesystemExporter {
 	this := PatchedFilesystemExporter{}
+	var method MethodEnum = METHODENUM_WRITE
+	this.Method = &method
 	return &this
 }
 

@@ -60,10 +60,10 @@ type PatchedpythonPythonRemote struct {
 	Headers []map[string]interface{} `json:"headers,omitempty"`
 	// Limits requests per second for each concurrent downloader
 	RateLimit NullableInt64 `json:"rate_limit,omitempty"`
-	// A JSON list containing project specifiers for Python packages to include.
-	Includes map[string]interface{} `json:"includes,omitempty"`
-	// A JSON list containing project specifiers for Python packages to exclude.
-	Excludes map[string]interface{} `json:"excludes,omitempty"`
+	// A list containing project specifiers for Python packages to include.
+	Includes []string `json:"includes,omitempty"`
+	// A list containing project specifiers for Python packages to exclude.
+	Excludes []string `json:"excludes,omitempty"`
 	// Whether or not to include pre-release packages in the sync.
 	Prereleases *bool `json:"prereleases,omitempty"`
 	// The package types to sync for Python content. Leave blank to get everypackage type.
@@ -80,6 +80,8 @@ type PatchedpythonPythonRemote struct {
 // will change when the set of required properties is changed
 func NewPatchedpythonPythonRemote() *PatchedpythonPythonRemote {
 	this := PatchedpythonPythonRemote{}
+	var policy Policy762Enum = POLICY762ENUM_ON_DEMAND
+	this.Policy = &policy
 	var keepLatestPackages int64 = 0
 	this.KeepLatestPackages = &keepLatestPackages
 	return &this
@@ -90,6 +92,8 @@ func NewPatchedpythonPythonRemote() *PatchedpythonPythonRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewPatchedpythonPythonRemoteWithDefaults() *PatchedpythonPythonRemote {
 	this := PatchedpythonPythonRemote{}
+	var policy Policy762Enum = POLICY762ENUM_ON_DEMAND
+	this.Policy = &policy
 	var keepLatestPackages int64 = 0
 	this.KeepLatestPackages = &keepLatestPackages
 	return &this
@@ -918,9 +922,9 @@ func (o *PatchedpythonPythonRemote) UnsetRateLimit() {
 }
 
 // GetIncludes returns the Includes field value if set, zero value otherwise.
-func (o *PatchedpythonPythonRemote) GetIncludes() map[string]interface{} {
+func (o *PatchedpythonPythonRemote) GetIncludes() []string {
 	if o == nil || IsNil(o.Includes) {
-		var ret map[string]interface{}
+		var ret []string
 		return ret
 	}
 	return o.Includes
@@ -928,9 +932,9 @@ func (o *PatchedpythonPythonRemote) GetIncludes() map[string]interface{} {
 
 // GetIncludesOk returns a tuple with the Includes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchedpythonPythonRemote) GetIncludesOk() (map[string]interface{}, bool) {
+func (o *PatchedpythonPythonRemote) GetIncludesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Includes) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Includes, true
 }
@@ -944,15 +948,15 @@ func (o *PatchedpythonPythonRemote) HasIncludes() bool {
 	return false
 }
 
-// SetIncludes gets a reference to the given map[string]interface{} and assigns it to the Includes field.
-func (o *PatchedpythonPythonRemote) SetIncludes(v map[string]interface{}) {
+// SetIncludes gets a reference to the given []string and assigns it to the Includes field.
+func (o *PatchedpythonPythonRemote) SetIncludes(v []string) {
 	o.Includes = v
 }
 
 // GetExcludes returns the Excludes field value if set, zero value otherwise.
-func (o *PatchedpythonPythonRemote) GetExcludes() map[string]interface{} {
+func (o *PatchedpythonPythonRemote) GetExcludes() []string {
 	if o == nil || IsNil(o.Excludes) {
-		var ret map[string]interface{}
+		var ret []string
 		return ret
 	}
 	return o.Excludes
@@ -960,9 +964,9 @@ func (o *PatchedpythonPythonRemote) GetExcludes() map[string]interface{} {
 
 // GetExcludesOk returns a tuple with the Excludes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PatchedpythonPythonRemote) GetExcludesOk() (map[string]interface{}, bool) {
+func (o *PatchedpythonPythonRemote) GetExcludesOk() ([]string, bool) {
 	if o == nil || IsNil(o.Excludes) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Excludes, true
 }
@@ -976,8 +980,8 @@ func (o *PatchedpythonPythonRemote) HasExcludes() bool {
 	return false
 }
 
-// SetExcludes gets a reference to the given map[string]interface{} and assigns it to the Excludes field.
-func (o *PatchedpythonPythonRemote) SetExcludes(v map[string]interface{}) {
+// SetExcludes gets a reference to the given []string and assigns it to the Excludes field.
+func (o *PatchedpythonPythonRemote) SetExcludes(v []string) {
 	o.Excludes = v
 }
 

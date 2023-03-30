@@ -68,6 +68,8 @@ func NewRemoteResponse(name string, url string) *RemoteResponse {
 	this := RemoteResponse{}
 	this.Name = name
 	this.Url = url
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -76,6 +78,8 @@ func NewRemoteResponse(name string, url string) *RemoteResponse {
 // but it doesn't guarantee that properties required by API are set
 func NewRemoteResponseWithDefaults() *RemoteResponse {
 	this := RemoteResponse{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

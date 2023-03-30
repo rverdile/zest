@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 ## ContentPythonPackagesList
 
-> PaginatedpythonPythonPackageContentResponseList ContentPythonPackagesList(ctx).Author(author).AuthorIn(authorIn).Filename(filename).FilenameContains(filenameContains).FilenameIn(filenameIn).KeywordsContains(keywordsContains).KeywordsIn(keywordsIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).Packagetype(packagetype).PackagetypeIn(packagetypeIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).RequiresPython(requiresPython).RequiresPythonContains(requiresPythonContains).RequiresPythonIn(requiresPythonIn).Sha256(sha256).Sha256In(sha256In).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedpythonPythonPackageContentResponseList ContentPythonPackagesList(ctx).Author(author).AuthorIn(authorIn).Filename(filename).FilenameContains(filenameContains).FilenameIn(filenameIn).KeywordsContains(keywordsContains).KeywordsIn(keywordsIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).Packagetype(packagetype).PackagetypeIn(packagetypeIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).RequiresPython(requiresPython).RequiresPythonContains(requiresPythonContains).RequiresPythonIn(requiresPythonIn).Sha256(sha256).Sha256In(sha256In).Version(version).VersionGt(versionGt).VersionGte(versionGte).VersionLt(versionLt).VersionLte(versionLte).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List python package contents
 
@@ -441,12 +441,17 @@ func main() {
     requiresPythonIn := []string{"Inner_example"} // []string | Filter results where requires_python is in a comma-separated list of values (optional)
     sha256 := "sha256_example" // string | Filter results where sha256 matches value (optional)
     sha256In := []string{"Inner_example"} // []string | Filter results where sha256 is in a comma-separated list of values (optional)
+    version := "version_example" // string | Filter results where version matches value (optional)
+    versionGt := "versionGt_example" // string | Filter results where version is greater than value (optional)
+    versionGte := "versionGte_example" // string | Filter results where version is greater than or equal to value (optional)
+    versionLt := "versionLt_example" // string | Filter results where version is less than value (optional)
+    versionLte := "versionLte_example" // string | Filter results where version is less than or equal to value (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
     excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentPackagesApi.ContentPythonPackagesList(context.Background()).Author(author).AuthorIn(authorIn).Filename(filename).FilenameContains(filenameContains).FilenameIn(filenameIn).KeywordsContains(keywordsContains).KeywordsIn(keywordsIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).Packagetype(packagetype).PackagetypeIn(packagetypeIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).RequiresPython(requiresPython).RequiresPythonContains(requiresPythonContains).RequiresPythonIn(requiresPythonIn).Sha256(sha256).Sha256In(sha256In).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentPackagesApi.ContentPythonPackagesList(context.Background()).Author(author).AuthorIn(authorIn).Filename(filename).FilenameContains(filenameContains).FilenameIn(filenameIn).KeywordsContains(keywordsContains).KeywordsIn(keywordsIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).Packagetype(packagetype).PackagetypeIn(packagetypeIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).RequiresPython(requiresPython).RequiresPythonContains(requiresPythonContains).RequiresPythonIn(requiresPythonIn).Sha256(sha256).Sha256In(sha256In).Version(version).VersionGt(versionGt).VersionGte(versionGte).VersionLt(versionLt).VersionLte(versionLte).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentPackagesApi.ContentPythonPackagesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -489,6 +494,11 @@ Name | Type | Description  | Notes
  **requiresPythonIn** | **[]string** | Filter results where requires_python is in a comma-separated list of values | 
  **sha256** | **string** | Filter results where sha256 matches value | 
  **sha256In** | **[]string** | Filter results where sha256 is in a comma-separated list of values | 
+ **version** | **string** | Filter results where version matches value | 
+ **versionGt** | **string** | Filter results where version is greater than value | 
+ **versionGte** | **string** | Filter results where version is greater than or equal to value | 
+ **versionLt** | **string** | Filter results where version is less than value | 
+ **versionLte** | **string** | Filter results where version is less than or equal to value | 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
 

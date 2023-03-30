@@ -68,6 +68,8 @@ type PatchedmavenMavenRemote struct {
 // will change when the set of required properties is changed
 func NewPatchedmavenMavenRemote() *PatchedmavenMavenRemote {
 	this := PatchedmavenMavenRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -76,6 +78,8 @@ func NewPatchedmavenMavenRemote() *PatchedmavenMavenRemote {
 // but it doesn't guarantee that properties required by API are set
 func NewPatchedmavenMavenRemoteWithDefaults() *PatchedmavenMavenRemote {
 	this := PatchedmavenMavenRemote{}
+	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

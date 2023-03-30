@@ -74,6 +74,8 @@ func NewRpmUlnRemote(name string, url string, username string, password string) 
 	this.Url = url
 	this.Username = username
 	this.Password = password
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 
@@ -82,6 +84,8 @@ func NewRpmUlnRemote(name string, url string, username string, password string) 
 // but it doesn't guarantee that properties required by API are set
 func NewRpmUlnRemoteWithDefaults() *RpmUlnRemote {
 	this := RpmUlnRemote{}
+	var policy Policy762Enum = POLICY762ENUM_IMMEDIATE
+	this.Policy = &policy
 	return &this
 }
 

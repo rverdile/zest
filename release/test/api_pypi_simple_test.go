@@ -36,6 +36,20 @@ func Test_zest/release/v3_PypiSimpleApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test PypiSimpleApiService PypiSimplePackageRead", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var package_ string
+		var path string
+
+		httpRes, err := apiClient.PypiSimpleApi.PypiSimplePackageRead(context.Background(), package_, path).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PypiSimpleApiService PypiSimpleRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -43,20 +57,6 @@ func Test_zest/release/v3_PypiSimpleApiService(t *testing.T) {
 		var path string
 
 		httpRes, err := apiClient.PypiSimpleApi.PypiSimpleRead(context.Background(), path).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PypiSimpleApiService PypiSimpleReadPackage", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var package_ string
-		var path string
-
-		httpRes, err := apiClient.PypiSimpleApi.PypiSimpleReadPackage(context.Background(), package_, path).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

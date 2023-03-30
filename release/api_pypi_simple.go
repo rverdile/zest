@@ -187,61 +187,67 @@ func (a *PypiSimpleApiService) PypiSimpleCreateExecute(r PypiSimpleApiPypiSimple
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PypiSimpleApiPypiSimpleReadRequest struct {
+type PypiSimpleApiPypiSimplePackageReadRequest struct {
 	ctx context.Context
 	ApiService *PypiSimpleApiService
+	package_ string
 	path string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PypiSimpleApiPypiSimpleReadRequest) Fields(fields []string) PypiSimpleApiPypiSimpleReadRequest {
+func (r PypiSimpleApiPypiSimplePackageReadRequest) Fields(fields []string) PypiSimpleApiPypiSimplePackageReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PypiSimpleApiPypiSimpleReadRequest) ExcludeFields(excludeFields []string) PypiSimpleApiPypiSimpleReadRequest {
+func (r PypiSimpleApiPypiSimplePackageReadRequest) ExcludeFields(excludeFields []string) PypiSimpleApiPypiSimplePackageReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PypiSimpleApiPypiSimpleReadRequest) Execute() (*http.Response, error) {
-	return r.ApiService.PypiSimpleReadExecute(r)
+func (r PypiSimpleApiPypiSimplePackageReadRequest) Execute() (*http.Response, error) {
+	return r.ApiService.PypiSimplePackageReadExecute(r)
 }
 
 /*
-PypiSimpleRead Get index simple page
+PypiSimplePackageRead Get package simple page
 
-Gets the simple api html page for the index.
+Retrieves the simple api html page for a package.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param package_
  @param path
- @return PypiSimpleApiPypiSimpleReadRequest
+ @return PypiSimpleApiPypiSimplePackageReadRequest
 */
-func (a *PypiSimpleApiService) PypiSimpleRead(ctx context.Context, path string) PypiSimpleApiPypiSimpleReadRequest {
-	return PypiSimpleApiPypiSimpleReadRequest{
+func (a *PypiSimpleApiService) PypiSimplePackageRead(ctx context.Context, package_ string, path string) PypiSimpleApiPypiSimplePackageReadRequest {
+	return PypiSimpleApiPypiSimplePackageReadRequest{
 		ApiService: a,
 		ctx: ctx,
+		package_: package_,
 		path: path,
 	}
 }
 
 // Execute executes the request
-func (a *PypiSimpleApiService) PypiSimpleReadExecute(r PypiSimpleApiPypiSimpleReadRequest) (*http.Response, error) {
+func (a *PypiSimpleApiService) PypiSimplePackageReadExecute(r PypiSimpleApiPypiSimplePackageReadRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleApiService.PypiSimpleRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleApiService.PypiSimplePackageRead")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pypi/{path}/simple/"
+	localVarPath := localBasePath + "/pypi/{path}/simple/{package}/"
+	localVarPath = strings.Replace(localVarPath, "{"+"package"+"}", url.PathEscape(parameterValueToString(r.package_, "package_")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarPath = strings.Replace(localVarPath, "{"+"path"+"}", url.PathEscape(parameterValueToString(r.path, "path")), -1)
         localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
 
@@ -316,67 +322,61 @@ func (a *PypiSimpleApiService) PypiSimpleReadExecute(r PypiSimpleApiPypiSimpleRe
 	return localVarHTTPResponse, nil
 }
 
-type PypiSimpleApiPypiSimpleReadPackageRequest struct {
+type PypiSimpleApiPypiSimpleReadRequest struct {
 	ctx context.Context
 	ApiService *PypiSimpleApiService
-	package_ string
 	path string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PypiSimpleApiPypiSimpleReadPackageRequest) Fields(fields []string) PypiSimpleApiPypiSimpleReadPackageRequest {
+func (r PypiSimpleApiPypiSimpleReadRequest) Fields(fields []string) PypiSimpleApiPypiSimpleReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PypiSimpleApiPypiSimpleReadPackageRequest) ExcludeFields(excludeFields []string) PypiSimpleApiPypiSimpleReadPackageRequest {
+func (r PypiSimpleApiPypiSimpleReadRequest) ExcludeFields(excludeFields []string) PypiSimpleApiPypiSimpleReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PypiSimpleApiPypiSimpleReadPackageRequest) Execute() (*http.Response, error) {
-	return r.ApiService.PypiSimpleReadPackageExecute(r)
+func (r PypiSimpleApiPypiSimpleReadRequest) Execute() (*http.Response, error) {
+	return r.ApiService.PypiSimpleReadExecute(r)
 }
 
 /*
-PypiSimpleReadPackage Get package simple page
+PypiSimpleRead Get index simple page
 
-Retrieves the simple api html page for a package.
+Gets the simple api html page for the index.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param package_
  @param path
- @return PypiSimpleApiPypiSimpleReadPackageRequest
+ @return PypiSimpleApiPypiSimpleReadRequest
 */
-func (a *PypiSimpleApiService) PypiSimpleReadPackage(ctx context.Context, package_ string, path string) PypiSimpleApiPypiSimpleReadPackageRequest {
-	return PypiSimpleApiPypiSimpleReadPackageRequest{
+func (a *PypiSimpleApiService) PypiSimpleRead(ctx context.Context, path string) PypiSimpleApiPypiSimpleReadRequest {
+	return PypiSimpleApiPypiSimpleReadRequest{
 		ApiService: a,
 		ctx: ctx,
-		package_: package_,
 		path: path,
 	}
 }
 
 // Execute executes the request
-func (a *PypiSimpleApiService) PypiSimpleReadPackageExecute(r PypiSimpleApiPypiSimpleReadPackageRequest) (*http.Response, error) {
+func (a *PypiSimpleApiService) PypiSimpleReadExecute(r PypiSimpleApiPypiSimpleReadRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleApiService.PypiSimpleReadPackage")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleApiService.PypiSimpleRead")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pypi/{path}/simple/{package}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"package"+"}", url.PathEscape(parameterValueToString(r.package_, "package_")), -1)
-        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
-
+	localVarPath := localBasePath + "/pypi/{path}/simple/"
 	localVarPath = strings.Replace(localVarPath, "{"+"path"+"}", url.PathEscape(parameterValueToString(r.path, "path")), -1)
         localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
 
