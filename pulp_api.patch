@@ -9,15 +9,6 @@
                  "description": "APIView for Collections by namespace/name.",
                  "parameters": [
                      {
-@@ -48545,7 +48545,7 @@
-         },
-         "/pypi/{path}/simple/{package}/": {
-             "get": {
--                "operationId": "pypi_simple_read",
-+                "operationId": "pypi_simple_read_package",
-                 "description": "Retrieves the simple api html page for a package.",
-                 "summary": "Get package simple page",
-                 "parameters": [
 @@ -49780,11 +49780,7 @@
                          "description": "File system location to export to."
                      },
