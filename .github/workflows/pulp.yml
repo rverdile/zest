@@ -67,10 +67,12 @@ jobs:
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
 
-      - name: Run Go Tests
-        uses: actions/setup-go@v2
+      - uses: actions/setup-go@v2
+        if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         with:
           go-version: "1.18"
+
+      - name: Run Go Tests
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         run: |
           cd release
