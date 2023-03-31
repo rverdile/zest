@@ -66,6 +66,12 @@ jobs:
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
 
+      - name: Archive api json 
+        uses: actions/upload-artifact@v3
+        with:
+          name: pulp_api.json
+          path: pulp_api.json 
+
       - uses: actions/setup-go@v2
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         with:
@@ -75,6 +81,7 @@ jobs:
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         run: |
           cd release
+          go get github.com/stretchr/testify/assert
           go test ./...
 
       - name: Commit new client
