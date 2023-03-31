@@ -4,13 +4,89 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**RemotesAnsibleRoleAddRole**](RemotesRoleApi.md#RemotesAnsibleRoleAddRole) | **Post** /{ansible_role_remote_href}add_role/ | 
 [**RemotesAnsibleRoleCreate**](RemotesRoleApi.md#RemotesAnsibleRoleCreate) | **Post** /pulp/api/v3/remotes/ansible/role/ | Create a role remote
 [**RemotesAnsibleRoleDelete**](RemotesRoleApi.md#RemotesAnsibleRoleDelete) | **Delete** /{ansible_role_remote_href} | Delete a role remote
 [**RemotesAnsibleRoleList**](RemotesRoleApi.md#RemotesAnsibleRoleList) | **Get** /pulp/api/v3/remotes/ansible/role/ | List role remotes
+[**RemotesAnsibleRoleListRoles**](RemotesRoleApi.md#RemotesAnsibleRoleListRoles) | **Get** /{ansible_role_remote_href}list_roles/ | 
+[**RemotesAnsibleRoleMyPermissions**](RemotesRoleApi.md#RemotesAnsibleRoleMyPermissions) | **Get** /{ansible_role_remote_href}my_permissions/ | 
 [**RemotesAnsibleRolePartialUpdate**](RemotesRoleApi.md#RemotesAnsibleRolePartialUpdate) | **Patch** /{ansible_role_remote_href} | Update a role remote
 [**RemotesAnsibleRoleRead**](RemotesRoleApi.md#RemotesAnsibleRoleRead) | **Get** /{ansible_role_remote_href} | Inspect a role remote
+[**RemotesAnsibleRoleRemoveRole**](RemotesRoleApi.md#RemotesAnsibleRoleRemoveRole) | **Post** /{ansible_role_remote_href}remove_role/ | 
 [**RemotesAnsibleRoleUpdate**](RemotesRoleApi.md#RemotesAnsibleRoleUpdate) | **Put** /{ansible_role_remote_href} | Update a role remote
 
+
+
+## RemotesAnsibleRoleAddRole
+
+> NestedRoleResponse RemotesAnsibleRoleAddRole(ctx, ansibleRoleRemoteHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleRoleRemoteHref := "ansibleRoleRemoteHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesRoleApi.RemotesAnsibleRoleAddRole(context.Background(), ansibleRoleRemoteHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesRoleApi.RemotesAnsibleRoleAddRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleRoleAddRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesRoleApi.RemotesAnsibleRoleAddRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleRoleRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleRoleAddRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## RemotesAnsibleRoleCreate
@@ -248,6 +324,154 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## RemotesAnsibleRoleListRoles
+
+> ObjectRolesResponse RemotesAnsibleRoleListRoles(ctx, ansibleRoleRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleRoleRemoteHref := "ansibleRoleRemoteHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesRoleApi.RemotesAnsibleRoleListRoles(context.Background(), ansibleRoleRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesRoleApi.RemotesAnsibleRoleListRoles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleRoleListRoles`: ObjectRolesResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesRoleApi.RemotesAnsibleRoleListRoles`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleRoleRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleRoleListRolesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**ObjectRolesResponse**](ObjectRolesResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemotesAnsibleRoleMyPermissions
+
+> MyPermissionsResponse RemotesAnsibleRoleMyPermissions(ctx, ansibleRoleRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleRoleRemoteHref := "ansibleRoleRemoteHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesRoleApi.RemotesAnsibleRoleMyPermissions(context.Background(), ansibleRoleRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesRoleApi.RemotesAnsibleRoleMyPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleRoleMyPermissions`: MyPermissionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesRoleApi.RemotesAnsibleRoleMyPermissions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleRoleRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleRoleMyPermissionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**MyPermissionsResponse**](MyPermissionsResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RemotesAnsibleRolePartialUpdate
 
 > AsyncOperationResponse RemotesAnsibleRolePartialUpdate(ctx, ansibleRoleRemoteHref).PatchedansibleRoleRemote(patchedansibleRoleRemote).Execute()
@@ -387,6 +611,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemotesAnsibleRoleRemoveRole
+
+> NestedRoleResponse RemotesAnsibleRoleRemoveRole(ctx, ansibleRoleRemoteHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleRoleRemoteHref := "ansibleRoleRemoteHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesRoleApi.RemotesAnsibleRoleRemoveRole(context.Background(), ansibleRoleRemoteHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesRoleApi.RemotesAnsibleRoleRemoveRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleRoleRemoveRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesRoleApi.RemotesAnsibleRoleRemoveRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleRoleRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleRoleRemoveRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

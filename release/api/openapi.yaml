@@ -14,7 +14,7 @@ info:
     url: https://pulp.plan.io/attachments/download/517478/pulp_logo_word_rectangle.svg
   x-pulp-app-versions:
     core: 3.23.1
-    ansible: 0.16.1
+    ansible: 0.17.0
     certguard: 1.6.1
     container: 2.14.4
     deb: 2.20.1
@@ -1434,6 +1434,166 @@ paths:
           description: ""
       tags:
       - "Galaxy: Detail"
+  '{ansible_collection_href}add_role/':
+    post:
+      description: Add a role for this object to users/groups.
+      operationId: ansible_collections_add_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Ansible: Collections"
+  '{ansible_collection_href}list_roles/':
+    get:
+      description: List roles assigned to this object.
+      operationId: ansible_collections_list_roles
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectRolesResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Ansible: Collections"
+  '{ansible_collection_href}my_permissions/':
+    get:
+      description: List permissions available to the current user on this object.
+      operationId: ansible_collections_my_permissions
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyPermissionsResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Ansible: Collections"
+  '{ansible_collection_href}remove_role/':
+    post:
+      description: Remove a role for this object from users/groups.
+      operationId: ansible_collections_remove_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Ansible: Collections"
   /pulp/api/v3/ansible/copy/:
     post:
       description: "Trigger an asynchronous task to copy ansible content from one\
@@ -2010,6 +2170,211 @@ paths:
       summary: Inspect an ansible collection deprecated
       tags:
       - "Content: Collection_Deprecations"
+  /pulp/api/v3/content/ansible/collection_marks/:
+    get:
+      description: ViewSet for looking at mark objects for CollectionVersion content.
+      operationId: content_ansible_collection_marks_list
+      parameters:
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter marks for collection version
+        explode: true
+        in: query
+        name: marked_collection
+        required: false
+        schema:
+          format: uri
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: ordering
+        required: false
+        schema:
+          items:
+            enum:
+            - -pk
+            - -pulp_created
+            - -pulp_id
+            - -pulp_last_updated
+            - -pulp_type
+            - -timestamp_of_interest
+            - -upstream_id
+            - -value
+            - pk
+            - pulp_created
+            - pulp_id
+            - pulp_last_updated
+            - pulp_type
+            - timestamp_of_interest
+            - upstream_id
+            - value
+            type: string
+          type: array
+        style: form
+      - description: Repository Version referenced by HREF
+        explode: true
+        in: query
+        name: repository_version
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Repository Version referenced by HREF
+        explode: true
+        in: query
+        name: repository_version_added
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Repository Version referenced by HREF
+        explode: true
+        in: query
+        name: repository_version_removed
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter marks by value
+        explode: true
+        in: query
+        name: value
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where value is in a comma-separated list of values
+        explode: false
+        in: query
+        name: value__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paginatedansible.CollectionVersionMarkResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: List collection version marks
+      tags:
+      - "Content: Collection_Marks"
+    post:
+      description: ViewSet for looking at mark objects for CollectionVersion content.
+      operationId: content_ansible_collection_marks_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ansible.CollectionVersionMark'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ansible.CollectionVersionMark'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ansible.CollectionVersionMark'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ansible.CollectionVersionMarkResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Create a collection version mark
+      tags:
+      - "Content: Collection_Marks"
+  '{ansible_collection_version_mark_href}':
+    get:
+      description: ViewSet for looking at mark objects for CollectionVersion content.
+      operationId: content_ansible_collection_marks_read
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_version_mark_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ansible.CollectionVersionMarkResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Inspect a collection version mark
+      tags:
+      - "Content: Collection_Marks"
   /pulp/api/v3/content/ansible/collection_signatures/:
     get:
       description: ViewSet for looking at signature objects for CollectionVersion
@@ -2483,6 +2848,319 @@ paths:
       summary: Inspect a collection version
       tags:
       - "Content: Collection_Versions"
+  /pulp/api/v3/content/ansible/namespaces/:
+    get:
+      description: ViewSet for AnsibleNamespace.
+      operationId: content_ansible_namespaces_list
+      parameters:
+      - description: Filter results where company matches value
+        explode: true
+        in: query
+        name: company
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company is in a comma-separated list of
+          values
+        explode: false
+        in: query
+        name: company__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where company starts with value
+        explode: true
+        in: query
+        name: company__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where metadata_sha256 matches value
+        explode: true
+        in: query
+        name: metadata_sha256
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where metadata_sha256 is in a comma-separated
+          list of values
+        explode: false
+        in: query
+        name: metadata_sha256__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name matches value
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name is in a comma-separated list of values
+        explode: false
+        in: query
+        name: name__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name starts with value
+        explode: true
+        in: query
+        name: name__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: ordering
+        required: false
+        schema:
+          items:
+            enum:
+            - -avatar_sha256
+            - -company
+            - -description
+            - -email
+            - -links
+            - -metadata_sha256
+            - -name
+            - -pk
+            - -pulp_created
+            - -pulp_id
+            - -pulp_last_updated
+            - -pulp_type
+            - -resources
+            - -timestamp_of_interest
+            - -upstream_id
+            - avatar_sha256
+            - company
+            - description
+            - email
+            - links
+            - metadata_sha256
+            - name
+            - pk
+            - pulp_created
+            - pulp_id
+            - pulp_last_updated
+            - pulp_type
+            - resources
+            - timestamp_of_interest
+            - upstream_id
+            type: string
+          type: array
+        style: form
+      - description: Repository Version referenced by HREF
+        explode: true
+        in: query
+        name: repository_version
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Repository Version referenced by HREF
+        explode: true
+        in: query
+        name: repository_version_added
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Repository Version referenced by HREF
+        explode: true
+        in: query
+        name: repository_version_removed
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paginatedansible.AnsibleNamespaceMetadataResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: List ansible namespace metadatas
+      tags:
+      - "Content: Namespaces"
+  '{ansible_ansible_namespace_metadata_href}':
+    get:
+      description: ViewSet for AnsibleNamespace.
+      operationId: content_ansible_namespaces_read
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_namespace_metadata_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadataResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      summary: Inspect an ansible namespace metadata
+      tags:
+      - "Content: Namespaces"
+  '{ansible_ansible_namespace_metadata_href}avatar/':
+    get:
+      description: Get the logo for the this namespace.
+      operationId: content_ansible_namespaces_avatar
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_namespace_metadata_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "302":
+          content:
+            application/json:
+              schema:
+                description: Unspecified response body
+                type: object
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Content: Namespaces"
   /pulp/api/v3/content/ansible/roles/:
     get:
       description: ViewSet for Role.
@@ -12362,6 +13040,166 @@ paths:
       summary: Update an ansible distribution
       tags:
       - "Distributions: Ansible"
+  '{ansible_ansible_distribution_href}add_role/':
+    post:
+      description: Add a role for this object to users/groups.
+      operationId: distributions_ansible_ansible_add_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_distribution_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Distributions: Ansible"
+  '{ansible_ansible_distribution_href}list_roles/':
+    get:
+      description: List roles assigned to this object.
+      operationId: distributions_ansible_ansible_list_roles
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_distribution_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectRolesResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Distributions: Ansible"
+  '{ansible_ansible_distribution_href}my_permissions/':
+    get:
+      description: List permissions available to the current user on this object.
+      operationId: distributions_ansible_ansible_my_permissions
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_distribution_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyPermissionsResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Distributions: Ansible"
+  '{ansible_ansible_distribution_href}remove_role/':
+    post:
+      description: Remove a role for this object from users/groups.
+      operationId: distributions_ansible_ansible_remove_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_distribution_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Distributions: Ansible"
   /pulp/api/v3/distributions/container/container/:
     get:
       description: |-
@@ -21152,6 +21990,7 @@ paths:
         schema:
           items:
             enum:
+            - -auth_url
             - -ca_cert
             - -client_cert
             - -client_key
@@ -21172,12 +22011,17 @@ paths:
             - -pulp_last_updated
             - -pulp_type
             - -rate_limit
+            - -requirements_file
+            - -signed_only
             - -sock_connect_timeout
             - -sock_read_timeout
+            - -sync_dependencies
             - -tls_validation
+            - -token
             - -total_timeout
             - -url
             - -username
+            - auth_url
             - ca_cert
             - client_cert
             - client_key
@@ -21198,9 +22042,13 @@ paths:
             - pulp_last_updated
             - pulp_type
             - rate_limit
+            - requirements_file
+            - signed_only
             - sock_connect_timeout
             - sock_read_timeout
+            - sync_dependencies
             - tls_validation
+            - token
             - total_timeout
             - url
             - username
@@ -21271,6 +22119,40 @@ paths:
         schema:
           items:
             format: date-time
+            type: string
+          type: array
+        style: form
+      - description: Filter results where url matches value
+        explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where url contains value
+        explode: true
+        in: query
+        name: url__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where url contains value
+        explode: true
+        in: query
+        name: url__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where url is in a comma-separated list of values
+        explode: false
+        in: query
+        name: url__in
+        required: false
+        schema:
+          items:
             type: string
           type: array
         style: form
@@ -21474,6 +22356,166 @@ paths:
       - cookieAuth: []
       - basicAuth: []
       summary: Update a collection remote
+      tags:
+      - "Remotes: Collection"
+  '{ansible_collection_remote_href}add_role/':
+    post:
+      description: Add a role for this object to users/groups.
+      operationId: remotes_ansible_collection_add_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Collection"
+  '{ansible_collection_remote_href}list_roles/':
+    get:
+      description: List roles assigned to this object.
+      operationId: remotes_ansible_collection_list_roles
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectRolesResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Collection"
+  '{ansible_collection_remote_href}my_permissions/':
+    get:
+      description: List permissions available to the current user on this object.
+      operationId: remotes_ansible_collection_my_permissions
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyPermissionsResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Collection"
+  '{ansible_collection_remote_href}remove_role/':
+    post:
+      description: Remove a role for this object from users/groups.
+      operationId: remotes_ansible_collection_remove_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_collection_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
       tags:
       - "Remotes: Collection"
   /pulp/api/v3/remotes/ansible/git/:
@@ -21880,6 +22922,166 @@ paths:
       summary: Update a git remote
       tags:
       - "Remotes: Git"
+  '{ansible_git_remote_href}add_role/':
+    post:
+      description: Add a role for this object to users/groups.
+      operationId: remotes_ansible_git_add_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_git_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Git"
+  '{ansible_git_remote_href}list_roles/':
+    get:
+      description: List roles assigned to this object.
+      operationId: remotes_ansible_git_list_roles
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_git_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectRolesResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Git"
+  '{ansible_git_remote_href}my_permissions/':
+    get:
+      description: List permissions available to the current user on this object.
+      operationId: remotes_ansible_git_my_permissions
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_git_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyPermissionsResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Git"
+  '{ansible_git_remote_href}remove_role/':
+    post:
+      description: Remove a role for this object from users/groups.
+      operationId: remotes_ansible_git_remove_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_git_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Git"
   /pulp/api/v3/remotes/ansible/role/:
     get:
       description: ViewSet for Role Remotes.
@@ -22273,6 +23475,166 @@ paths:
       - cookieAuth: []
       - basicAuth: []
       summary: Update a role remote
+      tags:
+      - "Remotes: Role"
+  '{ansible_role_remote_href}add_role/':
+    post:
+      description: Add a role for this object to users/groups.
+      operationId: remotes_ansible_role_add_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_role_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Role"
+  '{ansible_role_remote_href}list_roles/':
+    get:
+      description: List roles assigned to this object.
+      operationId: remotes_ansible_role_list_roles
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_role_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectRolesResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Role"
+  '{ansible_role_remote_href}my_permissions/':
+    get:
+      description: List permissions available to the current user on this object.
+      operationId: remotes_ansible_role_my_permissions
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_role_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyPermissionsResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Remotes: Role"
+  '{ansible_role_remote_href}remove_role/':
+    post:
+      description: Remove a role for this object from users/groups.
+      operationId: remotes_ansible_role_remove_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_role_remote_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
       tags:
       - "Remotes: Role"
   /pulp/api/v3/remotes/container/container/:
@@ -26780,6 +28142,158 @@ paths:
       summary: Update an ansible repository
       tags:
       - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}add_role/':
+    post:
+      description: Add a role for this object to users/groups.
+      operationId: repositories_ansible_ansible_add_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}copy_collection_version/':
+    post:
+      description: Trigger an asynchronous task to copy collection versions.
+      operationId: repositories_ansible_ansible_copy_collection_version
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionCopyMove'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionCopyMove'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionCopyMove'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}list_roles/':
+    get:
+      description: List roles assigned to this object.
+      operationId: repositories_ansible_ansible_list_roles
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectRolesResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}mark/':
+    post:
+      description: Trigger an asynchronous task to mark Ansible content.
+      operationId: repositories_ansible_ansible_mark
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnsibleRepositoryMark'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AnsibleRepositoryMark'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AnsibleRepositoryMark'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
   '{ansible_ansible_repository_href}modify/':
     post:
       description: Trigger an asynchronous task to create a new repository version.
@@ -26817,6 +28331,86 @@ paths:
       summary: Modify Repository Content
       tags:
       - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}move_collection_version/':
+    post:
+      description: Trigger an asynchronous task to move collection versions.
+      operationId: repositories_ansible_ansible_move_collection_version
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionCopyMove'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionCopyMove'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionCopyMove'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}my_permissions/':
+    get:
+      description: List permissions available to the current user on this object.
+      operationId: repositories_ansible_ansible_my_permissions
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyPermissionsResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
   '{ansible_ansible_repository_href}rebuild_metadata/':
     post:
       description: Trigger an asynchronous task to rebuild Ansible content meta.
@@ -26847,6 +28441,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}remove_role/':
+    post:
+      description: Remove a role for this object from users/groups.
+      operationId: repositories_ansible_ansible_remove_role
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedRole'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NestedRoleResponse'
           description: ""
       security:
       - cookieAuth: []
@@ -26912,6 +28542,42 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/AnsibleRepositorySyncURL'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Repositories: Ansible"
+  '{ansible_ansible_repository_href}unmark/':
+    post:
+      description: Trigger an asynchronous task to unmark Ansible content.
+      operationId: repositories_ansible_ansible_unmark
+      parameters:
+      - explode: false
+        in: path
+        name: ansible_ansible_repository_href
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnsibleRepositoryMark'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AnsibleRepositoryMark'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AnsibleRepositoryMark'
         required: true
       responses:
         "202":
@@ -38330,7 +39996,7 @@ paths:
   '{ansible_role_href}versions/':
     get:
       description: APIView for Role Versions.
-      operationId: versions_get
+      operationId: api_v1_roles_versions_list
       parameters:
       - explode: false
         in: path
@@ -38522,7 +40188,7 @@ paths:
   '{ansible_collection_version_href}versions/':
     get:
       description: APIView for Collections by namespace/name.
-      operationId: collection_versions_get
+      operationId: api_v2_collection_versions_list
       parameters:
       - explode: false
         in: path
@@ -39547,10 +41213,272 @@ paths:
       - basicAuth: []
       tags:
       - "Pulp_Ansible: Api V3 Collections All"
+  /pulp_ansible/galaxy/{path}/api/v3/namespaces/:
+    get:
+      deprecated: true
+      description: Legacy v3 endpoint.
+      operationId: pulp_ansible_galaxy_api_v3_namespaces_list
+      parameters:
+      - description: Filter results where company matches value
+        explode: true
+        in: query
+        name: company
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company is in a comma-separated list of
+          values
+        explode: false
+        in: query
+        name: company__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where company starts with value
+        explode: true
+        in: query
+        name: company__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where metadata_sha256 matches value
+        explode: true
+        in: query
+        name: metadata_sha256
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where metadata_sha256 is in a comma-separated
+          list of values
+        explode: false
+        in: query
+        name: metadata_sha256__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name matches value
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name is in a comma-separated list of values
+        explode: false
+        in: query
+        name: name__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name starts with value
+        explode: true
+        in: query
+        name: name__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: ordering
+        required: false
+        schema:
+          items:
+            enum:
+            - -avatar_sha256
+            - -company
+            - -description
+            - -email
+            - -links
+            - -metadata_sha256
+            - -name
+            - -pk
+            - -pulp_created
+            - -pulp_id
+            - -pulp_last_updated
+            - -pulp_type
+            - -resources
+            - -timestamp_of_interest
+            - -upstream_id
+            - avatar_sha256
+            - company
+            - description
+            - email
+            - links
+            - metadata_sha256
+            - name
+            - pk
+            - pulp_created
+            - pulp_id
+            - pulp_last_updated
+            - pulp_type
+            - resources
+            - timestamp_of_interest
+            - upstream_id
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "302":
+          description: No response body
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paginatedansible.AnsibleNamespaceMetadataResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Namespaces"
+  /pulp_ansible/galaxy/{path}/api/v3/namespaces/{name}/:
+    get:
+      deprecated: true
+      description: Legacy v3 endpoint.
+      operationId: pulp_ansible_galaxy_api_v3_namespaces_read
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "302":
+          description: No response body
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadataResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Namespaces"
   /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/client-configuration/:
     get:
-      description: Get the client configs.
-      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_client_configuration_get
+      description: Return configurations for the ansible-galaxy client.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_client_configuration_read
       parameters:
       - explode: false
         in: path
@@ -40569,6 +42497,667 @@ paths:
       - basicAuth: []
       tags:
       - "Pulp_Ansible: Api V3 Plugin Ansible Content Collections Index Versions Docs-Blob"
+  /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/:
+    get:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_content_namespaces_list
+      parameters:
+      - description: Filter results where company matches value
+        explode: true
+        in: query
+        name: company
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company is in a comma-separated list of
+          values
+        explode: false
+        in: query
+        name: company__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where company starts with value
+        explode: true
+        in: query
+        name: company__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where metadata_sha256 matches value
+        explode: true
+        in: query
+        name: metadata_sha256
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where metadata_sha256 is in a comma-separated
+          list of values
+        explode: false
+        in: query
+        name: metadata_sha256__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name matches value
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name is in a comma-separated list of values
+        explode: false
+        in: query
+        name: name__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name starts with value
+        explode: true
+        in: query
+        name: name__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: ordering
+        required: false
+        schema:
+          items:
+            enum:
+            - -avatar_sha256
+            - -company
+            - -description
+            - -email
+            - -links
+            - -metadata_sha256
+            - -name
+            - -pk
+            - -pulp_created
+            - -pulp_id
+            - -pulp_last_updated
+            - -pulp_type
+            - -resources
+            - -timestamp_of_interest
+            - -upstream_id
+            - avatar_sha256
+            - company
+            - description
+            - email
+            - links
+            - metadata_sha256
+            - name
+            - pk
+            - pulp_created
+            - pulp_id
+            - pulp_last_updated
+            - pulp_type
+            - resources
+            - timestamp_of_interest
+            - upstream_id
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paginatedansible.AnsibleNamespaceMetadataResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Plugin Ansible Content Namespaces"
+    post:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_content_namespaces_create
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadata'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadata'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Plugin Ansible Content Namespaces"
+  /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/:
+    delete:
+      description: Try to remove the Namespace if no Collections under Namespace are
+        present.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_content_namespaces_delete
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Plugin Ansible Content Namespaces"
+    get:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_content_namespaces_read
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadataResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Plugin Ansible Content Namespaces"
+    patch:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_content_namespaces_partial_update
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Patchedansible.AnsibleNamespaceMetadata'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Patchedansible.AnsibleNamespaceMetadata'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Plugin Ansible Content Namespaces"
+  /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/search/collection-versions/:
+    get:
+      description: A viewset for cross-repo searches.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_search_collection_versions_list
+      parameters:
+      - explode: true
+        in: query
+        name: dependency
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: deprecated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter collectionversions that are in these distrubtion ids.
+        explode: true
+        in: query
+        name: distribution
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter collectionversions that are in these base paths.
+        explode: true
+        in: query
+        name: distribution_base_path
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: highest
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: is_deprecated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: is_highest
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: is_signed
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: keywords
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: namespace
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: order_by
+        required: false
+        schema:
+          items:
+            enum:
+            - -name
+            - -namespace
+            - -pulp_created
+            - -version
+            - name
+            - namespace
+            - pulp_created
+            - version
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter collectionversions that are in these repository ids.
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter labels by search string
+        explode: true
+        in: query
+        name: repository_label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter collectionversions that are in these repositories.
+        explode: true
+        in: query
+        name: repository_name
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: repository_version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: signed
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter by comma separate list of tags that must all be matched
+        explode: true
+        in: query
+        name: tags
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: version_range
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCollectionVersionSearchListResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Plugin Ansible Search Collection-Versions"
+    post:
+      description: A viewset for cross-repo searches.
+      operationId: pulp_ansible_galaxy_api_v3_plugin_ansible_search_collection_versions_rebuild
+      parameters:
+      - explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionSearchList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionSearchList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionSearchList'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionSearchListResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Api V3 Plugin Ansible Search Collection-Versions"
   /pulp_ansible/galaxy/default/api/:
     get:
       description: Return a response to the "GET" action.
@@ -41372,10 +43961,258 @@ paths:
       - basicAuth: []
       tags:
       - "Pulp_Ansible: Default Api V3 Collections All"
+  /pulp_ansible/galaxy/default/api/v3/namespaces/:
+    get:
+      deprecated: true
+      description: Legacy v3 endpoint.
+      operationId: pulp_ansible_galaxy_default_api_v3_namespaces_list
+      parameters:
+      - description: Filter results where company matches value
+        explode: true
+        in: query
+        name: company
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company is in a comma-separated list of
+          values
+        explode: false
+        in: query
+        name: company__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where company starts with value
+        explode: true
+        in: query
+        name: company__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where metadata_sha256 matches value
+        explode: true
+        in: query
+        name: metadata_sha256
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where metadata_sha256 is in a comma-separated
+          list of values
+        explode: false
+        in: query
+        name: metadata_sha256__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name matches value
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name is in a comma-separated list of values
+        explode: false
+        in: query
+        name: name__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name starts with value
+        explode: true
+        in: query
+        name: name__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: ordering
+        required: false
+        schema:
+          items:
+            enum:
+            - -avatar_sha256
+            - -company
+            - -description
+            - -email
+            - -links
+            - -metadata_sha256
+            - -name
+            - -pk
+            - -pulp_created
+            - -pulp_id
+            - -pulp_last_updated
+            - -pulp_type
+            - -resources
+            - -timestamp_of_interest
+            - -upstream_id
+            - avatar_sha256
+            - company
+            - description
+            - email
+            - links
+            - metadata_sha256
+            - name
+            - pk
+            - pulp_created
+            - pulp_id
+            - pulp_last_updated
+            - pulp_type
+            - resources
+            - timestamp_of_interest
+            - upstream_id
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "302":
+          description: No response body
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paginatedansible.AnsibleNamespaceMetadataResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Namespaces"
+  /pulp_ansible/galaxy/default/api/v3/namespaces/{name}/:
+    get:
+      deprecated: true
+      description: Legacy v3 endpoint.
+      operationId: pulp_ansible_galaxy_default_api_v3_namespaces_read
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "302":
+          description: No response body
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadataResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Namespaces"
   /pulp_ansible/galaxy/default/api/v3/plugin/ansible/client-configuration/:
     get:
-      description: Get the client configs.
-      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_client_configuration_get
+      description: Return configurations for the ansible-galaxy client.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_client_configuration_read
       responses:
         "200":
           content:
@@ -42276,6 +45113,617 @@ paths:
       tags:
       - "Pulp_Ansible: Default Api V3 Plugin Ansible Content Collections Index Versions\
         \ Docs-Blob"
+  /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/:
+    get:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_content_namespaces_list
+      parameters:
+      - description: Filter results where company matches value
+        explode: true
+        in: query
+        name: company
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company contains value
+        explode: true
+        in: query
+        name: company__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where company is in a comma-separated list of
+          values
+        explode: false
+        in: query
+        name: company__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where company starts with value
+        explode: true
+        in: query
+        name: company__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter results where metadata_sha256 matches value
+        explode: true
+        in: query
+        name: metadata_sha256
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where metadata_sha256 is in a comma-separated
+          list of values
+        explode: false
+        in: query
+        name: metadata_sha256__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name matches value
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__icontains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name is in a comma-separated list of values
+        explode: false
+        in: query
+        name: name__in
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter results where name starts with value
+        explode: true
+        in: query
+        name: name__startswith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: ordering
+        required: false
+        schema:
+          items:
+            enum:
+            - -avatar_sha256
+            - -company
+            - -description
+            - -email
+            - -links
+            - -metadata_sha256
+            - -name
+            - -pk
+            - -pulp_created
+            - -pulp_id
+            - -pulp_last_updated
+            - -pulp_type
+            - -resources
+            - -timestamp_of_interest
+            - -upstream_id
+            - avatar_sha256
+            - company
+            - description
+            - email
+            - links
+            - metadata_sha256
+            - name
+            - pk
+            - pulp_created
+            - pulp_id
+            - pulp_last_updated
+            - pulp_type
+            - resources
+            - timestamp_of_interest
+            - upstream_id
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paginatedansible.AnsibleNamespaceMetadataResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Plugin Ansible Content Namespaces"
+    post:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_content_namespaces_create
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadata'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadata'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Plugin Ansible Content Namespaces"
+  /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/:
+    delete:
+      description: Try to remove the Namespace if no Collections under Namespace are
+        present.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_content_namespaces_delete
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Plugin Ansible Content Namespaces"
+    get:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_content_namespaces_read
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadataResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Plugin Ansible Content Namespaces"
+    patch:
+      description: Custom exception handler mixin class.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_content_namespaces_partial_update
+      parameters:
+      - explode: false
+        in: path
+        name: distro_base_path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Patchedansible.AnsibleNamespaceMetadata'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Patchedansible.AnsibleNamespaceMetadata'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncOperationResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Plugin Ansible Content Namespaces"
+  /pulp_ansible/galaxy/default/api/v3/plugin/ansible/search/collection-versions/:
+    get:
+      description: A viewset for cross-repo searches.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_search_collection_versions_list
+      parameters:
+      - explode: true
+        in: query
+        name: dependency
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: deprecated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter collectionversions that are in these distrubtion ids.
+        explode: true
+        in: query
+        name: distribution
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter collectionversions that are in these base paths.
+        explode: true
+        in: query
+        name: distribution_base_path
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: highest
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: is_deprecated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: is_highest
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: is_signed
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: keywords
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: namespace
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Ordering
+        explode: false
+        in: query
+        name: order_by
+        required: false
+        schema:
+          items:
+            enum:
+            - -name
+            - -namespace
+            - -pulp_created
+            - -version
+            - name
+            - namespace
+            - pulp_created
+            - version
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter collectionversions that are in these repository ids.
+        explode: true
+        in: query
+        name: repository
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Filter labels by search string
+        explode: true
+        in: query
+        name: repository_label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter collectionversions that are in these repositories.
+        explode: true
+        in: query
+        name: repository_name
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: repository_version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: signed
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Filter by comma separate list of tags that must all be matched
+        explode: true
+        in: query
+        name: tags
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: version_range
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCollectionVersionSearchListResponseList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Plugin Ansible Search Collection-Versions"
+    post:
+      description: A viewset for cross-repo searches.
+      operationId: pulp_ansible_galaxy_default_api_v3_plugin_ansible_search_collection_versions_rebuild
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionSearchList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionSearchList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CollectionVersionSearchList'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionVersionSearchListResponse'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      tags:
+      - "Pulp_Ansible: Default Api V3 Plugin Ansible Search Collection-Versions"
   /pypi/{path}/:
     get:
       description: Gets package summary stats of index.
@@ -42674,6 +46122,28 @@ components:
       - type
       - uid
       type: object
+    AnsibleRepositoryMark:
+      description: A serializer for the mark action.
+      example:
+        content_units:
+        - ""
+        - ""
+        value: value
+      properties:
+        content_units:
+          description: "List of collection version hrefs to mark, use * to mark all\
+            \ content in repository"
+          items: {}
+          type: array
+        value:
+          description: The string value of this mark.
+          minLength: 1
+          pattern: "^[-a-zA-Z0-9_]+$"
+          type: string
+      required:
+      - content_units
+      - value
+      type: object
     AnsibleRepositoryRebuild:
       description: Serializer for Ansible Repository Rebuild.
       example:
@@ -42823,15 +46293,10 @@ components:
           key: pulp_labels
         name: name
         base_url: base_url
-        pulp_created: 2000-01-23T04:56:07.000+00:00
         base_path: base_path
+        pulp_created: 2000-01-23T04:56:07.000+00:00
         content_guard: https://openapi-generator.tech
       properties:
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
         pulp_href:
           format: uri
           readOnly: true
@@ -42839,24 +46304,29 @@ components:
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
           type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
         base_url:
           description: The URL for accessing the publication as defined by this distribution.
           readOnly: true
+          type: string
+        content_guard:
+          description: An optional content-guard.
+          format: uri
+          nullable: true
           type: string
         base_path:
           description: The base (relative) path component of the published url. Avoid
             paths that                     overlap with other distribution base paths
             (e.g. "foo" and "foo/bar")
           type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
-        content_guard:
-          description: An optional content-guard.
-          format: uri
-          nullable: true
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
       required:
       - base_path
@@ -43086,6 +46556,9 @@ components:
       properties:
         name:
           type: string
+        metadata_sha256:
+          readOnly: true
+          type: string
       required:
       - name
       type: object
@@ -43171,6 +46644,111 @@ components:
           readOnly: true
           type: string
       type: object
+    CollectionSummary:
+      description: Collection Version serializer without docs blob.
+      properties: {}
+      type: object
+    CollectionSummaryResponse:
+      description: Collection Version serializer without docs blob.
+      example:
+        pulp_href: https://openapi-generator.tech
+        contents: "{}"
+        requires_ansible: requires_ansible
+        namespace: namespace
+        name: name
+        description: description
+        pulp_created: 2000-01-23T04:56:07.000+00:00
+        version: version
+        dependencies: "{}"
+        tags:
+        - name: name
+        - name: name
+      properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        namespace:
+          description: The namespace of the collection.
+          maxLength: 64
+          readOnly: true
+          type: string
+        name:
+          description: The name of the collection.
+          maxLength: 64
+          readOnly: true
+          type: string
+        version:
+          description: The version of the collection.
+          maxLength: 128
+          readOnly: true
+          type: string
+        requires_ansible:
+          description: The version of Ansible required to use the collection. Multiple
+            versions can be separated with a comma.
+          maxLength: 255
+          nullable: true
+          readOnly: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        contents:
+          description: A JSON field with data about the contents.
+          readOnly: true
+          type: object
+        dependencies:
+          description: A dict declaring Collections that this collection requires
+            to be installed for it to be usable.
+          readOnly: true
+          type: object
+        description:
+          description: A short summary description of the collection.
+          readOnly: true
+          type: string
+        tags:
+          items:
+            $ref: '#/components/schemas/ansible.TagResponse'
+          readOnly: true
+          type: array
+      type: object
+    CollectionVersionCopyMove:
+      description: |-
+        Copy or move collections from a source repository into one or more destinations.
+
+        This will carry associated content like Signatures and Marks along.
+      example:
+        signing_service: https://openapi-generator.tech
+        collection_versions:
+        - https://openapi-generator.tech
+        - https://openapi-generator.tech
+        destination_repositories:
+        - https://openapi-generator.tech
+        - https://openapi-generator.tech
+      properties:
+        collection_versions:
+          description: A list of collection versions to move or copy.
+          items:
+            format: uri
+            type: string
+          type: array
+        destination_repositories:
+          description: List of repository HREFs to put content in.
+          items:
+            format: uri
+            type: string
+          type: array
+        signing_service:
+          description: HREF for a signing service. This will be used to sign the collection
+            before moving putting it in any new repositories.
+          format: uri
+          type: string
+      required:
+      - collection_versions
+      - destination_repositories
+      type: object
     CollectionVersionDocsResponse:
       description: A serializer to display the docs_blob of a CollectionVersion.
       example:
@@ -43188,6 +46766,9 @@ components:
         requires_ansible: requires_ansible
         created_at: 2000-01-23T04:56:07.000+00:00
         href: href
+        marks:
+        - marks
+        - marks
         version: version
       properties:
         version:
@@ -43206,6 +46787,11 @@ components:
           maxLength: 255
           nullable: true
           type: string
+        marks:
+          items:
+            type: string
+          readOnly: true
+          type: array
       required:
       - created_at
       - updated_at
@@ -43217,6 +46803,9 @@ components:
         manifest: "{}"
         requires_ansible: requires_ansible
         created_at: 2000-01-23T04:56:07.000+00:00
+        marks:
+        - marks
+        - marks
         collection: ""
         version: version
         signatures: signatures
@@ -43246,6 +46835,11 @@ components:
           maxLength: 255
           nullable: true
           type: string
+        marks:
+          items:
+            type: string
+          readOnly: true
+          type: array
         artifact:
           allOf:
           - $ref: '#/components/schemas/ArtifactRefResponse'
@@ -43288,6 +46882,104 @@ components:
       required:
       - created_at
       - updated_at
+      type: object
+    CollectionVersionSearchList:
+      description: Cross-repo search results.
+      example:
+        is_highest: true
+        is_deprecated: true
+        namespace_metadata: ""
+        repository:
+          pulp_labels:
+            key: pulp_labels
+          name: name
+          description: description
+          retain_repo_versions: 1
+          remote: https://openapi-generator.tech
+        collection_version: "{}"
+        is_signed: true
+      properties:
+        repository:
+          $ref: '#/components/schemas/Repository'
+        collection_version:
+          description: Collection Version serializer without docs blob.
+          properties: {}
+          type: object
+        namespace_metadata:
+          allOf:
+          - $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadata'
+          nullable: true
+        is_highest:
+          type: boolean
+        is_deprecated:
+          type: boolean
+        is_signed:
+          type: boolean
+      required:
+      - collection_version
+      - is_deprecated
+      - is_highest
+      - is_signed
+      - namespace_metadata
+      - repository
+      type: object
+    CollectionVersionSearchListResponse:
+      description: Cross-repo search results.
+      example:
+        is_highest: true
+        is_deprecated: true
+        namespace_metadata: ""
+        repository_version: repository_version
+        repository:
+          latest_version_href: https://openapi-generator.tech
+          pulp_href: https://openapi-generator.tech
+          versions_href: https://openapi-generator.tech
+          pulp_labels:
+            key: pulp_labels
+          name: name
+          description: description
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          retain_repo_versions: 1
+          remote: https://openapi-generator.tech
+        collection_version:
+          pulp_href: https://openapi-generator.tech
+          contents: "{}"
+          requires_ansible: requires_ansible
+          namespace: namespace
+          name: name
+          description: description
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          version: version
+          dependencies: "{}"
+          tags:
+          - name: name
+          - name: name
+        is_signed: true
+      properties:
+        repository:
+          $ref: '#/components/schemas/RepositoryResponse'
+        collection_version:
+          $ref: '#/components/schemas/CollectionSummaryResponse'
+        repository_version:
+          readOnly: true
+          type: string
+        namespace_metadata:
+          allOf:
+          - $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadataResponse'
+          nullable: true
+        is_highest:
+          type: boolean
+        is_deprecated:
+          type: boolean
+        is_signed:
+          type: boolean
+      required:
+      - collection_version
+      - is_deprecated
+      - is_highest
+      - is_signed
+      - namespace_metadata
+      - repository
       type: object
     CompsXml:
       description: A serializer for comps.xml Upload API.
@@ -44349,6 +48041,43 @@ components:
       required:
       - permissions
       type: object
+    NamespaceLink:
+      description: |-
+        Provides backwards compatible interface for links with the legacy
+        GalaxyNG API.
+      properties:
+        url:
+          format: uri
+          maxLength: 256
+          minLength: 1
+          type: string
+        name:
+          maxLength: 256
+          minLength: 1
+          type: string
+      required:
+      - name
+      - url
+      type: object
+    NamespaceLinkResponse:
+      description: |-
+        Provides backwards compatible interface for links with the legacy
+        GalaxyNG API.
+      example:
+        name: name
+        url: https://openapi-generator.tech
+      properties:
+        url:
+          format: uri
+          maxLength: 256
+          type: string
+        name:
+          maxLength: 256
+          type: string
+      required:
+      - name
+      - url
+      type: object
     NestedRole:
       description: |-
         Serializer to add/remove object roles to/from users/groups.
@@ -44689,16 +48418,16 @@ components:
             key: pulp_labels
           name: name
           base_url: base_url
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           base_path: base_path
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           content_guard: https://openapi-generator.tech
         - pulp_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
           name: name
           base_url: base_url
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           base_path: base_path
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           content_guard: https://openapi-generator.tech
       properties:
         count:
@@ -44807,11 +48536,17 @@ components:
           requires_ansible: requires_ansible
           created_at: 2000-01-23T04:56:07.000+00:00
           href: href
+          marks:
+          - marks
+          - marks
           version: version
         - updated_at: 2000-01-23T04:56:07.000+00:00
           requires_ansible: requires_ansible
           created_at: 2000-01-23T04:56:07.000+00:00
           href: href
+          marks:
+          - marks
+          - marks
           version: version
         meta:
           count: 123
@@ -44828,6 +48563,84 @@ components:
         data:
           items:
             $ref: '#/components/schemas/CollectionVersionListResponse'
+          type: array
+      type: object
+    PaginatedCollectionVersionSearchListResponseList:
+      example:
+        data:
+        - is_highest: true
+          is_deprecated: true
+          namespace_metadata: ""
+          repository_version: repository_version
+          repository:
+            latest_version_href: https://openapi-generator.tech
+            pulp_href: https://openapi-generator.tech
+            versions_href: https://openapi-generator.tech
+            pulp_labels:
+              key: pulp_labels
+            name: name
+            description: description
+            pulp_created: 2000-01-23T04:56:07.000+00:00
+            retain_repo_versions: 1
+            remote: https://openapi-generator.tech
+          collection_version:
+            pulp_href: https://openapi-generator.tech
+            contents: "{}"
+            requires_ansible: requires_ansible
+            namespace: namespace
+            name: name
+            description: description
+            pulp_created: 2000-01-23T04:56:07.000+00:00
+            version: version
+            dependencies: "{}"
+            tags:
+            - name: name
+            - name: name
+          is_signed: true
+        - is_highest: true
+          is_deprecated: true
+          namespace_metadata: ""
+          repository_version: repository_version
+          repository:
+            latest_version_href: https://openapi-generator.tech
+            pulp_href: https://openapi-generator.tech
+            versions_href: https://openapi-generator.tech
+            pulp_labels:
+              key: pulp_labels
+            name: name
+            description: description
+            pulp_created: 2000-01-23T04:56:07.000+00:00
+            retain_repo_versions: 1
+            remote: https://openapi-generator.tech
+          collection_version:
+            pulp_href: https://openapi-generator.tech
+            contents: "{}"
+            requires_ansible: requires_ansible
+            namespace: namespace
+            name: name
+            description: description
+            pulp_created: 2000-01-23T04:56:07.000+00:00
+            version: version
+            dependencies: "{}"
+            tags:
+            - name: name
+            - name: name
+          is_signed: true
+        meta:
+          count: 123
+        links:
+          next: next
+          previous: previous
+          last: last
+          first: first
+      properties:
+        meta:
+          $ref: '#/components/schemas/PaginatedCollectionResponseList_meta'
+        links:
+          $ref: '#/components/schemas/PaginatedCollectionResponseList_links'
+        data:
+          items:
+            $ref: '#/components/schemas/CollectionVersionSearchListResponse'
           type: array
       type: object
     PaginatedContentGuardResponseList:
@@ -46371,35 +50184,92 @@ components:
             $ref: '#/components/schemas/ansible.AnsibleDistributionResponse'
           type: array
       type: object
+    Paginatedansible.AnsibleNamespaceMetadataResponseList:
+      example:
+        next: http://api.example.org/accounts/?offset=400&limit=100
+        previous: http://api.example.org/accounts/?offset=200&limit=100
+        count: 123
+        results:
+        - avatar_sha256: avatar_sha256
+          pulp_href: https://openapi-generator.tech
+          avatar_url: avatar_url
+          name: name
+          description: description
+          resources: resources
+          company: company
+          links:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
+          metadata_sha256: metadata_sha256
+          email: email
+        - avatar_sha256: avatar_sha256
+          pulp_href: https://openapi-generator.tech
+          avatar_url: avatar_url
+          name: name
+          description: description
+          resources: resources
+          company: company
+          links:
+          - name: name
+            url: https://openapi-generator.tech
+          - name: name
+            url: https://openapi-generator.tech
+          metadata_sha256: metadata_sha256
+          email: email
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?offset=400&limit=100
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?offset=200&limit=100
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/ansible.AnsibleNamespaceMetadataResponse'
+          type: array
+      type: object
     Paginatedansible.AnsibleRepositoryResponseList:
       example:
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
         count: 123
         results:
-        - latest_version_href: https://openapi-generator.tech
-          last_synced_metadata_time: 2000-01-23T04:56:07.000+00:00
+        - last_sync_task: ""
+          private: true
           pulp_href: https://openapi-generator.tech
+          description: description
+          remote: https://openapi-generator.tech
+          latest_version_href: https://openapi-generator.tech
+          last_synced_metadata_time: 2000-01-23T04:56:07.000+00:00
           versions_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
           name: name
-          description: description
           pulp_created: 2000-01-23T04:56:07.000+00:00
           retain_repo_versions: 1
-          remote: https://openapi-generator.tech
           gpgkey: gpgkey
-        - latest_version_href: https://openapi-generator.tech
-          last_synced_metadata_time: 2000-01-23T04:56:07.000+00:00
+        - last_sync_task: ""
+          private: true
           pulp_href: https://openapi-generator.tech
+          description: description
+          remote: https://openapi-generator.tech
+          latest_version_href: https://openapi-generator.tech
+          last_synced_metadata_time: 2000-01-23T04:56:07.000+00:00
           versions_href: https://openapi-generator.tech
           pulp_labels:
             key: pulp_labels
           name: name
-          description: description
           pulp_created: 2000-01-23T04:56:07.000+00:00
           retain_repo_versions: 1
-          remote: https://openapi-generator.tech
           gpgkey: gpgkey
       properties:
         count:
@@ -46426,7 +50296,14 @@ components:
         previous: http://api.example.org/accounts/?offset=200&limit=100
         count: 123
         results:
-        - headers:
+        - connect_timeout: 0.5962133916683182
+          client_cert: client_cert
+          sock_read_timeout: 0.23021358869347652
+          ca_cert: ca_cert
+          total_timeout: 0.14658129805029452
+          policy: ""
+          last_sync_task: ""
+          headers:
           - "{}"
           - "{}"
           signed_only: false
@@ -46434,10 +50311,7 @@ components:
           pulp_href: https://openapi-generator.tech
           tls_validation: true
           max_retries: 6
-          connect_timeout: 0.5962133916683182
-          client_cert: client_cert
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-          sock_read_timeout: 0.23021358869347652
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -46453,11 +50327,15 @@ components:
             name: name
           proxy_url: proxy_url
           auth_url: auth_url
+          sync_dependencies: true
+        - connect_timeout: 0.5962133916683182
+          client_cert: client_cert
+          sock_read_timeout: 0.23021358869347652
           ca_cert: ca_cert
           total_timeout: 0.14658129805029452
-          sync_dependencies: true
           policy: ""
-        - headers:
+          last_sync_task: ""
+          headers:
           - "{}"
           - "{}"
           signed_only: false
@@ -46465,10 +50343,7 @@ components:
           pulp_href: https://openapi-generator.tech
           tls_validation: true
           max_retries: 6
-          connect_timeout: 0.5962133916683182
-          client_cert: client_cert
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-          sock_read_timeout: 0.23021358869347652
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -46484,10 +50359,7 @@ components:
             name: name
           proxy_url: proxy_url
           auth_url: auth_url
-          ca_cert: ca_cert
-          total_timeout: 0.14658129805029452
           sync_dependencies: true
-          policy: ""
       properties:
         count:
           example: 123
@@ -46534,6 +50406,39 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ansible.CollectionResponse'
+          type: array
+      type: object
+    Paginatedansible.CollectionVersionMarkResponseList:
+      example:
+        next: http://api.example.org/accounts/?offset=400&limit=100
+        previous: http://api.example.org/accounts/?offset=200&limit=100
+        count: 123
+        results:
+        - pulp_href: https://openapi-generator.tech
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          marked_collection: https://openapi-generator.tech
+          value: value
+        - pulp_href: https://openapi-generator.tech
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          marked_collection: https://openapi-generator.tech
+          value: value
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?offset=400&limit=100
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?offset=200&limit=100
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/ansible.CollectionVersionMarkResponse'
           type: array
       type: object
     Paginatedansible.CollectionVersionResponseList:
@@ -46671,13 +50576,13 @@ components:
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 7
-          connect_timeout: 0.14658129805029452
-          pulp_href: https://openapi-generator.tech
-          max_retries: 5
+          rate_limit: 6
+          max_retries: 1
+          connect_timeout: 0.23021358869347652
           tls_validation: true
+          pulp_href: https://openapi-generator.tech
           client_cert: client_cert
-          sock_read_timeout: 0.08008281904610115
+          sock_read_timeout: 0.5962133916683182
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
           url: url
           download_concurrency: 1
@@ -46686,26 +50591,26 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.6027456183070403
+          sock_connect_timeout: 0.7061401241503109
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           hidden_fields:
           - is_set: true
             name: name
           - is_set: true
             name: name
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           proxy_url: proxy_url
           ca_cert: ca_cert
-          total_timeout: 0.5962133916683182
+          total_timeout: 0.5637376656633328
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 7
-          connect_timeout: 0.14658129805029452
-          pulp_href: https://openapi-generator.tech
-          max_retries: 5
+          rate_limit: 6
+          max_retries: 1
+          connect_timeout: 0.23021358869347652
           tls_validation: true
+          pulp_href: https://openapi-generator.tech
           client_cert: client_cert
-          sock_read_timeout: 0.08008281904610115
+          sock_read_timeout: 0.5962133916683182
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
           url: url
           download_concurrency: 1
@@ -46714,16 +50619,16 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.6027456183070403
+          sock_connect_timeout: 0.7061401241503109
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           hidden_fields:
           - is_set: true
             name: name
           - is_set: true
             name: name
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           proxy_url: proxy_url
           ca_cert: ca_cert
-          total_timeout: 0.5962133916683182
+          total_timeout: 0.5637376656633328
       properties:
         count:
           example: 123
@@ -46975,8 +50880,8 @@ components:
           name: name
           namespace: https://openapi-generator.tech
           description: description
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           base_path: base_path
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           repository_version: https://openapi-generator.tech
           repository: https://openapi-generator.tech
           content_guard: https://openapi-generator.tech
@@ -46988,8 +50893,8 @@ components:
           name: name
           namespace: https://openapi-generator.tech
           description: description
-          pulp_created: 2000-01-23T04:56:07.000+00:00
           base_path: base_path
+          pulp_created: 2000-01-23T04:56:07.000+00:00
           repository_version: https://openapi-generator.tech
           repository: https://openapi-generator.tech
           content_guard: https://openapi-generator.tech
@@ -50713,6 +54618,41 @@ components:
             type: string
           type: object
       type: object
+    Patchedansible.AnsibleNamespaceMetadata:
+      description: A serializer for Namespaces.
+      properties:
+        name:
+          description: "Required named, only accepts lowercase, numbers and underscores."
+          maxLength: 64
+          minLength: 3
+          pattern: "^(?!.*__)[a-z]+[0-9a-z_]*$"
+          type: string
+        company:
+          description: Optional namespace company owner.
+          maxLength: 64
+          type: string
+        email:
+          description: Optional namespace contact email.
+          maxLength: 256
+          type: string
+        description:
+          description: Optional short description.
+          maxLength: 256
+          type: string
+        resources:
+          description: Optional resource page in markdown format.
+          type: string
+        links:
+          description: Labeled related links.
+          items:
+            $ref: '#/components/schemas/NamespaceLink'
+          type: array
+        avatar:
+          description: Optional avatar image for Namespace
+          format: binary
+          type: string
+          writeOnly: true
+      type: object
     Patchedansible.AnsibleRepository:
       description: Serializer for Ansible Repositories.
       properties:
@@ -50752,6 +54692,8 @@ components:
           minLength: 1
           nullable: true
           type: string
+        private:
+          type: boolean
       type: object
     Patchedansible.CollectionRemote:
       description: A serializer for Collection Remotes.
@@ -50913,82 +54855,6 @@ components:
     Patchedansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        sock_read_timeout:
-          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        name:
-          description: A unique name for this remote.
-          minLength: 1
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        proxy_username:
-          description: The username to authenticte to the proxy.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        username:
-          description: The username to be used for authentication when syncing.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        total_timeout:
-          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
-          format: int64
-          nullable: true
-          type: integer
-        password:
-          description: The password to be used for authentication when syncing. Extra
-            leading and trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
@@ -51001,8 +54867,46 @@ components:
           format: int64
           nullable: true
           type: integer
-        client_key:
-          description: A PEM encoded private key used for authentication.
+        name:
+          description: A unique name for this remote.
+          minLength: 1
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        sock_read_timeout:
+          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        password:
+          description: The password to be used for authentication when syncing. Extra
+            leading and trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        total_timeout:
+          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        username:
+          description: The username to be used for authentication when syncing.
           minLength: 1
           nullable: true
           type: string
@@ -51019,19 +54923,57 @@ components:
             nullable: true
             type: string
           type: object
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        url:
-          description: The URL of an external content source.
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
           minLength: 1
+          nullable: true
           type: string
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
           minLength: 1
           nullable: true
           type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        url:
+          description: The URL of an external content source.
+          minLength: 1
+          type: string
+        proxy_username:
+          description: The username to authenticte to the proxy.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -51208,14 +55150,13 @@ components:
     Patchedcontainer.ContainerDistribution:
       description: A serializer for ContainerDistribution.
       properties:
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
-          minLength: 1
-          type: string
-        base_path:
-          description: The base (relative) path component of the published url. Avoid
-            paths that                     overlap with other distribution base paths
-            (e.g. "foo" and "foo/bar")
           minLength: 1
           type: string
         pulp_labels:
@@ -51228,10 +55169,11 @@ components:
             \ one will be used."
           format: uri
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
+        base_path:
+          description: The base (relative) path component of the published url. Avoid
+            paths that                     overlap with other distribution base paths
+            (e.g. "foo" and "foo/bar")
+          minLength: 1
           type: string
         repository_version:
           description: RepositoryVersion to be served
@@ -51251,18 +55193,6 @@ components:
     Patchedcontainer.ContainerPushRepository:
       description: Serializer for Container Push Repositories.
       properties:
-        description:
-          description: An optional description.
-          minLength: 1
-          nullable: true
-          type: string
-        retain_repo_versions:
-          description: Retain X versions of the repository. Default is null which
-            retains all versions.
-          format: int64
-          minimum: 1
-          nullable: true
-          type: integer
         name:
           description: A unique name for this repository.
           minLength: 1
@@ -51277,6 +55207,18 @@ components:
           format: uri
           nullable: true
           type: string
+        description:
+          description: An optional description.
+          minLength: 1
+          nullable: true
+          type: string
+        retain_repo_versions:
+          description: Retain X versions of the repository. Default is null which
+            retains all versions.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
       type: object
     Patchedcontainer.ContainerRemote:
       description: A Serializer for ContainerRemote.
@@ -53033,6 +56975,17 @@ components:
       - immediate
       - "When syncing, download all metadata and content now."
       type: string
+    ProgressReport:
+      description: |-
+        Base serializer for use with :class:`pulpcore.app.models.Model`
+
+        This ensures that all Serializers provide values for the 'pulp_href` field.
+
+        The class provides a default for the ``ref_name`` attribute in the
+        ModelSerializers's ``Meta`` class. This ensures that the OpenAPI definitions
+        of plugins are namespaced properly.
+      properties: {}
+      type: object
     ProgressReportResponse:
       description: |-
         Base serializer for use with :class:`pulpcore.app.models.Model`
@@ -53783,6 +57736,52 @@ components:
       required:
       - published
       type: object
+    Repository:
+      description: |-
+        Base serializer for use with :class:`pulpcore.app.models.Model`
+
+        This ensures that all Serializers provide values for the 'pulp_href` field.
+
+        The class provides a default for the ``ref_name`` attribute in the
+        ModelSerializers's ``Meta`` class. This ensures that the OpenAPI definitions
+        of plugins are namespaced properly.
+      example:
+        pulp_labels:
+          key: pulp_labels
+        name: name
+        description: description
+        retain_repo_versions: 1
+        remote: https://openapi-generator.tech
+      properties:
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        name:
+          description: A unique name for this repository.
+          minLength: 1
+          type: string
+        description:
+          description: An optional description.
+          minLength: 1
+          nullable: true
+          type: string
+        retain_repo_versions:
+          description: Retain X versions of the repository. Default is null which
+            retains all versions.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
+        remote:
+          description: An optional remote to use by default when syncing.
+          format: uri
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
     RepositoryAddCachedContent:
       description: A mixin for validating unknown serializers' fields.
       example:
@@ -54324,6 +58323,28 @@ components:
           readOnly: true
           type: string
       type: object
+    Task:
+      description: |-
+        Base serializer for use with :class:`pulpcore.app.models.Model`
+
+        This ensures that all Serializers provide values for the 'pulp_href` field.
+
+        The class provides a default for the ``ref_name`` attribute in the
+        ModelSerializers's ``Meta`` class. This ensures that the OpenAPI definitions
+        of plugins are namespaced properly.
+      properties:
+        name:
+          description: The name of task.
+          minLength: 1
+          type: string
+        logging_cid:
+          description: The logging correlation id associated with this task
+          minLength: 1
+          type: string
+      required:
+      - logging_cid
+      - name
+      type: object
     TaskGroupOperationResponse:
       description: Serializer for asynchronous operations that return a task group.
       example:
@@ -54641,6 +58662,9 @@ components:
         metadata: ""
         requires_ansible: requires_ansible
         created_at: 2000-01-23T04:56:07.000+00:00
+        marks:
+        - marks
+        - marks
         collection: ""
         version: version
         signatures: signatures
@@ -54669,6 +58693,11 @@ components:
           maxLength: 255
           nullable: true
           type: string
+        marks:
+          items:
+            type: string
+          readOnly: true
+          type: array
         artifact:
           allOf:
           - $ref: '#/components/schemas/ArtifactRefResponse'
@@ -55428,6 +59457,106 @@ components:
       - base_path
       - name
       type: object
+    ansible.AnsibleNamespaceMetadata:
+      description: A serializer for Namespaces.
+      properties:
+        name:
+          description: "Required named, only accepts lowercase, numbers and underscores."
+          maxLength: 64
+          minLength: 3
+          pattern: "^(?!.*__)[a-z]+[0-9a-z_]*$"
+          type: string
+        company:
+          description: Optional namespace company owner.
+          maxLength: 64
+          type: string
+        email:
+          description: Optional namespace contact email.
+          maxLength: 256
+          type: string
+        description:
+          description: Optional short description.
+          maxLength: 256
+          type: string
+        resources:
+          description: Optional resource page in markdown format.
+          type: string
+        links:
+          description: Labeled related links.
+          items:
+            $ref: '#/components/schemas/NamespaceLink'
+          type: array
+        avatar:
+          description: Optional avatar image for Namespace
+          format: binary
+          type: string
+          writeOnly: true
+      required:
+      - name
+      type: object
+    ansible.AnsibleNamespaceMetadataResponse:
+      description: A serializer for Namespaces.
+      example:
+        avatar_sha256: avatar_sha256
+        pulp_href: https://openapi-generator.tech
+        avatar_url: avatar_url
+        name: name
+        description: description
+        resources: resources
+        company: company
+        links:
+        - name: name
+          url: https://openapi-generator.tech
+        - name: name
+          url: https://openapi-generator.tech
+        metadata_sha256: metadata_sha256
+        email: email
+      properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        name:
+          description: "Required named, only accepts lowercase, numbers and underscores."
+          maxLength: 64
+          minLength: 3
+          pattern: "^(?!.*__)[a-z]+[0-9a-z_]*$"
+          type: string
+        company:
+          description: Optional namespace company owner.
+          maxLength: 64
+          type: string
+        email:
+          description: Optional namespace contact email.
+          maxLength: 256
+          type: string
+        description:
+          description: Optional short description.
+          maxLength: 256
+          type: string
+        resources:
+          description: Optional resource page in markdown format.
+          type: string
+        links:
+          description: Labeled related links.
+          items:
+            $ref: '#/components/schemas/NamespaceLinkResponse'
+          type: array
+        avatar_sha256:
+          description: SHA256 digest of avatar image if present.
+          maxLength: 64
+          readOnly: true
+          type: string
+        avatar_url:
+          description: Download link for avatar image if present.
+          readOnly: true
+          type: string
+        metadata_sha256:
+          readOnly: true
+          type: string
+      required:
+      - name
+      type: object
     ansible.AnsibleRepository:
       description: Serializer for Ansible Repositories.
       properties:
@@ -55467,23 +59596,27 @@ components:
           minLength: 1
           nullable: true
           type: string
+        private:
+          type: boolean
       required:
       - name
       type: object
     ansible.AnsibleRepositoryResponse:
       description: Serializer for Ansible Repositories.
       example:
+        last_sync_task: ""
+        private: true
+        pulp_href: https://openapi-generator.tech
+        description: description
+        remote: https://openapi-generator.tech
         latest_version_href: https://openapi-generator.tech
         last_synced_metadata_time: 2000-01-23T04:56:07.000+00:00
-        pulp_href: https://openapi-generator.tech
         versions_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
         name: name
-        description: description
         pulp_created: 2000-01-23T04:56:07.000+00:00
         retain_repo_versions: 1
-        remote: https://openapi-generator.tech
         gpgkey: gpgkey
       properties:
         pulp_href:
@@ -55536,6 +59669,12 @@ components:
           description: Gpg public key to verify collection signatures against
           nullable: true
           type: string
+        last_sync_task:
+          allOf:
+          - $ref: '#/components/schemas/TaskResponse'
+          readOnly: true
+        private:
+          type: boolean
       required:
       - name
       type: object
@@ -55717,6 +59856,13 @@ components:
     ansible.CollectionRemoteResponse:
       description: A serializer for Collection Remotes.
       example:
+        connect_timeout: 0.5962133916683182
+        client_cert: client_cert
+        sock_read_timeout: 0.23021358869347652
+        ca_cert: ca_cert
+        total_timeout: 0.14658129805029452
+        policy: ""
+        last_sync_task: ""
         headers:
         - "{}"
         - "{}"
@@ -55725,10 +59871,7 @@ components:
         pulp_href: https://openapi-generator.tech
         tls_validation: true
         max_retries: 6
-        connect_timeout: 0.5962133916683182
-        client_cert: client_cert
         pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-        sock_read_timeout: 0.23021358869347652
         url: url
         download_concurrency: 1
         pulp_labels:
@@ -55744,10 +59887,7 @@ components:
           name: name
         proxy_url: proxy_url
         auth_url: auth_url
-        ca_cert: ca_cert
-        total_timeout: 0.14658129805029452
         sync_dependencies: true
-        policy: ""
       properties:
         pulp_href:
           format: uri
@@ -55875,6 +60015,10 @@ components:
           default: false
           description: Sync only collections that have a signature
           type: boolean
+        last_sync_task:
+          allOf:
+          - $ref: '#/components/schemas/TaskResponse'
+          readOnly: true
       required:
       - name
       - url
@@ -55898,10 +60042,12 @@ components:
     ansible.CollectionVersion:
       description: A serializer for CollectionVersion Content.
       properties:
-        artifact:
-          description: Artifact file representing the physical content
+        repository:
+          description: A URI of a repository the new content unit should be associated
+            with.
           format: uri
           type: string
+          writeOnly: true
         upload:
           description: An uncommitted upload that may be turned into the artifact
             of the content unit.
@@ -55914,12 +60060,10 @@ components:
           format: binary
           type: string
           writeOnly: true
-        repository:
-          description: A URI of a repository the new content unit should be associated
-            with.
+        artifact:
+          description: Artifact file representing the physical content
           format: uri
           type: string
-          writeOnly: true
         expected_name:
           description: The name of the collection.
           maxLength: 64
@@ -55938,6 +60082,51 @@ components:
           minLength: 1
           type: string
           writeOnly: true
+      type: object
+    ansible.CollectionVersionMark:
+      description: A serializer for mark models.
+      properties:
+        marked_collection:
+          description: The content this mark is pointing to.
+          format: uri
+          type: string
+        value:
+          description: The string value of this mark.
+          minLength: 1
+          pattern: "^[-a-zA-Z0-9_]+$"
+          type: string
+      required:
+      - marked_collection
+      - value
+      type: object
+    ansible.CollectionVersionMarkResponse:
+      description: A serializer for mark models.
+      example:
+        pulp_href: https://openapi-generator.tech
+        pulp_created: 2000-01-23T04:56:07.000+00:00
+        marked_collection: https://openapi-generator.tech
+        value: value
+      properties:
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        marked_collection:
+          description: The content this mark is pointing to.
+          format: uri
+          type: string
+        value:
+          description: The string value of this mark.
+          pattern: "^[-a-zA-Z0-9_]+$"
+          type: string
+      required:
+      - marked_collection
+      - value
       type: object
     ansible.CollectionVersionResponse:
       description: A serializer for CollectionVersion Content.
@@ -55976,18 +60165,18 @@ components:
         - authors
         homepage: homepage
       properties:
-        artifact:
-          description: Artifact file representing the physical content
+        pulp_href:
           format: uri
+          readOnly: true
           type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
           readOnly: true
           type: string
-        pulp_href:
+        artifact:
+          description: Artifact file representing the physical content
           format: uri
-          readOnly: true
           type: string
         sha256:
           description: The SHA-256 checksum if available.
@@ -56167,82 +60356,6 @@ components:
     ansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        sock_read_timeout:
-          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        name:
-          description: A unique name for this remote.
-          minLength: 1
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          minLength: 1
-          nullable: true
-          type: string
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        proxy_username:
-          description: The username to authenticte to the proxy.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        username:
-          description: The username to be used for authentication when syncing.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        total_timeout:
-          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
-          format: int64
-          nullable: true
-          type: integer
-        password:
-          description: The password to be used for authentication when syncing. Extra
-            leading and trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
@@ -56255,8 +60368,46 @@ components:
           format: int64
           nullable: true
           type: integer
-        client_key:
-          description: A PEM encoded private key used for authentication.
+        name:
+          description: A unique name for this remote.
+          minLength: 1
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        sock_read_timeout:
+          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        password:
+          description: The password to be used for authentication when syncing. Extra
+            leading and trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        total_timeout:
+          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        username:
+          description: The username to be used for authentication when syncing.
           minLength: 1
           nullable: true
           type: string
@@ -56273,19 +60424,57 @@ components:
             nullable: true
             type: string
           type: object
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        url:
-          description: The URL of an external content source.
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
           minLength: 1
+          nullable: true
           type: string
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
           minLength: 1
           nullable: true
           type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        url:
+          description: The URL of an external content source.
+          minLength: 1
+          type: string
+        proxy_username:
+          description: The username to authenticte to the proxy.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -56304,13 +60493,13 @@ components:
         headers:
         - "{}"
         - "{}"
-        rate_limit: 7
-        connect_timeout: 0.14658129805029452
-        pulp_href: https://openapi-generator.tech
-        max_retries: 5
+        rate_limit: 6
+        max_retries: 1
+        connect_timeout: 0.23021358869347652
         tls_validation: true
+        pulp_href: https://openapi-generator.tech
         client_cert: client_cert
-        sock_read_timeout: 0.08008281904610115
+        sock_read_timeout: 0.5962133916683182
         pulp_last_updated: 2000-01-23T04:56:07.000+00:00
         url: url
         download_concurrency: 1
@@ -56319,91 +60508,17 @@ components:
         metadata_only: true
         name: name
         git_ref: git_ref
-        sock_connect_timeout: 0.6027456183070403
+        sock_connect_timeout: 0.7061401241503109
+        pulp_created: 2000-01-23T04:56:07.000+00:00
         hidden_fields:
         - is_set: true
           name: name
         - is_set: true
           name: name
-        pulp_created: 2000-01-23T04:56:07.000+00:00
         proxy_url: proxy_url
         ca_cert: ca_cert
-        total_timeout: 0.5962133916683182
+        total_timeout: 0.5637376656633328
       properties:
-        headers:
-          description: Headers for aiohttp.Clientsession
-          items:
-            type: object
-          type: array
-        sock_read_timeout:
-          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
-        hidden_fields:
-          description: List of hidden (write only) fields
-          items:
-            $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
-          readOnly: true
-          type: array
-        name:
-          description: A unique name for this remote.
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          nullable: true
-          type: string
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          nullable: true
-          type: string
-        total_timeout:
-          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        pulp_last_updated:
-          description: Timestamp of the most recent update of the remote.
-          format: date-time
-          readOnly: true
-          type: string
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
-          format: int64
-          nullable: true
-          type: integer
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
@@ -56416,22 +60531,96 @@ components:
           format: int64
           nullable: true
           type: integer
+        name:
+          description: A unique name for this remote.
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          nullable: true
+          type: string
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        sock_read_timeout:
+          description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        pulp_last_updated:
+          description: Timestamp of the most recent update of the remote.
+          format: date-time
+          readOnly: true
+          type: string
+        total_timeout:
+          description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
-        url:
-          description: The URL of an external content source.
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
+          nullable: true
+          type: string
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
           nullable: true
           type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
+        url:
+          description: The URL of an external content source.
+          type: string
+        headers:
+          description: Headers for aiohttp.Clientsession
+          items:
+            type: object
+          type: array
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        hidden_fields:
+          description: List of hidden (write only) fields
+          items:
+            $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
+          readOnly: true
+          type: array
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -56748,18 +60937,18 @@ components:
         pulp_created: 2000-01-23T04:56:07.000+00:00
         version: version
       properties:
-        artifact:
-          description: Artifact file representing the physical content
+        pulp_href:
           format: uri
+          readOnly: true
           type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
           readOnly: true
           type: string
-        pulp_href:
+        artifact:
+          description: Artifact file representing the physical content
           format: uri
-          readOnly: true
           type: string
         version:
           type: string
@@ -56926,14 +61115,13 @@ components:
     container.ContainerDistribution:
       description: A serializer for ContainerDistribution.
       properties:
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
-          minLength: 1
-          type: string
-        base_path:
-          description: The base (relative) path component of the published url. Avoid
-            paths that                     overlap with other distribution base paths
-            (e.g. "foo" and "foo/bar")
           minLength: 1
           type: string
         pulp_labels:
@@ -56946,10 +61134,11 @@ components:
             \ one will be used."
           format: uri
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
+        base_path:
+          description: The base (relative) path component of the published url. Avoid
+            paths that                     overlap with other distribution base paths
+            (e.g. "foo" and "foo/bar")
+          minLength: 1
           type: string
         repository_version:
           description: RepositoryVersion to be served
@@ -56979,17 +61168,17 @@ components:
         name: name
         namespace: https://openapi-generator.tech
         description: description
-        pulp_created: 2000-01-23T04:56:07.000+00:00
         base_path: base_path
+        pulp_created: 2000-01-23T04:56:07.000+00:00
         repository_version: https://openapi-generator.tech
         repository: https://openapi-generator.tech
         content_guard: https://openapi-generator.tech
         registry_path: registry_path
       properties:
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
           type: string
         pulp_href:
           format: uri
@@ -56997,11 +61186,6 @@ components:
           type: string
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
-          type: string
-        base_path:
-          description: The base (relative) path component of the published url. Avoid
-            paths that                     overlap with other distribution base paths
-            (e.g. "foo" and "foo/bar")
           type: string
         pulp_labels:
           additionalProperties:
@@ -57013,10 +61197,15 @@ components:
             \ one will be used."
           format: uri
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
+        base_path:
+          description: The base (relative) path component of the published url. Avoid
+            paths that                     overlap with other distribution base paths
+            (e.g. "foo" and "foo/bar")
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
         repository_version:
           description: RepositoryVersion to be served
@@ -57078,18 +61267,6 @@ components:
     container.ContainerPushRepository:
       description: Serializer for Container Push Repositories.
       properties:
-        description:
-          description: An optional description.
-          minLength: 1
-          nullable: true
-          type: string
-        retain_repo_versions:
-          description: Retain X versions of the repository. Default is null which
-            retains all versions.
-          format: int64
-          minimum: 1
-          nullable: true
-          type: integer
         name:
           description: A unique name for this repository.
           minLength: 1
@@ -57104,6 +61281,18 @@ components:
           format: uri
           nullable: true
           type: string
+        description:
+          description: An optional description.
+          minLength: 1
+          nullable: true
+          type: string
+        retain_repo_versions:
+          description: Retain X versions of the repository. Default is null which
+            retains all versions.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
       required:
       - name
       type: object
@@ -57121,30 +61310,10 @@ components:
         pulp_created: 2000-01-23T04:56:07.000+00:00
         retain_repo_versions: 1
       properties:
-        description:
-          description: An optional description.
-          nullable: true
-          type: string
-        latest_version_href:
-          format: uri
-          readOnly: true
-          type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
         pulp_href:
           format: uri
           readOnly: true
           type: string
-        retain_repo_versions:
-          description: Retain X versions of the repository. Default is null which
-            retains all versions.
-          format: int64
-          minimum: 1
-          nullable: true
-          type: integer
         versions_href:
           format: uri
           readOnly: true
@@ -57157,11 +61326,31 @@ components:
             nullable: true
             type: string
           type: object
+        latest_version_href:
+          format: uri
+          readOnly: true
+          type: string
         manifest_signing_service:
           description: A reference to an associated signing service.
           format: uri
           nullable: true
           type: string
+        description:
+          description: An optional description.
+          nullable: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        retain_repo_versions:
+          description: Retain X versions of the repository. Default is null which
+            retains all versions.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
       required:
       - name
       type: object

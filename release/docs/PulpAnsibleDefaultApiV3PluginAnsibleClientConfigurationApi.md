@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet**](PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.md#PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/client-configuration/ | 
+[**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead**](PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.md#PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/client-configuration/ | 
 
 
 
-## PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet
+## PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead
 
-> ClientConfigurationResponse PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet(ctx).Execute()
+> ClientConfigurationResponse PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead(ctx).Execute()
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet(context.Background()).Execute()
+    resp, r, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet`: ClientConfigurationResponse
-    fmt.Fprintf(os.Stdout, "Response from `PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet`: %v\n", resp)
+    // response from `PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead`: ClientConfigurationResponse
+    fmt.Fprintf(os.Stdout, "Response from `PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest struct via the builder pattern
 
 
 ### Return type

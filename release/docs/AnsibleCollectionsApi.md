@@ -4,9 +4,85 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AnsibleCollectionsAddRole**](AnsibleCollectionsApi.md#AnsibleCollectionsAddRole) | **Post** /{ansible_collection_href}add_role/ | 
 [**AnsibleCollectionsList**](AnsibleCollectionsApi.md#AnsibleCollectionsList) | **Get** /pulp/api/v3/ansible/collections/ | List collections
+[**AnsibleCollectionsListRoles**](AnsibleCollectionsApi.md#AnsibleCollectionsListRoles) | **Get** /{ansible_collection_href}list_roles/ | 
+[**AnsibleCollectionsMyPermissions**](AnsibleCollectionsApi.md#AnsibleCollectionsMyPermissions) | **Get** /{ansible_collection_href}my_permissions/ | 
+[**AnsibleCollectionsRemoveRole**](AnsibleCollectionsApi.md#AnsibleCollectionsRemoveRole) | **Post** /{ansible_collection_href}remove_role/ | 
 [**UploadCollection**](AnsibleCollectionsApi.md#UploadCollection) | **Post** /ansible/collections/ | Upload a collection
 
+
+
+## AnsibleCollectionsAddRole
+
+> NestedRoleResponse AnsibleCollectionsAddRole(ctx, ansibleCollectionHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionHref := "ansibleCollectionHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsAddRole(context.Background(), ansibleCollectionHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AnsibleCollectionsApi.AnsibleCollectionsAddRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AnsibleCollectionsAddRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `AnsibleCollectionsApi.AnsibleCollectionsAddRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAnsibleCollectionsAddRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## AnsibleCollectionsList
@@ -80,6 +156,226 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AnsibleCollectionsListRoles
+
+> ObjectRolesResponse AnsibleCollectionsListRoles(ctx, ansibleCollectionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionHref := "ansibleCollectionHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsListRoles(context.Background(), ansibleCollectionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AnsibleCollectionsApi.AnsibleCollectionsListRoles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AnsibleCollectionsListRoles`: ObjectRolesResponse
+    fmt.Fprintf(os.Stdout, "Response from `AnsibleCollectionsApi.AnsibleCollectionsListRoles`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAnsibleCollectionsListRolesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**ObjectRolesResponse**](ObjectRolesResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AnsibleCollectionsMyPermissions
+
+> MyPermissionsResponse AnsibleCollectionsMyPermissions(ctx, ansibleCollectionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionHref := "ansibleCollectionHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsMyPermissions(context.Background(), ansibleCollectionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AnsibleCollectionsApi.AnsibleCollectionsMyPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AnsibleCollectionsMyPermissions`: MyPermissionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `AnsibleCollectionsApi.AnsibleCollectionsMyPermissions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAnsibleCollectionsMyPermissionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**MyPermissionsResponse**](MyPermissionsResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AnsibleCollectionsRemoveRole
+
+> NestedRoleResponse AnsibleCollectionsRemoveRole(ctx, ansibleCollectionHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionHref := "ansibleCollectionHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsRemoveRole(context.Background(), ansibleCollectionHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AnsibleCollectionsApi.AnsibleCollectionsRemoveRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `AnsibleCollectionsRemoveRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `AnsibleCollectionsApi.AnsibleCollectionsRemoveRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAnsibleCollectionsRemoveRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -17,6 +17,7 @@ api_content_advisories.go
 api_content_artifact.go
 api_content_blobs.go
 api_content_collection_deprecations.go
+api_content_collection_marks.go
 api_content_collection_signatures.go
 api_content_collection_versions.go
 api_content_commits.go
@@ -31,6 +32,7 @@ api_content_manifests.go
 api_content_modulemd_defaults.go
 api_content_modulemd_obsoletes.go
 api_content_modulemds.go
+api_content_namespaces.go
 api_content_objects.go
 api_content_package_indices.go
 api_content_package_release_components.go
@@ -96,6 +98,7 @@ api_pulp_ansible_api_v3_collections.go
 api_pulp_ansible_api_v3_collections_all.go
 api_pulp_ansible_api_v3_collections_versions.go
 api_pulp_ansible_api_v3_collections_versions_docs_blob.go
+api_pulp_ansible_api_v3_namespaces.go
 api_pulp_ansible_api_v3_plugin_ansible_client_configuration.go
 api_pulp_ansible_api_v3_plugin_ansible_content_collections.go
 api_pulp_ansible_api_v3_plugin_ansible_content_collections_all_collections.go
@@ -104,6 +107,8 @@ api_pulp_ansible_api_v3_plugin_ansible_content_collections_artifacts.go
 api_pulp_ansible_api_v3_plugin_ansible_content_collections_index.go
 api_pulp_ansible_api_v3_plugin_ansible_content_collections_index_versions.go
 api_pulp_ansible_api_v3_plugin_ansible_content_collections_index_versions_docs_blob.go
+api_pulp_ansible_api_v3_plugin_ansible_content_namespaces.go
+api_pulp_ansible_api_v3_plugin_ansible_search_collection_versions.go
 api_pulp_ansible_artifacts_collections_v3.go
 api_pulp_ansible_default_api.go
 api_pulp_ansible_default_api_v3.go
@@ -113,6 +118,7 @@ api_pulp_ansible_default_api_v3_collections.go
 api_pulp_ansible_default_api_v3_collections_all.go
 api_pulp_ansible_default_api_v3_collections_versions.go
 api_pulp_ansible_default_api_v3_collections_versions_docs_blob.go
+api_pulp_ansible_default_api_v3_namespaces.go
 api_pulp_ansible_default_api_v3_plugin_ansible_client_configuration.go
 api_pulp_ansible_default_api_v3_plugin_ansible_content_collections.go
 api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_all_collections.go
@@ -121,6 +127,8 @@ api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_artifacts.go
 api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index.go
 api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index_versions.go
 api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index_versions_docs_blob.go
+api_pulp_ansible_default_api_v3_plugin_ansible_content_namespaces.go
+api_pulp_ansible_default_api_v3_plugin_ansible_search_collection_versions.go
 api_pulp_ansible_tags.go
 api_pulp_container_namespaces.go
 api_pulp_maven.go
@@ -187,18 +195,25 @@ docs/AcsRpmApi.md
 docs/AddonResponse.md
 docs/AnsibleAnsibleDistribution.md
 docs/AnsibleAnsibleDistributionResponse.md
+docs/AnsibleAnsibleNamespaceMetadata.md
+docs/AnsibleAnsibleNamespaceMetadataResponse.md
 docs/AnsibleAnsibleRepository.md
 docs/AnsibleAnsibleRepositoryResponse.md
 docs/AnsibleCollection.md
 docs/AnsibleCollectionRemote.md
 docs/AnsibleCollectionRemoteResponse.md
 docs/AnsibleCollectionResponse.md
+docs/AnsibleCollectionVersion.md
+docs/AnsibleCollectionVersionMark.md
+docs/AnsibleCollectionVersionMarkResponse.md
 docs/AnsibleCollectionVersionResponse.md
+docs/AnsibleCollectionVersionSignature.md
 docs/AnsibleCollectionVersionSignatureResponse.md
 docs/AnsibleCollectionsApi.md
 docs/AnsibleCopyApi.md
 docs/AnsibleGitRemote.md
 docs/AnsibleGitRemoteResponse.md
+docs/AnsibleRepositoryMark.md
 docs/AnsibleRepositoryRebuild.md
 docs/AnsibleRepositorySignature.md
 docs/AnsibleRepositorySyncURL.md
@@ -210,6 +225,7 @@ docs/AnsibleTagResponse.md
 docs/ApiCollectionsApi.md
 docs/ApiRolesApi.md
 docs/AptRepositorySyncURL.md
+docs/Artifact.md
 docs/ArtifactDistributionResponse.md
 docs/ArtifactRefResponse.md
 docs/ArtifactResponse.md
@@ -225,11 +241,17 @@ docs/CollectionImportApi.md
 docs/CollectionImportDetailResponse.md
 docs/CollectionMetadataResponse.md
 docs/CollectionNamespaceResponse.md
+docs/CollectionOneShot.md
 docs/CollectionRefResponse.md
 docs/CollectionResponse.md
+docs/CollectionSummaryResponse.md
+docs/CollectionVersionCopyMove.md
 docs/CollectionVersionDocsResponse.md
 docs/CollectionVersionListResponse.md
 docs/CollectionVersionResponse.md
+docs/CollectionVersionSearchList.md
+docs/CollectionVersionSearchListResponse.md
+docs/CompsXml.md
 docs/ContainerBlobResponse.md
 docs/ContainerContainerDistribution.md
 docs/ContainerContainerDistributionResponse.md
@@ -251,6 +273,7 @@ docs/ContentAppStatusResponse.md
 docs/ContentArtifactApi.md
 docs/ContentBlobsApi.md
 docs/ContentCollectionDeprecationsApi.md
+docs/ContentCollectionMarksApi.md
 docs/ContentCollectionSignaturesApi.md
 docs/ContentCollectionVersionsApi.md
 docs/ContentCommitsApi.md
@@ -266,6 +289,7 @@ docs/ContentManifestsApi.md
 docs/ContentModulemdDefaultsApi.md
 docs/ContentModulemdObsoletesApi.md
 docs/ContentModulemdsApi.md
+docs/ContentNamespacesApi.md
 docs/ContentObjectsApi.md
 docs/ContentPackageIndicesApi.md
 docs/ContentPackageReleaseComponentsApi.md
@@ -303,8 +327,10 @@ docs/DebAptRemote.md
 docs/DebAptRemoteResponse.md
 docs/DebAptRepository.md
 docs/DebAptRepositoryResponse.md
+docs/DebBasePackage.md
 docs/DebBasePackageResponse.md
 docs/DebCopyApi.md
+docs/DebGenericContent.md
 docs/DebGenericContentResponse.md
 docs/DebInstallerFileIndex.md
 docs/DebInstallerFileIndexResponse.md
@@ -346,6 +372,7 @@ docs/ExportersPulpApi.md
 docs/ExportersPulpExportsApi.md
 docs/FileFileAlternateContentSource.md
 docs/FileFileAlternateContentSourceResponse.md
+docs/FileFileContent.md
 docs/FileFileContentResponse.md
 docs/FileFileDistribution.md
 docs/FileFileDistributionResponse.md
@@ -395,8 +422,11 @@ docs/MethodEnum.md
 docs/MinimalTaskResponse.md
 docs/MultipleArtifactContentResponse.md
 docs/MyPermissionsResponse.md
+docs/NamespaceLink.md
+docs/NamespaceLinkResponse.md
 docs/NestedRole.md
 docs/NestedRoleResponse.md
+docs/OCIBuildImage.md
 docs/ObjectRolesResponse.md
 docs/OrphansApi.md
 docs/OrphansCleanup.md
@@ -418,6 +448,7 @@ docs/OstreeOstreeSummaryResponse.md
 docs/PackageChecksumTypeEnum.md
 docs/PackageMetadataResponse.md
 docs/PackageTypesEnum.md
+docs/PackageUpload.md
 docs/PackageUploadTaskResponse.md
 docs/PaginatedAccessPolicyResponseList.md
 docs/PaginatedArtifactDistributionResponseList.md
@@ -426,6 +457,7 @@ docs/PaginatedCollectionResponseList.md
 docs/PaginatedCollectionResponseListLinks.md
 docs/PaginatedCollectionResponseListMeta.md
 docs/PaginatedCollectionVersionListResponseList.md
+docs/PaginatedCollectionVersionSearchListResponseList.md
 docs/PaginatedContentGuardResponseList.md
 docs/PaginatedContentRedirectContentGuardResponseList.md
 docs/PaginatedDistributionResponseList.md
@@ -461,9 +493,11 @@ docs/PaginatedUserResponseList.md
 docs/PaginatedUserRoleResponseList.md
 docs/PaginatedWorkerResponseList.md
 docs/PaginatedansibleAnsibleDistributionResponseList.md
+docs/PaginatedansibleAnsibleNamespaceMetadataResponseList.md
 docs/PaginatedansibleAnsibleRepositoryResponseList.md
 docs/PaginatedansibleCollectionRemoteResponseList.md
 docs/PaginatedansibleCollectionResponseList.md
+docs/PaginatedansibleCollectionVersionMarkResponseList.md
 docs/PaginatedansibleCollectionVersionResponseList.md
 docs/PaginatedansibleCollectionVersionSignatureResponseList.md
 docs/PaginatedansibleGitRemoteResponseList.md
@@ -548,6 +582,7 @@ docs/PatchedTaskCancel.md
 docs/PatchedUpstreamPulp.md
 docs/PatchedUser.md
 docs/PatchedansibleAnsibleDistribution.md
+docs/PatchedansibleAnsibleNamespaceMetadata.md
 docs/PatchedansibleAnsibleRepository.md
 docs/PatchedansibleCollectionRemote.md
 docs/PatchedansibleGitRemote.md
@@ -599,6 +634,7 @@ docs/PulpAnsibleApiV3CollectionsAllApi.md
 docs/PulpAnsibleApiV3CollectionsApi.md
 docs/PulpAnsibleApiV3CollectionsVersionsApi.md
 docs/PulpAnsibleApiV3CollectionsVersionsDocsBlobApi.md
+docs/PulpAnsibleApiV3NamespacesApi.md
 docs/PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.md
 docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsApi.md
 docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApi.md
@@ -607,6 +643,8 @@ docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsArtifactsApi.md
 docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApi.md
 docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi.md
 docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi.md
+docs/PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.md
+docs/PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApi.md
 docs/PulpAnsibleArtifactsCollectionsV3Api.md
 docs/PulpAnsibleDefaultApiApi.md
 docs/PulpAnsibleDefaultApiV3Api.md
@@ -616,6 +654,7 @@ docs/PulpAnsibleDefaultApiV3CollectionsAllApi.md
 docs/PulpAnsibleDefaultApiV3CollectionsApi.md
 docs/PulpAnsibleDefaultApiV3CollectionsVersionsApi.md
 docs/PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApi.md
+docs/PulpAnsibleDefaultApiV3NamespacesApi.md
 docs/PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.md
 docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAllCollectionsApi.md
 docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAllVersionsApi.md
@@ -624,6 +663,8 @@ docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsArtifactsApi.md
 docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApi.md
 docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApi.md
 docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi.md
+docs/PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi.md
+docs/PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApi.md
 docs/PulpAnsibleTagsApi.md
 docs/PulpContainerNamespacesApi.md
 docs/PulpExport.md
@@ -644,8 +685,10 @@ docs/PypiApi.md
 docs/PypiLegacyApi.md
 docs/PypiMetadataApi.md
 docs/PypiSimpleApi.md
+docs/PythonBanderRemote.md
 docs/PythonPythonDistribution.md
 docs/PythonPythonDistributionResponse.md
+docs/PythonPythonPackageContent.md
 docs/PythonPythonPackageContentResponse.md
 docs/PythonPythonPublication.md
 docs/PythonPythonPublicationResponse.md
@@ -698,6 +741,7 @@ docs/RepositoriesPythonVersionsApi.md
 docs/RepositoriesReclaimSpaceApi.md
 docs/RepositoriesRpmApi.md
 docs/RepositoriesRpmVersionsApi.md
+docs/Repository.md
 docs/RepositoryAddCachedContent.md
 docs/RepositoryAddRemoveContent.md
 docs/RepositoryResponse.md
@@ -718,6 +762,7 @@ docs/RpmModulemdDefaultsResponse.md
 docs/RpmModulemdObsolete.md
 docs/RpmModulemdObsoleteResponse.md
 docs/RpmModulemdResponse.md
+docs/RpmPackage.md
 docs/RpmPackageCategoryResponse.md
 docs/RpmPackageEnvironmentResponse.md
 docs/RpmPackageGroupResponse.md
@@ -739,6 +784,7 @@ docs/RpmUlnRemote.md
 docs/RpmUlnRemoteResponse.md
 docs/RpmUpdateCollection.md
 docs/RpmUpdateCollectionResponse.md
+docs/RpmUpdateRecord.md
 docs/RpmUpdateRecordResponse.md
 docs/SigningServiceResponse.md
 docs/SigningServicesApi.md
@@ -757,6 +803,7 @@ docs/SyncPolicyEnum.md
 docs/TagCopy.md
 docs/TagImage.md
 docs/TagResponse.md
+docs/Task.md
 docs/TaskGroupOperationResponse.md
 docs/TaskGroupResponse.md
 docs/TaskGroupsApi.md
@@ -768,6 +815,7 @@ docs/TokenApi.md
 docs/UnTagImage.md
 docs/UnpaginatedCollectionVersionResponse.md
 docs/Upload.md
+docs/UploadChunk.md
 docs/UploadChunkResponse.md
 docs/UploadCommit.md
 docs/UploadDetailResponse.md
@@ -797,16 +845,23 @@ model_access_policy_response.go
 model_addon_response.go
 model_ansible_ansible_distribution.go
 model_ansible_ansible_distribution_response.go
+model_ansible_ansible_namespace_metadata.go
+model_ansible_ansible_namespace_metadata_response.go
 model_ansible_ansible_repository.go
 model_ansible_ansible_repository_response.go
 model_ansible_collection.go
 model_ansible_collection_remote.go
 model_ansible_collection_remote_response.go
 model_ansible_collection_response.go
+model_ansible_collection_version.go
+model_ansible_collection_version_mark.go
+model_ansible_collection_version_mark_response.go
 model_ansible_collection_version_response.go
+model_ansible_collection_version_signature.go
 model_ansible_collection_version_signature_response.go
 model_ansible_git_remote.go
 model_ansible_git_remote_response.go
+model_ansible_repository_mark.go
 model_ansible_repository_rebuild.go
 model_ansible_repository_signature.go
 model_ansible_repository_sync_url.go
@@ -816,6 +871,7 @@ model_ansible_role_remote_response.go
 model_ansible_role_response.go
 model_ansible_tag_response.go
 model_apt_repository_sync_url.go
+model_artifact.go
 model_artifact_distribution_response.go
 model_artifact_ref_response.go
 model_artifact_response.go
@@ -829,11 +885,17 @@ model_client_configuration_response.go
 model_collection_import_detail_response.go
 model_collection_metadata_response.go
 model_collection_namespace_response.go
+model_collection_one_shot.go
 model_collection_ref_response.go
 model_collection_response.go
+model_collection_summary_response.go
+model_collection_version_copy_move.go
 model_collection_version_docs_response.go
 model_collection_version_list_response.go
 model_collection_version_response.go
+model_collection_version_search_list.go
+model_collection_version_search_list_response.go
+model_comps_xml.go
 model_container_blob_response.go
 model_container_container_distribution.go
 model_container_container_distribution_response.go
@@ -865,7 +927,9 @@ model_deb_apt_remote.go
 model_deb_apt_remote_response.go
 model_deb_apt_repository.go
 model_deb_apt_repository_response.go
+model_deb_base_package.go
 model_deb_base_package_response.go
+model_deb_generic_content.go
 model_deb_generic_content_response.go
 model_deb_installer_file_index.go
 model_deb_installer_file_index_response.go
@@ -890,6 +954,7 @@ model_evaluation_response.go
 model_exclude_platforms_enum.go
 model_file_file_alternate_content_source.go
 model_file_file_alternate_content_source_response.go
+model_file_file_content.go
 model_file_file_content_response.go
 model_file_file_distribution.go
 model_file_file_distribution_response.go
@@ -932,9 +997,12 @@ model_method_enum.go
 model_minimal_task_response.go
 model_multiple_artifact_content_response.go
 model_my_permissions_response.go
+model_namespace_link.go
+model_namespace_link_response.go
 model_nested_role.go
 model_nested_role_response.go
 model_object_roles_response.go
+model_oci_build_image.go
 model_orphans_cleanup.go
 model_ostree_import_all.go
 model_ostree_import_commits_to_ref.go
@@ -953,6 +1021,7 @@ model_ostree_ostree_summary_response.go
 model_package_checksum_type_enum.go
 model_package_metadata_response.go
 model_package_types_enum.go
+model_package_upload.go
 model_package_upload_task_response.go
 model_paginated_access_policy_response_list.go
 model_paginated_artifact_distribution_response_list.go
@@ -961,6 +1030,7 @@ model_paginated_collection_response_list.go
 model_paginated_collection_response_list_links.go
 model_paginated_collection_response_list_meta.go
 model_paginated_collection_version_list_response_list.go
+model_paginated_collection_version_search_list_response_list.go
 model_paginated_content_guard_response_list.go
 model_paginated_content_redirect_content_guard_response_list.go
 model_paginated_distribution_response_list.go
@@ -996,9 +1066,11 @@ model_paginated_user_response_list.go
 model_paginated_user_role_response_list.go
 model_paginated_worker_response_list.go
 model_paginatedansible_ansible_distribution_response_list.go
+model_paginatedansible_ansible_namespace_metadata_response_list.go
 model_paginatedansible_ansible_repository_response_list.go
 model_paginatedansible_collection_remote_response_list.go
 model_paginatedansible_collection_response_list.go
+model_paginatedansible_collection_version_mark_response_list.go
 model_paginatedansible_collection_version_response_list.go
 model_paginatedansible_collection_version_signature_response_list.go
 model_paginatedansible_git_remote_response_list.go
@@ -1083,6 +1155,7 @@ model_patched_task_cancel.go
 model_patched_upstream_pulp.go
 model_patched_user.go
 model_patchedansible_ansible_distribution.go
+model_patchedansible_ansible_namespace_metadata.go
 model_patchedansible_ansible_repository.go
 model_patchedansible_collection_remote.go
 model_patchedansible_git_remote.go
@@ -1132,8 +1205,10 @@ model_pulp_import_check_response_toc.go
 model_pulp_importer.go
 model_pulp_importer_response.go
 model_purge.go
+model_python_bander_remote.go
 model_python_python_distribution.go
 model_python_python_distribution_response.go
+model_python_python_package_content.go
 model_python_python_package_content_response.go
 model_python_python_publication.go
 model_python_python_publication_response.go
@@ -1153,6 +1228,7 @@ model_remove_signatures.go
 model_remove_signatures_response.go
 model_repair.go
 model_repo_metadata_response.go
+model_repository.go
 model_repository_add_cached_content.go
 model_repository_add_remove_content.go
 model_repository_response.go
@@ -1169,6 +1245,7 @@ model_rpm_modulemd_defaults_response.go
 model_rpm_modulemd_obsolete.go
 model_rpm_modulemd_obsolete_response.go
 model_rpm_modulemd_response.go
+model_rpm_package.go
 model_rpm_package_category_response.go
 model_rpm_package_environment_response.go
 model_rpm_package_group_response.go
@@ -1190,6 +1267,7 @@ model_rpm_uln_remote.go
 model_rpm_uln_remote_response.go
 model_rpm_update_collection.go
 model_rpm_update_collection_response.go
+model_rpm_update_record.go
 model_rpm_update_record_response.go
 model_signing_service_response.go
 model_skip_types_enum.go
@@ -1206,6 +1284,7 @@ model_sync_policy_enum.go
 model_tag_copy.go
 model_tag_image.go
 model_tag_response.go
+model_task.go
 model_task_group_operation_response.go
 model_task_group_response.go
 model_task_response.go
@@ -1213,6 +1292,7 @@ model_task_schedule_response.go
 model_un_tag_image.go
 model_unpaginated_collection_version_response.go
 model_upload.go
+model_upload_chunk.go
 model_upload_chunk_response.go
 model_upload_commit.go
 model_upload_detail_response.go
@@ -1242,6 +1322,7 @@ test/api_content_advisories_test.go
 test/api_content_artifact_test.go
 test/api_content_blobs_test.go
 test/api_content_collection_deprecations_test.go
+test/api_content_collection_marks_test.go
 test/api_content_collection_signatures_test.go
 test/api_content_collection_versions_test.go
 test/api_content_commits_test.go
@@ -1256,6 +1337,7 @@ test/api_content_manifests_test.go
 test/api_content_modulemd_defaults_test.go
 test/api_content_modulemd_obsoletes_test.go
 test/api_content_modulemds_test.go
+test/api_content_namespaces_test.go
 test/api_content_objects_test.go
 test/api_content_package_indices_test.go
 test/api_content_package_release_components_test.go
@@ -1321,6 +1403,7 @@ test/api_pulp_ansible_api_v3_collections_all_test.go
 test/api_pulp_ansible_api_v3_collections_test.go
 test/api_pulp_ansible_api_v3_collections_versions_docs_blob_test.go
 test/api_pulp_ansible_api_v3_collections_versions_test.go
+test/api_pulp_ansible_api_v3_namespaces_test.go
 test/api_pulp_ansible_api_v3_plugin_ansible_client_configuration_test.go
 test/api_pulp_ansible_api_v3_plugin_ansible_content_collections_all_collections_test.go
 test/api_pulp_ansible_api_v3_plugin_ansible_content_collections_all_versions_test.go
@@ -1329,6 +1412,8 @@ test/api_pulp_ansible_api_v3_plugin_ansible_content_collections_index_test.go
 test/api_pulp_ansible_api_v3_plugin_ansible_content_collections_index_versions_docs_blob_test.go
 test/api_pulp_ansible_api_v3_plugin_ansible_content_collections_index_versions_test.go
 test/api_pulp_ansible_api_v3_plugin_ansible_content_collections_test.go
+test/api_pulp_ansible_api_v3_plugin_ansible_content_namespaces_test.go
+test/api_pulp_ansible_api_v3_plugin_ansible_search_collection_versions_test.go
 test/api_pulp_ansible_api_v3_test.go
 test/api_pulp_ansible_artifacts_collections_v3_test.go
 test/api_pulp_ansible_default_api_test.go
@@ -1338,6 +1423,7 @@ test/api_pulp_ansible_default_api_v3_collections_all_test.go
 test/api_pulp_ansible_default_api_v3_collections_test.go
 test/api_pulp_ansible_default_api_v3_collections_versions_docs_blob_test.go
 test/api_pulp_ansible_default_api_v3_collections_versions_test.go
+test/api_pulp_ansible_default_api_v3_namespaces_test.go
 test/api_pulp_ansible_default_api_v3_plugin_ansible_client_configuration_test.go
 test/api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_all_collections_test.go
 test/api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_all_versions_test.go
@@ -1346,6 +1432,8 @@ test/api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index_te
 test/api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index_versions_docs_blob_test.go
 test/api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_index_versions_test.go
 test/api_pulp_ansible_default_api_v3_plugin_ansible_content_collections_test.go
+test/api_pulp_ansible_default_api_v3_plugin_ansible_content_namespaces_test.go
+test/api_pulp_ansible_default_api_v3_plugin_ansible_search_collection_versions_test.go
 test/api_pulp_ansible_default_api_v3_test.go
 test/api_pulp_ansible_tags_test.go
 test/api_pulp_container_namespaces_test.go

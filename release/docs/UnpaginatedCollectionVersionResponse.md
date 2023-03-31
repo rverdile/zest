@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **time.Time** |  | 
 **UpdatedAt** | **time.Time** |  | 
 **RequiresAnsible** | Pointer to **NullableString** |  | [optional] 
+**Marks** | Pointer to **[]string** |  | [optional] [readonly] 
 **Artifact** | Pointer to [**ArtifactRefResponse**](ArtifactRefResponse.md) |  | [optional] [readonly] 
 **Collection** | Pointer to [**CollectionRefResponse**](CollectionRefResponse.md) |  | [optional] [readonly] 
 **DownloadUrl** | Pointer to **string** |  | [optional] [readonly] 
@@ -163,6 +164,31 @@ HasRequiresAnsible returns a boolean if a field has been set.
 `func (o *UnpaginatedCollectionVersionResponse) UnsetRequiresAnsible()`
 
 UnsetRequiresAnsible ensures that no value is present for RequiresAnsible, not even an explicit nil
+### GetMarks
+
+`func (o *UnpaginatedCollectionVersionResponse) GetMarks() []string`
+
+GetMarks returns the Marks field if non-nil, zero value otherwise.
+
+### GetMarksOk
+
+`func (o *UnpaginatedCollectionVersionResponse) GetMarksOk() (*[]string, bool)`
+
+GetMarksOk returns a tuple with the Marks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarks
+
+`func (o *UnpaginatedCollectionVersionResponse) SetMarks(v []string)`
+
+SetMarks sets Marks field to given value.
+
+### HasMarks
+
+`func (o *UnpaginatedCollectionVersionResponse) HasMarks() bool`
+
+HasMarks returns a boolean if a field has been set.
+
 ### GetArtifact
 
 `func (o *UnpaginatedCollectionVersionResponse) GetArtifact() ArtifactRefResponse`

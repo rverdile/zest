@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet**](PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.md#PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/client-configuration/ | 
+[**PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead**](PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.md#PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/client-configuration/ | 
 
 
 
-## PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet
+## PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead
 
-> ClientConfigurationResponse PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet(ctx, path).Fields(fields).ExcludeFields(excludeFields).Execute()
+> ClientConfigurationResponse PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead(ctx, path).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet(context.Background(), path).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead(context.Background(), path).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet`: ClientConfigurationResponse
-    fmt.Fprintf(os.Stdout, "Response from `PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet`: %v\n", resp)
+    // response from `PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead`: ClientConfigurationResponse
+    fmt.Fprintf(os.Stdout, "Response from `PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead`: %v\n", resp)
 }
 ```
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

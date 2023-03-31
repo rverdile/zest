@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **time.Time** |  | 
 **UpdatedAt** | **time.Time** |  | 
 **RequiresAnsible** | Pointer to **NullableString** |  | [optional] 
+**Marks** | Pointer to **[]string** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -154,6 +155,31 @@ HasRequiresAnsible returns a boolean if a field has been set.
 `func (o *CollectionVersionListResponse) UnsetRequiresAnsible()`
 
 UnsetRequiresAnsible ensures that no value is present for RequiresAnsible, not even an explicit nil
+### GetMarks
+
+`func (o *CollectionVersionListResponse) GetMarks() []string`
+
+GetMarks returns the Marks field if non-nil, zero value otherwise.
+
+### GetMarksOk
+
+`func (o *CollectionVersionListResponse) GetMarksOk() (*[]string, bool)`
+
+GetMarksOk returns a tuple with the Marks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarks
+
+`func (o *CollectionVersionListResponse) SetMarks(v []string)`
+
+SetMarks sets Marks field to given value.
+
+### HasMarks
+
+`func (o *CollectionVersionListResponse) HasMarks() bool`
+
+HasMarks returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

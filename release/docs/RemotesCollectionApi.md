@@ -4,13 +4,89 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**RemotesAnsibleCollectionAddRole**](RemotesCollectionApi.md#RemotesAnsibleCollectionAddRole) | **Post** /{ansible_collection_remote_href}add_role/ | 
 [**RemotesAnsibleCollectionCreate**](RemotesCollectionApi.md#RemotesAnsibleCollectionCreate) | **Post** /pulp/api/v3/remotes/ansible/collection/ | Create a collection remote
 [**RemotesAnsibleCollectionDelete**](RemotesCollectionApi.md#RemotesAnsibleCollectionDelete) | **Delete** /{ansible_collection_remote_href} | Delete a collection remote
 [**RemotesAnsibleCollectionList**](RemotesCollectionApi.md#RemotesAnsibleCollectionList) | **Get** /pulp/api/v3/remotes/ansible/collection/ | List collection remotes
+[**RemotesAnsibleCollectionListRoles**](RemotesCollectionApi.md#RemotesAnsibleCollectionListRoles) | **Get** /{ansible_collection_remote_href}list_roles/ | 
+[**RemotesAnsibleCollectionMyPermissions**](RemotesCollectionApi.md#RemotesAnsibleCollectionMyPermissions) | **Get** /{ansible_collection_remote_href}my_permissions/ | 
 [**RemotesAnsibleCollectionPartialUpdate**](RemotesCollectionApi.md#RemotesAnsibleCollectionPartialUpdate) | **Patch** /{ansible_collection_remote_href} | Update a collection remote
 [**RemotesAnsibleCollectionRead**](RemotesCollectionApi.md#RemotesAnsibleCollectionRead) | **Get** /{ansible_collection_remote_href} | Inspect a collection remote
+[**RemotesAnsibleCollectionRemoveRole**](RemotesCollectionApi.md#RemotesAnsibleCollectionRemoveRole) | **Post** /{ansible_collection_remote_href}remove_role/ | 
 [**RemotesAnsibleCollectionUpdate**](RemotesCollectionApi.md#RemotesAnsibleCollectionUpdate) | **Put** /{ansible_collection_remote_href} | Update a collection remote
 
+
+
+## RemotesAnsibleCollectionAddRole
+
+> NestedRoleResponse RemotesAnsibleCollectionAddRole(ctx, ansibleCollectionRemoteHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionRemoteHref := "ansibleCollectionRemoteHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesCollectionApi.RemotesAnsibleCollectionAddRole(context.Background(), ansibleCollectionRemoteHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesCollectionApi.RemotesAnsibleCollectionAddRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleCollectionAddRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesCollectionApi.RemotesAnsibleCollectionAddRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleCollectionAddRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## RemotesAnsibleCollectionCreate
@@ -151,7 +227,7 @@ Name | Type | Description  | Notes
 
 ## RemotesAnsibleCollectionList
 
-> PaginatedansibleCollectionRemoteResponseList RemotesAnsibleCollectionList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedansibleCollectionRemoteResponseList RemotesAnsibleCollectionList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Url(url).UrlContains(urlContains).UrlIcontains(urlIcontains).UrlIn(urlIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List collection remotes
 
@@ -186,12 +262,16 @@ func main() {
     pulpLastUpdatedLt := time.Now() // time.Time | Filter results where pulp_last_updated is less than value (optional)
     pulpLastUpdatedLte := time.Now() // time.Time | Filter results where pulp_last_updated is less than or equal to value (optional)
     pulpLastUpdatedRange := []time.Time{time.Now()} // []time.Time | Filter results where pulp_last_updated is between two comma separated values (optional)
+    url := "url_example" // string | Filter results where url matches value (optional)
+    urlContains := "urlContains_example" // string | Filter results where url contains value (optional)
+    urlIcontains := "urlIcontains_example" // string | Filter results where url contains value (optional)
+    urlIn := []string{"Inner_example"} // []string | Filter results where url is in a comma-separated list of values (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
     excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RemotesCollectionApi.RemotesAnsibleCollectionList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.RemotesCollectionApi.RemotesAnsibleCollectionList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Url(url).UrlContains(urlContains).UrlIcontains(urlIcontains).UrlIn(urlIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RemotesCollectionApi.RemotesAnsibleCollectionList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -227,12 +307,164 @@ Name | Type | Description  | Notes
  **pulpLastUpdatedLt** | **time.Time** | Filter results where pulp_last_updated is less than value | 
  **pulpLastUpdatedLte** | **time.Time** | Filter results where pulp_last_updated is less than or equal to value | 
  **pulpLastUpdatedRange** | [**[]time.Time**](time.Time.md) | Filter results where pulp_last_updated is between two comma separated values | 
+ **url** | **string** | Filter results where url matches value | 
+ **urlContains** | **string** | Filter results where url contains value | 
+ **urlIcontains** | **string** | Filter results where url contains value | 
+ **urlIn** | **[]string** | Filter results where url is in a comma-separated list of values | 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
 
 ### Return type
 
 [**PaginatedansibleCollectionRemoteResponseList**](PaginatedansibleCollectionRemoteResponseList.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemotesAnsibleCollectionListRoles
+
+> ObjectRolesResponse RemotesAnsibleCollectionListRoles(ctx, ansibleCollectionRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionRemoteHref := "ansibleCollectionRemoteHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesCollectionApi.RemotesAnsibleCollectionListRoles(context.Background(), ansibleCollectionRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesCollectionApi.RemotesAnsibleCollectionListRoles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleCollectionListRoles`: ObjectRolesResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesCollectionApi.RemotesAnsibleCollectionListRoles`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleCollectionListRolesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**ObjectRolesResponse**](ObjectRolesResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemotesAnsibleCollectionMyPermissions
+
+> MyPermissionsResponse RemotesAnsibleCollectionMyPermissions(ctx, ansibleCollectionRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionRemoteHref := "ansibleCollectionRemoteHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesCollectionApi.RemotesAnsibleCollectionMyPermissions(context.Background(), ansibleCollectionRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesCollectionApi.RemotesAnsibleCollectionMyPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleCollectionMyPermissions`: MyPermissionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesCollectionApi.RemotesAnsibleCollectionMyPermissions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleCollectionMyPermissionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**MyPermissionsResponse**](MyPermissionsResponse.md)
 
 ### Authorization
 
@@ -387,6 +619,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemotesAnsibleCollectionRemoveRole
+
+> NestedRoleResponse RemotesAnsibleCollectionRemoveRole(ctx, ansibleCollectionRemoteHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleCollectionRemoteHref := "ansibleCollectionRemoteHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesCollectionApi.RemotesAnsibleCollectionRemoveRole(context.Background(), ansibleCollectionRemoteHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesCollectionApi.RemotesAnsibleCollectionRemoveRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleCollectionRemoveRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesCollectionApi.RemotesAnsibleCollectionRemoveRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleCollectionRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleCollectionRemoveRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

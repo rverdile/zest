@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Remote** | Pointer to **NullableString** | An optional remote to use by default when syncing. | [optional] 
 **LastSyncedMetadataTime** | Pointer to **NullableTime** | Last synced metadata time. | [optional] 
 **Gpgkey** | Pointer to **NullableString** | Gpg public key to verify collection signatures against | [optional] 
+**Private** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -251,6 +252,31 @@ HasGpgkey returns a boolean if a field has been set.
 `func (o *AnsibleAnsibleRepository) UnsetGpgkey()`
 
 UnsetGpgkey ensures that no value is present for Gpgkey, not even an explicit nil
+### GetPrivate
+
+`func (o *AnsibleAnsibleRepository) GetPrivate() bool`
+
+GetPrivate returns the Private field if non-nil, zero value otherwise.
+
+### GetPrivateOk
+
+`func (o *AnsibleAnsibleRepository) GetPrivateOk() (*bool, bool)`
+
+GetPrivateOk returns a tuple with the Private field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivate
+
+`func (o *AnsibleAnsibleRepository) SetPrivate(v bool)`
+
+SetPrivate sets Private field to given value.
+
+### HasPrivate
+
+`func (o *AnsibleAnsibleRepository) HasPrivate() bool`
+
+HasPrivate returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

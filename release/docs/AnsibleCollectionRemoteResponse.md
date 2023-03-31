@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **AuthUrl** | Pointer to **NullableString** | The URL to receive a session token from, e.g. used with Automation Hub. | [optional] 
 **SyncDependencies** | Pointer to **bool** | Sync dependencies for collections specified via requirements file | [optional] [default to true]
 **SignedOnly** | Pointer to **bool** | Sync only collections that have a signature | [optional] [default to false]
+**LastSyncTask** | Pointer to [**TaskResponse**](TaskResponse.md) |  | [optional] [readonly] 
 
 ## Methods
 
@@ -757,6 +758,31 @@ SetSignedOnly sets SignedOnly field to given value.
 `func (o *AnsibleCollectionRemoteResponse) HasSignedOnly() bool`
 
 HasSignedOnly returns a boolean if a field has been set.
+
+### GetLastSyncTask
+
+`func (o *AnsibleCollectionRemoteResponse) GetLastSyncTask() TaskResponse`
+
+GetLastSyncTask returns the LastSyncTask field if non-nil, zero value otherwise.
+
+### GetLastSyncTaskOk
+
+`func (o *AnsibleCollectionRemoteResponse) GetLastSyncTaskOk() (*TaskResponse, bool)`
+
+GetLastSyncTaskOk returns a tuple with the LastSyncTask field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastSyncTask
+
+`func (o *AnsibleCollectionRemoteResponse) SetLastSyncTask(v TaskResponse)`
+
+SetLastSyncTask sets LastSyncTask field to given value.
+
+### HasLastSyncTask
+
+`func (o *AnsibleCollectionRemoteResponse) HasLastSyncTask() bool`
+
+HasLastSyncTask returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

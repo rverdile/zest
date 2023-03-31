@@ -4,13 +4,89 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DistributionsAnsibleAnsibleAddRole**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleAddRole) | **Post** /{ansible_ansible_distribution_href}add_role/ | 
 [**DistributionsAnsibleAnsibleCreate**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleCreate) | **Post** /pulp/api/v3/distributions/ansible/ansible/ | Create an ansible distribution
 [**DistributionsAnsibleAnsibleDelete**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleDelete) | **Delete** /{ansible_ansible_distribution_href} | Delete an ansible distribution
 [**DistributionsAnsibleAnsibleList**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleList) | **Get** /pulp/api/v3/distributions/ansible/ansible/ | List ansible distributions
+[**DistributionsAnsibleAnsibleListRoles**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleListRoles) | **Get** /{ansible_ansible_distribution_href}list_roles/ | 
+[**DistributionsAnsibleAnsibleMyPermissions**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleMyPermissions) | **Get** /{ansible_ansible_distribution_href}my_permissions/ | 
 [**DistributionsAnsibleAnsiblePartialUpdate**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsiblePartialUpdate) | **Patch** /{ansible_ansible_distribution_href} | Update an ansible distribution
 [**DistributionsAnsibleAnsibleRead**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleRead) | **Get** /{ansible_ansible_distribution_href} | Inspect an ansible distribution
+[**DistributionsAnsibleAnsibleRemoveRole**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleRemoveRole) | **Post** /{ansible_ansible_distribution_href}remove_role/ | 
 [**DistributionsAnsibleAnsibleUpdate**](DistributionsAnsibleApi.md#DistributionsAnsibleAnsibleUpdate) | **Put** /{ansible_ansible_distribution_href} | Update an ansible distribution
 
+
+
+## DistributionsAnsibleAnsibleAddRole
+
+> NestedRoleResponse DistributionsAnsibleAnsibleAddRole(ctx, ansibleAnsibleDistributionHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleDistributionHref := "ansibleAnsibleDistributionHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleAddRole(context.Background(), ansibleAnsibleDistributionHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DistributionsAnsibleApi.DistributionsAnsibleAnsibleAddRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DistributionsAnsibleAnsibleAddRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `DistributionsAnsibleApi.DistributionsAnsibleAnsibleAddRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleDistributionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDistributionsAnsibleAnsibleAddRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## DistributionsAnsibleAnsibleCreate
@@ -249,6 +325,154 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DistributionsAnsibleAnsibleListRoles
+
+> ObjectRolesResponse DistributionsAnsibleAnsibleListRoles(ctx, ansibleAnsibleDistributionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleDistributionHref := "ansibleAnsibleDistributionHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleListRoles(context.Background(), ansibleAnsibleDistributionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DistributionsAnsibleApi.DistributionsAnsibleAnsibleListRoles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DistributionsAnsibleAnsibleListRoles`: ObjectRolesResponse
+    fmt.Fprintf(os.Stdout, "Response from `DistributionsAnsibleApi.DistributionsAnsibleAnsibleListRoles`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleDistributionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDistributionsAnsibleAnsibleListRolesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**ObjectRolesResponse**](ObjectRolesResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DistributionsAnsibleAnsibleMyPermissions
+
+> MyPermissionsResponse DistributionsAnsibleAnsibleMyPermissions(ctx, ansibleAnsibleDistributionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleDistributionHref := "ansibleAnsibleDistributionHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleMyPermissions(context.Background(), ansibleAnsibleDistributionHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DistributionsAnsibleApi.DistributionsAnsibleAnsibleMyPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DistributionsAnsibleAnsibleMyPermissions`: MyPermissionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `DistributionsAnsibleApi.DistributionsAnsibleAnsibleMyPermissions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleDistributionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDistributionsAnsibleAnsibleMyPermissionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**MyPermissionsResponse**](MyPermissionsResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DistributionsAnsibleAnsiblePartialUpdate
 
 > AsyncOperationResponse DistributionsAnsibleAnsiblePartialUpdate(ctx, ansibleAnsibleDistributionHref).PatchedansibleAnsibleDistribution(patchedansibleAnsibleDistribution).Execute()
@@ -388,6 +612,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DistributionsAnsibleAnsibleRemoveRole
+
+> NestedRoleResponse DistributionsAnsibleAnsibleRemoveRole(ctx, ansibleAnsibleDistributionHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleDistributionHref := "ansibleAnsibleDistributionHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleRemoveRole(context.Background(), ansibleAnsibleDistributionHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DistributionsAnsibleApi.DistributionsAnsibleAnsibleRemoveRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DistributionsAnsibleAnsibleRemoveRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `DistributionsAnsibleApi.DistributionsAnsibleAnsibleRemoveRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleDistributionHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDistributionsAnsibleAnsibleRemoveRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

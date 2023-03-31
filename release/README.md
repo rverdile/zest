@@ -1,4 +1,4 @@
-# Go API client for zest/release/v3
+# Go API client for zest
 
 Fetch, Upload, Organize, and Distribute Software Packages
 
@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import zest/release/v3 "github.com/content-services/zest/release/v3"
+import zest "github.com/content-services/zest/release/v3"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -40,7 +40,7 @@ Default configuration comes with `Servers` field that contains server objects as
 For using other server than the one defined on index 0 set context value `sw.ContextServerIndex` of type `int`.
 
 ```golang
-ctx := context.WithValue(context.Background(), zest/release/v3.ContextServerIndex, 1)
+ctx := context.WithValue(context.Background(), zest.ContextServerIndex, 1)
 ```
 
 ### Templated Server URL
@@ -48,7 +48,7 @@ ctx := context.WithValue(context.Background(), zest/release/v3.ContextServerInde
 Templated server URL is formatted using default variables from configuration or from context value `sw.ContextServerVariables` of type `map[string]string`.
 
 ```golang
-ctx := context.WithValue(context.Background(), zest/release/v3.ContextServerVariables, map[string]string{
+ctx := context.WithValue(context.Background(), zest.ContextServerVariables, map[string]string{
 	"basePath": "v2",
 })
 ```
@@ -62,10 +62,10 @@ An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```golang
-ctx := context.WithValue(context.Background(), zest/release/v3.ContextOperationServerIndices, map[string]int{
+ctx := context.WithValue(context.Background(), zest.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
-ctx = context.WithValue(context.Background(), zest/release/v3.ContextOperationServerVariables, map[string]map[string]string{
+ctx = context.WithValue(context.Background(), zest.ContextOperationServerVariables, map[string]map[string]string{
 	"{classname}Service.{nickname}": {
 		"port": "8443",
 	},
@@ -105,7 +105,11 @@ Class | Method | HTTP request | Description
 *AcsRpmApi* | [**AcsRpmRpmRefresh**](docs/AcsRpmApi.md#acsrpmrpmrefresh) | **Post** /{rpm_rpm_alternate_content_source_href}refresh/ | 
 *AcsRpmApi* | [**AcsRpmRpmRemoveRole**](docs/AcsRpmApi.md#acsrpmrpmremoverole) | **Post** /{rpm_rpm_alternate_content_source_href}remove_role/ | 
 *AcsRpmApi* | [**AcsRpmRpmUpdate**](docs/AcsRpmApi.md#acsrpmrpmupdate) | **Put** /{rpm_rpm_alternate_content_source_href} | Update a rpm alternate content source
+*AnsibleCollectionsApi* | [**AnsibleCollectionsAddRole**](docs/AnsibleCollectionsApi.md#ansiblecollectionsaddrole) | **Post** /{ansible_collection_href}add_role/ | 
 *AnsibleCollectionsApi* | [**AnsibleCollectionsList**](docs/AnsibleCollectionsApi.md#ansiblecollectionslist) | **Get** /pulp/api/v3/ansible/collections/ | List collections
+*AnsibleCollectionsApi* | [**AnsibleCollectionsListRoles**](docs/AnsibleCollectionsApi.md#ansiblecollectionslistroles) | **Get** /{ansible_collection_href}list_roles/ | 
+*AnsibleCollectionsApi* | [**AnsibleCollectionsMyPermissions**](docs/AnsibleCollectionsApi.md#ansiblecollectionsmypermissions) | **Get** /{ansible_collection_href}my_permissions/ | 
+*AnsibleCollectionsApi* | [**AnsibleCollectionsRemoveRole**](docs/AnsibleCollectionsApi.md#ansiblecollectionsremoverole) | **Post** /{ansible_collection_href}remove_role/ | 
 *AnsibleCollectionsApi* | [**UploadCollection**](docs/AnsibleCollectionsApi.md#uploadcollection) | **Post** /ansible/collections/ | Upload a collection
 *AnsibleCopyApi* | [**CopyContent**](docs/AnsibleCopyApi.md#copycontent) | **Post** /pulp/api/v3/ansible/copy/ | Copy content
 *ApiCollectionsApi* | [**ApiV2CollectionsGet**](docs/ApiCollectionsApi.md#apiv2collectionsget) | **Get** /{ansible_collection_href}api/v2/collections/ | 
@@ -128,6 +132,9 @@ Class | Method | HTTP request | Description
 *ContentCollectionDeprecationsApi* | [**ContentAnsibleCollectionDeprecationsCreate**](docs/ContentCollectionDeprecationsApi.md#contentansiblecollectiondeprecationscreate) | **Post** /pulp/api/v3/content/ansible/collection_deprecations/ | Create an ansible collection deprecated
 *ContentCollectionDeprecationsApi* | [**ContentAnsibleCollectionDeprecationsList**](docs/ContentCollectionDeprecationsApi.md#contentansiblecollectiondeprecationslist) | **Get** /pulp/api/v3/content/ansible/collection_deprecations/ | List ansible collection deprecateds
 *ContentCollectionDeprecationsApi* | [**ContentAnsibleCollectionDeprecationsRead**](docs/ContentCollectionDeprecationsApi.md#contentansiblecollectiondeprecationsread) | **Get** /{ansible_ansible_collection_deprecated_href} | Inspect an ansible collection deprecated
+*ContentCollectionMarksApi* | [**ContentAnsibleCollectionMarksCreate**](docs/ContentCollectionMarksApi.md#contentansiblecollectionmarkscreate) | **Post** /pulp/api/v3/content/ansible/collection_marks/ | Create a collection version mark
+*ContentCollectionMarksApi* | [**ContentAnsibleCollectionMarksList**](docs/ContentCollectionMarksApi.md#contentansiblecollectionmarkslist) | **Get** /pulp/api/v3/content/ansible/collection_marks/ | List collection version marks
+*ContentCollectionMarksApi* | [**ContentAnsibleCollectionMarksRead**](docs/ContentCollectionMarksApi.md#contentansiblecollectionmarksread) | **Get** /{ansible_collection_version_mark_href} | Inspect a collection version mark
 *ContentCollectionSignaturesApi* | [**ContentAnsibleCollectionSignaturesCreate**](docs/ContentCollectionSignaturesApi.md#contentansiblecollectionsignaturescreate) | **Post** /pulp/api/v3/content/ansible/collection_signatures/ | Create a collection version signature
 *ContentCollectionSignaturesApi* | [**ContentAnsibleCollectionSignaturesList**](docs/ContentCollectionSignaturesApi.md#contentansiblecollectionsignatureslist) | **Get** /pulp/api/v3/content/ansible/collection_signatures/ | List collection version signatures
 *ContentCollectionSignaturesApi* | [**ContentAnsibleCollectionSignaturesRead**](docs/ContentCollectionSignaturesApi.md#contentansiblecollectionsignaturesread) | **Get** /{ansible_collection_version_signature_href} | Inspect a collection version signature
@@ -165,6 +172,9 @@ Class | Method | HTTP request | Description
 *ContentModulemdsApi* | [**ContentRpmModulemdsCreate**](docs/ContentModulemdsApi.md#contentrpmmodulemdscreate) | **Post** /pulp/api/v3/content/rpm/modulemds/ | Create a modulemd
 *ContentModulemdsApi* | [**ContentRpmModulemdsList**](docs/ContentModulemdsApi.md#contentrpmmodulemdslist) | **Get** /pulp/api/v3/content/rpm/modulemds/ | List modulemds
 *ContentModulemdsApi* | [**ContentRpmModulemdsRead**](docs/ContentModulemdsApi.md#contentrpmmodulemdsread) | **Get** /{rpm_modulemd_href} | Inspect a modulemd
+*ContentNamespacesApi* | [**ContentAnsibleNamespacesAvatar**](docs/ContentNamespacesApi.md#contentansiblenamespacesavatar) | **Get** /{ansible_ansible_namespace_metadata_href}avatar/ | 
+*ContentNamespacesApi* | [**ContentAnsibleNamespacesList**](docs/ContentNamespacesApi.md#contentansiblenamespaceslist) | **Get** /pulp/api/v3/content/ansible/namespaces/ | List ansible namespace metadatas
+*ContentNamespacesApi* | [**ContentAnsibleNamespacesRead**](docs/ContentNamespacesApi.md#contentansiblenamespacesread) | **Get** /{ansible_ansible_namespace_metadata_href} | Inspect an ansible namespace metadata
 *ContentObjectsApi* | [**ContentOstreeObjectsList**](docs/ContentObjectsApi.md#contentostreeobjectslist) | **Get** /pulp/api/v3/content/ostree/objects/ | List ostree objects
 *ContentObjectsApi* | [**ContentOstreeObjectsRead**](docs/ContentObjectsApi.md#contentostreeobjectsread) | **Get** /{ostree_ostree_object_href} | Inspect an ostree object
 *ContentPackageIndicesApi* | [**ContentDebPackageIndicesCreate**](docs/ContentPackageIndicesApi.md#contentdebpackageindicescreate) | **Post** /pulp/api/v3/content/deb/package_indices/ | Create a package index
@@ -250,11 +260,15 @@ Class | Method | HTTP request | Description
 *ContentguardsX509Api* | [**ContentguardsCertguardX509Update**](docs/ContentguardsX509Api.md#contentguardscertguardx509update) | **Put** /{certguard_x509_cert_guard_href} | Update a x509 cert guard
 *DebCopyApi* | [**CopyContent**](docs/DebCopyApi.md#copycontent) | **Post** /pulp/api/v3/deb/copy/ | Copy content
 *DistributionsApi* | [**DistributionsList**](docs/DistributionsApi.md#distributionslist) | **Get** /pulp/api/v3/distributions/ | List distributions
+*DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleAddRole**](docs/DistributionsAnsibleApi.md#distributionsansibleansibleaddrole) | **Post** /{ansible_ansible_distribution_href}add_role/ | 
 *DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleCreate**](docs/DistributionsAnsibleApi.md#distributionsansibleansiblecreate) | **Post** /pulp/api/v3/distributions/ansible/ansible/ | Create an ansible distribution
 *DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleDelete**](docs/DistributionsAnsibleApi.md#distributionsansibleansibledelete) | **Delete** /{ansible_ansible_distribution_href} | Delete an ansible distribution
 *DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleList**](docs/DistributionsAnsibleApi.md#distributionsansibleansiblelist) | **Get** /pulp/api/v3/distributions/ansible/ansible/ | List ansible distributions
+*DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleListRoles**](docs/DistributionsAnsibleApi.md#distributionsansibleansiblelistroles) | **Get** /{ansible_ansible_distribution_href}list_roles/ | 
+*DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleMyPermissions**](docs/DistributionsAnsibleApi.md#distributionsansibleansiblemypermissions) | **Get** /{ansible_ansible_distribution_href}my_permissions/ | 
 *DistributionsAnsibleApi* | [**DistributionsAnsibleAnsiblePartialUpdate**](docs/DistributionsAnsibleApi.md#distributionsansibleansiblepartialupdate) | **Patch** /{ansible_ansible_distribution_href} | Update an ansible distribution
 *DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleRead**](docs/DistributionsAnsibleApi.md#distributionsansibleansibleread) | **Get** /{ansible_ansible_distribution_href} | Inspect an ansible distribution
+*DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleRemoveRole**](docs/DistributionsAnsibleApi.md#distributionsansibleansibleremoverole) | **Post** /{ansible_ansible_distribution_href}remove_role/ | 
 *DistributionsAnsibleApi* | [**DistributionsAnsibleAnsibleUpdate**](docs/DistributionsAnsibleApi.md#distributionsansibleansibleupdate) | **Put** /{ansible_ansible_distribution_href} | Update an ansible distribution
 *DistributionsAptApi* | [**DistributionsDebAptCreate**](docs/DistributionsAptApi.md#distributionsdebaptcreate) | **Post** /pulp/api/v3/distributions/deb/apt/ | Create an apt distribution
 *DistributionsAptApi* | [**DistributionsDebAptDelete**](docs/DistributionsAptApi.md#distributionsdebaptdelete) | **Delete** /{deb_apt_distribution_href} | Delete an apt distribution
@@ -414,7 +428,9 @@ Class | Method | HTTP request | Description
 *PulpAnsibleApiV3CollectionsVersionsApi* | [**PulpAnsibleGalaxyApiV3CollectionsVersionsList**](docs/PulpAnsibleApiV3CollectionsVersionsApi.md#pulpansiblegalaxyapiv3collectionsversionslist) | **Get** /pulp_ansible/galaxy/{path}/api/v3/collections/{namespace}/{name}/versions/ | 
 *PulpAnsibleApiV3CollectionsVersionsApi* | [**PulpAnsibleGalaxyApiV3CollectionsVersionsRead**](docs/PulpAnsibleApiV3CollectionsVersionsApi.md#pulpansiblegalaxyapiv3collectionsversionsread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/collections/{namespace}/{name}/versions/{version}/ | 
 *PulpAnsibleApiV3CollectionsVersionsDocsBlobApi* | [**PulpAnsibleGalaxyApiV3CollectionsVersionsDocsBlobRead**](docs/PulpAnsibleApiV3CollectionsVersionsDocsBlobApi.md#pulpansiblegalaxyapiv3collectionsversionsdocsblobread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/collections/{namespace}/{name}/versions/{version}/docs-blob/ | 
-*PulpAnsibleApiV3PluginAnsibleClientConfigurationApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationGet**](docs/PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.md#pulpansiblegalaxyapiv3pluginansibleclientconfigurationget) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/client-configuration/ | 
+*PulpAnsibleApiV3NamespacesApi* | [**PulpAnsibleGalaxyApiV3NamespacesList**](docs/PulpAnsibleApiV3NamespacesApi.md#pulpansiblegalaxyapiv3namespaceslist) | **Get** /pulp_ansible/galaxy/{path}/api/v3/namespaces/ | 
+*PulpAnsibleApiV3NamespacesApi* | [**PulpAnsibleGalaxyApiV3NamespacesRead**](docs/PulpAnsibleApiV3NamespacesApi.md#pulpansiblegalaxyapiv3namespacesread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/namespaces/{name}/ | 
+*PulpAnsibleApiV3PluginAnsibleClientConfigurationApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead**](docs/PulpAnsibleApiV3PluginAnsibleClientConfigurationApi.md#pulpansiblegalaxyapiv3pluginansibleclientconfigurationread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/client-configuration/ | 
 *PulpAnsibleApiV3PluginAnsibleContentCollectionsApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsRead**](docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsApi.md#pulpansiblegalaxyapiv3pluginansiblecontentcollectionsread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/collections/ | 
 *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllCollectionsList**](docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsApi.md#pulpansiblegalaxyapiv3pluginansiblecontentcollectionsallcollectionslist) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/collections/all-collections/ | 
 *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsList**](docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApi.md#pulpansiblegalaxyapiv3pluginansiblecontentcollectionsallversionslist) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/collections/all-versions/ | 
@@ -427,6 +443,13 @@ Class | Method | HTTP request | Description
 *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList**](docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi.md#pulpansiblegalaxyapiv3pluginansiblecontentcollectionsindexversionslist) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/collections/index/{namespace}/{name}/versions/ | 
 *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead**](docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi.md#pulpansiblegalaxyapiv3pluginansiblecontentcollectionsindexversionsread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/collections/index/{namespace}/{name}/versions/{version}/ | 
 *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobRead**](docs/PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi.md#pulpansiblegalaxyapiv3pluginansiblecontentcollectionsindexversionsdocsblobread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/collections/index/{namespace}/{name}/versions/{version}/docs-blob/ | 
+*PulpAnsibleApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesCreate**](docs/PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxyapiv3pluginansiblecontentnamespacescreate) | **Post** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/ | 
+*PulpAnsibleApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesDelete**](docs/PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxyapiv3pluginansiblecontentnamespacesdelete) | **Delete** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/ | 
+*PulpAnsibleApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesList**](docs/PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxyapiv3pluginansiblecontentnamespaceslist) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/ | 
+*PulpAnsibleApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesPartialUpdate**](docs/PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxyapiv3pluginansiblecontentnamespacespartialupdate) | **Patch** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/ | 
+*PulpAnsibleApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesRead**](docs/PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxyapiv3pluginansiblecontentnamespacesread) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/ | 
+*PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsList**](docs/PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApi.md#pulpansiblegalaxyapiv3pluginansiblesearchcollectionversionslist) | **Get** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/search/collection-versions/ | 
+*PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApi* | [**PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsRebuild**](docs/PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApi.md#pulpansiblegalaxyapiv3pluginansiblesearchcollectionversionsrebuild) | **Post** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/search/collection-versions/ | 
 *PulpAnsibleArtifactsCollectionsV3Api* | [**PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreate**](docs/PulpAnsibleArtifactsCollectionsV3Api.md#pulpansiblegalaxyapiv3artifactscollectionscreate) | **Post** /pulp_ansible/galaxy/{path}/api/v3/artifacts/collections/ | Upload a collection
 *PulpAnsibleArtifactsCollectionsV3Api* | [**PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreate**](docs/PulpAnsibleArtifactsCollectionsV3Api.md#pulpansiblegalaxyapiv3pluginansiblecontentcollectionsartifactscreate) | **Post** /pulp_ansible/galaxy/{path}/api/v3/plugin/ansible/content/{distro_base_path}/collections/artifacts/ | Upload a collection
 *PulpAnsibleArtifactsCollectionsV3Api* | [**PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreate**](docs/PulpAnsibleArtifactsCollectionsV3Api.md#pulpansiblegalaxydefaultapiv3artifactscollectionscreate) | **Post** /pulp_ansible/galaxy/default/api/v3/artifacts/collections/ | Upload a collection
@@ -444,7 +467,9 @@ Class | Method | HTTP request | Description
 *PulpAnsibleDefaultApiV3CollectionsVersionsApi* | [**PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsList**](docs/PulpAnsibleDefaultApiV3CollectionsVersionsApi.md#pulpansiblegalaxydefaultapiv3collectionsversionslist) | **Get** /pulp_ansible/galaxy/default/api/v3/collections/{namespace}/{name}/versions/ | 
 *PulpAnsibleDefaultApiV3CollectionsVersionsApi* | [**PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsRead**](docs/PulpAnsibleDefaultApiV3CollectionsVersionsApi.md#pulpansiblegalaxydefaultapiv3collectionsversionsread) | **Get** /pulp_ansible/galaxy/default/api/v3/collections/{namespace}/{name}/versions/{version}/ | 
 *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApi* | [**PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobRead**](docs/PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApi.md#pulpansiblegalaxydefaultapiv3collectionsversionsdocsblobread) | **Get** /pulp_ansible/galaxy/default/api/v3/collections/{namespace}/{name}/versions/{version}/docs-blob/ | 
-*PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationGet**](docs/PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.md#pulpansiblegalaxydefaultapiv3pluginansibleclientconfigurationget) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/client-configuration/ | 
+*PulpAnsibleDefaultApiV3NamespacesApi* | [**PulpAnsibleGalaxyDefaultApiV3NamespacesList**](docs/PulpAnsibleDefaultApiV3NamespacesApi.md#pulpansiblegalaxydefaultapiv3namespaceslist) | **Get** /pulp_ansible/galaxy/default/api/v3/namespaces/ | 
+*PulpAnsibleDefaultApiV3NamespacesApi* | [**PulpAnsibleGalaxyDefaultApiV3NamespacesRead**](docs/PulpAnsibleDefaultApiV3NamespacesApi.md#pulpansiblegalaxydefaultapiv3namespacesread) | **Get** /pulp_ansible/galaxy/default/api/v3/namespaces/{name}/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead**](docs/PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.md#pulpansiblegalaxydefaultapiv3pluginansibleclientconfigurationread) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/client-configuration/ | 
 *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsRead**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentcollectionsread) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/collections/ | 
 *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAllCollectionsApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsAllCollectionsList**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAllCollectionsApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentcollectionsallcollectionslist) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/collections/all-collections/ | 
 *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAllVersionsApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsAllVersionsList**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAllVersionsApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentcollectionsallversionslist) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/collections/all-versions/ | 
@@ -457,6 +482,13 @@ Class | Method | HTTP request | Description
 *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsList**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentcollectionsindexversionslist) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/collections/index/{namespace}/{name}/versions/ | 
 *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsRead**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentcollectionsindexversionsread) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/collections/index/{namespace}/{name}/versions/{version}/ | 
 *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobRead**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentcollectionsindexversionsdocsblobread) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/collections/index/{namespace}/{name}/versions/{version}/docs-blob/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreate**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentnamespacescreate) | **Post** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDelete**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentnamespacesdelete) | **Delete** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesList**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentnamespaceslist) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdate**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentnamespacespartialupdate) | **Patch** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesRead**](docs/PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi.md#pulpansiblegalaxydefaultapiv3pluginansiblecontentnamespacesread) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/content/{distro_base_path}/namespaces/{name}/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleSearchCollectionVersionsList**](docs/PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApi.md#pulpansiblegalaxydefaultapiv3pluginansiblesearchcollectionversionslist) | **Get** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/search/collection-versions/ | 
+*PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApi* | [**PulpAnsibleGalaxyDefaultApiV3PluginAnsibleSearchCollectionVersionsRebuild**](docs/PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApi.md#pulpansiblegalaxydefaultapiv3pluginansiblesearchcollectionversionsrebuild) | **Post** /pulp_ansible/galaxy/default/api/v3/plugin/ansible/search/collection-versions/ | 
 *PulpAnsibleTagsApi* | [**PulpAnsibleTagsList**](docs/PulpAnsibleTagsApi.md#pulpansibletagslist) | **Get** /pulp/api/v3/pulp_ansible/tags/ | List tags
 *PulpContainerNamespacesApi* | [**PulpContainerNamespacesAddRole**](docs/PulpContainerNamespacesApi.md#pulpcontainernamespacesaddrole) | **Post** /{container_container_namespace_href}add_role/ | 
 *PulpContainerNamespacesApi* | [**PulpContainerNamespacesCreate**](docs/PulpContainerNamespacesApi.md#pulpcontainernamespacescreate) | **Post** /pulp/api/v3/pulp_container/namespaces/ | Create a container namespace
@@ -481,11 +513,15 @@ Class | Method | HTTP request | Description
 *RemotesAptApi* | [**RemotesDebAptPartialUpdate**](docs/RemotesAptApi.md#remotesdebaptpartialupdate) | **Patch** /{deb_apt_remote_href} | Update an apt remote
 *RemotesAptApi* | [**RemotesDebAptRead**](docs/RemotesAptApi.md#remotesdebaptread) | **Get** /{deb_apt_remote_href} | Inspect an apt remote
 *RemotesAptApi* | [**RemotesDebAptUpdate**](docs/RemotesAptApi.md#remotesdebaptupdate) | **Put** /{deb_apt_remote_href} | Update an apt remote
+*RemotesCollectionApi* | [**RemotesAnsibleCollectionAddRole**](docs/RemotesCollectionApi.md#remotesansiblecollectionaddrole) | **Post** /{ansible_collection_remote_href}add_role/ | 
 *RemotesCollectionApi* | [**RemotesAnsibleCollectionCreate**](docs/RemotesCollectionApi.md#remotesansiblecollectioncreate) | **Post** /pulp/api/v3/remotes/ansible/collection/ | Create a collection remote
 *RemotesCollectionApi* | [**RemotesAnsibleCollectionDelete**](docs/RemotesCollectionApi.md#remotesansiblecollectiondelete) | **Delete** /{ansible_collection_remote_href} | Delete a collection remote
 *RemotesCollectionApi* | [**RemotesAnsibleCollectionList**](docs/RemotesCollectionApi.md#remotesansiblecollectionlist) | **Get** /pulp/api/v3/remotes/ansible/collection/ | List collection remotes
+*RemotesCollectionApi* | [**RemotesAnsibleCollectionListRoles**](docs/RemotesCollectionApi.md#remotesansiblecollectionlistroles) | **Get** /{ansible_collection_remote_href}list_roles/ | 
+*RemotesCollectionApi* | [**RemotesAnsibleCollectionMyPermissions**](docs/RemotesCollectionApi.md#remotesansiblecollectionmypermissions) | **Get** /{ansible_collection_remote_href}my_permissions/ | 
 *RemotesCollectionApi* | [**RemotesAnsibleCollectionPartialUpdate**](docs/RemotesCollectionApi.md#remotesansiblecollectionpartialupdate) | **Patch** /{ansible_collection_remote_href} | Update a collection remote
 *RemotesCollectionApi* | [**RemotesAnsibleCollectionRead**](docs/RemotesCollectionApi.md#remotesansiblecollectionread) | **Get** /{ansible_collection_remote_href} | Inspect a collection remote
+*RemotesCollectionApi* | [**RemotesAnsibleCollectionRemoveRole**](docs/RemotesCollectionApi.md#remotesansiblecollectionremoverole) | **Post** /{ansible_collection_remote_href}remove_role/ | 
 *RemotesCollectionApi* | [**RemotesAnsibleCollectionUpdate**](docs/RemotesCollectionApi.md#remotesansiblecollectionupdate) | **Put** /{ansible_collection_remote_href} | Update a collection remote
 *RemotesContainerApi* | [**RemotesContainerContainerAddRole**](docs/RemotesContainerApi.md#remotescontainercontaineraddrole) | **Post** /{container_container_remote_href}add_role/ | 
 *RemotesContainerApi* | [**RemotesContainerContainerCreate**](docs/RemotesContainerApi.md#remotescontainercontainercreate) | **Post** /pulp/api/v3/remotes/container/container/ | Create a container remote
@@ -507,11 +543,15 @@ Class | Method | HTTP request | Description
 *RemotesFileApi* | [**RemotesFileFileRead**](docs/RemotesFileApi.md#remotesfilefileread) | **Get** /{file_file_remote_href} | Inspect a file remote
 *RemotesFileApi* | [**RemotesFileFileRemoveRole**](docs/RemotesFileApi.md#remotesfilefileremoverole) | **Post** /{file_file_remote_href}remove_role/ | 
 *RemotesFileApi* | [**RemotesFileFileUpdate**](docs/RemotesFileApi.md#remotesfilefileupdate) | **Put** /{file_file_remote_href} | Update a file remote
+*RemotesGitApi* | [**RemotesAnsibleGitAddRole**](docs/RemotesGitApi.md#remotesansiblegitaddrole) | **Post** /{ansible_git_remote_href}add_role/ | 
 *RemotesGitApi* | [**RemotesAnsibleGitCreate**](docs/RemotesGitApi.md#remotesansiblegitcreate) | **Post** /pulp/api/v3/remotes/ansible/git/ | Create a git remote
 *RemotesGitApi* | [**RemotesAnsibleGitDelete**](docs/RemotesGitApi.md#remotesansiblegitdelete) | **Delete** /{ansible_git_remote_href} | Delete a git remote
 *RemotesGitApi* | [**RemotesAnsibleGitList**](docs/RemotesGitApi.md#remotesansiblegitlist) | **Get** /pulp/api/v3/remotes/ansible/git/ | List git remotes
+*RemotesGitApi* | [**RemotesAnsibleGitListRoles**](docs/RemotesGitApi.md#remotesansiblegitlistroles) | **Get** /{ansible_git_remote_href}list_roles/ | 
+*RemotesGitApi* | [**RemotesAnsibleGitMyPermissions**](docs/RemotesGitApi.md#remotesansiblegitmypermissions) | **Get** /{ansible_git_remote_href}my_permissions/ | 
 *RemotesGitApi* | [**RemotesAnsibleGitPartialUpdate**](docs/RemotesGitApi.md#remotesansiblegitpartialupdate) | **Patch** /{ansible_git_remote_href} | Update a git remote
 *RemotesGitApi* | [**RemotesAnsibleGitRead**](docs/RemotesGitApi.md#remotesansiblegitread) | **Get** /{ansible_git_remote_href} | Inspect a git remote
+*RemotesGitApi* | [**RemotesAnsibleGitRemoveRole**](docs/RemotesGitApi.md#remotesansiblegitremoverole) | **Post** /{ansible_git_remote_href}remove_role/ | 
 *RemotesGitApi* | [**RemotesAnsibleGitUpdate**](docs/RemotesGitApi.md#remotesansiblegitupdate) | **Put** /{ansible_git_remote_href} | Update a git remote
 *RemotesMavenApi* | [**RemotesMavenMavenCreate**](docs/RemotesMavenApi.md#remotesmavenmavencreate) | **Post** /pulp/api/v3/remotes/maven/maven/ | Create a maven remote
 *RemotesMavenApi* | [**RemotesMavenMavenDelete**](docs/RemotesMavenApi.md#remotesmavenmavendelete) | **Delete** /{maven_maven_remote_href} | Delete a maven remote
@@ -532,11 +572,15 @@ Class | Method | HTTP request | Description
 *RemotesPythonApi* | [**RemotesPythonPythonPartialUpdate**](docs/RemotesPythonApi.md#remotespythonpythonpartialupdate) | **Patch** /{python_python_remote_href} | Update a python remote
 *RemotesPythonApi* | [**RemotesPythonPythonRead**](docs/RemotesPythonApi.md#remotespythonpythonread) | **Get** /{python_python_remote_href} | Inspect a python remote
 *RemotesPythonApi* | [**RemotesPythonPythonUpdate**](docs/RemotesPythonApi.md#remotespythonpythonupdate) | **Put** /{python_python_remote_href} | Update a python remote
+*RemotesRoleApi* | [**RemotesAnsibleRoleAddRole**](docs/RemotesRoleApi.md#remotesansibleroleaddrole) | **Post** /{ansible_role_remote_href}add_role/ | 
 *RemotesRoleApi* | [**RemotesAnsibleRoleCreate**](docs/RemotesRoleApi.md#remotesansiblerolecreate) | **Post** /pulp/api/v3/remotes/ansible/role/ | Create a role remote
 *RemotesRoleApi* | [**RemotesAnsibleRoleDelete**](docs/RemotesRoleApi.md#remotesansibleroledelete) | **Delete** /{ansible_role_remote_href} | Delete a role remote
 *RemotesRoleApi* | [**RemotesAnsibleRoleList**](docs/RemotesRoleApi.md#remotesansiblerolelist) | **Get** /pulp/api/v3/remotes/ansible/role/ | List role remotes
+*RemotesRoleApi* | [**RemotesAnsibleRoleListRoles**](docs/RemotesRoleApi.md#remotesansiblerolelistroles) | **Get** /{ansible_role_remote_href}list_roles/ | 
+*RemotesRoleApi* | [**RemotesAnsibleRoleMyPermissions**](docs/RemotesRoleApi.md#remotesansiblerolemypermissions) | **Get** /{ansible_role_remote_href}my_permissions/ | 
 *RemotesRoleApi* | [**RemotesAnsibleRolePartialUpdate**](docs/RemotesRoleApi.md#remotesansiblerolepartialupdate) | **Patch** /{ansible_role_remote_href} | Update a role remote
 *RemotesRoleApi* | [**RemotesAnsibleRoleRead**](docs/RemotesRoleApi.md#remotesansibleroleread) | **Get** /{ansible_role_remote_href} | Inspect a role remote
+*RemotesRoleApi* | [**RemotesAnsibleRoleRemoveRole**](docs/RemotesRoleApi.md#remotesansibleroleremoverole) | **Post** /{ansible_role_remote_href}remove_role/ | 
 *RemotesRoleApi* | [**RemotesAnsibleRoleUpdate**](docs/RemotesRoleApi.md#remotesansibleroleupdate) | **Put** /{ansible_role_remote_href} | Update a role remote
 *RemotesRpmApi* | [**RemotesRpmRpmAddRole**](docs/RemotesRpmApi.md#remotesrpmrpmaddrole) | **Post** /{rpm_rpm_remote_href}add_role/ | 
 *RemotesRpmApi* | [**RemotesRpmRpmCreate**](docs/RemotesRpmApi.md#remotesrpmrpmcreate) | **Post** /pulp/api/v3/remotes/rpm/rpm/ | Create a rpm remote
@@ -560,15 +604,23 @@ Class | Method | HTTP request | Description
 *RemotesUlnApi* | [**RemotesRpmUlnUpdate**](docs/RemotesUlnApi.md#remotesrpmulnupdate) | **Put** /{rpm_uln_remote_href} | Update an uln remote
 *RepairApi* | [**RepairPost**](docs/RepairApi.md#repairpost) | **Post** /pulp/api/v3/repair/ | Repair Artifact Storage
 *RepositoriesApi* | [**RepositoriesList**](docs/RepositoriesApi.md#repositorieslist) | **Get** /pulp/api/v3/repositories/ | List repositories
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleAddRole**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansibleaddrole) | **Post** /{ansible_ansible_repository_href}add_role/ | 
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleCopyCollectionVersion**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblecopycollectionversion) | **Post** /{ansible_ansible_repository_href}copy_collection_version/ | 
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleCreate**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblecreate) | **Post** /pulp/api/v3/repositories/ansible/ansible/ | Create an ansible repository
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleDelete**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansibledelete) | **Delete** /{ansible_ansible_repository_href} | Delete an ansible repository
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleList**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblelist) | **Get** /pulp/api/v3/repositories/ansible/ansible/ | List ansible repositorys
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleListRoles**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblelistroles) | **Get** /{ansible_ansible_repository_href}list_roles/ | 
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleMark**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblemark) | **Post** /{ansible_ansible_repository_href}mark/ | 
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleModify**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblemodify) | **Post** /{ansible_ansible_repository_href}modify/ | Modify Repository Content
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleMoveCollectionVersion**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblemovecollectionversion) | **Post** /{ansible_ansible_repository_href}move_collection_version/ | 
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleMyPermissions**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblemypermissions) | **Get** /{ansible_ansible_repository_href}my_permissions/ | 
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsiblePartialUpdate**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblepartialupdate) | **Patch** /{ansible_ansible_repository_href} | Update an ansible repository
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleRead**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansibleread) | **Get** /{ansible_ansible_repository_href} | Inspect an ansible repository
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleRebuildMetadata**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblerebuildmetadata) | **Post** /{ansible_ansible_repository_href}rebuild_metadata/ | 
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleRemoveRole**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansibleremoverole) | **Post** /{ansible_ansible_repository_href}remove_role/ | 
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleSign**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblesign) | **Post** /{ansible_ansible_repository_href}sign/ | 
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleSync**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansiblesync) | **Post** /{ansible_ansible_repository_href}sync/ | 
+*RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleUnmark**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansibleunmark) | **Post** /{ansible_ansible_repository_href}unmark/ | 
 *RepositoriesAnsibleApi* | [**RepositoriesAnsibleAnsibleUpdate**](docs/RepositoriesAnsibleApi.md#repositoriesansibleansibleupdate) | **Put** /{ansible_ansible_repository_href} | Update an ansible repository
 *RepositoriesAnsibleVersionsApi* | [**RepositoriesAnsibleAnsibleVersionsDelete**](docs/RepositoriesAnsibleVersionsApi.md#repositoriesansibleansibleversionsdelete) | **Delete** /{ansible_ansible_repository_version_href} | Delete a repository version
 *RepositoriesAnsibleVersionsApi* | [**RepositoriesAnsibleAnsibleVersionsList**](docs/RepositoriesAnsibleVersionsApi.md#repositoriesansibleansibleversionslist) | **Get** /{ansible_ansible_repository_href}versions/ | List repository versions
@@ -754,8 +806,8 @@ Class | Method | HTTP request | Description
 *UsersRolesApi* | [**UsersRolesDelete**](docs/UsersRolesApi.md#usersrolesdelete) | **Delete** /{auth_users_user_role_href} | Delete an user role
 *UsersRolesApi* | [**UsersRolesList**](docs/UsersRolesApi.md#usersroleslist) | **Get** /{auth_user_href}roles/ | List user roles
 *UsersRolesApi* | [**UsersRolesRead**](docs/UsersRolesApi.md#usersrolesread) | **Get** /{auth_users_user_role_href} | Inspect an user role
-*VersionsApi* | [**CollectionVersionsGet**](docs/VersionsApi.md#collectionversionsget) | **Get** /{ansible_collection_version_href}versions/ | 
-*VersionsApi* | [**VersionsGet**](docs/VersionsApi.md#versionsget) | **Get** /{ansible_role_href}versions/ | 
+*VersionsApi* | [**ApiV1RolesVersionsList**](docs/VersionsApi.md#apiv1rolesversionslist) | **Get** /{ansible_role_href}versions/ | 
+*VersionsApi* | [**ApiV2CollectionVersionsList**](docs/VersionsApi.md#apiv2collectionversionslist) | **Get** /{ansible_collection_version_href}versions/ | 
 *WorkersApi* | [**WorkersList**](docs/WorkersApi.md#workerslist) | **Get** /pulp/api/v3/workers/ | List workers
 *WorkersApi* | [**WorkersRead**](docs/WorkersApi.md#workersread) | **Get** /{worker_href} | Inspect a worker
 
@@ -767,16 +819,23 @@ Class | Method | HTTP request | Description
  - [AddonResponse](docs/AddonResponse.md)
  - [AnsibleAnsibleDistribution](docs/AnsibleAnsibleDistribution.md)
  - [AnsibleAnsibleDistributionResponse](docs/AnsibleAnsibleDistributionResponse.md)
+ - [AnsibleAnsibleNamespaceMetadata](docs/AnsibleAnsibleNamespaceMetadata.md)
+ - [AnsibleAnsibleNamespaceMetadataResponse](docs/AnsibleAnsibleNamespaceMetadataResponse.md)
  - [AnsibleAnsibleRepository](docs/AnsibleAnsibleRepository.md)
  - [AnsibleAnsibleRepositoryResponse](docs/AnsibleAnsibleRepositoryResponse.md)
  - [AnsibleCollection](docs/AnsibleCollection.md)
  - [AnsibleCollectionRemote](docs/AnsibleCollectionRemote.md)
  - [AnsibleCollectionRemoteResponse](docs/AnsibleCollectionRemoteResponse.md)
  - [AnsibleCollectionResponse](docs/AnsibleCollectionResponse.md)
+ - [AnsibleCollectionVersion](docs/AnsibleCollectionVersion.md)
+ - [AnsibleCollectionVersionMark](docs/AnsibleCollectionVersionMark.md)
+ - [AnsibleCollectionVersionMarkResponse](docs/AnsibleCollectionVersionMarkResponse.md)
  - [AnsibleCollectionVersionResponse](docs/AnsibleCollectionVersionResponse.md)
+ - [AnsibleCollectionVersionSignature](docs/AnsibleCollectionVersionSignature.md)
  - [AnsibleCollectionVersionSignatureResponse](docs/AnsibleCollectionVersionSignatureResponse.md)
  - [AnsibleGitRemote](docs/AnsibleGitRemote.md)
  - [AnsibleGitRemoteResponse](docs/AnsibleGitRemoteResponse.md)
+ - [AnsibleRepositoryMark](docs/AnsibleRepositoryMark.md)
  - [AnsibleRepositoryRebuild](docs/AnsibleRepositoryRebuild.md)
  - [AnsibleRepositorySignature](docs/AnsibleRepositorySignature.md)
  - [AnsibleRepositorySyncURL](docs/AnsibleRepositorySyncURL.md)
@@ -786,6 +845,7 @@ Class | Method | HTTP request | Description
  - [AnsibleRoleResponse](docs/AnsibleRoleResponse.md)
  - [AnsibleTagResponse](docs/AnsibleTagResponse.md)
  - [AptRepositorySyncURL](docs/AptRepositorySyncURL.md)
+ - [Artifact](docs/Artifact.md)
  - [ArtifactDistributionResponse](docs/ArtifactDistributionResponse.md)
  - [ArtifactRefResponse](docs/ArtifactRefResponse.md)
  - [ArtifactResponse](docs/ArtifactResponse.md)
@@ -799,11 +859,17 @@ Class | Method | HTTP request | Description
  - [CollectionImportDetailResponse](docs/CollectionImportDetailResponse.md)
  - [CollectionMetadataResponse](docs/CollectionMetadataResponse.md)
  - [CollectionNamespaceResponse](docs/CollectionNamespaceResponse.md)
+ - [CollectionOneShot](docs/CollectionOneShot.md)
  - [CollectionRefResponse](docs/CollectionRefResponse.md)
  - [CollectionResponse](docs/CollectionResponse.md)
+ - [CollectionSummaryResponse](docs/CollectionSummaryResponse.md)
+ - [CollectionVersionCopyMove](docs/CollectionVersionCopyMove.md)
  - [CollectionVersionDocsResponse](docs/CollectionVersionDocsResponse.md)
  - [CollectionVersionListResponse](docs/CollectionVersionListResponse.md)
  - [CollectionVersionResponse](docs/CollectionVersionResponse.md)
+ - [CollectionVersionSearchList](docs/CollectionVersionSearchList.md)
+ - [CollectionVersionSearchListResponse](docs/CollectionVersionSearchListResponse.md)
+ - [CompsXml](docs/CompsXml.md)
  - [ContainerBlobResponse](docs/ContainerBlobResponse.md)
  - [ContainerContainerDistribution](docs/ContainerContainerDistribution.md)
  - [ContainerContainerDistributionResponse](docs/ContainerContainerDistributionResponse.md)
@@ -835,7 +901,9 @@ Class | Method | HTTP request | Description
  - [DebAptRemoteResponse](docs/DebAptRemoteResponse.md)
  - [DebAptRepository](docs/DebAptRepository.md)
  - [DebAptRepositoryResponse](docs/DebAptRepositoryResponse.md)
+ - [DebBasePackage](docs/DebBasePackage.md)
  - [DebBasePackageResponse](docs/DebBasePackageResponse.md)
+ - [DebGenericContent](docs/DebGenericContent.md)
  - [DebGenericContentResponse](docs/DebGenericContentResponse.md)
  - [DebInstallerFileIndex](docs/DebInstallerFileIndex.md)
  - [DebInstallerFileIndexResponse](docs/DebInstallerFileIndexResponse.md)
@@ -860,6 +928,7 @@ Class | Method | HTTP request | Description
  - [ExcludePlatformsEnum](docs/ExcludePlatformsEnum.md)
  - [FileFileAlternateContentSource](docs/FileFileAlternateContentSource.md)
  - [FileFileAlternateContentSourceResponse](docs/FileFileAlternateContentSourceResponse.md)
+ - [FileFileContent](docs/FileFileContent.md)
  - [FileFileContentResponse](docs/FileFileContentResponse.md)
  - [FileFileDistribution](docs/FileFileDistribution.md)
  - [FileFileDistributionResponse](docs/FileFileDistributionResponse.md)
@@ -902,8 +971,11 @@ Class | Method | HTTP request | Description
  - [MinimalTaskResponse](docs/MinimalTaskResponse.md)
  - [MultipleArtifactContentResponse](docs/MultipleArtifactContentResponse.md)
  - [MyPermissionsResponse](docs/MyPermissionsResponse.md)
+ - [NamespaceLink](docs/NamespaceLink.md)
+ - [NamespaceLinkResponse](docs/NamespaceLinkResponse.md)
  - [NestedRole](docs/NestedRole.md)
  - [NestedRoleResponse](docs/NestedRoleResponse.md)
+ - [OCIBuildImage](docs/OCIBuildImage.md)
  - [ObjectRolesResponse](docs/ObjectRolesResponse.md)
  - [OrphansCleanup](docs/OrphansCleanup.md)
  - [OstreeImportAll](docs/OstreeImportAll.md)
@@ -923,6 +995,7 @@ Class | Method | HTTP request | Description
  - [PackageChecksumTypeEnum](docs/PackageChecksumTypeEnum.md)
  - [PackageMetadataResponse](docs/PackageMetadataResponse.md)
  - [PackageTypesEnum](docs/PackageTypesEnum.md)
+ - [PackageUpload](docs/PackageUpload.md)
  - [PackageUploadTaskResponse](docs/PackageUploadTaskResponse.md)
  - [PaginatedAccessPolicyResponseList](docs/PaginatedAccessPolicyResponseList.md)
  - [PaginatedArtifactDistributionResponseList](docs/PaginatedArtifactDistributionResponseList.md)
@@ -931,6 +1004,7 @@ Class | Method | HTTP request | Description
  - [PaginatedCollectionResponseListLinks](docs/PaginatedCollectionResponseListLinks.md)
  - [PaginatedCollectionResponseListMeta](docs/PaginatedCollectionResponseListMeta.md)
  - [PaginatedCollectionVersionListResponseList](docs/PaginatedCollectionVersionListResponseList.md)
+ - [PaginatedCollectionVersionSearchListResponseList](docs/PaginatedCollectionVersionSearchListResponseList.md)
  - [PaginatedContentGuardResponseList](docs/PaginatedContentGuardResponseList.md)
  - [PaginatedContentRedirectContentGuardResponseList](docs/PaginatedContentRedirectContentGuardResponseList.md)
  - [PaginatedDistributionResponseList](docs/PaginatedDistributionResponseList.md)
@@ -966,9 +1040,11 @@ Class | Method | HTTP request | Description
  - [PaginatedUserRoleResponseList](docs/PaginatedUserRoleResponseList.md)
  - [PaginatedWorkerResponseList](docs/PaginatedWorkerResponseList.md)
  - [PaginatedansibleAnsibleDistributionResponseList](docs/PaginatedansibleAnsibleDistributionResponseList.md)
+ - [PaginatedansibleAnsibleNamespaceMetadataResponseList](docs/PaginatedansibleAnsibleNamespaceMetadataResponseList.md)
  - [PaginatedansibleAnsibleRepositoryResponseList](docs/PaginatedansibleAnsibleRepositoryResponseList.md)
  - [PaginatedansibleCollectionRemoteResponseList](docs/PaginatedansibleCollectionRemoteResponseList.md)
  - [PaginatedansibleCollectionResponseList](docs/PaginatedansibleCollectionResponseList.md)
+ - [PaginatedansibleCollectionVersionMarkResponseList](docs/PaginatedansibleCollectionVersionMarkResponseList.md)
  - [PaginatedansibleCollectionVersionResponseList](docs/PaginatedansibleCollectionVersionResponseList.md)
  - [PaginatedansibleCollectionVersionSignatureResponseList](docs/PaginatedansibleCollectionVersionSignatureResponseList.md)
  - [PaginatedansibleGitRemoteResponseList](docs/PaginatedansibleGitRemoteResponseList.md)
@@ -1053,6 +1129,7 @@ Class | Method | HTTP request | Description
  - [PatchedUpstreamPulp](docs/PatchedUpstreamPulp.md)
  - [PatchedUser](docs/PatchedUser.md)
  - [PatchedansibleAnsibleDistribution](docs/PatchedansibleAnsibleDistribution.md)
+ - [PatchedansibleAnsibleNamespaceMetadata](docs/PatchedansibleAnsibleNamespaceMetadata.md)
  - [PatchedansibleAnsibleRepository](docs/PatchedansibleAnsibleRepository.md)
  - [PatchedansibleCollectionRemote](docs/PatchedansibleCollectionRemote.md)
  - [PatchedansibleGitRemote](docs/PatchedansibleGitRemote.md)
@@ -1102,8 +1179,10 @@ Class | Method | HTTP request | Description
  - [PulpImporter](docs/PulpImporter.md)
  - [PulpImporterResponse](docs/PulpImporterResponse.md)
  - [Purge](docs/Purge.md)
+ - [PythonBanderRemote](docs/PythonBanderRemote.md)
  - [PythonPythonDistribution](docs/PythonPythonDistribution.md)
  - [PythonPythonDistributionResponse](docs/PythonPythonDistributionResponse.md)
+ - [PythonPythonPackageContent](docs/PythonPythonPackageContent.md)
  - [PythonPythonPackageContentResponse](docs/PythonPythonPackageContentResponse.md)
  - [PythonPythonPublication](docs/PythonPythonPublication.md)
  - [PythonPythonPublicationResponse](docs/PythonPythonPublicationResponse.md)
@@ -1123,6 +1202,7 @@ Class | Method | HTTP request | Description
  - [RemoveSignaturesResponse](docs/RemoveSignaturesResponse.md)
  - [Repair](docs/Repair.md)
  - [RepoMetadataResponse](docs/RepoMetadataResponse.md)
+ - [Repository](docs/Repository.md)
  - [RepositoryAddCachedContent](docs/RepositoryAddCachedContent.md)
  - [RepositoryAddRemoveContent](docs/RepositoryAddRemoveContent.md)
  - [RepositoryResponse](docs/RepositoryResponse.md)
@@ -1139,6 +1219,7 @@ Class | Method | HTTP request | Description
  - [RpmModulemdObsolete](docs/RpmModulemdObsolete.md)
  - [RpmModulemdObsoleteResponse](docs/RpmModulemdObsoleteResponse.md)
  - [RpmModulemdResponse](docs/RpmModulemdResponse.md)
+ - [RpmPackage](docs/RpmPackage.md)
  - [RpmPackageCategoryResponse](docs/RpmPackageCategoryResponse.md)
  - [RpmPackageEnvironmentResponse](docs/RpmPackageEnvironmentResponse.md)
  - [RpmPackageGroupResponse](docs/RpmPackageGroupResponse.md)
@@ -1160,6 +1241,7 @@ Class | Method | HTTP request | Description
  - [RpmUlnRemoteResponse](docs/RpmUlnRemoteResponse.md)
  - [RpmUpdateCollection](docs/RpmUpdateCollection.md)
  - [RpmUpdateCollectionResponse](docs/RpmUpdateCollectionResponse.md)
+ - [RpmUpdateRecord](docs/RpmUpdateRecord.md)
  - [RpmUpdateRecordResponse](docs/RpmUpdateRecordResponse.md)
  - [SigningServiceResponse](docs/SigningServiceResponse.md)
  - [SkipTypesEnum](docs/SkipTypesEnum.md)
@@ -1176,6 +1258,7 @@ Class | Method | HTTP request | Description
  - [TagCopy](docs/TagCopy.md)
  - [TagImage](docs/TagImage.md)
  - [TagResponse](docs/TagResponse.md)
+ - [Task](docs/Task.md)
  - [TaskGroupOperationResponse](docs/TaskGroupOperationResponse.md)
  - [TaskGroupResponse](docs/TaskGroupResponse.md)
  - [TaskResponse](docs/TaskResponse.md)
@@ -1183,6 +1266,7 @@ Class | Method | HTTP request | Description
  - [UnTagImage](docs/UnTagImage.md)
  - [UnpaginatedCollectionVersionResponse](docs/UnpaginatedCollectionVersionResponse.md)
  - [Upload](docs/Upload.md)
+ - [UploadChunk](docs/UploadChunk.md)
  - [UploadChunkResponse](docs/UploadChunkResponse.md)
  - [UploadCommit](docs/UploadCommit.md)
  - [UploadDetailResponse](docs/UploadDetailResponse.md)

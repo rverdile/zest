@@ -4,13 +4,89 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**RemotesAnsibleGitAddRole**](RemotesGitApi.md#RemotesAnsibleGitAddRole) | **Post** /{ansible_git_remote_href}add_role/ | 
 [**RemotesAnsibleGitCreate**](RemotesGitApi.md#RemotesAnsibleGitCreate) | **Post** /pulp/api/v3/remotes/ansible/git/ | Create a git remote
 [**RemotesAnsibleGitDelete**](RemotesGitApi.md#RemotesAnsibleGitDelete) | **Delete** /{ansible_git_remote_href} | Delete a git remote
 [**RemotesAnsibleGitList**](RemotesGitApi.md#RemotesAnsibleGitList) | **Get** /pulp/api/v3/remotes/ansible/git/ | List git remotes
+[**RemotesAnsibleGitListRoles**](RemotesGitApi.md#RemotesAnsibleGitListRoles) | **Get** /{ansible_git_remote_href}list_roles/ | 
+[**RemotesAnsibleGitMyPermissions**](RemotesGitApi.md#RemotesAnsibleGitMyPermissions) | **Get** /{ansible_git_remote_href}my_permissions/ | 
 [**RemotesAnsibleGitPartialUpdate**](RemotesGitApi.md#RemotesAnsibleGitPartialUpdate) | **Patch** /{ansible_git_remote_href} | Update a git remote
 [**RemotesAnsibleGitRead**](RemotesGitApi.md#RemotesAnsibleGitRead) | **Get** /{ansible_git_remote_href} | Inspect a git remote
+[**RemotesAnsibleGitRemoveRole**](RemotesGitApi.md#RemotesAnsibleGitRemoveRole) | **Post** /{ansible_git_remote_href}remove_role/ | 
 [**RemotesAnsibleGitUpdate**](RemotesGitApi.md#RemotesAnsibleGitUpdate) | **Put** /{ansible_git_remote_href} | Update a git remote
 
+
+
+## RemotesAnsibleGitAddRole
+
+> NestedRoleResponse RemotesAnsibleGitAddRole(ctx, ansibleGitRemoteHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleGitRemoteHref := "ansibleGitRemoteHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesGitApi.RemotesAnsibleGitAddRole(context.Background(), ansibleGitRemoteHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesGitApi.RemotesAnsibleGitAddRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleGitAddRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesGitApi.RemotesAnsibleGitAddRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleGitRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleGitAddRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## RemotesAnsibleGitCreate
@@ -248,6 +324,154 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## RemotesAnsibleGitListRoles
+
+> ObjectRolesResponse RemotesAnsibleGitListRoles(ctx, ansibleGitRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleGitRemoteHref := "ansibleGitRemoteHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesGitApi.RemotesAnsibleGitListRoles(context.Background(), ansibleGitRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesGitApi.RemotesAnsibleGitListRoles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleGitListRoles`: ObjectRolesResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesGitApi.RemotesAnsibleGitListRoles`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleGitRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleGitListRolesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**ObjectRolesResponse**](ObjectRolesResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemotesAnsibleGitMyPermissions
+
+> MyPermissionsResponse RemotesAnsibleGitMyPermissions(ctx, ansibleGitRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleGitRemoteHref := "ansibleGitRemoteHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesGitApi.RemotesAnsibleGitMyPermissions(context.Background(), ansibleGitRemoteHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesGitApi.RemotesAnsibleGitMyPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleGitMyPermissions`: MyPermissionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesGitApi.RemotesAnsibleGitMyPermissions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleGitRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleGitMyPermissionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**MyPermissionsResponse**](MyPermissionsResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RemotesAnsibleGitPartialUpdate
 
 > AsyncOperationResponse RemotesAnsibleGitPartialUpdate(ctx, ansibleGitRemoteHref).PatchedansibleGitRemote(patchedansibleGitRemote).Execute()
@@ -387,6 +611,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemotesAnsibleGitRemoveRole
+
+> NestedRoleResponse RemotesAnsibleGitRemoveRole(ctx, ansibleGitRemoteHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleGitRemoteHref := "ansibleGitRemoteHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RemotesGitApi.RemotesAnsibleGitRemoveRole(context.Background(), ansibleGitRemoteHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RemotesGitApi.RemotesAnsibleGitRemoveRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemotesAnsibleGitRemoveRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RemotesGitApi.RemotesAnsibleGitRemoveRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleGitRemoteHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemotesAnsibleGitRemoveRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

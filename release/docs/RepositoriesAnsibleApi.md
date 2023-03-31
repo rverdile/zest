@@ -4,17 +4,169 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**RepositoriesAnsibleAnsibleAddRole**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleAddRole) | **Post** /{ansible_ansible_repository_href}add_role/ | 
+[**RepositoriesAnsibleAnsibleCopyCollectionVersion**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleCopyCollectionVersion) | **Post** /{ansible_ansible_repository_href}copy_collection_version/ | 
 [**RepositoriesAnsibleAnsibleCreate**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleCreate) | **Post** /pulp/api/v3/repositories/ansible/ansible/ | Create an ansible repository
 [**RepositoriesAnsibleAnsibleDelete**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleDelete) | **Delete** /{ansible_ansible_repository_href} | Delete an ansible repository
 [**RepositoriesAnsibleAnsibleList**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleList) | **Get** /pulp/api/v3/repositories/ansible/ansible/ | List ansible repositorys
+[**RepositoriesAnsibleAnsibleListRoles**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleListRoles) | **Get** /{ansible_ansible_repository_href}list_roles/ | 
+[**RepositoriesAnsibleAnsibleMark**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleMark) | **Post** /{ansible_ansible_repository_href}mark/ | 
 [**RepositoriesAnsibleAnsibleModify**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleModify) | **Post** /{ansible_ansible_repository_href}modify/ | Modify Repository Content
+[**RepositoriesAnsibleAnsibleMoveCollectionVersion**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleMoveCollectionVersion) | **Post** /{ansible_ansible_repository_href}move_collection_version/ | 
+[**RepositoriesAnsibleAnsibleMyPermissions**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleMyPermissions) | **Get** /{ansible_ansible_repository_href}my_permissions/ | 
 [**RepositoriesAnsibleAnsiblePartialUpdate**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsiblePartialUpdate) | **Patch** /{ansible_ansible_repository_href} | Update an ansible repository
 [**RepositoriesAnsibleAnsibleRead**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleRead) | **Get** /{ansible_ansible_repository_href} | Inspect an ansible repository
 [**RepositoriesAnsibleAnsibleRebuildMetadata**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleRebuildMetadata) | **Post** /{ansible_ansible_repository_href}rebuild_metadata/ | 
+[**RepositoriesAnsibleAnsibleRemoveRole**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleRemoveRole) | **Post** /{ansible_ansible_repository_href}remove_role/ | 
 [**RepositoriesAnsibleAnsibleSign**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleSign) | **Post** /{ansible_ansible_repository_href}sign/ | 
 [**RepositoriesAnsibleAnsibleSync**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleSync) | **Post** /{ansible_ansible_repository_href}sync/ | 
+[**RepositoriesAnsibleAnsibleUnmark**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleUnmark) | **Post** /{ansible_ansible_repository_href}unmark/ | 
 [**RepositoriesAnsibleAnsibleUpdate**](RepositoriesAnsibleApi.md#RepositoriesAnsibleAnsibleUpdate) | **Put** /{ansible_ansible_repository_href} | Update an ansible repository
 
+
+
+## RepositoriesAnsibleAnsibleAddRole
+
+> NestedRoleResponse RepositoriesAnsibleAnsibleAddRole(ctx, ansibleAnsibleRepositoryHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleAddRole(context.Background(), ansibleAnsibleRepositoryHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleAddRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleAddRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleAddRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleAddRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepositoriesAnsibleAnsibleCopyCollectionVersion
+
+> AsyncOperationResponse RepositoriesAnsibleAnsibleCopyCollectionVersion(ctx, ansibleAnsibleRepositoryHref).CollectionVersionCopyMove(collectionVersionCopyMove).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    collectionVersionCopyMove := *openapiclient.NewCollectionVersionCopyMove([]string{"CollectionVersions_example"}, []string{"DestinationRepositories_example"}) // CollectionVersionCopyMove | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleCopyCollectionVersion(context.Background(), ansibleAnsibleRepositoryHref).CollectionVersionCopyMove(collectionVersionCopyMove).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleCopyCollectionVersion``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleCopyCollectionVersion`: AsyncOperationResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleCopyCollectionVersion`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **collectionVersionCopyMove** | [**CollectionVersionCopyMove**](CollectionVersionCopyMove.md) |  | 
+
+### Return type
+
+[**AsyncOperationResponse**](AsyncOperationResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## RepositoriesAnsibleAnsibleCreate
@@ -257,6 +409,152 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## RepositoriesAnsibleAnsibleListRoles
+
+> ObjectRolesResponse RepositoriesAnsibleAnsibleListRoles(ctx, ansibleAnsibleRepositoryHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleListRoles(context.Background(), ansibleAnsibleRepositoryHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleListRoles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleListRoles`: ObjectRolesResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleListRoles`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleListRolesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**ObjectRolesResponse**](ObjectRolesResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepositoriesAnsibleAnsibleMark
+
+> AsyncOperationResponse RepositoriesAnsibleAnsibleMark(ctx, ansibleAnsibleRepositoryHref).AnsibleRepositoryMark(ansibleRepositoryMark).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    ansibleRepositoryMark := *openapiclient.NewAnsibleRepositoryMark([]interface{}{nil}, "Value_example") // AnsibleRepositoryMark | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMark(context.Background(), ansibleAnsibleRepositoryHref).AnsibleRepositoryMark(ansibleRepositoryMark).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMark``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleMark`: AsyncOperationResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMark`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleMarkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ansibleRepositoryMark** | [**AnsibleRepositoryMark**](AnsibleRepositoryMark.md) |  | 
+
+### Return type
+
+[**AsyncOperationResponse**](AsyncOperationResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RepositoriesAnsibleAnsibleModify
 
 > AsyncOperationResponse RepositoriesAnsibleAnsibleModify(ctx, ansibleAnsibleRepositoryHref).RepositoryAddRemoveContent(repositoryAddRemoveContent).Execute()
@@ -322,6 +620,152 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepositoriesAnsibleAnsibleMoveCollectionVersion
+
+> AsyncOperationResponse RepositoriesAnsibleAnsibleMoveCollectionVersion(ctx, ansibleAnsibleRepositoryHref).CollectionVersionCopyMove(collectionVersionCopyMove).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    collectionVersionCopyMove := *openapiclient.NewCollectionVersionCopyMove([]string{"CollectionVersions_example"}, []string{"DestinationRepositories_example"}) // CollectionVersionCopyMove | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMoveCollectionVersion(context.Background(), ansibleAnsibleRepositoryHref).CollectionVersionCopyMove(collectionVersionCopyMove).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMoveCollectionVersion``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleMoveCollectionVersion`: AsyncOperationResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMoveCollectionVersion`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **collectionVersionCopyMove** | [**CollectionVersionCopyMove**](CollectionVersionCopyMove.md) |  | 
+
+### Return type
+
+[**AsyncOperationResponse**](AsyncOperationResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepositoriesAnsibleAnsibleMyPermissions
+
+> MyPermissionsResponse RepositoriesAnsibleAnsibleMyPermissions(ctx, ansibleAnsibleRepositoryHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
+    excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMyPermissions(context.Background(), ansibleAnsibleRepositoryHref).Fields(fields).ExcludeFields(excludeFields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMyPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleMyPermissions`: MyPermissionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMyPermissions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleMyPermissionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fields** | **[]string** | A list of fields to include in the response. | 
+ **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
+
+### Return type
+
+[**MyPermissionsResponse**](MyPermissionsResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -547,6 +991,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## RepositoriesAnsibleAnsibleRemoveRole
+
+> NestedRoleResponse RepositoriesAnsibleAnsibleRemoveRole(ctx, ansibleAnsibleRepositoryHref).NestedRole(nestedRole).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    nestedRole := *openapiclient.NewNestedRole("Role_example") // NestedRole | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleRemoveRole(context.Background(), ansibleAnsibleRepositoryHref).NestedRole(nestedRole).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleRemoveRole``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleRemoveRole`: NestedRoleResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleRemoveRole`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleRemoveRoleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nestedRole** | [**NestedRole**](NestedRole.md) |  | 
+
+### Return type
+
+[**NestedRoleResponse**](NestedRoleResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RepositoriesAnsibleAnsibleSign
 
 > AsyncOperationResponse RepositoriesAnsibleAnsibleSign(ctx, ansibleAnsibleRepositoryHref).AnsibleRepositorySignature(ansibleRepositorySignature).Execute()
@@ -672,6 +1188,78 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **ansibleRepositorySyncURL** | [**AnsibleRepositorySyncURL**](AnsibleRepositorySyncURL.md) |  | 
+
+### Return type
+
+[**AsyncOperationResponse**](AsyncOperationResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepositoriesAnsibleAnsibleUnmark
+
+> AsyncOperationResponse RepositoriesAnsibleAnsibleUnmark(ctx, ansibleAnsibleRepositoryHref).AnsibleRepositoryMark(ansibleRepositoryMark).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/content-services/zest/release/v3"
+)
+
+func main() {
+    ansibleAnsibleRepositoryHref := "ansibleAnsibleRepositoryHref_example" // string | 
+    ansibleRepositoryMark := *openapiclient.NewAnsibleRepositoryMark([]interface{}{nil}, "Value_example") // AnsibleRepositoryMark | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleUnmark(context.Background(), ansibleAnsibleRepositoryHref).AnsibleRepositoryMark(ansibleRepositoryMark).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleUnmark``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RepositoriesAnsibleAnsibleUnmark`: AsyncOperationResponse
+    fmt.Fprintf(os.Stdout, "Response from `RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleUnmark`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**ansibleAnsibleRepositoryHref** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRepositoriesAnsibleAnsibleUnmarkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ansibleRepositoryMark** | [**AnsibleRepositoryMark**](AnsibleRepositoryMark.md) |  | 
 
 ### Return type
 
