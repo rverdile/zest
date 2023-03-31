@@ -63,9 +63,18 @@ jobs:
           -g go \
           -o /local/release --minimal-update --skip-validate-spec \
           --git-user-id=content-services --git-repo-id=zest/release/${{ steps.pulpRelease.outputs.V_TAG }} \
-          --package-name=zest/release/${{ steps.pulpRelease.outputs.V_TAG }} -p enumClassPrefix=true  -p structPrefix=true \
+          --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
+
+      - name: Run Go Tests
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.18"
+        if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
+        run: |
+          cd release
+          go test ./...
 
       - name: Commit new client
         id: commit
