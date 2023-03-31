@@ -64,7 +64,8 @@ jobs:
           --git-user-id=content-services --git-repo-id=zest/release/${{ steps.pulpRelease.outputs.V_TAG }} \
           --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
-          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }}
+          -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }} \
+          --global-property skipFormModel=false #for ansible plugin
 
       - name: Archive api json 
         uses: actions/upload-artifact@v3
