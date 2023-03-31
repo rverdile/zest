@@ -81,7 +81,7 @@ jobs:
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         run: |
           cd release
-          chmod 755 go.mod go.sum
+          sudo chmod 777 go.mod go.sum
           go get github.com/stretchr/testify/assert
           go test ./...
 
