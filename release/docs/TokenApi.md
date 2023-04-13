@@ -55,7 +55,7 @@ Other parameters are passed through a pointer to a apiTokenGetRequest struct via
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 

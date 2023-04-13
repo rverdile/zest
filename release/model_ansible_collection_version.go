@@ -21,14 +21,14 @@ var _ MappedNullable = &AnsibleCollectionVersion{}
 
 // AnsibleCollectionVersion A serializer for CollectionVersion Content.
 type AnsibleCollectionVersion struct {
-	// A URI of a repository the new content unit should be associated with.
-	Repository *string `json:"repository,omitempty"`
 	// An uncommitted upload that may be turned into the artifact of the content unit.
 	Upload *string `json:"upload,omitempty"`
-	// An uploaded file that may be turned into the artifact of the content unit.
-	File **os.File `json:"file,omitempty"`
 	// Artifact file representing the physical content
 	Artifact *string `json:"artifact,omitempty"`
+	// A URI of a repository the new content unit should be associated with.
+	Repository *string `json:"repository,omitempty"`
+	// An uploaded file that may be turned into the artifact of the content unit.
+	File **os.File `json:"file,omitempty"`
 	// The name of the collection.
 	ExpectedName *string `json:"expected_name,omitempty"`
 	// The namespace of the collection.
@@ -52,38 +52,6 @@ func NewAnsibleCollectionVersion() *AnsibleCollectionVersion {
 func NewAnsibleCollectionVersionWithDefaults() *AnsibleCollectionVersion {
 	this := AnsibleCollectionVersion{}
 	return &this
-}
-
-// GetRepository returns the Repository field value if set, zero value otherwise.
-func (o *AnsibleCollectionVersion) GetRepository() string {
-	if o == nil || IsNil(o.Repository) {
-		var ret string
-		return ret
-	}
-	return *o.Repository
-}
-
-// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleCollectionVersion) GetRepositoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Repository) {
-		return nil, false
-	}
-	return o.Repository, true
-}
-
-// HasRepository returns a boolean if a field has been set.
-func (o *AnsibleCollectionVersion) HasRepository() bool {
-	if o != nil && !IsNil(o.Repository) {
-		return true
-	}
-
-	return false
-}
-
-// SetRepository gets a reference to the given string and assigns it to the Repository field.
-func (o *AnsibleCollectionVersion) SetRepository(v string) {
-	o.Repository = &v
 }
 
 // GetUpload returns the Upload field value if set, zero value otherwise.
@@ -118,38 +86,6 @@ func (o *AnsibleCollectionVersion) SetUpload(v string) {
 	o.Upload = &v
 }
 
-// GetFile returns the File field value if set, zero value otherwise.
-func (o *AnsibleCollectionVersion) GetFile() *os.File {
-	if o == nil || IsNil(o.File) {
-		var ret *os.File
-		return ret
-	}
-	return *o.File
-}
-
-// GetFileOk returns a tuple with the File field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleCollectionVersion) GetFileOk() (**os.File, bool) {
-	if o == nil || IsNil(o.File) {
-		return nil, false
-	}
-	return o.File, true
-}
-
-// HasFile returns a boolean if a field has been set.
-func (o *AnsibleCollectionVersion) HasFile() bool {
-	if o != nil && !IsNil(o.File) {
-		return true
-	}
-
-	return false
-}
-
-// SetFile gets a reference to the given *os.File and assigns it to the File field.
-func (o *AnsibleCollectionVersion) SetFile(v *os.File) {
-	o.File = &v
-}
-
 // GetArtifact returns the Artifact field value if set, zero value otherwise.
 func (o *AnsibleCollectionVersion) GetArtifact() string {
 	if o == nil || IsNil(o.Artifact) {
@@ -180,6 +116,70 @@ func (o *AnsibleCollectionVersion) HasArtifact() bool {
 // SetArtifact gets a reference to the given string and assigns it to the Artifact field.
 func (o *AnsibleCollectionVersion) SetArtifact(v string) {
 	o.Artifact = &v
+}
+
+// GetRepository returns the Repository field value if set, zero value otherwise.
+func (o *AnsibleCollectionVersion) GetRepository() string {
+	if o == nil || IsNil(o.Repository) {
+		var ret string
+		return ret
+	}
+	return *o.Repository
+}
+
+// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleCollectionVersion) GetRepositoryOk() (*string, bool) {
+	if o == nil || IsNil(o.Repository) {
+		return nil, false
+	}
+	return o.Repository, true
+}
+
+// HasRepository returns a boolean if a field has been set.
+func (o *AnsibleCollectionVersion) HasRepository() bool {
+	if o != nil && !IsNil(o.Repository) {
+		return true
+	}
+
+	return false
+}
+
+// SetRepository gets a reference to the given string and assigns it to the Repository field.
+func (o *AnsibleCollectionVersion) SetRepository(v string) {
+	o.Repository = &v
+}
+
+// GetFile returns the File field value if set, zero value otherwise.
+func (o *AnsibleCollectionVersion) GetFile() *os.File {
+	if o == nil || IsNil(o.File) {
+		var ret *os.File
+		return ret
+	}
+	return *o.File
+}
+
+// GetFileOk returns a tuple with the File field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleCollectionVersion) GetFileOk() (**os.File, bool) {
+	if o == nil || IsNil(o.File) {
+		return nil, false
+	}
+	return o.File, true
+}
+
+// HasFile returns a boolean if a field has been set.
+func (o *AnsibleCollectionVersion) HasFile() bool {
+	if o != nil && !IsNil(o.File) {
+		return true
+	}
+
+	return false
+}
+
+// SetFile gets a reference to the given *os.File and assigns it to the File field.
+func (o *AnsibleCollectionVersion) SetFile(v *os.File) {
+	o.File = &v
 }
 
 // GetExpectedName returns the ExpectedName field value if set, zero value otherwise.
@@ -288,17 +288,17 @@ func (o AnsibleCollectionVersion) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleCollectionVersion) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Repository) {
-		toSerialize["repository"] = o.Repository
-	}
 	if !IsNil(o.Upload) {
 		toSerialize["upload"] = o.Upload
 	}
-	if !IsNil(o.File) {
-		toSerialize["file"] = o.File
-	}
 	if !IsNil(o.Artifact) {
 		toSerialize["artifact"] = o.Artifact
+	}
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
+	}
+	if !IsNil(o.File) {
+		toSerialize["file"] = o.File
 	}
 	if !IsNil(o.ExpectedName) {
 		toSerialize["expected_name"] = o.ExpectedName
