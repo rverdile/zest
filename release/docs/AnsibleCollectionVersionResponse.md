@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
-**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
+**PulpHref** | Pointer to **string** |  | [optional] [readonly] 
+**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
 **Sha256** | Pointer to **string** | The SHA-256 checksum if available. | [optional] [readonly] 
 **Md5** | Pointer to **string** | The MD5 checksum if available. | [optional] [readonly] 
 **Sha1** | Pointer to **string** | The SHA-1 checksum if available. | [optional] [readonly] 
@@ -51,30 +51,30 @@ NewAnsibleCollectionVersionResponseWithDefaults instantiates a new AnsibleCollec
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetArtifact
+### GetPulpCreated
 
-`func (o *AnsibleCollectionVersionResponse) GetArtifact() string`
+`func (o *AnsibleCollectionVersionResponse) GetPulpCreated() time.Time`
 
-GetArtifact returns the Artifact field if non-nil, zero value otherwise.
+GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
 
-### GetArtifactOk
+### GetPulpCreatedOk
 
-`func (o *AnsibleCollectionVersionResponse) GetArtifactOk() (*string, bool)`
+`func (o *AnsibleCollectionVersionResponse) GetPulpCreatedOk() (*time.Time, bool)`
 
-GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
+GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetArtifact
+### SetPulpCreated
 
-`func (o *AnsibleCollectionVersionResponse) SetArtifact(v string)`
+`func (o *AnsibleCollectionVersionResponse) SetPulpCreated(v time.Time)`
 
-SetArtifact sets Artifact field to given value.
+SetPulpCreated sets PulpCreated field to given value.
 
-### HasArtifact
+### HasPulpCreated
 
-`func (o *AnsibleCollectionVersionResponse) HasArtifact() bool`
+`func (o *AnsibleCollectionVersionResponse) HasPulpCreated() bool`
 
-HasArtifact returns a boolean if a field has been set.
+HasPulpCreated returns a boolean if a field has been set.
 
 ### GetPulpHref
 
@@ -101,30 +101,30 @@ SetPulpHref sets PulpHref field to given value.
 
 HasPulpHref returns a boolean if a field has been set.
 
-### GetPulpCreated
+### GetArtifact
 
-`func (o *AnsibleCollectionVersionResponse) GetPulpCreated() time.Time`
+`func (o *AnsibleCollectionVersionResponse) GetArtifact() string`
 
-GetPulpCreated returns the PulpCreated field if non-nil, zero value otherwise.
+GetArtifact returns the Artifact field if non-nil, zero value otherwise.
 
-### GetPulpCreatedOk
+### GetArtifactOk
 
-`func (o *AnsibleCollectionVersionResponse) GetPulpCreatedOk() (*time.Time, bool)`
+`func (o *AnsibleCollectionVersionResponse) GetArtifactOk() (*string, bool)`
 
-GetPulpCreatedOk returns a tuple with the PulpCreated field if it's non-nil, zero value otherwise
+GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPulpCreated
+### SetArtifact
 
-`func (o *AnsibleCollectionVersionResponse) SetPulpCreated(v time.Time)`
+`func (o *AnsibleCollectionVersionResponse) SetArtifact(v string)`
 
-SetPulpCreated sets PulpCreated field to given value.
+SetArtifact sets Artifact field to given value.
 
-### HasPulpCreated
+### HasArtifact
 
-`func (o *AnsibleCollectionVersionResponse) HasPulpCreated() bool`
+`func (o *AnsibleCollectionVersionResponse) HasArtifact() bool`
 
-HasPulpCreated returns a boolean if a field has been set.
+HasArtifact returns a boolean if a field has been set.
 
 ### GetSha256
 
