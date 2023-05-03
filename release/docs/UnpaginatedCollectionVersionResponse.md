@@ -5,20 +5,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | Pointer to **string** |  | [optional] [readonly] 
-**Href** | Pointer to **string** |  | [optional] [readonly] 
+**Href** | Pointer to **string** | Get href. | [optional] [readonly] 
 **CreatedAt** | **time.Time** |  | 
 **UpdatedAt** | **time.Time** |  | 
 **RequiresAnsible** | Pointer to **NullableString** |  | [optional] 
-**Marks** | Pointer to **[]string** |  | [optional] [readonly] 
+**Marks** | Pointer to **[]string** | Get a list of mark values filtering only those in the current repo. | [optional] [readonly] 
 **Artifact** | Pointer to [**ArtifactRefResponse**](ArtifactRefResponse.md) |  | [optional] [readonly] 
 **Collection** | Pointer to [**CollectionRefResponse**](CollectionRefResponse.md) |  | [optional] [readonly] 
-**DownloadUrl** | Pointer to **string** |  | [optional] [readonly] 
+**DownloadUrl** | Pointer to **string** | Get artifact download URL. | [optional] [readonly] 
 **Name** | Pointer to **string** |  | [optional] [readonly] 
 **Namespace** | Pointer to [**CollectionNamespaceResponse**](CollectionNamespaceResponse.md) |  | [optional] [readonly] 
 **Signatures** | Pointer to **string** |  | [optional] [readonly] 
 **Metadata** | Pointer to [**CollectionMetadataResponse**](CollectionMetadataResponse.md) |  | [optional] [readonly] 
-**GitUrl** | Pointer to **string** |  | [optional] [readonly] 
-**GitCommitSha** | Pointer to **string** |  | [optional] [readonly] 
+**GitUrl** | Pointer to **string** | Get the git URL. | [optional] [readonly] 
+**GitCommitSha** | Pointer to **string** | Get the git commit sha. | [optional] [readonly] 
 
 ## Methods
 

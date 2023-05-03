@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## GroupsList
 
-> PaginatedGroupResponseList GroupsList(ctx).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedGroupResponseList GroupsList(ctx).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List groups
 
@@ -253,13 +253,15 @@ func main() {
     nameIexact := "nameIexact_example" // string | Filter results where name matches value (optional)
     nameIn := []string{"Inner_example"} // []string | Filter results where name is in a comma-separated list of values (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-    ordering := []string{"Ordering_example"} // []string | Ordering (optional)
+    ordering := []string{"Ordering_example"} // []string | Ordering  * `id` - Id * `-id` - Id (descending) * `name` - Name * `-name` - Name (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
+    pulpHrefIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
+    pulpIdIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
     excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,7 +291,9 @@ Name | Type | Description  | Notes
  **nameIexact** | **string** | Filter results where name matches value | 
  **nameIn** | **[]string** | Filter results where name is in a comma-separated list of values | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **ordering** | **[]string** | Ordering | 
+ **ordering** | **[]string** | Ordering  * &#x60;id&#x60; - Id * &#x60;-id&#x60; - Id (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | 
+ **pulpHrefIn** | **[]string** | Multiple values may be separated by commas. | 
+ **pulpIdIn** | **[]string** | Multiple values may be separated by commas. | 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
 

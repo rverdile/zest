@@ -140,6 +140,8 @@ type ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -159,9 +161,21 @@ func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) Offse
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) Ordering(ordering []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) PulpHrefIn(pulpHrefIn []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) PulpIdIn(pulpIdIn []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -242,6 +256,12 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesListExec
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")

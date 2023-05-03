@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Artifacts** | **map[string]interface{}** | A dict mapping relative paths inside the Content to the correspondingArtifact URLs. E.g.: {&#39;relative/path&#39;: &#39;/artifacts/1/&#39; | 
-**Release** | **string** | Release this index file belongs to. | 
 **Component** | **string** | Component of the component - architecture combination. | 
 **Architecture** | **string** | Architecture of the component - architecture combination. | 
 **RelativePath** | Pointer to **string** | Path of directory containing MD5SUMS and SHA256SUMS relative to url. | [optional] 
@@ -16,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewDebInstallerFileIndexResponse
 
-`func NewDebInstallerFileIndexResponse(artifacts map[string]interface{}, release string, component string, architecture string, ) *DebInstallerFileIndexResponse`
+`func NewDebInstallerFileIndexResponse(artifacts map[string]interface{}, component string, architecture string, ) *DebInstallerFileIndexResponse`
 
 NewDebInstallerFileIndexResponse instantiates a new DebInstallerFileIndexResponse object
 This constructor will assign default values to properties that have it defined,
@@ -99,26 +98,6 @@ and a boolean to check if the value has been set.
 `func (o *DebInstallerFileIndexResponse) SetArtifacts(v map[string]interface{})`
 
 SetArtifacts sets Artifacts field to given value.
-
-
-### GetRelease
-
-`func (o *DebInstallerFileIndexResponse) GetRelease() string`
-
-GetRelease returns the Release field if non-nil, zero value otherwise.
-
-### GetReleaseOk
-
-`func (o *DebInstallerFileIndexResponse) GetReleaseOk() (*string, bool)`
-
-GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRelease
-
-`func (o *DebInstallerFileIndexResponse) SetRelease(v string)`
-
-SetRelease sets Release field to given value.
 
 
 ### GetComponent

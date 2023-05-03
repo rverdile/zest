@@ -198,6 +198,8 @@ type ContentFilesApiContentFileFilesListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	relativePath *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
@@ -219,9 +221,21 @@ func (r ContentFilesApiContentFileFilesListRequest) Offset(offset int32) Content
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentFilesApiContentFileFilesListRequest) Ordering(ordering []string) ContentFilesApiContentFileFilesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentFilesApiContentFileFilesListRequest) PulpHrefIn(pulpHrefIn []string) ContentFilesApiContentFileFilesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentFilesApiContentFileFilesListRequest) PulpIdIn(pulpIdIn []string) ContentFilesApiContentFileFilesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -315,6 +329,12 @@ func (a *ContentFilesApiService) ContentFileFilesListExecute(r ContentFilesApiCo
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.relativePath != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "relative_path", r.relativePath, "")

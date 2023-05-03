@@ -253,6 +253,8 @@ type DistributionsAptApiDistributionsDebAptListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	pulpLabelSelect *string
 	repository *string
 	repositoryIn *[]string
@@ -327,9 +329,21 @@ func (r DistributionsAptApiDistributionsDebAptListRequest) Offset(offset int32) 
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r DistributionsAptApiDistributionsDebAptListRequest) Ordering(ordering []string) DistributionsAptApiDistributionsDebAptListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r DistributionsAptApiDistributionsDebAptListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r DistributionsAptApiDistributionsDebAptListRequest) PulpIdIn(pulpIdIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -447,6 +461,12 @@ func (a *DistributionsAptApiService) DistributionsDebAptListExecute(r Distributi
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.pulpLabelSelect != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_label_select", r.pulpLabelSelect, "")

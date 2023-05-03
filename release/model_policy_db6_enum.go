@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// PolicyDb6Enum the model 'PolicyDb6Enum'
+// PolicyDb6Enum * `immediate` - immediate * `When syncing, download all metadata and content now.` - When syncing, download all metadata and content now.
 type PolicyDb6Enum string
 
 // List of PolicyDb6Enum

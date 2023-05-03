@@ -159,6 +159,8 @@ type PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpA
 	namespace2 *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	q *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
@@ -196,9 +198,21 @@ func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPu
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;authors&#x60; - Authors * &#x60;-authors&#x60; - Authors (descending) * &#x60;contents&#x60; - Contents * &#x60;-contents&#x60; - Contents (descending) * &#x60;dependencies&#x60; - Dependencies * &#x60;-dependencies&#x60; - Dependencies (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;docs_blob&#x60; - Docs blob * &#x60;-docs_blob&#x60; - Docs blob (descending) * &#x60;manifest&#x60; - Manifest * &#x60;-manifest&#x60; - Manifest (descending) * &#x60;files&#x60; - Files * &#x60;-files&#x60; - Files (descending) * &#x60;documentation&#x60; - Documentation * &#x60;-documentation&#x60; - Documentation (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;issues&#x60; - Issues * &#x60;-issues&#x60; - Issues (descending) * &#x60;license&#x60; - License * &#x60;-license&#x60; - License (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;repository&#x60; - Repository * &#x60;-repository&#x60; - Repository (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;requires_ansible&#x60; - Requires ansible * &#x60;-requires_ansible&#x60; - Requires ansible (descending) * &#x60;is_highest&#x60; - Is highest * &#x60;-is_highest&#x60; - Is highest (descending) * &#x60;search_vector&#x60; - Search vector * &#x60;-search_vector&#x60; - Search vector (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -320,6 +334,12 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsApiS
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.q != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "q", r.q, "")

@@ -123,7 +123,7 @@ func (r PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApiPulpAnsib
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_created&#x60; - by CV created * &#x60;-pulp_created&#x60; - by CV created (descending) * &#x60;namespace&#x60; - by CV namespace * &#x60;-namespace&#x60; - by CV namespace (descending) * &#x60;name&#x60; - by CV name * &#x60;-name&#x60; - by CV name (descending) * &#x60;version&#x60; - by CV version * &#x60;-version&#x60; - by CV version (descending)
 func (r PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleSearchCollectionVersionsListRequest) OrderBy(orderBy []string) PulpAnsibleDefaultApiV3PluginAnsibleSearchCollectionVersionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleSearchCollectionVersionsListRequest {
 	r.orderBy = &orderBy
 	return r

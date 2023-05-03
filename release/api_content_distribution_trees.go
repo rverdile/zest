@@ -31,6 +31,8 @@ type ContentDistributionTreesApiContentRpmDistributionTreesListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -50,9 +52,21 @@ func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) Offse
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) Ordering(ordering []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) PulpHrefIn(pulpHrefIn []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) PulpIdIn(pulpIdIn []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -133,6 +147,12 @@ func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesListExec
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")

@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// StatesEnum the model 'StatesEnum'
+// StatesEnum * `skipped` - skipped * `completed` - completed * `failed` - failed * `canceled` - canceled
 type StatesEnum string
 
 // List of StatesEnum

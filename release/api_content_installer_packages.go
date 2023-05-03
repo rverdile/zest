@@ -206,6 +206,8 @@ type ContentInstallerPackagesApiContentDebInstallerPackagesListRequest struct {
 	originalMaintainer *string
 	package_ *string
 	priority *string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -230,7 +232,7 @@ func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) AutoB
 	return r
 }
 
-// Filter results where build_essential matches value
+// Filter results where build_essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
 func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) BuildEssential(buildEssential bool) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
 	r.buildEssential = &buildEssential
 	return r
@@ -242,7 +244,7 @@ func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Built
 	return r
 }
 
-// Filter results where essential matches value
+// Filter results where essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
 func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Essential(essential bool) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
 	r.essential = &essential
 	return r
@@ -266,7 +268,7 @@ func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Maint
 	return r
 }
 
-// Filter results where multi_arch matches value
+// Filter results where multi_arch matches value  * &#x60;no&#x60; - no * &#x60;same&#x60; - same * &#x60;foreign&#x60; - foreign * &#x60;allowed&#x60; - allowed
 func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) MultiArch(multiArch string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
 	r.multiArch = &multiArch
 	return r
@@ -278,7 +280,7 @@ func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Offse
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;package&#x60; - Package * &#x60;-package&#x60; - Package (descending) * &#x60;source&#x60; - Source * &#x60;-source&#x60; - Source (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;section&#x60; - Section * &#x60;-section&#x60; - Section (descending) * &#x60;priority&#x60; - Priority * &#x60;-priority&#x60; - Priority (descending) * &#x60;origin&#x60; - Origin * &#x60;-origin&#x60; - Origin (descending) * &#x60;tag&#x60; - Tag * &#x60;-tag&#x60; - Tag (descending) * &#x60;bugs&#x60; - Bugs * &#x60;-bugs&#x60; - Bugs (descending) * &#x60;essential&#x60; - Essential * &#x60;-essential&#x60; - Essential (descending) * &#x60;build_essential&#x60; - Build essential * &#x60;-build_essential&#x60; - Build essential (descending) * &#x60;installed_size&#x60; - Installed size * &#x60;-installed_size&#x60; - Installed size (descending) * &#x60;maintainer&#x60; - Maintainer * &#x60;-maintainer&#x60; - Maintainer (descending) * &#x60;original_maintainer&#x60; - Original maintainer * &#x60;-original_maintainer&#x60; - Original maintainer (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;description_md5&#x60; - Description md5 * &#x60;-description_md5&#x60; - Description md5 (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;built_using&#x60; - Built using * &#x60;-built_using&#x60; - Built using (descending) * &#x60;auto_built_package&#x60; - Auto built package * &#x60;-auto_built_package&#x60; - Auto built package (descending) * &#x60;multi_arch&#x60; - Multi arch * &#x60;-multi_arch&#x60; - Multi arch (descending) * &#x60;breaks&#x60; - Breaks * &#x60;-breaks&#x60; - Breaks (descending) * &#x60;conflicts&#x60; - Conflicts * &#x60;-conflicts&#x60; - Conflicts (descending) * &#x60;depends&#x60; - Depends * &#x60;-depends&#x60; - Depends (descending) * &#x60;recommends&#x60; - Recommends * &#x60;-recommends&#x60; - Recommends (descending) * &#x60;suggests&#x60; - Suggests * &#x60;-suggests&#x60; - Suggests (descending) * &#x60;enhances&#x60; - Enhances * &#x60;-enhances&#x60; - Enhances (descending) * &#x60;pre_depends&#x60; - Pre depends * &#x60;-pre_depends&#x60; - Pre depends (descending) * &#x60;provides&#x60; - Provides * &#x60;-provides&#x60; - Provides (descending) * &#x60;replaces&#x60; - Replaces * &#x60;-replaces&#x60; - Replaces (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;custom_fields&#x60; - Custom fields * &#x60;-custom_fields&#x60; - Custom fields (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Ordering(ordering []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
 	r.ordering = &ordering
 	return r
@@ -305,6 +307,18 @@ func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Packa
 // Filter results where priority matches value
 func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Priority(priority string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
 	r.priority = &priority
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -456,6 +470,12 @@ func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesListExec
 	}
 	if r.priority != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "priority", r.priority, "")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")

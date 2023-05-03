@@ -140,6 +140,8 @@ type ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListReq
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -159,9 +161,21 @@ func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsList
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) Ordering(ordering []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -242,6 +256,12 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")

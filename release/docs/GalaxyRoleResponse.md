@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] [readonly] 
+**Id** | Pointer to **string** | Get id. | [optional] [readonly] 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
 

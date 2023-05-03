@@ -30,6 +30,9 @@ type ContentApiContentListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
+	pulpTypeIn *[]string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -49,9 +52,27 @@ func (r ContentApiContentListRequest) Offset(offset int32) ContentApiContentList
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentApiContentListRequest) Ordering(ordering []string) ContentApiContentListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentApiContentListRequest) PulpHrefIn(pulpHrefIn []string) ContentApiContentListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentApiContentListRequest) PulpIdIn(pulpIdIn []string) ContentApiContentListRequest {
+	r.pulpIdIn = &pulpIdIn
+	return r
+}
+
+// Pulp type is in  * &#x60;core.publishedmetadata&#x60; - core.publishedmetadata * &#x60;ansible.role&#x60; - ansible.role * &#x60;ansible.collection_version&#x60; - ansible.collection_version * &#x60;ansible.collection_mark&#x60; - ansible.collection_mark * &#x60;ansible.collection_signature&#x60; - ansible.collection_signature * &#x60;ansible.namespace&#x60; - ansible.namespace * &#x60;ansible.collection_deprecation&#x60; - ansible.collection_deprecation * &#x60;container.blob&#x60; - container.blob * &#x60;container.manifest&#x60; - container.manifest * &#x60;container.tag&#x60; - container.tag * &#x60;container.signature&#x60; - container.signature * &#x60;deb.package&#x60; - deb.package * &#x60;deb.installer_package&#x60; - deb.installer_package * &#x60;deb.generic&#x60; - deb.generic * &#x60;deb.release&#x60; - deb.release * &#x60;deb.release_architecture&#x60; - deb.release_architecture * &#x60;deb.release_component&#x60; - deb.release_component * &#x60;deb.package_release_component&#x60; - deb.package_release_component * &#x60;deb.release_file&#x60; - deb.release_file * &#x60;deb.package_index&#x60; - deb.package_index * &#x60;deb.installer_file_index&#x60; - deb.installer_file_index * &#x60;file.file&#x60; - file.file * &#x60;maven.artifact&#x60; - maven.artifact * &#x60;maven.metadata&#x60; - maven.metadata * &#x60;ostree.object&#x60; - ostree.object * &#x60;ostree.commit&#x60; - ostree.commit * &#x60;ostree.refs&#x60; - ostree.refs * &#x60;ostree.content&#x60; - ostree.content * &#x60;ostree.config&#x60; - ostree.config * &#x60;ostree.summary&#x60; - ostree.summary * &#x60;python.python&#x60; - python.python * &#x60;rpm.advisory&#x60; - rpm.advisory * &#x60;rpm.packagegroup&#x60; - rpm.packagegroup * &#x60;rpm.packagecategory&#x60; - rpm.packagecategory * &#x60;rpm.packageenvironment&#x60; - rpm.packageenvironment * &#x60;rpm.packagelangpacks&#x60; - rpm.packagelangpacks * &#x60;rpm.repo_metadata_file&#x60; - rpm.repo_metadata_file * &#x60;rpm.distribution_tree&#x60; - rpm.distribution_tree * &#x60;rpm.package&#x60; - rpm.package * &#x60;rpm.modulemd&#x60; - rpm.modulemd * &#x60;rpm.modulemd_defaults&#x60; - rpm.modulemd_defaults * &#x60;rpm.modulemd_obsolete&#x60; - rpm.modulemd_obsolete
+func (r ContentApiContentListRequest) PulpTypeIn(pulpTypeIn []string) ContentApiContentListRequest {
+	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
@@ -132,6 +153,15 @@ func (a *ContentApiService) ContentListExecute(r ContentApiContentListRequest) (
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
+	}
+	if r.pulpTypeIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_type__in", r.pulpTypeIn, "csv")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")

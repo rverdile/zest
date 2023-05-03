@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Href** | Pointer to **string** |  | [optional] [readonly] 
+**Href** | Pointer to **string** | Returns link to a collection. | [optional] [readonly] 
 
 ## Methods
 

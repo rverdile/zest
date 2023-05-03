@@ -20,6 +20,7 @@ var _ MappedNullable = &GalaxyRoleResponse{}
 
 // GalaxyRoleResponse A serializer for Galaxy's representation of Roles.
 type GalaxyRoleResponse struct {
+	// Get id.
 	Id *string `json:"id,omitempty"`
 	Name string `json:"name"`
 	Namespace string `json:"namespace"`

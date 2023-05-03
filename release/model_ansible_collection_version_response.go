@@ -21,9 +21,9 @@ var _ MappedNullable = &AnsibleCollectionVersionResponse{}
 
 // AnsibleCollectionVersionResponse A serializer for CollectionVersion Content.
 type AnsibleCollectionVersionResponse struct {
+	PulpHref *string `json:"pulp_href,omitempty"`
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
-	PulpHref *string `json:"pulp_href,omitempty"`
 	// Artifact file representing the physical content
 	Artifact *string `json:"artifact,omitempty"`
 	// The SHA-256 checksum if available.
@@ -92,38 +92,6 @@ func NewAnsibleCollectionVersionResponseWithDefaults() *AnsibleCollectionVersion
 	return &this
 }
 
-// GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
-func (o *AnsibleCollectionVersionResponse) GetPulpCreated() time.Time {
-	if o == nil || IsNil(o.PulpCreated) {
-		var ret time.Time
-		return ret
-	}
-	return *o.PulpCreated
-}
-
-// GetPulpCreatedOk returns a tuple with the PulpCreated field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AnsibleCollectionVersionResponse) GetPulpCreatedOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.PulpCreated) {
-		return nil, false
-	}
-	return o.PulpCreated, true
-}
-
-// HasPulpCreated returns a boolean if a field has been set.
-func (o *AnsibleCollectionVersionResponse) HasPulpCreated() bool {
-	if o != nil && !IsNil(o.PulpCreated) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpCreated gets a reference to the given time.Time and assigns it to the PulpCreated field.
-func (o *AnsibleCollectionVersionResponse) SetPulpCreated(v time.Time) {
-	o.PulpCreated = &v
-}
-
 // GetPulpHref returns the PulpHref field value if set, zero value otherwise.
 func (o *AnsibleCollectionVersionResponse) GetPulpHref() string {
 	if o == nil || IsNil(o.PulpHref) {
@@ -154,6 +122,38 @@ func (o *AnsibleCollectionVersionResponse) HasPulpHref() bool {
 // SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
 func (o *AnsibleCollectionVersionResponse) SetPulpHref(v string) {
 	o.PulpHref = &v
+}
+
+// GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
+func (o *AnsibleCollectionVersionResponse) GetPulpCreated() time.Time {
+	if o == nil || IsNil(o.PulpCreated) {
+		var ret time.Time
+		return ret
+	}
+	return *o.PulpCreated
+}
+
+// GetPulpCreatedOk returns a tuple with the PulpCreated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AnsibleCollectionVersionResponse) GetPulpCreatedOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.PulpCreated) {
+		return nil, false
+	}
+	return o.PulpCreated, true
+}
+
+// HasPulpCreated returns a boolean if a field has been set.
+func (o *AnsibleCollectionVersionResponse) HasPulpCreated() bool {
+	if o != nil && !IsNil(o.PulpCreated) {
+		return true
+	}
+
+	return false
+}
+
+// SetPulpCreated gets a reference to the given time.Time and assigns it to the PulpCreated field.
+func (o *AnsibleCollectionVersionResponse) SetPulpCreated(v time.Time) {
+	o.PulpCreated = &v
 }
 
 // GetArtifact returns the Artifact field value if set, zero value otherwise.
@@ -976,8 +976,8 @@ func (o AnsibleCollectionVersionResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleCollectionVersionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_created is readOnly
 	// skip: pulp_href is readOnly
+	// skip: pulp_created is readOnly
 	if !IsNil(o.Artifact) {
 		toSerialize["artifact"] = o.Artifact
 	}

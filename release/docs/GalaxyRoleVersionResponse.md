@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Source** | Pointer to **string** |  | [optional] [readonly] 
+**Source** | Pointer to **string** | Get source. | [optional] [readonly] 
 
 ## Methods
 

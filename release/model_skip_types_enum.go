@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// SkipTypesEnum the model 'SkipTypesEnum'
+// SkipTypesEnum * `srpm` - srpm * `treeinfo` - treeinfo
 type SkipTypesEnum string
 
 // List of SkipTypesEnum

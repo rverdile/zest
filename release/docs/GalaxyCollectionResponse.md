@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Namespace** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
-**Href** | Pointer to **string** |  | [optional] [readonly] 
-**VersionsUrl** | Pointer to **string** |  | [optional] [readonly] 
+**Namespace** | Pointer to **map[string]interface{}** | Create a namespace dict. | [optional] [readonly] 
+**Href** | Pointer to **string** | Get href. | [optional] [readonly] 
+**VersionsUrl** | Pointer to **string** | Get versions_url. | [optional] [readonly] 
 **Created** | **time.Time** |  | 
 **Modified** | **time.Time** |  | 
-**LatestVersion** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
+**LatestVersion** | Pointer to **map[string]interface{}** | Get latest version. | [optional] [readonly] 
 
 ## Methods
 

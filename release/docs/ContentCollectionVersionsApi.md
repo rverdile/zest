@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ContentAnsibleCollectionVersionsCreate
 
-> AsyncOperationResponse ContentAnsibleCollectionVersionsCreate(ctx).File(file).Artifact(artifact).Repository(repository).Upload(upload).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
+> AsyncOperationResponse ContentAnsibleCollectionVersionsCreate(ctx).Repository(repository).Upload(upload).File(file).Artifact(artifact).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
 
 Create a collection version
 
@@ -31,17 +31,17 @@ import (
 )
 
 func main() {
-    file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
-    artifact := "artifact_example" // string | Artifact file representing the physical content (optional)
     repository := "repository_example" // string | A URI of a repository the new content unit should be associated with. (optional)
     upload := "upload_example" // string | An uncommitted upload that may be turned into the artifact of the content unit. (optional)
+    file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
+    artifact := "artifact_example" // string | Artifact file representing the physical content (optional)
     expectedName := "expectedName_example" // string | The name of the collection. (optional)
     expectedNamespace := "expectedNamespace_example" // string | The namespace of the collection. (optional)
     expectedVersion := "expectedVersion_example" // string | The version of the collection. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsCreate(context.Background()).File(file).Artifact(artifact).Repository(repository).Upload(upload).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
+    resp, r, err := apiClient.ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsCreate(context.Background()).Repository(repository).Upload(upload).File(file).Artifact(artifact).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,10 +62,10 @@ Other parameters are passed through a pointer to a apiContentAnsibleCollectionVe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
- **artifact** | **string** | Artifact file representing the physical content | 
  **repository** | **string** | A URI of a repository the new content unit should be associated with. | 
  **upload** | **string** | An uncommitted upload that may be turned into the artifact of the content unit. | 
+ **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
+ **artifact** | **string** | Artifact file representing the physical content | 
  **expectedName** | **string** | The name of the collection. | 
  **expectedNamespace** | **string** | The namespace of the collection. | 
  **expectedVersion** | **string** | The version of the collection. | 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## ContentAnsibleCollectionVersionsList
 
-> PaginatedansibleCollectionVersionResponseList ContentAnsibleCollectionVersionsList(ctx).IsHighest(isHighest).Limit(limit).Name(name).Namespace(namespace).Offset(offset).Ordering(ordering).Q(q).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Tags(tags).Version(version).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedansibleCollectionVersionResponseList ContentAnsibleCollectionVersionsList(ctx).IsHighest(isHighest).Limit(limit).Name(name).Namespace(namespace).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Q(q).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Tags(tags).Version(version).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List collection versions
 
@@ -114,7 +114,9 @@ func main() {
     name := "name_example" // string |  (optional)
     namespace := "namespace_example" // string |  (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-    ordering := []string{"Ordering_example"} // []string | Ordering (optional)
+    ordering := []string{"Ordering_example"} // []string | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `authors` - Authors * `-authors` - Authors (descending) * `contents` - Contents * `-contents` - Contents (descending) * `dependencies` - Dependencies * `-dependencies` - Dependencies (descending) * `description` - Description * `-description` - Description (descending) * `docs_blob` - Docs blob * `-docs_blob` - Docs blob (descending) * `manifest` - Manifest * `-manifest` - Manifest (descending) * `files` - Files * `-files` - Files (descending) * `documentation` - Documentation * `-documentation` - Documentation (descending) * `homepage` - Homepage * `-homepage` - Homepage (descending) * `issues` - Issues * `-issues` - Issues (descending) * `license` - License * `-license` - License (descending) * `name` - Name * `-name` - Name (descending) * `namespace` - Namespace * `-namespace` - Namespace (descending) * `repository` - Repository * `-repository` - Repository (descending) * `version` - Version * `-version` - Version (descending) * `requires_ansible` - Requires ansible * `-requires_ansible` - Requires ansible (descending) * `is_highest` - Is highest * `-is_highest` - Is highest (descending) * `search_vector` - Search vector * `-search_vector` - Search vector (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
+    pulpHrefIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
+    pulpIdIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     q := "q_example" // string |  (optional)
     repositoryVersion := "repositoryVersion_example" // string | Repository Version referenced by HREF (optional)
     repositoryVersionAdded := "repositoryVersionAdded_example" // string | Repository Version referenced by HREF (optional)
@@ -126,7 +128,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsList(context.Background()).IsHighest(isHighest).Limit(limit).Name(name).Namespace(namespace).Offset(offset).Ordering(ordering).Q(q).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Tags(tags).Version(version).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsList(context.Background()).IsHighest(isHighest).Limit(limit).Name(name).Namespace(namespace).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Q(q).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Tags(tags).Version(version).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -152,7 +154,9 @@ Name | Type | Description  | Notes
  **name** | **string** |  | 
  **namespace** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **ordering** | **[]string** | Ordering | 
+ **ordering** | **[]string** | Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;authors&#x60; - Authors * &#x60;-authors&#x60; - Authors (descending) * &#x60;contents&#x60; - Contents * &#x60;-contents&#x60; - Contents (descending) * &#x60;dependencies&#x60; - Dependencies * &#x60;-dependencies&#x60; - Dependencies (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;docs_blob&#x60; - Docs blob * &#x60;-docs_blob&#x60; - Docs blob (descending) * &#x60;manifest&#x60; - Manifest * &#x60;-manifest&#x60; - Manifest (descending) * &#x60;files&#x60; - Files * &#x60;-files&#x60; - Files (descending) * &#x60;documentation&#x60; - Documentation * &#x60;-documentation&#x60; - Documentation (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;issues&#x60; - Issues * &#x60;-issues&#x60; - Issues (descending) * &#x60;license&#x60; - License * &#x60;-license&#x60; - License (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;repository&#x60; - Repository * &#x60;-repository&#x60; - Repository (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;requires_ansible&#x60; - Requires ansible * &#x60;-requires_ansible&#x60; - Requires ansible (descending) * &#x60;is_highest&#x60; - Is highest * &#x60;-is_highest&#x60; - Is highest (descending) * &#x60;search_vector&#x60; - Search vector * &#x60;-search_vector&#x60; - Search vector (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | 
+ **pulpHrefIn** | **[]string** | Multiple values may be separated by commas. | 
+ **pulpIdIn** | **[]string** | Multiple values may be separated by commas. | 
  **q** | **string** |  | 
  **repositoryVersion** | **string** | Repository Version referenced by HREF | 
  **repositoryVersionAdded** | **string** | Repository Version referenced by HREF | 

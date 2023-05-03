@@ -398,6 +398,8 @@ type TasksApiTasksListRequest struct {
 	offset *int32
 	ordering *[]string
 	parentTask *string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	reservedResources *string
 	reservedResourcesIn *[]string
 	reservedResourcesRecord *[]string
@@ -518,7 +520,7 @@ func (r TasksApiTasksListRequest) Offset(offset int32) TasksApiTasksListRequest 
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;state&#x60; - State * &#x60;-state&#x60; - State (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;logging_cid&#x60; - Logging cid * &#x60;-logging_cid&#x60; - Logging cid (descending) * &#x60;started_at&#x60; - Started at * &#x60;-started_at&#x60; - Started at (descending) * &#x60;finished_at&#x60; - Finished at * &#x60;-finished_at&#x60; - Finished at (descending) * &#x60;error&#x60; - Error * &#x60;-error&#x60; - Error (descending) * &#x60;args&#x60; - Args * &#x60;-args&#x60; - Args (descending) * &#x60;kwargs&#x60; - Kwargs * &#x60;-kwargs&#x60; - Kwargs (descending) * &#x60;reserved_resources_record&#x60; - Reserved resources record * &#x60;-reserved_resources_record&#x60; - Reserved resources record (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r TasksApiTasksListRequest) Ordering(ordering []string) TasksApiTasksListRequest {
 	r.ordering = &ordering
 	return r
@@ -527,6 +529,18 @@ func (r TasksApiTasksListRequest) Ordering(ordering []string) TasksApiTasksListR
 // Filter results where parent_task matches value
 func (r TasksApiTasksListRequest) ParentTask(parentTask string) TasksApiTasksListRequest {
 	r.parentTask = &parentTask
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r TasksApiTasksListRequest) PulpHrefIn(pulpHrefIn []string) TasksApiTasksListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r TasksApiTasksListRequest) PulpIdIn(pulpIdIn []string) TasksApiTasksListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -593,7 +607,7 @@ func (r TasksApiTasksListRequest) StartedAtRange(startedAtRange []time.Time) Tas
 	return r
 }
 
-// Filter results where state matches value
+// Filter results where state matches value  * &#x60;waiting&#x60; - Waiting * &#x60;skipped&#x60; - Skipped * &#x60;running&#x60; - Running * &#x60;completed&#x60; - Completed * &#x60;failed&#x60; - Failed * &#x60;canceled&#x60; - Canceled * &#x60;canceling&#x60; - Canceling
 func (r TasksApiTasksListRequest) State(state string) TasksApiTasksListRequest {
 	r.state = &state
 	return r
@@ -747,6 +761,12 @@ func (a *TasksApiService) TasksListExecute(r TasksApiTasksListRequest) (*Paginat
 	}
 	if r.parentTask != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "parent_task", r.parentTask, "")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.reservedResources != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "reserved_resources", r.reservedResources, "")

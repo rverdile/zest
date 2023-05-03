@@ -150,6 +150,8 @@ type ContentPackageIndicesApiContentDebPackageIndicesListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	relativePath *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
@@ -183,9 +185,21 @@ func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Offset(offs
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;component&#x60; - Component * &#x60;-component&#x60; - Component (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;artifact_set_sha256&#x60; - Artifact set sha256 * &#x60;-artifact_set_sha256&#x60; - Artifact set sha256 (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Ordering(ordering []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) PulpIdIn(pulpIdIn []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -292,6 +306,12 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesListExecute(r 
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.relativePath != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "relative_path", r.relativePath, "")

@@ -206,6 +206,8 @@ type ContentPackagesApiContentDebPackagesListRequest struct {
 	originalMaintainer *string
 	package_ *string
 	priority *string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	relativePath *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
@@ -231,7 +233,7 @@ func (r ContentPackagesApiContentDebPackagesListRequest) AutoBuiltPackage(autoBu
 	return r
 }
 
-// Filter results where build_essential matches value
+// Filter results where build_essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
 func (r ContentPackagesApiContentDebPackagesListRequest) BuildEssential(buildEssential bool) ContentPackagesApiContentDebPackagesListRequest {
 	r.buildEssential = &buildEssential
 	return r
@@ -243,7 +245,7 @@ func (r ContentPackagesApiContentDebPackagesListRequest) BuiltUsing(builtUsing s
 	return r
 }
 
-// Filter results where essential matches value
+// Filter results where essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
 func (r ContentPackagesApiContentDebPackagesListRequest) Essential(essential bool) ContentPackagesApiContentDebPackagesListRequest {
 	r.essential = &essential
 	return r
@@ -267,7 +269,7 @@ func (r ContentPackagesApiContentDebPackagesListRequest) Maintainer(maintainer s
 	return r
 }
 
-// Filter results where multi_arch matches value
+// Filter results where multi_arch matches value  * &#x60;no&#x60; - no * &#x60;same&#x60; - same * &#x60;foreign&#x60; - foreign * &#x60;allowed&#x60; - allowed
 func (r ContentPackagesApiContentDebPackagesListRequest) MultiArch(multiArch string) ContentPackagesApiContentDebPackagesListRequest {
 	r.multiArch = &multiArch
 	return r
@@ -279,7 +281,7 @@ func (r ContentPackagesApiContentDebPackagesListRequest) Offset(offset int32) Co
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;package&#x60; - Package * &#x60;-package&#x60; - Package (descending) * &#x60;source&#x60; - Source * &#x60;-source&#x60; - Source (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;section&#x60; - Section * &#x60;-section&#x60; - Section (descending) * &#x60;priority&#x60; - Priority * &#x60;-priority&#x60; - Priority (descending) * &#x60;origin&#x60; - Origin * &#x60;-origin&#x60; - Origin (descending) * &#x60;tag&#x60; - Tag * &#x60;-tag&#x60; - Tag (descending) * &#x60;bugs&#x60; - Bugs * &#x60;-bugs&#x60; - Bugs (descending) * &#x60;essential&#x60; - Essential * &#x60;-essential&#x60; - Essential (descending) * &#x60;build_essential&#x60; - Build essential * &#x60;-build_essential&#x60; - Build essential (descending) * &#x60;installed_size&#x60; - Installed size * &#x60;-installed_size&#x60; - Installed size (descending) * &#x60;maintainer&#x60; - Maintainer * &#x60;-maintainer&#x60; - Maintainer (descending) * &#x60;original_maintainer&#x60; - Original maintainer * &#x60;-original_maintainer&#x60; - Original maintainer (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;description_md5&#x60; - Description md5 * &#x60;-description_md5&#x60; - Description md5 (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;built_using&#x60; - Built using * &#x60;-built_using&#x60; - Built using (descending) * &#x60;auto_built_package&#x60; - Auto built package * &#x60;-auto_built_package&#x60; - Auto built package (descending) * &#x60;multi_arch&#x60; - Multi arch * &#x60;-multi_arch&#x60; - Multi arch (descending) * &#x60;breaks&#x60; - Breaks * &#x60;-breaks&#x60; - Breaks (descending) * &#x60;conflicts&#x60; - Conflicts * &#x60;-conflicts&#x60; - Conflicts (descending) * &#x60;depends&#x60; - Depends * &#x60;-depends&#x60; - Depends (descending) * &#x60;recommends&#x60; - Recommends * &#x60;-recommends&#x60; - Recommends (descending) * &#x60;suggests&#x60; - Suggests * &#x60;-suggests&#x60; - Suggests (descending) * &#x60;enhances&#x60; - Enhances * &#x60;-enhances&#x60; - Enhances (descending) * &#x60;pre_depends&#x60; - Pre depends * &#x60;-pre_depends&#x60; - Pre depends (descending) * &#x60;provides&#x60; - Provides * &#x60;-provides&#x60; - Provides (descending) * &#x60;replaces&#x60; - Replaces * &#x60;-replaces&#x60; - Replaces (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;custom_fields&#x60; - Custom fields * &#x60;-custom_fields&#x60; - Custom fields (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentPackagesApiContentDebPackagesListRequest) Ordering(ordering []string) ContentPackagesApiContentDebPackagesListRequest {
 	r.ordering = &ordering
 	return r
@@ -306,6 +308,18 @@ func (r ContentPackagesApiContentDebPackagesListRequest) Package_(package_ strin
 // Filter results where priority matches value
 func (r ContentPackagesApiContentDebPackagesListRequest) Priority(priority string) ContentPackagesApiContentDebPackagesListRequest {
 	r.priority = &priority
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackagesApiContentDebPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesApiContentDebPackagesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackagesApiContentDebPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesApiContentDebPackagesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -460,6 +474,12 @@ func (a *ContentPackagesApiService) ContentDebPackagesListExecute(r ContentPacka
 	}
 	if r.priority != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "priority", r.priority, "")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.relativePath != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "relative_path", r.relativePath, "")
@@ -1109,6 +1129,8 @@ type ContentPackagesApiContentPythonPackagesListRequest struct {
 	ordering *[]string
 	packagetype *string
 	packagetypeIn *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -1192,13 +1214,13 @@ func (r ContentPackagesApiContentPythonPackagesListRequest) Offset(offset int32)
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;filename&#x60; - Filename * &#x60;-filename&#x60; - Filename (descending) * &#x60;packagetype&#x60; - Packagetype * &#x60;-packagetype&#x60; - Packagetype (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;python_version&#x60; - Python version * &#x60;-python_version&#x60; - Python version (descending) * &#x60;metadata_version&#x60; - Metadata version * &#x60;-metadata_version&#x60; - Metadata version (descending) * &#x60;summary&#x60; - Summary * &#x60;-summary&#x60; - Summary (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;keywords&#x60; - Keywords * &#x60;-keywords&#x60; - Keywords (descending) * &#x60;home_page&#x60; - Home page * &#x60;-home_page&#x60; - Home page (descending) * &#x60;download_url&#x60; - Download url * &#x60;-download_url&#x60; - Download url (descending) * &#x60;author&#x60; - Author * &#x60;-author&#x60; - Author (descending) * &#x60;author_email&#x60; - Author email * &#x60;-author_email&#x60; - Author email (descending) * &#x60;maintainer&#x60; - Maintainer * &#x60;-maintainer&#x60; - Maintainer (descending) * &#x60;maintainer_email&#x60; - Maintainer email * &#x60;-maintainer_email&#x60; - Maintainer email (descending) * &#x60;license&#x60; - License * &#x60;-license&#x60; - License (descending) * &#x60;requires_python&#x60; - Requires python * &#x60;-requires_python&#x60; - Requires python (descending) * &#x60;project_url&#x60; - Project url * &#x60;-project_url&#x60; - Project url (descending) * &#x60;platform&#x60; - Platform * &#x60;-platform&#x60; - Platform (descending) * &#x60;supported_platform&#x60; - Supported platform * &#x60;-supported_platform&#x60; - Supported platform (descending) * &#x60;requires_dist&#x60; - Requires dist * &#x60;-requires_dist&#x60; - Requires dist (descending) * &#x60;provides_dist&#x60; - Provides dist * &#x60;-provides_dist&#x60; - Provides dist (descending) * &#x60;obsoletes_dist&#x60; - Obsoletes dist * &#x60;-obsoletes_dist&#x60; - Obsoletes dist (descending) * &#x60;requires_external&#x60; - Requires external * &#x60;-requires_external&#x60; - Requires external (descending) * &#x60;classifiers&#x60; - Classifiers * &#x60;-classifiers&#x60; - Classifiers (descending) * &#x60;project_urls&#x60; - Project urls * &#x60;-project_urls&#x60; - Project urls (descending) * &#x60;description_content_type&#x60; - Description content type * &#x60;-description_content_type&#x60; - Description content type (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentPackagesApiContentPythonPackagesListRequest) Ordering(ordering []string) ContentPackagesApiContentPythonPackagesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
-// Filter results where packagetype matches value
+// Filter results where packagetype matches value  * &#x60;bdist_dmg&#x60; - bdist_dmg * &#x60;bdist_dumb&#x60; - bdist_dumb * &#x60;bdist_egg&#x60; - bdist_egg * &#x60;bdist_msi&#x60; - bdist_msi * &#x60;bdist_rpm&#x60; - bdist_rpm * &#x60;bdist_wheel&#x60; - bdist_wheel * &#x60;bdist_wininst&#x60; - bdist_wininst * &#x60;sdist&#x60; - sdist
 func (r ContentPackagesApiContentPythonPackagesListRequest) Packagetype(packagetype string) ContentPackagesApiContentPythonPackagesListRequest {
 	r.packagetype = &packagetype
 	return r
@@ -1207,6 +1229,18 @@ func (r ContentPackagesApiContentPythonPackagesListRequest) Packagetype(packaget
 // Filter results where packagetype is in a comma-separated list of values
 func (r ContentPackagesApiContentPythonPackagesListRequest) PackagetypeIn(packagetypeIn []string) ContentPackagesApiContentPythonPackagesListRequest {
 	r.packagetypeIn = &packagetypeIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackagesApiContentPythonPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackagesApiContentPythonPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -1385,6 +1419,12 @@ func (a *ContentPackagesApiService) ContentPythonPackagesListExecute(r ContentPa
 	}
 	if r.packagetypeIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "packagetype__in", r.packagetypeIn, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")
@@ -1828,6 +1868,8 @@ type ContentPackagesApiContentRpmPackagesListRequest struct {
 	ordering *[]string
 	pkgId *string
 	pkgIdIn *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	release *string
 	releaseIn *[]string
 	releaseNe *string
@@ -1860,7 +1902,7 @@ func (r ContentPackagesApiContentRpmPackagesListRequest) ArchNe(archNe string) C
 	return r
 }
 
-// Filter results where checksum_type matches value
+// Filter results where checksum_type matches value  * &#x60;unknown&#x60; - unknown * &#x60;md5&#x60; - md5 * &#x60;sha1&#x60; - sha1 * &#x60;sha1&#x60; - sha1 * &#x60;sha224&#x60; - sha224 * &#x60;sha256&#x60; - sha256 * &#x60;sha384&#x60; - sha384 * &#x60;sha512&#x60; - sha512
 func (r ContentPackagesApiContentRpmPackagesListRequest) ChecksumType(checksumType string) ContentPackagesApiContentRpmPackagesListRequest {
 	r.checksumType = &checksumType
 	return r
@@ -1926,7 +1968,7 @@ func (r ContentPackagesApiContentRpmPackagesListRequest) Offset(offset int32) Co
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;epoch&#x60; - Epoch * &#x60;-epoch&#x60; - Epoch (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;release&#x60; - Release * &#x60;-release&#x60; - Release (descending) * &#x60;arch&#x60; - Arch * &#x60;-arch&#x60; - Arch (descending) * &#x60;evr&#x60; - Evr * &#x60;-evr&#x60; - Evr (descending) * &#x60;pkgId&#x60; - Pkgid * &#x60;-pkgId&#x60; - Pkgid (descending) * &#x60;checksum_type&#x60; - Checksum type * &#x60;-checksum_type&#x60; - Checksum type (descending) * &#x60;summary&#x60; - Summary * &#x60;-summary&#x60; - Summary (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;changelogs&#x60; - Changelogs * &#x60;-changelogs&#x60; - Changelogs (descending) * &#x60;files&#x60; - Files * &#x60;-files&#x60; - Files (descending) * &#x60;requires&#x60; - Requires * &#x60;-requires&#x60; - Requires (descending) * &#x60;provides&#x60; - Provides * &#x60;-provides&#x60; - Provides (descending) * &#x60;conflicts&#x60; - Conflicts * &#x60;-conflicts&#x60; - Conflicts (descending) * &#x60;obsoletes&#x60; - Obsoletes * &#x60;-obsoletes&#x60; - Obsoletes (descending) * &#x60;suggests&#x60; - Suggests * &#x60;-suggests&#x60; - Suggests (descending) * &#x60;enhances&#x60; - Enhances * &#x60;-enhances&#x60; - Enhances (descending) * &#x60;recommends&#x60; - Recommends * &#x60;-recommends&#x60; - Recommends (descending) * &#x60;supplements&#x60; - Supplements * &#x60;-supplements&#x60; - Supplements (descending) * &#x60;location_base&#x60; - Location base * &#x60;-location_base&#x60; - Location base (descending) * &#x60;location_href&#x60; - Location href * &#x60;-location_href&#x60; - Location href (descending) * &#x60;rpm_buildhost&#x60; - Rpm buildhost * &#x60;-rpm_buildhost&#x60; - Rpm buildhost (descending) * &#x60;rpm_group&#x60; - Rpm group * &#x60;-rpm_group&#x60; - Rpm group (descending) * &#x60;rpm_license&#x60; - Rpm license * &#x60;-rpm_license&#x60; - Rpm license (descending) * &#x60;rpm_packager&#x60; - Rpm packager * &#x60;-rpm_packager&#x60; - Rpm packager (descending) * &#x60;rpm_sourcerpm&#x60; - Rpm sourcerpm * &#x60;-rpm_sourcerpm&#x60; - Rpm sourcerpm (descending) * &#x60;rpm_vendor&#x60; - Rpm vendor * &#x60;-rpm_vendor&#x60; - Rpm vendor (descending) * &#x60;rpm_header_start&#x60; - Rpm header start * &#x60;-rpm_header_start&#x60; - Rpm header start (descending) * &#x60;rpm_header_end&#x60; - Rpm header end * &#x60;-rpm_header_end&#x60; - Rpm header end (descending) * &#x60;size_archive&#x60; - Size archive * &#x60;-size_archive&#x60; - Size archive (descending) * &#x60;size_installed&#x60; - Size installed * &#x60;-size_installed&#x60; - Size installed (descending) * &#x60;size_package&#x60; - Size package * &#x60;-size_package&#x60; - Size package (descending) * &#x60;time_build&#x60; - Time build * &#x60;-time_build&#x60; - Time build (descending) * &#x60;time_file&#x60; - Time file * &#x60;-time_file&#x60; - Time file (descending) * &#x60;is_modular&#x60; - Is modular * &#x60;-is_modular&#x60; - Is modular (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentPackagesApiContentRpmPackagesListRequest) Ordering(ordering []string) ContentPackagesApiContentRpmPackagesListRequest {
 	r.ordering = &ordering
 	return r
@@ -1941,6 +1983,18 @@ func (r ContentPackagesApiContentRpmPackagesListRequest) PkgId(pkgId string) Con
 // Filter results where pkgId is in a comma-separated list of values
 func (r ContentPackagesApiContentRpmPackagesListRequest) PkgIdIn(pkgIdIn []string) ContentPackagesApiContentRpmPackagesListRequest {
 	r.pkgIdIn = &pkgIdIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackagesApiContentRpmPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentPackagesApiContentRpmPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -2110,6 +2164,12 @@ func (a *ContentPackagesApiService) ContentRpmPackagesListExecute(r ContentPacka
 	}
 	if r.pkgIdIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pkgId__in", r.pkgIdIn, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.release != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "release", r.release, "")

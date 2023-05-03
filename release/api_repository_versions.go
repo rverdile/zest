@@ -45,6 +45,7 @@ type RepositoryVersionsApiRepositoryVersionsListRequest struct {
 	pulpCreatedLt *time.Time
 	pulpCreatedLte *time.Time
 	pulpCreatedRange *[]time.Time
+	pulpHrefIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -109,7 +110,7 @@ func (r RepositoryVersionsApiRepositoryVersionsListRequest) Offset(offset int32)
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r RepositoryVersionsApiRepositoryVersionsListRequest) Ordering(ordering []string) RepositoryVersionsApiRepositoryVersionsListRequest {
 	r.ordering = &ordering
 	return r
@@ -151,6 +152,12 @@ func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpCreatedRange(pul
 	return r
 }
 
+// Multiple values may be separated by commas.
+func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoryVersionsApiRepositoryVersionsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
 // A list of fields to include in the response.
 func (r RepositoryVersionsApiRepositoryVersionsListRequest) Fields(fields []string) RepositoryVersionsApiRepositoryVersionsListRequest {
 	r.fields = &fields
@@ -169,6 +176,8 @@ func (r RepositoryVersionsApiRepositoryVersionsListRequest) Execute() (*Paginate
 
 /*
 RepositoryVersionsList List repository versions
+
+A mixin to hold the shared get_queryset logic used by RepositoryVersionViewSets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return RepositoryVersionsApiRepositoryVersionsListRequest
@@ -250,6 +259,9 @@ func (a *RepositoryVersionsApiService) RepositoryVersionsListExecute(r Repositor
 	}
 	if r.pulpCreatedRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_created__range", r.pulpCreatedRange, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

@@ -39,6 +39,9 @@ type PublicationsApiPublicationsListRequest struct {
 	pulpCreatedLt *time.Time
 	pulpCreatedLte *time.Time
 	pulpCreatedRange *[]time.Time
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
+	pulpTypeIn *[]string
 	repository *string
 	repositoryVersion *string
 	fields *[]string
@@ -69,7 +72,7 @@ func (r PublicationsApiPublicationsListRequest) Offset(offset int32) Publication
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r PublicationsApiPublicationsListRequest) Ordering(ordering []string) PublicationsApiPublicationsListRequest {
 	r.ordering = &ordering
 	return r
@@ -111,6 +114,24 @@ func (r PublicationsApiPublicationsListRequest) PulpCreatedRange(pulpCreatedRang
 	return r
 }
 
+// Multiple values may be separated by commas.
+func (r PublicationsApiPublicationsListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsApiPublicationsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r PublicationsApiPublicationsListRequest) PulpIdIn(pulpIdIn []string) PublicationsApiPublicationsListRequest {
+	r.pulpIdIn = &pulpIdIn
+	return r
+}
+
+// Pulp type is in  * &#x60;deb.verbatim-publication&#x60; - deb.verbatim-publication * &#x60;deb.apt-publication&#x60; - deb.apt-publication * &#x60;file.file&#x60; - file.file * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm
+func (r PublicationsApiPublicationsListRequest) PulpTypeIn(pulpTypeIn []string) PublicationsApiPublicationsListRequest {
+	r.pulpTypeIn = &pulpTypeIn
+	return r
+}
+
 // Repository referenced by HREF
 func (r PublicationsApiPublicationsListRequest) Repository(repository string) PublicationsApiPublicationsListRequest {
 	r.repository = &repository
@@ -142,24 +163,7 @@ func (r PublicationsApiPublicationsListRequest) Execute() (*PaginatedPublication
 /*
 PublicationsList List publications
 
-A customized named ModelViewSet that knows how to register itself with the Pulp API router.
-
-This viewset is discoverable by its name.
-"Normal" Django Models and Master/Detail models are supported by the ``register_with`` method.
-
-Attributes:
-    lookup_field (str): The name of the field by which an object should be looked up, in
-        addition to any parent lookups if this ViewSet is nested. Defaults to 'pk'
-    endpoint_name (str): The name of the final path segment that should identify the ViewSet's
-        collection endpoint.
-    nest_prefix (str): Optional prefix under which this ViewSet should be nested. This must
-        correspond to the "parent_prefix" of a router with rest_framework_nested.NestedMixin.
-        None indicates this ViewSet should not be nested.
-    parent_lookup_kwargs (dict): Optional mapping of key names that would appear in self.kwargs
-        to django model filter expressions that can be used with the corresponding value from
-        self.kwargs, used only by a nested ViewSet to filter based on the parent object's
-        identity.
-    schema (DefaultSchema): The schema class to use by default in a viewset.
+A base class for any publication viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return PublicationsApiPublicationsListRequest
@@ -223,6 +227,15 @@ func (a *PublicationsApiService) PublicationsListExecute(r PublicationsApiPublic
 	}
 	if r.pulpCreatedRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_created__range", r.pulpCreatedRange, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
+	}
+	if r.pulpTypeIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_type__in", r.pulpTypeIn, "csv")
 	}
 	if r.repository != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository", r.repository, "")

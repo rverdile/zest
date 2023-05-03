@@ -364,6 +364,8 @@ type AcsRpmApiAcsRpmRpmListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -410,9 +412,21 @@ func (r AcsRpmApiAcsRpmRpmListRequest) Offset(offset int32) AcsRpmApiAcsRpmRpmLi
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;last_refreshed&#x60; - Last refreshed * &#x60;-last_refreshed&#x60; - Last refreshed (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r AcsRpmApiAcsRpmRpmListRequest) Ordering(ordering []string) AcsRpmApiAcsRpmRpmListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r AcsRpmApiAcsRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) AcsRpmApiAcsRpmRpmListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r AcsRpmApiAcsRpmRpmListRequest) PulpIdIn(pulpIdIn []string) AcsRpmApiAcsRpmRpmListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -490,6 +504,12 @@ func (a *AcsRpmApiService) AcsRpmRpmListExecute(r AcsRpmApiAcsRpmRpmListRequest)
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

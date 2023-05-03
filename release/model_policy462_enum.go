@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// Policy462Enum the model 'Policy462Enum'
+// Policy462Enum * `immediate` - immediate * `on_demand` - on_demand
 type Policy462Enum string
 
 // List of Policy462Enum

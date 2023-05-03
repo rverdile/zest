@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## ContentDebPackageReleaseComponentsList
 
-> PaginateddebPackageReleaseComponentResponseList ContentDebPackageReleaseComponentsList(ctx).Limit(limit).Offset(offset).Ordering(ordering).Package_(package_).ReleaseComponent(releaseComponent).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginateddebPackageReleaseComponentResponseList ContentDebPackageReleaseComponentsList(ctx).Limit(limit).Offset(offset).Ordering(ordering).Package_(package_).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ReleaseComponent(releaseComponent).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List package release components
 
@@ -99,8 +99,10 @@ import (
 func main() {
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-    ordering := []string{"Ordering_example"} // []string | Ordering (optional)
+    ordering := []string{"Ordering_example"} // []string | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
     package_ := "package__example" // string | Filter results where package matches value (optional)
+    pulpHrefIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
+    pulpIdIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     releaseComponent := "releaseComponent_example" // string | Filter results where release_component matches value (optional)
     repositoryVersion := "repositoryVersion_example" // string | Repository Version referenced by HREF (optional)
     repositoryVersionAdded := "repositoryVersionAdded_example" // string | Repository Version referenced by HREF (optional)
@@ -110,7 +112,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentPackageReleaseComponentsApi.ContentDebPackageReleaseComponentsList(context.Background()).Limit(limit).Offset(offset).Ordering(ordering).Package_(package_).ReleaseComponent(releaseComponent).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentPackageReleaseComponentsApi.ContentDebPackageReleaseComponentsList(context.Background()).Limit(limit).Offset(offset).Ordering(ordering).Package_(package_).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ReleaseComponent(releaseComponent).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentPackageReleaseComponentsApi.ContentDebPackageReleaseComponentsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,8 +135,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **ordering** | **[]string** | Ordering | 
+ **ordering** | **[]string** | Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | 
  **package_** | **string** | Filter results where package matches value | 
+ **pulpHrefIn** | **[]string** | Multiple values may be separated by commas. | 
+ **pulpIdIn** | **[]string** | Multiple values may be separated by commas. | 
  **releaseComponent** | **string** | Filter results where release_component matches value | 
  **repositoryVersion** | **string** | Repository Version referenced by HREF | 
  **repositoryVersionAdded** | **string** | Repository Version referenced by HREF | 

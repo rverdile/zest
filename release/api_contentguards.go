@@ -35,6 +35,9 @@ type ContentguardsApiContentguardsListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
+	pulpTypeIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -81,9 +84,27 @@ func (r ContentguardsApiContentguardsListRequest) Offset(offset int32) Contentgu
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentguardsApiContentguardsListRequest) Ordering(ordering []string) ContentguardsApiContentguardsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentguardsApiContentguardsListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsApiContentguardsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentguardsApiContentguardsListRequest) PulpIdIn(pulpIdIn []string) ContentguardsApiContentguardsListRequest {
+	r.pulpIdIn = &pulpIdIn
+	return r
+}
+
+// Pulp type is in  * &#x60;core.rbac&#x60; - core.rbac * &#x60;core.content_redirect&#x60; - core.content_redirect * &#x60;certguard.rhsm&#x60; - certguard.rhsm * &#x60;certguard.x509&#x60; - certguard.x509
+func (r ContentguardsApiContentguardsListRequest) PulpTypeIn(pulpTypeIn []string) ContentguardsApiContentguardsListRequest {
+	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
@@ -161,6 +182,15 @@ func (a *ContentguardsApiService) ContentguardsListExecute(r ContentguardsApiCon
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
+	}
+	if r.pulpTypeIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_type__in", r.pulpTypeIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

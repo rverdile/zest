@@ -22,8 +22,6 @@ var _ MappedNullable = &DebPackageIndex{}
 type DebPackageIndex struct {
 	// A dict mapping relative paths inside the Content to the correspondingArtifact URLs. E.g.: {'relative/path': '/artifacts/1/'
 	Artifacts map[string]interface{} `json:"artifacts"`
-	// Release this index file belongs to.
-	Release string `json:"release"`
 	// Component of the component - architecture combination.
 	Component *string `json:"component,omitempty"`
 	// Architecture of the component - architecture combination.
@@ -36,10 +34,9 @@ type DebPackageIndex struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDebPackageIndex(artifacts map[string]interface{}, release string) *DebPackageIndex {
+func NewDebPackageIndex(artifacts map[string]interface{}) *DebPackageIndex {
 	this := DebPackageIndex{}
 	this.Artifacts = artifacts
-	this.Release = release
 	return &this
 }
 
@@ -73,30 +70,6 @@ func (o *DebPackageIndex) GetArtifactsOk() (map[string]interface{}, bool) {
 // SetArtifacts sets field value
 func (o *DebPackageIndex) SetArtifacts(v map[string]interface{}) {
 	o.Artifacts = v
-}
-
-// GetRelease returns the Release field value
-func (o *DebPackageIndex) GetRelease() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Release
-}
-
-// GetReleaseOk returns a tuple with the Release field value
-// and a boolean to check if the value has been set.
-func (o *DebPackageIndex) GetReleaseOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Release, true
-}
-
-// SetRelease sets field value
-func (o *DebPackageIndex) SetRelease(v string) {
-	o.Release = v
 }
 
 // GetComponent returns the Component field value if set, zero value otherwise.
@@ -206,7 +179,6 @@ func (o DebPackageIndex) MarshalJSON() ([]byte, error) {
 func (o DebPackageIndex) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["artifacts"] = o.Artifacts
-	toSerialize["release"] = o.Release
 	if !IsNil(o.Component) {
 		toSerialize["component"] = o.Component
 	}

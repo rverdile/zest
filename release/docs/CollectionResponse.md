@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | Pointer to **string** |  | [optional] [readonly] 
+**Href** | Pointer to **string** | Get href. | [optional] [readonly] 
 **Namespace** | Pointer to **string** |  | [optional] [readonly] 
 **Name** | Pointer to **string** |  | [optional] [readonly] 
-**Deprecated** | Pointer to **bool** |  | [optional] [readonly] 
-**VersionsUrl** | Pointer to **string** |  | [optional] [readonly] 
-**HighestVersion** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
-**CreatedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
-**UpdatedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
+**Deprecated** | Pointer to **bool** | Get deprecated. | [optional] [readonly] 
+**VersionsUrl** | Pointer to **string** | Get a link to a collection versions list. | [optional] [readonly] 
+**HighestVersion** | Pointer to **map[string]interface{}** | Get a highest version and its link. | [optional] [readonly] 
+**CreatedAt** | Pointer to **time.Time** | Get the timestamp of the lowest version CollectionVersion&#39;s created timestamp. | [optional] [readonly] 
+**UpdatedAt** | Pointer to **time.Time** | Get the timestamp of the highest version CollectionVersion&#39;s created timestamp. | [optional] [readonly] 
 
 ## Methods
 

@@ -350,6 +350,8 @@ type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDe
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -438,9 +440,21 @@ func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalax
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;company&#x60; - Company * &#x60;-company&#x60; - Company (descending) * &#x60;email&#x60; - Email * &#x60;-email&#x60; - Email (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;resources&#x60; - Resources * &#x60;-resources&#x60; - Resources (descending) * &#x60;links&#x60; - Links * &#x60;-links&#x60; - Links (descending) * &#x60;avatar_sha256&#x60; - Avatar sha256 * &#x60;-avatar_sha256&#x60; - Avatar sha256 (descending) * &#x60;metadata_sha256&#x60; - Metadata sha256 * &#x60;-metadata_sha256&#x60; - Metadata sha256 (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -544,6 +558,12 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

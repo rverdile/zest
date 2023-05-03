@@ -22,6 +22,7 @@ var _ MappedNullable = &CollectionRefResponse{}
 type CollectionRefResponse struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
+	// Returns link to a collection.
 	Href *string `json:"href,omitempty"`
 }
 

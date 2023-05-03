@@ -22,8 +22,6 @@ var _ MappedNullable = &DebInstallerFileIndex{}
 type DebInstallerFileIndex struct {
 	// A dict mapping relative paths inside the Content to the correspondingArtifact URLs. E.g.: {'relative/path': '/artifacts/1/'
 	Artifacts map[string]interface{} `json:"artifacts"`
-	// Release this index file belongs to.
-	Release string `json:"release"`
 	// Component of the component - architecture combination.
 	Component string `json:"component"`
 	// Architecture of the component - architecture combination.
@@ -36,10 +34,9 @@ type DebInstallerFileIndex struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDebInstallerFileIndex(artifacts map[string]interface{}, release string, component string, architecture string) *DebInstallerFileIndex {
+func NewDebInstallerFileIndex(artifacts map[string]interface{}, component string, architecture string) *DebInstallerFileIndex {
 	this := DebInstallerFileIndex{}
 	this.Artifacts = artifacts
-	this.Release = release
 	this.Component = component
 	this.Architecture = architecture
 	return &this
@@ -75,30 +72,6 @@ func (o *DebInstallerFileIndex) GetArtifactsOk() (map[string]interface{}, bool) 
 // SetArtifacts sets field value
 func (o *DebInstallerFileIndex) SetArtifacts(v map[string]interface{}) {
 	o.Artifacts = v
-}
-
-// GetRelease returns the Release field value
-func (o *DebInstallerFileIndex) GetRelease() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Release
-}
-
-// GetReleaseOk returns a tuple with the Release field value
-// and a boolean to check if the value has been set.
-func (o *DebInstallerFileIndex) GetReleaseOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Release, true
-}
-
-// SetRelease sets field value
-func (o *DebInstallerFileIndex) SetRelease(v string) {
-	o.Release = v
 }
 
 // GetComponent returns the Component field value
@@ -192,7 +165,6 @@ func (o DebInstallerFileIndex) MarshalJSON() ([]byte, error) {
 func (o DebInstallerFileIndex) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["artifacts"] = o.Artifacts
-	toSerialize["release"] = o.Release
 	toSerialize["component"] = o.Component
 	toSerialize["architecture"] = o.Architecture
 	if !IsNil(o.RelativePath) {

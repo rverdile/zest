@@ -29,25 +29,13 @@ type ContentCollectionVersionsApiService service
 type ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentCollectionVersionsApiService
-	file *os.File
-	artifact *string
 	repository *string
 	upload *string
+	file *os.File
+	artifact *string
 	expectedName *string
 	expectedNamespace *string
 	expectedVersion *string
-}
-
-// An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) File(file *os.File) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	r.file = file
-	return r
-}
-
-// Artifact file representing the physical content
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	r.artifact = &artifact
-	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
@@ -59,6 +47,18 @@ func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateReques
 // An uncommitted upload that may be turned into the artifact of the content unit.
 func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Upload(upload string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
 	r.upload = &upload
+	return r
+}
+
+// An uploaded file that may be turned into the artifact of the content unit.
+func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) File(file *os.File) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+	r.file = file
+	return r
+}
+
+// Artifact file representing the physical content
+func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+	r.artifact = &artifact
 	return r
 }
 
@@ -136,6 +136,12 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.repository != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
+	}
+	if r.upload != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
+	}
 	var fileLocalVarFormFileName string
 	var fileLocalVarFileName     string
 	var fileLocalVarFileBytes    []byte
@@ -155,12 +161,6 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	}
 	if r.artifact != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
-	}
-	if r.repository != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
-	}
-	if r.upload != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
 	}
 	if r.expectedName != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "expected_name", r.expectedName, "")
@@ -217,6 +217,8 @@ type ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest str
 	namespace *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	q *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
@@ -254,9 +256,21 @@ func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest)
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;authors&#x60; - Authors * &#x60;-authors&#x60; - Authors (descending) * &#x60;contents&#x60; - Contents * &#x60;-contents&#x60; - Contents (descending) * &#x60;dependencies&#x60; - Dependencies * &#x60;-dependencies&#x60; - Dependencies (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;docs_blob&#x60; - Docs blob * &#x60;-docs_blob&#x60; - Docs blob (descending) * &#x60;manifest&#x60; - Manifest * &#x60;-manifest&#x60; - Manifest (descending) * &#x60;files&#x60; - Files * &#x60;-files&#x60; - Files (descending) * &#x60;documentation&#x60; - Documentation * &#x60;-documentation&#x60; - Documentation (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;issues&#x60; - Issues * &#x60;-issues&#x60; - Issues (descending) * &#x60;license&#x60; - License * &#x60;-license&#x60; - License (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;repository&#x60; - Repository * &#x60;-repository&#x60; - Repository (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;requires_ansible&#x60; - Requires ansible * &#x60;-requires_ansible&#x60; - Requires ansible (descending) * &#x60;is_highest&#x60; - Is highest * &#x60;-is_highest&#x60; - Is highest (descending) * &#x60;search_vector&#x60; - Search vector * &#x60;-search_vector&#x60; - Search vector (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Ordering(ordering []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -363,6 +377,12 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsLi
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.q != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "q", r.q, "")

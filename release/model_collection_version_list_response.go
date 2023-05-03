@@ -22,10 +22,12 @@ var _ MappedNullable = &CollectionVersionListResponse{}
 // CollectionVersionListResponse A serializer for a CollectionVersion list item.
 type CollectionVersionListResponse struct {
 	Version *string `json:"version,omitempty"`
+	// Get href.
 	Href *string `json:"href,omitempty"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	RequiresAnsible NullableString `json:"requires_ansible,omitempty"`
+	// Get a list of mark values filtering only those in the current repo.
 	Marks []string `json:"marks,omitempty"`
 }
 

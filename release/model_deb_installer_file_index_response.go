@@ -26,8 +26,6 @@ type DebInstallerFileIndexResponse struct {
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
 	// A dict mapping relative paths inside the Content to the correspondingArtifact URLs. E.g.: {'relative/path': '/artifacts/1/'
 	Artifacts map[string]interface{} `json:"artifacts"`
-	// Release this index file belongs to.
-	Release string `json:"release"`
 	// Component of the component - architecture combination.
 	Component string `json:"component"`
 	// Architecture of the component - architecture combination.
@@ -40,10 +38,9 @@ type DebInstallerFileIndexResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDebInstallerFileIndexResponse(artifacts map[string]interface{}, release string, component string, architecture string) *DebInstallerFileIndexResponse {
+func NewDebInstallerFileIndexResponse(artifacts map[string]interface{}, component string, architecture string) *DebInstallerFileIndexResponse {
 	this := DebInstallerFileIndexResponse{}
 	this.Artifacts = artifacts
-	this.Release = release
 	this.Component = component
 	this.Architecture = architecture
 	return &this
@@ -145,30 +142,6 @@ func (o *DebInstallerFileIndexResponse) SetArtifacts(v map[string]interface{}) {
 	o.Artifacts = v
 }
 
-// GetRelease returns the Release field value
-func (o *DebInstallerFileIndexResponse) GetRelease() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Release
-}
-
-// GetReleaseOk returns a tuple with the Release field value
-// and a boolean to check if the value has been set.
-func (o *DebInstallerFileIndexResponse) GetReleaseOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Release, true
-}
-
-// SetRelease sets field value
-func (o *DebInstallerFileIndexResponse) SetRelease(v string) {
-	o.Release = v
-}
-
 // GetComponent returns the Component field value
 func (o *DebInstallerFileIndexResponse) GetComponent() string {
 	if o == nil {
@@ -262,7 +235,6 @@ func (o DebInstallerFileIndexResponse) ToMap() (map[string]interface{}, error) {
 	// skip: pulp_href is readOnly
 	// skip: pulp_created is readOnly
 	toSerialize["artifacts"] = o.Artifacts
-	toSerialize["release"] = o.Release
 	toSerialize["component"] = o.Component
 	toSerialize["architecture"] = o.Architecture
 	if !IsNil(o.RelativePath) {

@@ -464,6 +464,8 @@ type UploadsApiUploadsListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	size *int32
 	sizeGt *int32
 	sizeLt *int32
@@ -484,9 +486,21 @@ func (r UploadsApiUploadsListRequest) Offset(offset int32) UploadsApiUploadsList
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;size&#x60; - Size * &#x60;-size&#x60; - Size (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r UploadsApiUploadsListRequest) Ordering(ordering []string) UploadsApiUploadsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r UploadsApiUploadsListRequest) PulpHrefIn(pulpHrefIn []string) UploadsApiUploadsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r UploadsApiUploadsListRequest) PulpIdIn(pulpIdIn []string) UploadsApiUploadsListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -573,6 +587,12 @@ func (a *UploadsApiService) UploadsListExecute(r UploadsApiUploadsListRequest) (
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.size != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "size", r.size, "")

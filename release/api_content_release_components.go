@@ -146,6 +146,8 @@ type ContentReleaseComponentsApiContentDebReleaseComponentsListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	release *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
@@ -172,9 +174,21 @@ func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Offse
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;component&#x60; - Component * &#x60;-component&#x60; - Component (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Ordering(ordering []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) PulpIdIn(pulpIdIn []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -269,6 +283,12 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsListExec
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.release != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "release", r.release, "")

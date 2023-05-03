@@ -148,6 +148,8 @@ type TaskSchedulesApiTaskSchedulesListRequest struct {
 	nameContains *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	taskName *string
 	taskNameContains *string
 	fields *[]string
@@ -178,9 +180,21 @@ func (r TaskSchedulesApiTaskSchedulesListRequest) Offset(offset int32) TaskSched
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;next_dispatch&#x60; - Next dispatch * &#x60;-next_dispatch&#x60; - Next dispatch (descending) * &#x60;dispatch_interval&#x60; - Dispatch interval * &#x60;-dispatch_interval&#x60; - Dispatch interval (descending) * &#x60;task_name&#x60; - Task name * &#x60;-task_name&#x60; - Task name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r TaskSchedulesApiTaskSchedulesListRequest) Ordering(ordering []string) TaskSchedulesApiTaskSchedulesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r TaskSchedulesApiTaskSchedulesListRequest) PulpHrefIn(pulpHrefIn []string) TaskSchedulesApiTaskSchedulesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r TaskSchedulesApiTaskSchedulesListRequest) PulpIdIn(pulpIdIn []string) TaskSchedulesApiTaskSchedulesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -261,6 +275,12 @@ func (a *TaskSchedulesApiService) TaskSchedulesListExecute(r TaskSchedulesApiTas
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.taskName != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "task_name", r.taskName, "")

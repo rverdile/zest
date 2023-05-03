@@ -355,6 +355,8 @@ type GroupsApiGroupsListRequest struct {
 	nameIn *[]string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -413,9 +415,21 @@ func (r GroupsApiGroupsListRequest) Offset(offset int32) GroupsApiGroupsListRequ
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;id&#x60; - Id * &#x60;-id&#x60; - Id (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r GroupsApiGroupsListRequest) Ordering(ordering []string) GroupsApiGroupsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r GroupsApiGroupsListRequest) PulpHrefIn(pulpHrefIn []string) GroupsApiGroupsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r GroupsApiGroupsListRequest) PulpIdIn(pulpIdIn []string) GroupsApiGroupsListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -499,6 +513,12 @@ func (a *GroupsApiService) GroupsListExecute(r GroupsApiGroupsListRequest) (*Pag
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

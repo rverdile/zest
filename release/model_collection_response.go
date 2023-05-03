@@ -21,13 +21,19 @@ var _ MappedNullable = &CollectionResponse{}
 
 // CollectionResponse A serializer for a Collection.
 type CollectionResponse struct {
+	// Get href.
 	Href *string `json:"href,omitempty"`
 	Namespace *string `json:"namespace,omitempty"`
 	Name *string `json:"name,omitempty"`
+	// Get deprecated.
 	Deprecated *bool `json:"deprecated,omitempty"`
+	// Get a link to a collection versions list.
 	VersionsUrl *string `json:"versions_url,omitempty"`
+	// Get a highest version and its link.
 	HighestVersion map[string]interface{} `json:"highest_version,omitempty"`
+	// Get the timestamp of the lowest version CollectionVersion's created timestamp.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
+	// Get the timestamp of the highest version CollectionVersion's created timestamp.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
 

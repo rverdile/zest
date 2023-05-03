@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Artifacts** | **map[string]interface{}** | A dict mapping relative paths inside the Content to the correspondingArtifact URLs. E.g.: {&#39;relative/path&#39;: &#39;/artifacts/1/&#39; | 
-**Release** | **string** | Release this index file belongs to. | 
 **Component** | Pointer to **string** | Component of the component - architecture combination. | [optional] 
 **Architecture** | Pointer to **string** | Architecture of the component - architecture combination. | [optional] 
 **RelativePath** | Pointer to **string** | Path of file relative to url. | [optional] 
@@ -16,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewDebPackageIndexResponse
 
-`func NewDebPackageIndexResponse(artifacts map[string]interface{}, release string, ) *DebPackageIndexResponse`
+`func NewDebPackageIndexResponse(artifacts map[string]interface{}, ) *DebPackageIndexResponse`
 
 NewDebPackageIndexResponse instantiates a new DebPackageIndexResponse object
 This constructor will assign default values to properties that have it defined,
@@ -99,26 +98,6 @@ and a boolean to check if the value has been set.
 `func (o *DebPackageIndexResponse) SetArtifacts(v map[string]interface{})`
 
 SetArtifacts sets Artifacts field to given value.
-
-
-### GetRelease
-
-`func (o *DebPackageIndexResponse) GetRelease() string`
-
-GetRelease returns the Release field if non-nil, zero value otherwise.
-
-### GetReleaseOk
-
-`func (o *DebPackageIndexResponse) GetReleaseOk() (*string, bool)`
-
-GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRelease
-
-`func (o *DebPackageIndexResponse) SetRelease(v string)`
-
-SetRelease sets Release field to given value.
 
 
 ### GetComponent

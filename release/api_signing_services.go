@@ -32,6 +32,8 @@ type SigningServicesApiSigningServicesListRequest struct {
 	name *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -54,9 +56,21 @@ func (r SigningServicesApiSigningServicesListRequest) Offset(offset int32) Signi
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;public_key&#x60; - Public key * &#x60;-public_key&#x60; - Public key (descending) * &#x60;pubkey_fingerprint&#x60; - Pubkey fingerprint * &#x60;-pubkey_fingerprint&#x60; - Pubkey fingerprint (descending) * &#x60;script&#x60; - Script * &#x60;-script&#x60; - Script (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r SigningServicesApiSigningServicesListRequest) Ordering(ordering []string) SigningServicesApiSigningServicesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r SigningServicesApiSigningServicesListRequest) PulpHrefIn(pulpHrefIn []string) SigningServicesApiSigningServicesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r SigningServicesApiSigningServicesListRequest) PulpIdIn(pulpIdIn []string) SigningServicesApiSigningServicesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -122,6 +136,12 @@ func (a *SigningServicesApiService) SigningServicesListExecute(r SigningServices
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

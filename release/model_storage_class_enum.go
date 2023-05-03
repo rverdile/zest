@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// StorageClassEnum the model 'StorageClassEnum'
+// StorageClassEnum * `pulpcore.app.models.storage.FileSystem` - Use local filesystem as storage * `storages.backends.s3boto3.S3Boto3Storage` - Use Amazon S3 as storage * `storages.backends.azure_storage.AzureStorage` - Use Azure Blob as storage
 type StorageClassEnum string
 
 // List of StorageClassEnum

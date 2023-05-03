@@ -43,7 +43,7 @@ func main() {
     name := "name_example" // string |  (optional)
     namespace := "namespace_example" // string |  (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-    orderBy := []string{"OrderBy_example"} // []string | Ordering (optional)
+    orderBy := []string{"OrderBy_example"} // []string | Ordering  * `pulp_created` - by CV created * `-pulp_created` - by CV created (descending) * `namespace` - by CV namespace * `-namespace` - by CV namespace (descending) * `name` - by CV name * `-name` - by CV name (descending) * `version` - by CV version * `-version` - by CV version (descending) (optional)
     q := "q_example" // string |  (optional)
     repository := []string{"Inner_example"} // []string | Filter collectionversions that are in these repository ids. (optional)
     repositoryLabel := "repositoryLabel_example" // string | Filter labels by search string (optional)
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
  **name** | **string** |  | 
  **namespace** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **orderBy** | **[]string** | Ordering | 
+ **orderBy** | **[]string** | Ordering  * &#x60;pulp_created&#x60; - by CV created * &#x60;-pulp_created&#x60; - by CV created (descending) * &#x60;namespace&#x60; - by CV namespace * &#x60;-namespace&#x60; - by CV namespace (descending) * &#x60;name&#x60; - by CV name * &#x60;-name&#x60; - by CV name (descending) * &#x60;version&#x60; - by CV version * &#x60;-version&#x60; - by CV version (descending) | 
  **q** | **string** |  | 
  **repository** | **[]string** | Filter collectionversions that are in these repository ids. | 
  **repositoryLabel** | **string** | Filter labels by search string | 

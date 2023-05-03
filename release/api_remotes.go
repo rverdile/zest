@@ -36,6 +36,8 @@ type RemotesApiRemotesListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	pulpLabelSelect *string
 	pulpLastUpdated *time.Time
 	pulpLastUpdatedGt *time.Time
@@ -43,6 +45,7 @@ type RemotesApiRemotesListRequest struct {
 	pulpLastUpdatedLt *time.Time
 	pulpLastUpdatedLte *time.Time
 	pulpLastUpdatedRange *[]time.Time
+	pulpTypeIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -89,9 +92,21 @@ func (r RemotesApiRemotesListRequest) Offset(offset int32) RemotesApiRemotesList
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r RemotesApiRemotesListRequest) Ordering(ordering []string) RemotesApiRemotesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r RemotesApiRemotesListRequest) PulpHrefIn(pulpHrefIn []string) RemotesApiRemotesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r RemotesApiRemotesListRequest) PulpIdIn(pulpIdIn []string) RemotesApiRemotesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -134,6 +149,12 @@ func (r RemotesApiRemotesListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time
 // Filter results where pulp_last_updated is between two comma separated values
 func (r RemotesApiRemotesListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesApiRemotesListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
+	return r
+}
+
+// Pulp type is in  * &#x60;ansible.role&#x60; - ansible.role * &#x60;ansible.collection&#x60; - ansible.collection * &#x60;ansible.git&#x60; - ansible.git * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-remote&#x60; - deb.apt-remote * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln
+func (r RemotesApiRemotesListRequest) PulpTypeIn(pulpTypeIn []string) RemotesApiRemotesListRequest {
+	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
@@ -229,6 +250,12 @@ func (a *RemotesApiService) RemotesListExecute(r RemotesApiRemotesListRequest) (
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
 	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
+	}
 	if r.pulpLabelSelect != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_label_select", r.pulpLabelSelect, "")
 	}
@@ -249,6 +276,9 @@ func (a *RemotesApiService) RemotesListExecute(r RemotesApiRemotesListRequest) (
 	}
 	if r.pulpLastUpdatedRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_last_updated__range", r.pulpLastUpdatedRange, "csv")
+	}
+	if r.pulpTypeIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_type__in", r.pulpTypeIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

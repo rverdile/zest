@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | Pointer to **string** |  | [optional] [readonly] 
-**Href** | Pointer to **string** |  | [optional] [readonly] 
+**Href** | Pointer to **string** | Get href. | [optional] [readonly] 
 **CreatedAt** | **time.Time** |  | 
 **UpdatedAt** | **time.Time** |  | 
 **RequiresAnsible** | Pointer to **NullableString** |  | [optional] 
-**Marks** | Pointer to **[]string** |  | [optional] [readonly] 
+**Marks** | Pointer to **[]string** | Get a list of mark values filtering only those in the current repo. | [optional] [readonly] 
 
 ## Methods
 

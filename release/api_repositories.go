@@ -35,7 +35,10 @@ type RepositoriesApiRepositoriesListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	pulpLabelSelect *string
+	pulpTypeIn *[]string
 	remote *string
 	retainRepoVersions *int32
 	retainRepoVersionsGt *int32
@@ -91,15 +94,33 @@ func (r RepositoriesApiRepositoriesListRequest) Offset(offset int32) Repositorie
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r RepositoriesApiRepositoriesListRequest) Ordering(ordering []string) RepositoriesApiRepositoriesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r RepositoriesApiRepositoriesListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesApiRepositoriesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r RepositoriesApiRepositoriesListRequest) PulpIdIn(pulpIdIn []string) RepositoriesApiRepositoriesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
 func (r RepositoriesApiRepositoriesListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesApiRepositoriesListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
+	return r
+}
+
+// Pulp type is in  * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;container.container-push&#x60; - container.container-push * &#x60;deb.deb&#x60; - deb.deb * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm
+func (r RepositoriesApiRepositoriesListRequest) PulpTypeIn(pulpTypeIn []string) RepositoriesApiRepositoriesListRequest {
+	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
@@ -232,8 +253,17 @@ func (a *RepositoriesApiService) RepositoriesListExecute(r RepositoriesApiReposi
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
 	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
+	}
 	if r.pulpLabelSelect != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_label_select", r.pulpLabelSelect, "")
+	}
+	if r.pulpTypeIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_type__in", r.pulpTypeIn, "csv")
 	}
 	if r.remote != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "remote", r.remote, "")

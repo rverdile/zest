@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// PackageTypesEnum the model 'PackageTypesEnum'
+// PackageTypesEnum * `bdist_dmg` - bdist_dmg * `bdist_dumb` - bdist_dumb * `bdist_egg` - bdist_egg * `bdist_msi` - bdist_msi * `bdist_rpm` - bdist_rpm * `bdist_wheel` - bdist_wheel * `bdist_wininst` - bdist_wininst * `sdist` - sdist
 type PackageTypesEnum string
 
 // List of PackageTypesEnum

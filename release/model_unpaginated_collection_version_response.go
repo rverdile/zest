@@ -22,19 +22,24 @@ var _ MappedNullable = &UnpaginatedCollectionVersionResponse{}
 // UnpaginatedCollectionVersionResponse A serializer for unpaginated CollectionVersion.
 type UnpaginatedCollectionVersionResponse struct {
 	Version *string `json:"version,omitempty"`
+	// Get href.
 	Href *string `json:"href,omitempty"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	RequiresAnsible NullableString `json:"requires_ansible,omitempty"`
+	// Get a list of mark values filtering only those in the current repo.
 	Marks []string `json:"marks,omitempty"`
 	Artifact *ArtifactRefResponse `json:"artifact,omitempty"`
 	Collection *CollectionRefResponse `json:"collection,omitempty"`
+	// Get artifact download URL.
 	DownloadUrl *string `json:"download_url,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Namespace *CollectionNamespaceResponse `json:"namespace,omitempty"`
 	Signatures *string `json:"signatures,omitempty"`
 	Metadata *CollectionMetadataResponse `json:"metadata,omitempty"`
+	// Get the git URL.
 	GitUrl *string `json:"git_url,omitempty"`
+	// Get the git commit sha.
 	GitCommitSha *string `json:"git_commit_sha,omitempty"`
 }
 

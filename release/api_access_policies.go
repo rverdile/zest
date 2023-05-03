@@ -32,6 +32,8 @@ type AccessPoliciesApiAccessPoliciesListRequest struct {
 	limit *int32
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	viewsetName *string
 	viewsetNameContains *string
 	viewsetNameIcontains *string
@@ -59,9 +61,21 @@ func (r AccessPoliciesApiAccessPoliciesListRequest) Offset(offset int32) AccessP
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;creation_hooks&#x60; - Creation hooks * &#x60;-creation_hooks&#x60; - Creation hooks (descending) * &#x60;statements&#x60; - Statements * &#x60;-statements&#x60; - Statements (descending) * &#x60;viewset_name&#x60; - Viewset name * &#x60;-viewset_name&#x60; - Viewset name (descending) * &#x60;customized&#x60; - Customized * &#x60;-customized&#x60; - Customized (descending) * &#x60;queryset_scoping&#x60; - Queryset scoping * &#x60;-queryset_scoping&#x60; - Queryset scoping (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r AccessPoliciesApiAccessPoliciesListRequest) Ordering(ordering []string) AccessPoliciesApiAccessPoliciesListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r AccessPoliciesApiAccessPoliciesListRequest) PulpHrefIn(pulpHrefIn []string) AccessPoliciesApiAccessPoliciesListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r AccessPoliciesApiAccessPoliciesListRequest) PulpIdIn(pulpIdIn []string) AccessPoliciesApiAccessPoliciesListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -159,6 +173,12 @@ func (a *AccessPoliciesApiService) AccessPoliciesListExecute(r AccessPoliciesApi
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.viewsetName != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "viewset_name", r.viewsetName, "")

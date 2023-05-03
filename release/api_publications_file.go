@@ -360,6 +360,8 @@ type PublicationsFileApiPublicationsFileFileListRequest struct {
 	pulpCreatedLt *time.Time
 	pulpCreatedLte *time.Time
 	pulpCreatedRange *[]time.Time
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	repository *string
 	repositoryVersion *string
 	fields *[]string
@@ -390,7 +392,7 @@ func (r PublicationsFileApiPublicationsFileFileListRequest) Offset(offset int32)
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r PublicationsFileApiPublicationsFileFileListRequest) Ordering(ordering []string) PublicationsFileApiPublicationsFileFileListRequest {
 	r.ordering = &ordering
 	return r
@@ -429,6 +431,18 @@ func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreatedLte(pulpC
 // Filter results where pulp_created is between two comma separated values
 func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsFileApiPublicationsFileFileListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r PublicationsFileApiPublicationsFileFileListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsFileApiPublicationsFileFileListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r PublicationsFileApiPublicationsFileFileListRequest) PulpIdIn(pulpIdIn []string) PublicationsFileApiPublicationsFileFileListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -530,6 +544,12 @@ func (a *PublicationsFileApiService) PublicationsFileFileListExecute(r Publicati
 	}
 	if r.pulpCreatedRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_created__range", r.pulpCreatedRange, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.repository != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository", r.repository, "")

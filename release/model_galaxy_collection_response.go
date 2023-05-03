@@ -23,11 +23,15 @@ var _ MappedNullable = &GalaxyCollectionResponse{}
 type GalaxyCollectionResponse struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
+	// Create a namespace dict.
 	Namespace map[string]interface{} `json:"namespace,omitempty"`
+	// Get href.
 	Href *string `json:"href,omitempty"`
+	// Get versions_url.
 	VersionsUrl *string `json:"versions_url,omitempty"`
 	Created time.Time `json:"created"`
 	Modified time.Time `json:"modified"`
+	// Get latest version.
 	LatestVersion map[string]interface{} `json:"latest_version,omitempty"`
 }
 

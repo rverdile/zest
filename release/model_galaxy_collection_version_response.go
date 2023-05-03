@@ -21,9 +21,13 @@ var _ MappedNullable = &GalaxyCollectionVersionResponse{}
 // GalaxyCollectionVersionResponse A serializer for a CollectionVersion.
 type GalaxyCollectionVersionResponse struct {
 	Version string `json:"version"`
+	// Get href.
 	Href *string `json:"href,omitempty"`
+	// Create a namespace dict.
 	Namespace map[string]interface{} `json:"namespace,omitempty"`
+	// Create a collection dict.
 	Collection map[string]interface{} `json:"collection,omitempty"`
+	// Create an artifact dict.
 	Artifact map[string]interface{} `json:"artifact,omitempty"`
 	Metadata CollectionMetadataResponse `json:"metadata"`
 }

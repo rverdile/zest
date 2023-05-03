@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Artifacts** | **map[string]interface{}** | A dict mapping relative paths inside the Content to the correspondingArtifact URLs. E.g.: {&#39;relative/path&#39;: &#39;/artifacts/1/&#39; | 
-**Release** | **string** | Release this index file belongs to. | 
 **Component** | **string** | Component of the component - architecture combination. | 
 **Architecture** | **string** | Architecture of the component - architecture combination. | 
 **RelativePath** | Pointer to **string** | Path of directory containing MD5SUMS and SHA256SUMS relative to url. | [optional] 
@@ -14,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewDebInstallerFileIndex
 
-`func NewDebInstallerFileIndex(artifacts map[string]interface{}, release string, component string, architecture string, ) *DebInstallerFileIndex`
+`func NewDebInstallerFileIndex(artifacts map[string]interface{}, component string, architecture string, ) *DebInstallerFileIndex`
 
 NewDebInstallerFileIndex instantiates a new DebInstallerFileIndex object
 This constructor will assign default values to properties that have it defined,
@@ -47,26 +46,6 @@ and a boolean to check if the value has been set.
 `func (o *DebInstallerFileIndex) SetArtifacts(v map[string]interface{})`
 
 SetArtifacts sets Artifacts field to given value.
-
-
-### GetRelease
-
-`func (o *DebInstallerFileIndex) GetRelease() string`
-
-GetRelease returns the Release field if non-nil, zero value otherwise.
-
-### GetReleaseOk
-
-`func (o *DebInstallerFileIndex) GetReleaseOk() (*string, bool)`
-
-GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRelease
-
-`func (o *DebInstallerFileIndex) SetRelease(v string)`
-
-SetRelease sets Release field to given value.
 
 
 ### GetComponent

@@ -357,6 +357,8 @@ type ContentguardsRbacApiContentguardsCoreRbacListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -403,9 +405,21 @@ func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Offset(offset int3
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Ordering(ordering []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) PulpIdIn(pulpIdIn []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -485,6 +499,12 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListExecute(r Content
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

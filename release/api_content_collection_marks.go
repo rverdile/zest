@@ -141,6 +141,8 @@ type ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest struct {
 	markedCollection *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -168,9 +170,21 @@ func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Offse
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;value&#x60; - Value * &#x60;-value&#x60; - Value (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Ordering(ordering []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -266,6 +280,12 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksListExec
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")

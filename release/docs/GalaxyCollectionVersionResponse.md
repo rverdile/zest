@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | **string** |  | 
-**Href** | Pointer to **string** |  | [optional] [readonly] 
-**Namespace** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
-**Collection** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
-**Artifact** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
+**Href** | Pointer to **string** | Get href. | [optional] [readonly] 
+**Namespace** | Pointer to **map[string]interface{}** | Create a namespace dict. | [optional] [readonly] 
+**Collection** | Pointer to **map[string]interface{}** | Create a collection dict. | [optional] [readonly] 
+**Artifact** | Pointer to **map[string]interface{}** | Create an artifact dict. | [optional] [readonly] 
 **Metadata** | [**CollectionMetadataResponse**](CollectionMetadataResponse.md) |  | 
 
 ## Methods

@@ -39,7 +39,10 @@ type DistributionsApiDistributionsListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	pulpLabelSelect *string
+	pulpTypeIn *[]string
 	repository *string
 	repositoryIn *[]string
 	withContent *string
@@ -113,15 +116,33 @@ func (r DistributionsApiDistributionsListRequest) Offset(offset int32) Distribut
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r DistributionsApiDistributionsListRequest) Ordering(ordering []string) DistributionsApiDistributionsListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r DistributionsApiDistributionsListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsApiDistributionsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r DistributionsApiDistributionsListRequest) PulpIdIn(pulpIdIn []string) DistributionsApiDistributionsListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
 func (r DistributionsApiDistributionsListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsApiDistributionsListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
+	return r
+}
+
+// Pulp type is in  * &#x60;core.artifact&#x60; - core.artifact * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-distribution&#x60; - deb.apt-distribution * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm
+func (r DistributionsApiDistributionsListRequest) PulpTypeIn(pulpTypeIn []string) DistributionsApiDistributionsListRequest {
+	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
@@ -230,8 +251,17 @@ func (a *DistributionsApiService) DistributionsListExecute(r DistributionsApiDis
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
 	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
+	}
 	if r.pulpLabelSelect != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_label_select", r.pulpLabelSelect, "")
+	}
+	if r.pulpTypeIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_type__in", r.pulpTypeIn, "csv")
 	}
 	if r.repository != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository", r.repository, "")

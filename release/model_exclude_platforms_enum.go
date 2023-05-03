@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// ExcludePlatformsEnum the model 'ExcludePlatformsEnum'
+// ExcludePlatformsEnum * `windows` - windows * `macos` - macos * `freebsd` - freebsd * `linux` - linux
 type ExcludePlatformsEnum string
 
 // List of ExcludePlatformsEnum

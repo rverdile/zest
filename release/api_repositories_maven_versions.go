@@ -151,6 +151,7 @@ type RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest struc
 	pulpCreatedLt *time.Time
 	pulpCreatedLte *time.Time
 	pulpCreatedRange *[]time.Time
+	pulpHrefIn *[]string
 	fields *[]string
 	excludeFields *[]string
 }
@@ -215,7 +216,7 @@ func (r RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest) O
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest) Ordering(ordering []string) RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest {
 	r.ordering = &ordering
 	return r
@@ -254,6 +255,12 @@ func (r RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest) P
 // Filter results where pulp_created is between two comma separated values
 func (r RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesMavenVersionsApiRepositoriesMavenMavenVersionsListRequest {
+	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
@@ -363,6 +370,9 @@ func (a *RepositoriesMavenVersionsApiService) RepositoriesMavenMavenVersionsList
 	}
 	if r.pulpCreatedRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_created__range", r.pulpCreatedRange, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
 	}
 	if r.fields != nil {
 		t := *r.fields

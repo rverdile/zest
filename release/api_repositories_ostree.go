@@ -479,6 +479,8 @@ type RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest struct {
 	nameStartswith *string
 	offset *int32
 	ordering *[]string
+	pulpHrefIn *[]string
+	pulpIdIn *[]string
 	pulpLabelSelect *string
 	remote *string
 	retainRepoVersions *int32
@@ -535,9 +537,21 @@ func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Offset(offset 
 	return r
 }
 
-// Ordering
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
 func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Ordering(ordering []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
 	r.ordering = &ordering
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+	r.pulpHrefIn = &pulpHrefIn
+	return r
+}
+
+// Multiple values may be separated by commas.
+func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) PulpIdIn(pulpIdIn []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
@@ -675,6 +689,12 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeListExecute(r Rep
 	}
 	if r.ordering != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ordering", r.ordering, "csv")
+	}
+	if r.pulpHrefIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_href__in", r.pulpHrefIn, "csv")
+	}
+	if r.pulpIdIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
 	if r.pulpLabelSelect != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_label_select", r.pulpLabelSelect, "")

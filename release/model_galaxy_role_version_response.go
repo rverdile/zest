@@ -21,6 +21,7 @@ var _ MappedNullable = &GalaxyRoleVersionResponse{}
 // GalaxyRoleVersionResponse A serializer for Galaxy's representation of Role versions.
 type GalaxyRoleVersionResponse struct {
 	Name string `json:"name"`
+	// Get source.
 	Source *string `json:"source,omitempty"`
 }
 

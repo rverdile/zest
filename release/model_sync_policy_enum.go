@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// SyncPolicyEnum the model 'SyncPolicyEnum'
+// SyncPolicyEnum * `additive` - additive * `mirror_complete` - mirror_complete * `mirror_content_only` - mirror_content_only
 type SyncPolicyEnum string
 
 // List of SyncPolicyEnum
