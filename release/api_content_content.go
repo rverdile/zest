@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentContentApiService ContentContentApi service
-type ContentContentApiService service
+// ContentContentAPIService ContentContentAPI service
+type ContentContentAPIService service
 
-type ContentContentApiContentOstreeContentListRequest struct {
+type ContentContentAPIContentOstreeContentListRequest struct {
 	ctx context.Context
-	ApiService *ContentContentApiService
+	ApiService *ContentContentAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentContentApiContentOstreeContentListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentContentApiContentOstreeContentListRequest) Limit(limit int32) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) Limit(limit int32) ContentContentAPIContentOstreeContentListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentContentApiContentOstreeContentListRequest) Offset(offset int32) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) Offset(offset int32) ContentContentAPIContentOstreeContentListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentContentApiContentOstreeContentListRequest) Ordering(ordering []string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) Ordering(ordering []string) ContentContentAPIContentOstreeContentListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentContentApiContentOstreeContentListRequest) PulpHrefIn(pulpHrefIn []string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) PulpHrefIn(pulpHrefIn []string) ContentContentAPIContentOstreeContentListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentContentApiContentOstreeContentListRequest) PulpIdIn(pulpIdIn []string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) PulpIdIn(pulpIdIn []string) ContentContentAPIContentOstreeContentListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentContentApiContentOstreeContentListRequest) RepositoryVersion(repositoryVersion string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) RepositoryVersion(repositoryVersion string) ContentContentAPIContentOstreeContentListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentContentApiContentOstreeContentListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentContentAPIContentOstreeContentListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentContentApiContentOstreeContentListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentContentAPIContentOstreeContentListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentContentApiContentOstreeContentListRequest) Fields(fields []string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) Fields(fields []string) ContentContentAPIContentOstreeContentListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentContentApiContentOstreeContentListRequest) ExcludeFields(excludeFields []string) ContentContentApiContentOstreeContentListRequest {
+func (r ContentContentAPIContentOstreeContentListRequest) ExcludeFields(excludeFields []string) ContentContentAPIContentOstreeContentListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentContentApiContentOstreeContentListRequest) Execute() (*PaginatedostreeOstreeContentResponseList, *http.Response, error) {
+func (r ContentContentAPIContentOstreeContentListRequest) Execute() (*PaginatedostreeOstreeContentResponseList, *http.Response, error) {
 	return r.ApiService.ContentOstreeContentListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentOstreeContentList List ostree contents
 A ViewSet class for uncategorized content units (e.g., static deltas).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentContentApiContentOstreeContentListRequest
+ @return ContentContentAPIContentOstreeContentListRequest
 */
-func (a *ContentContentApiService) ContentOstreeContentList(ctx context.Context) ContentContentApiContentOstreeContentListRequest {
-	return ContentContentApiContentOstreeContentListRequest{
+func (a *ContentContentAPIService) ContentOstreeContentList(ctx context.Context) ContentContentAPIContentOstreeContentListRequest {
+	return ContentContentAPIContentOstreeContentListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentContentApiService) ContentOstreeContentList(ctx context.Context)
 
 // Execute executes the request
 //  @return PaginatedostreeOstreeContentResponseList
-func (a *ContentContentApiService) ContentOstreeContentListExecute(r ContentContentApiContentOstreeContentListRequest) (*PaginatedostreeOstreeContentResponseList, *http.Response, error) {
+func (a *ContentContentAPIService) ContentOstreeContentListExecute(r ContentContentAPIContentOstreeContentListRequest) (*PaginatedostreeOstreeContentResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentContentApiService) ContentOstreeContentListExecute(r ContentCont
 		localVarReturnValue  *PaginatedostreeOstreeContentResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentContentApiService.ContentOstreeContentList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentContentAPIService.ContentOstreeContentList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentContentApiService) ContentOstreeContentListExecute(r ContentCont
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentContentApiContentOstreeContentReadRequest struct {
+type ContentContentAPIContentOstreeContentReadRequest struct {
 	ctx context.Context
-	ApiService *ContentContentApiService
+	ApiService *ContentContentAPIService
 	ostreeOstreeContentHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentContentApiContentOstreeContentReadRequest) Fields(fields []string) ContentContentApiContentOstreeContentReadRequest {
+func (r ContentContentAPIContentOstreeContentReadRequest) Fields(fields []string) ContentContentAPIContentOstreeContentReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentContentApiContentOstreeContentReadRequest) ExcludeFields(excludeFields []string) ContentContentApiContentOstreeContentReadRequest {
+func (r ContentContentAPIContentOstreeContentReadRequest) ExcludeFields(excludeFields []string) ContentContentAPIContentOstreeContentReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentContentApiContentOstreeContentReadRequest) Execute() (*OstreeOstreeContentResponse, *http.Response, error) {
+func (r ContentContentAPIContentOstreeContentReadRequest) Execute() (*OstreeOstreeContentResponse, *http.Response, error) {
 	return r.ApiService.ContentOstreeContentReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ A ViewSet class for uncategorized content units (e.g., static deltas).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeContentHref
- @return ContentContentApiContentOstreeContentReadRequest
+ @return ContentContentAPIContentOstreeContentReadRequest
 */
-func (a *ContentContentApiService) ContentOstreeContentRead(ctx context.Context, ostreeOstreeContentHref string) ContentContentApiContentOstreeContentReadRequest {
-	return ContentContentApiContentOstreeContentReadRequest{
+func (a *ContentContentAPIService) ContentOstreeContentRead(ctx context.Context, ostreeOstreeContentHref string) ContentContentAPIContentOstreeContentReadRequest {
+	return ContentContentAPIContentOstreeContentReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeContentHref: ostreeOstreeContentHref,
@@ -282,7 +282,7 @@ func (a *ContentContentApiService) ContentOstreeContentRead(ctx context.Context,
 
 // Execute executes the request
 //  @return OstreeOstreeContentResponse
-func (a *ContentContentApiService) ContentOstreeContentReadExecute(r ContentContentApiContentOstreeContentReadRequest) (*OstreeOstreeContentResponse, *http.Response, error) {
+func (a *ContentContentAPIService) ContentOstreeContentReadExecute(r ContentContentAPIContentOstreeContentReadRequest) (*OstreeOstreeContentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentContentApiService) ContentOstreeContentReadExecute(r ContentCont
 		localVarReturnValue  *OstreeOstreeContentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentContentApiService.ContentOstreeContentRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentContentAPIService.ContentOstreeContentRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

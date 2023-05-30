@@ -23,21 +23,21 @@ import (
 )
 
 
-// PublicationsVerbatimApiService PublicationsVerbatimApi service
-type PublicationsVerbatimApiService service
+// PublicationsVerbatimAPIService PublicationsVerbatimAPI service
+type PublicationsVerbatimAPIService service
 
-type PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest struct {
+type PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest struct {
 	ctx context.Context
-	ApiService *PublicationsVerbatimApiService
+	ApiService *PublicationsVerbatimAPIService
 	debVerbatimPublication *DebVerbatimPublication
 }
 
-func (r PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest) DebVerbatimPublication(debVerbatimPublication DebVerbatimPublication) PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest) DebVerbatimPublication(debVerbatimPublication DebVerbatimPublication) PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest {
 	r.debVerbatimPublication = &debVerbatimPublication
 	return r
 }
 
-func (r PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsDebVerbatimCreateExecute(r)
 }
 
@@ -47,10 +47,10 @@ PublicationsDebVerbatimCreate Create a verbatim publication
 Trigger an asynchronous task to publish content
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest
+ @return PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest
 */
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimCreate(ctx context.Context) PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest {
-	return PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest{
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimCreate(ctx context.Context) PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest {
+	return PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimCreate(ctx conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimCreateExecute(r PublicationsVerbatimApiPublicationsDebVerbatimCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimCreateExecute(r PublicationsVerbatimAPIPublicationsDebVerbatimCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimCreateExecute(r 
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimApiService.PublicationsDebVerbatimCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimAPIService.PublicationsDebVerbatimCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,13 +135,13 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimCreateExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsVerbatimApiPublicationsDebVerbatimDeleteRequest struct {
+type PublicationsVerbatimAPIPublicationsDebVerbatimDeleteRequest struct {
 	ctx context.Context
-	ApiService *PublicationsVerbatimApiService
+	ApiService *PublicationsVerbatimAPIService
 	debVerbatimPublicationHref string
 }
 
-func (r PublicationsVerbatimApiPublicationsDebVerbatimDeleteRequest) Execute() (*http.Response, error) {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PublicationsDebVerbatimDeleteExecute(r)
 }
 
@@ -157,10 +157,10 @@ a near atomic action).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debVerbatimPublicationHref
- @return PublicationsVerbatimApiPublicationsDebVerbatimDeleteRequest
+ @return PublicationsVerbatimAPIPublicationsDebVerbatimDeleteRequest
 */
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimDelete(ctx context.Context, debVerbatimPublicationHref string) PublicationsVerbatimApiPublicationsDebVerbatimDeleteRequest {
-	return PublicationsVerbatimApiPublicationsDebVerbatimDeleteRequest{
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimDelete(ctx context.Context, debVerbatimPublicationHref string) PublicationsVerbatimAPIPublicationsDebVerbatimDeleteRequest {
+	return PublicationsVerbatimAPIPublicationsDebVerbatimDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		debVerbatimPublicationHref: debVerbatimPublicationHref,
@@ -168,14 +168,14 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimDelete(ctx conte
 }
 
 // Execute executes the request
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimDeleteExecute(r PublicationsVerbatimApiPublicationsDebVerbatimDeleteRequest) (*http.Response, error) {
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimDeleteExecute(r PublicationsVerbatimAPIPublicationsDebVerbatimDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimApiService.PublicationsDebVerbatimDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimAPIService.PublicationsDebVerbatimDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -233,9 +233,9 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimDeleteExecute(r 
 	return localVarHTTPResponse, nil
 }
 
-type PublicationsVerbatimApiPublicationsDebVerbatimListRequest struct {
+type PublicationsVerbatimAPIPublicationsDebVerbatimListRequest struct {
 	ctx context.Context
-	ApiService *PublicationsVerbatimApiService
+	ApiService *PublicationsVerbatimAPIService
 	content *string
 	contentIn *string
 	limit *int32
@@ -256,108 +256,108 @@ type PublicationsVerbatimApiPublicationsDebVerbatimListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) Content(content string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) Content(content string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) ContentIn(contentIn string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) ContentIn(contentIn string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) Limit(limit int32) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) Limit(limit int32) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) Offset(offset int32) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) Offset(offset int32) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) Ordering(ordering []string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) Ordering(ordering []string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpCreated(pulpCreated time.Time) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpCreated(pulpCreated time.Time) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) PulpIdIn(pulpIdIn []string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) PulpIdIn(pulpIdIn []string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository referenced by HREF
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) Repository(repository string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) Repository(repository string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) RepositoryVersion(repositoryVersion string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) RepositoryVersion(repositoryVersion string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) Fields(fields []string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) Fields(fields []string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) ExcludeFields(excludeFields []string) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) ExcludeFields(excludeFields []string) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) Execute() (*PaginateddebVerbatimPublicationResponseList, *http.Response, error) {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) Execute() (*PaginateddebVerbatimPublicationResponseList, *http.Response, error) {
 	return r.ApiService.PublicationsDebVerbatimListExecute(r)
 }
 
@@ -372,10 +372,10 @@ Once a Pulp publication has been created, it can be served by creating a Pulp di
 a near atomic action).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsVerbatimApiPublicationsDebVerbatimListRequest
+ @return PublicationsVerbatimAPIPublicationsDebVerbatimListRequest
 */
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimList(ctx context.Context) PublicationsVerbatimApiPublicationsDebVerbatimListRequest {
-	return PublicationsVerbatimApiPublicationsDebVerbatimListRequest{
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimList(ctx context.Context) PublicationsVerbatimAPIPublicationsDebVerbatimListRequest {
+	return PublicationsVerbatimAPIPublicationsDebVerbatimListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -383,7 +383,7 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimList(ctx context
 
 // Execute executes the request
 //  @return PaginateddebVerbatimPublicationResponseList
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimListExecute(r PublicationsVerbatimApiPublicationsDebVerbatimListRequest) (*PaginateddebVerbatimPublicationResponseList, *http.Response, error) {
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimListExecute(r PublicationsVerbatimAPIPublicationsDebVerbatimListRequest) (*PaginateddebVerbatimPublicationResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -391,7 +391,7 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimListExecute(r Pu
 		localVarReturnValue  *PaginateddebVerbatimPublicationResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimApiService.PublicationsDebVerbatimList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimAPIService.PublicationsDebVerbatimList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -522,27 +522,27 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimListExecute(r Pu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsVerbatimApiPublicationsDebVerbatimReadRequest struct {
+type PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest struct {
 	ctx context.Context
-	ApiService *PublicationsVerbatimApiService
+	ApiService *PublicationsVerbatimAPIService
 	debVerbatimPublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimReadRequest) Fields(fields []string) PublicationsVerbatimApiPublicationsDebVerbatimReadRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest) Fields(fields []string) PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsVerbatimApiPublicationsDebVerbatimReadRequest) ExcludeFields(excludeFields []string) PublicationsVerbatimApiPublicationsDebVerbatimReadRequest {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest) ExcludeFields(excludeFields []string) PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsVerbatimApiPublicationsDebVerbatimReadRequest) Execute() (*DebVerbatimPublicationResponse, *http.Response, error) {
+func (r PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest) Execute() (*DebVerbatimPublicationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsDebVerbatimReadExecute(r)
 }
 
@@ -558,10 +558,10 @@ a near atomic action).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debVerbatimPublicationHref
- @return PublicationsVerbatimApiPublicationsDebVerbatimReadRequest
+ @return PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest
 */
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimRead(ctx context.Context, debVerbatimPublicationHref string) PublicationsVerbatimApiPublicationsDebVerbatimReadRequest {
-	return PublicationsVerbatimApiPublicationsDebVerbatimReadRequest{
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimRead(ctx context.Context, debVerbatimPublicationHref string) PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest {
+	return PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debVerbatimPublicationHref: debVerbatimPublicationHref,
@@ -570,7 +570,7 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimRead(ctx context
 
 // Execute executes the request
 //  @return DebVerbatimPublicationResponse
-func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimReadExecute(r PublicationsVerbatimApiPublicationsDebVerbatimReadRequest) (*DebVerbatimPublicationResponse, *http.Response, error) {
+func (a *PublicationsVerbatimAPIService) PublicationsDebVerbatimReadExecute(r PublicationsVerbatimAPIPublicationsDebVerbatimReadRequest) (*DebVerbatimPublicationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -578,7 +578,7 @@ func (a *PublicationsVerbatimApiService) PublicationsDebVerbatimReadExecute(r Pu
 		localVarReturnValue  *DebVerbatimPublicationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimApiService.PublicationsDebVerbatimRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsVerbatimAPIService.PublicationsDebVerbatimRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

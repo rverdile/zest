@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing AccessPoliciesApiService
+Testing AccessPoliciesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_AccessPoliciesApiService(t *testing.T) {
+func Test_zest_AccessPoliciesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AccessPoliciesApiService AccessPoliciesList", func(t *testing.T) {
+	t.Run("Test AccessPoliciesAPIService AccessPoliciesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccessPoliciesApi.AccessPoliciesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccessPoliciesAPI.AccessPoliciesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_AccessPoliciesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccessPoliciesApiService AccessPoliciesPartialUpdate", func(t *testing.T) {
+	t.Run("Test AccessPoliciesAPIService AccessPoliciesPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var accessPolicyHref string
 
-		resp, httpRes, err := apiClient.AccessPoliciesApi.AccessPoliciesPartialUpdate(context.Background(), accessPolicyHref).Execute()
+		resp, httpRes, err := apiClient.AccessPoliciesAPI.AccessPoliciesPartialUpdate(context.Background(), accessPolicyHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_zest_AccessPoliciesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccessPoliciesApiService AccessPoliciesRead", func(t *testing.T) {
+	t.Run("Test AccessPoliciesAPIService AccessPoliciesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var accessPolicyHref string
 
-		resp, httpRes, err := apiClient.AccessPoliciesApi.AccessPoliciesRead(context.Background(), accessPolicyHref).Execute()
+		resp, httpRes, err := apiClient.AccessPoliciesAPI.AccessPoliciesRead(context.Background(), accessPolicyHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_zest_AccessPoliciesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccessPoliciesApiService AccessPoliciesReset", func(t *testing.T) {
+	t.Run("Test AccessPoliciesAPIService AccessPoliciesReset", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var accessPolicyHref string
 
-		resp, httpRes, err := apiClient.AccessPoliciesApi.AccessPoliciesReset(context.Background(), accessPolicyHref).Execute()
+		resp, httpRes, err := apiClient.AccessPoliciesAPI.AccessPoliciesReset(context.Background(), accessPolicyHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,13 +76,13 @@ func Test_zest_AccessPoliciesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccessPoliciesApiService AccessPoliciesUpdate", func(t *testing.T) {
+	t.Run("Test AccessPoliciesAPIService AccessPoliciesUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var accessPolicyHref string
 
-		resp, httpRes, err := apiClient.AccessPoliciesApi.AccessPoliciesUpdate(context.Background(), accessPolicyHref).Execute()
+		resp, httpRes, err := apiClient.AccessPoliciesAPI.AccessPoliciesUpdate(context.Background(), accessPolicyHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

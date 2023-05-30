@@ -22,12 +22,12 @@ import (
 )
 
 
-// TaskGroupsApiService TaskGroupsApi service
-type TaskGroupsApiService service
+// TaskGroupsAPIService TaskGroupsAPI service
+type TaskGroupsAPIService service
 
-type TaskGroupsApiTaskGroupsListRequest struct {
+type TaskGroupsAPITaskGroupsListRequest struct {
 	ctx context.Context
-	ApiService *TaskGroupsApiService
+	ApiService *TaskGroupsAPIService
 	limit *int32
 	offset *int32
 	fields *[]string
@@ -35,30 +35,30 @@ type TaskGroupsApiTaskGroupsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r TaskGroupsApiTaskGroupsListRequest) Limit(limit int32) TaskGroupsApiTaskGroupsListRequest {
+func (r TaskGroupsAPITaskGroupsListRequest) Limit(limit int32) TaskGroupsAPITaskGroupsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r TaskGroupsApiTaskGroupsListRequest) Offset(offset int32) TaskGroupsApiTaskGroupsListRequest {
+func (r TaskGroupsAPITaskGroupsListRequest) Offset(offset int32) TaskGroupsAPITaskGroupsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r TaskGroupsApiTaskGroupsListRequest) Fields(fields []string) TaskGroupsApiTaskGroupsListRequest {
+func (r TaskGroupsAPITaskGroupsListRequest) Fields(fields []string) TaskGroupsAPITaskGroupsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TaskGroupsApiTaskGroupsListRequest) ExcludeFields(excludeFields []string) TaskGroupsApiTaskGroupsListRequest {
+func (r TaskGroupsAPITaskGroupsListRequest) ExcludeFields(excludeFields []string) TaskGroupsAPITaskGroupsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TaskGroupsApiTaskGroupsListRequest) Execute() (*PaginatedTaskGroupResponseList, *http.Response, error) {
+func (r TaskGroupsAPITaskGroupsListRequest) Execute() (*PaginatedTaskGroupResponseList, *http.Response, error) {
 	return r.ApiService.TaskGroupsListExecute(r)
 }
 
@@ -85,10 +85,10 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TaskGroupsApiTaskGroupsListRequest
+ @return TaskGroupsAPITaskGroupsListRequest
 */
-func (a *TaskGroupsApiService) TaskGroupsList(ctx context.Context) TaskGroupsApiTaskGroupsListRequest {
-	return TaskGroupsApiTaskGroupsListRequest{
+func (a *TaskGroupsAPIService) TaskGroupsList(ctx context.Context) TaskGroupsAPITaskGroupsListRequest {
+	return TaskGroupsAPITaskGroupsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -96,7 +96,7 @@ func (a *TaskGroupsApiService) TaskGroupsList(ctx context.Context) TaskGroupsApi
 
 // Execute executes the request
 //  @return PaginatedTaskGroupResponseList
-func (a *TaskGroupsApiService) TaskGroupsListExecute(r TaskGroupsApiTaskGroupsListRequest) (*PaginatedTaskGroupResponseList, *http.Response, error) {
+func (a *TaskGroupsAPIService) TaskGroupsListExecute(r TaskGroupsAPITaskGroupsListRequest) (*PaginatedTaskGroupResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -104,7 +104,7 @@ func (a *TaskGroupsApiService) TaskGroupsListExecute(r TaskGroupsApiTaskGroupsLi
 		localVarReturnValue  *PaginatedTaskGroupResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskGroupsApiService.TaskGroupsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskGroupsAPIService.TaskGroupsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -196,27 +196,27 @@ func (a *TaskGroupsApiService) TaskGroupsListExecute(r TaskGroupsApiTaskGroupsLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TaskGroupsApiTaskGroupsReadRequest struct {
+type TaskGroupsAPITaskGroupsReadRequest struct {
 	ctx context.Context
-	ApiService *TaskGroupsApiService
+	ApiService *TaskGroupsAPIService
 	taskGroupHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r TaskGroupsApiTaskGroupsReadRequest) Fields(fields []string) TaskGroupsApiTaskGroupsReadRequest {
+func (r TaskGroupsAPITaskGroupsReadRequest) Fields(fields []string) TaskGroupsAPITaskGroupsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TaskGroupsApiTaskGroupsReadRequest) ExcludeFields(excludeFields []string) TaskGroupsApiTaskGroupsReadRequest {
+func (r TaskGroupsAPITaskGroupsReadRequest) ExcludeFields(excludeFields []string) TaskGroupsAPITaskGroupsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TaskGroupsApiTaskGroupsReadRequest) Execute() (*TaskGroupResponse, *http.Response, error) {
+func (r TaskGroupsAPITaskGroupsReadRequest) Execute() (*TaskGroupResponse, *http.Response, error) {
 	return r.ApiService.TaskGroupsReadExecute(r)
 }
 
@@ -244,10 +244,10 @@ Attributes:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskGroupHref
- @return TaskGroupsApiTaskGroupsReadRequest
+ @return TaskGroupsAPITaskGroupsReadRequest
 */
-func (a *TaskGroupsApiService) TaskGroupsRead(ctx context.Context, taskGroupHref string) TaskGroupsApiTaskGroupsReadRequest {
-	return TaskGroupsApiTaskGroupsReadRequest{
+func (a *TaskGroupsAPIService) TaskGroupsRead(ctx context.Context, taskGroupHref string) TaskGroupsAPITaskGroupsReadRequest {
+	return TaskGroupsAPITaskGroupsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskGroupHref: taskGroupHref,
@@ -256,7 +256,7 @@ func (a *TaskGroupsApiService) TaskGroupsRead(ctx context.Context, taskGroupHref
 
 // Execute executes the request
 //  @return TaskGroupResponse
-func (a *TaskGroupsApiService) TaskGroupsReadExecute(r TaskGroupsApiTaskGroupsReadRequest) (*TaskGroupResponse, *http.Response, error) {
+func (a *TaskGroupsAPIService) TaskGroupsReadExecute(r TaskGroupsAPITaskGroupsReadRequest) (*TaskGroupResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -264,7 +264,7 @@ func (a *TaskGroupsApiService) TaskGroupsReadExecute(r TaskGroupsApiTaskGroupsRe
 		localVarReturnValue  *TaskGroupResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskGroupsApiService.TaskGroupsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskGroupsAPIService.TaskGroupsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

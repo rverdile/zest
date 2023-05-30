@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentPackagegroupsApiService
+Testing ContentPackagegroupsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentPackagegroupsApiService(t *testing.T) {
+func Test_zest_ContentPackagegroupsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentPackagegroupsApiService ContentRpmPackagegroupsList", func(t *testing.T) {
+	t.Run("Test ContentPackagegroupsAPIService ContentRpmPackagegroupsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagegroupsApi.ContentRpmPackagegroupsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackagegroupsAPI.ContentRpmPackagegroupsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentPackagegroupsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagegroupsApiService ContentRpmPackagegroupsRead", func(t *testing.T) {
+	t.Run("Test ContentPackagegroupsAPIService ContentRpmPackagegroupsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmPackageGroupHref string
 
-		resp, httpRes, err := apiClient.ContentPackagegroupsApi.ContentRpmPackagegroupsRead(context.Background(), rpmPackageGroupHref).Execute()
+		resp, httpRes, err := apiClient.ContentPackagegroupsAPI.ContentRpmPackagegroupsRead(context.Background(), rpmPackageGroupHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

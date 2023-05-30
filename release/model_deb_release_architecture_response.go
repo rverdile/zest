@@ -26,18 +26,22 @@ type DebReleaseArchitectureResponse struct {
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
 	// Name of the architecture.
 	Architecture string `json:"architecture"`
-	// Release this architecture is contained in.
-	Release string `json:"release"`
+	// Name of the distribution.
+	Distribution string `json:"distribution"`
+	Codename string `json:"codename"`
+	Suite string `json:"suite"`
 }
 
 // NewDebReleaseArchitectureResponse instantiates a new DebReleaseArchitectureResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDebReleaseArchitectureResponse(architecture string, release string) *DebReleaseArchitectureResponse {
+func NewDebReleaseArchitectureResponse(architecture string, distribution string, codename string, suite string) *DebReleaseArchitectureResponse {
 	this := DebReleaseArchitectureResponse{}
 	this.Architecture = architecture
-	this.Release = release
+	this.Distribution = distribution
+	this.Codename = codename
+	this.Suite = suite
 	return &this
 }
 
@@ -137,28 +141,76 @@ func (o *DebReleaseArchitectureResponse) SetArchitecture(v string) {
 	o.Architecture = v
 }
 
-// GetRelease returns the Release field value
-func (o *DebReleaseArchitectureResponse) GetRelease() string {
+// GetDistribution returns the Distribution field value
+func (o *DebReleaseArchitectureResponse) GetDistribution() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Release
+	return o.Distribution
 }
 
-// GetReleaseOk returns a tuple with the Release field value
+// GetDistributionOk returns a tuple with the Distribution field value
 // and a boolean to check if the value has been set.
-func (o *DebReleaseArchitectureResponse) GetReleaseOk() (*string, bool) {
+func (o *DebReleaseArchitectureResponse) GetDistributionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Release, true
+	return &o.Distribution, true
 }
 
-// SetRelease sets field value
-func (o *DebReleaseArchitectureResponse) SetRelease(v string) {
-	o.Release = v
+// SetDistribution sets field value
+func (o *DebReleaseArchitectureResponse) SetDistribution(v string) {
+	o.Distribution = v
+}
+
+// GetCodename returns the Codename field value
+func (o *DebReleaseArchitectureResponse) GetCodename() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Codename
+}
+
+// GetCodenameOk returns a tuple with the Codename field value
+// and a boolean to check if the value has been set.
+func (o *DebReleaseArchitectureResponse) GetCodenameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Codename, true
+}
+
+// SetCodename sets field value
+func (o *DebReleaseArchitectureResponse) SetCodename(v string) {
+	o.Codename = v
+}
+
+// GetSuite returns the Suite field value
+func (o *DebReleaseArchitectureResponse) GetSuite() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Suite
+}
+
+// GetSuiteOk returns a tuple with the Suite field value
+// and a boolean to check if the value has been set.
+func (o *DebReleaseArchitectureResponse) GetSuiteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Suite, true
+}
+
+// SetSuite sets field value
+func (o *DebReleaseArchitectureResponse) SetSuite(v string) {
+	o.Suite = v
 }
 
 func (o DebReleaseArchitectureResponse) MarshalJSON() ([]byte, error) {
@@ -174,7 +226,9 @@ func (o DebReleaseArchitectureResponse) ToMap() (map[string]interface{}, error) 
 	// skip: pulp_href is readOnly
 	// skip: pulp_created is readOnly
 	toSerialize["architecture"] = o.Architecture
-	toSerialize["release"] = o.Release
+	toSerialize["distribution"] = o.Distribution
+	toSerialize["codename"] = o.Codename
+	toSerialize["suite"] = o.Suite
 	return toSerialize, nil
 }
 

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing CollectionImportApiService
+Testing CollectionImportAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_CollectionImportApiService(t *testing.T) {
+func Test_zest_CollectionImportAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test CollectionImportApiService CollectionImportRead", func(t *testing.T) {
+	t.Run("Test CollectionImportAPIService CollectionImportRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionImportHref string
 
-		resp, httpRes, err := apiClient.CollectionImportApi.CollectionImportRead(context.Background(), ansibleCollectionImportHref).Execute()
+		resp, httpRes, err := apiClient.CollectionImportAPI.CollectionImportRead(context.Background(), ansibleCollectionImportHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

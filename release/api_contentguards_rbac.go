@@ -22,22 +22,22 @@ import (
 )
 
 
-// ContentguardsRbacApiService ContentguardsRbacApi service
-type ContentguardsRbacApiService service
+// ContentguardsRbacAPIService ContentguardsRbacAPI service
+type ContentguardsRbacAPIService service
 
-type ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 	nestedRole *NestedRole
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacAddRole(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacAddRole(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -60,7 +60,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacAddRole(ctx context.C
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacAddRoleExecute(r ContentguardsRbacApiContentguardsCoreRbacAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacAddRoleExecute(r ContentguardsRbacAPIContentguardsCoreRbacAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacAddRoleExecute(r Cont
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacAddRoleExecute(r Cont
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacCreateRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuard *RBACContentGuard
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacCreateRequest) RBACContentGuard(rBACContentGuard RBACContentGuard) ContentguardsRbacApiContentguardsCoreRbacCreateRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacCreateRequest) RBACContentGuard(rBACContentGuard RBACContentGuard) ContentguardsRbacAPIContentguardsCoreRbacCreateRequest {
 	r.rBACContentGuard = &rBACContentGuard
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacCreateRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacCreateRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacCreateExecute(r)
 }
 
@@ -163,10 +163,10 @@ Has add and remove actions for managing permission for users and groups to downl
 protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsRbacApiContentguardsCoreRbacCreateRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacCreateRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacCreate(ctx context.Context) ContentguardsRbacApiContentguardsCoreRbacCreateRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacCreateRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacCreate(ctx context.Context) ContentguardsRbacAPIContentguardsCoreRbacCreateRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -174,7 +174,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacCreate(ctx context.Co
 
 // Execute executes the request
 //  @return RBACContentGuardResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacCreateExecute(r ContentguardsRbacApiContentguardsCoreRbacCreateRequest) (*RBACContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacCreateExecute(r ContentguardsRbacAPIContentguardsCoreRbacCreateRequest) (*RBACContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -182,7 +182,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacCreateExecute(r Conte
 		localVarReturnValue  *RBACContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -251,13 +251,13 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacCreateExecute(r Conte
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacDeleteRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacDeleteRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacDeleteRequest) Execute() (*http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacDeleteExecute(r)
 }
 
@@ -270,10 +270,10 @@ protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacDeleteRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacDeleteRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacDelete(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacDeleteRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacDeleteRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacDelete(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacDeleteRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -281,14 +281,14 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacDelete(ctx context.Co
 }
 
 // Execute executes the request
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacDeleteExecute(r ContentguardsRbacApiContentguardsCoreRbacDeleteRequest) (*http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacDeleteExecute(r ContentguardsRbacAPIContentguardsCoreRbacDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -346,9 +346,9 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacDeleteExecute(r Conte
 	return localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacListRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacListRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -364,78 +364,78 @@ type ContentguardsRbacApiContentguardsCoreRbacListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Limit(limit int32) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) Limit(limit int32) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Name(name string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) Name(name string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) NameContains(nameContains string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) NameContains(nameContains string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) NameIcontains(nameIcontains string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) NameIcontains(nameIcontains string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) NameIn(nameIn []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) NameIn(nameIn []string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) NameStartswith(nameStartswith string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) NameStartswith(nameStartswith string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Offset(offset int32) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) Offset(offset int32) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Ordering(ordering []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) Ordering(ordering []string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) PulpIdIn(pulpIdIn []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) PulpIdIn(pulpIdIn []string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Fields(fields []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) Fields(fields []string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) ExcludeFields(excludeFields []string) ContentguardsRbacApiContentguardsCoreRbacListRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) ExcludeFields(excludeFields []string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacListRequest) Execute() (*PaginatedRBACContentGuardResponseList, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRequest) Execute() (*PaginatedRBACContentGuardResponseList, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacListExecute(r)
 }
 
@@ -447,10 +447,10 @@ Has add and remove actions for managing permission for users and groups to downl
 protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsRbacApiContentguardsCoreRbacListRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacListRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacList(ctx context.Context) ContentguardsRbacApiContentguardsCoreRbacListRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacListRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacList(ctx context.Context) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -458,7 +458,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacList(ctx context.Cont
 
 // Execute executes the request
 //  @return PaginatedRBACContentGuardResponseList
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListExecute(r ContentguardsRbacApiContentguardsCoreRbacListRequest) (*PaginatedRBACContentGuardResponseList, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacListExecute(r ContentguardsRbacAPIContentguardsCoreRbacListRequest) (*PaginatedRBACContentGuardResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -466,7 +466,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListExecute(r Content
 		localVarReturnValue  *PaginatedRBACContentGuardResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -582,27 +582,27 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListExecute(r Content
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacListRolesRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRolesRequest) Fields(fields []string) ContentguardsRbacApiContentguardsCoreRbacListRolesRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest) Fields(fields []string) ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacListRolesRequest) ExcludeFields(excludeFields []string) ContentguardsRbacApiContentguardsCoreRbacListRolesRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest) ExcludeFields(excludeFields []string) ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacListRolesExecute(r)
 }
 
@@ -613,10 +613,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacListRolesRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListRoles(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacListRolesRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacListRolesRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacListRoles(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -625,7 +625,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListRoles(ctx context
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListRolesExecute(r ContentguardsRbacApiContentguardsCoreRbacListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacListRolesExecute(r ContentguardsRbacAPIContentguardsCoreRbacListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -633,7 +633,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListRolesExecute(r Co
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -722,27 +722,27 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacListRolesExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest) Fields(fields []string) ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest) Fields(fields []string) ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest) ExcludeFields(excludeFields []string) ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest) ExcludeFields(excludeFields []string) ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacMyPermissionsExecute(r)
 }
 
@@ -753,10 +753,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacMyPermissions(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacMyPermissions(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -765,7 +765,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacMyPermissions(ctx con
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacMyPermissionsExecute(r ContentguardsRbacApiContentguardsCoreRbacMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacMyPermissionsExecute(r ContentguardsRbacAPIContentguardsCoreRbacMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -773,7 +773,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacMyPermissionsExecute(
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -862,19 +862,19 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacMyPermissionsExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 	patchedRBACContentGuard *PatchedRBACContentGuard
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest) PatchedRBACContentGuard(patchedRBACContentGuard PatchedRBACContentGuard) ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest) PatchedRBACContentGuard(patchedRBACContentGuard PatchedRBACContentGuard) ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest {
 	r.patchedRBACContentGuard = &patchedRBACContentGuard
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacPartialUpdateExecute(r)
 }
 
@@ -887,10 +887,10 @@ protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacPartialUpdate(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacPartialUpdate(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -899,7 +899,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacPartialUpdate(ctx con
 
 // Execute executes the request
 //  @return RBACContentGuardResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacPartialUpdateExecute(r ContentguardsRbacApiContentguardsCoreRbacPartialUpdateRequest) (*RBACContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacPartialUpdateExecute(r ContentguardsRbacAPIContentguardsCoreRbacPartialUpdateRequest) (*RBACContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -907,7 +907,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacPartialUpdateExecute(
 		localVarReturnValue  *RBACContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -979,27 +979,27 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacPartialUpdateExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacReadRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacReadRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacReadRequest) Fields(fields []string) ContentguardsRbacApiContentguardsCoreRbacReadRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacReadRequest) Fields(fields []string) ContentguardsRbacAPIContentguardsCoreRbacReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsRbacApiContentguardsCoreRbacReadRequest) ExcludeFields(excludeFields []string) ContentguardsRbacApiContentguardsCoreRbacReadRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacReadRequest) ExcludeFields(excludeFields []string) ContentguardsRbacAPIContentguardsCoreRbacReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacReadRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacReadRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacReadExecute(r)
 }
 
@@ -1012,10 +1012,10 @@ protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacReadRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacReadRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacRead(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacReadRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacReadRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacRead(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacReadRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -1024,7 +1024,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacRead(ctx context.Cont
 
 // Execute executes the request
 //  @return RBACContentGuardResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacReadExecute(r ContentguardsRbacApiContentguardsCoreRbacReadRequest) (*RBACContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacReadExecute(r ContentguardsRbacAPIContentguardsCoreRbacReadRequest) (*RBACContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1032,7 +1032,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacReadExecute(r Content
 		localVarReturnValue  *RBACContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1121,19 +1121,19 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacReadExecute(r Content
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 	nestedRole *NestedRole
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacRemoveRoleExecute(r)
 }
 
@@ -1144,10 +1144,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacRemoveRole(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacRemoveRole(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -1156,7 +1156,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacRemoveRole(ctx contex
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacRemoveRoleExecute(r ContentguardsRbacApiContentguardsCoreRbacRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacRemoveRoleExecute(r ContentguardsRbacAPIContentguardsCoreRbacRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1164,7 +1164,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacRemoveRoleExecute(r C
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1236,19 +1236,19 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacRemoveRoleExecute(r C
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRbacApiContentguardsCoreRbacUpdateRequest struct {
+type ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRbacApiService
+	ApiService *ContentguardsRbacAPIService
 	rBACContentGuardHref string
 	rBACContentGuard *RBACContentGuard
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacUpdateRequest) RBACContentGuard(rBACContentGuard RBACContentGuard) ContentguardsRbacApiContentguardsCoreRbacUpdateRequest {
+func (r ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest) RBACContentGuard(rBACContentGuard RBACContentGuard) ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest {
 	r.rBACContentGuard = &rBACContentGuard
 	return r
 }
 
-func (r ContentguardsRbacApiContentguardsCoreRbacUpdateRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
+func (r ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest) Execute() (*RBACContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreRbacUpdateExecute(r)
 }
 
@@ -1261,10 +1261,10 @@ protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rBACContentGuardHref
- @return ContentguardsRbacApiContentguardsCoreRbacUpdateRequest
+ @return ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest
 */
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacUpdate(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacApiContentguardsCoreRbacUpdateRequest {
-	return ContentguardsRbacApiContentguardsCoreRbacUpdateRequest{
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacUpdate(ctx context.Context, rBACContentGuardHref string) ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest {
+	return ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rBACContentGuardHref: rBACContentGuardHref,
@@ -1273,7 +1273,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacUpdate(ctx context.Co
 
 // Execute executes the request
 //  @return RBACContentGuardResponse
-func (a *ContentguardsRbacApiService) ContentguardsCoreRbacUpdateExecute(r ContentguardsRbacApiContentguardsCoreRbacUpdateRequest) (*RBACContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacUpdateExecute(r ContentguardsRbacAPIContentguardsCoreRbacUpdateRequest) (*RBACContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1281,7 +1281,7 @@ func (a *ContentguardsRbacApiService) ContentguardsCoreRbacUpdateExecute(r Conte
 		localVarReturnValue  *RBACContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacApiService.ContentguardsCoreRbacUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRbacAPIService.ContentguardsCoreRbacUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentSignaturesApiService ContentSignaturesApi service
-type ContentSignaturesApiService service
+// ContentSignaturesAPIService ContentSignaturesAPI service
+type ContentSignaturesAPIService service
 
-type ContentSignaturesApiContentContainerSignaturesListRequest struct {
+type ContentSignaturesAPIContentContainerSignaturesListRequest struct {
 	ctx context.Context
-	ApiService *ContentSignaturesApiService
+	ApiService *ContentSignaturesAPIService
 	digest *string
 	digestIn *[]string
 	keyId *string
@@ -51,126 +51,126 @@ type ContentSignaturesApiContentContainerSignaturesListRequest struct {
 }
 
 // Filter results where digest matches value
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Digest(digest string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Digest(digest string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.digest = &digest
 	return r
 }
 
 // Filter results where digest is in a comma-separated list of values
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) DigestIn(digestIn []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) DigestIn(digestIn []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.digestIn = &digestIn
 	return r
 }
 
 // Filter results where key_id matches value
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) KeyId(keyId string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) KeyId(keyId string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.keyId = &keyId
 	return r
 }
 
 // Filter results where key_id is in a comma-separated list of values
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) KeyIdIn(keyIdIn []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) KeyIdIn(keyIdIn []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.keyIdIn = &keyIdIn
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Limit(limit int32) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Limit(limit int32) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Manifest(manifest []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Manifest(manifest []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.manifest = &manifest
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Name(name string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Name(name string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) NameContains(nameContains string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) NameContains(nameContains string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) NameIcontains(nameIcontains string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) NameIcontains(nameIcontains string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) NameIn(nameIn []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) NameIn(nameIn []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) NameStartswith(nameStartswith string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) NameStartswith(nameStartswith string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Offset(offset int32) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Offset(offset int32) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;type&#x60; - Type * &#x60;-type&#x60; - Type (descending) * &#x60;key_id&#x60; - Key id * &#x60;-key_id&#x60; - Key id (descending) * &#x60;timestamp&#x60; - Timestamp * &#x60;-timestamp&#x60; - Timestamp (descending) * &#x60;creator&#x60; - Creator * &#x60;-creator&#x60; - Creator (descending) * &#x60;data&#x60; - Data * &#x60;-data&#x60; - Data (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Ordering(ordering []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Ordering(ordering []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) PulpHrefIn(pulpHrefIn []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) PulpHrefIn(pulpHrefIn []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) PulpIdIn(pulpIdIn []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) PulpIdIn(pulpIdIn []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) RepositoryVersion(repositoryVersion string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) RepositoryVersion(repositoryVersion string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Fields(fields []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Fields(fields []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) ExcludeFields(excludeFields []string) ContentSignaturesApiContentContainerSignaturesListRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) ExcludeFields(excludeFields []string) ContentSignaturesAPIContentContainerSignaturesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentSignaturesApiContentContainerSignaturesListRequest) Execute() (*PaginatedcontainerManifestSignatureResponseList, *http.Response, error) {
+func (r ContentSignaturesAPIContentContainerSignaturesListRequest) Execute() (*PaginatedcontainerManifestSignatureResponseList, *http.Response, error) {
 	return r.ApiService.ContentContainerSignaturesListExecute(r)
 }
 
@@ -180,10 +180,10 @@ ContentContainerSignaturesList List manifest signatures
 ViewSet for image signatures.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentSignaturesApiContentContainerSignaturesListRequest
+ @return ContentSignaturesAPIContentContainerSignaturesListRequest
 */
-func (a *ContentSignaturesApiService) ContentContainerSignaturesList(ctx context.Context) ContentSignaturesApiContentContainerSignaturesListRequest {
-	return ContentSignaturesApiContentContainerSignaturesListRequest{
+func (a *ContentSignaturesAPIService) ContentContainerSignaturesList(ctx context.Context) ContentSignaturesAPIContentContainerSignaturesListRequest {
+	return ContentSignaturesAPIContentContainerSignaturesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -191,7 +191,7 @@ func (a *ContentSignaturesApiService) ContentContainerSignaturesList(ctx context
 
 // Execute executes the request
 //  @return PaginatedcontainerManifestSignatureResponseList
-func (a *ContentSignaturesApiService) ContentContainerSignaturesListExecute(r ContentSignaturesApiContentContainerSignaturesListRequest) (*PaginatedcontainerManifestSignatureResponseList, *http.Response, error) {
+func (a *ContentSignaturesAPIService) ContentContainerSignaturesListExecute(r ContentSignaturesAPIContentContainerSignaturesListRequest) (*PaginatedcontainerManifestSignatureResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -199,7 +199,7 @@ func (a *ContentSignaturesApiService) ContentContainerSignaturesListExecute(r Co
 		localVarReturnValue  *PaginatedcontainerManifestSignatureResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSignaturesApiService.ContentContainerSignaturesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSignaturesAPIService.ContentContainerSignaturesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -339,27 +339,27 @@ func (a *ContentSignaturesApiService) ContentContainerSignaturesListExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentSignaturesApiContentContainerSignaturesReadRequest struct {
+type ContentSignaturesAPIContentContainerSignaturesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentSignaturesApiService
+	ApiService *ContentSignaturesAPIService
 	containerManifestSignatureHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentSignaturesApiContentContainerSignaturesReadRequest) Fields(fields []string) ContentSignaturesApiContentContainerSignaturesReadRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesReadRequest) Fields(fields []string) ContentSignaturesAPIContentContainerSignaturesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentSignaturesApiContentContainerSignaturesReadRequest) ExcludeFields(excludeFields []string) ContentSignaturesApiContentContainerSignaturesReadRequest {
+func (r ContentSignaturesAPIContentContainerSignaturesReadRequest) ExcludeFields(excludeFields []string) ContentSignaturesAPIContentContainerSignaturesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentSignaturesApiContentContainerSignaturesReadRequest) Execute() (*ContainerManifestSignatureResponse, *http.Response, error) {
+func (r ContentSignaturesAPIContentContainerSignaturesReadRequest) Execute() (*ContainerManifestSignatureResponse, *http.Response, error) {
 	return r.ApiService.ContentContainerSignaturesReadExecute(r)
 }
 
@@ -370,10 +370,10 @@ ViewSet for image signatures.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerManifestSignatureHref
- @return ContentSignaturesApiContentContainerSignaturesReadRequest
+ @return ContentSignaturesAPIContentContainerSignaturesReadRequest
 */
-func (a *ContentSignaturesApiService) ContentContainerSignaturesRead(ctx context.Context, containerManifestSignatureHref string) ContentSignaturesApiContentContainerSignaturesReadRequest {
-	return ContentSignaturesApiContentContainerSignaturesReadRequest{
+func (a *ContentSignaturesAPIService) ContentContainerSignaturesRead(ctx context.Context, containerManifestSignatureHref string) ContentSignaturesAPIContentContainerSignaturesReadRequest {
+	return ContentSignaturesAPIContentContainerSignaturesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerManifestSignatureHref: containerManifestSignatureHref,
@@ -382,7 +382,7 @@ func (a *ContentSignaturesApiService) ContentContainerSignaturesRead(ctx context
 
 // Execute executes the request
 //  @return ContainerManifestSignatureResponse
-func (a *ContentSignaturesApiService) ContentContainerSignaturesReadExecute(r ContentSignaturesApiContentContainerSignaturesReadRequest) (*ContainerManifestSignatureResponse, *http.Response, error) {
+func (a *ContentSignaturesAPIService) ContentContainerSignaturesReadExecute(r ContentSignaturesAPIContentContainerSignaturesReadRequest) (*ContainerManifestSignatureResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -390,7 +390,7 @@ func (a *ContentSignaturesApiService) ContentContainerSignaturesReadExecute(r Co
 		localVarReturnValue  *ContainerManifestSignatureResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSignaturesApiService.ContentContainerSignaturesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSignaturesAPIService.ContentContainerSignaturesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

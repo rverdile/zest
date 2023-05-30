@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentTagsApiService
+Testing ContentTagsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentTagsApiService(t *testing.T) {
+func Test_zest_ContentTagsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentTagsApiService ContentContainerTagsList", func(t *testing.T) {
+	t.Run("Test ContentTagsAPIService ContentContainerTagsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentTagsApi.ContentContainerTagsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentTagsAPI.ContentContainerTagsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentTagsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentTagsApiService ContentContainerTagsRead", func(t *testing.T) {
+	t.Run("Test ContentTagsAPIService ContentContainerTagsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerTagHref string
 
-		resp, httpRes, err := apiClient.ContentTagsApi.ContentContainerTagsRead(context.Background(), containerTagHref).Execute()
+		resp, httpRes, err := apiClient.ContentTagsAPI.ContentContainerTagsRead(context.Background(), containerTagHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

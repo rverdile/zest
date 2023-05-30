@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesFileVersionsApiService
+Testing RepositoriesFileVersionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesFileVersionsApiService(t *testing.T) {
+func Test_zest_RepositoriesFileVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesFileVersionsApiService RepositoriesFileFileVersionsDelete", func(t *testing.T) {
+	t.Run("Test RepositoriesFileVersionsAPIService RepositoriesFileFileVersionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileVersionsApi.RepositoriesFileFileVersionsDelete(context.Background(), fileFileRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileVersionsAPI.RepositoriesFileFileVersionsDelete(context.Background(), fileFileRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_RepositoriesFileVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileVersionsApiService RepositoriesFileFileVersionsList", func(t *testing.T) {
+	t.Run("Test RepositoriesFileVersionsAPIService RepositoriesFileFileVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileVersionsApi.RepositoriesFileFileVersionsList(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileVersionsAPI.RepositoriesFileFileVersionsList(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_zest_RepositoriesFileVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileVersionsApiService RepositoriesFileFileVersionsRead", func(t *testing.T) {
+	t.Run("Test RepositoriesFileVersionsAPIService RepositoriesFileFileVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileVersionsApi.RepositoriesFileFileVersionsRead(context.Background(), fileFileRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileVersionsAPI.RepositoriesFileFileVersionsRead(context.Background(), fileFileRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_zest_RepositoriesFileVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileVersionsApiService RepositoriesFileFileVersionsRepair", func(t *testing.T) {
+	t.Run("Test RepositoriesFileVersionsAPIService RepositoriesFileFileVersionsRepair", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileVersionsApi.RepositoriesFileFileVersionsRepair(context.Background(), fileFileRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileVersionsAPI.RepositoriesFileFileVersionsRepair(context.Background(), fileFileRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

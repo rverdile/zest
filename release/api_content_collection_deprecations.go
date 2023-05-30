@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentCollectionDeprecationsApiService ContentCollectionDeprecationsApi service
-type ContentCollectionDeprecationsApiService service
+// ContentCollectionDeprecationsAPIService ContentCollectionDeprecationsAPI service
+type ContentCollectionDeprecationsAPIService service
 
-type ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest struct {
+type ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionDeprecationsApiService
+	ApiService *ContentCollectionDeprecationsAPIService
 	ansibleCollection *AnsibleCollection
 }
 
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest) AnsibleCollection(ansibleCollection AnsibleCollection) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest) AnsibleCollection(ansibleCollection AnsibleCollection) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest {
 	r.ansibleCollection = &ansibleCollection
 	return r
 }
 
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest) Execute() (*AnsibleCollectionResponse, *http.Response, error) {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest) Execute() (*AnsibleCollectionResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionDeprecationsCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentAnsibleCollectionDeprecationsCreate Create an ansible collection deprecat
 ViewSet for AnsibleCollectionDeprecated.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest
+ @return ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest
 */
-func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprecationsCreate(ctx context.Context) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest {
-	return ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest{
+func (a *ContentCollectionDeprecationsAPIService) ContentAnsibleCollectionDeprecationsCreate(ctx context.Context) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest {
+	return ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 
 // Execute executes the request
 //  @return AnsibleCollectionResponse
-func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprecationsCreateExecute(r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsCreateRequest) (*AnsibleCollectionResponse, *http.Response, error) {
+func (a *ContentCollectionDeprecationsAPIService) ContentAnsibleCollectionDeprecationsCreateExecute(r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsCreateRequest) (*AnsibleCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 		localVarReturnValue  *AnsibleCollectionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionDeprecationsApiService.ContentAnsibleCollectionDeprecationsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionDeprecationsAPIService.ContentAnsibleCollectionDeprecationsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,9 +134,9 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest struct {
+type ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionDeprecationsApiService
+	ApiService *ContentCollectionDeprecationsAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -150,66 +150,66 @@ type ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListReq
 }
 
 // Number of results to return per page.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) Limit(limit int32) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) Limit(limit int32) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) Offset(offset int32) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) Offset(offset int32) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) Ordering(ordering []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) Ordering(ordering []string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) Fields(fields []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) Fields(fields []string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) ExcludeFields(excludeFields []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) ExcludeFields(excludeFields []string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) Execute() (*PaginatedansibleCollectionResponseList, *http.Response, error) {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) Execute() (*PaginatedansibleCollectionResponseList, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionDeprecationsListExecute(r)
 }
 
@@ -219,10 +219,10 @@ ContentAnsibleCollectionDeprecationsList List ansible collection deprecateds
 ViewSet for AnsibleCollectionDeprecated.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest
+ @return ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest
 */
-func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprecationsList(ctx context.Context) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest {
-	return ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest{
+func (a *ContentCollectionDeprecationsAPIService) ContentAnsibleCollectionDeprecationsList(ctx context.Context) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest {
+	return ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -230,7 +230,7 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 
 // Execute executes the request
 //  @return PaginatedansibleCollectionResponseList
-func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprecationsListExecute(r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsListRequest) (*PaginatedansibleCollectionResponseList, *http.Response, error) {
+func (a *ContentCollectionDeprecationsAPIService) ContentAnsibleCollectionDeprecationsListExecute(r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsListRequest) (*PaginatedansibleCollectionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -238,7 +238,7 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 		localVarReturnValue  *PaginatedansibleCollectionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionDeprecationsApiService.ContentAnsibleCollectionDeprecationsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionDeprecationsAPIService.ContentAnsibleCollectionDeprecationsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -348,27 +348,27 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest struct {
+type ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionDeprecationsApiService
+	ApiService *ContentCollectionDeprecationsAPIService
 	ansibleAnsibleCollectionDeprecatedHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest) Fields(fields []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest) Fields(fields []string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest) ExcludeFields(excludeFields []string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest) ExcludeFields(excludeFields []string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest) Execute() (*AnsibleCollectionResponse, *http.Response, error) {
+func (r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest) Execute() (*AnsibleCollectionResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionDeprecationsReadExecute(r)
 }
 
@@ -379,10 +379,10 @@ ViewSet for AnsibleCollectionDeprecated.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleCollectionDeprecatedHref
- @return ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest
+ @return ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest
 */
-func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprecationsRead(ctx context.Context, ansibleAnsibleCollectionDeprecatedHref string) ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest {
-	return ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest{
+func (a *ContentCollectionDeprecationsAPIService) ContentAnsibleCollectionDeprecationsRead(ctx context.Context, ansibleAnsibleCollectionDeprecatedHref string) ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest {
+	return ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleCollectionDeprecatedHref: ansibleAnsibleCollectionDeprecatedHref,
@@ -391,7 +391,7 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 
 // Execute executes the request
 //  @return AnsibleCollectionResponse
-func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprecationsReadExecute(r ContentCollectionDeprecationsApiContentAnsibleCollectionDeprecationsReadRequest) (*AnsibleCollectionResponse, *http.Response, error) {
+func (a *ContentCollectionDeprecationsAPIService) ContentAnsibleCollectionDeprecationsReadExecute(r ContentCollectionDeprecationsAPIContentAnsibleCollectionDeprecationsReadRequest) (*AnsibleCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -399,7 +399,7 @@ func (a *ContentCollectionDeprecationsApiService) ContentAnsibleCollectionDeprec
 		localVarReturnValue  *AnsibleCollectionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionDeprecationsApiService.ContentAnsibleCollectionDeprecationsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionDeprecationsAPIService.ContentAnsibleCollectionDeprecationsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

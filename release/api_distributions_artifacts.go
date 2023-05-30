@@ -22,12 +22,12 @@ import (
 )
 
 
-// DistributionsArtifactsApiService DistributionsArtifactsApi service
-type DistributionsArtifactsApiService service
+// DistributionsArtifactsAPIService DistributionsArtifactsAPI service
+type DistributionsArtifactsAPIService service
 
-type DistributionsArtifactsApiDistributionsCoreArtifactsListRequest struct {
+type DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsArtifactsApiService
+	ApiService *DistributionsArtifactsAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -51,126 +51,126 @@ type DistributionsArtifactsApiDistributionsCoreArtifactsListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) BasePath(basePath string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) BasePath(basePath string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) BasePathContains(basePathContains string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) BasePathContains(basePathContains string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) BasePathIcontains(basePathIcontains string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) BasePathIcontains(basePathIcontains string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) BasePathIn(basePathIn []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) BasePathIn(basePathIn []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) Limit(limit int32) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) Limit(limit int32) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) Name(name string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) Name(name string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) NameContains(nameContains string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) NameContains(nameContains string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) NameIcontains(nameIcontains string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) NameIcontains(nameIcontains string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) NameIn(nameIn []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) NameIn(nameIn []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) NameStartswith(nameStartswith string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) NameStartswith(nameStartswith string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) Offset(offset int32) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) Offset(offset int32) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) Ordering(ordering []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) Ordering(ordering []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) PulpIdIn(pulpIdIn []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) PulpIdIn(pulpIdIn []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) Repository(repository string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) Repository(repository string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) RepositoryIn(repositoryIn []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) RepositoryIn(repositoryIn []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) WithContent(withContent string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) WithContent(withContent string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) Fields(fields []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) Fields(fields []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) ExcludeFields(excludeFields []string) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) ExcludeFields(excludeFields []string) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) Execute() (*PaginatedArtifactDistributionResponseList, *http.Response, error) {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) Execute() (*PaginatedArtifactDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsCoreArtifactsListExecute(r)
 }
 
@@ -180,10 +180,10 @@ DistributionsCoreArtifactsList List artifact distributions
 ViewSet for ArtifactDistribution.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsArtifactsApiDistributionsCoreArtifactsListRequest
+ @return DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest
 */
-func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsList(ctx context.Context) DistributionsArtifactsApiDistributionsCoreArtifactsListRequest {
-	return DistributionsArtifactsApiDistributionsCoreArtifactsListRequest{
+func (a *DistributionsArtifactsAPIService) DistributionsCoreArtifactsList(ctx context.Context) DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest {
+	return DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -191,7 +191,7 @@ func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsList(ctx co
 
 // Execute executes the request
 //  @return PaginatedArtifactDistributionResponseList
-func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsListExecute(r DistributionsArtifactsApiDistributionsCoreArtifactsListRequest) (*PaginatedArtifactDistributionResponseList, *http.Response, error) {
+func (a *DistributionsArtifactsAPIService) DistributionsCoreArtifactsListExecute(r DistributionsArtifactsAPIDistributionsCoreArtifactsListRequest) (*PaginatedArtifactDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -199,7 +199,7 @@ func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsListExecute
 		localVarReturnValue  *PaginatedArtifactDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsArtifactsApiService.DistributionsCoreArtifactsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsArtifactsAPIService.DistributionsCoreArtifactsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -339,27 +339,27 @@ func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsListExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest struct {
+type DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsArtifactsApiService
+	ApiService *DistributionsArtifactsAPIService
 	artifactDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest) Fields(fields []string) DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest) Fields(fields []string) DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest) ExcludeFields(excludeFields []string) DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest) ExcludeFields(excludeFields []string) DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest) Execute() (*ArtifactDistributionResponse, *http.Response, error) {
+func (r DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest) Execute() (*ArtifactDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsCoreArtifactsReadExecute(r)
 }
 
@@ -370,10 +370,10 @@ ViewSet for ArtifactDistribution.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param artifactDistributionHref
- @return DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest
+ @return DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest
 */
-func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsRead(ctx context.Context, artifactDistributionHref string) DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest {
-	return DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest{
+func (a *DistributionsArtifactsAPIService) DistributionsCoreArtifactsRead(ctx context.Context, artifactDistributionHref string) DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest {
+	return DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		artifactDistributionHref: artifactDistributionHref,
@@ -382,7 +382,7 @@ func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsRead(ctx co
 
 // Execute executes the request
 //  @return ArtifactDistributionResponse
-func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsReadExecute(r DistributionsArtifactsApiDistributionsCoreArtifactsReadRequest) (*ArtifactDistributionResponse, *http.Response, error) {
+func (a *DistributionsArtifactsAPIService) DistributionsCoreArtifactsReadExecute(r DistributionsArtifactsAPIDistributionsCoreArtifactsReadRequest) (*ArtifactDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -390,7 +390,7 @@ func (a *DistributionsArtifactsApiService) DistributionsCoreArtifactsReadExecute
 		localVarReturnValue  *ArtifactDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsArtifactsApiService.DistributionsCoreArtifactsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsArtifactsAPIService.DistributionsCoreArtifactsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

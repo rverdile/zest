@@ -22,12 +22,12 @@ import (
 )
 
 
-// PulpAnsibleApiV2CollectionsVersionsApiService PulpAnsibleApiV2CollectionsVersionsApi service
-type PulpAnsibleApiV2CollectionsVersionsApiService service
+// PulpAnsibleApiV2CollectionsVersionsAPIService PulpAnsibleApiV2CollectionsVersionsAPI service
+type PulpAnsibleApiV2CollectionsVersionsAPIService service
 
-type PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest struct {
+type PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV2CollectionsVersionsApiService
+	ApiService *PulpAnsibleApiV2CollectionsVersionsAPIService
 	name string
 	namespace string
 	path string
@@ -37,18 +37,18 @@ type PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVers
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) Fields(fields []string) PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest {
+func (r PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) Fields(fields []string) PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest {
+func (r PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) Execute() (*http.Response, error) {
+func (r PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV2CollectionsVersionsGetExecute(r)
 }
 
@@ -62,10 +62,10 @@ Return a response to the "GET" action.
  @param namespace
  @param path
  @param version
- @return PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest
+ @return PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest
 */
-func (a *PulpAnsibleApiV2CollectionsVersionsApiService) PulpAnsibleGalaxyApiV2CollectionsVersionsGet(ctx context.Context, name string, namespace string, path string, version string) PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest {
-	return PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest{
+func (a *PulpAnsibleApiV2CollectionsVersionsAPIService) PulpAnsibleGalaxyApiV2CollectionsVersionsGet(ctx context.Context, name string, namespace string, path string, version string) PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest {
+	return PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		name: name,
@@ -76,14 +76,14 @@ func (a *PulpAnsibleApiV2CollectionsVersionsApiService) PulpAnsibleGalaxyApiV2Co
 }
 
 // Execute executes the request
-func (a *PulpAnsibleApiV2CollectionsVersionsApiService) PulpAnsibleGalaxyApiV2CollectionsVersionsGetExecute(r PulpAnsibleApiV2CollectionsVersionsApiPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) (*http.Response, error) {
+func (a *PulpAnsibleApiV2CollectionsVersionsAPIService) PulpAnsibleGalaxyApiV2CollectionsVersionsGetExecute(r PulpAnsibleApiV2CollectionsVersionsAPIPulpAnsibleGalaxyApiV2CollectionsVersionsGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV2CollectionsVersionsApiService.PulpAnsibleGalaxyApiV2CollectionsVersionsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV2CollectionsVersionsAPIService.PulpAnsibleGalaxyApiV2CollectionsVersionsGet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

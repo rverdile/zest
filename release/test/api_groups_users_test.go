@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing GroupsUsersApiService
+Testing GroupsUsersAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_GroupsUsersApiService(t *testing.T) {
+func Test_zest_GroupsUsersAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test GroupsUsersApiService GroupsUsersCreate", func(t *testing.T) {
+	t.Run("Test GroupsUsersAPIService GroupsUsersCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var groupHref string
 
-		resp, httpRes, err := apiClient.GroupsUsersApi.GroupsUsersCreate(context.Background(), groupHref).Execute()
+		resp, httpRes, err := apiClient.GroupsUsersAPI.GroupsUsersCreate(context.Background(), groupHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,26 +36,26 @@ func Test_zest_GroupsUsersApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test GroupsUsersApiService GroupsUsersDelete", func(t *testing.T) {
+	t.Run("Test GroupsUsersAPIService GroupsUsersDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var groupsUserHref string
 
-		httpRes, err := apiClient.GroupsUsersApi.GroupsUsersDelete(context.Background(), groupsUserHref).Execute()
+		httpRes, err := apiClient.GroupsUsersAPI.GroupsUsersDelete(context.Background(), groupsUserHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test GroupsUsersApiService GroupsUsersList", func(t *testing.T) {
+	t.Run("Test GroupsUsersAPIService GroupsUsersList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var groupHref string
 
-		resp, httpRes, err := apiClient.GroupsUsersApi.GroupsUsersList(context.Background(), groupHref).Execute()
+		resp, httpRes, err := apiClient.GroupsUsersAPI.GroupsUsersList(context.Background(), groupHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

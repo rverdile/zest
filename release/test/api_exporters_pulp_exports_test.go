@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ExportersPulpExportsApiService
+Testing ExportersPulpExportsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ExportersPulpExportsApiService(t *testing.T) {
+func Test_zest_ExportersPulpExportsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ExportersPulpExportsApiService ExportersCorePulpExportsCreate", func(t *testing.T) {
+	t.Run("Test ExportersPulpExportsAPIService ExportersCorePulpExportsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersPulpExportsApi.ExportersCorePulpExportsCreate(context.Background(), pulpExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpExportsAPI.ExportersCorePulpExportsCreate(context.Background(), pulpExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,26 +36,26 @@ func Test_zest_ExportersPulpExportsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersPulpExportsApiService ExportersCorePulpExportsDelete", func(t *testing.T) {
+	t.Run("Test ExportersPulpExportsAPIService ExportersCorePulpExportsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpPulpExportHref string
 
-		httpRes, err := apiClient.ExportersPulpExportsApi.ExportersCorePulpExportsDelete(context.Background(), pulpPulpExportHref).Execute()
+		httpRes, err := apiClient.ExportersPulpExportsAPI.ExportersCorePulpExportsDelete(context.Background(), pulpPulpExportHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ExportersPulpExportsApiService ExportersCorePulpExportsList", func(t *testing.T) {
+	t.Run("Test ExportersPulpExportsAPIService ExportersCorePulpExportsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersPulpExportsApi.ExportersCorePulpExportsList(context.Background(), pulpExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpExportsAPI.ExportersCorePulpExportsList(context.Background(), pulpExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -63,13 +63,13 @@ func Test_zest_ExportersPulpExportsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersPulpExportsApiService ExportersCorePulpExportsRead", func(t *testing.T) {
+	t.Run("Test ExportersPulpExportsAPIService ExportersCorePulpExportsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpPulpExportHref string
 
-		resp, httpRes, err := apiClient.ExportersPulpExportsApi.ExportersCorePulpExportsRead(context.Background(), pulpPulpExportHref).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpExportsAPI.ExportersCorePulpExportsRead(context.Background(), pulpPulpExportHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

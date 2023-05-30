@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing AnsibleCollectionsApiService
+Testing AnsibleCollectionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_AnsibleCollectionsApiService(t *testing.T) {
+func Test_zest_AnsibleCollectionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AnsibleCollectionsApiService AnsibleCollectionsAddRole", func(t *testing.T) {
+	t.Run("Test AnsibleCollectionsAPIService AnsibleCollectionsAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionHref string
 
-		resp, httpRes, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsAddRole(context.Background(), ansibleCollectionHref).Execute()
+		resp, httpRes, err := apiClient.AnsibleCollectionsAPI.AnsibleCollectionsAddRole(context.Background(), ansibleCollectionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_AnsibleCollectionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AnsibleCollectionsApiService AnsibleCollectionsList", func(t *testing.T) {
+	t.Run("Test AnsibleCollectionsAPIService AnsibleCollectionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AnsibleCollectionsAPI.AnsibleCollectionsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,27 +48,13 @@ func Test_zest_AnsibleCollectionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AnsibleCollectionsApiService AnsibleCollectionsListRoles", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ansibleCollectionHref string
-
-		resp, httpRes, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsListRoles(context.Background(), ansibleCollectionHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AnsibleCollectionsApiService AnsibleCollectionsMyPermissions", func(t *testing.T) {
+	t.Run("Test AnsibleCollectionsAPIService AnsibleCollectionsListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionHref string
 
-		resp, httpRes, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsMyPermissions(context.Background(), ansibleCollectionHref).Execute()
+		resp, httpRes, err := apiClient.AnsibleCollectionsAPI.AnsibleCollectionsListRoles(context.Background(), ansibleCollectionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,13 +62,13 @@ func Test_zest_AnsibleCollectionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AnsibleCollectionsApiService AnsibleCollectionsRemoveRole", func(t *testing.T) {
+	t.Run("Test AnsibleCollectionsAPIService AnsibleCollectionsMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionHref string
 
-		resp, httpRes, err := apiClient.AnsibleCollectionsApi.AnsibleCollectionsRemoveRole(context.Background(), ansibleCollectionHref).Execute()
+		resp, httpRes, err := apiClient.AnsibleCollectionsAPI.AnsibleCollectionsMyPermissions(context.Background(), ansibleCollectionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -90,11 +76,25 @@ func Test_zest_AnsibleCollectionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AnsibleCollectionsApiService UploadCollection", func(t *testing.T) {
+	t.Run("Test AnsibleCollectionsAPIService AnsibleCollectionsRemoveRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AnsibleCollectionsApi.UploadCollection(context.Background()).Execute()
+		var ansibleCollectionHref string
+
+		resp, httpRes, err := apiClient.AnsibleCollectionsAPI.AnsibleCollectionsRemoveRole(context.Background(), ansibleCollectionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AnsibleCollectionsAPIService UploadCollection", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AnsibleCollectionsAPI.UploadCollection(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

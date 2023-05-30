@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing AcsRpmApiService
+Testing AcsRpmAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_AcsRpmApiService(t *testing.T) {
+func Test_zest_AcsRpmAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmAddRole", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmAlternateContentSourceHref string
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmAddRole(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmAddRole(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmCreate", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var rpmRpmAlternateContentSourceHref string
-
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmDelete(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AcsRpmApiService AcsRpmRpmList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AcsRpmApiService AcsRpmRpmListRoles", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmAlternateContentSourceHref string
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmListRoles(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmDelete(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmMyPermissions", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var rpmRpmAlternateContentSourceHref string
-
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmMyPermissions(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmPartialUpdate", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmAlternateContentSourceHref string
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmPartialUpdate(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmListRoles(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmRead", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmAlternateContentSourceHref string
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmRead(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmMyPermissions(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmRefresh", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmAlternateContentSourceHref string
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmRefresh(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmPartialUpdate(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,13 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmRemoveRole", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmAlternateContentSourceHref string
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmRemoveRole(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmRead(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -158,13 +130,41 @@ func Test_zest_AcsRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test AcsRpmApiService AcsRpmRpmUpdate", func(t *testing.T) {
+	t.Run("Test AcsRpmAPIService AcsRpmRpmRefresh", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmAlternateContentSourceHref string
 
-		resp, httpRes, err := apiClient.AcsRpmApi.AcsRpmRpmUpdate(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmRefresh(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AcsRpmAPIService AcsRpmRpmRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var rpmRpmAlternateContentSourceHref string
+
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmRemoveRole(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AcsRpmAPIService AcsRpmRpmUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var rpmRpmAlternateContentSourceHref string
+
+		resp, httpRes, err := apiClient.AcsRpmAPI.AcsRpmRpmUpdate(context.Background(), rpmRpmAlternateContentSourceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

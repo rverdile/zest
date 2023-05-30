@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpContainerNamespacesApiService
+Testing PulpContainerNamespacesAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpContainerNamespacesApiService(t *testing.T) {
+func Test_zest_PulpContainerNamespacesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesAddRole", func(t *testing.T) {
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerNamespaceHref string
 
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesAddRole(context.Background(), containerContainerNamespaceHref).Execute()
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesAddRole(context.Background(), containerContainerNamespaceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_PulpContainerNamespacesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesCreate", func(t *testing.T) {
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_PulpContainerNamespacesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var containerContainerNamespaceHref string
-
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesDelete(context.Background(), containerContainerNamespaceHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesListRoles", func(t *testing.T) {
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerNamespaceHref string
 
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesListRoles(context.Background(), containerContainerNamespaceHref).Execute()
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesDelete(context.Background(), containerContainerNamespaceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_PulpContainerNamespacesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesMyPermissions", func(t *testing.T) {
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var containerContainerNamespaceHref string
-
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesMyPermissions(context.Background(), containerContainerNamespaceHref).Execute()
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_PulpContainerNamespacesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesRead", func(t *testing.T) {
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerNamespaceHref string
 
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesRead(context.Background(), containerContainerNamespaceHref).Execute()
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesListRoles(context.Background(), containerContainerNamespaceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,41 @@ func Test_zest_PulpContainerNamespacesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpContainerNamespacesApiService PulpContainerNamespacesRemoveRole", func(t *testing.T) {
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerNamespaceHref string
 
-		resp, httpRes, err := apiClient.PulpContainerNamespacesApi.PulpContainerNamespacesRemoveRole(context.Background(), containerContainerNamespaceHref).Execute()
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesMyPermissions(context.Background(), containerContainerNamespaceHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesRead", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var containerContainerNamespaceHref string
+
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesRead(context.Background(), containerContainerNamespaceHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PulpContainerNamespacesAPIService PulpContainerNamespacesRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var containerContainerNamespaceHref string
+
+		resp, httpRes, err := apiClient.PulpContainerNamespacesAPI.PulpContainerNamespacesRemoveRole(context.Background(), containerContainerNamespaceHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

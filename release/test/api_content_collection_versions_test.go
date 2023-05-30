@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentCollectionVersionsApiService
+Testing ContentCollectionVersionsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentCollectionVersionsApiService(t *testing.T) {
+func Test_zest_ContentCollectionVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentCollectionVersionsApiService ContentAnsibleCollectionVersionsCreate", func(t *testing.T) {
+	t.Run("Test ContentCollectionVersionsAPIService ContentAnsibleCollectionVersionsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionVersionsAPI.ContentAnsibleCollectionVersionsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentCollectionVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionVersionsApiService ContentAnsibleCollectionVersionsList", func(t *testing.T) {
+	t.Run("Test ContentCollectionVersionsAPIService ContentAnsibleCollectionVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionVersionsAPI.ContentAnsibleCollectionVersionsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentCollectionVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionVersionsApiService ContentAnsibleCollectionVersionsRead", func(t *testing.T) {
+	t.Run("Test ContentCollectionVersionsAPIService ContentAnsibleCollectionVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionVersionHref string
 
-		resp, httpRes, err := apiClient.ContentCollectionVersionsApi.ContentAnsibleCollectionVersionsRead(context.Background(), ansibleCollectionVersionHref).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionVersionsAPI.ContentAnsibleCollectionVersionsRead(context.Background(), ansibleCollectionVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

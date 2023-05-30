@@ -22,30 +22,30 @@ import (
 )
 
 
-// GalaxyDetailApiService GalaxyDetailApi service
-type GalaxyDetailApiService service
+// GalaxyDetailAPIService GalaxyDetailAPI service
+type GalaxyDetailAPIService service
 
-type GalaxyDetailApiGalaxyCollectionDetailGetRequest struct {
+type GalaxyDetailAPIGalaxyCollectionDetailGetRequest struct {
 	ctx context.Context
-	ApiService *GalaxyDetailApiService
+	ApiService *GalaxyDetailAPIService
 	ansibleCollectionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r GalaxyDetailApiGalaxyCollectionDetailGetRequest) Fields(fields []string) GalaxyDetailApiGalaxyCollectionDetailGetRequest {
+func (r GalaxyDetailAPIGalaxyCollectionDetailGetRequest) Fields(fields []string) GalaxyDetailAPIGalaxyCollectionDetailGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r GalaxyDetailApiGalaxyCollectionDetailGetRequest) ExcludeFields(excludeFields []string) GalaxyDetailApiGalaxyCollectionDetailGetRequest {
+func (r GalaxyDetailAPIGalaxyCollectionDetailGetRequest) ExcludeFields(excludeFields []string) GalaxyDetailAPIGalaxyCollectionDetailGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r GalaxyDetailApiGalaxyCollectionDetailGetRequest) Execute() (*GalaxyCollectionResponse, *http.Response, error) {
+func (r GalaxyDetailAPIGalaxyCollectionDetailGetRequest) Execute() (*GalaxyCollectionResponse, *http.Response, error) {
 	return r.ApiService.GalaxyCollectionDetailGetExecute(r)
 }
 
@@ -56,10 +56,10 @@ Get the detail view of a Collection.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionHref
- @return GalaxyDetailApiGalaxyCollectionDetailGetRequest
+ @return GalaxyDetailAPIGalaxyCollectionDetailGetRequest
 */
-func (a *GalaxyDetailApiService) GalaxyCollectionDetailGet(ctx context.Context, ansibleCollectionHref string) GalaxyDetailApiGalaxyCollectionDetailGetRequest {
-	return GalaxyDetailApiGalaxyCollectionDetailGetRequest{
+func (a *GalaxyDetailAPIService) GalaxyCollectionDetailGet(ctx context.Context, ansibleCollectionHref string) GalaxyDetailAPIGalaxyCollectionDetailGetRequest {
+	return GalaxyDetailAPIGalaxyCollectionDetailGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionHref: ansibleCollectionHref,
@@ -68,7 +68,7 @@ func (a *GalaxyDetailApiService) GalaxyCollectionDetailGet(ctx context.Context, 
 
 // Execute executes the request
 //  @return GalaxyCollectionResponse
-func (a *GalaxyDetailApiService) GalaxyCollectionDetailGetExecute(r GalaxyDetailApiGalaxyCollectionDetailGetRequest) (*GalaxyCollectionResponse, *http.Response, error) {
+func (a *GalaxyDetailAPIService) GalaxyCollectionDetailGetExecute(r GalaxyDetailAPIGalaxyCollectionDetailGetRequest) (*GalaxyCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -76,7 +76,7 @@ func (a *GalaxyDetailApiService) GalaxyCollectionDetailGetExecute(r GalaxyDetail
 		localVarReturnValue  *GalaxyCollectionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GalaxyDetailApiService.GalaxyCollectionDetailGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GalaxyDetailAPIService.GalaxyCollectionDetailGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

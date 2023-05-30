@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentModulemdObsoletesApiService ContentModulemdObsoletesApi service
-type ContentModulemdObsoletesApiService service
+// ContentModulemdObsoletesAPIService ContentModulemdObsoletesAPI service
+type ContentModulemdObsoletesAPIService service
 
-type ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest struct {
+type ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdObsoletesApiService
+	ApiService *ContentModulemdObsoletesAPIService
 	rpmModulemdObsolete *RpmModulemdObsolete
 }
 
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest) RpmModulemdObsolete(rpmModulemdObsolete RpmModulemdObsolete) ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest) RpmModulemdObsolete(rpmModulemdObsolete RpmModulemdObsolete) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest {
 	r.rpmModulemdObsolete = &rpmModulemdObsolete
 	return r
 }
 
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdObsoletesCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentRpmModulemdObsoletesCreate Create a modulemd obsolete
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest
+ @return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest
 */
-func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesCreate(ctx context.Context) ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest {
-	return ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest{
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesCreate(ctx context.Context) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest {
+	return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesCreate(c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesCreateExecute(r ContentModulemdObsoletesApiContentRpmModulemdObsoletesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesCreateExecute(r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesCreateEx
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdObsoletesApiService.ContentRpmModulemdObsoletesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdObsoletesAPIService.ContentRpmModulemdObsoletesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,9 +134,9 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesCreateEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest struct {
+type ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdObsoletesApiService
+	ApiService *ContentModulemdObsoletesAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -150,66 +150,66 @@ type ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) Limit(limit int32) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) Limit(limit int32) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) Offset(offset int32) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) Offset(offset int32) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) Ordering(ordering []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) Ordering(ordering []string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) PulpHrefIn(pulpHrefIn []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) PulpHrefIn(pulpHrefIn []string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) PulpIdIn(pulpIdIn []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) PulpIdIn(pulpIdIn []string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) RepositoryVersion(repositoryVersion string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) RepositoryVersion(repositoryVersion string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) Fields(fields []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) Fields(fields []string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) ExcludeFields(excludeFields []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) ExcludeFields(excludeFields []string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) Execute() (*PaginatedrpmModulemdObsoleteResponseList, *http.Response, error) {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) Execute() (*PaginatedrpmModulemdObsoleteResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdObsoletesListExecute(r)
 }
 
@@ -219,10 +219,10 @@ ContentRpmModulemdObsoletesList List modulemd obsoletes
 ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest
+ @return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest
 */
-func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesList(ctx context.Context) ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest {
-	return ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest{
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesList(ctx context.Context) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
+	return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -230,7 +230,7 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesList(ctx
 
 // Execute executes the request
 //  @return PaginatedrpmModulemdObsoleteResponseList
-func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesListExecute(r ContentModulemdObsoletesApiContentRpmModulemdObsoletesListRequest) (*PaginatedrpmModulemdObsoleteResponseList, *http.Response, error) {
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesListExecute(r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest) (*PaginatedrpmModulemdObsoleteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -238,7 +238,7 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesListExec
 		localVarReturnValue  *PaginatedrpmModulemdObsoleteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdObsoletesApiService.ContentRpmModulemdObsoletesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdObsoletesAPIService.ContentRpmModulemdObsoletesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -348,27 +348,27 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest struct {
+type ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdObsoletesApiService
+	ApiService *ContentModulemdObsoletesAPIService
 	rpmModulemdObsoleteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest) Fields(fields []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest) Fields(fields []string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest) ExcludeFields(excludeFields []string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest) ExcludeFields(excludeFields []string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest) Execute() (*RpmModulemdObsoleteResponse, *http.Response, error) {
+func (r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest) Execute() (*RpmModulemdObsoleteResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdObsoletesReadExecute(r)
 }
 
@@ -379,10 +379,10 @@ ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmModulemdObsoleteHref
- @return ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest
+ @return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest
 */
-func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesRead(ctx context.Context, rpmModulemdObsoleteHref string) ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest {
-	return ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest{
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesRead(ctx context.Context, rpmModulemdObsoleteHref string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest {
+	return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmModulemdObsoleteHref: rpmModulemdObsoleteHref,
@@ -391,7 +391,7 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesRead(ctx
 
 // Execute executes the request
 //  @return RpmModulemdObsoleteResponse
-func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesReadExecute(r ContentModulemdObsoletesApiContentRpmModulemdObsoletesReadRequest) (*RpmModulemdObsoleteResponse, *http.Response, error) {
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesReadExecute(r ContentModulemdObsoletesAPIContentRpmModulemdObsoletesReadRequest) (*RpmModulemdObsoleteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -399,7 +399,7 @@ func (a *ContentModulemdObsoletesApiService) ContentRpmModulemdObsoletesReadExec
 		localVarReturnValue  *RpmModulemdObsoleteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdObsoletesApiService.ContentRpmModulemdObsoletesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdObsoletesAPIService.ContentRpmModulemdObsoletesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

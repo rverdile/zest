@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentRefsApiService ContentRefsApi service
-type ContentRefsApiService service
+// ContentRefsAPIService ContentRefsAPI service
+type ContentRefsAPIService service
 
-type ContentRefsApiContentOstreeRefsListRequest struct {
+type ContentRefsAPIContentOstreeRefsListRequest struct {
 	ctx context.Context
-	ApiService *ContentRefsApiService
+	ApiService *ContentRefsAPIService
 	checksum *string
 	limit *int32
 	name *string
@@ -46,102 +46,102 @@ type ContentRefsApiContentOstreeRefsListRequest struct {
 	excludeFields *[]string
 }
 
-func (r ContentRefsApiContentOstreeRefsListRequest) Checksum(checksum string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) Checksum(checksum string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.checksum = &checksum
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentRefsApiContentOstreeRefsListRequest) Limit(limit int32) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) Limit(limit int32) ContentRefsAPIContentOstreeRefsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentRefsApiContentOstreeRefsListRequest) Name(name string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) Name(name string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentRefsApiContentOstreeRefsListRequest) NameContains(nameContains string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) NameContains(nameContains string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentRefsApiContentOstreeRefsListRequest) NameIcontains(nameIcontains string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) NameIcontains(nameIcontains string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentRefsApiContentOstreeRefsListRequest) NameIn(nameIn []string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) NameIn(nameIn []string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentRefsApiContentOstreeRefsListRequest) NameStartswith(nameStartswith string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) NameStartswith(nameStartswith string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentRefsApiContentOstreeRefsListRequest) Offset(offset int32) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) Offset(offset int32) ContentRefsAPIContentOstreeRefsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentRefsApiContentOstreeRefsListRequest) Ordering(ordering []string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) Ordering(ordering []string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentRefsApiContentOstreeRefsListRequest) PulpHrefIn(pulpHrefIn []string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) PulpHrefIn(pulpHrefIn []string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentRefsApiContentOstreeRefsListRequest) PulpIdIn(pulpIdIn []string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) PulpIdIn(pulpIdIn []string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRefsApiContentOstreeRefsListRequest) RepositoryVersion(repositoryVersion string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) RepositoryVersion(repositoryVersion string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRefsApiContentOstreeRefsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRefsApiContentOstreeRefsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentRefsApiContentOstreeRefsListRequest) Fields(fields []string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) Fields(fields []string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentRefsApiContentOstreeRefsListRequest) ExcludeFields(excludeFields []string) ContentRefsApiContentOstreeRefsListRequest {
+func (r ContentRefsAPIContentOstreeRefsListRequest) ExcludeFields(excludeFields []string) ContentRefsAPIContentOstreeRefsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentRefsApiContentOstreeRefsListRequest) Execute() (*PaginatedostreeOstreeRefResponseList, *http.Response, error) {
+func (r ContentRefsAPIContentOstreeRefsListRequest) Execute() (*PaginatedostreeOstreeRefResponseList, *http.Response, error) {
 	return r.ApiService.ContentOstreeRefsListExecute(r)
 }
 
@@ -151,10 +151,10 @@ ContentOstreeRefsList List ostree refs
 A ViewSet class for OSTree head commits.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentRefsApiContentOstreeRefsListRequest
+ @return ContentRefsAPIContentOstreeRefsListRequest
 */
-func (a *ContentRefsApiService) ContentOstreeRefsList(ctx context.Context) ContentRefsApiContentOstreeRefsListRequest {
-	return ContentRefsApiContentOstreeRefsListRequest{
+func (a *ContentRefsAPIService) ContentOstreeRefsList(ctx context.Context) ContentRefsAPIContentOstreeRefsListRequest {
+	return ContentRefsAPIContentOstreeRefsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -162,7 +162,7 @@ func (a *ContentRefsApiService) ContentOstreeRefsList(ctx context.Context) Conte
 
 // Execute executes the request
 //  @return PaginatedostreeOstreeRefResponseList
-func (a *ContentRefsApiService) ContentOstreeRefsListExecute(r ContentRefsApiContentOstreeRefsListRequest) (*PaginatedostreeOstreeRefResponseList, *http.Response, error) {
+func (a *ContentRefsAPIService) ContentOstreeRefsListExecute(r ContentRefsAPIContentOstreeRefsListRequest) (*PaginatedostreeOstreeRefResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -170,7 +170,7 @@ func (a *ContentRefsApiService) ContentOstreeRefsListExecute(r ContentRefsApiCon
 		localVarReturnValue  *PaginatedostreeOstreeRefResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRefsApiService.ContentOstreeRefsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRefsAPIService.ContentOstreeRefsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -298,27 +298,27 @@ func (a *ContentRefsApiService) ContentOstreeRefsListExecute(r ContentRefsApiCon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentRefsApiContentOstreeRefsReadRequest struct {
+type ContentRefsAPIContentOstreeRefsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentRefsApiService
+	ApiService *ContentRefsAPIService
 	ostreeOstreeRefHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentRefsApiContentOstreeRefsReadRequest) Fields(fields []string) ContentRefsApiContentOstreeRefsReadRequest {
+func (r ContentRefsAPIContentOstreeRefsReadRequest) Fields(fields []string) ContentRefsAPIContentOstreeRefsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentRefsApiContentOstreeRefsReadRequest) ExcludeFields(excludeFields []string) ContentRefsApiContentOstreeRefsReadRequest {
+func (r ContentRefsAPIContentOstreeRefsReadRequest) ExcludeFields(excludeFields []string) ContentRefsAPIContentOstreeRefsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentRefsApiContentOstreeRefsReadRequest) Execute() (*OstreeOstreeRefResponse, *http.Response, error) {
+func (r ContentRefsAPIContentOstreeRefsReadRequest) Execute() (*OstreeOstreeRefResponse, *http.Response, error) {
 	return r.ApiService.ContentOstreeRefsReadExecute(r)
 }
 
@@ -329,10 +329,10 @@ A ViewSet class for OSTree head commits.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRefHref
- @return ContentRefsApiContentOstreeRefsReadRequest
+ @return ContentRefsAPIContentOstreeRefsReadRequest
 */
-func (a *ContentRefsApiService) ContentOstreeRefsRead(ctx context.Context, ostreeOstreeRefHref string) ContentRefsApiContentOstreeRefsReadRequest {
-	return ContentRefsApiContentOstreeRefsReadRequest{
+func (a *ContentRefsAPIService) ContentOstreeRefsRead(ctx context.Context, ostreeOstreeRefHref string) ContentRefsAPIContentOstreeRefsReadRequest {
+	return ContentRefsAPIContentOstreeRefsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRefHref: ostreeOstreeRefHref,
@@ -341,7 +341,7 @@ func (a *ContentRefsApiService) ContentOstreeRefsRead(ctx context.Context, ostre
 
 // Execute executes the request
 //  @return OstreeOstreeRefResponse
-func (a *ContentRefsApiService) ContentOstreeRefsReadExecute(r ContentRefsApiContentOstreeRefsReadRequest) (*OstreeOstreeRefResponse, *http.Response, error) {
+func (a *ContentRefsAPIService) ContentOstreeRefsReadExecute(r ContentRefsAPIContentOstreeRefsReadRequest) (*OstreeOstreeRefResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -349,7 +349,7 @@ func (a *ContentRefsApiService) ContentOstreeRefsReadExecute(r ContentRefsApiCon
 		localVarReturnValue  *OstreeOstreeRefResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRefsApiService.ContentOstreeRefsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRefsAPIService.ContentOstreeRefsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

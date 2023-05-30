@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentPackageIndicesApiService ContentPackageIndicesApi service
-type ContentPackageIndicesApiService service
+// ContentPackageIndicesAPIService ContentPackageIndicesAPI service
+type ContentPackageIndicesAPIService service
 
-type ContentPackageIndicesApiContentDebPackageIndicesCreateRequest struct {
+type ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentPackageIndicesApiService
+	ApiService *ContentPackageIndicesAPIService
 	debPackageIndex *DebPackageIndex
 }
 
-func (r ContentPackageIndicesApiContentDebPackageIndicesCreateRequest) DebPackageIndex(debPackageIndex DebPackageIndex) ContentPackageIndicesApiContentDebPackageIndicesCreateRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest) DebPackageIndex(debPackageIndex DebPackageIndex) ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest {
 	r.debPackageIndex = &debPackageIndex
 	return r
 }
 
-func (r ContentPackageIndicesApiContentDebPackageIndicesCreateRequest) Execute() (*DebPackageIndexResponse, *http.Response, error) {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest) Execute() (*DebPackageIndexResponse, *http.Response, error) {
 	return r.ApiService.ContentDebPackageIndicesCreateExecute(r)
 }
 
@@ -54,10 +54,10 @@ Note: The verbatim publisher will republish all associated artifacts, while the 
 publication. It does not make use of PackageIndex content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackageIndicesApiContentDebPackageIndicesCreateRequest
+ @return ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest
 */
-func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesCreate(ctx context.Context) ContentPackageIndicesApiContentDebPackageIndicesCreateRequest {
-	return ContentPackageIndicesApiContentDebPackageIndicesCreateRequest{
+func (a *ContentPackageIndicesAPIService) ContentDebPackageIndicesCreate(ctx context.Context) ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest {
+	return ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -65,7 +65,7 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesCreate(ctx con
 
 // Execute executes the request
 //  @return DebPackageIndexResponse
-func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesCreateExecute(r ContentPackageIndicesApiContentDebPackageIndicesCreateRequest) (*DebPackageIndexResponse, *http.Response, error) {
+func (a *ContentPackageIndicesAPIService) ContentDebPackageIndicesCreateExecute(r ContentPackageIndicesAPIContentDebPackageIndicesCreateRequest) (*DebPackageIndexResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -73,7 +73,7 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesCreateExecute(
 		localVarReturnValue  *DebPackageIndexResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageIndicesApiService.ContentDebPackageIndicesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageIndicesAPIService.ContentDebPackageIndicesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -142,9 +142,9 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesCreateExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackageIndicesApiContentDebPackageIndicesListRequest struct {
+type ContentPackageIndicesAPIContentDebPackageIndicesListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackageIndicesApiService
+	ApiService *ContentPackageIndicesAPIService
 	architecture *string
 	component *string
 	limit *int32
@@ -162,90 +162,90 @@ type ContentPackageIndicesApiContentDebPackageIndicesListRequest struct {
 }
 
 // Filter results where architecture matches value
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Architecture(architecture string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Architecture(architecture string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.architecture = &architecture
 	return r
 }
 
 // Filter results where component matches value
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Component(component string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Component(component string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.component = &component
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Limit(limit int32) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Limit(limit int32) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Offset(offset int32) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Offset(offset int32) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;component&#x60; - Component * &#x60;-component&#x60; - Component (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;artifact_set_sha256&#x60; - Artifact set sha256 * &#x60;-artifact_set_sha256&#x60; - Artifact set sha256 (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Ordering(ordering []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Ordering(ordering []string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) PulpIdIn(pulpIdIn []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) PulpIdIn(pulpIdIn []string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where relative_path matches value
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) RelativePath(relativePath string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) RelativePath(relativePath string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) RepositoryVersion(repositoryVersion string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) RepositoryVersion(repositoryVersion string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where sha256 matches value
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Sha256(sha256 string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Sha256(sha256 string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Fields(fields []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Fields(fields []string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) ExcludeFields(excludeFields []string) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) ExcludeFields(excludeFields []string) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackageIndicesApiContentDebPackageIndicesListRequest) Execute() (*PaginateddebPackageIndexResponseList, *http.Response, error) {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) Execute() (*PaginateddebPackageIndexResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebPackageIndicesListExecute(r)
 }
 
@@ -263,10 +263,10 @@ Note: The verbatim publisher will republish all associated artifacts, while the 
 publication. It does not make use of PackageIndex content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackageIndicesApiContentDebPackageIndicesListRequest
+ @return ContentPackageIndicesAPIContentDebPackageIndicesListRequest
 */
-func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesList(ctx context.Context) ContentPackageIndicesApiContentDebPackageIndicesListRequest {
-	return ContentPackageIndicesApiContentDebPackageIndicesListRequest{
+func (a *ContentPackageIndicesAPIService) ContentDebPackageIndicesList(ctx context.Context) ContentPackageIndicesAPIContentDebPackageIndicesListRequest {
+	return ContentPackageIndicesAPIContentDebPackageIndicesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -274,7 +274,7 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesList(ctx conte
 
 // Execute executes the request
 //  @return PaginateddebPackageIndexResponseList
-func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesListExecute(r ContentPackageIndicesApiContentDebPackageIndicesListRequest) (*PaginateddebPackageIndexResponseList, *http.Response, error) {
+func (a *ContentPackageIndicesAPIService) ContentDebPackageIndicesListExecute(r ContentPackageIndicesAPIContentDebPackageIndicesListRequest) (*PaginateddebPackageIndexResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -282,7 +282,7 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesListExecute(r 
 		localVarReturnValue  *PaginateddebPackageIndexResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageIndicesApiService.ContentDebPackageIndicesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageIndicesAPIService.ContentDebPackageIndicesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -404,27 +404,27 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesListExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackageIndicesApiContentDebPackageIndicesReadRequest struct {
+type ContentPackageIndicesAPIContentDebPackageIndicesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackageIndicesApiService
+	ApiService *ContentPackageIndicesAPIService
 	debPackageIndexHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackageIndicesApiContentDebPackageIndicesReadRequest) Fields(fields []string) ContentPackageIndicesApiContentDebPackageIndicesReadRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesReadRequest) Fields(fields []string) ContentPackageIndicesAPIContentDebPackageIndicesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackageIndicesApiContentDebPackageIndicesReadRequest) ExcludeFields(excludeFields []string) ContentPackageIndicesApiContentDebPackageIndicesReadRequest {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesReadRequest) ExcludeFields(excludeFields []string) ContentPackageIndicesAPIContentDebPackageIndicesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackageIndicesApiContentDebPackageIndicesReadRequest) Execute() (*DebPackageIndexResponse, *http.Response, error) {
+func (r ContentPackageIndicesAPIContentDebPackageIndicesReadRequest) Execute() (*DebPackageIndexResponse, *http.Response, error) {
 	return r.ApiService.ContentDebPackageIndicesReadExecute(r)
 }
 
@@ -443,10 +443,10 @@ publication. It does not make use of PackageIndex content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debPackageIndexHref
- @return ContentPackageIndicesApiContentDebPackageIndicesReadRequest
+ @return ContentPackageIndicesAPIContentDebPackageIndicesReadRequest
 */
-func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesRead(ctx context.Context, debPackageIndexHref string) ContentPackageIndicesApiContentDebPackageIndicesReadRequest {
-	return ContentPackageIndicesApiContentDebPackageIndicesReadRequest{
+func (a *ContentPackageIndicesAPIService) ContentDebPackageIndicesRead(ctx context.Context, debPackageIndexHref string) ContentPackageIndicesAPIContentDebPackageIndicesReadRequest {
+	return ContentPackageIndicesAPIContentDebPackageIndicesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debPackageIndexHref: debPackageIndexHref,
@@ -455,7 +455,7 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesRead(ctx conte
 
 // Execute executes the request
 //  @return DebPackageIndexResponse
-func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesReadExecute(r ContentPackageIndicesApiContentDebPackageIndicesReadRequest) (*DebPackageIndexResponse, *http.Response, error) {
+func (a *ContentPackageIndicesAPIService) ContentDebPackageIndicesReadExecute(r ContentPackageIndicesAPIContentDebPackageIndicesReadRequest) (*DebPackageIndexResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -463,7 +463,7 @@ func (a *ContentPackageIndicesApiService) ContentDebPackageIndicesReadExecute(r 
 		localVarReturnValue  *DebPackageIndexResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageIndicesApiService.ContentDebPackageIndicesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageIndicesAPIService.ContentDebPackageIndicesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -22,12 +22,12 @@ import (
 )
 
 
-// RepositoryVersionsApiService RepositoryVersionsApi service
-type RepositoryVersionsApiService service
+// RepositoryVersionsAPIService RepositoryVersionsAPI service
+type RepositoryVersionsAPIService service
 
-type RepositoryVersionsApiRepositoryVersionsListRequest struct {
+type RepositoryVersionsAPIRepositoryVersionsListRequest struct {
 	ctx context.Context
-	ApiService *RepositoryVersionsApiService
+	ApiService *RepositoryVersionsAPIService
 	content *string
 	contentIn *string
 	limit *int32
@@ -51,126 +51,126 @@ type RepositoryVersionsApiRepositoryVersionsListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) Content(content string) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) Content(content string) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) ContentIn(contentIn string) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) ContentIn(contentIn string) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) Limit(limit int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) Limit(limit int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where number matches value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) Number(number int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) Number(number int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.number = &number
 	return r
 }
 
 // Filter results where number is greater than value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) NumberGt(numberGt int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) NumberGt(numberGt int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.numberGt = &numberGt
 	return r
 }
 
 // Filter results where number is greater than or equal to value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) NumberGte(numberGte int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) NumberGte(numberGte int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.numberGte = &numberGte
 	return r
 }
 
 // Filter results where number is less than value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) NumberLt(numberLt int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) NumberLt(numberLt int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.numberLt = &numberLt
 	return r
 }
 
 // Filter results where number is less than or equal to value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) NumberLte(numberLte int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) NumberLte(numberLte int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.numberLte = &numberLte
 	return r
 }
 
 // Filter results where number is between two comma separated values
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) NumberRange(numberRange []int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) NumberRange(numberRange []int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.numberRange = &numberRange
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) Offset(offset int32) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) Offset(offset int32) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) Ordering(ordering []string) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) Ordering(ordering []string) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) Fields(fields []string) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) Fields(fields []string) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) ExcludeFields(excludeFields []string) RepositoryVersionsApiRepositoryVersionsListRequest {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) ExcludeFields(excludeFields []string) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoryVersionsApiRepositoryVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (r RepositoryVersionsAPIRepositoryVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	return r.ApiService.RepositoryVersionsListExecute(r)
 }
 
@@ -180,10 +180,10 @@ RepositoryVersionsList List repository versions
 A mixin to hold the shared get_queryset logic used by RepositoryVersionViewSets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoryVersionsApiRepositoryVersionsListRequest
+ @return RepositoryVersionsAPIRepositoryVersionsListRequest
 */
-func (a *RepositoryVersionsApiService) RepositoryVersionsList(ctx context.Context) RepositoryVersionsApiRepositoryVersionsListRequest {
-	return RepositoryVersionsApiRepositoryVersionsListRequest{
+func (a *RepositoryVersionsAPIService) RepositoryVersionsList(ctx context.Context) RepositoryVersionsAPIRepositoryVersionsListRequest {
+	return RepositoryVersionsAPIRepositoryVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -191,7 +191,7 @@ func (a *RepositoryVersionsApiService) RepositoryVersionsList(ctx context.Contex
 
 // Execute executes the request
 //  @return PaginatedRepositoryVersionResponseList
-func (a *RepositoryVersionsApiService) RepositoryVersionsListExecute(r RepositoryVersionsApiRepositoryVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (a *RepositoryVersionsAPIService) RepositoryVersionsListExecute(r RepositoryVersionsAPIRepositoryVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -199,7 +199,7 @@ func (a *RepositoryVersionsApiService) RepositoryVersionsListExecute(r Repositor
 		localVarReturnValue  *PaginatedRepositoryVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoryVersionsApiService.RepositoryVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoryVersionsAPIService.RepositoryVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -22,30 +22,30 @@ import (
 )
 
 
-// ContentNamespacesApiService ContentNamespacesApi service
-type ContentNamespacesApiService service
+// ContentNamespacesAPIService ContentNamespacesAPI service
+type ContentNamespacesAPIService service
 
-type ContentNamespacesApiContentAnsibleNamespacesAvatarRequest struct {
+type ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest struct {
 	ctx context.Context
-	ApiService *ContentNamespacesApiService
+	ApiService *ContentNamespacesAPIService
 	ansibleAnsibleNamespaceMetadataHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentNamespacesApiContentAnsibleNamespacesAvatarRequest) Fields(fields []string) ContentNamespacesApiContentAnsibleNamespacesAvatarRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest) Fields(fields []string) ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentNamespacesApiContentAnsibleNamespacesAvatarRequest) ExcludeFields(excludeFields []string) ContentNamespacesApiContentAnsibleNamespacesAvatarRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest) ExcludeFields(excludeFields []string) ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentNamespacesApiContentAnsibleNamespacesAvatarRequest) Execute() (*http.Response, error) {
+func (r ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ContentAnsibleNamespacesAvatarExecute(r)
 }
 
@@ -56,10 +56,10 @@ Get the logo for the this namespace.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleNamespaceMetadataHref
- @return ContentNamespacesApiContentAnsibleNamespacesAvatarRequest
+ @return ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest
 */
-func (a *ContentNamespacesApiService) ContentAnsibleNamespacesAvatar(ctx context.Context, ansibleAnsibleNamespaceMetadataHref string) ContentNamespacesApiContentAnsibleNamespacesAvatarRequest {
-	return ContentNamespacesApiContentAnsibleNamespacesAvatarRequest{
+func (a *ContentNamespacesAPIService) ContentAnsibleNamespacesAvatar(ctx context.Context, ansibleAnsibleNamespaceMetadataHref string) ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest {
+	return ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleNamespaceMetadataHref: ansibleAnsibleNamespaceMetadataHref,
@@ -67,14 +67,14 @@ func (a *ContentNamespacesApiService) ContentAnsibleNamespacesAvatar(ctx context
 }
 
 // Execute executes the request
-func (a *ContentNamespacesApiService) ContentAnsibleNamespacesAvatarExecute(r ContentNamespacesApiContentAnsibleNamespacesAvatarRequest) (*http.Response, error) {
+func (a *ContentNamespacesAPIService) ContentAnsibleNamespacesAvatarExecute(r ContentNamespacesAPIContentAnsibleNamespacesAvatarRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentNamespacesApiService.ContentAnsibleNamespacesAvatar")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentNamespacesAPIService.ContentAnsibleNamespacesAvatar")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -164,9 +164,9 @@ func (a *ContentNamespacesApiService) ContentAnsibleNamespacesAvatarExecute(r Co
 	return localVarHTTPResponse, nil
 }
 
-type ContentNamespacesApiContentAnsibleNamespacesListRequest struct {
+type ContentNamespacesAPIContentAnsibleNamespacesListRequest struct {
 	ctx context.Context
-	ApiService *ContentNamespacesApiService
+	ApiService *ContentNamespacesAPIService
 	company *string
 	companyContains *string
 	companyIcontains *string
@@ -192,138 +192,138 @@ type ContentNamespacesApiContentAnsibleNamespacesListRequest struct {
 }
 
 // Filter results where company matches value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) Company(company string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) Company(company string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.company = &company
 	return r
 }
 
 // Filter results where company contains value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) CompanyContains(companyContains string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) CompanyContains(companyContains string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.companyContains = &companyContains
 	return r
 }
 
 // Filter results where company contains value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) CompanyIcontains(companyIcontains string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) CompanyIcontains(companyIcontains string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.companyIcontains = &companyIcontains
 	return r
 }
 
 // Filter results where company is in a comma-separated list of values
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) CompanyIn(companyIn []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) CompanyIn(companyIn []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.companyIn = &companyIn
 	return r
 }
 
 // Filter results where company starts with value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) CompanyStartswith(companyStartswith string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) CompanyStartswith(companyStartswith string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.companyStartswith = &companyStartswith
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) Limit(limit int32) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) Limit(limit int32) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where metadata_sha256 matches value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) MetadataSha256(metadataSha256 string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) MetadataSha256(metadataSha256 string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.metadataSha256 = &metadataSha256
 	return r
 }
 
 // Filter results where metadata_sha256 is in a comma-separated list of values
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) MetadataSha256In(metadataSha256In []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) MetadataSha256In(metadataSha256In []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.metadataSha256In = &metadataSha256In
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) Name(name string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) Name(name string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) NameContains(nameContains string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) NameContains(nameContains string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) NameIcontains(nameIcontains string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) NameIcontains(nameIcontains string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) NameIn(nameIn []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) NameIn(nameIn []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) NameStartswith(nameStartswith string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) NameStartswith(nameStartswith string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) Offset(offset int32) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) Offset(offset int32) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;company&#x60; - Company * &#x60;-company&#x60; - Company (descending) * &#x60;email&#x60; - Email * &#x60;-email&#x60; - Email (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;resources&#x60; - Resources * &#x60;-resources&#x60; - Resources (descending) * &#x60;links&#x60; - Links * &#x60;-links&#x60; - Links (descending) * &#x60;avatar_sha256&#x60; - Avatar sha256 * &#x60;-avatar_sha256&#x60; - Avatar sha256 (descending) * &#x60;metadata_sha256&#x60; - Metadata sha256 * &#x60;-metadata_sha256&#x60; - Metadata sha256 (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) Ordering(ordering []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) Ordering(ordering []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) PulpHrefIn(pulpHrefIn []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) PulpHrefIn(pulpHrefIn []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) PulpIdIn(pulpIdIn []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) PulpIdIn(pulpIdIn []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) RepositoryVersion(repositoryVersion string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) RepositoryVersion(repositoryVersion string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) Fields(fields []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) Fields(fields []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) ExcludeFields(excludeFields []string) ContentNamespacesApiContentAnsibleNamespacesListRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) ExcludeFields(excludeFields []string) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentNamespacesApiContentAnsibleNamespacesListRequest) Execute() (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
+func (r ContentNamespacesAPIContentAnsibleNamespacesListRequest) Execute() (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
 	return r.ApiService.ContentAnsibleNamespacesListExecute(r)
 }
 
@@ -333,10 +333,10 @@ ContentAnsibleNamespacesList List ansible namespace metadatas
 ViewSet for AnsibleNamespace.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentNamespacesApiContentAnsibleNamespacesListRequest
+ @return ContentNamespacesAPIContentAnsibleNamespacesListRequest
 */
-func (a *ContentNamespacesApiService) ContentAnsibleNamespacesList(ctx context.Context) ContentNamespacesApiContentAnsibleNamespacesListRequest {
-	return ContentNamespacesApiContentAnsibleNamespacesListRequest{
+func (a *ContentNamespacesAPIService) ContentAnsibleNamespacesList(ctx context.Context) ContentNamespacesAPIContentAnsibleNamespacesListRequest {
+	return ContentNamespacesAPIContentAnsibleNamespacesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -344,7 +344,7 @@ func (a *ContentNamespacesApiService) ContentAnsibleNamespacesList(ctx context.C
 
 // Execute executes the request
 //  @return PaginatedansibleAnsibleNamespaceMetadataResponseList
-func (a *ContentNamespacesApiService) ContentAnsibleNamespacesListExecute(r ContentNamespacesApiContentAnsibleNamespacesListRequest) (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
+func (a *ContentNamespacesAPIService) ContentAnsibleNamespacesListExecute(r ContentNamespacesAPIContentAnsibleNamespacesListRequest) (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -352,7 +352,7 @@ func (a *ContentNamespacesApiService) ContentAnsibleNamespacesListExecute(r Cont
 		localVarReturnValue  *PaginatedansibleAnsibleNamespaceMetadataResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentNamespacesApiService.ContentAnsibleNamespacesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentNamespacesAPIService.ContentAnsibleNamespacesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -498,27 +498,27 @@ func (a *ContentNamespacesApiService) ContentAnsibleNamespacesListExecute(r Cont
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentNamespacesApiContentAnsibleNamespacesReadRequest struct {
+type ContentNamespacesAPIContentAnsibleNamespacesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentNamespacesApiService
+	ApiService *ContentNamespacesAPIService
 	ansibleAnsibleNamespaceMetadataHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentNamespacesApiContentAnsibleNamespacesReadRequest) Fields(fields []string) ContentNamespacesApiContentAnsibleNamespacesReadRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesReadRequest) Fields(fields []string) ContentNamespacesAPIContentAnsibleNamespacesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentNamespacesApiContentAnsibleNamespacesReadRequest) ExcludeFields(excludeFields []string) ContentNamespacesApiContentAnsibleNamespacesReadRequest {
+func (r ContentNamespacesAPIContentAnsibleNamespacesReadRequest) ExcludeFields(excludeFields []string) ContentNamespacesAPIContentAnsibleNamespacesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentNamespacesApiContentAnsibleNamespacesReadRequest) Execute() (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
+func (r ContentNamespacesAPIContentAnsibleNamespacesReadRequest) Execute() (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleNamespacesReadExecute(r)
 }
 
@@ -529,10 +529,10 @@ ViewSet for AnsibleNamespace.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleNamespaceMetadataHref
- @return ContentNamespacesApiContentAnsibleNamespacesReadRequest
+ @return ContentNamespacesAPIContentAnsibleNamespacesReadRequest
 */
-func (a *ContentNamespacesApiService) ContentAnsibleNamespacesRead(ctx context.Context, ansibleAnsibleNamespaceMetadataHref string) ContentNamespacesApiContentAnsibleNamespacesReadRequest {
-	return ContentNamespacesApiContentAnsibleNamespacesReadRequest{
+func (a *ContentNamespacesAPIService) ContentAnsibleNamespacesRead(ctx context.Context, ansibleAnsibleNamespaceMetadataHref string) ContentNamespacesAPIContentAnsibleNamespacesReadRequest {
+	return ContentNamespacesAPIContentAnsibleNamespacesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleNamespaceMetadataHref: ansibleAnsibleNamespaceMetadataHref,
@@ -541,7 +541,7 @@ func (a *ContentNamespacesApiService) ContentAnsibleNamespacesRead(ctx context.C
 
 // Execute executes the request
 //  @return AnsibleAnsibleNamespaceMetadataResponse
-func (a *ContentNamespacesApiService) ContentAnsibleNamespacesReadExecute(r ContentNamespacesApiContentAnsibleNamespacesReadRequest) (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
+func (a *ContentNamespacesAPIService) ContentAnsibleNamespacesReadExecute(r ContentNamespacesAPIContentAnsibleNamespacesReadRequest) (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -549,7 +549,7 @@ func (a *ContentNamespacesApiService) ContentAnsibleNamespacesReadExecute(r Cont
 		localVarReturnValue  *AnsibleAnsibleNamespaceMetadataResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentNamespacesApiService.ContentAnsibleNamespacesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentNamespacesAPIService.ContentAnsibleNamespacesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

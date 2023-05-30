@@ -22,30 +22,30 @@ import (
 )
 
 
-// PulpAnsibleApiApiService PulpAnsibleApiApi service
-type PulpAnsibleApiApiService service
+// PulpAnsibleApiAPIService PulpAnsibleApiAPI service
+type PulpAnsibleApiAPIService service
 
-type PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest struct {
+type PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiApiService
+	ApiService *PulpAnsibleApiAPIService
 	path string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest) Fields(fields []string) PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest {
+func (r PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest) Fields(fields []string) PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest {
+func (r PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest) Execute() (*http.Response, error) {
+func (r PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiGetExecute(r)
 }
 
@@ -56,10 +56,10 @@ Return a response to the "GET" action.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest
+ @return PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest
 */
-func (a *PulpAnsibleApiApiService) PulpAnsibleGalaxyApiGet(ctx context.Context, path string) PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest {
-	return PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest{
+func (a *PulpAnsibleApiAPIService) PulpAnsibleGalaxyApiGet(ctx context.Context, path string) PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest {
+	return PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -67,14 +67,14 @@ func (a *PulpAnsibleApiApiService) PulpAnsibleGalaxyApiGet(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *PulpAnsibleApiApiService) PulpAnsibleGalaxyApiGetExecute(r PulpAnsibleApiApiPulpAnsibleGalaxyApiGetRequest) (*http.Response, error) {
+func (a *PulpAnsibleApiAPIService) PulpAnsibleGalaxyApiGetExecute(r PulpAnsibleApiAPIPulpAnsibleGalaxyApiGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiApiService.PulpAnsibleGalaxyApiGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiAPIService.PulpAnsibleGalaxyApiGet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

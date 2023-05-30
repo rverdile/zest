@@ -23,21 +23,21 @@ import (
 )
 
 
-// RemotesAptApiService RemotesAptApi service
-type RemotesAptApiService service
+// RemotesAptAPIService RemotesAptAPI service
+type RemotesAptAPIService service
 
-type RemotesAptApiRemotesDebAptCreateRequest struct {
+type RemotesAptAPIRemotesDebAptCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesAptApiService
+	ApiService *RemotesAptAPIService
 	debAptRemote *DebAptRemote
 }
 
-func (r RemotesAptApiRemotesDebAptCreateRequest) DebAptRemote(debAptRemote DebAptRemote) RemotesAptApiRemotesDebAptCreateRequest {
+func (r RemotesAptAPIRemotesDebAptCreateRequest) DebAptRemote(debAptRemote DebAptRemote) RemotesAptAPIRemotesDebAptCreateRequest {
 	r.debAptRemote = &debAptRemote
 	return r
 }
 
-func (r RemotesAptApiRemotesDebAptCreateRequest) Execute() (*DebAptRemoteResponse, *http.Response, error) {
+func (r RemotesAptAPIRemotesDebAptCreateRequest) Execute() (*DebAptRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesDebAptCreateExecute(r)
 }
 
@@ -50,10 +50,10 @@ It contains the location of the upstream APT repository, as well as the user opt
 applied when using the remote to synchronize the upstream repository to Pulp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesAptApiRemotesDebAptCreateRequest
+ @return RemotesAptAPIRemotesDebAptCreateRequest
 */
-func (a *RemotesAptApiService) RemotesDebAptCreate(ctx context.Context) RemotesAptApiRemotesDebAptCreateRequest {
-	return RemotesAptApiRemotesDebAptCreateRequest{
+func (a *RemotesAptAPIService) RemotesDebAptCreate(ctx context.Context) RemotesAptAPIRemotesDebAptCreateRequest {
+	return RemotesAptAPIRemotesDebAptCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -61,7 +61,7 @@ func (a *RemotesAptApiService) RemotesDebAptCreate(ctx context.Context) RemotesA
 
 // Execute executes the request
 //  @return DebAptRemoteResponse
-func (a *RemotesAptApiService) RemotesDebAptCreateExecute(r RemotesAptApiRemotesDebAptCreateRequest) (*DebAptRemoteResponse, *http.Response, error) {
+func (a *RemotesAptAPIService) RemotesDebAptCreateExecute(r RemotesAptAPIRemotesDebAptCreateRequest) (*DebAptRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesAptApiService) RemotesDebAptCreateExecute(r RemotesAptApiRemotes
 		localVarReturnValue  *DebAptRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptApiService.RemotesDebAptCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptAPIService.RemotesDebAptCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -138,13 +138,13 @@ func (a *RemotesAptApiService) RemotesDebAptCreateExecute(r RemotesAptApiRemotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesAptApiRemotesDebAptDeleteRequest struct {
+type RemotesAptAPIRemotesDebAptDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesAptApiService
+	ApiService *RemotesAptAPIService
 	debAptRemoteHref string
 }
 
-func (r RemotesAptApiRemotesDebAptDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesAptAPIRemotesDebAptDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesDebAptDeleteExecute(r)
 }
 
@@ -155,10 +155,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRemoteHref
- @return RemotesAptApiRemotesDebAptDeleteRequest
+ @return RemotesAptAPIRemotesDebAptDeleteRequest
 */
-func (a *RemotesAptApiService) RemotesDebAptDelete(ctx context.Context, debAptRemoteHref string) RemotesAptApiRemotesDebAptDeleteRequest {
-	return RemotesAptApiRemotesDebAptDeleteRequest{
+func (a *RemotesAptAPIService) RemotesDebAptDelete(ctx context.Context, debAptRemoteHref string) RemotesAptAPIRemotesDebAptDeleteRequest {
+	return RemotesAptAPIRemotesDebAptDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRemoteHref: debAptRemoteHref,
@@ -167,7 +167,7 @@ func (a *RemotesAptApiService) RemotesDebAptDelete(ctx context.Context, debAptRe
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesAptApiService) RemotesDebAptDeleteExecute(r RemotesAptApiRemotesDebAptDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesAptAPIService) RemotesDebAptDeleteExecute(r RemotesAptAPIRemotesDebAptDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -175,7 +175,7 @@ func (a *RemotesAptApiService) RemotesDebAptDeleteExecute(r RemotesAptApiRemotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptApiService.RemotesDebAptDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptAPIService.RemotesDebAptDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -242,9 +242,9 @@ func (a *RemotesAptApiService) RemotesDebAptDeleteExecute(r RemotesAptApiRemotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesAptApiRemotesDebAptListRequest struct {
+type RemotesAptAPIRemotesDebAptListRequest struct {
 	ctx context.Context
-	ApiService *RemotesAptApiService
+	ApiService *RemotesAptAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -267,120 +267,120 @@ type RemotesAptApiRemotesDebAptListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesAptApiRemotesDebAptListRequest) Limit(limit int32) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) Limit(limit int32) RemotesAptAPIRemotesDebAptListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesAptApiRemotesDebAptListRequest) Name(name string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) Name(name string) RemotesAptAPIRemotesDebAptListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesAptApiRemotesDebAptListRequest) NameContains(nameContains string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) NameContains(nameContains string) RemotesAptAPIRemotesDebAptListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesAptApiRemotesDebAptListRequest) NameIcontains(nameIcontains string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) NameIcontains(nameIcontains string) RemotesAptAPIRemotesDebAptListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesAptApiRemotesDebAptListRequest) NameIn(nameIn []string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) NameIn(nameIn []string) RemotesAptAPIRemotesDebAptListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesAptApiRemotesDebAptListRequest) NameStartswith(nameStartswith string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) NameStartswith(nameStartswith string) RemotesAptAPIRemotesDebAptListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesAptApiRemotesDebAptListRequest) Offset(offset int32) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) Offset(offset int32) RemotesAptAPIRemotesDebAptListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesAptApiRemotesDebAptListRequest) Ordering(ordering []string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) Ordering(ordering []string) RemotesAptAPIRemotesDebAptListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesAptApiRemotesDebAptListRequest) PulpHrefIn(pulpHrefIn []string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpHrefIn(pulpHrefIn []string) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesAptApiRemotesDebAptListRequest) PulpIdIn(pulpIdIn []string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpIdIn(pulpIdIn []string) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesAptApiRemotesDebAptListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesAptApiRemotesDebAptListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesAptApiRemotesDebAptListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesAptApiRemotesDebAptListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesAptApiRemotesDebAptListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesAptApiRemotesDebAptListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesAptApiRemotesDebAptListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesAptAPIRemotesDebAptListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesAptApiRemotesDebAptListRequest) Fields(fields []string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) Fields(fields []string) RemotesAptAPIRemotesDebAptListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesAptApiRemotesDebAptListRequest) ExcludeFields(excludeFields []string) RemotesAptApiRemotesDebAptListRequest {
+func (r RemotesAptAPIRemotesDebAptListRequest) ExcludeFields(excludeFields []string) RemotesAptAPIRemotesDebAptListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesAptApiRemotesDebAptListRequest) Execute() (*PaginateddebAptRemoteResponseList, *http.Response, error) {
+func (r RemotesAptAPIRemotesDebAptListRequest) Execute() (*PaginateddebAptRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesDebAptListExecute(r)
 }
 
@@ -393,10 +393,10 @@ It contains the location of the upstream APT repository, as well as the user opt
 applied when using the remote to synchronize the upstream repository to Pulp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesAptApiRemotesDebAptListRequest
+ @return RemotesAptAPIRemotesDebAptListRequest
 */
-func (a *RemotesAptApiService) RemotesDebAptList(ctx context.Context) RemotesAptApiRemotesDebAptListRequest {
-	return RemotesAptApiRemotesDebAptListRequest{
+func (a *RemotesAptAPIService) RemotesDebAptList(ctx context.Context) RemotesAptAPIRemotesDebAptListRequest {
+	return RemotesAptAPIRemotesDebAptListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -404,7 +404,7 @@ func (a *RemotesAptApiService) RemotesDebAptList(ctx context.Context) RemotesApt
 
 // Execute executes the request
 //  @return PaginateddebAptRemoteResponseList
-func (a *RemotesAptApiService) RemotesDebAptListExecute(r RemotesAptApiRemotesDebAptListRequest) (*PaginateddebAptRemoteResponseList, *http.Response, error) {
+func (a *RemotesAptAPIService) RemotesDebAptListExecute(r RemotesAptAPIRemotesDebAptListRequest) (*PaginateddebAptRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -412,7 +412,7 @@ func (a *RemotesAptApiService) RemotesDebAptListExecute(r RemotesAptApiRemotesDe
 		localVarReturnValue  *PaginateddebAptRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptApiService.RemotesDebAptList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptAPIService.RemotesDebAptList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -549,19 +549,19 @@ func (a *RemotesAptApiService) RemotesDebAptListExecute(r RemotesAptApiRemotesDe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesAptApiRemotesDebAptPartialUpdateRequest struct {
+type RemotesAptAPIRemotesDebAptPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesAptApiService
+	ApiService *RemotesAptAPIService
 	debAptRemoteHref string
 	patcheddebAptRemote *PatcheddebAptRemote
 }
 
-func (r RemotesAptApiRemotesDebAptPartialUpdateRequest) PatcheddebAptRemote(patcheddebAptRemote PatcheddebAptRemote) RemotesAptApiRemotesDebAptPartialUpdateRequest {
+func (r RemotesAptAPIRemotesDebAptPartialUpdateRequest) PatcheddebAptRemote(patcheddebAptRemote PatcheddebAptRemote) RemotesAptAPIRemotesDebAptPartialUpdateRequest {
 	r.patcheddebAptRemote = &patcheddebAptRemote
 	return r
 }
 
-func (r RemotesAptApiRemotesDebAptPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesAptAPIRemotesDebAptPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesDebAptPartialUpdateExecute(r)
 }
 
@@ -572,10 +572,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRemoteHref
- @return RemotesAptApiRemotesDebAptPartialUpdateRequest
+ @return RemotesAptAPIRemotesDebAptPartialUpdateRequest
 */
-func (a *RemotesAptApiService) RemotesDebAptPartialUpdate(ctx context.Context, debAptRemoteHref string) RemotesAptApiRemotesDebAptPartialUpdateRequest {
-	return RemotesAptApiRemotesDebAptPartialUpdateRequest{
+func (a *RemotesAptAPIService) RemotesDebAptPartialUpdate(ctx context.Context, debAptRemoteHref string) RemotesAptAPIRemotesDebAptPartialUpdateRequest {
+	return RemotesAptAPIRemotesDebAptPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRemoteHref: debAptRemoteHref,
@@ -584,7 +584,7 @@ func (a *RemotesAptApiService) RemotesDebAptPartialUpdate(ctx context.Context, d
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesAptApiService) RemotesDebAptPartialUpdateExecute(r RemotesAptApiRemotesDebAptPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesAptAPIService) RemotesDebAptPartialUpdateExecute(r RemotesAptAPIRemotesDebAptPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -592,7 +592,7 @@ func (a *RemotesAptApiService) RemotesDebAptPartialUpdateExecute(r RemotesAptApi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptApiService.RemotesDebAptPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptAPIService.RemotesDebAptPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -664,27 +664,27 @@ func (a *RemotesAptApiService) RemotesDebAptPartialUpdateExecute(r RemotesAptApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesAptApiRemotesDebAptReadRequest struct {
+type RemotesAptAPIRemotesDebAptReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesAptApiService
+	ApiService *RemotesAptAPIService
 	debAptRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesAptApiRemotesDebAptReadRequest) Fields(fields []string) RemotesAptApiRemotesDebAptReadRequest {
+func (r RemotesAptAPIRemotesDebAptReadRequest) Fields(fields []string) RemotesAptAPIRemotesDebAptReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesAptApiRemotesDebAptReadRequest) ExcludeFields(excludeFields []string) RemotesAptApiRemotesDebAptReadRequest {
+func (r RemotesAptAPIRemotesDebAptReadRequest) ExcludeFields(excludeFields []string) RemotesAptAPIRemotesDebAptReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesAptApiRemotesDebAptReadRequest) Execute() (*DebAptRemoteResponse, *http.Response, error) {
+func (r RemotesAptAPIRemotesDebAptReadRequest) Execute() (*DebAptRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesDebAptReadExecute(r)
 }
 
@@ -698,10 +698,10 @@ applied when using the remote to synchronize the upstream repository to Pulp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRemoteHref
- @return RemotesAptApiRemotesDebAptReadRequest
+ @return RemotesAptAPIRemotesDebAptReadRequest
 */
-func (a *RemotesAptApiService) RemotesDebAptRead(ctx context.Context, debAptRemoteHref string) RemotesAptApiRemotesDebAptReadRequest {
-	return RemotesAptApiRemotesDebAptReadRequest{
+func (a *RemotesAptAPIService) RemotesDebAptRead(ctx context.Context, debAptRemoteHref string) RemotesAptAPIRemotesDebAptReadRequest {
+	return RemotesAptAPIRemotesDebAptReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRemoteHref: debAptRemoteHref,
@@ -710,7 +710,7 @@ func (a *RemotesAptApiService) RemotesDebAptRead(ctx context.Context, debAptRemo
 
 // Execute executes the request
 //  @return DebAptRemoteResponse
-func (a *RemotesAptApiService) RemotesDebAptReadExecute(r RemotesAptApiRemotesDebAptReadRequest) (*DebAptRemoteResponse, *http.Response, error) {
+func (a *RemotesAptAPIService) RemotesDebAptReadExecute(r RemotesAptAPIRemotesDebAptReadRequest) (*DebAptRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -718,7 +718,7 @@ func (a *RemotesAptApiService) RemotesDebAptReadExecute(r RemotesAptApiRemotesDe
 		localVarReturnValue  *DebAptRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptApiService.RemotesDebAptRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptAPIService.RemotesDebAptRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -807,19 +807,19 @@ func (a *RemotesAptApiService) RemotesDebAptReadExecute(r RemotesAptApiRemotesDe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesAptApiRemotesDebAptUpdateRequest struct {
+type RemotesAptAPIRemotesDebAptUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesAptApiService
+	ApiService *RemotesAptAPIService
 	debAptRemoteHref string
 	debAptRemote *DebAptRemote
 }
 
-func (r RemotesAptApiRemotesDebAptUpdateRequest) DebAptRemote(debAptRemote DebAptRemote) RemotesAptApiRemotesDebAptUpdateRequest {
+func (r RemotesAptAPIRemotesDebAptUpdateRequest) DebAptRemote(debAptRemote DebAptRemote) RemotesAptAPIRemotesDebAptUpdateRequest {
 	r.debAptRemote = &debAptRemote
 	return r
 }
 
-func (r RemotesAptApiRemotesDebAptUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesAptAPIRemotesDebAptUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesDebAptUpdateExecute(r)
 }
 
@@ -830,10 +830,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRemoteHref
- @return RemotesAptApiRemotesDebAptUpdateRequest
+ @return RemotesAptAPIRemotesDebAptUpdateRequest
 */
-func (a *RemotesAptApiService) RemotesDebAptUpdate(ctx context.Context, debAptRemoteHref string) RemotesAptApiRemotesDebAptUpdateRequest {
-	return RemotesAptApiRemotesDebAptUpdateRequest{
+func (a *RemotesAptAPIService) RemotesDebAptUpdate(ctx context.Context, debAptRemoteHref string) RemotesAptAPIRemotesDebAptUpdateRequest {
+	return RemotesAptAPIRemotesDebAptUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRemoteHref: debAptRemoteHref,
@@ -842,7 +842,7 @@ func (a *RemotesAptApiService) RemotesDebAptUpdate(ctx context.Context, debAptRe
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesAptApiService) RemotesDebAptUpdateExecute(r RemotesAptApiRemotesDebAptUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesAptAPIService) RemotesDebAptUpdateExecute(r RemotesAptAPIRemotesDebAptUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -850,7 +850,7 @@ func (a *RemotesAptApiService) RemotesDebAptUpdateExecute(r RemotesAptApiRemotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptApiService.RemotesDebAptUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAptAPIService.RemotesDebAptUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

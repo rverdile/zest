@@ -22,21 +22,21 @@ import (
 )
 
 
-// UpstreamPulpsApiService UpstreamPulpsApi service
-type UpstreamPulpsApiService service
+// UpstreamPulpsAPIService UpstreamPulpsAPI service
+type UpstreamPulpsAPIService service
 
-type UpstreamPulpsApiUpstreamPulpsCreateRequest struct {
+type UpstreamPulpsAPIUpstreamPulpsCreateRequest struct {
 	ctx context.Context
-	ApiService *UpstreamPulpsApiService
+	ApiService *UpstreamPulpsAPIService
 	upstreamPulp *UpstreamPulp
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsCreateRequest) UpstreamPulp(upstreamPulp UpstreamPulp) UpstreamPulpsApiUpstreamPulpsCreateRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsCreateRequest) UpstreamPulp(upstreamPulp UpstreamPulp) UpstreamPulpsAPIUpstreamPulpsCreateRequest {
 	r.upstreamPulp = &upstreamPulp
 	return r
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsCreateRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
+func (r UpstreamPulpsAPIUpstreamPulpsCreateRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
 	return r.ApiService.UpstreamPulpsCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ UpstreamPulpsCreate Create an upstream pulp
 API for configuring an upstream Pulp to replicate. This API is provided as a tech preview.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UpstreamPulpsApiUpstreamPulpsCreateRequest
+ @return UpstreamPulpsAPIUpstreamPulpsCreateRequest
 */
-func (a *UpstreamPulpsApiService) UpstreamPulpsCreate(ctx context.Context) UpstreamPulpsApiUpstreamPulpsCreateRequest {
-	return UpstreamPulpsApiUpstreamPulpsCreateRequest{
+func (a *UpstreamPulpsAPIService) UpstreamPulpsCreate(ctx context.Context) UpstreamPulpsAPIUpstreamPulpsCreateRequest {
+	return UpstreamPulpsAPIUpstreamPulpsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsCreate(ctx context.Context) Upstr
 
 // Execute executes the request
 //  @return UpstreamPulpResponse
-func (a *UpstreamPulpsApiService) UpstreamPulpsCreateExecute(r UpstreamPulpsApiUpstreamPulpsCreateRequest) (*UpstreamPulpResponse, *http.Response, error) {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsCreateExecute(r UpstreamPulpsAPIUpstreamPulpsCreateRequest) (*UpstreamPulpResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsCreateExecute(r UpstreamPulpsApiU
 		localVarReturnValue  *UpstreamPulpResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsApiService.UpstreamPulpsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsAPIService.UpstreamPulpsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsCreateExecute(r UpstreamPulpsApiU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UpstreamPulpsApiUpstreamPulpsDeleteRequest struct {
+type UpstreamPulpsAPIUpstreamPulpsDeleteRequest struct {
 	ctx context.Context
-	ApiService *UpstreamPulpsApiService
+	ApiService *UpstreamPulpsAPIService
 	upstreamPulpHref string
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsDeleteRequest) Execute() (*http.Response, error) {
+func (r UpstreamPulpsAPIUpstreamPulpsDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpstreamPulpsDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ API for configuring an upstream Pulp to replicate. This API is provided as a tec
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param upstreamPulpHref
- @return UpstreamPulpsApiUpstreamPulpsDeleteRequest
+ @return UpstreamPulpsAPIUpstreamPulpsDeleteRequest
 */
-func (a *UpstreamPulpsApiService) UpstreamPulpsDelete(ctx context.Context, upstreamPulpHref string) UpstreamPulpsApiUpstreamPulpsDeleteRequest {
-	return UpstreamPulpsApiUpstreamPulpsDeleteRequest{
+func (a *UpstreamPulpsAPIService) UpstreamPulpsDelete(ctx context.Context, upstreamPulpHref string) UpstreamPulpsAPIUpstreamPulpsDeleteRequest {
+	return UpstreamPulpsAPIUpstreamPulpsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		upstreamPulpHref: upstreamPulpHref,
@@ -162,14 +162,14 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsDelete(ctx context.Context, upstr
 }
 
 // Execute executes the request
-func (a *UpstreamPulpsApiService) UpstreamPulpsDeleteExecute(r UpstreamPulpsApiUpstreamPulpsDeleteRequest) (*http.Response, error) {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsDeleteExecute(r UpstreamPulpsAPIUpstreamPulpsDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsApiService.UpstreamPulpsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsAPIService.UpstreamPulpsDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -227,9 +227,9 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsDeleteExecute(r UpstreamPulpsApiU
 	return localVarHTTPResponse, nil
 }
 
-type UpstreamPulpsApiUpstreamPulpsListRequest struct {
+type UpstreamPulpsAPIUpstreamPulpsListRequest struct {
 	ctx context.Context
-	ApiService *UpstreamPulpsApiService
+	ApiService *UpstreamPulpsAPIService
 	limit *int32
 	offset *int32
 	fields *[]string
@@ -237,30 +237,30 @@ type UpstreamPulpsApiUpstreamPulpsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r UpstreamPulpsApiUpstreamPulpsListRequest) Limit(limit int32) UpstreamPulpsApiUpstreamPulpsListRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsListRequest) Limit(limit int32) UpstreamPulpsAPIUpstreamPulpsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r UpstreamPulpsApiUpstreamPulpsListRequest) Offset(offset int32) UpstreamPulpsApiUpstreamPulpsListRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsListRequest) Offset(offset int32) UpstreamPulpsAPIUpstreamPulpsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r UpstreamPulpsApiUpstreamPulpsListRequest) Fields(fields []string) UpstreamPulpsApiUpstreamPulpsListRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsListRequest) Fields(fields []string) UpstreamPulpsAPIUpstreamPulpsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UpstreamPulpsApiUpstreamPulpsListRequest) ExcludeFields(excludeFields []string) UpstreamPulpsApiUpstreamPulpsListRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsListRequest) ExcludeFields(excludeFields []string) UpstreamPulpsAPIUpstreamPulpsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsListRequest) Execute() (*PaginatedUpstreamPulpResponseList, *http.Response, error) {
+func (r UpstreamPulpsAPIUpstreamPulpsListRequest) Execute() (*PaginatedUpstreamPulpResponseList, *http.Response, error) {
 	return r.ApiService.UpstreamPulpsListExecute(r)
 }
 
@@ -270,10 +270,10 @@ UpstreamPulpsList List upstream pulps
 API for configuring an upstream Pulp to replicate. This API is provided as a tech preview.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UpstreamPulpsApiUpstreamPulpsListRequest
+ @return UpstreamPulpsAPIUpstreamPulpsListRequest
 */
-func (a *UpstreamPulpsApiService) UpstreamPulpsList(ctx context.Context) UpstreamPulpsApiUpstreamPulpsListRequest {
-	return UpstreamPulpsApiUpstreamPulpsListRequest{
+func (a *UpstreamPulpsAPIService) UpstreamPulpsList(ctx context.Context) UpstreamPulpsAPIUpstreamPulpsListRequest {
+	return UpstreamPulpsAPIUpstreamPulpsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -281,7 +281,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsList(ctx context.Context) Upstrea
 
 // Execute executes the request
 //  @return PaginatedUpstreamPulpResponseList
-func (a *UpstreamPulpsApiService) UpstreamPulpsListExecute(r UpstreamPulpsApiUpstreamPulpsListRequest) (*PaginatedUpstreamPulpResponseList, *http.Response, error) {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsListExecute(r UpstreamPulpsAPIUpstreamPulpsListRequest) (*PaginatedUpstreamPulpResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -289,7 +289,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsListExecute(r UpstreamPulpsApiUps
 		localVarReturnValue  *PaginatedUpstreamPulpResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsApiService.UpstreamPulpsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsAPIService.UpstreamPulpsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -381,19 +381,19 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsListExecute(r UpstreamPulpsApiUps
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest struct {
+type UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *UpstreamPulpsApiService
+	ApiService *UpstreamPulpsAPIService
 	upstreamPulpHref string
 	patchedUpstreamPulp *PatchedUpstreamPulp
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest) PatchedUpstreamPulp(patchedUpstreamPulp PatchedUpstreamPulp) UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest) PatchedUpstreamPulp(patchedUpstreamPulp PatchedUpstreamPulp) UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest {
 	r.patchedUpstreamPulp = &patchedUpstreamPulp
 	return r
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
+func (r UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
 	return r.ApiService.UpstreamPulpsPartialUpdateExecute(r)
 }
 
@@ -404,10 +404,10 @@ API for configuring an upstream Pulp to replicate. This API is provided as a tec
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param upstreamPulpHref
- @return UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest
+ @return UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest
 */
-func (a *UpstreamPulpsApiService) UpstreamPulpsPartialUpdate(ctx context.Context, upstreamPulpHref string) UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest {
-	return UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest{
+func (a *UpstreamPulpsAPIService) UpstreamPulpsPartialUpdate(ctx context.Context, upstreamPulpHref string) UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest {
+	return UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		upstreamPulpHref: upstreamPulpHref,
@@ -416,7 +416,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsPartialUpdate(ctx context.Context
 
 // Execute executes the request
 //  @return UpstreamPulpResponse
-func (a *UpstreamPulpsApiService) UpstreamPulpsPartialUpdateExecute(r UpstreamPulpsApiUpstreamPulpsPartialUpdateRequest) (*UpstreamPulpResponse, *http.Response, error) {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsPartialUpdateExecute(r UpstreamPulpsAPIUpstreamPulpsPartialUpdateRequest) (*UpstreamPulpResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -424,7 +424,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsPartialUpdateExecute(r UpstreamPu
 		localVarReturnValue  *UpstreamPulpResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsApiService.UpstreamPulpsPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsAPIService.UpstreamPulpsPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -496,27 +496,27 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsPartialUpdateExecute(r UpstreamPu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UpstreamPulpsApiUpstreamPulpsReadRequest struct {
+type UpstreamPulpsAPIUpstreamPulpsReadRequest struct {
 	ctx context.Context
-	ApiService *UpstreamPulpsApiService
+	ApiService *UpstreamPulpsAPIService
 	upstreamPulpHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r UpstreamPulpsApiUpstreamPulpsReadRequest) Fields(fields []string) UpstreamPulpsApiUpstreamPulpsReadRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsReadRequest) Fields(fields []string) UpstreamPulpsAPIUpstreamPulpsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UpstreamPulpsApiUpstreamPulpsReadRequest) ExcludeFields(excludeFields []string) UpstreamPulpsApiUpstreamPulpsReadRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsReadRequest) ExcludeFields(excludeFields []string) UpstreamPulpsAPIUpstreamPulpsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsReadRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
+func (r UpstreamPulpsAPIUpstreamPulpsReadRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
 	return r.ApiService.UpstreamPulpsReadExecute(r)
 }
 
@@ -527,10 +527,10 @@ API for configuring an upstream Pulp to replicate. This API is provided as a tec
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param upstreamPulpHref
- @return UpstreamPulpsApiUpstreamPulpsReadRequest
+ @return UpstreamPulpsAPIUpstreamPulpsReadRequest
 */
-func (a *UpstreamPulpsApiService) UpstreamPulpsRead(ctx context.Context, upstreamPulpHref string) UpstreamPulpsApiUpstreamPulpsReadRequest {
-	return UpstreamPulpsApiUpstreamPulpsReadRequest{
+func (a *UpstreamPulpsAPIService) UpstreamPulpsRead(ctx context.Context, upstreamPulpHref string) UpstreamPulpsAPIUpstreamPulpsReadRequest {
+	return UpstreamPulpsAPIUpstreamPulpsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		upstreamPulpHref: upstreamPulpHref,
@@ -539,7 +539,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsRead(ctx context.Context, upstrea
 
 // Execute executes the request
 //  @return UpstreamPulpResponse
-func (a *UpstreamPulpsApiService) UpstreamPulpsReadExecute(r UpstreamPulpsApiUpstreamPulpsReadRequest) (*UpstreamPulpResponse, *http.Response, error) {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsReadExecute(r UpstreamPulpsAPIUpstreamPulpsReadRequest) (*UpstreamPulpResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -547,7 +547,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsReadExecute(r UpstreamPulpsApiUps
 		localVarReturnValue  *UpstreamPulpResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsApiService.UpstreamPulpsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsAPIService.UpstreamPulpsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -636,19 +636,19 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsReadExecute(r UpstreamPulpsApiUps
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UpstreamPulpsApiUpstreamPulpsReplicateRequest struct {
+type UpstreamPulpsAPIUpstreamPulpsReplicateRequest struct {
 	ctx context.Context
-	ApiService *UpstreamPulpsApiService
+	ApiService *UpstreamPulpsAPIService
 	upstreamPulpHref string
 	upstreamPulp *UpstreamPulp
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsReplicateRequest) UpstreamPulp(upstreamPulp UpstreamPulp) UpstreamPulpsApiUpstreamPulpsReplicateRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsReplicateRequest) UpstreamPulp(upstreamPulp UpstreamPulp) UpstreamPulpsAPIUpstreamPulpsReplicateRequest {
 	r.upstreamPulp = &upstreamPulp
 	return r
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsReplicateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r UpstreamPulpsAPIUpstreamPulpsReplicateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.UpstreamPulpsReplicateExecute(r)
 }
 
@@ -659,10 +659,10 @@ Trigger an asynchronous repository replication task group. This API is provided 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param upstreamPulpHref
- @return UpstreamPulpsApiUpstreamPulpsReplicateRequest
+ @return UpstreamPulpsAPIUpstreamPulpsReplicateRequest
 */
-func (a *UpstreamPulpsApiService) UpstreamPulpsReplicate(ctx context.Context, upstreamPulpHref string) UpstreamPulpsApiUpstreamPulpsReplicateRequest {
-	return UpstreamPulpsApiUpstreamPulpsReplicateRequest{
+func (a *UpstreamPulpsAPIService) UpstreamPulpsReplicate(ctx context.Context, upstreamPulpHref string) UpstreamPulpsAPIUpstreamPulpsReplicateRequest {
+	return UpstreamPulpsAPIUpstreamPulpsReplicateRequest{
 		ApiService: a,
 		ctx: ctx,
 		upstreamPulpHref: upstreamPulpHref,
@@ -671,7 +671,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsReplicate(ctx context.Context, up
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *UpstreamPulpsApiService) UpstreamPulpsReplicateExecute(r UpstreamPulpsApiUpstreamPulpsReplicateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsReplicateExecute(r UpstreamPulpsAPIUpstreamPulpsReplicateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -679,7 +679,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsReplicateExecute(r UpstreamPulpsA
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsApiService.UpstreamPulpsReplicate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsAPIService.UpstreamPulpsReplicate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -751,19 +751,19 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsReplicateExecute(r UpstreamPulpsA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UpstreamPulpsApiUpstreamPulpsUpdateRequest struct {
+type UpstreamPulpsAPIUpstreamPulpsUpdateRequest struct {
 	ctx context.Context
-	ApiService *UpstreamPulpsApiService
+	ApiService *UpstreamPulpsAPIService
 	upstreamPulpHref string
 	upstreamPulp *UpstreamPulp
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsUpdateRequest) UpstreamPulp(upstreamPulp UpstreamPulp) UpstreamPulpsApiUpstreamPulpsUpdateRequest {
+func (r UpstreamPulpsAPIUpstreamPulpsUpdateRequest) UpstreamPulp(upstreamPulp UpstreamPulp) UpstreamPulpsAPIUpstreamPulpsUpdateRequest {
 	r.upstreamPulp = &upstreamPulp
 	return r
 }
 
-func (r UpstreamPulpsApiUpstreamPulpsUpdateRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
+func (r UpstreamPulpsAPIUpstreamPulpsUpdateRequest) Execute() (*UpstreamPulpResponse, *http.Response, error) {
 	return r.ApiService.UpstreamPulpsUpdateExecute(r)
 }
 
@@ -774,10 +774,10 @@ API for configuring an upstream Pulp to replicate. This API is provided as a tec
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param upstreamPulpHref
- @return UpstreamPulpsApiUpstreamPulpsUpdateRequest
+ @return UpstreamPulpsAPIUpstreamPulpsUpdateRequest
 */
-func (a *UpstreamPulpsApiService) UpstreamPulpsUpdate(ctx context.Context, upstreamPulpHref string) UpstreamPulpsApiUpstreamPulpsUpdateRequest {
-	return UpstreamPulpsApiUpstreamPulpsUpdateRequest{
+func (a *UpstreamPulpsAPIService) UpstreamPulpsUpdate(ctx context.Context, upstreamPulpHref string) UpstreamPulpsAPIUpstreamPulpsUpdateRequest {
+	return UpstreamPulpsAPIUpstreamPulpsUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		upstreamPulpHref: upstreamPulpHref,
@@ -786,7 +786,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsUpdate(ctx context.Context, upstr
 
 // Execute executes the request
 //  @return UpstreamPulpResponse
-func (a *UpstreamPulpsApiService) UpstreamPulpsUpdateExecute(r UpstreamPulpsApiUpstreamPulpsUpdateRequest) (*UpstreamPulpResponse, *http.Response, error) {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsUpdateExecute(r UpstreamPulpsAPIUpstreamPulpsUpdateRequest) (*UpstreamPulpResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -794,7 +794,7 @@ func (a *UpstreamPulpsApiService) UpstreamPulpsUpdateExecute(r UpstreamPulpsApiU
 		localVarReturnValue  *UpstreamPulpResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsApiService.UpstreamPulpsUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UpstreamPulpsAPIService.UpstreamPulpsUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

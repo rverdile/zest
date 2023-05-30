@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing GroupsRolesApiService
+Testing GroupsRolesAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_GroupsRolesApiService(t *testing.T) {
+func Test_zest_GroupsRolesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test GroupsRolesApiService GroupsRolesCreate", func(t *testing.T) {
+	t.Run("Test GroupsRolesAPIService GroupsRolesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var groupHref string
 
-		resp, httpRes, err := apiClient.GroupsRolesApi.GroupsRolesCreate(context.Background(), groupHref).Execute()
+		resp, httpRes, err := apiClient.GroupsRolesAPI.GroupsRolesCreate(context.Background(), groupHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,26 +36,26 @@ func Test_zest_GroupsRolesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test GroupsRolesApiService GroupsRolesDelete", func(t *testing.T) {
+	t.Run("Test GroupsRolesAPIService GroupsRolesDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var groupsGroupRoleHref string
 
-		httpRes, err := apiClient.GroupsRolesApi.GroupsRolesDelete(context.Background(), groupsGroupRoleHref).Execute()
+		httpRes, err := apiClient.GroupsRolesAPI.GroupsRolesDelete(context.Background(), groupsGroupRoleHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test GroupsRolesApiService GroupsRolesList", func(t *testing.T) {
+	t.Run("Test GroupsRolesAPIService GroupsRolesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var groupHref string
 
-		resp, httpRes, err := apiClient.GroupsRolesApi.GroupsRolesList(context.Background(), groupHref).Execute()
+		resp, httpRes, err := apiClient.GroupsRolesAPI.GroupsRolesList(context.Background(), groupHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -63,13 +63,13 @@ func Test_zest_GroupsRolesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test GroupsRolesApiService GroupsRolesRead", func(t *testing.T) {
+	t.Run("Test GroupsRolesAPIService GroupsRolesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var groupsGroupRoleHref string
 
-		resp, httpRes, err := apiClient.GroupsRolesApi.GroupsRolesRead(context.Background(), groupsGroupRoleHref).Execute()
+		resp, httpRes, err := apiClient.GroupsRolesAPI.GroupsRolesRead(context.Background(), groupsGroupRoleHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

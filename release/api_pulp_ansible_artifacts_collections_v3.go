@@ -22,12 +22,12 @@ import (
 )
 
 
-// PulpAnsibleArtifactsCollectionsV3ApiService PulpAnsibleArtifactsCollectionsV3Api service
-type PulpAnsibleArtifactsCollectionsV3ApiService service
+// PulpAnsibleArtifactsCollectionsV3APIService PulpAnsibleArtifactsCollectionsV3API service
+type PulpAnsibleArtifactsCollectionsV3APIService service
 
-type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest struct {
+type PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleArtifactsCollectionsV3ApiService
+	ApiService *PulpAnsibleArtifactsCollectionsV3APIService
 	path string
 	file *os.File
 	sha256 *string
@@ -37,36 +37,36 @@ type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollecti
 }
 
 // The Collection tarball.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
 	r.file = file
 	return r
 }
 
 // An optional sha256 checksum of the uploaded file.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // The expected &#39;namespace&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
 	r.expectedNamespace = &expectedNamespace
 	return r
 }
 
 // The expected &#39;name&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
 	r.expectedName = &expectedName
 	return r
 }
 
 // The expected version of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
 	r.expectedVersion = &expectedVersion
 	return r
 }
 
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateExecute(r)
 }
 
@@ -77,12 +77,12 @@ Create an artifact and trigger an asynchronous task to create Collection content
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest
+ @return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest
 
 Deprecated
 */
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreate(ctx context.Context, path string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
-	return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest{
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreate(ctx context.Context, path string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest {
+	return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -92,7 +92,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3Arti
 // Execute executes the request
 //  @return AsyncOperationResponse
 // Deprecated
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateExecute(r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateExecute(r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3ArtifactsCollectionsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -100,7 +100,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3Arti
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3ApiService.PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3APIService.PulpAnsibleGalaxyApiV3ArtifactsCollectionsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -199,9 +199,9 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3Arti
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest struct {
+type PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleArtifactsCollectionsV3ApiService
+	ApiService *PulpAnsibleArtifactsCollectionsV3APIService
 	distroBasePath string
 	path string
 	file *os.File
@@ -212,36 +212,36 @@ type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleCont
 }
 
 // The Collection tarball.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.file = file
 	return r
 }
 
 // An optional sha256 checksum of the uploaded file.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // The expected &#39;namespace&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.expectedNamespace = &expectedNamespace
 	return r
 }
 
 // The expected &#39;name&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.expectedName = &expectedName
 	return r
 }
 
 // The expected version of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.expectedVersion = &expectedVersion
 	return r
 }
 
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateExecute(r)
 }
 
@@ -253,10 +253,10 @@ Create an artifact and trigger an asynchronous task to create Collection content
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
  @param path
- @return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest
+ @return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest
 */
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreate(ctx context.Context, distroBasePath string, path string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
-	return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest{
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreate(ctx context.Context, distroBasePath string, path string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+	return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -266,7 +266,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3Plug
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateExecute(r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateExecute(r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -274,7 +274,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3Plug
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3APIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsArtifactsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -376,9 +376,9 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyApiV3Plug
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest struct {
+type PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleArtifactsCollectionsV3ApiService
+	ApiService *PulpAnsibleArtifactsCollectionsV3APIService
 	file *os.File
 	sha256 *string
 	expectedNamespace *string
@@ -387,36 +387,36 @@ type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsC
 }
 
 // The Collection tarball.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
 	r.file = file
 	return r
 }
 
 // An optional sha256 checksum of the uploaded file.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // The expected &#39;namespace&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
 	r.expectedNamespace = &expectedNamespace
 	return r
 }
 
 // The expected &#39;name&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
 	r.expectedName = &expectedName
 	return r
 }
 
 // The expected version of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
 	r.expectedVersion = &expectedVersion
 	return r
 }
 
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateExecute(r)
 }
 
@@ -426,12 +426,12 @@ PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreate Upload a collection
 Create an artifact and trigger an asynchronous task to create Collection content from it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest
+ @return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest
 
 Deprecated
 */
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreate(ctx context.Context) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
-	return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest{
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreate(ctx context.Context) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest {
+	return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -440,7 +440,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultAp
 // Execute executes the request
 //  @return AsyncOperationResponse
 // Deprecated
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateExecute(r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateExecute(r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -448,7 +448,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultAp
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3ApiService.PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3APIService.PulpAnsibleGalaxyDefaultApiV3ArtifactsCollectionsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -544,9 +544,9 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest struct {
+type PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleArtifactsCollectionsV3ApiService
+	ApiService *PulpAnsibleArtifactsCollectionsV3APIService
 	distroBasePath string
 	file *os.File
 	sha256 *string
@@ -556,36 +556,36 @@ type PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsi
 }
 
 // The Collection tarball.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) File(file *os.File) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.file = file
 	return r
 }
 
 // An optional sha256 checksum of the uploaded file.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Sha256(sha256 string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // The expected &#39;namespace&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedNamespace(expectedNamespace string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.expectedNamespace = &expectedNamespace
 	return r
 }
 
 // The expected &#39;name&#39; of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedName(expectedName string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.expectedName = &expectedName
 	return r
 }
 
 // The expected version of the Collection to be verified against the metadata during import.
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) ExpectedVersion(expectedVersion string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
 	r.expectedVersion = &expectedVersion
 	return r
 }
 
-func (r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateExecute(r)
 }
 
@@ -596,10 +596,10 @@ Create an artifact and trigger an asynchronous task to create Collection content
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
- @return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest
+ @return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest
 */
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreate(ctx context.Context, distroBasePath string) PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
-	return PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest{
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreate(ctx context.Context, distroBasePath string) PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest {
+	return PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -608,7 +608,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultAp
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateExecute(r PulpAnsibleArtifactsCollectionsV3ApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleArtifactsCollectionsV3APIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateExecute(r PulpAnsibleArtifactsCollectionsV3APIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -616,7 +616,7 @@ func (a *PulpAnsibleArtifactsCollectionsV3ApiService) PulpAnsibleGalaxyDefaultAp
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleArtifactsCollectionsV3APIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsArtifactsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

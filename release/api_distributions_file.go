@@ -22,22 +22,22 @@ import (
 )
 
 
-// DistributionsFileApiService DistributionsFileApi service
-type DistributionsFileApiService service
+// DistributionsFileAPIService DistributionsFileAPI service
+type DistributionsFileAPIService service
 
-type DistributionsFileApiDistributionsFileFileAddRoleRequest struct {
+type DistributionsFileAPIDistributionsFileFileAddRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsFileApiDistributionsFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsFileApiDistributionsFileFileAddRoleRequest {
+func (r DistributionsFileAPIDistributionsFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsFileAPIDistributionsFileFileAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFileAddRoleRequest
+ @return DistributionsFileAPIDistributionsFileFileAddRoleRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileAddRole(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFileAddRoleRequest {
-	return DistributionsFileApiDistributionsFileFileAddRoleRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileAddRole(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFileAddRoleRequest {
+	return DistributionsFileAPIDistributionsFileFileAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -60,7 +60,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileAddRole(ctx context.C
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsFileApiService) DistributionsFileFileAddRoleExecute(r DistributionsFileApiDistributionsFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileAddRoleExecute(r DistributionsFileAPIDistributionsFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileAddRoleExecute(r Dist
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *DistributionsFileApiService) DistributionsFileFileAddRoleExecute(r Dist
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileCreateRequest struct {
+type DistributionsFileAPIDistributionsFileFileCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistribution *FileFileDistribution
 }
 
-func (r DistributionsFileApiDistributionsFileFileCreateRequest) FileFileDistribution(fileFileDistribution FileFileDistribution) DistributionsFileApiDistributionsFileFileCreateRequest {
+func (r DistributionsFileAPIDistributionsFileFileCreateRequest) FileFileDistribution(fileFileDistribution FileFileDistribution) DistributionsFileAPIDistributionsFileFileCreateRequest {
 	r.fileFileDistribution = &fileFileDistribution
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ DistributionsFileFileCreate Create a file distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsFileApiDistributionsFileFileCreateRequest
+ @return DistributionsFileAPIDistributionsFileFileCreateRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileCreate(ctx context.Context) DistributionsFileApiDistributionsFileFileCreateRequest {
-	return DistributionsFileApiDistributionsFileFileCreateRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileCreate(ctx context.Context) DistributionsFileAPIDistributionsFileFileCreateRequest {
+	return DistributionsFileAPIDistributionsFileFileCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileCreate(ctx context.Co
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsFileApiService) DistributionsFileFileCreateExecute(r DistributionsFileApiDistributionsFileFileCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileCreateExecute(r DistributionsFileAPIDistributionsFileFileCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileCreateExecute(r Distr
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *DistributionsFileApiService) DistributionsFileFileCreateExecute(r Distr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileDeleteRequest struct {
+type DistributionsFileAPIDistributionsFileFileDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 }
 
-func (r DistributionsFileApiDistributionsFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFileDeleteRequest
+ @return DistributionsFileAPIDistributionsFileFileDeleteRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileDelete(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFileDeleteRequest {
-	return DistributionsFileApiDistributionsFileFileDeleteRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileDelete(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFileDeleteRequest {
+	return DistributionsFileAPIDistributionsFileFileDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -278,7 +278,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileDelete(ctx context.Co
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsFileApiService) DistributionsFileFileDeleteExecute(r DistributionsFileApiDistributionsFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileDeleteExecute(r DistributionsFileAPIDistributionsFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileDeleteExecute(r Distr
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,9 @@ func (a *DistributionsFileApiService) DistributionsFileFileDeleteExecute(r Distr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileListRequest struct {
+type DistributionsFileAPIDistributionsFileFileListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -379,126 +379,126 @@ type DistributionsFileApiDistributionsFileFileListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsFileApiDistributionsFileFileListRequest) BasePath(basePath string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) BasePath(basePath string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsFileApiDistributionsFileFileListRequest) BasePathContains(basePathContains string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) BasePathContains(basePathContains string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsFileApiDistributionsFileFileListRequest) BasePathIcontains(basePathIcontains string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) BasePathIcontains(basePathIcontains string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsFileApiDistributionsFileFileListRequest) BasePathIn(basePathIn []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) BasePathIn(basePathIn []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsFileApiDistributionsFileFileListRequest) Limit(limit int32) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) Limit(limit int32) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsFileApiDistributionsFileFileListRequest) Name(name string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) Name(name string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsFileApiDistributionsFileFileListRequest) NameContains(nameContains string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) NameContains(nameContains string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsFileApiDistributionsFileFileListRequest) NameIcontains(nameIcontains string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) NameIcontains(nameIcontains string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsFileApiDistributionsFileFileListRequest) NameIn(nameIn []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) NameIn(nameIn []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsFileApiDistributionsFileFileListRequest) NameStartswith(nameStartswith string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) NameStartswith(nameStartswith string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsFileApiDistributionsFileFileListRequest) Offset(offset int32) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) Offset(offset int32) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsFileApiDistributionsFileFileListRequest) Ordering(ordering []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) Ordering(ordering []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsFileApiDistributionsFileFileListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsFileApiDistributionsFileFileListRequest) PulpIdIn(pulpIdIn []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) PulpIdIn(pulpIdIn []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsFileApiDistributionsFileFileListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsFileApiDistributionsFileFileListRequest) Repository(repository string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) Repository(repository string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsFileApiDistributionsFileFileListRequest) RepositoryIn(repositoryIn []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) RepositoryIn(repositoryIn []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsFileApiDistributionsFileFileListRequest) WithContent(withContent string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) WithContent(withContent string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsFileApiDistributionsFileFileListRequest) Fields(fields []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) Fields(fields []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsFileApiDistributionsFileFileListRequest) ExcludeFields(excludeFields []string) DistributionsFileApiDistributionsFileFileListRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) ExcludeFields(excludeFields []string) DistributionsFileAPIDistributionsFileFileListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileListRequest) Execute() (*PaginatedfileFileDistributionResponseList, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileListRequest) Execute() (*PaginatedfileFileDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileListExecute(r)
 }
 
@@ -513,10 +513,10 @@ url of a File Remote , allowing
 another instance of Pulp to sync the content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsFileApiDistributionsFileFileListRequest
+ @return DistributionsFileAPIDistributionsFileFileListRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileList(ctx context.Context) DistributionsFileApiDistributionsFileFileListRequest {
-	return DistributionsFileApiDistributionsFileFileListRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileList(ctx context.Context) DistributionsFileAPIDistributionsFileFileListRequest {
+	return DistributionsFileAPIDistributionsFileFileListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -524,7 +524,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileList(ctx context.Cont
 
 // Execute executes the request
 //  @return PaginatedfileFileDistributionResponseList
-func (a *DistributionsFileApiService) DistributionsFileFileListExecute(r DistributionsFileApiDistributionsFileFileListRequest) (*PaginatedfileFileDistributionResponseList, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileListExecute(r DistributionsFileAPIDistributionsFileFileListRequest) (*PaginatedfileFileDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -532,7 +532,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileListExecute(r Distrib
 		localVarReturnValue  *PaginatedfileFileDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -672,27 +672,27 @@ func (a *DistributionsFileApiService) DistributionsFileFileListExecute(r Distrib
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileListRolesRequest struct {
+type DistributionsFileAPIDistributionsFileFileListRolesRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsFileApiDistributionsFileFileListRolesRequest) Fields(fields []string) DistributionsFileApiDistributionsFileFileListRolesRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRolesRequest) Fields(fields []string) DistributionsFileAPIDistributionsFileFileListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsFileApiDistributionsFileFileListRolesRequest) ExcludeFields(excludeFields []string) DistributionsFileApiDistributionsFileFileListRolesRequest {
+func (r DistributionsFileAPIDistributionsFileFileListRolesRequest) ExcludeFields(excludeFields []string) DistributionsFileAPIDistributionsFileFileListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileListRolesExecute(r)
 }
 
@@ -703,10 +703,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFileListRolesRequest
+ @return DistributionsFileAPIDistributionsFileFileListRolesRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileListRoles(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFileListRolesRequest {
-	return DistributionsFileApiDistributionsFileFileListRolesRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileListRoles(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFileListRolesRequest {
+	return DistributionsFileAPIDistributionsFileFileListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -715,7 +715,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileListRoles(ctx context
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *DistributionsFileApiService) DistributionsFileFileListRolesExecute(r DistributionsFileApiDistributionsFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileListRolesExecute(r DistributionsFileAPIDistributionsFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -723,7 +723,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileListRolesExecute(r Di
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -812,27 +812,27 @@ func (a *DistributionsFileApiService) DistributionsFileFileListRolesExecute(r Di
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileMyPermissionsRequest struct {
+type DistributionsFileAPIDistributionsFileFileMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsFileApiDistributionsFileFileMyPermissionsRequest) Fields(fields []string) DistributionsFileApiDistributionsFileFileMyPermissionsRequest {
+func (r DistributionsFileAPIDistributionsFileFileMyPermissionsRequest) Fields(fields []string) DistributionsFileAPIDistributionsFileFileMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsFileApiDistributionsFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsFileApiDistributionsFileFileMyPermissionsRequest {
+func (r DistributionsFileAPIDistributionsFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsFileAPIDistributionsFileFileMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileMyPermissionsExecute(r)
 }
 
@@ -843,10 +843,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFileMyPermissionsRequest
+ @return DistributionsFileAPIDistributionsFileFileMyPermissionsRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileMyPermissions(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFileMyPermissionsRequest {
-	return DistributionsFileApiDistributionsFileFileMyPermissionsRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileMyPermissions(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFileMyPermissionsRequest {
+	return DistributionsFileAPIDistributionsFileFileMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -855,7 +855,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileMyPermissions(ctx con
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *DistributionsFileApiService) DistributionsFileFileMyPermissionsExecute(r DistributionsFileApiDistributionsFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileMyPermissionsExecute(r DistributionsFileAPIDistributionsFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -863,7 +863,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileMyPermissionsExecute(
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -952,19 +952,19 @@ func (a *DistributionsFileApiService) DistributionsFileFileMyPermissionsExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFilePartialUpdateRequest struct {
+type DistributionsFileAPIDistributionsFileFilePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 	patchedfileFileDistribution *PatchedfileFileDistribution
 }
 
-func (r DistributionsFileApiDistributionsFileFilePartialUpdateRequest) PatchedfileFileDistribution(patchedfileFileDistribution PatchedfileFileDistribution) DistributionsFileApiDistributionsFileFilePartialUpdateRequest {
+func (r DistributionsFileAPIDistributionsFileFilePartialUpdateRequest) PatchedfileFileDistribution(patchedfileFileDistribution PatchedfileFileDistribution) DistributionsFileAPIDistributionsFileFilePartialUpdateRequest {
 	r.patchedfileFileDistribution = &patchedfileFileDistribution
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFilePartialUpdateExecute(r)
 }
 
@@ -975,10 +975,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFilePartialUpdateRequest
+ @return DistributionsFileAPIDistributionsFileFilePartialUpdateRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFilePartialUpdate(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFilePartialUpdateRequest {
-	return DistributionsFileApiDistributionsFileFilePartialUpdateRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFilePartialUpdate(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFilePartialUpdateRequest {
+	return DistributionsFileAPIDistributionsFileFilePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -987,7 +987,7 @@ func (a *DistributionsFileApiService) DistributionsFileFilePartialUpdate(ctx con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsFileApiService) DistributionsFileFilePartialUpdateExecute(r DistributionsFileApiDistributionsFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFilePartialUpdateExecute(r DistributionsFileAPIDistributionsFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -995,7 +995,7 @@ func (a *DistributionsFileApiService) DistributionsFileFilePartialUpdateExecute(
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFilePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFilePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1067,27 +1067,27 @@ func (a *DistributionsFileApiService) DistributionsFileFilePartialUpdateExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileReadRequest struct {
+type DistributionsFileAPIDistributionsFileFileReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsFileApiDistributionsFileFileReadRequest) Fields(fields []string) DistributionsFileApiDistributionsFileFileReadRequest {
+func (r DistributionsFileAPIDistributionsFileFileReadRequest) Fields(fields []string) DistributionsFileAPIDistributionsFileFileReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsFileApiDistributionsFileFileReadRequest) ExcludeFields(excludeFields []string) DistributionsFileApiDistributionsFileFileReadRequest {
+func (r DistributionsFileAPIDistributionsFileFileReadRequest) ExcludeFields(excludeFields []string) DistributionsFileAPIDistributionsFileFileReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileReadRequest) Execute() (*FileFileDistributionResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileReadRequest) Execute() (*FileFileDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileReadExecute(r)
 }
 
@@ -1103,10 +1103,10 @@ another instance of Pulp to sync the content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFileReadRequest
+ @return DistributionsFileAPIDistributionsFileFileReadRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileRead(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFileReadRequest {
-	return DistributionsFileApiDistributionsFileFileReadRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileRead(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFileReadRequest {
+	return DistributionsFileAPIDistributionsFileFileReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -1115,7 +1115,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileRead(ctx context.Cont
 
 // Execute executes the request
 //  @return FileFileDistributionResponse
-func (a *DistributionsFileApiService) DistributionsFileFileReadExecute(r DistributionsFileApiDistributionsFileFileReadRequest) (*FileFileDistributionResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileReadExecute(r DistributionsFileAPIDistributionsFileFileReadRequest) (*FileFileDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1123,7 +1123,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileReadExecute(r Distrib
 		localVarReturnValue  *FileFileDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1212,19 +1212,19 @@ func (a *DistributionsFileApiService) DistributionsFileFileReadExecute(r Distrib
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileRemoveRoleRequest struct {
+type DistributionsFileAPIDistributionsFileFileRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsFileApiDistributionsFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsFileApiDistributionsFileFileRemoveRoleRequest {
+func (r DistributionsFileAPIDistributionsFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsFileAPIDistributionsFileFileRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileRemoveRoleExecute(r)
 }
 
@@ -1235,10 +1235,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFileRemoveRoleRequest
+ @return DistributionsFileAPIDistributionsFileFileRemoveRoleRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileRemoveRole(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFileRemoveRoleRequest {
-	return DistributionsFileApiDistributionsFileFileRemoveRoleRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileRemoveRole(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFileRemoveRoleRequest {
+	return DistributionsFileAPIDistributionsFileFileRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -1247,7 +1247,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileRemoveRole(ctx contex
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsFileApiService) DistributionsFileFileRemoveRoleExecute(r DistributionsFileApiDistributionsFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileRemoveRoleExecute(r DistributionsFileAPIDistributionsFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1255,7 +1255,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileRemoveRoleExecute(r D
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1327,19 +1327,19 @@ func (a *DistributionsFileApiService) DistributionsFileFileRemoveRoleExecute(r D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsFileApiDistributionsFileFileUpdateRequest struct {
+type DistributionsFileAPIDistributionsFileFileUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsFileApiService
+	ApiService *DistributionsFileAPIService
 	fileFileDistributionHref string
 	fileFileDistribution *FileFileDistribution
 }
 
-func (r DistributionsFileApiDistributionsFileFileUpdateRequest) FileFileDistribution(fileFileDistribution FileFileDistribution) DistributionsFileApiDistributionsFileFileUpdateRequest {
+func (r DistributionsFileAPIDistributionsFileFileUpdateRequest) FileFileDistribution(fileFileDistribution FileFileDistribution) DistributionsFileAPIDistributionsFileFileUpdateRequest {
 	r.fileFileDistribution = &fileFileDistribution
 	return r
 }
 
-func (r DistributionsFileApiDistributionsFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsFileAPIDistributionsFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsFileFileUpdateExecute(r)
 }
 
@@ -1350,10 +1350,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileDistributionHref
- @return DistributionsFileApiDistributionsFileFileUpdateRequest
+ @return DistributionsFileAPIDistributionsFileFileUpdateRequest
 */
-func (a *DistributionsFileApiService) DistributionsFileFileUpdate(ctx context.Context, fileFileDistributionHref string) DistributionsFileApiDistributionsFileFileUpdateRequest {
-	return DistributionsFileApiDistributionsFileFileUpdateRequest{
+func (a *DistributionsFileAPIService) DistributionsFileFileUpdate(ctx context.Context, fileFileDistributionHref string) DistributionsFileAPIDistributionsFileFileUpdateRequest {
+	return DistributionsFileAPIDistributionsFileFileUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileDistributionHref: fileFileDistributionHref,
@@ -1362,7 +1362,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileUpdate(ctx context.Co
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsFileApiService) DistributionsFileFileUpdateExecute(r DistributionsFileApiDistributionsFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsFileAPIService) DistributionsFileFileUpdateExecute(r DistributionsFileAPIDistributionsFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1370,7 +1370,7 @@ func (a *DistributionsFileApiService) DistributionsFileFileUpdateExecute(r Distr
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileApiService.DistributionsFileFileUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsFileAPIService.DistributionsFileFileUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

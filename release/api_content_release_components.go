@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentReleaseComponentsApiService ContentReleaseComponentsApi service
-type ContentReleaseComponentsApiService service
+// ContentReleaseComponentsAPIService ContentReleaseComponentsAPI service
+type ContentReleaseComponentsAPIService service
 
-type ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest struct {
+type ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseComponentsApiService
+	ApiService *ContentReleaseComponentsAPIService
 	debReleaseComponent *DebReleaseComponent
 }
 
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest) DebReleaseComponent(debReleaseComponent DebReleaseComponent) ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest) DebReleaseComponent(debReleaseComponent DebReleaseComponent) ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest {
 	r.debReleaseComponent = &debReleaseComponent
 	return r
 }
 
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest) Execute() (*DebReleaseComponentResponse, *http.Response, error) {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest) Execute() (*DebReleaseComponentResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseComponentsCreateExecute(r)
 }
 
@@ -47,14 +47,11 @@ A ReleaseComponent represents a single APT repository component.
 
 Associated artifacts: None; contains only metadata.
 
-Every ReleaseComponent is always associated with exactly one Release. This indicates that the
-release/distribution in question contains this component.
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest
+ @return ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest
 */
-func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsCreate(ctx context.Context) ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest {
-	return ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest{
+func (a *ContentReleaseComponentsAPIService) ContentDebReleaseComponentsCreate(ctx context.Context) ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest {
+	return ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -62,7 +59,7 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsCreate(c
 
 // Execute executes the request
 //  @return DebReleaseComponentResponse
-func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsCreateExecute(r ContentReleaseComponentsApiContentDebReleaseComponentsCreateRequest) (*DebReleaseComponentResponse, *http.Response, error) {
+func (a *ContentReleaseComponentsAPIService) ContentDebReleaseComponentsCreateExecute(r ContentReleaseComponentsAPIContentDebReleaseComponentsCreateRequest) (*DebReleaseComponentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -70,7 +67,7 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsCreateEx
 		localVarReturnValue  *DebReleaseComponentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseComponentsApiService.ContentDebReleaseComponentsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseComponentsAPIService.ContentDebReleaseComponentsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -139,96 +136,110 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsCreateEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleaseComponentsApiContentDebReleaseComponentsListRequest struct {
+type ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseComponentsApiService
+	ApiService *ContentReleaseComponentsAPIService
+	codename *string
 	component *string
+	distribution *string
 	limit *int32
 	offset *int32
 	ordering *[]string
 	pulpHrefIn *[]string
 	pulpIdIn *[]string
-	release *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
+	suite *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Filter results where codename matches value
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Codename(codename string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
+	r.codename = &codename
+	return r
+}
+
 // Filter results where component matches value
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Component(component string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Component(component string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.component = &component
 	return r
 }
 
+// Filter results where distribution matches value
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Distribution(distribution string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
+	r.distribution = &distribution
+	return r
+}
+
 // Number of results to return per page.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Limit(limit int32) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Limit(limit int32) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Offset(offset int32) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Offset(offset int32) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.offset = &offset
 	return r
 }
 
-// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;component&#x60; - Component * &#x60;-component&#x60; - Component (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Ordering(ordering []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;distribution&#x60; - Distribution * &#x60;-distribution&#x60; - Distribution (descending) * &#x60;component&#x60; - Component * &#x60;-component&#x60; - Component (descending) * &#x60;codename&#x60; - Codename * &#x60;-codename&#x60; - Codename (descending) * &#x60;suite&#x60; - Suite * &#x60;-suite&#x60; - Suite (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Ordering(ordering []string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) PulpIdIn(pulpIdIn []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) PulpIdIn(pulpIdIn []string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
-// Filter results where release matches value
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Release(release string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
-	r.release = &release
-	return r
-}
-
 // Repository Version referenced by HREF
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) RepositoryVersion(repositoryVersion string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) RepositoryVersion(repositoryVersion string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
+// Filter results where suite matches value
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Suite(suite string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
+	r.suite = &suite
+	return r
+}
+
 // A list of fields to include in the response.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Fields(fields []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Fields(fields []string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) ExcludeFields(excludeFields []string) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) ExcludeFields(excludeFields []string) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) Execute() (*PaginateddebReleaseComponentResponseList, *http.Response, error) {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) Execute() (*PaginateddebReleaseComponentResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseComponentsListExecute(r)
 }
 
@@ -239,14 +250,11 @@ A ReleaseComponent represents a single APT repository component.
 
 Associated artifacts: None; contains only metadata.
 
-Every ReleaseComponent is always associated with exactly one Release. This indicates that the
-release/distribution in question contains this component.
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleaseComponentsApiContentDebReleaseComponentsListRequest
+ @return ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest
 */
-func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsList(ctx context.Context) ContentReleaseComponentsApiContentDebReleaseComponentsListRequest {
-	return ContentReleaseComponentsApiContentDebReleaseComponentsListRequest{
+func (a *ContentReleaseComponentsAPIService) ContentDebReleaseComponentsList(ctx context.Context) ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest {
+	return ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -254,7 +262,7 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsList(ctx
 
 // Execute executes the request
 //  @return PaginateddebReleaseComponentResponseList
-func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsListExecute(r ContentReleaseComponentsApiContentDebReleaseComponentsListRequest) (*PaginateddebReleaseComponentResponseList, *http.Response, error) {
+func (a *ContentReleaseComponentsAPIService) ContentDebReleaseComponentsListExecute(r ContentReleaseComponentsAPIContentDebReleaseComponentsListRequest) (*PaginateddebReleaseComponentResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -262,7 +270,7 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsListExec
 		localVarReturnValue  *PaginateddebReleaseComponentResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseComponentsApiService.ContentDebReleaseComponentsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseComponentsAPIService.ContentDebReleaseComponentsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -272,8 +280,14 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsListExec
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.codename != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "codename", r.codename, "")
+	}
 	if r.component != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "component", r.component, "")
+	}
+	if r.distribution != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "distribution", r.distribution, "")
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
@@ -290,9 +304,6 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsListExec
 	if r.pulpIdIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
-	if r.release != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "release", r.release, "")
-	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")
 	}
@@ -301,6 +312,9 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsListExec
 	}
 	if r.repositoryVersionRemoved != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version_removed", r.repositoryVersionRemoved, "")
+	}
+	if r.suite != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "suite", r.suite, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -378,27 +392,27 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest struct {
+type ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseComponentsApiService
+	ApiService *ContentReleaseComponentsAPIService
 	debReleaseComponentHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest) Fields(fields []string) ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest) Fields(fields []string) ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest) ExcludeFields(excludeFields []string) ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest) ExcludeFields(excludeFields []string) ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest) Execute() (*DebReleaseComponentResponse, *http.Response, error) {
+func (r ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest) Execute() (*DebReleaseComponentResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseComponentsReadExecute(r)
 }
 
@@ -409,15 +423,12 @@ A ReleaseComponent represents a single APT repository component.
 
 Associated artifacts: None; contains only metadata.
 
-Every ReleaseComponent is always associated with exactly one Release. This indicates that the
-release/distribution in question contains this component.
-
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debReleaseComponentHref
- @return ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest
+ @return ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest
 */
-func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsRead(ctx context.Context, debReleaseComponentHref string) ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest {
-	return ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest{
+func (a *ContentReleaseComponentsAPIService) ContentDebReleaseComponentsRead(ctx context.Context, debReleaseComponentHref string) ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest {
+	return ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debReleaseComponentHref: debReleaseComponentHref,
@@ -426,7 +437,7 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsRead(ctx
 
 // Execute executes the request
 //  @return DebReleaseComponentResponse
-func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsReadExecute(r ContentReleaseComponentsApiContentDebReleaseComponentsReadRequest) (*DebReleaseComponentResponse, *http.Response, error) {
+func (a *ContentReleaseComponentsAPIService) ContentDebReleaseComponentsReadExecute(r ContentReleaseComponentsAPIContentDebReleaseComponentsReadRequest) (*DebReleaseComponentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -434,7 +445,7 @@ func (a *ContentReleaseComponentsApiService) ContentDebReleaseComponentsReadExec
 		localVarReturnValue  *DebReleaseComponentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseComponentsApiService.ContentDebReleaseComponentsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseComponentsAPIService.ContentDebReleaseComponentsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

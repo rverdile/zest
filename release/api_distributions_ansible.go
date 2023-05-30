@@ -22,22 +22,22 @@ import (
 )
 
 
-// DistributionsAnsibleApiService DistributionsAnsibleApi service
-type DistributionsAnsibleApiService service
+// DistributionsAnsibleAPIService DistributionsAnsibleAPI service
+type DistributionsAnsibleAPIService service
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleAddRole(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleAddRole(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -60,7 +60,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleAddRole(ctx 
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleAddRoleExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleAddRoleExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleAddRoleExecu
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleAddRoleExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistribution *AnsibleAnsibleDistribution
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest) AnsibleAnsibleDistribution(ansibleAnsibleDistribution AnsibleAnsibleDistribution) DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest) AnsibleAnsibleDistribution(ansibleAnsibleDistribution AnsibleAnsibleDistribution) DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest {
 	r.ansibleAnsibleDistribution = &ansibleAnsibleDistribution
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ DistributionsAnsibleAnsibleCreate Create an ansible distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleCreate(ctx context.Context) DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleCreate(ctx context.Context) DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleCreate(ctx c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleCreateExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleCreateExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleCreateExecut
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleCreateExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleDeleteRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleDeleteRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleDeleteRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleDelete(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsibleDeleteRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleDeleteRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleDelete(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleDeleteRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -278,7 +278,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleDelete(ctx c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleDeleteExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleDeleteExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleDeleteExecut
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,9 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleDeleteExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -379,126 +379,126 @@ type DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) BasePath(basePath string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) BasePath(basePath string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) BasePathContains(basePathContains string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) BasePathContains(basePathContains string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) BasePathIcontains(basePathIcontains string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) BasePathIcontains(basePathIcontains string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) BasePathIn(basePathIn []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) BasePathIn(basePathIn []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) Limit(limit int32) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) Limit(limit int32) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) Name(name string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) Name(name string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) NameContains(nameContains string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) NameContains(nameContains string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) NameIcontains(nameIcontains string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) NameIcontains(nameIcontains string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) NameIn(nameIn []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) NameIn(nameIn []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) NameStartswith(nameStartswith string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) NameStartswith(nameStartswith string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) Offset(offset int32) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) Offset(offset int32) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) Ordering(ordering []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) Ordering(ordering []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) PulpIdIn(pulpIdIn []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) PulpIdIn(pulpIdIn []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) Repository(repository string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) Repository(repository string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) RepositoryIn(repositoryIn []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) RepositoryIn(repositoryIn []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) WithContent(withContent string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) WithContent(withContent string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) Fields(fields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) Fields(fields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) Execute() (*PaginatedansibleAnsibleDistributionResponseList, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) Execute() (*PaginatedansibleAnsibleDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleListExecute(r)
 }
 
@@ -508,10 +508,10 @@ DistributionsAnsibleAnsibleList List ansible distributions
 ViewSet for Ansible Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleList(ctx context.Context) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleList(ctx context.Context) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -519,7 +519,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleList(ctx con
 
 // Execute executes the request
 //  @return PaginatedansibleAnsibleDistributionResponseList
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRequest) (*PaginatedansibleAnsibleDistributionResponseList, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleListExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRequest) (*PaginatedansibleAnsibleDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -527,7 +527,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListExecute(
 		localVarReturnValue  *PaginatedansibleAnsibleDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -667,27 +667,27 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest) Fields(fields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest) Fields(fields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleListRolesExecute(r)
 }
 
@@ -698,10 +698,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListRoles(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleListRoles(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -710,7 +710,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListRoles(ct
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListRolesExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleListRolesExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -718,7 +718,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListRolesExe
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -807,27 +807,27 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleListRolesExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest) Fields(fields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest) Fields(fields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleMyPermissionsExecute(r)
 }
 
@@ -838,10 +838,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleMyPermissions(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleMyPermissions(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -850,7 +850,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleMyPermission
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleMyPermissionsExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleMyPermissionsExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -858,7 +858,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleMyPermission
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -947,19 +947,19 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleMyPermission
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 	patchedansibleAnsibleDistribution *PatchedansibleAnsibleDistribution
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest) PatchedansibleAnsibleDistribution(patchedansibleAnsibleDistribution PatchedansibleAnsibleDistribution) DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest) PatchedansibleAnsibleDistribution(patchedansibleAnsibleDistribution PatchedansibleAnsibleDistribution) DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest {
 	r.patchedansibleAnsibleDistribution = &patchedansibleAnsibleDistribution
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsiblePartialUpdateExecute(r)
 }
 
@@ -970,10 +970,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsiblePartialUpdate(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsiblePartialUpdate(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -982,7 +982,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsiblePartialUpdat
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsiblePartialUpdateExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsiblePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsiblePartialUpdateExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsiblePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -990,7 +990,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsiblePartialUpdat
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsiblePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsiblePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1062,27 +1062,27 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsiblePartialUpdat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest) Fields(fields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest) Fields(fields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest) ExcludeFields(excludeFields []string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest) Execute() (*AnsibleAnsibleDistributionResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest) Execute() (*AnsibleAnsibleDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleReadExecute(r)
 }
 
@@ -1093,10 +1093,10 @@ ViewSet for Ansible Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleRead(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleRead(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -1105,7 +1105,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleRead(ctx con
 
 // Execute executes the request
 //  @return AnsibleAnsibleDistributionResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleReadExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleReadRequest) (*AnsibleAnsibleDistributionResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleReadExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleReadRequest) (*AnsibleAnsibleDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1113,7 +1113,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleReadExecute(
 		localVarReturnValue  *AnsibleAnsibleDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1202,19 +1202,19 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleReadExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleRemoveRoleExecute(r)
 }
 
@@ -1225,10 +1225,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleRemoveRole(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleRemoveRole(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -1237,7 +1237,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleRemoveRole(c
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleRemoveRoleExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleRemoveRoleExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1245,7 +1245,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleRemoveRoleEx
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1317,19 +1317,19 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleRemoveRoleEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest struct {
+type DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAnsibleApiService
+	ApiService *DistributionsAnsibleAPIService
 	ansibleAnsibleDistributionHref string
 	ansibleAnsibleDistribution *AnsibleAnsibleDistribution
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest) AnsibleAnsibleDistribution(ansibleAnsibleDistribution AnsibleAnsibleDistribution) DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest) AnsibleAnsibleDistribution(ansibleAnsibleDistribution AnsibleAnsibleDistribution) DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest {
 	r.ansibleAnsibleDistribution = &ansibleAnsibleDistribution
 	return r
 }
 
-func (r DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsAnsibleAnsibleUpdateExecute(r)
 }
 
@@ -1340,10 +1340,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleDistributionHref
- @return DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest
+ @return DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest
 */
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleUpdate(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest {
-	return DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest{
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleUpdate(ctx context.Context, ansibleAnsibleDistributionHref string) DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest {
+	return DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleDistributionHref: ansibleAnsibleDistributionHref,
@@ -1352,7 +1352,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleUpdate(ctx c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleUpdateExecute(r DistributionsAnsibleApiDistributionsAnsibleAnsibleUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAnsibleAPIService) DistributionsAnsibleAnsibleUpdateExecute(r DistributionsAnsibleAPIDistributionsAnsibleAnsibleUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1360,7 +1360,7 @@ func (a *DistributionsAnsibleApiService) DistributionsAnsibleAnsibleUpdateExecut
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleApiService.DistributionsAnsibleAnsibleUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAnsibleAPIService.DistributionsAnsibleAnsibleUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

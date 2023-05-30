@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentReleaseArchitecturesApiService
+Testing ContentReleaseArchitecturesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentReleaseArchitecturesApiService(t *testing.T) {
+func Test_zest_ContentReleaseArchitecturesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentReleaseArchitecturesApiService ContentDebReleaseArchitecturesCreate", func(t *testing.T) {
+	t.Run("Test ContentReleaseArchitecturesAPIService ContentDebReleaseArchitecturesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentReleaseArchitecturesApi.ContentDebReleaseArchitecturesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentReleaseArchitecturesAPI.ContentDebReleaseArchitecturesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentReleaseArchitecturesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentReleaseArchitecturesApiService ContentDebReleaseArchitecturesList", func(t *testing.T) {
+	t.Run("Test ContentReleaseArchitecturesAPIService ContentDebReleaseArchitecturesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentReleaseArchitecturesApi.ContentDebReleaseArchitecturesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentReleaseArchitecturesAPI.ContentDebReleaseArchitecturesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentReleaseArchitecturesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentReleaseArchitecturesApiService ContentDebReleaseArchitecturesRead", func(t *testing.T) {
+	t.Run("Test ContentReleaseArchitecturesAPIService ContentDebReleaseArchitecturesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debReleaseArchitectureHref string
 
-		resp, httpRes, err := apiClient.ContentReleaseArchitecturesApi.ContentDebReleaseArchitecturesRead(context.Background(), debReleaseArchitectureHref).Execute()
+		resp, httpRes, err := apiClient.ContentReleaseArchitecturesAPI.ContentDebReleaseArchitecturesRead(context.Background(), debReleaseArchitectureHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

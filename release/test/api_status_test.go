@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing StatusApiService
+Testing StatusAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_StatusApiService(t *testing.T) {
+func Test_zest_StatusAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test StatusApiService StatusRead", func(t *testing.T) {
+	t.Run("Test StatusAPIService StatusRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.StatusApi.StatusRead(context.Background()).Execute()
+		resp, httpRes, err := apiClient.StatusAPI.StatusRead(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

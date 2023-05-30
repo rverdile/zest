@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing TaskGroupsApiService
+Testing TaskGroupsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_TaskGroupsApiService(t *testing.T) {
+func Test_zest_TaskGroupsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TaskGroupsApiService TaskGroupsList", func(t *testing.T) {
+	t.Run("Test TaskGroupsAPIService TaskGroupsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaskGroupsApi.TaskGroupsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TaskGroupsAPI.TaskGroupsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_TaskGroupsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskGroupsApiService TaskGroupsRead", func(t *testing.T) {
+	t.Run("Test TaskGroupsAPIService TaskGroupsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taskGroupHref string
 
-		resp, httpRes, err := apiClient.TaskGroupsApi.TaskGroupsRead(context.Background(), taskGroupHref).Execute()
+		resp, httpRes, err := apiClient.TaskGroupsAPI.TaskGroupsRead(context.Background(), taskGroupHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

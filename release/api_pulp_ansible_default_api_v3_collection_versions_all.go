@@ -20,15 +20,15 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3CollectionVersionsAllApiService PulpAnsibleDefaultApiV3CollectionVersionsAllApi service
-type PulpAnsibleDefaultApiV3CollectionVersionsAllApiService service
+// PulpAnsibleDefaultApiV3CollectionVersionsAllAPIService PulpAnsibleDefaultApiV3CollectionVersionsAllAPI service
+type PulpAnsibleDefaultApiV3CollectionVersionsAllAPIService service
 
-type PulpAnsibleDefaultApiV3CollectionVersionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest struct {
+type PulpAnsibleDefaultApiV3CollectionVersionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3CollectionVersionsAllApiService
+	ApiService *PulpAnsibleDefaultApiV3CollectionVersionsAllAPIService
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionVersionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest) Execute() ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3CollectionVersionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest) Execute() ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListExecute(r)
 }
 
@@ -38,12 +38,12 @@ PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllList Method for PulpAnsibleGal
 Legacy v3 endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleDefaultApiV3CollectionVersionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest
+ @return PulpAnsibleDefaultApiV3CollectionVersionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3CollectionVersionsAllApiService) PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllList(ctx context.Context) PulpAnsibleDefaultApiV3CollectionVersionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest {
-	return PulpAnsibleDefaultApiV3CollectionVersionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest{
+func (a *PulpAnsibleDefaultApiV3CollectionVersionsAllAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllList(ctx context.Context) PulpAnsibleDefaultApiV3CollectionVersionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest {
+	return PulpAnsibleDefaultApiV3CollectionVersionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -52,7 +52,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionVersionsAllApiService) PulpAnsibleGala
 // Execute executes the request
 //  @return []UnpaginatedCollectionVersionResponse
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3CollectionVersionsAllApiService) PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListExecute(r PulpAnsibleDefaultApiV3CollectionVersionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest) ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3CollectionVersionsAllAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListExecute(r PulpAnsibleDefaultApiV3CollectionVersionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllListRequest) ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -60,7 +60,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionVersionsAllApiService) PulpAnsibleGala
 		localVarReturnValue  []UnpaginatedCollectionVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionVersionsAllApiService.PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionVersionsAllAPIService.PulpAnsibleGalaxyDefaultApiV3CollectionVersionsAllList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

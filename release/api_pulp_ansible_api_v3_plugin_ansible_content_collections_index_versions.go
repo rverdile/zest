@@ -22,12 +22,12 @@ import (
 )
 
 
-// PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi service
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService service
+// PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPI service
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService service
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService
 	distroBasePath string
 	name string
 	namespace string
@@ -35,7 +35,7 @@ type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleG
 	version string
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteExecute(r)
 }
 
@@ -50,10 +50,10 @@ Trigger an asynchronous delete task
  @param namespace
  @param path
  @param version
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete(ctx context.Context, distroBasePath string, name string, namespace string, path string, version string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete(ctx context.Context, distroBasePath string, name string, namespace string, path string, version string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -66,7 +66,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -74,7 +74,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -153,9 +153,9 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService
 	distroBasePath string
 	name string
 	namespace string
@@ -178,99 +178,99 @@ type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleG
 	excludeFields *[]string
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) IsHighest(isHighest bool) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) IsHighest(isHighest bool) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.isHighest = &isHighest
 	return r
 }
 
 // Number of results to return per page.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Limit(limit int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Limit(limit int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Name2(name2 string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Name2(name2 string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.name2 = &name2
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Namespace2(namespace2 string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Namespace2(namespace2 string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.namespace2 = &namespace2
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Offset(offset int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Offset(offset int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;authors&#x60; - Authors * &#x60;-authors&#x60; - Authors (descending) * &#x60;contents&#x60; - Contents * &#x60;-contents&#x60; - Contents (descending) * &#x60;dependencies&#x60; - Dependencies * &#x60;-dependencies&#x60; - Dependencies (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;docs_blob&#x60; - Docs blob * &#x60;-docs_blob&#x60; - Docs blob (descending) * &#x60;manifest&#x60; - Manifest * &#x60;-manifest&#x60; - Manifest (descending) * &#x60;files&#x60; - Files * &#x60;-files&#x60; - Files (descending) * &#x60;documentation&#x60; - Documentation * &#x60;-documentation&#x60; - Documentation (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;issues&#x60; - Issues * &#x60;-issues&#x60; - Issues (descending) * &#x60;license&#x60; - License * &#x60;-license&#x60; - License (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;repository&#x60; - Repository * &#x60;-repository&#x60; - Repository (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;requires_ansible&#x60; - Requires ansible * &#x60;-requires_ansible&#x60; - Requires ansible (descending) * &#x60;is_highest&#x60; - Is highest * &#x60;-is_highest&#x60; - Is highest (descending) * &#x60;search_vector&#x60; - Search vector * &#x60;-search_vector&#x60; - Search vector (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Ordering(ordering []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Ordering(ordering []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Q(q string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Q(q string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.q = &q
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) RepositoryVersion(repositoryVersion string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) RepositoryVersion(repositoryVersion string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter by comma separate list of tags that must all be matched
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Tags(tags string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Tags(tags string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.tags = &tags
 	return r
 }
 
 // Filter results where version matches value
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Version(version string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Version(version string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.version = &version
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Execute() (*PaginatedCollectionVersionListResponseList, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) Execute() (*PaginatedCollectionVersionListResponseList, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListExecute(r)
 }
 
@@ -284,10 +284,10 @@ Returns paginated CollectionVersions list.
  @param name
  @param namespace
  @param path
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -299,7 +299,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 
 // Execute executes the request
 //  @return PaginatedCollectionVersionListResponseList
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) (*PaginatedCollectionVersionListResponseList, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsListRequest) (*PaginatedCollectionVersionListResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -307,7 +307,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 		localVarReturnValue  *PaginatedCollectionVersionListResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -447,9 +447,9 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService
 	distroBasePath string
 	name string
 	namespace string
@@ -460,18 +460,18 @@ type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleG
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) Execute() (*CollectionVersionResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) Execute() (*CollectionVersionResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadExecute(r)
 }
 
@@ -486,10 +486,10 @@ Returns a CollectionVersion object.
  @param namespace
  @param path
  @param version
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead(ctx context.Context, distroBasePath string, name string, namespace string, path string, version string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead(ctx context.Context, distroBasePath string, name string, namespace string, path string, version string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -502,7 +502,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 
 // Execute executes the request
 //  @return CollectionVersionResponse
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) (*CollectionVersionResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsReadRequest) (*CollectionVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -510,7 +510,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService)
 		localVarReturnValue  *CollectionVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

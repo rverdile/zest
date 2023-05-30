@@ -23,22 +23,22 @@ import (
 )
 
 
-// PublicationsFileApiService PublicationsFileApi service
-type PublicationsFileApiService service
+// PublicationsFileAPIService PublicationsFileAPI service
+type PublicationsFileAPIService service
 
-type PublicationsFileApiPublicationsFileFileAddRoleRequest struct {
+type PublicationsFileAPIPublicationsFileFileAddRoleRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	fileFilePublicationHref string
 	nestedRole *NestedRole
 }
 
-func (r PublicationsFileApiPublicationsFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) PublicationsFileApiPublicationsFileFileAddRoleRequest {
+func (r PublicationsFileAPIPublicationsFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) PublicationsFileAPIPublicationsFileFileAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r PublicationsFileApiPublicationsFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.PublicationsFileFileAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFilePublicationHref
- @return PublicationsFileApiPublicationsFileFileAddRoleRequest
+ @return PublicationsFileAPIPublicationsFileFileAddRoleRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileAddRole(ctx context.Context, fileFilePublicationHref string) PublicationsFileApiPublicationsFileFileAddRoleRequest {
-	return PublicationsFileApiPublicationsFileFileAddRoleRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileAddRole(ctx context.Context, fileFilePublicationHref string) PublicationsFileAPIPublicationsFileFileAddRoleRequest {
+	return PublicationsFileAPIPublicationsFileFileAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFilePublicationHref: fileFilePublicationHref,
@@ -61,7 +61,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileAddRole(ctx context.Con
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *PublicationsFileApiService) PublicationsFileFileAddRoleExecute(r PublicationsFileApiPublicationsFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileAddRoleExecute(r PublicationsFileAPIPublicationsFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileAddRoleExecute(r Public
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *PublicationsFileApiService) PublicationsFileFileAddRoleExecute(r Public
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsFileApiPublicationsFileFileCreateRequest struct {
+type PublicationsFileAPIPublicationsFileFileCreateRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	fileFilePublication *FileFilePublication
 }
 
-func (r PublicationsFileApiPublicationsFileFileCreateRequest) FileFilePublication(fileFilePublication FileFilePublication) PublicationsFileApiPublicationsFileFileCreateRequest {
+func (r PublicationsFileAPIPublicationsFileFileCreateRequest) FileFilePublication(fileFilePublication FileFilePublication) PublicationsFileAPIPublicationsFileFileCreateRequest {
 	r.fileFilePublication = &fileFilePublication
 	return r
 }
 
-func (r PublicationsFileApiPublicationsFileFileCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsFileFileCreateExecute(r)
 }
 
@@ -162,10 +162,10 @@ PublicationsFileFileCreate Create a file publication
 Trigger an asynchronous task to publish file content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsFileApiPublicationsFileFileCreateRequest
+ @return PublicationsFileAPIPublicationsFileFileCreateRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileCreate(ctx context.Context) PublicationsFileApiPublicationsFileFileCreateRequest {
-	return PublicationsFileApiPublicationsFileFileCreateRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileCreate(ctx context.Context) PublicationsFileAPIPublicationsFileFileCreateRequest {
+	return PublicationsFileAPIPublicationsFileFileCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -173,7 +173,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileCreate(ctx context.Cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PublicationsFileApiService) PublicationsFileFileCreateExecute(r PublicationsFileApiPublicationsFileFileCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileCreateExecute(r PublicationsFileAPIPublicationsFileFileCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileCreateExecute(r Publica
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -250,13 +250,13 @@ func (a *PublicationsFileApiService) PublicationsFileFileCreateExecute(r Publica
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsFileApiPublicationsFileFileDeleteRequest struct {
+type PublicationsFileAPIPublicationsFileFileDeleteRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	fileFilePublicationHref string
 }
 
-func (r PublicationsFileApiPublicationsFileFileDeleteRequest) Execute() (*http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PublicationsFileFileDeleteExecute(r)
 }
 
@@ -270,10 +270,10 @@ File Distribution API.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFilePublicationHref
- @return PublicationsFileApiPublicationsFileFileDeleteRequest
+ @return PublicationsFileAPIPublicationsFileFileDeleteRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileDelete(ctx context.Context, fileFilePublicationHref string) PublicationsFileApiPublicationsFileFileDeleteRequest {
-	return PublicationsFileApiPublicationsFileFileDeleteRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileDelete(ctx context.Context, fileFilePublicationHref string) PublicationsFileAPIPublicationsFileFileDeleteRequest {
+	return PublicationsFileAPIPublicationsFileFileDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFilePublicationHref: fileFilePublicationHref,
@@ -281,14 +281,14 @@ func (a *PublicationsFileApiService) PublicationsFileFileDelete(ctx context.Cont
 }
 
 // Execute executes the request
-func (a *PublicationsFileApiService) PublicationsFileFileDeleteExecute(r PublicationsFileApiPublicationsFileFileDeleteRequest) (*http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileDeleteExecute(r PublicationsFileAPIPublicationsFileFileDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -346,9 +346,9 @@ func (a *PublicationsFileApiService) PublicationsFileFileDeleteExecute(r Publica
 	return localVarHTTPResponse, nil
 }
 
-type PublicationsFileApiPublicationsFileFileListRequest struct {
+type PublicationsFileAPIPublicationsFileFileListRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	content *string
 	contentIn *string
 	limit *int32
@@ -369,108 +369,108 @@ type PublicationsFileApiPublicationsFileFileListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsFileApiPublicationsFileFileListRequest) Content(content string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) Content(content string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsFileApiPublicationsFileFileListRequest) ContentIn(contentIn string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) ContentIn(contentIn string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r PublicationsFileApiPublicationsFileFileListRequest) Limit(limit int32) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) Limit(limit int32) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PublicationsFileApiPublicationsFileFileListRequest) Offset(offset int32) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) Offset(offset int32) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PublicationsFileApiPublicationsFileFileListRequest) Ordering(ordering []string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) Ordering(ordering []string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreated(pulpCreated time.Time) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpCreated(pulpCreated time.Time) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsFileApiPublicationsFileFileListRequest) PulpIdIn(pulpIdIn []string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) PulpIdIn(pulpIdIn []string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository referenced by HREF
-func (r PublicationsFileApiPublicationsFileFileListRequest) Repository(repository string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) Repository(repository string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PublicationsFileApiPublicationsFileFileListRequest) RepositoryVersion(repositoryVersion string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) RepositoryVersion(repositoryVersion string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PublicationsFileApiPublicationsFileFileListRequest) Fields(fields []string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) Fields(fields []string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsFileApiPublicationsFileFileListRequest) ExcludeFields(excludeFields []string) PublicationsFileApiPublicationsFileFileListRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) ExcludeFields(excludeFields []string) PublicationsFileAPIPublicationsFileFileListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsFileApiPublicationsFileFileListRequest) Execute() (*PaginatedfileFilePublicationResponseList, *http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileListRequest) Execute() (*PaginatedfileFilePublicationResponseList, *http.Response, error) {
 	return r.ApiService.PublicationsFileFileListExecute(r)
 }
 
@@ -483,10 +483,10 @@ Once a FilePublication has been created, it can be hosted using the
 File Distribution API.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsFileApiPublicationsFileFileListRequest
+ @return PublicationsFileAPIPublicationsFileFileListRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileList(ctx context.Context) PublicationsFileApiPublicationsFileFileListRequest {
-	return PublicationsFileApiPublicationsFileFileListRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileList(ctx context.Context) PublicationsFileAPIPublicationsFileFileListRequest {
+	return PublicationsFileAPIPublicationsFileFileListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -494,7 +494,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileList(ctx context.Contex
 
 // Execute executes the request
 //  @return PaginatedfileFilePublicationResponseList
-func (a *PublicationsFileApiService) PublicationsFileFileListExecute(r PublicationsFileApiPublicationsFileFileListRequest) (*PaginatedfileFilePublicationResponseList, *http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileListExecute(r PublicationsFileAPIPublicationsFileFileListRequest) (*PaginatedfileFilePublicationResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -502,7 +502,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileListExecute(r Publicati
 		localVarReturnValue  *PaginatedfileFilePublicationResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -633,27 +633,27 @@ func (a *PublicationsFileApiService) PublicationsFileFileListExecute(r Publicati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsFileApiPublicationsFileFileListRolesRequest struct {
+type PublicationsFileAPIPublicationsFileFileListRolesRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	fileFilePublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsFileApiPublicationsFileFileListRolesRequest) Fields(fields []string) PublicationsFileApiPublicationsFileFileListRolesRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRolesRequest) Fields(fields []string) PublicationsFileAPIPublicationsFileFileListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsFileApiPublicationsFileFileListRolesRequest) ExcludeFields(excludeFields []string) PublicationsFileApiPublicationsFileFileListRolesRequest {
+func (r PublicationsFileAPIPublicationsFileFileListRolesRequest) ExcludeFields(excludeFields []string) PublicationsFileAPIPublicationsFileFileListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsFileApiPublicationsFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.PublicationsFileFileListRolesExecute(r)
 }
 
@@ -664,10 +664,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFilePublicationHref
- @return PublicationsFileApiPublicationsFileFileListRolesRequest
+ @return PublicationsFileAPIPublicationsFileFileListRolesRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileListRoles(ctx context.Context, fileFilePublicationHref string) PublicationsFileApiPublicationsFileFileListRolesRequest {
-	return PublicationsFileApiPublicationsFileFileListRolesRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileListRoles(ctx context.Context, fileFilePublicationHref string) PublicationsFileAPIPublicationsFileFileListRolesRequest {
+	return PublicationsFileAPIPublicationsFileFileListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFilePublicationHref: fileFilePublicationHref,
@@ -676,7 +676,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileListRoles(ctx context.C
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *PublicationsFileApiService) PublicationsFileFileListRolesExecute(r PublicationsFileApiPublicationsFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileListRolesExecute(r PublicationsFileAPIPublicationsFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -684,7 +684,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileListRolesExecute(r Publ
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -773,27 +773,27 @@ func (a *PublicationsFileApiService) PublicationsFileFileListRolesExecute(r Publ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsFileApiPublicationsFileFileMyPermissionsRequest struct {
+type PublicationsFileAPIPublicationsFileFileMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	fileFilePublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsFileApiPublicationsFileFileMyPermissionsRequest) Fields(fields []string) PublicationsFileApiPublicationsFileFileMyPermissionsRequest {
+func (r PublicationsFileAPIPublicationsFileFileMyPermissionsRequest) Fields(fields []string) PublicationsFileAPIPublicationsFileFileMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsFileApiPublicationsFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) PublicationsFileApiPublicationsFileFileMyPermissionsRequest {
+func (r PublicationsFileAPIPublicationsFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) PublicationsFileAPIPublicationsFileFileMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsFileApiPublicationsFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.PublicationsFileFileMyPermissionsExecute(r)
 }
 
@@ -804,10 +804,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFilePublicationHref
- @return PublicationsFileApiPublicationsFileFileMyPermissionsRequest
+ @return PublicationsFileAPIPublicationsFileFileMyPermissionsRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileMyPermissions(ctx context.Context, fileFilePublicationHref string) PublicationsFileApiPublicationsFileFileMyPermissionsRequest {
-	return PublicationsFileApiPublicationsFileFileMyPermissionsRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileMyPermissions(ctx context.Context, fileFilePublicationHref string) PublicationsFileAPIPublicationsFileFileMyPermissionsRequest {
+	return PublicationsFileAPIPublicationsFileFileMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFilePublicationHref: fileFilePublicationHref,
@@ -816,7 +816,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileMyPermissions(ctx conte
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *PublicationsFileApiService) PublicationsFileFileMyPermissionsExecute(r PublicationsFileApiPublicationsFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileMyPermissionsExecute(r PublicationsFileAPIPublicationsFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -824,7 +824,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileMyPermissionsExecute(r 
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -913,27 +913,27 @@ func (a *PublicationsFileApiService) PublicationsFileFileMyPermissionsExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsFileApiPublicationsFileFileReadRequest struct {
+type PublicationsFileAPIPublicationsFileFileReadRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	fileFilePublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsFileApiPublicationsFileFileReadRequest) Fields(fields []string) PublicationsFileApiPublicationsFileFileReadRequest {
+func (r PublicationsFileAPIPublicationsFileFileReadRequest) Fields(fields []string) PublicationsFileAPIPublicationsFileFileReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsFileApiPublicationsFileFileReadRequest) ExcludeFields(excludeFields []string) PublicationsFileApiPublicationsFileFileReadRequest {
+func (r PublicationsFileAPIPublicationsFileFileReadRequest) ExcludeFields(excludeFields []string) PublicationsFileAPIPublicationsFileFileReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsFileApiPublicationsFileFileReadRequest) Execute() (*FileFilePublicationResponse, *http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileReadRequest) Execute() (*FileFilePublicationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsFileFileReadExecute(r)
 }
 
@@ -947,10 +947,10 @@ File Distribution API.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFilePublicationHref
- @return PublicationsFileApiPublicationsFileFileReadRequest
+ @return PublicationsFileAPIPublicationsFileFileReadRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileRead(ctx context.Context, fileFilePublicationHref string) PublicationsFileApiPublicationsFileFileReadRequest {
-	return PublicationsFileApiPublicationsFileFileReadRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileRead(ctx context.Context, fileFilePublicationHref string) PublicationsFileAPIPublicationsFileFileReadRequest {
+	return PublicationsFileAPIPublicationsFileFileReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFilePublicationHref: fileFilePublicationHref,
@@ -959,7 +959,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileRead(ctx context.Contex
 
 // Execute executes the request
 //  @return FileFilePublicationResponse
-func (a *PublicationsFileApiService) PublicationsFileFileReadExecute(r PublicationsFileApiPublicationsFileFileReadRequest) (*FileFilePublicationResponse, *http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileReadExecute(r PublicationsFileAPIPublicationsFileFileReadRequest) (*FileFilePublicationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -967,7 +967,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileReadExecute(r Publicati
 		localVarReturnValue  *FileFilePublicationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1056,19 +1056,19 @@ func (a *PublicationsFileApiService) PublicationsFileFileReadExecute(r Publicati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsFileApiPublicationsFileFileRemoveRoleRequest struct {
+type PublicationsFileAPIPublicationsFileFileRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *PublicationsFileApiService
+	ApiService *PublicationsFileAPIService
 	fileFilePublicationHref string
 	nestedRole *NestedRole
 }
 
-func (r PublicationsFileApiPublicationsFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) PublicationsFileApiPublicationsFileFileRemoveRoleRequest {
+func (r PublicationsFileAPIPublicationsFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) PublicationsFileAPIPublicationsFileFileRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r PublicationsFileApiPublicationsFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r PublicationsFileAPIPublicationsFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.PublicationsFileFileRemoveRoleExecute(r)
 }
 
@@ -1079,10 +1079,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFilePublicationHref
- @return PublicationsFileApiPublicationsFileFileRemoveRoleRequest
+ @return PublicationsFileAPIPublicationsFileFileRemoveRoleRequest
 */
-func (a *PublicationsFileApiService) PublicationsFileFileRemoveRole(ctx context.Context, fileFilePublicationHref string) PublicationsFileApiPublicationsFileFileRemoveRoleRequest {
-	return PublicationsFileApiPublicationsFileFileRemoveRoleRequest{
+func (a *PublicationsFileAPIService) PublicationsFileFileRemoveRole(ctx context.Context, fileFilePublicationHref string) PublicationsFileAPIPublicationsFileFileRemoveRoleRequest {
+	return PublicationsFileAPIPublicationsFileFileRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFilePublicationHref: fileFilePublicationHref,
@@ -1091,7 +1091,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileRemoveRole(ctx context.
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *PublicationsFileApiService) PublicationsFileFileRemoveRoleExecute(r PublicationsFileApiPublicationsFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *PublicationsFileAPIService) PublicationsFileFileRemoveRoleExecute(r PublicationsFileAPIPublicationsFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1099,7 +1099,7 @@ func (a *PublicationsFileApiService) PublicationsFileFileRemoveRoleExecute(r Pub
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileApiService.PublicationsFileFileRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsFileAPIService.PublicationsFileFileRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

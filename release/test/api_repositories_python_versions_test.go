@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesPythonVersionsApiService
+Testing RepositoriesPythonVersionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesPythonVersionsApiService(t *testing.T) {
+func Test_zest_RepositoriesPythonVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesPythonVersionsApiService RepositoriesPythonPythonVersionsDelete", func(t *testing.T) {
+	t.Run("Test RepositoriesPythonVersionsAPIService RepositoriesPythonPythonVersionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesPythonVersionsApi.RepositoriesPythonPythonVersionsDelete(context.Background(), pythonPythonRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesPythonVersionsAPI.RepositoriesPythonPythonVersionsDelete(context.Background(), pythonPythonRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_RepositoriesPythonVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesPythonVersionsApiService RepositoriesPythonPythonVersionsList", func(t *testing.T) {
+	t.Run("Test RepositoriesPythonVersionsAPIService RepositoriesPythonPythonVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesPythonVersionsApi.RepositoriesPythonPythonVersionsList(context.Background(), pythonPythonRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesPythonVersionsAPI.RepositoriesPythonPythonVersionsList(context.Background(), pythonPythonRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_zest_RepositoriesPythonVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesPythonVersionsApiService RepositoriesPythonPythonVersionsRead", func(t *testing.T) {
+	t.Run("Test RepositoriesPythonVersionsAPIService RepositoriesPythonPythonVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesPythonVersionsApi.RepositoriesPythonPythonVersionsRead(context.Background(), pythonPythonRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesPythonVersionsAPI.RepositoriesPythonPythonVersionsRead(context.Background(), pythonPythonRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_zest_RepositoriesPythonVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesPythonVersionsApiService RepositoriesPythonPythonVersionsRepair", func(t *testing.T) {
+	t.Run("Test RepositoriesPythonVersionsAPIService RepositoriesPythonPythonVersionsRepair", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesPythonVersionsApi.RepositoriesPythonPythonVersionsRepair(context.Background(), pythonPythonRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesPythonVersionsAPI.RepositoriesPythonPythonVersionsRepair(context.Background(), pythonPythonRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

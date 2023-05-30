@@ -22,12 +22,12 @@ import (
 )
 
 
-// ApiRolesApiService ApiRolesApi service
-type ApiRolesApiService service
+// ApiRolesAPIService ApiRolesAPI service
+type ApiRolesAPIService service
 
-type ApiRolesApiApiV1RolesGetRequest struct {
+type ApiRolesAPIApiV1RolesGetRequest struct {
 	ctx context.Context
-	ApiService *ApiRolesApiService
+	ApiService *ApiRolesAPIService
 	ansibleRoleHref string
 	limit *int32
 	offset *int32
@@ -36,30 +36,30 @@ type ApiRolesApiApiV1RolesGetRequest struct {
 }
 
 // Number of results to return per page.
-func (r ApiRolesApiApiV1RolesGetRequest) Limit(limit int32) ApiRolesApiApiV1RolesGetRequest {
+func (r ApiRolesAPIApiV1RolesGetRequest) Limit(limit int32) ApiRolesAPIApiV1RolesGetRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ApiRolesApiApiV1RolesGetRequest) Offset(offset int32) ApiRolesApiApiV1RolesGetRequest {
+func (r ApiRolesAPIApiV1RolesGetRequest) Offset(offset int32) ApiRolesAPIApiV1RolesGetRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ApiRolesApiApiV1RolesGetRequest) Fields(fields []string) ApiRolesApiApiV1RolesGetRequest {
+func (r ApiRolesAPIApiV1RolesGetRequest) Fields(fields []string) ApiRolesAPIApiV1RolesGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ApiRolesApiApiV1RolesGetRequest) ExcludeFields(excludeFields []string) ApiRolesApiApiV1RolesGetRequest {
+func (r ApiRolesAPIApiV1RolesGetRequest) ExcludeFields(excludeFields []string) ApiRolesAPIApiV1RolesGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ApiRolesApiApiV1RolesGetRequest) Execute() (*PaginatedGalaxyRoleResponseList, *http.Response, error) {
+func (r ApiRolesAPIApiV1RolesGetRequest) Execute() (*PaginatedGalaxyRoleResponseList, *http.Response, error) {
 	return r.ApiService.ApiV1RolesGetExecute(r)
 }
 
@@ -70,10 +70,10 @@ APIView for Roles.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleHref
- @return ApiRolesApiApiV1RolesGetRequest
+ @return ApiRolesAPIApiV1RolesGetRequest
 */
-func (a *ApiRolesApiService) ApiV1RolesGet(ctx context.Context, ansibleRoleHref string) ApiRolesApiApiV1RolesGetRequest {
-	return ApiRolesApiApiV1RolesGetRequest{
+func (a *ApiRolesAPIService) ApiV1RolesGet(ctx context.Context, ansibleRoleHref string) ApiRolesAPIApiV1RolesGetRequest {
+	return ApiRolesAPIApiV1RolesGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleHref: ansibleRoleHref,
@@ -82,7 +82,7 @@ func (a *ApiRolesApiService) ApiV1RolesGet(ctx context.Context, ansibleRoleHref 
 
 // Execute executes the request
 //  @return PaginatedGalaxyRoleResponseList
-func (a *ApiRolesApiService) ApiV1RolesGetExecute(r ApiRolesApiApiV1RolesGetRequest) (*PaginatedGalaxyRoleResponseList, *http.Response, error) {
+func (a *ApiRolesAPIService) ApiV1RolesGetExecute(r ApiRolesAPIApiV1RolesGetRequest) (*PaginatedGalaxyRoleResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -90,7 +90,7 @@ func (a *ApiRolesApiService) ApiV1RolesGetExecute(r ApiRolesApiApiV1RolesGetRequ
 		localVarReturnValue  *PaginatedGalaxyRoleResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiRolesApiService.ApiV1RolesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiRolesAPIService.ApiV1RolesGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

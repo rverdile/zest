@@ -23,22 +23,22 @@ import (
 )
 
 
-// AnsibleCollectionsApiService AnsibleCollectionsApi service
-type AnsibleCollectionsApiService service
+// AnsibleCollectionsAPIService AnsibleCollectionsAPI service
+type AnsibleCollectionsAPIService service
 
-type AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest struct {
+type AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest struct {
 	ctx context.Context
-	ApiService *AnsibleCollectionsApiService
+	ApiService *AnsibleCollectionsAPIService
 	ansibleCollectionHref string
 	nestedRole *NestedRole
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest) NestedRole(nestedRole NestedRole) AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest) NestedRole(nestedRole NestedRole) AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.AnsibleCollectionsAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionHref
- @return AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest
+ @return AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest
 */
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsAddRole(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest {
-	return AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest{
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsAddRole(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest {
+	return AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionHref: ansibleCollectionHref,
@@ -61,7 +61,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsAddRole(ctx context.Con
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsAddRoleExecute(r AnsibleCollectionsApiAnsibleCollectionsAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsAddRoleExecute(r AnsibleCollectionsAPIAnsibleCollectionsAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsAddRoleExecute(r Ansibl
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsApiService.AnsibleCollectionsAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsAPIService.AnsibleCollectionsAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,9 +141,9 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsAddRoleExecute(r Ansibl
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AnsibleCollectionsApiAnsibleCollectionsListRequest struct {
+type AnsibleCollectionsAPIAnsibleCollectionsListRequest struct {
 	ctx context.Context
-	ApiService *AnsibleCollectionsApiService
+	ApiService *AnsibleCollectionsAPIService
 	limit *int32
 	name *string
 	namespace *string
@@ -156,58 +156,58 @@ type AnsibleCollectionsApiAnsibleCollectionsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) Limit(limit int32) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) Limit(limit int32) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) Name(name string) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) Name(name string) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.name = &name
 	return r
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) Namespace(namespace string) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) Namespace(namespace string) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // The initial index from which to return the results.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) Offset(offset int32) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) Offset(offset int32) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) Ordering(ordering []string) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) Ordering(ordering []string) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) PulpHrefIn(pulpHrefIn []string) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) PulpHrefIn(pulpHrefIn []string) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) PulpIdIn(pulpIdIn []string) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) PulpIdIn(pulpIdIn []string) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) Fields(fields []string) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) Fields(fields []string) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) ExcludeFields(excludeFields []string) AnsibleCollectionsApiAnsibleCollectionsListRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) ExcludeFields(excludeFields []string) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsListRequest) Execute() (*PaginatedansibleCollectionResponseList, *http.Response, error) {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRequest) Execute() (*PaginatedansibleCollectionResponseList, *http.Response, error) {
 	return r.ApiService.AnsibleCollectionsListExecute(r)
 }
 
@@ -217,10 +217,10 @@ AnsibleCollectionsList List collections
 Viewset for Ansible Collections.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AnsibleCollectionsApiAnsibleCollectionsListRequest
+ @return AnsibleCollectionsAPIAnsibleCollectionsListRequest
 */
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsList(ctx context.Context) AnsibleCollectionsApiAnsibleCollectionsListRequest {
-	return AnsibleCollectionsApiAnsibleCollectionsListRequest{
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsList(ctx context.Context) AnsibleCollectionsAPIAnsibleCollectionsListRequest {
+	return AnsibleCollectionsAPIAnsibleCollectionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -228,7 +228,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsList(ctx context.Contex
 
 // Execute executes the request
 //  @return PaginatedansibleCollectionResponseList
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsListExecute(r AnsibleCollectionsApiAnsibleCollectionsListRequest) (*PaginatedansibleCollectionResponseList, *http.Response, error) {
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsListExecute(r AnsibleCollectionsAPIAnsibleCollectionsListRequest) (*PaginatedansibleCollectionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -236,7 +236,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsListExecute(r AnsibleCo
 		localVarReturnValue  *PaginatedansibleCollectionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsApiService.AnsibleCollectionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsAPIService.AnsibleCollectionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -343,27 +343,27 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsListExecute(r AnsibleCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AnsibleCollectionsApiAnsibleCollectionsListRolesRequest struct {
+type AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest struct {
 	ctx context.Context
-	ApiService *AnsibleCollectionsApiService
+	ApiService *AnsibleCollectionsAPIService
 	ansibleCollectionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRolesRequest) Fields(fields []string) AnsibleCollectionsApiAnsibleCollectionsListRolesRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest) Fields(fields []string) AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AnsibleCollectionsApiAnsibleCollectionsListRolesRequest) ExcludeFields(excludeFields []string) AnsibleCollectionsApiAnsibleCollectionsListRolesRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest) ExcludeFields(excludeFields []string) AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.AnsibleCollectionsListRolesExecute(r)
 }
 
@@ -374,10 +374,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionHref
- @return AnsibleCollectionsApiAnsibleCollectionsListRolesRequest
+ @return AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest
 */
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsListRoles(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsApiAnsibleCollectionsListRolesRequest {
-	return AnsibleCollectionsApiAnsibleCollectionsListRolesRequest{
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsListRoles(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest {
+	return AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionHref: ansibleCollectionHref,
@@ -386,7 +386,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsListRoles(ctx context.C
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsListRolesExecute(r AnsibleCollectionsApiAnsibleCollectionsListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsListRolesExecute(r AnsibleCollectionsAPIAnsibleCollectionsListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -394,7 +394,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsListRolesExecute(r Ansi
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsApiService.AnsibleCollectionsListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsAPIService.AnsibleCollectionsListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -483,27 +483,27 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsListRolesExecute(r Ansi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest struct {
+type AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *AnsibleCollectionsApiService
+	ApiService *AnsibleCollectionsAPIService
 	ansibleCollectionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest) Fields(fields []string) AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest) Fields(fields []string) AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest) ExcludeFields(excludeFields []string) AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest) ExcludeFields(excludeFields []string) AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.AnsibleCollectionsMyPermissionsExecute(r)
 }
 
@@ -514,10 +514,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionHref
- @return AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest
+ @return AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest
 */
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsMyPermissions(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest {
-	return AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest{
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsMyPermissions(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest {
+	return AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionHref: ansibleCollectionHref,
@@ -526,7 +526,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsMyPermissions(ctx conte
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsMyPermissionsExecute(r AnsibleCollectionsApiAnsibleCollectionsMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsMyPermissionsExecute(r AnsibleCollectionsAPIAnsibleCollectionsMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -534,7 +534,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsMyPermissionsExecute(r 
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsApiService.AnsibleCollectionsMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsAPIService.AnsibleCollectionsMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -623,19 +623,19 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsMyPermissionsExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest struct {
+type AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *AnsibleCollectionsApiService
+	ApiService *AnsibleCollectionsAPIService
 	ansibleCollectionHref string
 	nestedRole *NestedRole
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest) NestedRole(nestedRole NestedRole) AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest {
+func (r AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest) NestedRole(nestedRole NestedRole) AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.AnsibleCollectionsRemoveRoleExecute(r)
 }
 
@@ -646,10 +646,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionHref
- @return AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest
+ @return AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest
 */
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsRemoveRole(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest {
-	return AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest{
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsRemoveRole(ctx context.Context, ansibleCollectionHref string) AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest {
+	return AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionHref: ansibleCollectionHref,
@@ -658,7 +658,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsRemoveRole(ctx context.
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *AnsibleCollectionsApiService) AnsibleCollectionsRemoveRoleExecute(r AnsibleCollectionsApiAnsibleCollectionsRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *AnsibleCollectionsAPIService) AnsibleCollectionsRemoveRoleExecute(r AnsibleCollectionsAPIAnsibleCollectionsRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -666,7 +666,7 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsRemoveRoleExecute(r Ans
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsApiService.AnsibleCollectionsRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsAPIService.AnsibleCollectionsRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -738,9 +738,9 @@ func (a *AnsibleCollectionsApiService) AnsibleCollectionsRemoveRoleExecute(r Ans
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AnsibleCollectionsApiUploadCollectionRequest struct {
+type AnsibleCollectionsAPIUploadCollectionRequest struct {
 	ctx context.Context
-	ApiService *AnsibleCollectionsApiService
+	ApiService *AnsibleCollectionsAPIService
 	file *os.File
 	sha256 *string
 	expectedNamespace *string
@@ -749,36 +749,36 @@ type AnsibleCollectionsApiUploadCollectionRequest struct {
 }
 
 // The Collection tarball.
-func (r AnsibleCollectionsApiUploadCollectionRequest) File(file *os.File) AnsibleCollectionsApiUploadCollectionRequest {
+func (r AnsibleCollectionsAPIUploadCollectionRequest) File(file *os.File) AnsibleCollectionsAPIUploadCollectionRequest {
 	r.file = file
 	return r
 }
 
 // An optional sha256 checksum of the uploaded file.
-func (r AnsibleCollectionsApiUploadCollectionRequest) Sha256(sha256 string) AnsibleCollectionsApiUploadCollectionRequest {
+func (r AnsibleCollectionsAPIUploadCollectionRequest) Sha256(sha256 string) AnsibleCollectionsAPIUploadCollectionRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // The expected &#39;namespace&#39; of the Collection to be verified against the metadata during import.
-func (r AnsibleCollectionsApiUploadCollectionRequest) ExpectedNamespace(expectedNamespace string) AnsibleCollectionsApiUploadCollectionRequest {
+func (r AnsibleCollectionsAPIUploadCollectionRequest) ExpectedNamespace(expectedNamespace string) AnsibleCollectionsAPIUploadCollectionRequest {
 	r.expectedNamespace = &expectedNamespace
 	return r
 }
 
 // The expected &#39;name&#39; of the Collection to be verified against the metadata during import.
-func (r AnsibleCollectionsApiUploadCollectionRequest) ExpectedName(expectedName string) AnsibleCollectionsApiUploadCollectionRequest {
+func (r AnsibleCollectionsAPIUploadCollectionRequest) ExpectedName(expectedName string) AnsibleCollectionsAPIUploadCollectionRequest {
 	r.expectedName = &expectedName
 	return r
 }
 
 // The expected version of the Collection to be verified against the metadata during import.
-func (r AnsibleCollectionsApiUploadCollectionRequest) ExpectedVersion(expectedVersion string) AnsibleCollectionsApiUploadCollectionRequest {
+func (r AnsibleCollectionsAPIUploadCollectionRequest) ExpectedVersion(expectedVersion string) AnsibleCollectionsAPIUploadCollectionRequest {
 	r.expectedVersion = &expectedVersion
 	return r
 }
 
-func (r AnsibleCollectionsApiUploadCollectionRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AnsibleCollectionsAPIUploadCollectionRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.UploadCollectionExecute(r)
 }
 
@@ -788,12 +788,12 @@ UploadCollection Upload a collection
 Create an artifact and trigger an asynchronous task to create Collection content from it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AnsibleCollectionsApiUploadCollectionRequest
+ @return AnsibleCollectionsAPIUploadCollectionRequest
 
 Deprecated
 */
-func (a *AnsibleCollectionsApiService) UploadCollection(ctx context.Context) AnsibleCollectionsApiUploadCollectionRequest {
-	return AnsibleCollectionsApiUploadCollectionRequest{
+func (a *AnsibleCollectionsAPIService) UploadCollection(ctx context.Context) AnsibleCollectionsAPIUploadCollectionRequest {
+	return AnsibleCollectionsAPIUploadCollectionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -802,7 +802,7 @@ func (a *AnsibleCollectionsApiService) UploadCollection(ctx context.Context) Ans
 // Execute executes the request
 //  @return AsyncOperationResponse
 // Deprecated
-func (a *AnsibleCollectionsApiService) UploadCollectionExecute(r AnsibleCollectionsApiUploadCollectionRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AnsibleCollectionsAPIService) UploadCollectionExecute(r AnsibleCollectionsAPIUploadCollectionRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -810,7 +810,7 @@ func (a *AnsibleCollectionsApiService) UploadCollectionExecute(r AnsibleCollecti
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsApiService.UploadCollection")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCollectionsAPIService.UploadCollection")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

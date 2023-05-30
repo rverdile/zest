@@ -23,21 +23,21 @@ import (
 )
 
 
-// PublicationsAptApiService PublicationsAptApi service
-type PublicationsAptApiService service
+// PublicationsAptAPIService PublicationsAptAPI service
+type PublicationsAptAPIService service
 
-type PublicationsAptApiPublicationsDebAptCreateRequest struct {
+type PublicationsAptAPIPublicationsDebAptCreateRequest struct {
 	ctx context.Context
-	ApiService *PublicationsAptApiService
+	ApiService *PublicationsAptAPIService
 	debAptPublication *DebAptPublication
 }
 
-func (r PublicationsAptApiPublicationsDebAptCreateRequest) DebAptPublication(debAptPublication DebAptPublication) PublicationsAptApiPublicationsDebAptCreateRequest {
+func (r PublicationsAptAPIPublicationsDebAptCreateRequest) DebAptPublication(debAptPublication DebAptPublication) PublicationsAptAPIPublicationsDebAptCreateRequest {
 	r.debAptPublication = &debAptPublication
 	return r
 }
 
-func (r PublicationsAptApiPublicationsDebAptCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PublicationsAptAPIPublicationsDebAptCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsDebAptCreateExecute(r)
 }
 
@@ -47,10 +47,10 @@ PublicationsDebAptCreate Create an apt publication
 Trigger an asynchronous task to publish content
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsAptApiPublicationsDebAptCreateRequest
+ @return PublicationsAptAPIPublicationsDebAptCreateRequest
 */
-func (a *PublicationsAptApiService) PublicationsDebAptCreate(ctx context.Context) PublicationsAptApiPublicationsDebAptCreateRequest {
-	return PublicationsAptApiPublicationsDebAptCreateRequest{
+func (a *PublicationsAptAPIService) PublicationsDebAptCreate(ctx context.Context) PublicationsAptAPIPublicationsDebAptCreateRequest {
+	return PublicationsAptAPIPublicationsDebAptCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *PublicationsAptApiService) PublicationsDebAptCreate(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PublicationsAptApiService) PublicationsDebAptCreateExecute(r PublicationsAptApiPublicationsDebAptCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PublicationsAptAPIService) PublicationsDebAptCreateExecute(r PublicationsAptAPIPublicationsDebAptCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *PublicationsAptApiService) PublicationsDebAptCreateExecute(r Publicatio
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptApiService.PublicationsDebAptCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptAPIService.PublicationsDebAptCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,13 +135,13 @@ func (a *PublicationsAptApiService) PublicationsDebAptCreateExecute(r Publicatio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsAptApiPublicationsDebAptDeleteRequest struct {
+type PublicationsAptAPIPublicationsDebAptDeleteRequest struct {
 	ctx context.Context
-	ApiService *PublicationsAptApiService
+	ApiService *PublicationsAptAPIService
 	debAptPublicationHref string
 }
 
-func (r PublicationsAptApiPublicationsDebAptDeleteRequest) Execute() (*http.Response, error) {
+func (r PublicationsAptAPIPublicationsDebAptDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PublicationsDebAptDeleteExecute(r)
 }
 
@@ -158,10 +158,10 @@ can be served by creating a Pulp distribution (in a near atomic action).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptPublicationHref
- @return PublicationsAptApiPublicationsDebAptDeleteRequest
+ @return PublicationsAptAPIPublicationsDebAptDeleteRequest
 */
-func (a *PublicationsAptApiService) PublicationsDebAptDelete(ctx context.Context, debAptPublicationHref string) PublicationsAptApiPublicationsDebAptDeleteRequest {
-	return PublicationsAptApiPublicationsDebAptDeleteRequest{
+func (a *PublicationsAptAPIService) PublicationsDebAptDelete(ctx context.Context, debAptPublicationHref string) PublicationsAptAPIPublicationsDebAptDeleteRequest {
+	return PublicationsAptAPIPublicationsDebAptDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptPublicationHref: debAptPublicationHref,
@@ -169,14 +169,14 @@ func (a *PublicationsAptApiService) PublicationsDebAptDelete(ctx context.Context
 }
 
 // Execute executes the request
-func (a *PublicationsAptApiService) PublicationsDebAptDeleteExecute(r PublicationsAptApiPublicationsDebAptDeleteRequest) (*http.Response, error) {
+func (a *PublicationsAptAPIService) PublicationsDebAptDeleteExecute(r PublicationsAptAPIPublicationsDebAptDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptApiService.PublicationsDebAptDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptAPIService.PublicationsDebAptDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -234,9 +234,9 @@ func (a *PublicationsAptApiService) PublicationsDebAptDeleteExecute(r Publicatio
 	return localVarHTTPResponse, nil
 }
 
-type PublicationsAptApiPublicationsDebAptListRequest struct {
+type PublicationsAptAPIPublicationsDebAptListRequest struct {
 	ctx context.Context
-	ApiService *PublicationsAptApiService
+	ApiService *PublicationsAptAPIService
 	content *string
 	contentIn *string
 	limit *int32
@@ -257,108 +257,108 @@ type PublicationsAptApiPublicationsDebAptListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsAptApiPublicationsDebAptListRequest) Content(content string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) Content(content string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsAptApiPublicationsDebAptListRequest) ContentIn(contentIn string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) ContentIn(contentIn string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r PublicationsAptApiPublicationsDebAptListRequest) Limit(limit int32) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) Limit(limit int32) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PublicationsAptApiPublicationsDebAptListRequest) Offset(offset int32) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) Offset(offset int32) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PublicationsAptApiPublicationsDebAptListRequest) Ordering(ordering []string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) Ordering(ordering []string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpCreated(pulpCreated time.Time) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpCreated(pulpCreated time.Time) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsAptApiPublicationsDebAptListRequest) PulpIdIn(pulpIdIn []string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) PulpIdIn(pulpIdIn []string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository referenced by HREF
-func (r PublicationsAptApiPublicationsDebAptListRequest) Repository(repository string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) Repository(repository string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PublicationsAptApiPublicationsDebAptListRequest) RepositoryVersion(repositoryVersion string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) RepositoryVersion(repositoryVersion string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PublicationsAptApiPublicationsDebAptListRequest) Fields(fields []string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) Fields(fields []string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsAptApiPublicationsDebAptListRequest) ExcludeFields(excludeFields []string) PublicationsAptApiPublicationsDebAptListRequest {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) ExcludeFields(excludeFields []string) PublicationsAptAPIPublicationsDebAptListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsAptApiPublicationsDebAptListRequest) Execute() (*PaginateddebAptPublicationResponseList, *http.Response, error) {
+func (r PublicationsAptAPIPublicationsDebAptListRequest) Execute() (*PaginateddebAptPublicationResponseList, *http.Response, error) {
 	return r.ApiService.PublicationsDebAptListExecute(r)
 }
 
@@ -374,10 +374,10 @@ publishing content obtained via synchronization. Once a Pulp publication has bee
 can be served by creating a Pulp distribution (in a near atomic action).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsAptApiPublicationsDebAptListRequest
+ @return PublicationsAptAPIPublicationsDebAptListRequest
 */
-func (a *PublicationsAptApiService) PublicationsDebAptList(ctx context.Context) PublicationsAptApiPublicationsDebAptListRequest {
-	return PublicationsAptApiPublicationsDebAptListRequest{
+func (a *PublicationsAptAPIService) PublicationsDebAptList(ctx context.Context) PublicationsAptAPIPublicationsDebAptListRequest {
+	return PublicationsAptAPIPublicationsDebAptListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -385,7 +385,7 @@ func (a *PublicationsAptApiService) PublicationsDebAptList(ctx context.Context) 
 
 // Execute executes the request
 //  @return PaginateddebAptPublicationResponseList
-func (a *PublicationsAptApiService) PublicationsDebAptListExecute(r PublicationsAptApiPublicationsDebAptListRequest) (*PaginateddebAptPublicationResponseList, *http.Response, error) {
+func (a *PublicationsAptAPIService) PublicationsDebAptListExecute(r PublicationsAptAPIPublicationsDebAptListRequest) (*PaginateddebAptPublicationResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -393,7 +393,7 @@ func (a *PublicationsAptApiService) PublicationsDebAptListExecute(r Publications
 		localVarReturnValue  *PaginateddebAptPublicationResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptApiService.PublicationsDebAptList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptAPIService.PublicationsDebAptList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -524,27 +524,27 @@ func (a *PublicationsAptApiService) PublicationsDebAptListExecute(r Publications
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsAptApiPublicationsDebAptReadRequest struct {
+type PublicationsAptAPIPublicationsDebAptReadRequest struct {
 	ctx context.Context
-	ApiService *PublicationsAptApiService
+	ApiService *PublicationsAptAPIService
 	debAptPublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsAptApiPublicationsDebAptReadRequest) Fields(fields []string) PublicationsAptApiPublicationsDebAptReadRequest {
+func (r PublicationsAptAPIPublicationsDebAptReadRequest) Fields(fields []string) PublicationsAptAPIPublicationsDebAptReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsAptApiPublicationsDebAptReadRequest) ExcludeFields(excludeFields []string) PublicationsAptApiPublicationsDebAptReadRequest {
+func (r PublicationsAptAPIPublicationsDebAptReadRequest) ExcludeFields(excludeFields []string) PublicationsAptAPIPublicationsDebAptReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsAptApiPublicationsDebAptReadRequest) Execute() (*DebAptPublicationResponse, *http.Response, error) {
+func (r PublicationsAptAPIPublicationsDebAptReadRequest) Execute() (*DebAptPublicationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsDebAptReadExecute(r)
 }
 
@@ -561,10 +561,10 @@ can be served by creating a Pulp distribution (in a near atomic action).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptPublicationHref
- @return PublicationsAptApiPublicationsDebAptReadRequest
+ @return PublicationsAptAPIPublicationsDebAptReadRequest
 */
-func (a *PublicationsAptApiService) PublicationsDebAptRead(ctx context.Context, debAptPublicationHref string) PublicationsAptApiPublicationsDebAptReadRequest {
-	return PublicationsAptApiPublicationsDebAptReadRequest{
+func (a *PublicationsAptAPIService) PublicationsDebAptRead(ctx context.Context, debAptPublicationHref string) PublicationsAptAPIPublicationsDebAptReadRequest {
+	return PublicationsAptAPIPublicationsDebAptReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptPublicationHref: debAptPublicationHref,
@@ -573,7 +573,7 @@ func (a *PublicationsAptApiService) PublicationsDebAptRead(ctx context.Context, 
 
 // Execute executes the request
 //  @return DebAptPublicationResponse
-func (a *PublicationsAptApiService) PublicationsDebAptReadExecute(r PublicationsAptApiPublicationsDebAptReadRequest) (*DebAptPublicationResponse, *http.Response, error) {
+func (a *PublicationsAptAPIService) PublicationsDebAptReadExecute(r PublicationsAptAPIPublicationsDebAptReadRequest) (*DebAptPublicationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -581,7 +581,7 @@ func (a *PublicationsAptApiService) PublicationsDebAptReadExecute(r Publications
 		localVarReturnValue  *DebAptPublicationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptApiService.PublicationsDebAptRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAptAPIService.PublicationsDebAptRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

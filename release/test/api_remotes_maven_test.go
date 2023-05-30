@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RemotesMavenApiService
+Testing RemotesMavenAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RemotesMavenApiService(t *testing.T) {
+func Test_zest_RemotesMavenAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RemotesMavenApiService RemotesMavenMavenCreate", func(t *testing.T) {
+	t.Run("Test RemotesMavenAPIService RemotesMavenMavenCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesMavenApi.RemotesMavenMavenCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesMavenAPI.RemotesMavenMavenCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_RemotesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesMavenApiService RemotesMavenMavenDelete", func(t *testing.T) {
+	t.Run("Test RemotesMavenAPIService RemotesMavenMavenDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesMavenApi.RemotesMavenMavenDelete(context.Background(), mavenMavenRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesMavenAPI.RemotesMavenMavenDelete(context.Background(), mavenMavenRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_RemotesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesMavenApiService RemotesMavenMavenList", func(t *testing.T) {
+	t.Run("Test RemotesMavenAPIService RemotesMavenMavenList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesMavenApi.RemotesMavenMavenList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesMavenAPI.RemotesMavenMavenList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_RemotesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesMavenApiService RemotesMavenMavenPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var mavenMavenRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesMavenApi.RemotesMavenMavenPartialUpdate(context.Background(), mavenMavenRemoteHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesMavenApiService RemotesMavenMavenRead", func(t *testing.T) {
+	t.Run("Test RemotesMavenAPIService RemotesMavenMavenPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesMavenApi.RemotesMavenMavenRead(context.Background(), mavenMavenRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesMavenAPI.RemotesMavenMavenPartialUpdate(context.Background(), mavenMavenRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_RemotesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesMavenApiService RemotesMavenMavenUpdate", func(t *testing.T) {
+	t.Run("Test RemotesMavenAPIService RemotesMavenMavenRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesMavenApi.RemotesMavenMavenUpdate(context.Background(), mavenMavenRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesMavenAPI.RemotesMavenMavenRead(context.Background(), mavenMavenRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesMavenAPIService RemotesMavenMavenUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var mavenMavenRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesMavenAPI.RemotesMavenMavenUpdate(context.Background(), mavenMavenRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

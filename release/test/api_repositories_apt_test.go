@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesAptApiService
+Testing RepositoriesAptAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesAptApiService(t *testing.T) {
+func Test_zest_RepositoriesAptAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptCreate", func(t *testing.T) {
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_RepositoriesAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptDelete", func(t *testing.T) {
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptDelete(context.Background(), debAptRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptDelete(context.Background(), debAptRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_RepositoriesAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptList", func(t *testing.T) {
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_RepositoriesAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptModify", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var debAptRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptModify(context.Background(), debAptRepositoryHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptPartialUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptModify", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptPartialUpdate(context.Background(), debAptRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptModify(context.Background(), debAptRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,13 @@ func Test_zest_RepositoriesAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptRead", func(t *testing.T) {
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptRead(context.Background(), debAptRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptPartialUpdate(context.Background(), debAptRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +88,13 @@ func Test_zest_RepositoriesAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptSync", func(t *testing.T) {
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptSync(context.Background(), debAptRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptRead(context.Background(), debAptRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +102,27 @@ func Test_zest_RepositoriesAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAptApiService RepositoriesDebAptUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptSync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAptApi.RepositoriesDebAptUpdate(context.Background(), debAptRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptSync(context.Background(), debAptRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesAptAPIService RepositoriesDebAptUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var debAptRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesAptAPI.RepositoriesDebAptUpdate(context.Background(), debAptRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

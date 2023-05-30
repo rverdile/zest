@@ -23,16 +23,16 @@ import (
 )
 
 
-// RepositoriesPythonVersionsApiService RepositoriesPythonVersionsApi service
-type RepositoriesPythonVersionsApiService service
+// RepositoriesPythonVersionsAPIService RepositoriesPythonVersionsAPI service
+type RepositoriesPythonVersionsAPIService service
 
-type RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsDeleteRequest struct {
+type RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonVersionsApiService
+	ApiService *RepositoriesPythonVersionsAPIService
 	pythonPythonRepositoryVersionHref string
 }
 
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonVersionsDeleteExecute(r)
 }
 
@@ -43,10 +43,10 @@ Trigger an asynchronous task to delete a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryVersionHref
- @return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsDeleteRequest
+ @return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsDeleteRequest
 */
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsDelete(ctx context.Context, pythonPythonRepositoryVersionHref string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsDeleteRequest {
-	return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsDeleteRequest{
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsDelete(ctx context.Context, pythonPythonRepositoryVersionHref string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsDeleteRequest {
+	return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryVersionHref: pythonPythonRepositoryVersionHref,
@@ -55,7 +55,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsD
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsDeleteExecute(r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsDeleteExecute(r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsD
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsApiService.RepositoriesPythonPythonVersionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsAPIService.RepositoriesPythonPythonVersionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -130,9 +130,9 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest struct {
+type RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonVersionsApiService
+	ApiService *RepositoriesPythonVersionsAPIService
 	pythonPythonRepositoryHref string
 	content *string
 	contentIn *string
@@ -157,126 +157,126 @@ type RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest st
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) Content(content string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) Content(content string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) ContentIn(contentIn string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) ContentIn(contentIn string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) Limit(limit int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) Limit(limit int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where number matches value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) Number(number int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) Number(number int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.number = &number
 	return r
 }
 
 // Filter results where number is greater than value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) NumberGt(numberGt int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) NumberGt(numberGt int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.numberGt = &numberGt
 	return r
 }
 
 // Filter results where number is greater than or equal to value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) NumberGte(numberGte int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) NumberGte(numberGte int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.numberGte = &numberGte
 	return r
 }
 
 // Filter results where number is less than value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) NumberLt(numberLt int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) NumberLt(numberLt int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.numberLt = &numberLt
 	return r
 }
 
 // Filter results where number is less than or equal to value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) NumberLte(numberLte int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) NumberLte(numberLte int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.numberLte = &numberLte
 	return r
 }
 
 // Filter results where number is between two comma separated values
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) NumberRange(numberRange []int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) NumberRange(numberRange []int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.numberRange = &numberRange
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) Offset(offset int32) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) Offset(offset int32) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) Ordering(ordering []string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) Ordering(ordering []string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) Fields(fields []string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) Fields(fields []string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonVersionsListExecute(r)
 }
 
@@ -287,10 +287,10 @@ PythonRepositoryVersion represents a single Python repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryHref
- @return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest
+ @return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest
 */
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsList(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest {
-	return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest{
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsList(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest {
+	return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryHref: pythonPythonRepositoryHref,
@@ -299,7 +299,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsL
 
 // Execute executes the request
 //  @return PaginatedRepositoryVersionResponseList
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsListExecute(r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsListExecute(r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -307,7 +307,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsL
 		localVarReturnValue  *PaginatedRepositoryVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsApiService.RepositoriesPythonPythonVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsAPIService.RepositoriesPythonPythonVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -450,27 +450,27 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest struct {
+type RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonVersionsApiService
+	ApiService *RepositoriesPythonVersionsAPIService
 	pythonPythonRepositoryVersionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest) Fields(fields []string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest) Fields(fields []string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonVersionsReadExecute(r)
 }
 
@@ -481,10 +481,10 @@ PythonRepositoryVersion represents a single Python repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryVersionHref
- @return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest
+ @return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest
 */
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsRead(ctx context.Context, pythonPythonRepositoryVersionHref string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest {
-	return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest{
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsRead(ctx context.Context, pythonPythonRepositoryVersionHref string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest {
+	return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryVersionHref: pythonPythonRepositoryVersionHref,
@@ -493,7 +493,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsR
 
 // Execute executes the request
 //  @return RepositoryVersionResponse
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsReadExecute(r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsReadExecute(r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -501,7 +501,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsR
 		localVarReturnValue  *RepositoryVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsApiService.RepositoriesPythonPythonVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsAPIService.RepositoriesPythonPythonVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -590,19 +590,19 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest struct {
+type RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonVersionsApiService
+	ApiService *RepositoriesPythonVersionsAPIService
 	pythonPythonRepositoryVersionHref string
 	repair *Repair
 }
 
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest) Repair(repair Repair) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest) Repair(repair Repair) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest {
 	r.repair = &repair
 	return r
 }
 
-func (r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonVersionsRepairExecute(r)
 }
 
@@ -613,10 +613,10 @@ Trigger an asynchronous task to repair a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryVersionHref
- @return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest
+ @return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest
 */
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsRepair(ctx context.Context, pythonPythonRepositoryVersionHref string) RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest {
-	return RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest{
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsRepair(ctx context.Context, pythonPythonRepositoryVersionHref string) RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest {
+	return RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryVersionHref: pythonPythonRepositoryVersionHref,
@@ -625,7 +625,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsR
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsRepairExecute(r RepositoriesPythonVersionsApiRepositoriesPythonPythonVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesPythonVersionsAPIService) RepositoriesPythonPythonVersionsRepairExecute(r RepositoriesPythonVersionsAPIRepositoriesPythonPythonVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -633,7 +633,7 @@ func (a *RepositoriesPythonVersionsApiService) RepositoriesPythonPythonVersionsR
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsApiService.RepositoriesPythonPythonVersionsRepair")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonVersionsAPIService.RepositoriesPythonPythonVersionsRepair")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

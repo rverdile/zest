@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentRepoMetadataFilesApiService ContentRepoMetadataFilesApi service
-type ContentRepoMetadataFilesApiService service
+// ContentRepoMetadataFilesAPIService ContentRepoMetadataFilesAPI service
+type ContentRepoMetadataFilesAPIService service
 
-type ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest struct {
+type ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest struct {
 	ctx context.Context
-	ApiService *ContentRepoMetadataFilesApiService
+	ApiService *ContentRepoMetadataFilesAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) Limit(limit int32) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) Limit(limit int32) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) Offset(offset int32) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) Offset(offset int32) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) Ordering(ordering []string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) Ordering(ordering []string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) PulpHrefIn(pulpHrefIn []string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) PulpHrefIn(pulpHrefIn []string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) PulpIdIn(pulpIdIn []string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) PulpIdIn(pulpIdIn []string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) RepositoryVersion(repositoryVersion string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) RepositoryVersion(repositoryVersion string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) Fields(fields []string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) Fields(fields []string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) ExcludeFields(excludeFields []string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) ExcludeFields(excludeFields []string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) Execute() (*PaginatedrpmRepoMetadataFileResponseList, *http.Response, error) {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) Execute() (*PaginatedrpmRepoMetadataFileResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmRepoMetadataFilesListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentRpmRepoMetadataFilesList List repo metadata files
 RepoMetadataFile Viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest
+ @return ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest
 */
-func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesList(ctx context.Context) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest {
-	return ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest{
+func (a *ContentRepoMetadataFilesAPIService) ContentRpmRepoMetadataFilesList(ctx context.Context) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
+	return ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesList(ctx
 
 // Execute executes the request
 //  @return PaginatedrpmRepoMetadataFileResponseList
-func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesListExecute(r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesListRequest) (*PaginatedrpmRepoMetadataFileResponseList, *http.Response, error) {
+func (a *ContentRepoMetadataFilesAPIService) ContentRpmRepoMetadataFilesListExecute(r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest) (*PaginatedrpmRepoMetadataFileResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesListExec
 		localVarReturnValue  *PaginatedrpmRepoMetadataFileResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRepoMetadataFilesApiService.ContentRpmRepoMetadataFilesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRepoMetadataFilesAPIService.ContentRpmRepoMetadataFilesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest struct {
+type ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentRepoMetadataFilesApiService
+	ApiService *ContentRepoMetadataFilesAPIService
 	rpmRepoMetadataFileHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest) Fields(fields []string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest) Fields(fields []string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest) ExcludeFields(excludeFields []string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest) ExcludeFields(excludeFields []string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest) Execute() (*RpmRepoMetadataFileResponse, *http.Response, error) {
+func (r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest) Execute() (*RpmRepoMetadataFileResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmRepoMetadataFilesReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ RepoMetadataFile Viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRepoMetadataFileHref
- @return ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest
+ @return ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest
 */
-func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesRead(ctx context.Context, rpmRepoMetadataFileHref string) ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest {
-	return ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest{
+func (a *ContentRepoMetadataFilesAPIService) ContentRpmRepoMetadataFilesRead(ctx context.Context, rpmRepoMetadataFileHref string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest {
+	return ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRepoMetadataFileHref: rpmRepoMetadataFileHref,
@@ -282,7 +282,7 @@ func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesRead(ctx
 
 // Execute executes the request
 //  @return RpmRepoMetadataFileResponse
-func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesReadExecute(r ContentRepoMetadataFilesApiContentRpmRepoMetadataFilesReadRequest) (*RpmRepoMetadataFileResponse, *http.Response, error) {
+func (a *ContentRepoMetadataFilesAPIService) ContentRpmRepoMetadataFilesReadExecute(r ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesReadRequest) (*RpmRepoMetadataFileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentRepoMetadataFilesApiService) ContentRpmRepoMetadataFilesReadExec
 		localVarReturnValue  *RpmRepoMetadataFileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRepoMetadataFilesApiService.ContentRpmRepoMetadataFilesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRepoMetadataFilesAPIService.ContentRpmRepoMetadataFilesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

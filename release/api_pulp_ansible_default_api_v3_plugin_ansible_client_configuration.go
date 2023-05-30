@@ -20,15 +20,15 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi service
-type PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService service
+// PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPI service
+type PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService service
 
-type PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest struct {
+type PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService
+	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService
 }
 
-func (r PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest) Execute() (*ClientConfigurationResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest) Execute() (*ClientConfigurationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadExecute(r)
 }
 
@@ -38,10 +38,10 @@ PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead Method for Pul
 Return configurations for the ansible-galaxy client.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest
+ @return PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest
 */
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead(ctx context.Context) PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest {
-	return PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest{
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead(ctx context.Context) PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest {
+	return PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -49,7 +49,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService) Pulp
 
 // Execute executes the request
 //  @return ClientConfigurationResponse
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadExecute(r PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest) (*ClientConfigurationResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadExecute(r PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationReadRequest) (*ClientConfigurationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -57,7 +57,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService) Pulp
 		localVarReturnValue  *ClientConfigurationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

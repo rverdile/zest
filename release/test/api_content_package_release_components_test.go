@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentPackageReleaseComponentsApiService
+Testing ContentPackageReleaseComponentsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentPackageReleaseComponentsApiService(t *testing.T) {
+func Test_zest_ContentPackageReleaseComponentsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentPackageReleaseComponentsApiService ContentDebPackageReleaseComponentsCreate", func(t *testing.T) {
+	t.Run("Test ContentPackageReleaseComponentsAPIService ContentDebPackageReleaseComponentsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackageReleaseComponentsApi.ContentDebPackageReleaseComponentsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackageReleaseComponentsAPI.ContentDebPackageReleaseComponentsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentPackageReleaseComponentsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackageReleaseComponentsApiService ContentDebPackageReleaseComponentsList", func(t *testing.T) {
+	t.Run("Test ContentPackageReleaseComponentsAPIService ContentDebPackageReleaseComponentsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackageReleaseComponentsApi.ContentDebPackageReleaseComponentsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackageReleaseComponentsAPI.ContentDebPackageReleaseComponentsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentPackageReleaseComponentsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackageReleaseComponentsApiService ContentDebPackageReleaseComponentsRead", func(t *testing.T) {
+	t.Run("Test ContentPackageReleaseComponentsAPIService ContentDebPackageReleaseComponentsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debPackageReleaseComponentHref string
 
-		resp, httpRes, err := apiClient.ContentPackageReleaseComponentsApi.ContentDebPackageReleaseComponentsRead(context.Background(), debPackageReleaseComponentHref).Execute()
+		resp, httpRes, err := apiClient.ContentPackageReleaseComponentsAPI.ContentDebPackageReleaseComponentsRead(context.Background(), debPackageReleaseComponentHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing GalaxyDetailApiService
+Testing GalaxyDetailAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_GalaxyDetailApiService(t *testing.T) {
+func Test_zest_GalaxyDetailAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test GalaxyDetailApiService GalaxyCollectionDetailGet", func(t *testing.T) {
+	t.Run("Test GalaxyDetailAPIService GalaxyCollectionDetailGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionHref string
 
-		resp, httpRes, err := apiClient.GalaxyDetailApi.GalaxyCollectionDetailGet(context.Background(), ansibleCollectionHref).Execute()
+		resp, httpRes, err := apiClient.GalaxyDetailAPI.GalaxyCollectionDetailGet(context.Background(), ansibleCollectionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,30 +22,30 @@ import (
 )
 
 
-// PulpAnsibleApiV3ApiService PulpAnsibleApiV3Api service
-type PulpAnsibleApiV3ApiService service
+// PulpAnsibleApiV3APIService PulpAnsibleApiV3API service
+type PulpAnsibleApiV3APIService service
 
-type PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest struct {
+type PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3ApiService
+	ApiService *PulpAnsibleApiV3APIService
 	path string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest) Fields(fields []string) PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest {
+func (r PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest) Fields(fields []string) PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest {
+func (r PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest) Execute() (*RepoMetadataResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest) Execute() (*RepoMetadataResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3ReadExecute(r)
 }
 
@@ -56,12 +56,12 @@ Legacy v3 endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest
+ @return PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest
 
 Deprecated
 */
-func (a *PulpAnsibleApiV3ApiService) PulpAnsibleGalaxyApiV3Read(ctx context.Context, path string) PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest {
-	return PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest{
+func (a *PulpAnsibleApiV3APIService) PulpAnsibleGalaxyApiV3Read(ctx context.Context, path string) PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest {
+	return PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -71,7 +71,7 @@ func (a *PulpAnsibleApiV3ApiService) PulpAnsibleGalaxyApiV3Read(ctx context.Cont
 // Execute executes the request
 //  @return RepoMetadataResponse
 // Deprecated
-func (a *PulpAnsibleApiV3ApiService) PulpAnsibleGalaxyApiV3ReadExecute(r PulpAnsibleApiV3ApiPulpAnsibleGalaxyApiV3ReadRequest) (*RepoMetadataResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3APIService) PulpAnsibleGalaxyApiV3ReadExecute(r PulpAnsibleApiV3APIPulpAnsibleGalaxyApiV3ReadRequest) (*RepoMetadataResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -79,7 +79,7 @@ func (a *PulpAnsibleApiV3ApiService) PulpAnsibleGalaxyApiV3ReadExecute(r PulpAns
 		localVarReturnValue  *RepoMetadataResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3ApiService.PulpAnsibleGalaxyApiV3Read")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3APIService.PulpAnsibleGalaxyApiV3Read")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

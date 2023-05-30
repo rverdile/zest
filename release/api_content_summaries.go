@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentSummariesApiService ContentSummariesApi service
-type ContentSummariesApiService service
+// ContentSummariesAPIService ContentSummariesAPI service
+type ContentSummariesAPIService service
 
-type ContentSummariesApiContentOstreeSummariesListRequest struct {
+type ContentSummariesAPIContentOstreeSummariesListRequest struct {
 	ctx context.Context
-	ApiService *ContentSummariesApiService
+	ApiService *ContentSummariesAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentSummariesApiContentOstreeSummariesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentSummariesApiContentOstreeSummariesListRequest) Limit(limit int32) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) Limit(limit int32) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentSummariesApiContentOstreeSummariesListRequest) Offset(offset int32) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) Offset(offset int32) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentSummariesApiContentOstreeSummariesListRequest) Ordering(ordering []string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) Ordering(ordering []string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentSummariesApiContentOstreeSummariesListRequest) PulpHrefIn(pulpHrefIn []string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) PulpHrefIn(pulpHrefIn []string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentSummariesApiContentOstreeSummariesListRequest) PulpIdIn(pulpIdIn []string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) PulpIdIn(pulpIdIn []string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentSummariesApiContentOstreeSummariesListRequest) RepositoryVersion(repositoryVersion string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) RepositoryVersion(repositoryVersion string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentSummariesApiContentOstreeSummariesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentSummariesApiContentOstreeSummariesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentSummariesApiContentOstreeSummariesListRequest) Fields(fields []string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) Fields(fields []string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentSummariesApiContentOstreeSummariesListRequest) ExcludeFields(excludeFields []string) ContentSummariesApiContentOstreeSummariesListRequest {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) ExcludeFields(excludeFields []string) ContentSummariesAPIContentOstreeSummariesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentSummariesApiContentOstreeSummariesListRequest) Execute() (*PaginatedostreeOstreeSummaryResponseList, *http.Response, error) {
+func (r ContentSummariesAPIContentOstreeSummariesListRequest) Execute() (*PaginatedostreeOstreeSummaryResponseList, *http.Response, error) {
 	return r.ApiService.ContentOstreeSummariesListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentOstreeSummariesList List ostree summarys
 A ViewSet class for OSTree repository summary files.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentSummariesApiContentOstreeSummariesListRequest
+ @return ContentSummariesAPIContentOstreeSummariesListRequest
 */
-func (a *ContentSummariesApiService) ContentOstreeSummariesList(ctx context.Context) ContentSummariesApiContentOstreeSummariesListRequest {
-	return ContentSummariesApiContentOstreeSummariesListRequest{
+func (a *ContentSummariesAPIService) ContentOstreeSummariesList(ctx context.Context) ContentSummariesAPIContentOstreeSummariesListRequest {
+	return ContentSummariesAPIContentOstreeSummariesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentSummariesApiService) ContentOstreeSummariesList(ctx context.Cont
 
 // Execute executes the request
 //  @return PaginatedostreeOstreeSummaryResponseList
-func (a *ContentSummariesApiService) ContentOstreeSummariesListExecute(r ContentSummariesApiContentOstreeSummariesListRequest) (*PaginatedostreeOstreeSummaryResponseList, *http.Response, error) {
+func (a *ContentSummariesAPIService) ContentOstreeSummariesListExecute(r ContentSummariesAPIContentOstreeSummariesListRequest) (*PaginatedostreeOstreeSummaryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentSummariesApiService) ContentOstreeSummariesListExecute(r Content
 		localVarReturnValue  *PaginatedostreeOstreeSummaryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSummariesApiService.ContentOstreeSummariesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSummariesAPIService.ContentOstreeSummariesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentSummariesApiService) ContentOstreeSummariesListExecute(r Content
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentSummariesApiContentOstreeSummariesReadRequest struct {
+type ContentSummariesAPIContentOstreeSummariesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentSummariesApiService
+	ApiService *ContentSummariesAPIService
 	ostreeOstreeSummaryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentSummariesApiContentOstreeSummariesReadRequest) Fields(fields []string) ContentSummariesApiContentOstreeSummariesReadRequest {
+func (r ContentSummariesAPIContentOstreeSummariesReadRequest) Fields(fields []string) ContentSummariesAPIContentOstreeSummariesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentSummariesApiContentOstreeSummariesReadRequest) ExcludeFields(excludeFields []string) ContentSummariesApiContentOstreeSummariesReadRequest {
+func (r ContentSummariesAPIContentOstreeSummariesReadRequest) ExcludeFields(excludeFields []string) ContentSummariesAPIContentOstreeSummariesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentSummariesApiContentOstreeSummariesReadRequest) Execute() (*OstreeOstreeSummaryResponse, *http.Response, error) {
+func (r ContentSummariesAPIContentOstreeSummariesReadRequest) Execute() (*OstreeOstreeSummaryResponse, *http.Response, error) {
 	return r.ApiService.ContentOstreeSummariesReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ A ViewSet class for OSTree repository summary files.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeSummaryHref
- @return ContentSummariesApiContentOstreeSummariesReadRequest
+ @return ContentSummariesAPIContentOstreeSummariesReadRequest
 */
-func (a *ContentSummariesApiService) ContentOstreeSummariesRead(ctx context.Context, ostreeOstreeSummaryHref string) ContentSummariesApiContentOstreeSummariesReadRequest {
-	return ContentSummariesApiContentOstreeSummariesReadRequest{
+func (a *ContentSummariesAPIService) ContentOstreeSummariesRead(ctx context.Context, ostreeOstreeSummaryHref string) ContentSummariesAPIContentOstreeSummariesReadRequest {
+	return ContentSummariesAPIContentOstreeSummariesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeSummaryHref: ostreeOstreeSummaryHref,
@@ -282,7 +282,7 @@ func (a *ContentSummariesApiService) ContentOstreeSummariesRead(ctx context.Cont
 
 // Execute executes the request
 //  @return OstreeOstreeSummaryResponse
-func (a *ContentSummariesApiService) ContentOstreeSummariesReadExecute(r ContentSummariesApiContentOstreeSummariesReadRequest) (*OstreeOstreeSummaryResponse, *http.Response, error) {
+func (a *ContentSummariesAPIService) ContentOstreeSummariesReadExecute(r ContentSummariesAPIContentOstreeSummariesReadRequest) (*OstreeOstreeSummaryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentSummariesApiService) ContentOstreeSummariesReadExecute(r Content
 		localVarReturnValue  *OstreeOstreeSummaryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSummariesApiService.ContentOstreeSummariesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentSummariesAPIService.ContentOstreeSummariesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

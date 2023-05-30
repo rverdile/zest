@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentManifestsApiService ContentManifestsApi service
-type ContentManifestsApiService service
+// ContentManifestsAPIService ContentManifestsAPI service
+type ContentManifestsAPIService service
 
-type ContentManifestsApiContentContainerManifestsListRequest struct {
+type ContentManifestsAPIContentContainerManifestsListRequest struct {
 	ctx context.Context
-	ApiService *ContentManifestsApiService
+	ApiService *ContentManifestsAPIService
 	digest *string
 	digestIn *[]string
 	limit *int32
@@ -44,84 +44,84 @@ type ContentManifestsApiContentContainerManifestsListRequest struct {
 }
 
 // Filter results where digest matches value
-func (r ContentManifestsApiContentContainerManifestsListRequest) Digest(digest string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) Digest(digest string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.digest = &digest
 	return r
 }
 
 // Filter results where digest is in a comma-separated list of values
-func (r ContentManifestsApiContentContainerManifestsListRequest) DigestIn(digestIn []string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) DigestIn(digestIn []string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.digestIn = &digestIn
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentManifestsApiContentContainerManifestsListRequest) Limit(limit int32) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) Limit(limit int32) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // * &#x60;application/vnd.docker.distribution.manifest.v1+json&#x60; - application/vnd.docker.distribution.manifest.v1+json * &#x60;application/vnd.docker.distribution.manifest.v2+json&#x60; - application/vnd.docker.distribution.manifest.v2+json * &#x60;application/vnd.docker.distribution.manifest.list.v2+json&#x60; - application/vnd.docker.distribution.manifest.list.v2+json * &#x60;application/vnd.oci.image.manifest.v1+json&#x60; - application/vnd.oci.image.manifest.v1+json * &#x60;application/vnd.oci.image.index.v1+json&#x60; - application/vnd.oci.image.index.v1+json  * &#x60;application/vnd.docker.distribution.manifest.v1+json&#x60; - application/vnd.docker.distribution.manifest.v1+json * &#x60;application/vnd.docker.distribution.manifest.v2+json&#x60; - application/vnd.docker.distribution.manifest.v2+json * &#x60;application/vnd.docker.distribution.manifest.list.v2+json&#x60; - application/vnd.docker.distribution.manifest.list.v2+json * &#x60;application/vnd.oci.image.manifest.v1+json&#x60; - application/vnd.oci.image.manifest.v1+json * &#x60;application/vnd.oci.image.index.v1+json&#x60; - application/vnd.oci.image.index.v1+json
-func (r ContentManifestsApiContentContainerManifestsListRequest) MediaType(mediaType []string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) MediaType(mediaType []string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.mediaType = &mediaType
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentManifestsApiContentContainerManifestsListRequest) Offset(offset int32) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) Offset(offset int32) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;schema_version&#x60; - Schema version * &#x60;-schema_version&#x60; - Schema version (descending) * &#x60;media_type&#x60; - Media type * &#x60;-media_type&#x60; - Media type (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentManifestsApiContentContainerManifestsListRequest) Ordering(ordering []string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) Ordering(ordering []string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentManifestsApiContentContainerManifestsListRequest) PulpHrefIn(pulpHrefIn []string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) PulpHrefIn(pulpHrefIn []string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentManifestsApiContentContainerManifestsListRequest) PulpIdIn(pulpIdIn []string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) PulpIdIn(pulpIdIn []string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentManifestsApiContentContainerManifestsListRequest) RepositoryVersion(repositoryVersion string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) RepositoryVersion(repositoryVersion string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentManifestsApiContentContainerManifestsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentManifestsApiContentContainerManifestsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentManifestsApiContentContainerManifestsListRequest) Fields(fields []string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) Fields(fields []string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentManifestsApiContentContainerManifestsListRequest) ExcludeFields(excludeFields []string) ContentManifestsApiContentContainerManifestsListRequest {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) ExcludeFields(excludeFields []string) ContentManifestsAPIContentContainerManifestsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentManifestsApiContentContainerManifestsListRequest) Execute() (*PaginatedcontainerManifestResponseList, *http.Response, error) {
+func (r ContentManifestsAPIContentContainerManifestsListRequest) Execute() (*PaginatedcontainerManifestResponseList, *http.Response, error) {
 	return r.ApiService.ContentContainerManifestsListExecute(r)
 }
 
@@ -131,10 +131,10 @@ ContentContainerManifestsList List manifests
 ViewSet for Manifest.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentManifestsApiContentContainerManifestsListRequest
+ @return ContentManifestsAPIContentContainerManifestsListRequest
 */
-func (a *ContentManifestsApiService) ContentContainerManifestsList(ctx context.Context) ContentManifestsApiContentContainerManifestsListRequest {
-	return ContentManifestsApiContentContainerManifestsListRequest{
+func (a *ContentManifestsAPIService) ContentContainerManifestsList(ctx context.Context) ContentManifestsAPIContentContainerManifestsListRequest {
+	return ContentManifestsAPIContentContainerManifestsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -142,7 +142,7 @@ func (a *ContentManifestsApiService) ContentContainerManifestsList(ctx context.C
 
 // Execute executes the request
 //  @return PaginatedcontainerManifestResponseList
-func (a *ContentManifestsApiService) ContentContainerManifestsListExecute(r ContentManifestsApiContentContainerManifestsListRequest) (*PaginatedcontainerManifestResponseList, *http.Response, error) {
+func (a *ContentManifestsAPIService) ContentContainerManifestsListExecute(r ContentManifestsAPIContentContainerManifestsListRequest) (*PaginatedcontainerManifestResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -150,7 +150,7 @@ func (a *ContentManifestsApiService) ContentContainerManifestsListExecute(r Cont
 		localVarReturnValue  *PaginatedcontainerManifestResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentManifestsApiService.ContentContainerManifestsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentManifestsAPIService.ContentContainerManifestsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -277,27 +277,27 @@ func (a *ContentManifestsApiService) ContentContainerManifestsListExecute(r Cont
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentManifestsApiContentContainerManifestsReadRequest struct {
+type ContentManifestsAPIContentContainerManifestsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentManifestsApiService
+	ApiService *ContentManifestsAPIService
 	containerManifestHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentManifestsApiContentContainerManifestsReadRequest) Fields(fields []string) ContentManifestsApiContentContainerManifestsReadRequest {
+func (r ContentManifestsAPIContentContainerManifestsReadRequest) Fields(fields []string) ContentManifestsAPIContentContainerManifestsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentManifestsApiContentContainerManifestsReadRequest) ExcludeFields(excludeFields []string) ContentManifestsApiContentContainerManifestsReadRequest {
+func (r ContentManifestsAPIContentContainerManifestsReadRequest) ExcludeFields(excludeFields []string) ContentManifestsAPIContentContainerManifestsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentManifestsApiContentContainerManifestsReadRequest) Execute() (*ContainerManifestResponse, *http.Response, error) {
+func (r ContentManifestsAPIContentContainerManifestsReadRequest) Execute() (*ContainerManifestResponse, *http.Response, error) {
 	return r.ApiService.ContentContainerManifestsReadExecute(r)
 }
 
@@ -308,10 +308,10 @@ ViewSet for Manifest.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerManifestHref
- @return ContentManifestsApiContentContainerManifestsReadRequest
+ @return ContentManifestsAPIContentContainerManifestsReadRequest
 */
-func (a *ContentManifestsApiService) ContentContainerManifestsRead(ctx context.Context, containerManifestHref string) ContentManifestsApiContentContainerManifestsReadRequest {
-	return ContentManifestsApiContentContainerManifestsReadRequest{
+func (a *ContentManifestsAPIService) ContentContainerManifestsRead(ctx context.Context, containerManifestHref string) ContentManifestsAPIContentContainerManifestsReadRequest {
+	return ContentManifestsAPIContentContainerManifestsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerManifestHref: containerManifestHref,
@@ -320,7 +320,7 @@ func (a *ContentManifestsApiService) ContentContainerManifestsRead(ctx context.C
 
 // Execute executes the request
 //  @return ContainerManifestResponse
-func (a *ContentManifestsApiService) ContentContainerManifestsReadExecute(r ContentManifestsApiContentContainerManifestsReadRequest) (*ContainerManifestResponse, *http.Response, error) {
+func (a *ContentManifestsAPIService) ContentContainerManifestsReadExecute(r ContentManifestsAPIContentContainerManifestsReadRequest) (*ContainerManifestResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -328,7 +328,7 @@ func (a *ContentManifestsApiService) ContentContainerManifestsReadExecute(r Cont
 		localVarReturnValue  *ContainerManifestResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentManifestsApiService.ContentContainerManifestsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentManifestsAPIService.ContentContainerManifestsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

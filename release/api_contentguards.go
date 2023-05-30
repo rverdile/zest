@@ -21,12 +21,12 @@ import (
 )
 
 
-// ContentguardsApiService ContentguardsApi service
-type ContentguardsApiService service
+// ContentguardsAPIService ContentguardsAPI service
+type ContentguardsAPIService service
 
-type ContentguardsApiContentguardsListRequest struct {
+type ContentguardsAPIContentguardsListRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsApiService
+	ApiService *ContentguardsAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -43,84 +43,84 @@ type ContentguardsApiContentguardsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentguardsApiContentguardsListRequest) Limit(limit int32) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) Limit(limit int32) ContentguardsAPIContentguardsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentguardsApiContentguardsListRequest) Name(name string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) Name(name string) ContentguardsAPIContentguardsListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsApiContentguardsListRequest) NameContains(nameContains string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) NameContains(nameContains string) ContentguardsAPIContentguardsListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsApiContentguardsListRequest) NameIcontains(nameIcontains string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) NameIcontains(nameIcontains string) ContentguardsAPIContentguardsListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentguardsApiContentguardsListRequest) NameIn(nameIn []string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) NameIn(nameIn []string) ContentguardsAPIContentguardsListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentguardsApiContentguardsListRequest) NameStartswith(nameStartswith string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) NameStartswith(nameStartswith string) ContentguardsAPIContentguardsListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentguardsApiContentguardsListRequest) Offset(offset int32) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) Offset(offset int32) ContentguardsAPIContentguardsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentguardsApiContentguardsListRequest) Ordering(ordering []string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) Ordering(ordering []string) ContentguardsAPIContentguardsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsApiContentguardsListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsAPIContentguardsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsApiContentguardsListRequest) PulpIdIn(pulpIdIn []string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) PulpIdIn(pulpIdIn []string) ContentguardsAPIContentguardsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Pulp type is in  * &#x60;core.rbac&#x60; - core.rbac * &#x60;core.content_redirect&#x60; - core.content_redirect * &#x60;certguard.rhsm&#x60; - certguard.rhsm * &#x60;certguard.x509&#x60; - certguard.x509
-func (r ContentguardsApiContentguardsListRequest) PulpTypeIn(pulpTypeIn []string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) PulpTypeIn(pulpTypeIn []string) ContentguardsAPIContentguardsListRequest {
 	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsApiContentguardsListRequest) Fields(fields []string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) Fields(fields []string) ContentguardsAPIContentguardsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsApiContentguardsListRequest) ExcludeFields(excludeFields []string) ContentguardsApiContentguardsListRequest {
+func (r ContentguardsAPIContentguardsListRequest) ExcludeFields(excludeFields []string) ContentguardsAPIContentguardsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsApiContentguardsListRequest) Execute() (*PaginatedContentGuardResponseList, *http.Response, error) {
+func (r ContentguardsAPIContentguardsListRequest) Execute() (*PaginatedContentGuardResponseList, *http.Response, error) {
 	return r.ApiService.ContentguardsListExecute(r)
 }
 
@@ -130,10 +130,10 @@ ContentguardsList List content guards
 Endpoint to list all contentguards.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsApiContentguardsListRequest
+ @return ContentguardsAPIContentguardsListRequest
 */
-func (a *ContentguardsApiService) ContentguardsList(ctx context.Context) ContentguardsApiContentguardsListRequest {
-	return ContentguardsApiContentguardsListRequest{
+func (a *ContentguardsAPIService) ContentguardsList(ctx context.Context) ContentguardsAPIContentguardsListRequest {
+	return ContentguardsAPIContentguardsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -141,7 +141,7 @@ func (a *ContentguardsApiService) ContentguardsList(ctx context.Context) Content
 
 // Execute executes the request
 //  @return PaginatedContentGuardResponseList
-func (a *ContentguardsApiService) ContentguardsListExecute(r ContentguardsApiContentguardsListRequest) (*PaginatedContentGuardResponseList, *http.Response, error) {
+func (a *ContentguardsAPIService) ContentguardsListExecute(r ContentguardsAPIContentguardsListRequest) (*PaginatedContentGuardResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -149,7 +149,7 @@ func (a *ContentguardsApiService) ContentguardsListExecute(r ContentguardsApiCon
 		localVarReturnValue  *PaginatedContentGuardResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsApiService.ContentguardsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsAPIService.ContentguardsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

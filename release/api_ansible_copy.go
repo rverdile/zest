@@ -20,21 +20,21 @@ import (
 )
 
 
-// AnsibleCopyApiService AnsibleCopyApi service
-type AnsibleCopyApiService service
+// AnsibleCopyAPIService AnsibleCopyAPI service
+type AnsibleCopyAPIService service
 
-type AnsibleCopyApiCopyContentRequest struct {
+type AnsibleCopyAPICopyContentRequest struct {
 	ctx context.Context
-	ApiService *AnsibleCopyApiService
+	ApiService *AnsibleCopyAPIService
 	copy *Copy
 }
 
-func (r AnsibleCopyApiCopyContentRequest) Copy(copy Copy) AnsibleCopyApiCopyContentRequest {
+func (r AnsibleCopyAPICopyContentRequest) Copy(copy Copy) AnsibleCopyAPICopyContentRequest {
 	r.copy = &copy
 	return r
 }
 
-func (r AnsibleCopyApiCopyContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AnsibleCopyAPICopyContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.CopyContentExecute(r)
 }
 
@@ -44,10 +44,10 @@ CopyContent Copy content
 Trigger an asynchronous task to copy ansible content from one repository into another, creating a new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AnsibleCopyApiCopyContentRequest
+ @return AnsibleCopyAPICopyContentRequest
 */
-func (a *AnsibleCopyApiService) CopyContent(ctx context.Context) AnsibleCopyApiCopyContentRequest {
-	return AnsibleCopyApiCopyContentRequest{
+func (a *AnsibleCopyAPIService) CopyContent(ctx context.Context) AnsibleCopyAPICopyContentRequest {
+	return AnsibleCopyAPICopyContentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *AnsibleCopyApiService) CopyContent(ctx context.Context) AnsibleCopyApiC
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *AnsibleCopyApiService) CopyContentExecute(r AnsibleCopyApiCopyContentRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AnsibleCopyAPIService) CopyContentExecute(r AnsibleCopyAPICopyContentRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *AnsibleCopyApiService) CopyContentExecute(r AnsibleCopyApiCopyContentRe
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCopyApiService.CopyContent")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnsibleCopyAPIService.CopyContent")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

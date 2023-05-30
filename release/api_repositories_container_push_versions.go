@@ -23,16 +23,16 @@ import (
 )
 
 
-// RepositoriesContainerPushVersionsApiService RepositoriesContainerPushVersionsApi service
-type RepositoriesContainerPushVersionsApiService service
+// RepositoriesContainerPushVersionsAPIService RepositoriesContainerPushVersionsAPI service
+type RepositoriesContainerPushVersionsAPIService service
 
-type RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsDeleteRequest struct {
+type RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerPushVersionsApiService
+	ApiService *RepositoriesContainerPushVersionsAPIService
 	containerContainerPushRepositoryVersionHref string
 }
 
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerPushVersionsDeleteExecute(r)
 }
 
@@ -43,10 +43,10 @@ Trigger an asynchronous task to delete a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerPushRepositoryVersionHref
- @return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsDeleteRequest
+ @return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsDeleteRequest
 */
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsDelete(ctx context.Context, containerContainerPushRepositoryVersionHref string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsDeleteRequest {
-	return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsDeleteRequest{
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsDelete(ctx context.Context, containerContainerPushRepositoryVersionHref string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsDeleteRequest {
+	return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerPushRepositoryVersionHref: containerContainerPushRepositoryVersionHref,
@@ -55,7 +55,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsDeleteExecute(r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsDeleteExecute(r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsApiService.RepositoriesContainerContainerPushVersionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsAPIService.RepositoriesContainerContainerPushVersionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -130,9 +130,9 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest struct {
+type RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerPushVersionsApiService
+	ApiService *RepositoriesContainerPushVersionsAPIService
 	containerContainerPushRepositoryHref string
 	content *string
 	contentIn *string
@@ -157,126 +157,126 @@ type RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersi
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) Content(content string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) Content(content string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) ContentIn(contentIn string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) ContentIn(contentIn string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) Limit(limit int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) Limit(limit int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where number matches value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) Number(number int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) Number(number int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.number = &number
 	return r
 }
 
 // Filter results where number is greater than value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) NumberGt(numberGt int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) NumberGt(numberGt int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.numberGt = &numberGt
 	return r
 }
 
 // Filter results where number is greater than or equal to value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) NumberGte(numberGte int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) NumberGte(numberGte int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.numberGte = &numberGte
 	return r
 }
 
 // Filter results where number is less than value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) NumberLt(numberLt int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) NumberLt(numberLt int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.numberLt = &numberLt
 	return r
 }
 
 // Filter results where number is less than or equal to value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) NumberLte(numberLte int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) NumberLte(numberLte int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.numberLte = &numberLte
 	return r
 }
 
 // Filter results where number is between two comma separated values
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) NumberRange(numberRange []int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) NumberRange(numberRange []int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.numberRange = &numberRange
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) Offset(offset int32) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) Offset(offset int32) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) Ordering(ordering []string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) Ordering(ordering []string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) Fields(fields []string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) Fields(fields []string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerPushVersionsListExecute(r)
 }
 
@@ -292,10 +292,10 @@ versions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerPushRepositoryHref
- @return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest
+ @return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest
 */
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsList(ctx context.Context, containerContainerPushRepositoryHref string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest {
-	return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest{
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsList(ctx context.Context, containerContainerPushRepositoryHref string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest {
+	return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerPushRepositoryHref: containerContainerPushRepositoryHref,
@@ -304,7 +304,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 
 // Execute executes the request
 //  @return PaginatedRepositoryVersionResponseList
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsListExecute(r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsListExecute(r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -312,7 +312,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 		localVarReturnValue  *PaginatedRepositoryVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsApiService.RepositoriesContainerContainerPushVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsAPIService.RepositoriesContainerContainerPushVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -455,27 +455,27 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest struct {
+type RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerPushVersionsApiService
+	ApiService *RepositoriesContainerPushVersionsAPIService
 	containerContainerPushRepositoryVersionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest) Fields(fields []string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest) Fields(fields []string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerPushVersionsReadExecute(r)
 }
 
@@ -491,10 +491,10 @@ versions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerPushRepositoryVersionHref
- @return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest
+ @return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest
 */
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsRead(ctx context.Context, containerContainerPushRepositoryVersionHref string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest {
-	return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest{
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsRead(ctx context.Context, containerContainerPushRepositoryVersionHref string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest {
+	return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerPushRepositoryVersionHref: containerContainerPushRepositoryVersionHref,
@@ -503,7 +503,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 
 // Execute executes the request
 //  @return RepositoryVersionResponse
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsReadExecute(r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsReadExecute(r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -511,7 +511,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 		localVarReturnValue  *RepositoryVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsApiService.RepositoriesContainerContainerPushVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsAPIService.RepositoriesContainerContainerPushVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -600,19 +600,19 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest struct {
+type RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerPushVersionsApiService
+	ApiService *RepositoriesContainerPushVersionsAPIService
 	containerContainerPushRepositoryVersionHref string
 	repair *Repair
 }
 
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest) Repair(repair Repair) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest) Repair(repair Repair) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest {
 	r.repair = &repair
 	return r
 }
 
-func (r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerPushVersionsRepairExecute(r)
 }
 
@@ -623,10 +623,10 @@ Trigger an asynchronous task to repair a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerPushRepositoryVersionHref
- @return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest
+ @return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest
 */
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsRepair(ctx context.Context, containerContainerPushRepositoryVersionHref string) RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest {
-	return RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest{
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsRepair(ctx context.Context, containerContainerPushRepositoryVersionHref string) RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest {
+	return RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerPushRepositoryVersionHref: containerContainerPushRepositoryVersionHref,
@@ -635,7 +635,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerContainerPushVersionsRepairExecute(r RepositoriesContainerPushVersionsApiRepositoriesContainerContainerPushVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerPushVersionsAPIService) RepositoriesContainerContainerPushVersionsRepairExecute(r RepositoriesContainerPushVersionsAPIRepositoriesContainerContainerPushVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -643,7 +643,7 @@ func (a *RepositoriesContainerPushVersionsApiService) RepositoriesContainerConta
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsApiService.RepositoriesContainerContainerPushVersionsRepair")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerPushVersionsAPIService.RepositoriesContainerContainerPushVersionsRepair")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

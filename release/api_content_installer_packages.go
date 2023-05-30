@@ -23,12 +23,12 @@ import (
 )
 
 
-// ContentInstallerPackagesApiService ContentInstallerPackagesApi service
-type ContentInstallerPackagesApiService service
+// ContentInstallerPackagesAPIService ContentInstallerPackagesAPI service
+type ContentInstallerPackagesAPIService service
 
-type ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest struct {
+type ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentInstallerPackagesApiService
+	ApiService *ContentInstallerPackagesAPIService
 	artifact *string
 	relativePath *string
 	file *os.File
@@ -37,36 +37,36 @@ type ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest struct 
 }
 
 // Artifact file representing the physical content
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest) Artifact(artifact string) ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest) Artifact(artifact string) ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest {
 	r.artifact = &artifact
 	return r
 }
 
 // Path where the artifact is located relative to distributions base_path
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest) RelativePath(relativePath string) ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest) RelativePath(relativePath string) ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest) File(file *os.File) ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest) File(file *os.File) ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest {
 	r.file = file
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest) Repository(repository string) ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest) Repository(repository string) ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest {
 	r.repository = &repository
 	return r
 }
 
 // An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest) Upload(upload string) ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest) Upload(upload string) ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest {
 	r.upload = &upload
 	return r
 }
 
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentDebInstallerPackagesCreateExecute(r)
 }
 
@@ -76,10 +76,10 @@ ContentDebInstallerPackagesCreate Create an installer package
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest
+ @return ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest
 */
-func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesCreate(ctx context.Context) ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest {
-	return ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest{
+func (a *ContentInstallerPackagesAPIService) ContentDebInstallerPackagesCreate(ctx context.Context) ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest {
+	return ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -87,7 +87,7 @@ func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesCreate(c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesCreateExecute(r ContentInstallerPackagesApiContentDebInstallerPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentInstallerPackagesAPIService) ContentDebInstallerPackagesCreateExecute(r ContentInstallerPackagesAPIContentDebInstallerPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -95,7 +95,7 @@ func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesCreateEx
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerPackagesApiService.ContentDebInstallerPackagesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerPackagesAPIService.ContentDebInstallerPackagesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -188,9 +188,9 @@ func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesCreateEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentInstallerPackagesApiContentDebInstallerPackagesListRequest struct {
+type ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest struct {
 	ctx context.Context
-	ApiService *ContentInstallerPackagesApiService
+	ApiService *ContentInstallerPackagesAPIService
 	architecture *string
 	autoBuiltPackage *string
 	buildEssential *bool
@@ -221,168 +221,168 @@ type ContentInstallerPackagesApiContentDebInstallerPackagesListRequest struct {
 }
 
 // Filter results where architecture matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Architecture(architecture string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Architecture(architecture string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.architecture = &architecture
 	return r
 }
 
 // Filter results where auto_built_package matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) AutoBuiltPackage(autoBuiltPackage string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) AutoBuiltPackage(autoBuiltPackage string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.autoBuiltPackage = &autoBuiltPackage
 	return r
 }
 
 // Filter results where build_essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) BuildEssential(buildEssential bool) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) BuildEssential(buildEssential bool) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.buildEssential = &buildEssential
 	return r
 }
 
 // Filter results where built_using matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) BuiltUsing(builtUsing string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) BuiltUsing(builtUsing string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.builtUsing = &builtUsing
 	return r
 }
 
 // Filter results where essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Essential(essential bool) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Essential(essential bool) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.essential = &essential
 	return r
 }
 
 // Filter results where installed_size matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) InstalledSize(installedSize int32) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) InstalledSize(installedSize int32) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.installedSize = &installedSize
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Limit(limit int32) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Limit(limit int32) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where maintainer matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Maintainer(maintainer string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Maintainer(maintainer string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.maintainer = &maintainer
 	return r
 }
 
 // Filter results where multi_arch matches value  * &#x60;no&#x60; - no * &#x60;same&#x60; - same * &#x60;foreign&#x60; - foreign * &#x60;allowed&#x60; - allowed
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) MultiArch(multiArch string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) MultiArch(multiArch string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.multiArch = &multiArch
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Offset(offset int32) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Offset(offset int32) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;package&#x60; - Package * &#x60;-package&#x60; - Package (descending) * &#x60;source&#x60; - Source * &#x60;-source&#x60; - Source (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;section&#x60; - Section * &#x60;-section&#x60; - Section (descending) * &#x60;priority&#x60; - Priority * &#x60;-priority&#x60; - Priority (descending) * &#x60;origin&#x60; - Origin * &#x60;-origin&#x60; - Origin (descending) * &#x60;tag&#x60; - Tag * &#x60;-tag&#x60; - Tag (descending) * &#x60;bugs&#x60; - Bugs * &#x60;-bugs&#x60; - Bugs (descending) * &#x60;essential&#x60; - Essential * &#x60;-essential&#x60; - Essential (descending) * &#x60;build_essential&#x60; - Build essential * &#x60;-build_essential&#x60; - Build essential (descending) * &#x60;installed_size&#x60; - Installed size * &#x60;-installed_size&#x60; - Installed size (descending) * &#x60;maintainer&#x60; - Maintainer * &#x60;-maintainer&#x60; - Maintainer (descending) * &#x60;original_maintainer&#x60; - Original maintainer * &#x60;-original_maintainer&#x60; - Original maintainer (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;description_md5&#x60; - Description md5 * &#x60;-description_md5&#x60; - Description md5 (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;built_using&#x60; - Built using * &#x60;-built_using&#x60; - Built using (descending) * &#x60;auto_built_package&#x60; - Auto built package * &#x60;-auto_built_package&#x60; - Auto built package (descending) * &#x60;multi_arch&#x60; - Multi arch * &#x60;-multi_arch&#x60; - Multi arch (descending) * &#x60;breaks&#x60; - Breaks * &#x60;-breaks&#x60; - Breaks (descending) * &#x60;conflicts&#x60; - Conflicts * &#x60;-conflicts&#x60; - Conflicts (descending) * &#x60;depends&#x60; - Depends * &#x60;-depends&#x60; - Depends (descending) * &#x60;recommends&#x60; - Recommends * &#x60;-recommends&#x60; - Recommends (descending) * &#x60;suggests&#x60; - Suggests * &#x60;-suggests&#x60; - Suggests (descending) * &#x60;enhances&#x60; - Enhances * &#x60;-enhances&#x60; - Enhances (descending) * &#x60;pre_depends&#x60; - Pre depends * &#x60;-pre_depends&#x60; - Pre depends (descending) * &#x60;provides&#x60; - Provides * &#x60;-provides&#x60; - Provides (descending) * &#x60;replaces&#x60; - Replaces * &#x60;-replaces&#x60; - Replaces (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;custom_fields&#x60; - Custom fields * &#x60;-custom_fields&#x60; - Custom fields (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Ordering(ordering []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Ordering(ordering []string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where origin matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Origin(origin string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Origin(origin string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.origin = &origin
 	return r
 }
 
 // Filter results where original_maintainer matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) OriginalMaintainer(originalMaintainer string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) OriginalMaintainer(originalMaintainer string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.originalMaintainer = &originalMaintainer
 	return r
 }
 
 // Filter results where package matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Package_(package_ string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Package_(package_ string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.package_ = &package_
 	return r
 }
 
 // Filter results where priority matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Priority(priority string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Priority(priority string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.priority = &priority
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where section matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Section(section string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Section(section string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.section = &section
 	return r
 }
 
 // Filter results where sha256 matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Sha256(sha256 string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Sha256(sha256 string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where source matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Source(source string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Source(source string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.source = &source
 	return r
 }
 
 // Filter results where tag matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Tag(tag string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Tag(tag string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.tag = &tag
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Version(version string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Version(version string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.version = &version
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Fields(fields []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Fields(fields []string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) ExcludeFields(excludeFields []string) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) ExcludeFields(excludeFields []string) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) Execute() (*PaginateddebBasePackageResponseList, *http.Response, error) {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) Execute() (*PaginateddebInstallerPackageResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebInstallerPackagesListExecute(r)
 }
 
@@ -397,26 +397,26 @@ Note that installer packages are currently used exclusively for verbatim publica
 publisher (both simple and structured mode) will not include these packages.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentInstallerPackagesApiContentDebInstallerPackagesListRequest
+ @return ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest
 */
-func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesList(ctx context.Context) ContentInstallerPackagesApiContentDebInstallerPackagesListRequest {
-	return ContentInstallerPackagesApiContentDebInstallerPackagesListRequest{
+func (a *ContentInstallerPackagesAPIService) ContentDebInstallerPackagesList(ctx context.Context) ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest {
+	return ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginateddebBasePackageResponseList
-func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesListExecute(r ContentInstallerPackagesApiContentDebInstallerPackagesListRequest) (*PaginateddebBasePackageResponseList, *http.Response, error) {
+//  @return PaginateddebInstallerPackageResponseList
+func (a *ContentInstallerPackagesAPIService) ContentDebInstallerPackagesListExecute(r ContentInstallerPackagesAPIContentDebInstallerPackagesListRequest) (*PaginateddebInstallerPackageResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PaginateddebBasePackageResponseList
+		localVarReturnValue  *PaginateddebInstallerPackageResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerPackagesApiService.ContentDebInstallerPackagesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerPackagesAPIService.ContentDebInstallerPackagesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -577,27 +577,27 @@ func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest struct {
+type ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentInstallerPackagesApiService
+	ApiService *ContentInstallerPackagesAPIService
 	debInstallerPackageHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest) Fields(fields []string) ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest) Fields(fields []string) ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest) ExcludeFields(excludeFields []string) ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest) ExcludeFields(excludeFields []string) ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest) Execute() (*DebBasePackageResponse, *http.Response, error) {
+func (r ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest) Execute() (*DebInstallerPackageResponse, *http.Response, error) {
 	return r.ApiService.ContentDebInstallerPackagesReadExecute(r)
 }
 
@@ -613,10 +613,10 @@ publisher (both simple and structured mode) will not include these packages.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debInstallerPackageHref
- @return ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest
+ @return ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest
 */
-func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesRead(ctx context.Context, debInstallerPackageHref string) ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest {
-	return ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest{
+func (a *ContentInstallerPackagesAPIService) ContentDebInstallerPackagesRead(ctx context.Context, debInstallerPackageHref string) ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest {
+	return ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debInstallerPackageHref: debInstallerPackageHref,
@@ -624,16 +624,16 @@ func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesRead(ctx
 }
 
 // Execute executes the request
-//  @return DebBasePackageResponse
-func (a *ContentInstallerPackagesApiService) ContentDebInstallerPackagesReadExecute(r ContentInstallerPackagesApiContentDebInstallerPackagesReadRequest) (*DebBasePackageResponse, *http.Response, error) {
+//  @return DebInstallerPackageResponse
+func (a *ContentInstallerPackagesAPIService) ContentDebInstallerPackagesReadExecute(r ContentInstallerPackagesAPIContentDebInstallerPackagesReadRequest) (*DebInstallerPackageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DebBasePackageResponse
+		localVarReturnValue  *DebInstallerPackageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerPackagesApiService.ContentDebInstallerPackagesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerPackagesAPIService.ContentDebInstallerPackagesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

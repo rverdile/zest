@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentInstallerFileIndicesApiService ContentInstallerFileIndicesApi service
-type ContentInstallerFileIndicesApiService service
+// ContentInstallerFileIndicesAPIService ContentInstallerFileIndicesAPI service
+type ContentInstallerFileIndicesAPIService service
 
-type ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest struct {
+type ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentInstallerFileIndicesApiService
+	ApiService *ContentInstallerFileIndicesAPIService
 	debInstallerFileIndex *DebInstallerFileIndex
 }
 
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest) DebInstallerFileIndex(debInstallerFileIndex DebInstallerFileIndex) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest) DebInstallerFileIndex(debInstallerFileIndex DebInstallerFileIndex) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest {
 	r.debInstallerFileIndex = &debInstallerFileIndex
 	return r
 }
 
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest) Execute() (*DebInstallerFileIndexResponse, *http.Response, error) {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest) Execute() (*DebInstallerFileIndexResponse, *http.Response, error) {
 	return r.ApiService.ContentDebInstallerFileIndicesCreateExecute(r)
 }
 
@@ -53,10 +53,10 @@ publications. The APT publisher (both simple and structured mode) does not make 
 content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest
+ @return ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest
 */
-func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesCreate(ctx context.Context) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest {
-	return ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest{
+func (a *ContentInstallerFileIndicesAPIService) ContentDebInstallerFileIndicesCreate(ctx context.Context) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest {
+	return ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -64,7 +64,7 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesCr
 
 // Execute executes the request
 //  @return DebInstallerFileIndexResponse
-func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesCreateExecute(r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesCreateRequest) (*DebInstallerFileIndexResponse, *http.Response, error) {
+func (a *ContentInstallerFileIndicesAPIService) ContentDebInstallerFileIndicesCreateExecute(r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesCreateRequest) (*DebInstallerFileIndexResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -72,7 +72,7 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesCr
 		localVarReturnValue  *DebInstallerFileIndexResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerFileIndicesApiService.ContentDebInstallerFileIndicesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerFileIndicesAPIService.ContentDebInstallerFileIndicesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,9 +141,9 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest struct {
+type ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest struct {
 	ctx context.Context
-	ApiService *ContentInstallerFileIndicesApiService
+	ApiService *ContentInstallerFileIndicesAPIService
 	architecture *string
 	component *string
 	limit *int32
@@ -161,90 +161,90 @@ type ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest str
 }
 
 // Filter results where architecture matches value
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Architecture(architecture string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Architecture(architecture string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.architecture = &architecture
 	return r
 }
 
 // Filter results where component matches value
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Component(component string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Component(component string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.component = &component
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Limit(limit int32) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Limit(limit int32) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Offset(offset int32) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Offset(offset int32) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;component&#x60; - Component * &#x60;-component&#x60; - Component (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Ordering(ordering []string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Ordering(ordering []string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) PulpHrefIn(pulpHrefIn []string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) PulpHrefIn(pulpHrefIn []string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) PulpIdIn(pulpIdIn []string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) PulpIdIn(pulpIdIn []string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where relative_path matches value
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) RelativePath(relativePath string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) RelativePath(relativePath string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) RepositoryVersion(repositoryVersion string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) RepositoryVersion(repositoryVersion string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where sha256 matches value
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Sha256(sha256 string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Sha256(sha256 string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Fields(fields []string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Fields(fields []string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) ExcludeFields(excludeFields []string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) ExcludeFields(excludeFields []string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) Execute() (*PaginateddebInstallerFileIndexResponseList, *http.Response, error) {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) Execute() (*PaginateddebInstallerFileIndexResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebInstallerFileIndicesListExecute(r)
 }
 
@@ -261,10 +261,10 @@ publications. The APT publisher (both simple and structured mode) does not make 
 content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest
+ @return ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest
 */
-func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesList(ctx context.Context) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest {
-	return ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest{
+func (a *ContentInstallerFileIndicesAPIService) ContentDebInstallerFileIndicesList(ctx context.Context) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest {
+	return ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -272,7 +272,7 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesLi
 
 // Execute executes the request
 //  @return PaginateddebInstallerFileIndexResponseList
-func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesListExecute(r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesListRequest) (*PaginateddebInstallerFileIndexResponseList, *http.Response, error) {
+func (a *ContentInstallerFileIndicesAPIService) ContentDebInstallerFileIndicesListExecute(r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesListRequest) (*PaginateddebInstallerFileIndexResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -280,7 +280,7 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesLi
 		localVarReturnValue  *PaginateddebInstallerFileIndexResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerFileIndicesApiService.ContentDebInstallerFileIndicesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerFileIndicesAPIService.ContentDebInstallerFileIndicesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -402,27 +402,27 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest struct {
+type ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentInstallerFileIndicesApiService
+	ApiService *ContentInstallerFileIndicesAPIService
 	debInstallerFileIndexHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest) Fields(fields []string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest) Fields(fields []string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest) ExcludeFields(excludeFields []string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest) ExcludeFields(excludeFields []string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest) Execute() (*DebInstallerFileIndexResponse, *http.Response, error) {
+func (r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest) Execute() (*DebInstallerFileIndexResponse, *http.Response, error) {
 	return r.ApiService.ContentDebInstallerFileIndicesReadExecute(r)
 }
 
@@ -440,10 +440,10 @@ content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debInstallerFileIndexHref
- @return ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest
+ @return ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest
 */
-func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesRead(ctx context.Context, debInstallerFileIndexHref string) ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest {
-	return ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest{
+func (a *ContentInstallerFileIndicesAPIService) ContentDebInstallerFileIndicesRead(ctx context.Context, debInstallerFileIndexHref string) ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest {
+	return ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debInstallerFileIndexHref: debInstallerFileIndexHref,
@@ -452,7 +452,7 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesRe
 
 // Execute executes the request
 //  @return DebInstallerFileIndexResponse
-func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesReadExecute(r ContentInstallerFileIndicesApiContentDebInstallerFileIndicesReadRequest) (*DebInstallerFileIndexResponse, *http.Response, error) {
+func (a *ContentInstallerFileIndicesAPIService) ContentDebInstallerFileIndicesReadExecute(r ContentInstallerFileIndicesAPIContentDebInstallerFileIndicesReadRequest) (*DebInstallerFileIndexResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -460,7 +460,7 @@ func (a *ContentInstallerFileIndicesApiService) ContentDebInstallerFileIndicesRe
 		localVarReturnValue  *DebInstallerFileIndexResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerFileIndicesApiService.ContentDebInstallerFileIndicesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentInstallerFileIndicesAPIService.ContentDebInstallerFileIndicesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

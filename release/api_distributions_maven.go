@@ -22,21 +22,21 @@ import (
 )
 
 
-// DistributionsMavenApiService DistributionsMavenApi service
-type DistributionsMavenApiService service
+// DistributionsMavenAPIService DistributionsMavenAPI service
+type DistributionsMavenAPIService service
 
-type DistributionsMavenApiDistributionsMavenMavenCreateRequest struct {
+type DistributionsMavenAPIDistributionsMavenMavenCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsMavenApiService
+	ApiService *DistributionsMavenAPIService
 	mavenMavenDistribution *MavenMavenDistribution
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenCreateRequest) MavenMavenDistribution(mavenMavenDistribution MavenMavenDistribution) DistributionsMavenApiDistributionsMavenMavenCreateRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenCreateRequest) MavenMavenDistribution(mavenMavenDistribution MavenMavenDistribution) DistributionsMavenAPIDistributionsMavenMavenCreateRequest {
 	r.mavenMavenDistribution = &mavenMavenDistribution
 	return r
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsMavenAPIDistributionsMavenMavenCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsMavenMavenCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ DistributionsMavenMavenCreate Create a maven distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsMavenApiDistributionsMavenMavenCreateRequest
+ @return DistributionsMavenAPIDistributionsMavenMavenCreateRequest
 */
-func (a *DistributionsMavenApiService) DistributionsMavenMavenCreate(ctx context.Context) DistributionsMavenApiDistributionsMavenMavenCreateRequest {
-	return DistributionsMavenApiDistributionsMavenMavenCreateRequest{
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenCreate(ctx context.Context) DistributionsMavenAPIDistributionsMavenMavenCreateRequest {
+	return DistributionsMavenAPIDistributionsMavenMavenCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenCreate(ctx context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsMavenApiService) DistributionsMavenMavenCreateExecute(r DistributionsMavenApiDistributionsMavenMavenCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenCreateExecute(r DistributionsMavenAPIDistributionsMavenMavenCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenCreateExecute(r Di
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenApiService.DistributionsMavenMavenCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenAPIService.DistributionsMavenMavenCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenCreateExecute(r Di
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsMavenApiDistributionsMavenMavenDeleteRequest struct {
+type DistributionsMavenAPIDistributionsMavenMavenDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsMavenApiService
+	ApiService *DistributionsMavenAPIService
 	mavenMavenDistributionHref string
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsMavenAPIDistributionsMavenMavenDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsMavenMavenDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenDistributionHref
- @return DistributionsMavenApiDistributionsMavenMavenDeleteRequest
+ @return DistributionsMavenAPIDistributionsMavenMavenDeleteRequest
 */
-func (a *DistributionsMavenApiService) DistributionsMavenMavenDelete(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenApiDistributionsMavenMavenDeleteRequest {
-	return DistributionsMavenApiDistributionsMavenMavenDeleteRequest{
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenDelete(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenAPIDistributionsMavenMavenDeleteRequest {
+	return DistributionsMavenAPIDistributionsMavenMavenDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenDistributionHref: mavenMavenDistributionHref,
@@ -163,7 +163,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenDelete(ctx context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsMavenApiService) DistributionsMavenMavenDeleteExecute(r DistributionsMavenApiDistributionsMavenMavenDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenDeleteExecute(r DistributionsMavenAPIDistributionsMavenMavenDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -171,7 +171,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenDeleteExecute(r Di
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenApiService.DistributionsMavenMavenDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenAPIService.DistributionsMavenMavenDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -238,9 +238,9 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenDeleteExecute(r Di
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsMavenApiDistributionsMavenMavenListRequest struct {
+type DistributionsMavenAPIDistributionsMavenMavenListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsMavenApiService
+	ApiService *DistributionsMavenAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -264,126 +264,126 @@ type DistributionsMavenApiDistributionsMavenMavenListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) BasePath(basePath string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) BasePath(basePath string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) BasePathContains(basePathContains string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) BasePathContains(basePathContains string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) BasePathIcontains(basePathIcontains string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) BasePathIcontains(basePathIcontains string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) BasePathIn(basePathIn []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) BasePathIn(basePathIn []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Limit(limit int32) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) Limit(limit int32) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Name(name string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) Name(name string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) NameContains(nameContains string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) NameContains(nameContains string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) NameIcontains(nameIcontains string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) NameIcontains(nameIcontains string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) NameIn(nameIn []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) NameIn(nameIn []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) NameStartswith(nameStartswith string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) NameStartswith(nameStartswith string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Offset(offset int32) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) Offset(offset int32) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Ordering(ordering []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) Ordering(ordering []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) PulpIdIn(pulpIdIn []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) PulpIdIn(pulpIdIn []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Repository(repository string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) Repository(repository string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) RepositoryIn(repositoryIn []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) RepositoryIn(repositoryIn []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) WithContent(withContent string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) WithContent(withContent string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Fields(fields []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) Fields(fields []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) ExcludeFields(excludeFields []string) DistributionsMavenApiDistributionsMavenMavenListRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) ExcludeFields(excludeFields []string) DistributionsMavenAPIDistributionsMavenMavenListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenListRequest) Execute() (*PaginatedmavenMavenDistributionResponseList, *http.Response, error) {
+func (r DistributionsMavenAPIDistributionsMavenMavenListRequest) Execute() (*PaginatedmavenMavenDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsMavenMavenListExecute(r)
 }
 
@@ -393,10 +393,10 @@ DistributionsMavenMavenList List maven distributions
 ViewSet for Maven Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsMavenApiDistributionsMavenMavenListRequest
+ @return DistributionsMavenAPIDistributionsMavenMavenListRequest
 */
-func (a *DistributionsMavenApiService) DistributionsMavenMavenList(ctx context.Context) DistributionsMavenApiDistributionsMavenMavenListRequest {
-	return DistributionsMavenApiDistributionsMavenMavenListRequest{
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenList(ctx context.Context) DistributionsMavenAPIDistributionsMavenMavenListRequest {
+	return DistributionsMavenAPIDistributionsMavenMavenListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -404,7 +404,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenList(ctx context.C
 
 // Execute executes the request
 //  @return PaginatedmavenMavenDistributionResponseList
-func (a *DistributionsMavenApiService) DistributionsMavenMavenListExecute(r DistributionsMavenApiDistributionsMavenMavenListRequest) (*PaginatedmavenMavenDistributionResponseList, *http.Response, error) {
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenListExecute(r DistributionsMavenAPIDistributionsMavenMavenListRequest) (*PaginatedmavenMavenDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -412,7 +412,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenListExecute(r Dist
 		localVarReturnValue  *PaginatedmavenMavenDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenApiService.DistributionsMavenMavenList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenAPIService.DistributionsMavenMavenList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -552,19 +552,19 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenListExecute(r Dist
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest struct {
+type DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsMavenApiService
+	ApiService *DistributionsMavenAPIService
 	mavenMavenDistributionHref string
 	patchedmavenMavenDistribution *PatchedmavenMavenDistribution
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest) PatchedmavenMavenDistribution(patchedmavenMavenDistribution PatchedmavenMavenDistribution) DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest) PatchedmavenMavenDistribution(patchedmavenMavenDistribution PatchedmavenMavenDistribution) DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest {
 	r.patchedmavenMavenDistribution = &patchedmavenMavenDistribution
 	return r
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsMavenMavenPartialUpdateExecute(r)
 }
 
@@ -575,10 +575,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenDistributionHref
- @return DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest
+ @return DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest
 */
-func (a *DistributionsMavenApiService) DistributionsMavenMavenPartialUpdate(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest {
-	return DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest{
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenPartialUpdate(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest {
+	return DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenDistributionHref: mavenMavenDistributionHref,
@@ -587,7 +587,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenPartialUpdate(ctx 
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsMavenApiService) DistributionsMavenMavenPartialUpdateExecute(r DistributionsMavenApiDistributionsMavenMavenPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenPartialUpdateExecute(r DistributionsMavenAPIDistributionsMavenMavenPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -595,7 +595,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenPartialUpdateExecu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenApiService.DistributionsMavenMavenPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenAPIService.DistributionsMavenMavenPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -667,27 +667,27 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenPartialUpdateExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsMavenApiDistributionsMavenMavenReadRequest struct {
+type DistributionsMavenAPIDistributionsMavenMavenReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsMavenApiService
+	ApiService *DistributionsMavenAPIService
 	mavenMavenDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsMavenApiDistributionsMavenMavenReadRequest) Fields(fields []string) DistributionsMavenApiDistributionsMavenMavenReadRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenReadRequest) Fields(fields []string) DistributionsMavenAPIDistributionsMavenMavenReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsMavenApiDistributionsMavenMavenReadRequest) ExcludeFields(excludeFields []string) DistributionsMavenApiDistributionsMavenMavenReadRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenReadRequest) ExcludeFields(excludeFields []string) DistributionsMavenAPIDistributionsMavenMavenReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenReadRequest) Execute() (*MavenMavenDistributionResponse, *http.Response, error) {
+func (r DistributionsMavenAPIDistributionsMavenMavenReadRequest) Execute() (*MavenMavenDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsMavenMavenReadExecute(r)
 }
 
@@ -698,10 +698,10 @@ ViewSet for Maven Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenDistributionHref
- @return DistributionsMavenApiDistributionsMavenMavenReadRequest
+ @return DistributionsMavenAPIDistributionsMavenMavenReadRequest
 */
-func (a *DistributionsMavenApiService) DistributionsMavenMavenRead(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenApiDistributionsMavenMavenReadRequest {
-	return DistributionsMavenApiDistributionsMavenMavenReadRequest{
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenRead(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenAPIDistributionsMavenMavenReadRequest {
+	return DistributionsMavenAPIDistributionsMavenMavenReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenDistributionHref: mavenMavenDistributionHref,
@@ -710,7 +710,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenRead(ctx context.C
 
 // Execute executes the request
 //  @return MavenMavenDistributionResponse
-func (a *DistributionsMavenApiService) DistributionsMavenMavenReadExecute(r DistributionsMavenApiDistributionsMavenMavenReadRequest) (*MavenMavenDistributionResponse, *http.Response, error) {
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenReadExecute(r DistributionsMavenAPIDistributionsMavenMavenReadRequest) (*MavenMavenDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -718,7 +718,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenReadExecute(r Dist
 		localVarReturnValue  *MavenMavenDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenApiService.DistributionsMavenMavenRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenAPIService.DistributionsMavenMavenRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -807,19 +807,19 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenReadExecute(r Dist
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsMavenApiDistributionsMavenMavenUpdateRequest struct {
+type DistributionsMavenAPIDistributionsMavenMavenUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsMavenApiService
+	ApiService *DistributionsMavenAPIService
 	mavenMavenDistributionHref string
 	mavenMavenDistribution *MavenMavenDistribution
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenUpdateRequest) MavenMavenDistribution(mavenMavenDistribution MavenMavenDistribution) DistributionsMavenApiDistributionsMavenMavenUpdateRequest {
+func (r DistributionsMavenAPIDistributionsMavenMavenUpdateRequest) MavenMavenDistribution(mavenMavenDistribution MavenMavenDistribution) DistributionsMavenAPIDistributionsMavenMavenUpdateRequest {
 	r.mavenMavenDistribution = &mavenMavenDistribution
 	return r
 }
 
-func (r DistributionsMavenApiDistributionsMavenMavenUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsMavenAPIDistributionsMavenMavenUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsMavenMavenUpdateExecute(r)
 }
 
@@ -830,10 +830,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenDistributionHref
- @return DistributionsMavenApiDistributionsMavenMavenUpdateRequest
+ @return DistributionsMavenAPIDistributionsMavenMavenUpdateRequest
 */
-func (a *DistributionsMavenApiService) DistributionsMavenMavenUpdate(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenApiDistributionsMavenMavenUpdateRequest {
-	return DistributionsMavenApiDistributionsMavenMavenUpdateRequest{
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenUpdate(ctx context.Context, mavenMavenDistributionHref string) DistributionsMavenAPIDistributionsMavenMavenUpdateRequest {
+	return DistributionsMavenAPIDistributionsMavenMavenUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenDistributionHref: mavenMavenDistributionHref,
@@ -842,7 +842,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenUpdate(ctx context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsMavenApiService) DistributionsMavenMavenUpdateExecute(r DistributionsMavenApiDistributionsMavenMavenUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsMavenAPIService) DistributionsMavenMavenUpdateExecute(r DistributionsMavenAPIDistributionsMavenMavenUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -850,7 +850,7 @@ func (a *DistributionsMavenApiService) DistributionsMavenMavenUpdateExecute(r Di
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenApiService.DistributionsMavenMavenUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsMavenAPIService.DistributionsMavenMavenUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

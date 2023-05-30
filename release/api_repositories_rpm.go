@@ -22,22 +22,22 @@ import (
 )
 
 
-// RepositoriesRpmApiService RepositoriesRpmApi service
-type RepositoriesRpmApiService service
+// RepositoriesRpmAPIService RepositoriesRpmAPI service
+type RepositoriesRpmAPIService service
 
-type RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmAddRole(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmAddRole(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -60,7 +60,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmAddRole(ctx context.Contex
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmAddRoleExecute(r RepositoriesRpmApiRepositoriesRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmAddRoleExecute(r RepositoriesRpmAPIRepositoriesRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmAddRoleExecute(r Repositor
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmAddRoleExecute(r Repositor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmCreateRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepository *RpmRpmRepository
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmCreateRequest) RpmRpmRepository(rpmRpmRepository RpmRpmRepository) RepositoriesRpmApiRepositoriesRpmRpmCreateRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest) RpmRpmRepository(rpmRpmRepository RpmRpmRepository) RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest {
 	r.rpmRpmRepository = &rpmRpmRepository
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmCreateRequest) Execute() (*RpmRpmRepositoryResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest) Execute() (*RpmRpmRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ RepositoriesRpmRpmCreate Create a rpm repository
 A ViewSet for RpmRepository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesRpmApiRepositoriesRpmRpmCreateRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmCreate(ctx context.Context) RepositoriesRpmApiRepositoriesRpmRpmCreateRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmCreateRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmCreate(ctx context.Context) RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmCreate(ctx context.Context
 
 // Execute executes the request
 //  @return RpmRpmRepositoryResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmCreateExecute(r RepositoriesRpmApiRepositoriesRpmRpmCreateRequest) (*RpmRpmRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmCreateExecute(r RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest) (*RpmRpmRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmCreateExecute(r Repositori
 		localVarReturnValue  *RpmRpmRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmCreateExecute(r Repositori
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmDeleteRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmDeleteRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmDeleteRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmDelete(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmDeleteRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmDeleteRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmDelete(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmDeleteRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -278,7 +278,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmDelete(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmDeleteExecute(r RepositoriesRpmApiRepositoriesRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmDeleteExecute(r RepositoriesRpmAPIRepositoriesRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmDeleteExecute(r Repositori
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,10 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmDeleteExecute(r Repositori
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmListRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -376,143 +377,156 @@ type RepositoriesRpmApiRepositoriesRpmRpmListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) LatestWithContent(latestWithContent string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) Limit(limit int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) Limit(limit int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) Name(name string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) Name(name string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) NameContains(nameContains string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) NameContains(nameContains string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) NameIcontains(nameIcontains string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) NameIcontains(nameIcontains string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) NameIn(nameIn []string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) NameIn(nameIn []string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) NameStartswith(nameStartswith string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) NameStartswith(nameStartswith string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) Offset(offset int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) Offset(offset int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) Ordering(ordering []string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) Ordering(ordering []string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) PulpIdIn(pulpIdIn []string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) PulpIdIn(pulpIdIn []string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) Remote(remote string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) Remote(remote string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) WithContent(withContent string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) Fields(fields []string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) Fields(fields []string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) ExcludeFields(excludeFields []string) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) ExcludeFields(excludeFields []string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRequest) Execute() (*PaginatedrpmRpmRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) Execute() (*PaginatedrpmRpmRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmListExecute(r)
 }
 
@@ -522,10 +536,10 @@ RepositoriesRpmRpmList List rpm repositorys
 A ViewSet for RpmRepository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesRpmApiRepositoriesRpmRpmListRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmListRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmList(ctx context.Context) RepositoriesRpmApiRepositoriesRpmRpmListRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmListRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmList(ctx context.Context) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -533,7 +547,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmList(ctx context.Context) 
 
 // Execute executes the request
 //  @return PaginatedrpmRpmRepositoryResponseList
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListExecute(r RepositoriesRpmApiRepositoriesRpmRpmListRequest) (*PaginatedrpmRpmRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmListExecute(r RepositoriesRpmAPIRepositoriesRpmRpmListRequest) (*PaginatedrpmRpmRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -541,7 +555,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListExecute(r Repositories
 		localVarReturnValue  *PaginatedrpmRpmRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -551,6 +565,9 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListExecute(r Repositories
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -610,6 +627,9 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListExecute(r Repositories
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -687,27 +707,27 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListExecute(r Repositories
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest) Fields(fields []string) RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest) Fields(fields []string) RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmListRolesExecute(r)
 }
 
@@ -718,10 +738,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListRoles(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmListRoles(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -730,7 +750,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListRoles(ctx context.Cont
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListRolesExecute(r RepositoriesRpmApiRepositoriesRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmListRolesExecute(r RepositoriesRpmAPIRepositoriesRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -738,7 +758,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListRolesExecute(r Reposit
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -827,19 +847,19 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmListRolesExecute(r Reposit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmModifyRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	repositoryAddRemoveContent *RepositoryAddRemoveContent
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesRpmApiRepositoriesRpmRpmModifyRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest {
 	r.repositoryAddRemoveContent = &repositoryAddRemoveContent
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmModifyExecute(r)
 }
 
@@ -850,10 +870,10 @@ Trigger an asynchronous task to create a new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmModifyRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmModify(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmModifyRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmModifyRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmModify(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -862,7 +882,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmModify(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmModifyExecute(r RepositoriesRpmApiRepositoriesRpmRpmModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmModifyExecute(r RepositoriesRpmAPIRepositoriesRpmRpmModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -870,7 +890,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmModifyExecute(r Repositori
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmModify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmModify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -942,27 +962,27 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmModifyExecute(r Repositori
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest) Fields(fields []string) RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest) Fields(fields []string) RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmMyPermissionsExecute(r)
 }
 
@@ -973,10 +993,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmMyPermissions(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmMyPermissions(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -985,7 +1005,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmMyPermissions(ctx context.
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmMyPermissionsExecute(r RepositoriesRpmApiRepositoriesRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmMyPermissionsExecute(r RepositoriesRpmAPIRepositoriesRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -993,7 +1013,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmMyPermissionsExecute(r Rep
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1082,19 +1102,19 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmMyPermissionsExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	patchedrpmRpmRepository *PatchedrpmRpmRepository
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest) PatchedrpmRpmRepository(patchedrpmRpmRepository PatchedrpmRpmRepository) RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest) PatchedrpmRpmRepository(patchedrpmRpmRepository PatchedrpmRpmRepository) RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest {
 	r.patchedrpmRpmRepository = &patchedrpmRpmRepository
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmPartialUpdateExecute(r)
 }
 
@@ -1105,10 +1125,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmPartialUpdate(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmPartialUpdate(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -1117,7 +1137,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmPartialUpdate(ctx context.
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmPartialUpdateExecute(r RepositoriesRpmApiRepositoriesRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmPartialUpdateExecute(r RepositoriesRpmAPIRepositoriesRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1125,7 +1145,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmPartialUpdateExecute(r Rep
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1197,27 +1217,27 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmPartialUpdateExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmReadRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmReadRequest) Fields(fields []string) RepositoriesRpmApiRepositoriesRpmRpmReadRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmReadRequest) Fields(fields []string) RepositoriesRpmAPIRepositoriesRpmRpmReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesRpmApiRepositoriesRpmRpmReadRequest) ExcludeFields(excludeFields []string) RepositoriesRpmApiRepositoriesRpmRpmReadRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmReadRequest) ExcludeFields(excludeFields []string) RepositoriesRpmAPIRepositoriesRpmRpmReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmReadRequest) Execute() (*RpmRpmRepositoryResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmReadRequest) Execute() (*RpmRpmRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmReadExecute(r)
 }
 
@@ -1228,10 +1248,10 @@ A ViewSet for RpmRepository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmReadRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmReadRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmRead(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmReadRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmReadRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmRead(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmReadRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -1240,7 +1260,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmRead(ctx context.Context, 
 
 // Execute executes the request
 //  @return RpmRpmRepositoryResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmReadExecute(r RepositoriesRpmApiRepositoriesRpmRpmReadRequest) (*RpmRpmRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmReadExecute(r RepositoriesRpmAPIRepositoriesRpmRpmReadRequest) (*RpmRpmRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1248,7 +1268,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmReadExecute(r Repositories
 		localVarReturnValue  *RpmRpmRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1337,19 +1357,19 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmReadExecute(r Repositories
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmRemoveRoleExecute(r)
 }
 
@@ -1360,10 +1380,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmRemoveRole(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmRemoveRole(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -1372,7 +1392,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmRemoveRole(ctx context.Con
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmRemoveRoleExecute(r RepositoriesRpmApiRepositoriesRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmRemoveRoleExecute(r RepositoriesRpmAPIRepositoriesRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1380,7 +1400,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmRemoveRoleExecute(r Reposi
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1452,19 +1472,19 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmRemoveRoleExecute(r Reposi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmSyncRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	rpmRepositorySyncURL *RpmRepositorySyncURL
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmSyncRequest) RpmRepositorySyncURL(rpmRepositorySyncURL RpmRepositorySyncURL) RepositoriesRpmApiRepositoriesRpmRpmSyncRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest) RpmRepositorySyncURL(rpmRepositorySyncURL RpmRepositorySyncURL) RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest {
 	r.rpmRepositorySyncURL = &rpmRepositorySyncURL
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmSyncExecute(r)
 }
 
@@ -1475,10 +1495,10 @@ Trigger an asynchronous task to sync RPM content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmSyncRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmSync(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmSyncRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmSyncRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmSync(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -1487,7 +1507,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmSync(ctx context.Context, 
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmSyncExecute(r RepositoriesRpmApiRepositoriesRpmRpmSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmSyncExecute(r RepositoriesRpmAPIRepositoriesRpmRpmSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1495,7 +1515,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmSyncExecute(r Repositories
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1567,19 +1587,19 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmSyncExecute(r Repositories
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest struct {
+type RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmApiService
+	ApiService *RepositoriesRpmAPIService
 	rpmRpmRepositoryHref string
 	rpmRpmRepository *RpmRpmRepository
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest) RpmRpmRepository(rpmRpmRepository RpmRpmRepository) RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest) RpmRpmRepository(rpmRpmRepository RpmRpmRepository) RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest {
 	r.rpmRpmRepository = &rpmRpmRepository
 	return r
 }
 
-func (r RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmUpdateExecute(r)
 }
 
@@ -1590,10 +1610,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest
+ @return RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest
 */
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmUpdate(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest {
-	return RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest{
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmUpdate(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest {
+	return RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -1602,7 +1622,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmUpdate(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesRpmApiService) RepositoriesRpmRpmUpdateExecute(r RepositoriesRpmApiRepositoriesRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmUpdateExecute(r RepositoriesRpmAPIRepositoriesRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1610,7 +1630,7 @@ func (a *RepositoriesRpmApiService) RepositoriesRpmRpmUpdateExecute(r Repositori
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmApiService.RepositoriesRpmRpmUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmAPIService.RepositoriesRpmRpmUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

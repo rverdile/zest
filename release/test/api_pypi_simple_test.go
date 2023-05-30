@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PypiSimpleApiService
+Testing PypiSimpleAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PypiSimpleApiService(t *testing.T) {
+func Test_zest_PypiSimpleAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PypiSimpleApiService PypiSimpleCreate", func(t *testing.T) {
+	t.Run("Test PypiSimpleAPIService PypiSimpleCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var path string
 
-		resp, httpRes, err := apiClient.PypiSimpleApi.PypiSimpleCreate(context.Background(), path).Execute()
+		resp, httpRes, err := apiClient.PypiSimpleAPI.PypiSimpleCreate(context.Background(), path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,27 +36,27 @@ func Test_zest_PypiSimpleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PypiSimpleApiService PypiSimplePackageRead", func(t *testing.T) {
+	t.Run("Test PypiSimpleAPIService PypiSimplePackageRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var package_ string
 		var path string
 
-		httpRes, err := apiClient.PypiSimpleApi.PypiSimplePackageRead(context.Background(), package_, path).Execute()
+		httpRes, err := apiClient.PypiSimpleAPI.PypiSimplePackageRead(context.Background(), package_, path).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test PypiSimpleApiService PypiSimpleRead", func(t *testing.T) {
+	t.Run("Test PypiSimpleAPIService PypiSimpleRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var path string
 
-		httpRes, err := apiClient.PypiSimpleApi.PypiSimpleRead(context.Background(), path).Execute()
+		httpRes, err := apiClient.PypiSimpleAPI.PypiSimpleRead(context.Background(), path).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

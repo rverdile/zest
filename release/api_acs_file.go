@@ -22,22 +22,22 @@ import (
 )
 
 
-// AcsFileApiService AcsFileApi service
-type AcsFileApiService service
+// AcsFileAPIService AcsFileAPI service
+type AcsFileAPIService service
 
-type AcsFileApiAcsFileFileAddRoleRequest struct {
+type AcsFileAPIAcsFileFileAddRoleRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 	nestedRole *NestedRole
 }
 
-func (r AcsFileApiAcsFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) AcsFileApiAcsFileFileAddRoleRequest {
+func (r AcsFileAPIAcsFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) AcsFileAPIAcsFileFileAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r AcsFileApiAcsFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileAddRoleRequest
+ @return AcsFileAPIAcsFileFileAddRoleRequest
 */
-func (a *AcsFileApiService) AcsFileFileAddRole(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileAddRoleRequest {
-	return AcsFileApiAcsFileFileAddRoleRequest{
+func (a *AcsFileAPIService) AcsFileFileAddRole(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileAddRoleRequest {
+	return AcsFileAPIAcsFileFileAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -60,7 +60,7 @@ func (a *AcsFileApiService) AcsFileFileAddRole(ctx context.Context, fileFileAlte
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *AcsFileApiService) AcsFileFileAddRoleExecute(r AcsFileApiAcsFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileAddRoleExecute(r AcsFileAPIAcsFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *AcsFileApiService) AcsFileFileAddRoleExecute(r AcsFileApiAcsFileFileAdd
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *AcsFileApiService) AcsFileFileAddRoleExecute(r AcsFileApiAcsFileFileAdd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileCreateRequest struct {
+type AcsFileAPIAcsFileFileCreateRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSource *FileFileAlternateContentSource
 }
 
-func (r AcsFileApiAcsFileFileCreateRequest) FileFileAlternateContentSource(fileFileAlternateContentSource FileFileAlternateContentSource) AcsFileApiAcsFileFileCreateRequest {
+func (r AcsFileAPIAcsFileFileCreateRequest) FileFileAlternateContentSource(fileFileAlternateContentSource FileFileAlternateContentSource) AcsFileAPIAcsFileFileCreateRequest {
 	r.fileFileAlternateContentSource = &fileFileAlternateContentSource
 	return r
 }
 
-func (r AcsFileApiAcsFileFileCreateRequest) Execute() (*FileFileAlternateContentSourceResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileCreateRequest) Execute() (*FileFileAlternateContentSourceResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileCreateExecute(r)
 }
 
@@ -163,10 +163,10 @@ Alternate Content Source ViewSet for File
 ACS support is provided as a tech preview in pulp_file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AcsFileApiAcsFileFileCreateRequest
+ @return AcsFileAPIAcsFileFileCreateRequest
 */
-func (a *AcsFileApiService) AcsFileFileCreate(ctx context.Context) AcsFileApiAcsFileFileCreateRequest {
-	return AcsFileApiAcsFileFileCreateRequest{
+func (a *AcsFileAPIService) AcsFileFileCreate(ctx context.Context) AcsFileAPIAcsFileFileCreateRequest {
+	return AcsFileAPIAcsFileFileCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -174,7 +174,7 @@ func (a *AcsFileApiService) AcsFileFileCreate(ctx context.Context) AcsFileApiAcs
 
 // Execute executes the request
 //  @return FileFileAlternateContentSourceResponse
-func (a *AcsFileApiService) AcsFileFileCreateExecute(r AcsFileApiAcsFileFileCreateRequest) (*FileFileAlternateContentSourceResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileCreateExecute(r AcsFileAPIAcsFileFileCreateRequest) (*FileFileAlternateContentSourceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -182,7 +182,7 @@ func (a *AcsFileApiService) AcsFileFileCreateExecute(r AcsFileApiAcsFileFileCrea
 		localVarReturnValue  *FileFileAlternateContentSourceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -251,13 +251,13 @@ func (a *AcsFileApiService) AcsFileFileCreateExecute(r AcsFileApiAcsFileFileCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileDeleteRequest struct {
+type AcsFileAPIAcsFileFileDeleteRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 }
 
-func (r AcsFileApiAcsFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileDeleteExecute(r)
 }
 
@@ -268,10 +268,10 @@ Trigger an asynchronous delete ACS task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileDeleteRequest
+ @return AcsFileAPIAcsFileFileDeleteRequest
 */
-func (a *AcsFileApiService) AcsFileFileDelete(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileDeleteRequest {
-	return AcsFileApiAcsFileFileDeleteRequest{
+func (a *AcsFileAPIService) AcsFileFileDelete(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileDeleteRequest {
+	return AcsFileAPIAcsFileFileDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -280,7 +280,7 @@ func (a *AcsFileApiService) AcsFileFileDelete(ctx context.Context, fileFileAlter
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *AcsFileApiService) AcsFileFileDeleteExecute(r AcsFileApiAcsFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileDeleteExecute(r AcsFileAPIAcsFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -288,7 +288,7 @@ func (a *AcsFileApiService) AcsFileFileDeleteExecute(r AcsFileApiAcsFileFileDele
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -355,9 +355,9 @@ func (a *AcsFileApiService) AcsFileFileDeleteExecute(r AcsFileApiAcsFileFileDele
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileListRequest struct {
+type AcsFileAPIAcsFileFileListRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -373,78 +373,78 @@ type AcsFileApiAcsFileFileListRequest struct {
 }
 
 // Number of results to return per page.
-func (r AcsFileApiAcsFileFileListRequest) Limit(limit int32) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) Limit(limit int32) AcsFileAPIAcsFileFileListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r AcsFileApiAcsFileFileListRequest) Name(name string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) Name(name string) AcsFileAPIAcsFileFileListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r AcsFileApiAcsFileFileListRequest) NameContains(nameContains string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) NameContains(nameContains string) AcsFileAPIAcsFileFileListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r AcsFileApiAcsFileFileListRequest) NameIcontains(nameIcontains string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) NameIcontains(nameIcontains string) AcsFileAPIAcsFileFileListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r AcsFileApiAcsFileFileListRequest) NameIn(nameIn []string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) NameIn(nameIn []string) AcsFileAPIAcsFileFileListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r AcsFileApiAcsFileFileListRequest) NameStartswith(nameStartswith string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) NameStartswith(nameStartswith string) AcsFileAPIAcsFileFileListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r AcsFileApiAcsFileFileListRequest) Offset(offset int32) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) Offset(offset int32) AcsFileAPIAcsFileFileListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;last_refreshed&#x60; - Last refreshed * &#x60;-last_refreshed&#x60; - Last refreshed (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r AcsFileApiAcsFileFileListRequest) Ordering(ordering []string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) Ordering(ordering []string) AcsFileAPIAcsFileFileListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AcsFileApiAcsFileFileListRequest) PulpHrefIn(pulpHrefIn []string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) PulpHrefIn(pulpHrefIn []string) AcsFileAPIAcsFileFileListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AcsFileApiAcsFileFileListRequest) PulpIdIn(pulpIdIn []string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) PulpIdIn(pulpIdIn []string) AcsFileAPIAcsFileFileListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r AcsFileApiAcsFileFileListRequest) Fields(fields []string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) Fields(fields []string) AcsFileAPIAcsFileFileListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsFileApiAcsFileFileListRequest) ExcludeFields(excludeFields []string) AcsFileApiAcsFileFileListRequest {
+func (r AcsFileAPIAcsFileFileListRequest) ExcludeFields(excludeFields []string) AcsFileAPIAcsFileFileListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsFileApiAcsFileFileListRequest) Execute() (*PaginatedfileFileAlternateContentSourceResponseList, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileListRequest) Execute() (*PaginatedfileFileAlternateContentSourceResponseList, *http.Response, error) {
 	return r.ApiService.AcsFileFileListExecute(r)
 }
 
@@ -456,10 +456,10 @@ Alternate Content Source ViewSet for File
 ACS support is provided as a tech preview in pulp_file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AcsFileApiAcsFileFileListRequest
+ @return AcsFileAPIAcsFileFileListRequest
 */
-func (a *AcsFileApiService) AcsFileFileList(ctx context.Context) AcsFileApiAcsFileFileListRequest {
-	return AcsFileApiAcsFileFileListRequest{
+func (a *AcsFileAPIService) AcsFileFileList(ctx context.Context) AcsFileAPIAcsFileFileListRequest {
+	return AcsFileAPIAcsFileFileListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -467,7 +467,7 @@ func (a *AcsFileApiService) AcsFileFileList(ctx context.Context) AcsFileApiAcsFi
 
 // Execute executes the request
 //  @return PaginatedfileFileAlternateContentSourceResponseList
-func (a *AcsFileApiService) AcsFileFileListExecute(r AcsFileApiAcsFileFileListRequest) (*PaginatedfileFileAlternateContentSourceResponseList, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileListExecute(r AcsFileAPIAcsFileFileListRequest) (*PaginatedfileFileAlternateContentSourceResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -475,7 +475,7 @@ func (a *AcsFileApiService) AcsFileFileListExecute(r AcsFileApiAcsFileFileListRe
 		localVarReturnValue  *PaginatedfileFileAlternateContentSourceResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -591,27 +591,27 @@ func (a *AcsFileApiService) AcsFileFileListExecute(r AcsFileApiAcsFileFileListRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileListRolesRequest struct {
+type AcsFileAPIAcsFileFileListRolesRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AcsFileApiAcsFileFileListRolesRequest) Fields(fields []string) AcsFileApiAcsFileFileListRolesRequest {
+func (r AcsFileAPIAcsFileFileListRolesRequest) Fields(fields []string) AcsFileAPIAcsFileFileListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsFileApiAcsFileFileListRolesRequest) ExcludeFields(excludeFields []string) AcsFileApiAcsFileFileListRolesRequest {
+func (r AcsFileAPIAcsFileFileListRolesRequest) ExcludeFields(excludeFields []string) AcsFileAPIAcsFileFileListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsFileApiAcsFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileListRolesExecute(r)
 }
 
@@ -622,10 +622,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileListRolesRequest
+ @return AcsFileAPIAcsFileFileListRolesRequest
 */
-func (a *AcsFileApiService) AcsFileFileListRoles(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileListRolesRequest {
-	return AcsFileApiAcsFileFileListRolesRequest{
+func (a *AcsFileAPIService) AcsFileFileListRoles(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileListRolesRequest {
+	return AcsFileAPIAcsFileFileListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -634,7 +634,7 @@ func (a *AcsFileApiService) AcsFileFileListRoles(ctx context.Context, fileFileAl
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *AcsFileApiService) AcsFileFileListRolesExecute(r AcsFileApiAcsFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileListRolesExecute(r AcsFileAPIAcsFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -642,7 +642,7 @@ func (a *AcsFileApiService) AcsFileFileListRolesExecute(r AcsFileApiAcsFileFileL
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -731,27 +731,27 @@ func (a *AcsFileApiService) AcsFileFileListRolesExecute(r AcsFileApiAcsFileFileL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileMyPermissionsRequest struct {
+type AcsFileAPIAcsFileFileMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AcsFileApiAcsFileFileMyPermissionsRequest) Fields(fields []string) AcsFileApiAcsFileFileMyPermissionsRequest {
+func (r AcsFileAPIAcsFileFileMyPermissionsRequest) Fields(fields []string) AcsFileAPIAcsFileFileMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsFileApiAcsFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) AcsFileApiAcsFileFileMyPermissionsRequest {
+func (r AcsFileAPIAcsFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) AcsFileAPIAcsFileFileMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsFileApiAcsFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileMyPermissionsExecute(r)
 }
 
@@ -762,10 +762,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileMyPermissionsRequest
+ @return AcsFileAPIAcsFileFileMyPermissionsRequest
 */
-func (a *AcsFileApiService) AcsFileFileMyPermissions(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileMyPermissionsRequest {
-	return AcsFileApiAcsFileFileMyPermissionsRequest{
+func (a *AcsFileAPIService) AcsFileFileMyPermissions(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileMyPermissionsRequest {
+	return AcsFileAPIAcsFileFileMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -774,7 +774,7 @@ func (a *AcsFileApiService) AcsFileFileMyPermissions(ctx context.Context, fileFi
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *AcsFileApiService) AcsFileFileMyPermissionsExecute(r AcsFileApiAcsFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileMyPermissionsExecute(r AcsFileAPIAcsFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -782,7 +782,7 @@ func (a *AcsFileApiService) AcsFileFileMyPermissionsExecute(r AcsFileApiAcsFileF
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -871,19 +871,19 @@ func (a *AcsFileApiService) AcsFileFileMyPermissionsExecute(r AcsFileApiAcsFileF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFilePartialUpdateRequest struct {
+type AcsFileAPIAcsFileFilePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 	patchedfileFileAlternateContentSource *PatchedfileFileAlternateContentSource
 }
 
-func (r AcsFileApiAcsFileFilePartialUpdateRequest) PatchedfileFileAlternateContentSource(patchedfileFileAlternateContentSource PatchedfileFileAlternateContentSource) AcsFileApiAcsFileFilePartialUpdateRequest {
+func (r AcsFileAPIAcsFileFilePartialUpdateRequest) PatchedfileFileAlternateContentSource(patchedfileFileAlternateContentSource PatchedfileFileAlternateContentSource) AcsFileAPIAcsFileFilePartialUpdateRequest {
 	r.patchedfileFileAlternateContentSource = &patchedfileFileAlternateContentSource
 	return r
 }
 
-func (r AcsFileApiAcsFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFilePartialUpdateExecute(r)
 }
 
@@ -894,10 +894,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFilePartialUpdateRequest
+ @return AcsFileAPIAcsFileFilePartialUpdateRequest
 */
-func (a *AcsFileApiService) AcsFileFilePartialUpdate(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFilePartialUpdateRequest {
-	return AcsFileApiAcsFileFilePartialUpdateRequest{
+func (a *AcsFileAPIService) AcsFileFilePartialUpdate(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFilePartialUpdateRequest {
+	return AcsFileAPIAcsFileFilePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -906,7 +906,7 @@ func (a *AcsFileApiService) AcsFileFilePartialUpdate(ctx context.Context, fileFi
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *AcsFileApiService) AcsFileFilePartialUpdateExecute(r AcsFileApiAcsFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFilePartialUpdateExecute(r AcsFileAPIAcsFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -914,7 +914,7 @@ func (a *AcsFileApiService) AcsFileFilePartialUpdateExecute(r AcsFileApiAcsFileF
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFilePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFilePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -986,27 +986,27 @@ func (a *AcsFileApiService) AcsFileFilePartialUpdateExecute(r AcsFileApiAcsFileF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileReadRequest struct {
+type AcsFileAPIAcsFileFileReadRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AcsFileApiAcsFileFileReadRequest) Fields(fields []string) AcsFileApiAcsFileFileReadRequest {
+func (r AcsFileAPIAcsFileFileReadRequest) Fields(fields []string) AcsFileAPIAcsFileFileReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsFileApiAcsFileFileReadRequest) ExcludeFields(excludeFields []string) AcsFileApiAcsFileFileReadRequest {
+func (r AcsFileAPIAcsFileFileReadRequest) ExcludeFields(excludeFields []string) AcsFileAPIAcsFileFileReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsFileApiAcsFileFileReadRequest) Execute() (*FileFileAlternateContentSourceResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileReadRequest) Execute() (*FileFileAlternateContentSourceResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileReadExecute(r)
 }
 
@@ -1019,10 +1019,10 @@ ACS support is provided as a tech preview in pulp_file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileReadRequest
+ @return AcsFileAPIAcsFileFileReadRequest
 */
-func (a *AcsFileApiService) AcsFileFileRead(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileReadRequest {
-	return AcsFileApiAcsFileFileReadRequest{
+func (a *AcsFileAPIService) AcsFileFileRead(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileReadRequest {
+	return AcsFileAPIAcsFileFileReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -1031,7 +1031,7 @@ func (a *AcsFileApiService) AcsFileFileRead(ctx context.Context, fileFileAlterna
 
 // Execute executes the request
 //  @return FileFileAlternateContentSourceResponse
-func (a *AcsFileApiService) AcsFileFileReadExecute(r AcsFileApiAcsFileFileReadRequest) (*FileFileAlternateContentSourceResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileReadExecute(r AcsFileAPIAcsFileFileReadRequest) (*FileFileAlternateContentSourceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1039,7 +1039,7 @@ func (a *AcsFileApiService) AcsFileFileReadExecute(r AcsFileApiAcsFileFileReadRe
 		localVarReturnValue  *FileFileAlternateContentSourceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1128,13 +1128,13 @@ func (a *AcsFileApiService) AcsFileFileReadExecute(r AcsFileApiAcsFileFileReadRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileRefreshRequest struct {
+type AcsFileAPIAcsFileFileRefreshRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 }
 
-func (r AcsFileApiAcsFileFileRefreshRequest) Execute() (*TaskGroupOperationResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileRefreshRequest) Execute() (*TaskGroupOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileRefreshExecute(r)
 }
 
@@ -1145,10 +1145,10 @@ Trigger an asynchronous task to create Alternate Content Source content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileRefreshRequest
+ @return AcsFileAPIAcsFileFileRefreshRequest
 */
-func (a *AcsFileApiService) AcsFileFileRefresh(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileRefreshRequest {
-	return AcsFileApiAcsFileFileRefreshRequest{
+func (a *AcsFileAPIService) AcsFileFileRefresh(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileRefreshRequest {
+	return AcsFileAPIAcsFileFileRefreshRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -1157,7 +1157,7 @@ func (a *AcsFileApiService) AcsFileFileRefresh(ctx context.Context, fileFileAlte
 
 // Execute executes the request
 //  @return TaskGroupOperationResponse
-func (a *AcsFileApiService) AcsFileFileRefreshExecute(r AcsFileApiAcsFileFileRefreshRequest) (*TaskGroupOperationResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileRefreshExecute(r AcsFileAPIAcsFileFileRefreshRequest) (*TaskGroupOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1165,7 +1165,7 @@ func (a *AcsFileApiService) AcsFileFileRefreshExecute(r AcsFileApiAcsFileFileRef
 		localVarReturnValue  *TaskGroupOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileRefresh")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileRefresh")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1232,19 +1232,19 @@ func (a *AcsFileApiService) AcsFileFileRefreshExecute(r AcsFileApiAcsFileFileRef
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileRemoveRoleRequest struct {
+type AcsFileAPIAcsFileFileRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 	nestedRole *NestedRole
 }
 
-func (r AcsFileApiAcsFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) AcsFileApiAcsFileFileRemoveRoleRequest {
+func (r AcsFileAPIAcsFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) AcsFileAPIAcsFileFileRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r AcsFileApiAcsFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileRemoveRoleExecute(r)
 }
 
@@ -1255,10 +1255,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileRemoveRoleRequest
+ @return AcsFileAPIAcsFileFileRemoveRoleRequest
 */
-func (a *AcsFileApiService) AcsFileFileRemoveRole(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileRemoveRoleRequest {
-	return AcsFileApiAcsFileFileRemoveRoleRequest{
+func (a *AcsFileAPIService) AcsFileFileRemoveRole(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileRemoveRoleRequest {
+	return AcsFileAPIAcsFileFileRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -1267,7 +1267,7 @@ func (a *AcsFileApiService) AcsFileFileRemoveRole(ctx context.Context, fileFileA
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *AcsFileApiService) AcsFileFileRemoveRoleExecute(r AcsFileApiAcsFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileRemoveRoleExecute(r AcsFileAPIAcsFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1275,7 +1275,7 @@ func (a *AcsFileApiService) AcsFileFileRemoveRoleExecute(r AcsFileApiAcsFileFile
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1347,19 +1347,19 @@ func (a *AcsFileApiService) AcsFileFileRemoveRoleExecute(r AcsFileApiAcsFileFile
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsFileApiAcsFileFileUpdateRequest struct {
+type AcsFileAPIAcsFileFileUpdateRequest struct {
 	ctx context.Context
-	ApiService *AcsFileApiService
+	ApiService *AcsFileAPIService
 	fileFileAlternateContentSourceHref string
 	fileFileAlternateContentSource *FileFileAlternateContentSource
 }
 
-func (r AcsFileApiAcsFileFileUpdateRequest) FileFileAlternateContentSource(fileFileAlternateContentSource FileFileAlternateContentSource) AcsFileApiAcsFileFileUpdateRequest {
+func (r AcsFileAPIAcsFileFileUpdateRequest) FileFileAlternateContentSource(fileFileAlternateContentSource FileFileAlternateContentSource) AcsFileAPIAcsFileFileUpdateRequest {
 	r.fileFileAlternateContentSource = &fileFileAlternateContentSource
 	return r
 }
 
-func (r AcsFileApiAcsFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AcsFileAPIAcsFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsFileFileUpdateExecute(r)
 }
 
@@ -1370,10 +1370,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileAlternateContentSourceHref
- @return AcsFileApiAcsFileFileUpdateRequest
+ @return AcsFileAPIAcsFileFileUpdateRequest
 */
-func (a *AcsFileApiService) AcsFileFileUpdate(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileApiAcsFileFileUpdateRequest {
-	return AcsFileApiAcsFileFileUpdateRequest{
+func (a *AcsFileAPIService) AcsFileFileUpdate(ctx context.Context, fileFileAlternateContentSourceHref string) AcsFileAPIAcsFileFileUpdateRequest {
+	return AcsFileAPIAcsFileFileUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileAlternateContentSourceHref: fileFileAlternateContentSourceHref,
@@ -1382,7 +1382,7 @@ func (a *AcsFileApiService) AcsFileFileUpdate(ctx context.Context, fileFileAlter
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *AcsFileApiService) AcsFileFileUpdateExecute(r AcsFileApiAcsFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AcsFileAPIService) AcsFileFileUpdateExecute(r AcsFileAPIAcsFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1390,7 +1390,7 @@ func (a *AcsFileApiService) AcsFileFileUpdateExecute(r AcsFileApiAcsFileFileUpda
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileApiService.AcsFileFileUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsFileAPIService.AcsFileFileUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

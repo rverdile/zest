@@ -22,12 +22,12 @@ import (
 )
 
 
-// PypiMetadataApiService PypiMetadataApi service
-type PypiMetadataApiService service
+// PypiMetadataAPIService PypiMetadataAPI service
+type PypiMetadataAPIService service
 
-type PypiMetadataApiPypiPypiReadRequest struct {
+type PypiMetadataAPIPypiPypiReadRequest struct {
 	ctx context.Context
-	ApiService *PypiMetadataApiService
+	ApiService *PypiMetadataAPIService
 	meta string
 	path string
 	fields *[]string
@@ -35,18 +35,18 @@ type PypiMetadataApiPypiPypiReadRequest struct {
 }
 
 // A list of fields to include in the response.
-func (r PypiMetadataApiPypiPypiReadRequest) Fields(fields []string) PypiMetadataApiPypiPypiReadRequest {
+func (r PypiMetadataAPIPypiPypiReadRequest) Fields(fields []string) PypiMetadataAPIPypiPypiReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PypiMetadataApiPypiPypiReadRequest) ExcludeFields(excludeFields []string) PypiMetadataApiPypiPypiReadRequest {
+func (r PypiMetadataAPIPypiPypiReadRequest) ExcludeFields(excludeFields []string) PypiMetadataAPIPypiPypiReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PypiMetadataApiPypiPypiReadRequest) Execute() (*PackageMetadataResponse, *http.Response, error) {
+func (r PypiMetadataAPIPypiPypiReadRequest) Execute() (*PackageMetadataResponse, *http.Response, error) {
 	return r.ApiService.PypiPypiReadExecute(r)
 }
 
@@ -60,10 +60,10 @@ https://packaging.python.org/specifications/core-metadata/.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param meta
  @param path
- @return PypiMetadataApiPypiPypiReadRequest
+ @return PypiMetadataAPIPypiPypiReadRequest
 */
-func (a *PypiMetadataApiService) PypiPypiRead(ctx context.Context, meta string, path string) PypiMetadataApiPypiPypiReadRequest {
-	return PypiMetadataApiPypiPypiReadRequest{
+func (a *PypiMetadataAPIService) PypiPypiRead(ctx context.Context, meta string, path string) PypiMetadataAPIPypiPypiReadRequest {
+	return PypiMetadataAPIPypiPypiReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		meta: meta,
@@ -73,7 +73,7 @@ func (a *PypiMetadataApiService) PypiPypiRead(ctx context.Context, meta string, 
 
 // Execute executes the request
 //  @return PackageMetadataResponse
-func (a *PypiMetadataApiService) PypiPypiReadExecute(r PypiMetadataApiPypiPypiReadRequest) (*PackageMetadataResponse, *http.Response, error) {
+func (a *PypiMetadataAPIService) PypiPypiReadExecute(r PypiMetadataAPIPypiPypiReadRequest) (*PackageMetadataResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -81,7 +81,7 @@ func (a *PypiMetadataApiService) PypiPypiReadExecute(r PypiMetadataApiPypiPypiRe
 		localVarReturnValue  *PackageMetadataResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiMetadataApiService.PypiPypiRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiMetadataAPIService.PypiPypiRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

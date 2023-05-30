@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentCollectionDeprecationsApiService
+Testing ContentCollectionDeprecationsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentCollectionDeprecationsApiService(t *testing.T) {
+func Test_zest_ContentCollectionDeprecationsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentCollectionDeprecationsApiService ContentAnsibleCollectionDeprecationsCreate", func(t *testing.T) {
+	t.Run("Test ContentCollectionDeprecationsAPIService ContentAnsibleCollectionDeprecationsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionDeprecationsApi.ContentAnsibleCollectionDeprecationsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionDeprecationsAPI.ContentAnsibleCollectionDeprecationsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentCollectionDeprecationsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionDeprecationsApiService ContentAnsibleCollectionDeprecationsList", func(t *testing.T) {
+	t.Run("Test ContentCollectionDeprecationsAPIService ContentAnsibleCollectionDeprecationsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionDeprecationsApi.ContentAnsibleCollectionDeprecationsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionDeprecationsAPI.ContentAnsibleCollectionDeprecationsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentCollectionDeprecationsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionDeprecationsApiService ContentAnsibleCollectionDeprecationsRead", func(t *testing.T) {
+	t.Run("Test ContentCollectionDeprecationsAPIService ContentAnsibleCollectionDeprecationsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleCollectionDeprecatedHref string
 
-		resp, httpRes, err := apiClient.ContentCollectionDeprecationsApi.ContentAnsibleCollectionDeprecationsRead(context.Background(), ansibleAnsibleCollectionDeprecatedHref).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionDeprecationsAPI.ContentAnsibleCollectionDeprecationsRead(context.Background(), ansibleAnsibleCollectionDeprecatedHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

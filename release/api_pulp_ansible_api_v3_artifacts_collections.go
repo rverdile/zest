@@ -22,12 +22,12 @@ import (
 )
 
 
-// PulpAnsibleApiV3ArtifactsCollectionsApiService PulpAnsibleApiV3ArtifactsCollectionsApi service
-type PulpAnsibleApiV3ArtifactsCollectionsApiService service
+// PulpAnsibleApiV3ArtifactsCollectionsAPIService PulpAnsibleApiV3ArtifactsCollectionsAPI service
+type PulpAnsibleApiV3ArtifactsCollectionsAPIService service
 
-type PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest struct {
+type PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3ArtifactsCollectionsApiService
+	ApiService *PulpAnsibleApiV3ArtifactsCollectionsAPIService
 	filename string
 	path string
 	fields *[]string
@@ -35,18 +35,18 @@ type PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsColle
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) Fields(fields []string) PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest {
+func (r PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) Fields(fields []string) PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest {
+func (r PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) Execute() (*http.Response, error) {
+func (r PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3ArtifactsCollectionsGetExecute(r)
 }
 
@@ -58,10 +58,10 @@ Download collection.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filename
  @param path
- @return PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest
+ @return PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest
 */
-func (a *PulpAnsibleApiV3ArtifactsCollectionsApiService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet(ctx context.Context, filename string, path string) PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest {
-	return PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest{
+func (a *PulpAnsibleApiV3ArtifactsCollectionsAPIService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet(ctx context.Context, filename string, path string) PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest {
+	return PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		filename: filename,
@@ -70,14 +70,14 @@ func (a *PulpAnsibleApiV3ArtifactsCollectionsApiService) PulpAnsibleGalaxyApiV3A
 }
 
 // Execute executes the request
-func (a *PulpAnsibleApiV3ArtifactsCollectionsApiService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsGetExecute(r PulpAnsibleApiV3ArtifactsCollectionsApiPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) (*http.Response, error) {
+func (a *PulpAnsibleApiV3ArtifactsCollectionsAPIService) PulpAnsibleGalaxyApiV3ArtifactsCollectionsGetExecute(r PulpAnsibleApiV3ArtifactsCollectionsAPIPulpAnsibleGalaxyApiV3ArtifactsCollectionsGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3ArtifactsCollectionsApiService.PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3ArtifactsCollectionsAPIService.PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

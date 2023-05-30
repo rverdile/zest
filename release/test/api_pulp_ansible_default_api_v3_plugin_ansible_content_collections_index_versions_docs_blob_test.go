@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApiService
+Testing PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobAPIService
 
 */
 
@@ -17,12 +17,12 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApiService(t *testing.T) {
+func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApiService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobRead", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobAPIService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -31,7 +31,7 @@ func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersio
 		var namespace string
 		var version string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobRead(context.Background(), distroBasePath, name, namespace, version).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobAPI.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexVersionsDocsBlobRead(context.Background(), distroBasePath, name, namespace, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

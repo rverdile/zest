@@ -23,22 +23,22 @@ import (
 )
 
 
-// RemotesRoleApiService RemotesRoleApi service
-type RemotesRoleApiService service
+// RemotesRoleAPIService RemotesRoleAPI service
+type RemotesRoleAPIService service
 
-type RemotesRoleApiRemotesAnsibleRoleAddRoleRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesRoleApiRemotesAnsibleRoleAddRoleRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRoleAddRoleRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleAddRole(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRoleAddRoleRequest {
-	return RemotesRoleApiRemotesAnsibleRoleAddRoleRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleAddRole(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -61,7 +61,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleAddRole(ctx context.Context, a
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleAddRoleExecute(r RemotesRoleApiRemotesAnsibleRoleAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleAddRoleExecute(r RemotesRoleAPIRemotesAnsibleRoleAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleAddRoleExecute(r RemotesRoleAp
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleAddRoleExecute(r RemotesRoleAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleCreateRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemote *AnsibleRoleRemote
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleCreateRequest) AnsibleRoleRemote(ansibleRoleRemote AnsibleRoleRemote) RemotesRoleApiRemotesAnsibleRoleCreateRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleCreateRequest) AnsibleRoleRemote(ansibleRoleRemote AnsibleRoleRemote) RemotesRoleAPIRemotesAnsibleRoleCreateRequest {
 	r.ansibleRoleRemote = &ansibleRoleRemote
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleCreateRequest) Execute() (*AnsibleRoleRemoteResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleCreateRequest) Execute() (*AnsibleRoleRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleCreateExecute(r)
 }
 
@@ -162,10 +162,10 @@ RemotesAnsibleRoleCreate Create a role remote
 ViewSet for Role Remotes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesRoleApiRemotesAnsibleRoleCreateRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleCreateRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleCreate(ctx context.Context) RemotesRoleApiRemotesAnsibleRoleCreateRequest {
-	return RemotesRoleApiRemotesAnsibleRoleCreateRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleCreate(ctx context.Context) RemotesRoleAPIRemotesAnsibleRoleCreateRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -173,7 +173,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleCreate(ctx context.Context) Re
 
 // Execute executes the request
 //  @return AnsibleRoleRemoteResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleCreateExecute(r RemotesRoleApiRemotesAnsibleRoleCreateRequest) (*AnsibleRoleRemoteResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleCreateExecute(r RemotesRoleAPIRemotesAnsibleRoleCreateRequest) (*AnsibleRoleRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleCreateExecute(r RemotesRoleApi
 		localVarReturnValue  *AnsibleRoleRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -250,13 +250,13 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleCreateExecute(r RemotesRoleApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleDeleteRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleDeleteExecute(r)
 }
 
@@ -267,10 +267,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRoleDeleteRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleDeleteRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleDelete(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRoleDeleteRequest {
-	return RemotesRoleApiRemotesAnsibleRoleDeleteRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleDelete(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRoleDeleteRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -279,7 +279,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleDelete(ctx context.Context, an
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleDeleteExecute(r RemotesRoleApiRemotesAnsibleRoleDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleDeleteExecute(r RemotesRoleAPIRemotesAnsibleRoleDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -287,7 +287,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleDeleteExecute(r RemotesRoleApi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -354,9 +354,9 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleDeleteExecute(r RemotesRoleApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleListRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleListRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -379,120 +379,120 @@ type RemotesRoleApiRemotesAnsibleRoleListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) Limit(limit int32) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) Limit(limit int32) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) Name(name string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) Name(name string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) NameContains(nameContains string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) NameContains(nameContains string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) NameIcontains(nameIcontains string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) NameIcontains(nameIcontains string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) NameIn(nameIn []string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) NameIn(nameIn []string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) NameStartswith(nameStartswith string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) NameStartswith(nameStartswith string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) Offset(offset int32) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) Offset(offset int32) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) Ordering(ordering []string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) Ordering(ordering []string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpHrefIn(pulpHrefIn []string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpHrefIn(pulpHrefIn []string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpIdIn(pulpIdIn []string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpIdIn(pulpIdIn []string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) Fields(fields []string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) Fields(fields []string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) ExcludeFields(excludeFields []string) RemotesRoleApiRemotesAnsibleRoleListRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) ExcludeFields(excludeFields []string) RemotesRoleAPIRemotesAnsibleRoleListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleListRequest) Execute() (*PaginatedansibleRoleRemoteResponseList, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRequest) Execute() (*PaginatedansibleRoleRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleListExecute(r)
 }
 
@@ -502,10 +502,10 @@ RemotesAnsibleRoleList List role remotes
 ViewSet for Role Remotes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesRoleApiRemotesAnsibleRoleListRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleListRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleList(ctx context.Context) RemotesRoleApiRemotesAnsibleRoleListRequest {
-	return RemotesRoleApiRemotesAnsibleRoleListRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleList(ctx context.Context) RemotesRoleAPIRemotesAnsibleRoleListRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -513,7 +513,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleList(ctx context.Context) Remo
 
 // Execute executes the request
 //  @return PaginatedansibleRoleRemoteResponseList
-func (a *RemotesRoleApiService) RemotesAnsibleRoleListExecute(r RemotesRoleApiRemotesAnsibleRoleListRequest) (*PaginatedansibleRoleRemoteResponseList, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleListExecute(r RemotesRoleAPIRemotesAnsibleRoleListRequest) (*PaginatedansibleRoleRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -521,7 +521,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleListExecute(r RemotesRoleApiRe
 		localVarReturnValue  *PaginatedansibleRoleRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -658,27 +658,27 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleListExecute(r RemotesRoleApiRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleListRolesRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleListRolesRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesRoleApiRemotesAnsibleRoleListRolesRequest) Fields(fields []string) RemotesRoleApiRemotesAnsibleRoleListRolesRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRolesRequest) Fields(fields []string) RemotesRoleAPIRemotesAnsibleRoleListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRoleApiRemotesAnsibleRoleListRolesRequest) ExcludeFields(excludeFields []string) RemotesRoleApiRemotesAnsibleRoleListRolesRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRolesRequest) ExcludeFields(excludeFields []string) RemotesRoleAPIRemotesAnsibleRoleListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleListRolesExecute(r)
 }
 
@@ -689,10 +689,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRoleListRolesRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleListRolesRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleListRoles(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRoleListRolesRequest {
-	return RemotesRoleApiRemotesAnsibleRoleListRolesRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleListRoles(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRoleListRolesRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -701,7 +701,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleListRoles(ctx context.Context,
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleListRolesExecute(r RemotesRoleApiRemotesAnsibleRoleListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleListRolesExecute(r RemotesRoleAPIRemotesAnsibleRoleListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -709,7 +709,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleListRolesExecute(r RemotesRole
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -798,27 +798,27 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleListRolesExecute(r RemotesRole
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest) Fields(fields []string) RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest) Fields(fields []string) RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleMyPermissionsExecute(r)
 }
 
@@ -829,10 +829,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleMyPermissions(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest {
-	return RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleMyPermissions(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -841,7 +841,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleMyPermissions(ctx context.Cont
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleMyPermissionsExecute(r RemotesRoleApiRemotesAnsibleRoleMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleMyPermissionsExecute(r RemotesRoleAPIRemotesAnsibleRoleMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -849,7 +849,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleMyPermissionsExecute(r Remotes
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -938,19 +938,19 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleMyPermissionsExecute(r Remotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest struct {
+type RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 	patchedansibleRoleRemote *PatchedansibleRoleRemote
 }
 
-func (r RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest) PatchedansibleRoleRemote(patchedansibleRoleRemote PatchedansibleRoleRemote) RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest {
+func (r RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest) PatchedansibleRoleRemote(patchedansibleRoleRemote PatchedansibleRoleRemote) RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest {
 	r.patchedansibleRoleRemote = &patchedansibleRoleRemote
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRolePartialUpdateExecute(r)
 }
 
@@ -961,10 +961,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest
+ @return RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRolePartialUpdate(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest {
-	return RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRolePartialUpdate(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest {
+	return RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -973,7 +973,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRolePartialUpdate(ctx context.Cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRolePartialUpdateExecute(r RemotesRoleApiRemotesAnsibleRolePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRolePartialUpdateExecute(r RemotesRoleAPIRemotesAnsibleRolePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -981,7 +981,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRolePartialUpdateExecute(r Remotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRolePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRolePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1053,27 +1053,27 @@ func (a *RemotesRoleApiService) RemotesAnsibleRolePartialUpdateExecute(r Remotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleReadRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesRoleApiRemotesAnsibleRoleReadRequest) Fields(fields []string) RemotesRoleApiRemotesAnsibleRoleReadRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleReadRequest) Fields(fields []string) RemotesRoleAPIRemotesAnsibleRoleReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRoleApiRemotesAnsibleRoleReadRequest) ExcludeFields(excludeFields []string) RemotesRoleApiRemotesAnsibleRoleReadRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleReadRequest) ExcludeFields(excludeFields []string) RemotesRoleAPIRemotesAnsibleRoleReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleReadRequest) Execute() (*AnsibleRoleRemoteResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleReadRequest) Execute() (*AnsibleRoleRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleReadExecute(r)
 }
 
@@ -1084,10 +1084,10 @@ ViewSet for Role Remotes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRoleReadRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleReadRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleRead(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRoleReadRequest {
-	return RemotesRoleApiRemotesAnsibleRoleReadRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleRead(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRoleReadRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -1096,7 +1096,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleRead(ctx context.Context, ansi
 
 // Execute executes the request
 //  @return AnsibleRoleRemoteResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleReadExecute(r RemotesRoleApiRemotesAnsibleRoleReadRequest) (*AnsibleRoleRemoteResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleReadExecute(r RemotesRoleAPIRemotesAnsibleRoleReadRequest) (*AnsibleRoleRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1104,7 +1104,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleReadExecute(r RemotesRoleApiRe
 		localVarReturnValue  *AnsibleRoleRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1193,19 +1193,19 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleReadExecute(r RemotesRoleApiRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleRemoveRoleExecute(r)
 }
 
@@ -1216,10 +1216,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleRemoveRole(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest {
-	return RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleRemoveRole(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -1228,7 +1228,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleRemoveRole(ctx context.Context
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleRemoveRoleExecute(r RemotesRoleApiRemotesAnsibleRoleRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleRemoveRoleExecute(r RemotesRoleAPIRemotesAnsibleRoleRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1236,7 +1236,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleRemoveRoleExecute(r RemotesRol
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1308,19 +1308,19 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleRemoveRoleExecute(r RemotesRol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRoleApiRemotesAnsibleRoleUpdateRequest struct {
+type RemotesRoleAPIRemotesAnsibleRoleUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesRoleApiService
+	ApiService *RemotesRoleAPIService
 	ansibleRoleRemoteHref string
 	ansibleRoleRemote *AnsibleRoleRemote
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleUpdateRequest) AnsibleRoleRemote(ansibleRoleRemote AnsibleRoleRemote) RemotesRoleApiRemotesAnsibleRoleUpdateRequest {
+func (r RemotesRoleAPIRemotesAnsibleRoleUpdateRequest) AnsibleRoleRemote(ansibleRoleRemote AnsibleRoleRemote) RemotesRoleAPIRemotesAnsibleRoleUpdateRequest {
 	r.ansibleRoleRemote = &ansibleRoleRemote
 	return r
 }
 
-func (r RemotesRoleApiRemotesAnsibleRoleUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesRoleAPIRemotesAnsibleRoleUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleRoleUpdateExecute(r)
 }
 
@@ -1331,10 +1331,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleRemoteHref
- @return RemotesRoleApiRemotesAnsibleRoleUpdateRequest
+ @return RemotesRoleAPIRemotesAnsibleRoleUpdateRequest
 */
-func (a *RemotesRoleApiService) RemotesAnsibleRoleUpdate(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleApiRemotesAnsibleRoleUpdateRequest {
-	return RemotesRoleApiRemotesAnsibleRoleUpdateRequest{
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleUpdate(ctx context.Context, ansibleRoleRemoteHref string) RemotesRoleAPIRemotesAnsibleRoleUpdateRequest {
+	return RemotesRoleAPIRemotesAnsibleRoleUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleRemoteHref: ansibleRoleRemoteHref,
@@ -1343,7 +1343,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleUpdate(ctx context.Context, an
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesRoleApiService) RemotesAnsibleRoleUpdateExecute(r RemotesRoleApiRemotesAnsibleRoleUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesRoleAPIService) RemotesAnsibleRoleUpdateExecute(r RemotesRoleAPIRemotesAnsibleRoleUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1351,7 +1351,7 @@ func (a *RemotesRoleApiService) RemotesAnsibleRoleUpdateExecute(r RemotesRoleApi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleApiService.RemotesAnsibleRoleUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRoleAPIService.RemotesAnsibleRoleUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PublicationsPypiApiService
+Testing PublicationsPypiAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PublicationsPypiApiService(t *testing.T) {
+func Test_zest_PublicationsPypiAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PublicationsPypiApiService PublicationsPythonPypiCreate", func(t *testing.T) {
+	t.Run("Test PublicationsPypiAPIService PublicationsPythonPypiCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsPypiApi.PublicationsPythonPypiCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PublicationsPypiAPI.PublicationsPythonPypiCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,24 +34,24 @@ func Test_zest_PublicationsPypiApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsPypiApiService PublicationsPythonPypiDelete", func(t *testing.T) {
+	t.Run("Test PublicationsPypiAPIService PublicationsPythonPypiDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonPublicationHref string
 
-		httpRes, err := apiClient.PublicationsPypiApi.PublicationsPythonPypiDelete(context.Background(), pythonPythonPublicationHref).Execute()
+		httpRes, err := apiClient.PublicationsPypiAPI.PublicationsPythonPypiDelete(context.Background(), pythonPythonPublicationHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test PublicationsPypiApiService PublicationsPythonPypiList", func(t *testing.T) {
+	t.Run("Test PublicationsPypiAPIService PublicationsPythonPypiList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsPypiApi.PublicationsPythonPypiList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PublicationsPypiAPI.PublicationsPythonPypiList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,13 +59,13 @@ func Test_zest_PublicationsPypiApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsPypiApiService PublicationsPythonPypiRead", func(t *testing.T) {
+	t.Run("Test PublicationsPypiAPIService PublicationsPythonPypiRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonPublicationHref string
 
-		resp, httpRes, err := apiClient.PublicationsPypiApi.PublicationsPythonPypiRead(context.Background(), pythonPythonPublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsPypiAPI.PublicationsPythonPypiRead(context.Background(), pythonPythonPublicationHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,30 +22,30 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApi service
-type PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService service
+// PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIService PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPI service
+type PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIService service
 
-type PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest struct {
+type PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService
+	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIService
 	distroBasePath string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) Execute() (*RepoMetadataResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) Execute() (*RepoMetadataResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadExecute(r)
 }
 
@@ -56,10 +56,10 @@ ViewSet for Repository Metadata.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
- @return PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest
+ @return PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest
 */
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsRead(ctx context.Context, distroBasePath string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest {
-	return PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest{
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsRead(ctx context.Context, distroBasePath string) PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest {
+	return PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -68,7 +68,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService) PulpA
 
 // Execute executes the request
 //  @return RepoMetadataResponse
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) (*RepoMetadataResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsReadRequest) (*RepoMetadataResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -76,7 +76,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService) PulpA
 		localVarReturnValue  *RepoMetadataResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsAPIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

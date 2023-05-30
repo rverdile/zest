@@ -22,22 +22,22 @@ import (
 )
 
 
-// ImportersPulpImportsApiService ImportersPulpImportsApi service
-type ImportersPulpImportsApiService service
+// ImportersPulpImportsAPIService ImportersPulpImportsAPI service
+type ImportersPulpImportsAPIService service
 
-type ImportersPulpImportsApiImportersCorePulpImportsCreateRequest struct {
+type ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpImportsApiService
+	ApiService *ImportersPulpImportsAPIService
 	pulpImporterHref string
 	pulpImport *PulpImport
 }
 
-func (r ImportersPulpImportsApiImportersCorePulpImportsCreateRequest) PulpImport(pulpImport PulpImport) ImportersPulpImportsApiImportersCorePulpImportsCreateRequest {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest) PulpImport(pulpImport PulpImport) ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest {
 	r.pulpImport = &pulpImport
 	return r
 }
 
-func (r ImportersPulpImportsApiImportersCorePulpImportsCreateRequest) Execute() (*TaskGroupOperationResponse, *http.Response, error) {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest) Execute() (*TaskGroupOperationResponse, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpImportsCreateExecute(r)
 }
 
@@ -48,10 +48,10 @@ Trigger an asynchronous task to import a Pulp export.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpImporterHref
- @return ImportersPulpImportsApiImportersCorePulpImportsCreateRequest
+ @return ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest
 */
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsCreate(ctx context.Context, pulpImporterHref string) ImportersPulpImportsApiImportersCorePulpImportsCreateRequest {
-	return ImportersPulpImportsApiImportersCorePulpImportsCreateRequest{
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsCreate(ctx context.Context, pulpImporterHref string) ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest {
+	return ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpImporterHref: pulpImporterHref,
@@ -60,7 +60,7 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsCreate(ctx cont
 
 // Execute executes the request
 //  @return TaskGroupOperationResponse
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsCreateExecute(r ImportersPulpImportsApiImportersCorePulpImportsCreateRequest) (*TaskGroupOperationResponse, *http.Response, error) {
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsCreateExecute(r ImportersPulpImportsAPIImportersCorePulpImportsCreateRequest) (*TaskGroupOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsCreateExecute(r
 		localVarReturnValue  *TaskGroupOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsApiService.ImportersCorePulpImportsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsAPIService.ImportersCorePulpImportsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,13 +140,13 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsCreateExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ImportersPulpImportsApiImportersCorePulpImportsDeleteRequest struct {
+type ImportersPulpImportsAPIImportersCorePulpImportsDeleteRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpImportsApiService
+	ApiService *ImportersPulpImportsAPIService
 	pulpPulpImportHref string
 }
 
-func (r ImportersPulpImportsApiImportersCorePulpImportsDeleteRequest) Execute() (*http.Response, error) {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ImportersCorePulpImportsDeleteExecute(r)
 }
 
@@ -157,10 +157,10 @@ ViewSet for PulpImports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpPulpImportHref
- @return ImportersPulpImportsApiImportersCorePulpImportsDeleteRequest
+ @return ImportersPulpImportsAPIImportersCorePulpImportsDeleteRequest
 */
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsDelete(ctx context.Context, pulpPulpImportHref string) ImportersPulpImportsApiImportersCorePulpImportsDeleteRequest {
-	return ImportersPulpImportsApiImportersCorePulpImportsDeleteRequest{
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsDelete(ctx context.Context, pulpPulpImportHref string) ImportersPulpImportsAPIImportersCorePulpImportsDeleteRequest {
+	return ImportersPulpImportsAPIImportersCorePulpImportsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpPulpImportHref: pulpPulpImportHref,
@@ -168,14 +168,14 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsDelete(ctx cont
 }
 
 // Execute executes the request
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsDeleteExecute(r ImportersPulpImportsApiImportersCorePulpImportsDeleteRequest) (*http.Response, error) {
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsDeleteExecute(r ImportersPulpImportsAPIImportersCorePulpImportsDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsApiService.ImportersCorePulpImportsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsAPIService.ImportersCorePulpImportsDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -233,9 +233,9 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsDeleteExecute(r
 	return localVarHTTPResponse, nil
 }
 
-type ImportersPulpImportsApiImportersCorePulpImportsListRequest struct {
+type ImportersPulpImportsAPIImportersCorePulpImportsListRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpImportsApiService
+	ApiService *ImportersPulpImportsAPIService
 	pulpImporterHref string
 	limit *int32
 	offset *int32
@@ -244,30 +244,30 @@ type ImportersPulpImportsApiImportersCorePulpImportsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ImportersPulpImportsApiImportersCorePulpImportsListRequest) Limit(limit int32) ImportersPulpImportsApiImportersCorePulpImportsListRequest {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsListRequest) Limit(limit int32) ImportersPulpImportsAPIImportersCorePulpImportsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ImportersPulpImportsApiImportersCorePulpImportsListRequest) Offset(offset int32) ImportersPulpImportsApiImportersCorePulpImportsListRequest {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsListRequest) Offset(offset int32) ImportersPulpImportsAPIImportersCorePulpImportsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ImportersPulpImportsApiImportersCorePulpImportsListRequest) Fields(fields []string) ImportersPulpImportsApiImportersCorePulpImportsListRequest {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsListRequest) Fields(fields []string) ImportersPulpImportsAPIImportersCorePulpImportsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ImportersPulpImportsApiImportersCorePulpImportsListRequest) ExcludeFields(excludeFields []string) ImportersPulpImportsApiImportersCorePulpImportsListRequest {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsListRequest) ExcludeFields(excludeFields []string) ImportersPulpImportsAPIImportersCorePulpImportsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ImportersPulpImportsApiImportersCorePulpImportsListRequest) Execute() (*PaginatedImportResponseList, *http.Response, error) {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsListRequest) Execute() (*PaginatedImportResponseList, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpImportsListExecute(r)
 }
 
@@ -278,10 +278,10 @@ ViewSet for PulpImports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpImporterHref
- @return ImportersPulpImportsApiImportersCorePulpImportsListRequest
+ @return ImportersPulpImportsAPIImportersCorePulpImportsListRequest
 */
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsList(ctx context.Context, pulpImporterHref string) ImportersPulpImportsApiImportersCorePulpImportsListRequest {
-	return ImportersPulpImportsApiImportersCorePulpImportsListRequest{
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsList(ctx context.Context, pulpImporterHref string) ImportersPulpImportsAPIImportersCorePulpImportsListRequest {
+	return ImportersPulpImportsAPIImportersCorePulpImportsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpImporterHref: pulpImporterHref,
@@ -290,7 +290,7 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsList(ctx contex
 
 // Execute executes the request
 //  @return PaginatedImportResponseList
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsListExecute(r ImportersPulpImportsApiImportersCorePulpImportsListRequest) (*PaginatedImportResponseList, *http.Response, error) {
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsListExecute(r ImportersPulpImportsAPIImportersCorePulpImportsListRequest) (*PaginatedImportResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -298,7 +298,7 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsListExecute(r I
 		localVarReturnValue  *PaginatedImportResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsApiService.ImportersCorePulpImportsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsAPIService.ImportersCorePulpImportsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -393,27 +393,27 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsListExecute(r I
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ImportersPulpImportsApiImportersCorePulpImportsReadRequest struct {
+type ImportersPulpImportsAPIImportersCorePulpImportsReadRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpImportsApiService
+	ApiService *ImportersPulpImportsAPIService
 	pulpPulpImportHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ImportersPulpImportsApiImportersCorePulpImportsReadRequest) Fields(fields []string) ImportersPulpImportsApiImportersCorePulpImportsReadRequest {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsReadRequest) Fields(fields []string) ImportersPulpImportsAPIImportersCorePulpImportsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ImportersPulpImportsApiImportersCorePulpImportsReadRequest) ExcludeFields(excludeFields []string) ImportersPulpImportsApiImportersCorePulpImportsReadRequest {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsReadRequest) ExcludeFields(excludeFields []string) ImportersPulpImportsAPIImportersCorePulpImportsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ImportersPulpImportsApiImportersCorePulpImportsReadRequest) Execute() (*ImportResponse, *http.Response, error) {
+func (r ImportersPulpImportsAPIImportersCorePulpImportsReadRequest) Execute() (*ImportResponse, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpImportsReadExecute(r)
 }
 
@@ -424,10 +424,10 @@ ViewSet for PulpImports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpPulpImportHref
- @return ImportersPulpImportsApiImportersCorePulpImportsReadRequest
+ @return ImportersPulpImportsAPIImportersCorePulpImportsReadRequest
 */
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsRead(ctx context.Context, pulpPulpImportHref string) ImportersPulpImportsApiImportersCorePulpImportsReadRequest {
-	return ImportersPulpImportsApiImportersCorePulpImportsReadRequest{
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsRead(ctx context.Context, pulpPulpImportHref string) ImportersPulpImportsAPIImportersCorePulpImportsReadRequest {
+	return ImportersPulpImportsAPIImportersCorePulpImportsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpPulpImportHref: pulpPulpImportHref,
@@ -436,7 +436,7 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsRead(ctx contex
 
 // Execute executes the request
 //  @return ImportResponse
-func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsReadExecute(r ImportersPulpImportsApiImportersCorePulpImportsReadRequest) (*ImportResponse, *http.Response, error) {
+func (a *ImportersPulpImportsAPIService) ImportersCorePulpImportsReadExecute(r ImportersPulpImportsAPIImportersCorePulpImportsReadRequest) (*ImportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -444,7 +444,7 @@ func (a *ImportersPulpImportsApiService) ImportersCorePulpImportsReadExecute(r I
 		localVarReturnValue  *ImportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsApiService.ImportersCorePulpImportsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportsAPIService.ImportersCorePulpImportsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -22,12 +22,12 @@ import (
 )
 
 
-// PublicationsApiService PublicationsApi service
-type PublicationsApiService service
+// PublicationsAPIService PublicationsAPI service
+type PublicationsAPIService service
 
-type PublicationsApiPublicationsListRequest struct {
+type PublicationsAPIPublicationsListRequest struct {
 	ctx context.Context
-	ApiService *PublicationsApiService
+	ApiService *PublicationsAPIService
 	content *string
 	contentIn *string
 	limit *int32
@@ -49,114 +49,114 @@ type PublicationsApiPublicationsListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsApiPublicationsListRequest) Content(content string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) Content(content string) PublicationsAPIPublicationsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsApiPublicationsListRequest) ContentIn(contentIn string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) ContentIn(contentIn string) PublicationsAPIPublicationsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r PublicationsApiPublicationsListRequest) Limit(limit int32) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) Limit(limit int32) PublicationsAPIPublicationsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PublicationsApiPublicationsListRequest) Offset(offset int32) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) Offset(offset int32) PublicationsAPIPublicationsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PublicationsApiPublicationsListRequest) Ordering(ordering []string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) Ordering(ordering []string) PublicationsAPIPublicationsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r PublicationsApiPublicationsListRequest) PulpCreated(pulpCreated time.Time) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpCreated(pulpCreated time.Time) PublicationsAPIPublicationsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r PublicationsApiPublicationsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsAPIPublicationsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r PublicationsApiPublicationsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsAPIPublicationsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r PublicationsApiPublicationsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsAPIPublicationsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r PublicationsApiPublicationsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsAPIPublicationsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r PublicationsApiPublicationsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsAPIPublicationsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsApiPublicationsListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsAPIPublicationsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsApiPublicationsListRequest) PulpIdIn(pulpIdIn []string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpIdIn(pulpIdIn []string) PublicationsAPIPublicationsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Pulp type is in  * &#x60;deb.verbatim-publication&#x60; - deb.verbatim-publication * &#x60;deb.apt-publication&#x60; - deb.apt-publication * &#x60;file.file&#x60; - file.file * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm
-func (r PublicationsApiPublicationsListRequest) PulpTypeIn(pulpTypeIn []string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) PulpTypeIn(pulpTypeIn []string) PublicationsAPIPublicationsListRequest {
 	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
 // Repository referenced by HREF
-func (r PublicationsApiPublicationsListRequest) Repository(repository string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) Repository(repository string) PublicationsAPIPublicationsListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PublicationsApiPublicationsListRequest) RepositoryVersion(repositoryVersion string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) RepositoryVersion(repositoryVersion string) PublicationsAPIPublicationsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PublicationsApiPublicationsListRequest) Fields(fields []string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) Fields(fields []string) PublicationsAPIPublicationsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsApiPublicationsListRequest) ExcludeFields(excludeFields []string) PublicationsApiPublicationsListRequest {
+func (r PublicationsAPIPublicationsListRequest) ExcludeFields(excludeFields []string) PublicationsAPIPublicationsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsApiPublicationsListRequest) Execute() (*PaginatedPublicationResponseList, *http.Response, error) {
+func (r PublicationsAPIPublicationsListRequest) Execute() (*PaginatedPublicationResponseList, *http.Response, error) {
 	return r.ApiService.PublicationsListExecute(r)
 }
 
@@ -166,10 +166,10 @@ PublicationsList List publications
 A base class for any publication viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsApiPublicationsListRequest
+ @return PublicationsAPIPublicationsListRequest
 */
-func (a *PublicationsApiService) PublicationsList(ctx context.Context) PublicationsApiPublicationsListRequest {
-	return PublicationsApiPublicationsListRequest{
+func (a *PublicationsAPIService) PublicationsList(ctx context.Context) PublicationsAPIPublicationsListRequest {
+	return PublicationsAPIPublicationsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -177,7 +177,7 @@ func (a *PublicationsApiService) PublicationsList(ctx context.Context) Publicati
 
 // Execute executes the request
 //  @return PaginatedPublicationResponseList
-func (a *PublicationsApiService) PublicationsListExecute(r PublicationsApiPublicationsListRequest) (*PaginatedPublicationResponseList, *http.Response, error) {
+func (a *PublicationsAPIService) PublicationsListExecute(r PublicationsAPIPublicationsListRequest) (*PaginatedPublicationResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -185,7 +185,7 @@ func (a *PublicationsApiService) PublicationsListExecute(r PublicationsApiPublic
 		localVarReturnValue  *PaginatedPublicationResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsApiService.PublicationsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsAPIService.PublicationsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

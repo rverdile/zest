@@ -20,21 +20,21 @@ import (
 )
 
 
-// OrphansCleanupApiService OrphansCleanupApi service
-type OrphansCleanupApiService service
+// OrphansCleanupAPIService OrphansCleanupAPI service
+type OrphansCleanupAPIService service
 
-type OrphansCleanupApiOrphansCleanupCleanupRequest struct {
+type OrphansCleanupAPIOrphansCleanupCleanupRequest struct {
 	ctx context.Context
-	ApiService *OrphansCleanupApiService
+	ApiService *OrphansCleanupAPIService
 	orphansCleanup *OrphansCleanup
 }
 
-func (r OrphansCleanupApiOrphansCleanupCleanupRequest) OrphansCleanup(orphansCleanup OrphansCleanup) OrphansCleanupApiOrphansCleanupCleanupRequest {
+func (r OrphansCleanupAPIOrphansCleanupCleanupRequest) OrphansCleanup(orphansCleanup OrphansCleanup) OrphansCleanupAPIOrphansCleanupCleanupRequest {
 	r.orphansCleanup = &orphansCleanup
 	return r
 }
 
-func (r OrphansCleanupApiOrphansCleanupCleanupRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r OrphansCleanupAPIOrphansCleanupCleanupRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.OrphansCleanupCleanupExecute(r)
 }
 
@@ -44,10 +44,10 @@ OrphansCleanupCleanup Method for OrphansCleanupCleanup
 Trigger an asynchronous orphan cleanup operation.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrphansCleanupApiOrphansCleanupCleanupRequest
+ @return OrphansCleanupAPIOrphansCleanupCleanupRequest
 */
-func (a *OrphansCleanupApiService) OrphansCleanupCleanup(ctx context.Context) OrphansCleanupApiOrphansCleanupCleanupRequest {
-	return OrphansCleanupApiOrphansCleanupCleanupRequest{
+func (a *OrphansCleanupAPIService) OrphansCleanupCleanup(ctx context.Context) OrphansCleanupAPIOrphansCleanupCleanupRequest {
+	return OrphansCleanupAPIOrphansCleanupCleanupRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *OrphansCleanupApiService) OrphansCleanupCleanup(ctx context.Context) Or
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *OrphansCleanupApiService) OrphansCleanupCleanupExecute(r OrphansCleanupApiOrphansCleanupCleanupRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *OrphansCleanupAPIService) OrphansCleanupCleanupExecute(r OrphansCleanupAPIOrphansCleanupCleanupRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *OrphansCleanupApiService) OrphansCleanupCleanupExecute(r OrphansCleanup
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrphansCleanupApiService.OrphansCleanupCleanup")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrphansCleanupAPIService.OrphansCleanupCleanup")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

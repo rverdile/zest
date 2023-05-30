@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentApiService
+Testing ContentAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentApiService(t *testing.T) {
+func Test_zest_ContentAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentApiService ContentList", func(t *testing.T) {
+	t.Run("Test ContentAPIService ContentList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentApi.ContentList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentAPI.ContentList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

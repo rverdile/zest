@@ -22,12 +22,12 @@ import (
 )
 
 
-// CollectionImportApiService CollectionImportApi service
-type CollectionImportApiService service
+// CollectionImportAPIService CollectionImportAPI service
+type CollectionImportAPIService service
 
-type CollectionImportApiCollectionImportReadRequest struct {
+type CollectionImportAPICollectionImportReadRequest struct {
 	ctx context.Context
-	ApiService *CollectionImportApiService
+	ApiService *CollectionImportAPIService
 	ansibleCollectionImportHref string
 	since *string
 	fields *[]string
@@ -35,24 +35,24 @@ type CollectionImportApiCollectionImportReadRequest struct {
 }
 
 // Filter messages since a given timestamp
-func (r CollectionImportApiCollectionImportReadRequest) Since(since string) CollectionImportApiCollectionImportReadRequest {
+func (r CollectionImportAPICollectionImportReadRequest) Since(since string) CollectionImportAPICollectionImportReadRequest {
 	r.since = &since
 	return r
 }
 
 // A list of fields to include in the response.
-func (r CollectionImportApiCollectionImportReadRequest) Fields(fields []string) CollectionImportApiCollectionImportReadRequest {
+func (r CollectionImportAPICollectionImportReadRequest) Fields(fields []string) CollectionImportAPICollectionImportReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r CollectionImportApiCollectionImportReadRequest) ExcludeFields(excludeFields []string) CollectionImportApiCollectionImportReadRequest {
+func (r CollectionImportAPICollectionImportReadRequest) ExcludeFields(excludeFields []string) CollectionImportAPICollectionImportReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r CollectionImportApiCollectionImportReadRequest) Execute() (*CollectionImportDetailResponse, *http.Response, error) {
+func (r CollectionImportAPICollectionImportReadRequest) Execute() (*CollectionImportDetailResponse, *http.Response, error) {
 	return r.ApiService.CollectionImportReadExecute(r)
 }
 
@@ -63,10 +63,10 @@ Returns a CollectionImport object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionImportHref
- @return CollectionImportApiCollectionImportReadRequest
+ @return CollectionImportAPICollectionImportReadRequest
 */
-func (a *CollectionImportApiService) CollectionImportRead(ctx context.Context, ansibleCollectionImportHref string) CollectionImportApiCollectionImportReadRequest {
-	return CollectionImportApiCollectionImportReadRequest{
+func (a *CollectionImportAPIService) CollectionImportRead(ctx context.Context, ansibleCollectionImportHref string) CollectionImportAPICollectionImportReadRequest {
+	return CollectionImportAPICollectionImportReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionImportHref: ansibleCollectionImportHref,
@@ -75,7 +75,7 @@ func (a *CollectionImportApiService) CollectionImportRead(ctx context.Context, a
 
 // Execute executes the request
 //  @return CollectionImportDetailResponse
-func (a *CollectionImportApiService) CollectionImportReadExecute(r CollectionImportApiCollectionImportReadRequest) (*CollectionImportDetailResponse, *http.Response, error) {
+func (a *CollectionImportAPIService) CollectionImportReadExecute(r CollectionImportAPICollectionImportReadRequest) (*CollectionImportDetailResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -83,7 +83,7 @@ func (a *CollectionImportApiService) CollectionImportReadExecute(r CollectionImp
 		localVarReturnValue  *CollectionImportDetailResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CollectionImportApiService.CollectionImportRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CollectionImportAPIService.CollectionImportRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

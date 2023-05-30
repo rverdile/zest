@@ -20,21 +20,21 @@ import (
 )
 
 
-// DebCopyApiService DebCopyApi service
-type DebCopyApiService service
+// DebCopyAPIService DebCopyAPI service
+type DebCopyAPIService service
 
-type DebCopyApiCopyContentRequest struct {
+type DebCopyAPICopyContentRequest struct {
 	ctx context.Context
-	ApiService *DebCopyApiService
+	ApiService *DebCopyAPIService
 	copy *Copy
 }
 
-func (r DebCopyApiCopyContentRequest) Copy(copy Copy) DebCopyApiCopyContentRequest {
+func (r DebCopyAPICopyContentRequest) Copy(copy Copy) DebCopyAPICopyContentRequest {
 	r.copy = &copy
 	return r
 }
 
-func (r DebCopyApiCopyContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DebCopyAPICopyContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.CopyContentExecute(r)
 }
 
@@ -44,10 +44,10 @@ CopyContent Copy content
 Trigger an asynchronous task to copy APT contentfrom one repository into another, creating a newrepository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DebCopyApiCopyContentRequest
+ @return DebCopyAPICopyContentRequest
 */
-func (a *DebCopyApiService) CopyContent(ctx context.Context) DebCopyApiCopyContentRequest {
-	return DebCopyApiCopyContentRequest{
+func (a *DebCopyAPIService) CopyContent(ctx context.Context) DebCopyAPICopyContentRequest {
+	return DebCopyAPICopyContentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *DebCopyApiService) CopyContent(ctx context.Context) DebCopyApiCopyConte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DebCopyApiService) CopyContentExecute(r DebCopyApiCopyContentRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DebCopyAPIService) CopyContentExecute(r DebCopyAPICopyContentRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *DebCopyApiService) CopyContentExecute(r DebCopyApiCopyContentRequest) (
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DebCopyApiService.CopyContent")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DebCopyAPIService.CopyContent")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

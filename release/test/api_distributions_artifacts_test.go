@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsArtifactsApiService
+Testing DistributionsArtifactsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsArtifactsApiService(t *testing.T) {
+func Test_zest_DistributionsArtifactsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsArtifactsApiService DistributionsCoreArtifactsList", func(t *testing.T) {
+	t.Run("Test DistributionsArtifactsAPIService DistributionsCoreArtifactsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsArtifactsApi.DistributionsCoreArtifactsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsArtifactsAPI.DistributionsCoreArtifactsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_DistributionsArtifactsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsArtifactsApiService DistributionsCoreArtifactsRead", func(t *testing.T) {
+	t.Run("Test DistributionsArtifactsAPIService DistributionsCoreArtifactsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var artifactDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsArtifactsApi.DistributionsCoreArtifactsRead(context.Background(), artifactDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsArtifactsAPI.DistributionsCoreArtifactsRead(context.Background(), artifactDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

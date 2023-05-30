@@ -22,17 +22,17 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3CollectionsApiService PulpAnsibleDefaultApiV3CollectionsApi service
-type PulpAnsibleDefaultApiV3CollectionsApiService service
+// PulpAnsibleDefaultApiV3CollectionsAPIService PulpAnsibleDefaultApiV3CollectionsAPI service
+type PulpAnsibleDefaultApiV3CollectionsAPIService service
 
-type PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest struct {
+type PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3CollectionsApiService
+	ApiService *PulpAnsibleDefaultApiV3CollectionsAPIService
 	name string
 	namespace string
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsDeleteExecute(r)
 }
 
@@ -44,12 +44,12 @@ Legacy v3 endpoint.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param name
  @param namespace
- @return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest
+ @return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsDelete(ctx context.Context, name string, namespace string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest {
-	return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest{
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsDelete(ctx context.Context, name string, namespace string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest {
+	return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		name: name,
@@ -60,7 +60,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 // Execute executes the request
 //  @return AsyncOperationResponse
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsDeleteExecute(r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsDeleteExecute(r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsAPIService.PulpAnsibleGalaxyDefaultApiV3CollectionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -138,9 +138,9 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest struct {
+type PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3CollectionsApiService
+	ApiService *PulpAnsibleDefaultApiV3CollectionsAPIService
 	deprecated *bool
 	limit *int32
 	name *string
@@ -153,64 +153,64 @@ type PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3Collectio
 	excludeFields *[]string
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Deprecated(deprecated bool) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Deprecated(deprecated bool) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.deprecated = &deprecated
 	return r
 }
 
 // Number of results to return per page.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Limit(limit int32) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Limit(limit int32) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Name(name string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Name(name string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.name = &name
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Namespace(namespace string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Namespace(namespace string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Offset(offset int32) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Offset(offset int32) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Execute() (*PaginatedCollectionResponseList, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) Execute() (*PaginatedCollectionResponseList, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsListExecute(r)
 }
 
@@ -220,12 +220,12 @@ PulpAnsibleGalaxyDefaultApiV3CollectionsList Method for PulpAnsibleGalaxyDefault
 Legacy v3 endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest
+ @return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsList(ctx context.Context) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
-	return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest{
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsList(ctx context.Context) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest {
+	return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -234,7 +234,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 // Execute executes the request
 //  @return PaginatedCollectionResponseList
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsListExecute(r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) (*PaginatedCollectionResponseList, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsListExecute(r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsListRequest) (*PaginatedCollectionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -242,7 +242,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 		localVarReturnValue  *PaginatedCollectionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsAPIService.PulpAnsibleGalaxyDefaultApiV3CollectionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -352,9 +352,9 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest struct {
+type PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3CollectionsApiService
+	ApiService *PulpAnsibleDefaultApiV3CollectionsAPIService
 	name string
 	namespace string
 	fields *[]string
@@ -362,18 +362,18 @@ type PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3Collectio
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) Execute() (*CollectionResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) Execute() (*CollectionResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsReadExecute(r)
 }
 
@@ -385,12 +385,12 @@ Legacy v3 endpoint.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param name
  @param namespace
- @return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest
+ @return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsRead(ctx context.Context, name string, namespace string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest {
-	return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest{
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsRead(ctx context.Context, name string, namespace string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest {
+	return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		name: name,
@@ -401,7 +401,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 // Execute executes the request
 //  @return CollectionResponse
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsReadExecute(r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) (*CollectionResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsReadExecute(r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsReadRequest) (*CollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -409,7 +409,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 		localVarReturnValue  *CollectionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsAPIService.PulpAnsibleGalaxyDefaultApiV3CollectionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -501,20 +501,20 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest struct {
+type PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3CollectionsApiService
+	ApiService *PulpAnsibleDefaultApiV3CollectionsAPIService
 	name string
 	namespace string
 	body *map[string]interface{}
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest) Body(body map[string]interface{}) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest) Body(body map[string]interface{}) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest {
 	r.body = &body
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsUpdateExecute(r)
 }
 
@@ -526,12 +526,12 @@ Legacy v3 endpoint.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param name
  @param namespace
- @return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest
+ @return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate(ctx context.Context, name string, namespace string) PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest {
-	return PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest{
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate(ctx context.Context, name string, namespace string) PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest {
+	return PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		name: name,
@@ -542,7 +542,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 // Execute executes the request
 //  @return AsyncOperationResponse
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsUpdateExecute(r PulpAnsibleDefaultApiV3CollectionsApiPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3CollectionsAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsUpdateExecute(r PulpAnsibleDefaultApiV3CollectionsAPIPulpAnsibleGalaxyDefaultApiV3CollectionsUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -550,7 +550,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsApiService) PulpAnsibleGalaxyDefaultA
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsAPIService.PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

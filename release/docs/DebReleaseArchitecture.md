@@ -5,13 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Architecture** | **string** | Name of the architecture. | 
-**Release** | **string** | Release this architecture is contained in. | 
+**Distribution** | **string** | Name of the distribution. | 
+**Codename** | **string** |  | 
+**Suite** | **string** |  | 
 
 ## Methods
 
 ### NewDebReleaseArchitecture
 
-`func NewDebReleaseArchitecture(architecture string, release string, ) *DebReleaseArchitecture`
+`func NewDebReleaseArchitecture(architecture string, distribution string, codename string, suite string, ) *DebReleaseArchitecture`
 
 NewDebReleaseArchitecture instantiates a new DebReleaseArchitecture object
 This constructor will assign default values to properties that have it defined,
@@ -46,24 +48,64 @@ and a boolean to check if the value has been set.
 SetArchitecture sets Architecture field to given value.
 
 
-### GetRelease
+### GetDistribution
 
-`func (o *DebReleaseArchitecture) GetRelease() string`
+`func (o *DebReleaseArchitecture) GetDistribution() string`
 
-GetRelease returns the Release field if non-nil, zero value otherwise.
+GetDistribution returns the Distribution field if non-nil, zero value otherwise.
 
-### GetReleaseOk
+### GetDistributionOk
 
-`func (o *DebReleaseArchitecture) GetReleaseOk() (*string, bool)`
+`func (o *DebReleaseArchitecture) GetDistributionOk() (*string, bool)`
 
-GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
+GetDistributionOk returns a tuple with the Distribution field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRelease
+### SetDistribution
 
-`func (o *DebReleaseArchitecture) SetRelease(v string)`
+`func (o *DebReleaseArchitecture) SetDistribution(v string)`
 
-SetRelease sets Release field to given value.
+SetDistribution sets Distribution field to given value.
+
+
+### GetCodename
+
+`func (o *DebReleaseArchitecture) GetCodename() string`
+
+GetCodename returns the Codename field if non-nil, zero value otherwise.
+
+### GetCodenameOk
+
+`func (o *DebReleaseArchitecture) GetCodenameOk() (*string, bool)`
+
+GetCodenameOk returns a tuple with the Codename field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodename
+
+`func (o *DebReleaseArchitecture) SetCodename(v string)`
+
+SetCodename sets Codename field to given value.
+
+
+### GetSuite
+
+`func (o *DebReleaseArchitecture) GetSuite() string`
+
+GetSuite returns the Suite field if non-nil, zero value otherwise.
+
+### GetSuiteOk
+
+`func (o *DebReleaseArchitecture) GetSuiteOk() (*string, bool)`
+
+GetSuiteOk returns a tuple with the Suite field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuite
+
+`func (o *DebReleaseArchitecture) SetSuite(v string)`
+
+SetSuite sets Suite field to given value.
 
 
 

@@ -20,21 +20,21 @@ import (
 )
 
 
-// RepositoriesReclaimSpaceApiService RepositoriesReclaimSpaceApi service
-type RepositoriesReclaimSpaceApiService service
+// RepositoriesReclaimSpaceAPIService RepositoriesReclaimSpaceAPI service
+type RepositoriesReclaimSpaceAPIService service
 
-type RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest struct {
+type RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesReclaimSpaceApiService
+	ApiService *RepositoriesReclaimSpaceAPIService
 	reclaimSpace *ReclaimSpace
 }
 
-func (r RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest) ReclaimSpace(reclaimSpace ReclaimSpace) RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest {
+func (r RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest) ReclaimSpace(reclaimSpace ReclaimSpace) RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest {
 	r.reclaimSpace = &reclaimSpace
 	return r
 }
 
-func (r RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesReclaimSpaceReclaimExecute(r)
 }
 
@@ -44,10 +44,10 @@ RepositoriesReclaimSpaceReclaim Method for RepositoriesReclaimSpaceReclaim
 Trigger an asynchronous space reclaim operation.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest
+ @return RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest
 */
-func (a *RepositoriesReclaimSpaceApiService) RepositoriesReclaimSpaceReclaim(ctx context.Context) RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest {
-	return RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest{
+func (a *RepositoriesReclaimSpaceAPIService) RepositoriesReclaimSpaceReclaim(ctx context.Context) RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest {
+	return RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *RepositoriesReclaimSpaceApiService) RepositoriesReclaimSpaceReclaim(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesReclaimSpaceApiService) RepositoriesReclaimSpaceReclaimExecute(r RepositoriesReclaimSpaceApiRepositoriesReclaimSpaceReclaimRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesReclaimSpaceAPIService) RepositoriesReclaimSpaceReclaimExecute(r RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepositoriesReclaimSpaceApiService) RepositoriesReclaimSpaceReclaimExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesReclaimSpaceApiService.RepositoriesReclaimSpaceReclaim")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesReclaimSpaceAPIService.RepositoriesReclaimSpaceReclaim")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

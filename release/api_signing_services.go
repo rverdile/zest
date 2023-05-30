@@ -22,12 +22,12 @@ import (
 )
 
 
-// SigningServicesApiService SigningServicesApi service
-type SigningServicesApiService service
+// SigningServicesAPIService SigningServicesAPI service
+type SigningServicesAPIService service
 
-type SigningServicesApiSigningServicesListRequest struct {
+type SigningServicesAPISigningServicesListRequest struct {
 	ctx context.Context
-	ApiService *SigningServicesApiService
+	ApiService *SigningServicesAPIService
 	limit *int32
 	name *string
 	offset *int32
@@ -39,54 +39,54 @@ type SigningServicesApiSigningServicesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r SigningServicesApiSigningServicesListRequest) Limit(limit int32) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) Limit(limit int32) SigningServicesAPISigningServicesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r SigningServicesApiSigningServicesListRequest) Name(name string) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) Name(name string) SigningServicesAPISigningServicesListRequest {
 	r.name = &name
 	return r
 }
 
 // The initial index from which to return the results.
-func (r SigningServicesApiSigningServicesListRequest) Offset(offset int32) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) Offset(offset int32) SigningServicesAPISigningServicesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;public_key&#x60; - Public key * &#x60;-public_key&#x60; - Public key (descending) * &#x60;pubkey_fingerprint&#x60; - Pubkey fingerprint * &#x60;-pubkey_fingerprint&#x60; - Pubkey fingerprint (descending) * &#x60;script&#x60; - Script * &#x60;-script&#x60; - Script (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r SigningServicesApiSigningServicesListRequest) Ordering(ordering []string) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) Ordering(ordering []string) SigningServicesAPISigningServicesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r SigningServicesApiSigningServicesListRequest) PulpHrefIn(pulpHrefIn []string) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) PulpHrefIn(pulpHrefIn []string) SigningServicesAPISigningServicesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r SigningServicesApiSigningServicesListRequest) PulpIdIn(pulpIdIn []string) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) PulpIdIn(pulpIdIn []string) SigningServicesAPISigningServicesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r SigningServicesApiSigningServicesListRequest) Fields(fields []string) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) Fields(fields []string) SigningServicesAPISigningServicesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r SigningServicesApiSigningServicesListRequest) ExcludeFields(excludeFields []string) SigningServicesApiSigningServicesListRequest {
+func (r SigningServicesAPISigningServicesListRequest) ExcludeFields(excludeFields []string) SigningServicesAPISigningServicesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r SigningServicesApiSigningServicesListRequest) Execute() (*PaginatedSigningServiceResponseList, *http.Response, error) {
+func (r SigningServicesAPISigningServicesListRequest) Execute() (*PaginatedSigningServiceResponseList, *http.Response, error) {
 	return r.ApiService.SigningServicesListExecute(r)
 }
 
@@ -96,10 +96,10 @@ SigningServicesList List signing services
 A ViewSet that supports browsing of existing signing services.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SigningServicesApiSigningServicesListRequest
+ @return SigningServicesAPISigningServicesListRequest
 */
-func (a *SigningServicesApiService) SigningServicesList(ctx context.Context) SigningServicesApiSigningServicesListRequest {
-	return SigningServicesApiSigningServicesListRequest{
+func (a *SigningServicesAPIService) SigningServicesList(ctx context.Context) SigningServicesAPISigningServicesListRequest {
+	return SigningServicesAPISigningServicesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -107,7 +107,7 @@ func (a *SigningServicesApiService) SigningServicesList(ctx context.Context) Sig
 
 // Execute executes the request
 //  @return PaginatedSigningServiceResponseList
-func (a *SigningServicesApiService) SigningServicesListExecute(r SigningServicesApiSigningServicesListRequest) (*PaginatedSigningServiceResponseList, *http.Response, error) {
+func (a *SigningServicesAPIService) SigningServicesListExecute(r SigningServicesAPISigningServicesListRequest) (*PaginatedSigningServiceResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -115,7 +115,7 @@ func (a *SigningServicesApiService) SigningServicesListExecute(r SigningServices
 		localVarReturnValue  *PaginatedSigningServiceResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SigningServicesApiService.SigningServicesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SigningServicesAPIService.SigningServicesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -219,27 +219,27 @@ func (a *SigningServicesApiService) SigningServicesListExecute(r SigningServices
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type SigningServicesApiSigningServicesReadRequest struct {
+type SigningServicesAPISigningServicesReadRequest struct {
 	ctx context.Context
-	ApiService *SigningServicesApiService
+	ApiService *SigningServicesAPIService
 	signingServiceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r SigningServicesApiSigningServicesReadRequest) Fields(fields []string) SigningServicesApiSigningServicesReadRequest {
+func (r SigningServicesAPISigningServicesReadRequest) Fields(fields []string) SigningServicesAPISigningServicesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r SigningServicesApiSigningServicesReadRequest) ExcludeFields(excludeFields []string) SigningServicesApiSigningServicesReadRequest {
+func (r SigningServicesAPISigningServicesReadRequest) ExcludeFields(excludeFields []string) SigningServicesAPISigningServicesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r SigningServicesApiSigningServicesReadRequest) Execute() (*SigningServiceResponse, *http.Response, error) {
+func (r SigningServicesAPISigningServicesReadRequest) Execute() (*SigningServiceResponse, *http.Response, error) {
 	return r.ApiService.SigningServicesReadExecute(r)
 }
 
@@ -250,10 +250,10 @@ A ViewSet that supports browsing of existing signing services.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param signingServiceHref
- @return SigningServicesApiSigningServicesReadRequest
+ @return SigningServicesAPISigningServicesReadRequest
 */
-func (a *SigningServicesApiService) SigningServicesRead(ctx context.Context, signingServiceHref string) SigningServicesApiSigningServicesReadRequest {
-	return SigningServicesApiSigningServicesReadRequest{
+func (a *SigningServicesAPIService) SigningServicesRead(ctx context.Context, signingServiceHref string) SigningServicesAPISigningServicesReadRequest {
+	return SigningServicesAPISigningServicesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		signingServiceHref: signingServiceHref,
@@ -262,7 +262,7 @@ func (a *SigningServicesApiService) SigningServicesRead(ctx context.Context, sig
 
 // Execute executes the request
 //  @return SigningServiceResponse
-func (a *SigningServicesApiService) SigningServicesReadExecute(r SigningServicesApiSigningServicesReadRequest) (*SigningServiceResponse, *http.Response, error) {
+func (a *SigningServicesAPIService) SigningServicesReadExecute(r SigningServicesAPISigningServicesReadRequest) (*SigningServiceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -270,7 +270,7 @@ func (a *SigningServicesApiService) SigningServicesReadExecute(r SigningServices
 		localVarReturnValue  *SigningServiceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SigningServicesApiService.SigningServicesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SigningServicesAPIService.SigningServicesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

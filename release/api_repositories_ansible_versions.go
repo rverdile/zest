@@ -23,16 +23,16 @@ import (
 )
 
 
-// RepositoriesAnsibleVersionsApiService RepositoriesAnsibleVersionsApi service
-type RepositoriesAnsibleVersionsApiService service
+// RepositoriesAnsibleVersionsAPIService RepositoriesAnsibleVersionsAPI service
+type RepositoriesAnsibleVersionsAPIService service
 
-type RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsDeleteRequest struct {
+type RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleVersionsApiService
+	ApiService *RepositoriesAnsibleVersionsAPIService
 	ansibleAnsibleRepositoryVersionHref string
 }
 
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleVersionsDeleteExecute(r)
 }
 
@@ -43,10 +43,10 @@ Trigger an asynchronous task to delete a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryVersionHref
- @return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsDeleteRequest
+ @return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsDeleteRequest
 */
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsDelete(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsDeleteRequest {
-	return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsDeleteRequest{
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsDelete(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsDeleteRequest {
+	return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryVersionHref: ansibleAnsibleRepositoryVersionHref,
@@ -55,7 +55,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsDeleteExecute(r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsDeleteExecute(r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsApiService.RepositoriesAnsibleAnsibleVersionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsAPIService.RepositoriesAnsibleAnsibleVersionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -130,9 +130,9 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest struct {
+type RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleVersionsApiService
+	ApiService *RepositoriesAnsibleVersionsAPIService
 	ansibleAnsibleRepositoryHref string
 	content *string
 	contentIn *string
@@ -157,126 +157,126 @@ type RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) Content(content string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) Content(content string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) ContentIn(contentIn string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) ContentIn(contentIn string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) Limit(limit int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) Limit(limit int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where number matches value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) Number(number int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) Number(number int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.number = &number
 	return r
 }
 
 // Filter results where number is greater than value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) NumberGt(numberGt int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) NumberGt(numberGt int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.numberGt = &numberGt
 	return r
 }
 
 // Filter results where number is greater than or equal to value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) NumberGte(numberGte int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) NumberGte(numberGte int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.numberGte = &numberGte
 	return r
 }
 
 // Filter results where number is less than value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) NumberLt(numberLt int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) NumberLt(numberLt int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.numberLt = &numberLt
 	return r
 }
 
 // Filter results where number is less than or equal to value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) NumberLte(numberLte int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) NumberLte(numberLte int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.numberLte = &numberLte
 	return r
 }
 
 // Filter results where number is between two comma separated values
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) NumberRange(numberRange []int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) NumberRange(numberRange []int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.numberRange = &numberRange
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) Offset(offset int32) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) Offset(offset int32) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) Ordering(ordering []string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) Ordering(ordering []string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) Fields(fields []string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) Fields(fields []string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleVersionsListExecute(r)
 }
 
@@ -287,10 +287,10 @@ AnsibleRepositoryVersion represents a single file repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest
+ @return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest
 */
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsList(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest {
-	return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest{
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsList(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest {
+	return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -299,7 +299,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 
 // Execute executes the request
 //  @return PaginatedRepositoryVersionResponseList
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsListExecute(r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsListExecute(r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -307,7 +307,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 		localVarReturnValue  *PaginatedRepositoryVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsApiService.RepositoriesAnsibleAnsibleVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsAPIService.RepositoriesAnsibleAnsibleVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -450,27 +450,27 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest struct {
+type RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleVersionsApiService
+	ApiService *RepositoriesAnsibleVersionsAPIService
 	ansibleAnsibleRepositoryVersionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest) Fields(fields []string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest) Fields(fields []string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleVersionsReadExecute(r)
 }
 
@@ -481,10 +481,10 @@ AnsibleRepositoryVersion represents a single file repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryVersionHref
- @return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest
+ @return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest
 */
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsRead(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest {
-	return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest{
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsRead(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest {
+	return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryVersionHref: ansibleAnsibleRepositoryVersionHref,
@@ -493,7 +493,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 
 // Execute executes the request
 //  @return RepositoryVersionResponse
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsReadExecute(r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsReadExecute(r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -501,7 +501,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 		localVarReturnValue  *RepositoryVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsApiService.RepositoriesAnsibleAnsibleVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsAPIService.RepositoriesAnsibleAnsibleVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -590,19 +590,19 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest struct {
+type RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleVersionsApiService
+	ApiService *RepositoriesAnsibleVersionsAPIService
 	ansibleAnsibleRepositoryVersionHref string
 	ansibleRepositoryRebuild *AnsibleRepositoryRebuild
 }
 
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest) AnsibleRepositoryRebuild(ansibleRepositoryRebuild AnsibleRepositoryRebuild) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest) AnsibleRepositoryRebuild(ansibleRepositoryRebuild AnsibleRepositoryRebuild) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest {
 	r.ansibleRepositoryRebuild = &ansibleRepositoryRebuild
 	return r
 }
 
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleVersionsRebuildMetadataExecute(r)
 }
 
@@ -613,10 +613,10 @@ Trigger an asynchronous task to rebuild Ansible content meta.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryVersionHref
- @return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest
+ @return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest
 */
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsRebuildMetadata(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest {
-	return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest{
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsRebuildMetadata(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest {
+	return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryVersionHref: ansibleAnsibleRepositoryVersionHref,
@@ -625,7 +625,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsRebuildMetadataExecute(r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsRebuildMetadataExecute(r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRebuildMetadataRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -633,7 +633,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsApiService.RepositoriesAnsibleAnsibleVersionsRebuildMetadata")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsAPIService.RepositoriesAnsibleAnsibleVersionsRebuildMetadata")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -705,19 +705,19 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest struct {
+type RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleVersionsApiService
+	ApiService *RepositoriesAnsibleVersionsAPIService
 	ansibleAnsibleRepositoryVersionHref string
 	repair *Repair
 }
 
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest) Repair(repair Repair) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest) Repair(repair Repair) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest {
 	r.repair = &repair
 	return r
 }
 
-func (r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleVersionsRepairExecute(r)
 }
 
@@ -728,10 +728,10 @@ Trigger an asynchronous task to repair a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryVersionHref
- @return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest
+ @return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest
 */
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsRepair(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest {
-	return RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest{
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsRepair(ctx context.Context, ansibleAnsibleRepositoryVersionHref string) RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest {
+	return RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryVersionHref: ansibleAnsibleRepositoryVersionHref,
@@ -740,7 +740,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersionsRepairExecute(r RepositoriesAnsibleVersionsApiRepositoriesAnsibleAnsibleVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleVersionsAPIService) RepositoriesAnsibleAnsibleVersionsRepairExecute(r RepositoriesAnsibleVersionsAPIRepositoriesAnsibleAnsibleVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -748,7 +748,7 @@ func (a *RepositoriesAnsibleVersionsApiService) RepositoriesAnsibleAnsibleVersio
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsApiService.RepositoriesAnsibleAnsibleVersionsRepair")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleVersionsAPIService.RepositoriesAnsibleAnsibleVersionsRepair")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

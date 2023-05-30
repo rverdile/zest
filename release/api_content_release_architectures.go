@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentReleaseArchitecturesApiService ContentReleaseArchitecturesApi service
-type ContentReleaseArchitecturesApiService service
+// ContentReleaseArchitecturesAPIService ContentReleaseArchitecturesAPI service
+type ContentReleaseArchitecturesAPIService service
 
-type ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest struct {
+type ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseArchitecturesApiService
+	ApiService *ContentReleaseArchitecturesAPIService
 	debReleaseArchitecture *DebReleaseArchitecture
 }
 
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest) DebReleaseArchitecture(debReleaseArchitecture DebReleaseArchitecture) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest) DebReleaseArchitecture(debReleaseArchitecture DebReleaseArchitecture) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest {
 	r.debReleaseArchitecture = &debReleaseArchitecture
 	return r
 }
 
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest) Execute() (*DebReleaseArchitectureResponse, *http.Response, error) {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest) Execute() (*DebReleaseArchitectureResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseArchitecturesCreateExecute(r)
 }
 
@@ -51,10 +51,10 @@ Every ReleaseArchitecture is always associated with exactly one Release. This in
 the release/distribution in question supports this architecture.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest
+ @return ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest
 */
-func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesCreate(ctx context.Context) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest {
-	return ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest{
+func (a *ContentReleaseArchitecturesAPIService) ContentDebReleaseArchitecturesCreate(ctx context.Context) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest {
+	return ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -62,7 +62,7 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesCr
 
 // Execute executes the request
 //  @return DebReleaseArchitectureResponse
-func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesCreateExecute(r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesCreateRequest) (*DebReleaseArchitectureResponse, *http.Response, error) {
+func (a *ContentReleaseArchitecturesAPIService) ContentDebReleaseArchitecturesCreateExecute(r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesCreateRequest) (*DebReleaseArchitectureResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -70,7 +70,7 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesCr
 		localVarReturnValue  *DebReleaseArchitectureResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseArchitecturesApiService.ContentDebReleaseArchitecturesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseArchitecturesAPIService.ContentDebReleaseArchitecturesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -139,96 +139,110 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest struct {
+type ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseArchitecturesApiService
+	ApiService *ContentReleaseArchitecturesAPIService
 	architecture *string
+	codename *string
+	distribution *string
 	limit *int32
 	offset *int32
 	ordering *[]string
 	pulpHrefIn *[]string
 	pulpIdIn *[]string
-	release *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
+	suite *string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // Filter results where architecture matches value
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) Architecture(architecture string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Architecture(architecture string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.architecture = &architecture
 	return r
 }
 
+// Filter results where codename matches value
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Codename(codename string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
+	r.codename = &codename
+	return r
+}
+
+// Filter results where distribution matches value
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Distribution(distribution string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
+	r.distribution = &distribution
+	return r
+}
+
 // Number of results to return per page.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) Limit(limit int32) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Limit(limit int32) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) Offset(offset int32) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Offset(offset int32) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.offset = &offset
 	return r
 }
 
-// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) Ordering(ordering []string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+// Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;distribution&#x60; - Distribution * &#x60;-distribution&#x60; - Distribution (descending) * &#x60;codename&#x60; - Codename * &#x60;-codename&#x60; - Codename (descending) * &#x60;suite&#x60; - Suite * &#x60;-suite&#x60; - Suite (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Ordering(ordering []string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) PulpIdIn(pulpIdIn []string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) PulpIdIn(pulpIdIn []string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
-// Filter results where release matches value
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) Release(release string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
-	r.release = &release
-	return r
-}
-
 // Repository Version referenced by HREF
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) RepositoryVersion(repositoryVersion string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) RepositoryVersion(repositoryVersion string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
+// Filter results where suite matches value
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Suite(suite string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
+	r.suite = &suite
+	return r
+}
+
 // A list of fields to include in the response.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) Fields(fields []string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Fields(fields []string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) ExcludeFields(excludeFields []string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) ExcludeFields(excludeFields []string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) Execute() (*PaginateddebReleaseArchitectureResponseList, *http.Response, error) {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) Execute() (*PaginateddebReleaseArchitectureResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseArchitecturesListExecute(r)
 }
 
@@ -243,10 +257,10 @@ Every ReleaseArchitecture is always associated with exactly one Release. This in
 the release/distribution in question supports this architecture.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest
+ @return ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest
 */
-func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesList(ctx context.Context) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest {
-	return ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest{
+func (a *ContentReleaseArchitecturesAPIService) ContentDebReleaseArchitecturesList(ctx context.Context) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest {
+	return ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -254,7 +268,7 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesLi
 
 // Execute executes the request
 //  @return PaginateddebReleaseArchitectureResponseList
-func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesListExecute(r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesListRequest) (*PaginateddebReleaseArchitectureResponseList, *http.Response, error) {
+func (a *ContentReleaseArchitecturesAPIService) ContentDebReleaseArchitecturesListExecute(r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesListRequest) (*PaginateddebReleaseArchitectureResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -262,7 +276,7 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesLi
 		localVarReturnValue  *PaginateddebReleaseArchitectureResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseArchitecturesApiService.ContentDebReleaseArchitecturesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseArchitecturesAPIService.ContentDebReleaseArchitecturesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -274,6 +288,12 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesLi
 
 	if r.architecture != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "architecture", r.architecture, "")
+	}
+	if r.codename != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "codename", r.codename, "")
+	}
+	if r.distribution != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "distribution", r.distribution, "")
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
@@ -290,9 +310,6 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesLi
 	if r.pulpIdIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pulp_id__in", r.pulpIdIn, "csv")
 	}
-	if r.release != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "release", r.release, "")
-	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")
 	}
@@ -301,6 +318,9 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesLi
 	}
 	if r.repositoryVersionRemoved != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version_removed", r.repositoryVersionRemoved, "")
+	}
+	if r.suite != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "suite", r.suite, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -378,27 +398,27 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest struct {
+type ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseArchitecturesApiService
+	ApiService *ContentReleaseArchitecturesAPIService
 	debReleaseArchitectureHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest) Fields(fields []string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest) Fields(fields []string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest) ExcludeFields(excludeFields []string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest) ExcludeFields(excludeFields []string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest) Execute() (*DebReleaseArchitectureResponse, *http.Response, error) {
+func (r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest) Execute() (*DebReleaseArchitectureResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseArchitecturesReadExecute(r)
 }
 
@@ -414,10 +434,10 @@ the release/distribution in question supports this architecture.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debReleaseArchitectureHref
- @return ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest
+ @return ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest
 */
-func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesRead(ctx context.Context, debReleaseArchitectureHref string) ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest {
-	return ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest{
+func (a *ContentReleaseArchitecturesAPIService) ContentDebReleaseArchitecturesRead(ctx context.Context, debReleaseArchitectureHref string) ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest {
+	return ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debReleaseArchitectureHref: debReleaseArchitectureHref,
@@ -426,7 +446,7 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesRe
 
 // Execute executes the request
 //  @return DebReleaseArchitectureResponse
-func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesReadExecute(r ContentReleaseArchitecturesApiContentDebReleaseArchitecturesReadRequest) (*DebReleaseArchitectureResponse, *http.Response, error) {
+func (a *ContentReleaseArchitecturesAPIService) ContentDebReleaseArchitecturesReadExecute(r ContentReleaseArchitecturesAPIContentDebReleaseArchitecturesReadRequest) (*DebReleaseArchitectureResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -434,7 +454,7 @@ func (a *ContentReleaseArchitecturesApiService) ContentDebReleaseArchitecturesRe
 		localVarReturnValue  *DebReleaseArchitectureResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseArchitecturesApiService.ContentDebReleaseArchitecturesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseArchitecturesAPIService.ContentDebReleaseArchitecturesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

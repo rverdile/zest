@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ImportersPulpImportsApiService
+Testing ImportersPulpImportsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ImportersPulpImportsApiService(t *testing.T) {
+func Test_zest_ImportersPulpImportsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ImportersPulpImportsApiService ImportersCorePulpImportsCreate", func(t *testing.T) {
+	t.Run("Test ImportersPulpImportsAPIService ImportersCorePulpImportsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpImporterHref string
 
-		resp, httpRes, err := apiClient.ImportersPulpImportsApi.ImportersCorePulpImportsCreate(context.Background(), pulpImporterHref).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpImportsAPI.ImportersCorePulpImportsCreate(context.Background(), pulpImporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,26 +36,26 @@ func Test_zest_ImportersPulpImportsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportersPulpImportsApiService ImportersCorePulpImportsDelete", func(t *testing.T) {
+	t.Run("Test ImportersPulpImportsAPIService ImportersCorePulpImportsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpPulpImportHref string
 
-		httpRes, err := apiClient.ImportersPulpImportsApi.ImportersCorePulpImportsDelete(context.Background(), pulpPulpImportHref).Execute()
+		httpRes, err := apiClient.ImportersPulpImportsAPI.ImportersCorePulpImportsDelete(context.Background(), pulpPulpImportHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ImportersPulpImportsApiService ImportersCorePulpImportsList", func(t *testing.T) {
+	t.Run("Test ImportersPulpImportsAPIService ImportersCorePulpImportsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpImporterHref string
 
-		resp, httpRes, err := apiClient.ImportersPulpImportsApi.ImportersCorePulpImportsList(context.Background(), pulpImporterHref).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpImportsAPI.ImportersCorePulpImportsList(context.Background(), pulpImporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -63,13 +63,13 @@ func Test_zest_ImportersPulpImportsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportersPulpImportsApiService ImportersCorePulpImportsRead", func(t *testing.T) {
+	t.Run("Test ImportersPulpImportsAPIService ImportersCorePulpImportsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpPulpImportHref string
 
-		resp, httpRes, err := apiClient.ImportersPulpImportsApi.ImportersCorePulpImportsRead(context.Background(), pulpPulpImportHref).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpImportsAPI.ImportersCorePulpImportsRead(context.Background(), pulpPulpImportHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

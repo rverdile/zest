@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesContainerVersionsApiService
+Testing RepositoriesContainerVersionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesContainerVersionsApiService(t *testing.T) {
+func Test_zest_RepositoriesContainerVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesContainerVersionsApiService RepositoriesContainerContainerVersionsDelete", func(t *testing.T) {
+	t.Run("Test RepositoriesContainerVersionsAPIService RepositoriesContainerContainerVersionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesContainerVersionsApi.RepositoriesContainerContainerVersionsDelete(context.Background(), containerContainerRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesContainerVersionsAPI.RepositoriesContainerContainerVersionsDelete(context.Background(), containerContainerRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_RepositoriesContainerVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesContainerVersionsApiService RepositoriesContainerContainerVersionsList", func(t *testing.T) {
+	t.Run("Test RepositoriesContainerVersionsAPIService RepositoriesContainerContainerVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesContainerVersionsApi.RepositoriesContainerContainerVersionsList(context.Background(), containerContainerRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesContainerVersionsAPI.RepositoriesContainerContainerVersionsList(context.Background(), containerContainerRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_zest_RepositoriesContainerVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesContainerVersionsApiService RepositoriesContainerContainerVersionsRead", func(t *testing.T) {
+	t.Run("Test RepositoriesContainerVersionsAPIService RepositoriesContainerContainerVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesContainerVersionsApi.RepositoriesContainerContainerVersionsRead(context.Background(), containerContainerRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesContainerVersionsAPI.RepositoriesContainerContainerVersionsRead(context.Background(), containerContainerRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_zest_RepositoriesContainerVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesContainerVersionsApiService RepositoriesContainerContainerVersionsRepair", func(t *testing.T) {
+	t.Run("Test RepositoriesContainerVersionsAPIService RepositoriesContainerContainerVersionsRepair", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesContainerVersionsApi.RepositoriesContainerContainerVersionsRepair(context.Background(), containerContainerRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesContainerVersionsAPI.RepositoriesContainerContainerVersionsRepair(context.Background(), containerContainerRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

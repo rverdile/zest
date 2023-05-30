@@ -20,15 +20,15 @@ import (
 )
 
 
-// TokenApiService TokenApi service
-type TokenApiService service
+// TokenAPIService TokenAPI service
+type TokenAPIService service
 
-type TokenApiTokenGetRequest struct {
+type TokenAPITokenGetRequest struct {
 	ctx context.Context
-	ApiService *TokenApiService
+	ApiService *TokenAPIService
 }
 
-func (r TokenApiTokenGetRequest) Execute() (*http.Response, error) {
+func (r TokenAPITokenGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.TokenGetExecute(r)
 }
 
@@ -38,24 +38,24 @@ TokenGet Method for TokenGet
 Handles GET requests for the /token/ endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TokenApiTokenGetRequest
+ @return TokenAPITokenGetRequest
 */
-func (a *TokenApiService) TokenGet(ctx context.Context) TokenApiTokenGetRequest {
-	return TokenApiTokenGetRequest{
+func (a *TokenAPIService) TokenGet(ctx context.Context) TokenAPITokenGetRequest {
+	return TokenAPITokenGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *TokenApiService) TokenGetExecute(r TokenApiTokenGetRequest) (*http.Response, error) {
+func (a *TokenAPIService) TokenGetExecute(r TokenAPITokenGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokenApiService.TokenGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokenAPIService.TokenGet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

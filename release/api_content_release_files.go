@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentReleaseFilesApiService ContentReleaseFilesApi service
-type ContentReleaseFilesApiService service
+// ContentReleaseFilesAPIService ContentReleaseFilesAPI service
+type ContentReleaseFilesAPIService service
 
-type ContentReleaseFilesApiContentDebReleaseFilesCreateRequest struct {
+type ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseFilesApiService
+	ApiService *ContentReleaseFilesAPIService
 	debReleaseFile *DebReleaseFile
 }
 
-func (r ContentReleaseFilesApiContentDebReleaseFilesCreateRequest) DebReleaseFile(debReleaseFile DebReleaseFile) ContentReleaseFilesApiContentDebReleaseFilesCreateRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest) DebReleaseFile(debReleaseFile DebReleaseFile) ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest {
 	r.debReleaseFile = &debReleaseFile
 	return r
 }
 
-func (r ContentReleaseFilesApiContentDebReleaseFilesCreateRequest) Execute() (*DebReleaseFileResponse, *http.Response, error) {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest) Execute() (*DebReleaseFileResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseFilesCreateExecute(r)
 }
 
@@ -53,10 +53,10 @@ Note: The verbatim publisher will republish all associated artifacts, while the 
 publication. It does not make use of ReleaseFile content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleaseFilesApiContentDebReleaseFilesCreateRequest
+ @return ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest
 */
-func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesCreate(ctx context.Context) ContentReleaseFilesApiContentDebReleaseFilesCreateRequest {
-	return ContentReleaseFilesApiContentDebReleaseFilesCreateRequest{
+func (a *ContentReleaseFilesAPIService) ContentDebReleaseFilesCreate(ctx context.Context) ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest {
+	return ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -64,7 +64,7 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesCreate(ctx context
 
 // Execute executes the request
 //  @return DebReleaseFileResponse
-func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesCreateExecute(r ContentReleaseFilesApiContentDebReleaseFilesCreateRequest) (*DebReleaseFileResponse, *http.Response, error) {
+func (a *ContentReleaseFilesAPIService) ContentDebReleaseFilesCreateExecute(r ContentReleaseFilesAPIContentDebReleaseFilesCreateRequest) (*DebReleaseFileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -72,7 +72,7 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesCreateExecute(r Co
 		localVarReturnValue  *DebReleaseFileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseFilesApiService.ContentDebReleaseFilesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseFilesAPIService.ContentDebReleaseFilesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,9 +141,9 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesCreateExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleaseFilesApiContentDebReleaseFilesListRequest struct {
+type ContentReleaseFilesAPIContentDebReleaseFilesListRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseFilesApiService
+	ApiService *ContentReleaseFilesAPIService
 	codename *string
 	limit *int32
 	offset *int32
@@ -161,90 +161,90 @@ type ContentReleaseFilesApiContentDebReleaseFilesListRequest struct {
 }
 
 // Filter results where codename matches value
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Codename(codename string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Codename(codename string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.codename = &codename
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Limit(limit int32) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Limit(limit int32) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Offset(offset int32) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Offset(offset int32) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;codename&#x60; - Codename * &#x60;-codename&#x60; - Codename (descending) * &#x60;suite&#x60; - Suite * &#x60;-suite&#x60; - Suite (descending) * &#x60;distribution&#x60; - Distribution * &#x60;-distribution&#x60; - Distribution (descending) * &#x60;components&#x60; - Components * &#x60;-components&#x60; - Components (descending) * &#x60;architectures&#x60; - Architectures * &#x60;-architectures&#x60; - Architectures (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;artifact_set_sha256&#x60; - Artifact set sha256 * &#x60;-artifact_set_sha256&#x60; - Artifact set sha256 (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Ordering(ordering []string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Ordering(ordering []string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) PulpIdIn(pulpIdIn []string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) PulpIdIn(pulpIdIn []string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where relative_path matches value
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) RelativePath(relativePath string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) RelativePath(relativePath string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) RepositoryVersion(repositoryVersion string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) RepositoryVersion(repositoryVersion string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where sha256 matches value
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Sha256(sha256 string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Sha256(sha256 string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where suite matches value
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Suite(suite string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Suite(suite string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.suite = &suite
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Fields(fields []string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Fields(fields []string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) ExcludeFields(excludeFields []string) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) ExcludeFields(excludeFields []string) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleaseFilesApiContentDebReleaseFilesListRequest) Execute() (*PaginateddebReleaseFileResponseList, *http.Response, error) {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) Execute() (*PaginateddebReleaseFileResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseFilesListExecute(r)
 }
 
@@ -261,10 +261,10 @@ Note: The verbatim publisher will republish all associated artifacts, while the 
 publication. It does not make use of ReleaseFile content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleaseFilesApiContentDebReleaseFilesListRequest
+ @return ContentReleaseFilesAPIContentDebReleaseFilesListRequest
 */
-func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesList(ctx context.Context) ContentReleaseFilesApiContentDebReleaseFilesListRequest {
-	return ContentReleaseFilesApiContentDebReleaseFilesListRequest{
+func (a *ContentReleaseFilesAPIService) ContentDebReleaseFilesList(ctx context.Context) ContentReleaseFilesAPIContentDebReleaseFilesListRequest {
+	return ContentReleaseFilesAPIContentDebReleaseFilesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -272,7 +272,7 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesList(ctx context.C
 
 // Execute executes the request
 //  @return PaginateddebReleaseFileResponseList
-func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesListExecute(r ContentReleaseFilesApiContentDebReleaseFilesListRequest) (*PaginateddebReleaseFileResponseList, *http.Response, error) {
+func (a *ContentReleaseFilesAPIService) ContentDebReleaseFilesListExecute(r ContentReleaseFilesAPIContentDebReleaseFilesListRequest) (*PaginateddebReleaseFileResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -280,7 +280,7 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesListExecute(r Cont
 		localVarReturnValue  *PaginateddebReleaseFileResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseFilesApiService.ContentDebReleaseFilesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseFilesAPIService.ContentDebReleaseFilesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -402,27 +402,27 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesListExecute(r Cont
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleaseFilesApiContentDebReleaseFilesReadRequest struct {
+type ContentReleaseFilesAPIContentDebReleaseFilesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentReleaseFilesApiService
+	ApiService *ContentReleaseFilesAPIService
 	debReleaseFileHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentReleaseFilesApiContentDebReleaseFilesReadRequest) Fields(fields []string) ContentReleaseFilesApiContentDebReleaseFilesReadRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesReadRequest) Fields(fields []string) ContentReleaseFilesAPIContentDebReleaseFilesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleaseFilesApiContentDebReleaseFilesReadRequest) ExcludeFields(excludeFields []string) ContentReleaseFilesApiContentDebReleaseFilesReadRequest {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesReadRequest) ExcludeFields(excludeFields []string) ContentReleaseFilesAPIContentDebReleaseFilesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleaseFilesApiContentDebReleaseFilesReadRequest) Execute() (*DebReleaseFileResponse, *http.Response, error) {
+func (r ContentReleaseFilesAPIContentDebReleaseFilesReadRequest) Execute() (*DebReleaseFileResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleaseFilesReadExecute(r)
 }
 
@@ -440,10 +440,10 @@ publication. It does not make use of ReleaseFile content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debReleaseFileHref
- @return ContentReleaseFilesApiContentDebReleaseFilesReadRequest
+ @return ContentReleaseFilesAPIContentDebReleaseFilesReadRequest
 */
-func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesRead(ctx context.Context, debReleaseFileHref string) ContentReleaseFilesApiContentDebReleaseFilesReadRequest {
-	return ContentReleaseFilesApiContentDebReleaseFilesReadRequest{
+func (a *ContentReleaseFilesAPIService) ContentDebReleaseFilesRead(ctx context.Context, debReleaseFileHref string) ContentReleaseFilesAPIContentDebReleaseFilesReadRequest {
+	return ContentReleaseFilesAPIContentDebReleaseFilesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debReleaseFileHref: debReleaseFileHref,
@@ -452,7 +452,7 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesRead(ctx context.C
 
 // Execute executes the request
 //  @return DebReleaseFileResponse
-func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesReadExecute(r ContentReleaseFilesApiContentDebReleaseFilesReadRequest) (*DebReleaseFileResponse, *http.Response, error) {
+func (a *ContentReleaseFilesAPIService) ContentDebReleaseFilesReadExecute(r ContentReleaseFilesAPIContentDebReleaseFilesReadRequest) (*DebReleaseFileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -460,7 +460,7 @@ func (a *ContentReleaseFilesApiService) ContentDebReleaseFilesReadExecute(r Cont
 		localVarReturnValue  *DebReleaseFileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseFilesApiService.ContentDebReleaseFilesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleaseFilesAPIService.ContentDebReleaseFilesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

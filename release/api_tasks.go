@@ -23,22 +23,22 @@ import (
 )
 
 
-// TasksApiService TasksApi service
-type TasksApiService service
+// TasksAPIService TasksAPI service
+type TasksAPIService service
 
-type TasksApiTasksAddRoleRequest struct {
+type TasksAPITasksAddRoleRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	taskHref string
 	nestedRole *NestedRole
 }
 
-func (r TasksApiTasksAddRoleRequest) NestedRole(nestedRole NestedRole) TasksApiTasksAddRoleRequest {
+func (r TasksAPITasksAddRoleRequest) NestedRole(nestedRole NestedRole) TasksAPITasksAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r TasksApiTasksAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r TasksAPITasksAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.TasksAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskHref
- @return TasksApiTasksAddRoleRequest
+ @return TasksAPITasksAddRoleRequest
 */
-func (a *TasksApiService) TasksAddRole(ctx context.Context, taskHref string) TasksApiTasksAddRoleRequest {
-	return TasksApiTasksAddRoleRequest{
+func (a *TasksAPIService) TasksAddRole(ctx context.Context, taskHref string) TasksAPITasksAddRoleRequest {
+	return TasksAPITasksAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskHref: taskHref,
@@ -61,7 +61,7 @@ func (a *TasksApiService) TasksAddRole(ctx context.Context, taskHref string) Tas
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *TasksApiService) TasksAddRoleExecute(r TasksApiTasksAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *TasksAPIService) TasksAddRoleExecute(r TasksAPITasksAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *TasksApiService) TasksAddRoleExecute(r TasksApiTasksAddRoleRequest) (*N
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,19 +141,19 @@ func (a *TasksApiService) TasksAddRoleExecute(r TasksApiTasksAddRoleRequest) (*N
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TasksApiTasksCancelRequest struct {
+type TasksAPITasksCancelRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	taskHref string
 	patchedTaskCancel *PatchedTaskCancel
 }
 
-func (r TasksApiTasksCancelRequest) PatchedTaskCancel(patchedTaskCancel PatchedTaskCancel) TasksApiTasksCancelRequest {
+func (r TasksAPITasksCancelRequest) PatchedTaskCancel(patchedTaskCancel PatchedTaskCancel) TasksAPITasksCancelRequest {
 	r.patchedTaskCancel = &patchedTaskCancel
 	return r
 }
 
-func (r TasksApiTasksCancelRequest) Execute() (*TaskResponse, *http.Response, error) {
+func (r TasksAPITasksCancelRequest) Execute() (*TaskResponse, *http.Response, error) {
 	return r.ApiService.TasksCancelExecute(r)
 }
 
@@ -164,10 +164,10 @@ This operation cancels a task.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskHref
- @return TasksApiTasksCancelRequest
+ @return TasksAPITasksCancelRequest
 */
-func (a *TasksApiService) TasksCancel(ctx context.Context, taskHref string) TasksApiTasksCancelRequest {
-	return TasksApiTasksCancelRequest{
+func (a *TasksAPIService) TasksCancel(ctx context.Context, taskHref string) TasksAPITasksCancelRequest {
+	return TasksAPITasksCancelRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskHref: taskHref,
@@ -176,7 +176,7 @@ func (a *TasksApiService) TasksCancel(ctx context.Context, taskHref string) Task
 
 // Execute executes the request
 //  @return TaskResponse
-func (a *TasksApiService) TasksCancelExecute(r TasksApiTasksCancelRequest) (*TaskResponse, *http.Response, error) {
+func (a *TasksAPIService) TasksCancelExecute(r TasksAPITasksCancelRequest) (*TaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *TasksApiService) TasksCancelExecute(r TasksApiTasksCancelRequest) (*Tas
 		localVarReturnValue  *TaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksCancel")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksCancel")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -266,13 +266,13 @@ func (a *TasksApiService) TasksCancelExecute(r TasksApiTasksCancelRequest) (*Tas
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TasksApiTasksDeleteRequest struct {
+type TasksAPITasksDeleteRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	taskHref string
 }
 
-func (r TasksApiTasksDeleteRequest) Execute() (*http.Response, error) {
+func (r TasksAPITasksDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.TasksDeleteExecute(r)
 }
 
@@ -300,10 +300,10 @@ Attributes:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskHref
- @return TasksApiTasksDeleteRequest
+ @return TasksAPITasksDeleteRequest
 */
-func (a *TasksApiService) TasksDelete(ctx context.Context, taskHref string) TasksApiTasksDeleteRequest {
-	return TasksApiTasksDeleteRequest{
+func (a *TasksAPIService) TasksDelete(ctx context.Context, taskHref string) TasksAPITasksDeleteRequest {
+	return TasksAPITasksDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskHref: taskHref,
@@ -311,14 +311,14 @@ func (a *TasksApiService) TasksDelete(ctx context.Context, taskHref string) Task
 }
 
 // Execute executes the request
-func (a *TasksApiService) TasksDeleteExecute(r TasksApiTasksDeleteRequest) (*http.Response, error) {
+func (a *TasksAPIService) TasksDeleteExecute(r TasksAPITasksDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -376,9 +376,9 @@ func (a *TasksApiService) TasksDeleteExecute(r TasksApiTasksDeleteRequest) (*htt
 	return localVarHTTPResponse, nil
 }
 
-type TasksApiTasksListRequest struct {
+type TasksAPITasksListRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	childTasks *string
 	createdResources *string
 	exclusiveResources *string
@@ -421,235 +421,235 @@ type TasksApiTasksListRequest struct {
 }
 
 // Filter results where child_tasks matches value
-func (r TasksApiTasksListRequest) ChildTasks(childTasks string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ChildTasks(childTasks string) TasksAPITasksListRequest {
 	r.childTasks = &childTasks
 	return r
 }
 
-func (r TasksApiTasksListRequest) CreatedResources(createdResources string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) CreatedResources(createdResources string) TasksAPITasksListRequest {
 	r.createdResources = &createdResources
 	return r
 }
 
-func (r TasksApiTasksListRequest) ExclusiveResources(exclusiveResources string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ExclusiveResources(exclusiveResources string) TasksAPITasksListRequest {
 	r.exclusiveResources = &exclusiveResources
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r TasksApiTasksListRequest) ExclusiveResourcesIn(exclusiveResourcesIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ExclusiveResourcesIn(exclusiveResourcesIn []string) TasksAPITasksListRequest {
 	r.exclusiveResourcesIn = &exclusiveResourcesIn
 	return r
 }
 
 // Filter results where finished_at matches value
-func (r TasksApiTasksListRequest) FinishedAt(finishedAt time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) FinishedAt(finishedAt time.Time) TasksAPITasksListRequest {
 	r.finishedAt = &finishedAt
 	return r
 }
 
 // Filter results where finished_at is greater than value
-func (r TasksApiTasksListRequest) FinishedAtGt(finishedAtGt time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) FinishedAtGt(finishedAtGt time.Time) TasksAPITasksListRequest {
 	r.finishedAtGt = &finishedAtGt
 	return r
 }
 
 // Filter results where finished_at is greater than or equal to value
-func (r TasksApiTasksListRequest) FinishedAtGte(finishedAtGte time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) FinishedAtGte(finishedAtGte time.Time) TasksAPITasksListRequest {
 	r.finishedAtGte = &finishedAtGte
 	return r
 }
 
 // Filter results where finished_at is less than value
-func (r TasksApiTasksListRequest) FinishedAtLt(finishedAtLt time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) FinishedAtLt(finishedAtLt time.Time) TasksAPITasksListRequest {
 	r.finishedAtLt = &finishedAtLt
 	return r
 }
 
 // Filter results where finished_at is less than or equal to value
-func (r TasksApiTasksListRequest) FinishedAtLte(finishedAtLte time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) FinishedAtLte(finishedAtLte time.Time) TasksAPITasksListRequest {
 	r.finishedAtLte = &finishedAtLte
 	return r
 }
 
 // Filter results where finished_at is between two comma separated values
-func (r TasksApiTasksListRequest) FinishedAtRange(finishedAtRange []time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) FinishedAtRange(finishedAtRange []time.Time) TasksAPITasksListRequest {
 	r.finishedAtRange = &finishedAtRange
 	return r
 }
 
 // Number of results to return per page.
-func (r TasksApiTasksListRequest) Limit(limit int32) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) Limit(limit int32) TasksAPITasksListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where logging_cid matches value
-func (r TasksApiTasksListRequest) LoggingCid(loggingCid string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) LoggingCid(loggingCid string) TasksAPITasksListRequest {
 	r.loggingCid = &loggingCid
 	return r
 }
 
 // Filter results where logging_cid contains value
-func (r TasksApiTasksListRequest) LoggingCidContains(loggingCidContains string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) LoggingCidContains(loggingCidContains string) TasksAPITasksListRequest {
 	r.loggingCidContains = &loggingCidContains
 	return r
 }
 
 // Filter results where name matches value
-func (r TasksApiTasksListRequest) Name(name string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) Name(name string) TasksAPITasksListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r TasksApiTasksListRequest) NameContains(nameContains string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) NameContains(nameContains string) TasksAPITasksListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r TasksApiTasksListRequest) NameIn(nameIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) NameIn(nameIn []string) TasksAPITasksListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // The initial index from which to return the results.
-func (r TasksApiTasksListRequest) Offset(offset int32) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) Offset(offset int32) TasksAPITasksListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;state&#x60; - State * &#x60;-state&#x60; - State (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;logging_cid&#x60; - Logging cid * &#x60;-logging_cid&#x60; - Logging cid (descending) * &#x60;started_at&#x60; - Started at * &#x60;-started_at&#x60; - Started at (descending) * &#x60;finished_at&#x60; - Finished at * &#x60;-finished_at&#x60; - Finished at (descending) * &#x60;error&#x60; - Error * &#x60;-error&#x60; - Error (descending) * &#x60;args&#x60; - Args * &#x60;-args&#x60; - Args (descending) * &#x60;kwargs&#x60; - Kwargs * &#x60;-kwargs&#x60; - Kwargs (descending) * &#x60;reserved_resources_record&#x60; - Reserved resources record * &#x60;-reserved_resources_record&#x60; - Reserved resources record (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r TasksApiTasksListRequest) Ordering(ordering []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) Ordering(ordering []string) TasksAPITasksListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where parent_task matches value
-func (r TasksApiTasksListRequest) ParentTask(parentTask string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ParentTask(parentTask string) TasksAPITasksListRequest {
 	r.parentTask = &parentTask
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r TasksApiTasksListRequest) PulpHrefIn(pulpHrefIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) PulpHrefIn(pulpHrefIn []string) TasksAPITasksListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r TasksApiTasksListRequest) PulpIdIn(pulpIdIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) PulpIdIn(pulpIdIn []string) TasksAPITasksListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
-func (r TasksApiTasksListRequest) ReservedResources(reservedResources string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ReservedResources(reservedResources string) TasksAPITasksListRequest {
 	r.reservedResources = &reservedResources
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r TasksApiTasksListRequest) ReservedResourcesIn(reservedResourcesIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ReservedResourcesIn(reservedResourcesIn []string) TasksAPITasksListRequest {
 	r.reservedResourcesIn = &reservedResourcesIn
 	return r
 }
 
-func (r TasksApiTasksListRequest) ReservedResourcesRecord(reservedResourcesRecord []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ReservedResourcesRecord(reservedResourcesRecord []string) TasksAPITasksListRequest {
 	r.reservedResourcesRecord = &reservedResourcesRecord
 	return r
 }
 
-func (r TasksApiTasksListRequest) SharedResources(sharedResources string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) SharedResources(sharedResources string) TasksAPITasksListRequest {
 	r.sharedResources = &sharedResources
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r TasksApiTasksListRequest) SharedResourcesIn(sharedResourcesIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) SharedResourcesIn(sharedResourcesIn []string) TasksAPITasksListRequest {
 	r.sharedResourcesIn = &sharedResourcesIn
 	return r
 }
 
 // Filter results where started_at matches value
-func (r TasksApiTasksListRequest) StartedAt(startedAt time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) StartedAt(startedAt time.Time) TasksAPITasksListRequest {
 	r.startedAt = &startedAt
 	return r
 }
 
 // Filter results where started_at is greater than value
-func (r TasksApiTasksListRequest) StartedAtGt(startedAtGt time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) StartedAtGt(startedAtGt time.Time) TasksAPITasksListRequest {
 	r.startedAtGt = &startedAtGt
 	return r
 }
 
 // Filter results where started_at is greater than or equal to value
-func (r TasksApiTasksListRequest) StartedAtGte(startedAtGte time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) StartedAtGte(startedAtGte time.Time) TasksAPITasksListRequest {
 	r.startedAtGte = &startedAtGte
 	return r
 }
 
 // Filter results where started_at is less than value
-func (r TasksApiTasksListRequest) StartedAtLt(startedAtLt time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) StartedAtLt(startedAtLt time.Time) TasksAPITasksListRequest {
 	r.startedAtLt = &startedAtLt
 	return r
 }
 
 // Filter results where started_at is less than or equal to value
-func (r TasksApiTasksListRequest) StartedAtLte(startedAtLte time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) StartedAtLte(startedAtLte time.Time) TasksAPITasksListRequest {
 	r.startedAtLte = &startedAtLte
 	return r
 }
 
 // Filter results where started_at is between two comma separated values
-func (r TasksApiTasksListRequest) StartedAtRange(startedAtRange []time.Time) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) StartedAtRange(startedAtRange []time.Time) TasksAPITasksListRequest {
 	r.startedAtRange = &startedAtRange
 	return r
 }
 
 // Filter results where state matches value  * &#x60;waiting&#x60; - Waiting * &#x60;skipped&#x60; - Skipped * &#x60;running&#x60; - Running * &#x60;completed&#x60; - Completed * &#x60;failed&#x60; - Failed * &#x60;canceled&#x60; - Canceled * &#x60;canceling&#x60; - Canceling
-func (r TasksApiTasksListRequest) State(state string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) State(state string) TasksAPITasksListRequest {
 	r.state = &state
 	return r
 }
 
 // Filter results where state is in a comma-separated list of values
-func (r TasksApiTasksListRequest) StateIn(stateIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) StateIn(stateIn []string) TasksAPITasksListRequest {
 	r.stateIn = &stateIn
 	return r
 }
 
 // Filter results where task_group matches value
-func (r TasksApiTasksListRequest) TaskGroup(taskGroup string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) TaskGroup(taskGroup string) TasksAPITasksListRequest {
 	r.taskGroup = &taskGroup
 	return r
 }
 
 // Filter results where worker matches value
-func (r TasksApiTasksListRequest) Worker(worker string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) Worker(worker string) TasksAPITasksListRequest {
 	r.worker = &worker
 	return r
 }
 
 // Filter results where worker is in a comma-separated list of values
-func (r TasksApiTasksListRequest) WorkerIn(workerIn []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) WorkerIn(workerIn []string) TasksAPITasksListRequest {
 	r.workerIn = &workerIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r TasksApiTasksListRequest) Fields(fields []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) Fields(fields []string) TasksAPITasksListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TasksApiTasksListRequest) ExcludeFields(excludeFields []string) TasksApiTasksListRequest {
+func (r TasksAPITasksListRequest) ExcludeFields(excludeFields []string) TasksAPITasksListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TasksApiTasksListRequest) Execute() (*PaginatedTaskResponseList, *http.Response, error) {
+func (r TasksAPITasksListRequest) Execute() (*PaginatedTaskResponseList, *http.Response, error) {
 	return r.ApiService.TasksListExecute(r)
 }
 
@@ -676,10 +676,10 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TasksApiTasksListRequest
+ @return TasksAPITasksListRequest
 */
-func (a *TasksApiService) TasksList(ctx context.Context) TasksApiTasksListRequest {
-	return TasksApiTasksListRequest{
+func (a *TasksAPIService) TasksList(ctx context.Context) TasksAPITasksListRequest {
+	return TasksAPITasksListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -687,7 +687,7 @@ func (a *TasksApiService) TasksList(ctx context.Context) TasksApiTasksListReques
 
 // Execute executes the request
 //  @return PaginatedTaskResponseList
-func (a *TasksApiService) TasksListExecute(r TasksApiTasksListRequest) (*PaginatedTaskResponseList, *http.Response, error) {
+func (a *TasksAPIService) TasksListExecute(r TasksAPITasksListRequest) (*PaginatedTaskResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -695,7 +695,7 @@ func (a *TasksApiService) TasksListExecute(r TasksApiTasksListRequest) (*Paginat
 		localVarReturnValue  *PaginatedTaskResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -900,27 +900,27 @@ func (a *TasksApiService) TasksListExecute(r TasksApiTasksListRequest) (*Paginat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TasksApiTasksListRolesRequest struct {
+type TasksAPITasksListRolesRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	taskHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r TasksApiTasksListRolesRequest) Fields(fields []string) TasksApiTasksListRolesRequest {
+func (r TasksAPITasksListRolesRequest) Fields(fields []string) TasksAPITasksListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TasksApiTasksListRolesRequest) ExcludeFields(excludeFields []string) TasksApiTasksListRolesRequest {
+func (r TasksAPITasksListRolesRequest) ExcludeFields(excludeFields []string) TasksAPITasksListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TasksApiTasksListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r TasksAPITasksListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.TasksListRolesExecute(r)
 }
 
@@ -931,10 +931,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskHref
- @return TasksApiTasksListRolesRequest
+ @return TasksAPITasksListRolesRequest
 */
-func (a *TasksApiService) TasksListRoles(ctx context.Context, taskHref string) TasksApiTasksListRolesRequest {
-	return TasksApiTasksListRolesRequest{
+func (a *TasksAPIService) TasksListRoles(ctx context.Context, taskHref string) TasksAPITasksListRolesRequest {
+	return TasksAPITasksListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskHref: taskHref,
@@ -943,7 +943,7 @@ func (a *TasksApiService) TasksListRoles(ctx context.Context, taskHref string) T
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *TasksApiService) TasksListRolesExecute(r TasksApiTasksListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *TasksAPIService) TasksListRolesExecute(r TasksAPITasksListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -951,7 +951,7 @@ func (a *TasksApiService) TasksListRolesExecute(r TasksApiTasksListRolesRequest)
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1040,27 +1040,27 @@ func (a *TasksApiService) TasksListRolesExecute(r TasksApiTasksListRolesRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TasksApiTasksMyPermissionsRequest struct {
+type TasksAPITasksMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	taskHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r TasksApiTasksMyPermissionsRequest) Fields(fields []string) TasksApiTasksMyPermissionsRequest {
+func (r TasksAPITasksMyPermissionsRequest) Fields(fields []string) TasksAPITasksMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TasksApiTasksMyPermissionsRequest) ExcludeFields(excludeFields []string) TasksApiTasksMyPermissionsRequest {
+func (r TasksAPITasksMyPermissionsRequest) ExcludeFields(excludeFields []string) TasksAPITasksMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TasksApiTasksMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r TasksAPITasksMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.TasksMyPermissionsExecute(r)
 }
 
@@ -1071,10 +1071,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskHref
- @return TasksApiTasksMyPermissionsRequest
+ @return TasksAPITasksMyPermissionsRequest
 */
-func (a *TasksApiService) TasksMyPermissions(ctx context.Context, taskHref string) TasksApiTasksMyPermissionsRequest {
-	return TasksApiTasksMyPermissionsRequest{
+func (a *TasksAPIService) TasksMyPermissions(ctx context.Context, taskHref string) TasksAPITasksMyPermissionsRequest {
+	return TasksAPITasksMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskHref: taskHref,
@@ -1083,7 +1083,7 @@ func (a *TasksApiService) TasksMyPermissions(ctx context.Context, taskHref strin
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *TasksApiService) TasksMyPermissionsExecute(r TasksApiTasksMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *TasksAPIService) TasksMyPermissionsExecute(r TasksAPITasksMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1091,7 +1091,7 @@ func (a *TasksApiService) TasksMyPermissionsExecute(r TasksApiTasksMyPermissions
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1180,18 +1180,18 @@ func (a *TasksApiService) TasksMyPermissionsExecute(r TasksApiTasksMyPermissions
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TasksApiTasksPurgeRequest struct {
+type TasksAPITasksPurgeRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	purge *Purge
 }
 
-func (r TasksApiTasksPurgeRequest) Purge(purge Purge) TasksApiTasksPurgeRequest {
+func (r TasksAPITasksPurgeRequest) Purge(purge Purge) TasksAPITasksPurgeRequest {
 	r.purge = &purge
 	return r
 }
 
-func (r TasksApiTasksPurgeRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r TasksAPITasksPurgeRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.TasksPurgeExecute(r)
 }
 
@@ -1201,10 +1201,10 @@ TasksPurge Purge Completed Tasks
 Trigger an asynchronous task that deletes completed tasks that finished prior to a specified timestamp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TasksApiTasksPurgeRequest
+ @return TasksAPITasksPurgeRequest
 */
-func (a *TasksApiService) TasksPurge(ctx context.Context) TasksApiTasksPurgeRequest {
-	return TasksApiTasksPurgeRequest{
+func (a *TasksAPIService) TasksPurge(ctx context.Context) TasksAPITasksPurgeRequest {
+	return TasksAPITasksPurgeRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1212,7 +1212,7 @@ func (a *TasksApiService) TasksPurge(ctx context.Context) TasksApiTasksPurgeRequ
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *TasksApiService) TasksPurgeExecute(r TasksApiTasksPurgeRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *TasksAPIService) TasksPurgeExecute(r TasksAPITasksPurgeRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1220,7 +1220,7 @@ func (a *TasksApiService) TasksPurgeExecute(r TasksApiTasksPurgeRequest) (*Async
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksPurge")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksPurge")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1289,27 +1289,27 @@ func (a *TasksApiService) TasksPurgeExecute(r TasksApiTasksPurgeRequest) (*Async
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TasksApiTasksReadRequest struct {
+type TasksAPITasksReadRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	taskHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r TasksApiTasksReadRequest) Fields(fields []string) TasksApiTasksReadRequest {
+func (r TasksAPITasksReadRequest) Fields(fields []string) TasksAPITasksReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TasksApiTasksReadRequest) ExcludeFields(excludeFields []string) TasksApiTasksReadRequest {
+func (r TasksAPITasksReadRequest) ExcludeFields(excludeFields []string) TasksAPITasksReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TasksApiTasksReadRequest) Execute() (*TaskResponse, *http.Response, error) {
+func (r TasksAPITasksReadRequest) Execute() (*TaskResponse, *http.Response, error) {
 	return r.ApiService.TasksReadExecute(r)
 }
 
@@ -1337,10 +1337,10 @@ Attributes:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskHref
- @return TasksApiTasksReadRequest
+ @return TasksAPITasksReadRequest
 */
-func (a *TasksApiService) TasksRead(ctx context.Context, taskHref string) TasksApiTasksReadRequest {
-	return TasksApiTasksReadRequest{
+func (a *TasksAPIService) TasksRead(ctx context.Context, taskHref string) TasksAPITasksReadRequest {
+	return TasksAPITasksReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskHref: taskHref,
@@ -1349,7 +1349,7 @@ func (a *TasksApiService) TasksRead(ctx context.Context, taskHref string) TasksA
 
 // Execute executes the request
 //  @return TaskResponse
-func (a *TasksApiService) TasksReadExecute(r TasksApiTasksReadRequest) (*TaskResponse, *http.Response, error) {
+func (a *TasksAPIService) TasksReadExecute(r TasksAPITasksReadRequest) (*TaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1357,7 +1357,7 @@ func (a *TasksApiService) TasksReadExecute(r TasksApiTasksReadRequest) (*TaskRes
 		localVarReturnValue  *TaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1446,19 +1446,19 @@ func (a *TasksApiService) TasksReadExecute(r TasksApiTasksReadRequest) (*TaskRes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TasksApiTasksRemoveRoleRequest struct {
+type TasksAPITasksRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *TasksApiService
+	ApiService *TasksAPIService
 	taskHref string
 	nestedRole *NestedRole
 }
 
-func (r TasksApiTasksRemoveRoleRequest) NestedRole(nestedRole NestedRole) TasksApiTasksRemoveRoleRequest {
+func (r TasksAPITasksRemoveRoleRequest) NestedRole(nestedRole NestedRole) TasksAPITasksRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r TasksApiTasksRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r TasksAPITasksRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.TasksRemoveRoleExecute(r)
 }
 
@@ -1469,10 +1469,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskHref
- @return TasksApiTasksRemoveRoleRequest
+ @return TasksAPITasksRemoveRoleRequest
 */
-func (a *TasksApiService) TasksRemoveRole(ctx context.Context, taskHref string) TasksApiTasksRemoveRoleRequest {
-	return TasksApiTasksRemoveRoleRequest{
+func (a *TasksAPIService) TasksRemoveRole(ctx context.Context, taskHref string) TasksAPITasksRemoveRoleRequest {
+	return TasksAPITasksRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskHref: taskHref,
@@ -1481,7 +1481,7 @@ func (a *TasksApiService) TasksRemoveRole(ctx context.Context, taskHref string) 
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *TasksApiService) TasksRemoveRoleExecute(r TasksApiTasksRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *TasksAPIService) TasksRemoveRoleExecute(r TasksAPITasksRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1489,7 +1489,7 @@ func (a *TasksApiService) TasksRemoveRoleExecute(r TasksApiTasksRemoveRoleReques
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.TasksRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.TasksRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

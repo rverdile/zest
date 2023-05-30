@@ -23,12 +23,12 @@ import (
 )
 
 
-// WorkersApiService WorkersApi service
-type WorkersApiService service
+// WorkersAPIService WorkersAPI service
+type WorkersAPIService service
 
-type WorkersApiWorkersListRequest struct {
+type WorkersAPIWorkersListRequest struct {
 	ctx context.Context
-	ApiService *WorkersApiService
+	ApiService *WorkersAPIService
 	lastHeartbeat *time.Time
 	lastHeartbeatGt *time.Time
 	lastHeartbeatGte *time.Time
@@ -52,124 +52,124 @@ type WorkersApiWorkersListRequest struct {
 }
 
 // Filter results where last_heartbeat matches value
-func (r WorkersApiWorkersListRequest) LastHeartbeat(lastHeartbeat time.Time) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) LastHeartbeat(lastHeartbeat time.Time) WorkersAPIWorkersListRequest {
 	r.lastHeartbeat = &lastHeartbeat
 	return r
 }
 
 // Filter results where last_heartbeat is greater than value
-func (r WorkersApiWorkersListRequest) LastHeartbeatGt(lastHeartbeatGt time.Time) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) LastHeartbeatGt(lastHeartbeatGt time.Time) WorkersAPIWorkersListRequest {
 	r.lastHeartbeatGt = &lastHeartbeatGt
 	return r
 }
 
 // Filter results where last_heartbeat is greater than or equal to value
-func (r WorkersApiWorkersListRequest) LastHeartbeatGte(lastHeartbeatGte time.Time) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) LastHeartbeatGte(lastHeartbeatGte time.Time) WorkersAPIWorkersListRequest {
 	r.lastHeartbeatGte = &lastHeartbeatGte
 	return r
 }
 
 // Filter results where last_heartbeat is less than value
-func (r WorkersApiWorkersListRequest) LastHeartbeatLt(lastHeartbeatLt time.Time) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) LastHeartbeatLt(lastHeartbeatLt time.Time) WorkersAPIWorkersListRequest {
 	r.lastHeartbeatLt = &lastHeartbeatLt
 	return r
 }
 
 // Filter results where last_heartbeat is less than or equal to value
-func (r WorkersApiWorkersListRequest) LastHeartbeatLte(lastHeartbeatLte time.Time) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) LastHeartbeatLte(lastHeartbeatLte time.Time) WorkersAPIWorkersListRequest {
 	r.lastHeartbeatLte = &lastHeartbeatLte
 	return r
 }
 
 // Filter results where last_heartbeat is between two comma separated values
-func (r WorkersApiWorkersListRequest) LastHeartbeatRange(lastHeartbeatRange []time.Time) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) LastHeartbeatRange(lastHeartbeatRange []time.Time) WorkersAPIWorkersListRequest {
 	r.lastHeartbeatRange = &lastHeartbeatRange
 	return r
 }
 
 // Number of results to return per page.
-func (r WorkersApiWorkersListRequest) Limit(limit int32) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) Limit(limit int32) WorkersAPIWorkersListRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r WorkersApiWorkersListRequest) Missing(missing bool) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) Missing(missing bool) WorkersAPIWorkersListRequest {
 	r.missing = &missing
 	return r
 }
 
 // Filter results where name matches value
-func (r WorkersApiWorkersListRequest) Name(name string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) Name(name string) WorkersAPIWorkersListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r WorkersApiWorkersListRequest) NameContains(nameContains string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) NameContains(nameContains string) WorkersAPIWorkersListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r WorkersApiWorkersListRequest) NameIcontains(nameIcontains string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) NameIcontains(nameIcontains string) WorkersAPIWorkersListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r WorkersApiWorkersListRequest) NameIn(nameIn []string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) NameIn(nameIn []string) WorkersAPIWorkersListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r WorkersApiWorkersListRequest) NameStartswith(nameStartswith string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) NameStartswith(nameStartswith string) WorkersAPIWorkersListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r WorkersApiWorkersListRequest) Offset(offset int32) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) Offset(offset int32) WorkersAPIWorkersListRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r WorkersApiWorkersListRequest) Online(online bool) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) Online(online bool) WorkersAPIWorkersListRequest {
 	r.online = &online
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;last_heartbeat&#x60; - Last heartbeat * &#x60;-last_heartbeat&#x60; - Last heartbeat (descending) * &#x60;versions&#x60; - Versions * &#x60;-versions&#x60; - Versions (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r WorkersApiWorkersListRequest) Ordering(ordering []string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) Ordering(ordering []string) WorkersAPIWorkersListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r WorkersApiWorkersListRequest) PulpHrefIn(pulpHrefIn []string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) PulpHrefIn(pulpHrefIn []string) WorkersAPIWorkersListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r WorkersApiWorkersListRequest) PulpIdIn(pulpIdIn []string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) PulpIdIn(pulpIdIn []string) WorkersAPIWorkersListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r WorkersApiWorkersListRequest) Fields(fields []string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) Fields(fields []string) WorkersAPIWorkersListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r WorkersApiWorkersListRequest) ExcludeFields(excludeFields []string) WorkersApiWorkersListRequest {
+func (r WorkersAPIWorkersListRequest) ExcludeFields(excludeFields []string) WorkersAPIWorkersListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r WorkersApiWorkersListRequest) Execute() (*PaginatedWorkerResponseList, *http.Response, error) {
+func (r WorkersAPIWorkersListRequest) Execute() (*PaginatedWorkerResponseList, *http.Response, error) {
 	return r.ApiService.WorkersListExecute(r)
 }
 
@@ -196,10 +196,10 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return WorkersApiWorkersListRequest
+ @return WorkersAPIWorkersListRequest
 */
-func (a *WorkersApiService) WorkersList(ctx context.Context) WorkersApiWorkersListRequest {
-	return WorkersApiWorkersListRequest{
+func (a *WorkersAPIService) WorkersList(ctx context.Context) WorkersAPIWorkersListRequest {
+	return WorkersAPIWorkersListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -207,7 +207,7 @@ func (a *WorkersApiService) WorkersList(ctx context.Context) WorkersApiWorkersLi
 
 // Execute executes the request
 //  @return PaginatedWorkerResponseList
-func (a *WorkersApiService) WorkersListExecute(r WorkersApiWorkersListRequest) (*PaginatedWorkerResponseList, *http.Response, error) {
+func (a *WorkersAPIService) WorkersListExecute(r WorkersAPIWorkersListRequest) (*PaginatedWorkerResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -215,7 +215,7 @@ func (a *WorkersApiService) WorkersListExecute(r WorkersApiWorkersListRequest) (
 		localVarReturnValue  *PaginatedWorkerResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkersApiService.WorkersList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkersAPIService.WorkersList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -355,27 +355,27 @@ func (a *WorkersApiService) WorkersListExecute(r WorkersApiWorkersListRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type WorkersApiWorkersReadRequest struct {
+type WorkersAPIWorkersReadRequest struct {
 	ctx context.Context
-	ApiService *WorkersApiService
+	ApiService *WorkersAPIService
 	workerHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r WorkersApiWorkersReadRequest) Fields(fields []string) WorkersApiWorkersReadRequest {
+func (r WorkersAPIWorkersReadRequest) Fields(fields []string) WorkersAPIWorkersReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r WorkersApiWorkersReadRequest) ExcludeFields(excludeFields []string) WorkersApiWorkersReadRequest {
+func (r WorkersAPIWorkersReadRequest) ExcludeFields(excludeFields []string) WorkersAPIWorkersReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r WorkersApiWorkersReadRequest) Execute() (*WorkerResponse, *http.Response, error) {
+func (r WorkersAPIWorkersReadRequest) Execute() (*WorkerResponse, *http.Response, error) {
 	return r.ApiService.WorkersReadExecute(r)
 }
 
@@ -403,10 +403,10 @@ Attributes:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workerHref
- @return WorkersApiWorkersReadRequest
+ @return WorkersAPIWorkersReadRequest
 */
-func (a *WorkersApiService) WorkersRead(ctx context.Context, workerHref string) WorkersApiWorkersReadRequest {
-	return WorkersApiWorkersReadRequest{
+func (a *WorkersAPIService) WorkersRead(ctx context.Context, workerHref string) WorkersAPIWorkersReadRequest {
+	return WorkersAPIWorkersReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		workerHref: workerHref,
@@ -415,7 +415,7 @@ func (a *WorkersApiService) WorkersRead(ctx context.Context, workerHref string) 
 
 // Execute executes the request
 //  @return WorkerResponse
-func (a *WorkersApiService) WorkersReadExecute(r WorkersApiWorkersReadRequest) (*WorkerResponse, *http.Response, error) {
+func (a *WorkersAPIService) WorkersReadExecute(r WorkersAPIWorkersReadRequest) (*WorkerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -423,7 +423,7 @@ func (a *WorkersApiService) WorkersReadExecute(r WorkersApiWorkersReadRequest) (
 		localVarReturnValue  *WorkerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkersApiService.WorkersRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkersAPIService.WorkersRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

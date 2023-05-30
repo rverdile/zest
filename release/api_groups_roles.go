@@ -22,22 +22,22 @@ import (
 )
 
 
-// GroupsRolesApiService GroupsRolesApi service
-type GroupsRolesApiService service
+// GroupsRolesAPIService GroupsRolesAPI service
+type GroupsRolesAPIService service
 
-type GroupsRolesApiGroupsRolesCreateRequest struct {
+type GroupsRolesAPIGroupsRolesCreateRequest struct {
 	ctx context.Context
-	ApiService *GroupsRolesApiService
+	ApiService *GroupsRolesAPIService
 	groupHref string
 	groupRole *GroupRole
 }
 
-func (r GroupsRolesApiGroupsRolesCreateRequest) GroupRole(groupRole GroupRole) GroupsRolesApiGroupsRolesCreateRequest {
+func (r GroupsRolesAPIGroupsRolesCreateRequest) GroupRole(groupRole GroupRole) GroupsRolesAPIGroupsRolesCreateRequest {
 	r.groupRole = &groupRole
 	return r
 }
 
-func (r GroupsRolesApiGroupsRolesCreateRequest) Execute() (*GroupRoleResponse, *http.Response, error) {
+func (r GroupsRolesAPIGroupsRolesCreateRequest) Execute() (*GroupRoleResponse, *http.Response, error) {
 	return r.ApiService.GroupsRolesCreateExecute(r)
 }
 
@@ -48,10 +48,10 @@ ViewSet for GroupRole.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
- @return GroupsRolesApiGroupsRolesCreateRequest
+ @return GroupsRolesAPIGroupsRolesCreateRequest
 */
-func (a *GroupsRolesApiService) GroupsRolesCreate(ctx context.Context, groupHref string) GroupsRolesApiGroupsRolesCreateRequest {
-	return GroupsRolesApiGroupsRolesCreateRequest{
+func (a *GroupsRolesAPIService) GroupsRolesCreate(ctx context.Context, groupHref string) GroupsRolesAPIGroupsRolesCreateRequest {
+	return GroupsRolesAPIGroupsRolesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupHref: groupHref,
@@ -60,7 +60,7 @@ func (a *GroupsRolesApiService) GroupsRolesCreate(ctx context.Context, groupHref
 
 // Execute executes the request
 //  @return GroupRoleResponse
-func (a *GroupsRolesApiService) GroupsRolesCreateExecute(r GroupsRolesApiGroupsRolesCreateRequest) (*GroupRoleResponse, *http.Response, error) {
+func (a *GroupsRolesAPIService) GroupsRolesCreateExecute(r GroupsRolesAPIGroupsRolesCreateRequest) (*GroupRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *GroupsRolesApiService) GroupsRolesCreateExecute(r GroupsRolesApiGroupsR
 		localVarReturnValue  *GroupRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesApiService.GroupsRolesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesAPIService.GroupsRolesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,13 +140,13 @@ func (a *GroupsRolesApiService) GroupsRolesCreateExecute(r GroupsRolesApiGroupsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type GroupsRolesApiGroupsRolesDeleteRequest struct {
+type GroupsRolesAPIGroupsRolesDeleteRequest struct {
 	ctx context.Context
-	ApiService *GroupsRolesApiService
+	ApiService *GroupsRolesAPIService
 	groupsGroupRoleHref string
 }
 
-func (r GroupsRolesApiGroupsRolesDeleteRequest) Execute() (*http.Response, error) {
+func (r GroupsRolesAPIGroupsRolesDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GroupsRolesDeleteExecute(r)
 }
 
@@ -157,10 +157,10 @@ ViewSet for GroupRole.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupsGroupRoleHref
- @return GroupsRolesApiGroupsRolesDeleteRequest
+ @return GroupsRolesAPIGroupsRolesDeleteRequest
 */
-func (a *GroupsRolesApiService) GroupsRolesDelete(ctx context.Context, groupsGroupRoleHref string) GroupsRolesApiGroupsRolesDeleteRequest {
-	return GroupsRolesApiGroupsRolesDeleteRequest{
+func (a *GroupsRolesAPIService) GroupsRolesDelete(ctx context.Context, groupsGroupRoleHref string) GroupsRolesAPIGroupsRolesDeleteRequest {
+	return GroupsRolesAPIGroupsRolesDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupsGroupRoleHref: groupsGroupRoleHref,
@@ -168,14 +168,14 @@ func (a *GroupsRolesApiService) GroupsRolesDelete(ctx context.Context, groupsGro
 }
 
 // Execute executes the request
-func (a *GroupsRolesApiService) GroupsRolesDeleteExecute(r GroupsRolesApiGroupsRolesDeleteRequest) (*http.Response, error) {
+func (a *GroupsRolesAPIService) GroupsRolesDeleteExecute(r GroupsRolesAPIGroupsRolesDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesApiService.GroupsRolesDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesAPIService.GroupsRolesDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -233,9 +233,9 @@ func (a *GroupsRolesApiService) GroupsRolesDeleteExecute(r GroupsRolesApiGroupsR
 	return localVarHTTPResponse, nil
 }
 
-type GroupsRolesApiGroupsRolesListRequest struct {
+type GroupsRolesAPIGroupsRolesListRequest struct {
 	ctx context.Context
-	ApiService *GroupsRolesApiService
+	ApiService *GroupsRolesAPIService
 	groupHref string
 	contentObject *string
 	domain *string
@@ -254,86 +254,86 @@ type GroupsRolesApiGroupsRolesListRequest struct {
 }
 
 // content_object
-func (r GroupsRolesApiGroupsRolesListRequest) ContentObject(contentObject string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) ContentObject(contentObject string) GroupsRolesAPIGroupsRolesListRequest {
 	r.contentObject = &contentObject
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r GroupsRolesApiGroupsRolesListRequest) Domain(domain string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) Domain(domain string) GroupsRolesAPIGroupsRolesListRequest {
 	r.domain = &domain
 	return r
 }
 
 // Number of results to return per page.
-func (r GroupsRolesApiGroupsRolesListRequest) Limit(limit int32) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) Limit(limit int32) GroupsRolesAPIGroupsRolesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r GroupsRolesApiGroupsRolesListRequest) Offset(offset int32) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) Offset(offset int32) GroupsRolesAPIGroupsRolesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;role&#x60; - Role * &#x60;-role&#x60; - Role (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r GroupsRolesApiGroupsRolesListRequest) Ordering(ordering []string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) Ordering(ordering []string) GroupsRolesAPIGroupsRolesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r GroupsRolesApiGroupsRolesListRequest) PulpHrefIn(pulpHrefIn []string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) PulpHrefIn(pulpHrefIn []string) GroupsRolesAPIGroupsRolesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r GroupsRolesApiGroupsRolesListRequest) PulpIdIn(pulpIdIn []string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) PulpIdIn(pulpIdIn []string) GroupsRolesAPIGroupsRolesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
-func (r GroupsRolesApiGroupsRolesListRequest) Role(role string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) Role(role string) GroupsRolesAPIGroupsRolesListRequest {
 	r.role = &role
 	return r
 }
 
-func (r GroupsRolesApiGroupsRolesListRequest) RoleContains(roleContains string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) RoleContains(roleContains string) GroupsRolesAPIGroupsRolesListRequest {
 	r.roleContains = &roleContains
 	return r
 }
 
-func (r GroupsRolesApiGroupsRolesListRequest) RoleIcontains(roleIcontains string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) RoleIcontains(roleIcontains string) GroupsRolesAPIGroupsRolesListRequest {
 	r.roleIcontains = &roleIcontains
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r GroupsRolesApiGroupsRolesListRequest) RoleIn(roleIn []string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) RoleIn(roleIn []string) GroupsRolesAPIGroupsRolesListRequest {
 	r.roleIn = &roleIn
 	return r
 }
 
-func (r GroupsRolesApiGroupsRolesListRequest) RoleStartswith(roleStartswith string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) RoleStartswith(roleStartswith string) GroupsRolesAPIGroupsRolesListRequest {
 	r.roleStartswith = &roleStartswith
 	return r
 }
 
 // A list of fields to include in the response.
-func (r GroupsRolesApiGroupsRolesListRequest) Fields(fields []string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) Fields(fields []string) GroupsRolesAPIGroupsRolesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r GroupsRolesApiGroupsRolesListRequest) ExcludeFields(excludeFields []string) GroupsRolesApiGroupsRolesListRequest {
+func (r GroupsRolesAPIGroupsRolesListRequest) ExcludeFields(excludeFields []string) GroupsRolesAPIGroupsRolesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r GroupsRolesApiGroupsRolesListRequest) Execute() (*PaginatedGroupRoleResponseList, *http.Response, error) {
+func (r GroupsRolesAPIGroupsRolesListRequest) Execute() (*PaginatedGroupRoleResponseList, *http.Response, error) {
 	return r.ApiService.GroupsRolesListExecute(r)
 }
 
@@ -344,10 +344,10 @@ ViewSet for GroupRole.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
- @return GroupsRolesApiGroupsRolesListRequest
+ @return GroupsRolesAPIGroupsRolesListRequest
 */
-func (a *GroupsRolesApiService) GroupsRolesList(ctx context.Context, groupHref string) GroupsRolesApiGroupsRolesListRequest {
-	return GroupsRolesApiGroupsRolesListRequest{
+func (a *GroupsRolesAPIService) GroupsRolesList(ctx context.Context, groupHref string) GroupsRolesAPIGroupsRolesListRequest {
+	return GroupsRolesAPIGroupsRolesListRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupHref: groupHref,
@@ -356,7 +356,7 @@ func (a *GroupsRolesApiService) GroupsRolesList(ctx context.Context, groupHref s
 
 // Execute executes the request
 //  @return PaginatedGroupRoleResponseList
-func (a *GroupsRolesApiService) GroupsRolesListExecute(r GroupsRolesApiGroupsRolesListRequest) (*PaginatedGroupRoleResponseList, *http.Response, error) {
+func (a *GroupsRolesAPIService) GroupsRolesListExecute(r GroupsRolesAPIGroupsRolesListRequest) (*PaginatedGroupRoleResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -364,7 +364,7 @@ func (a *GroupsRolesApiService) GroupsRolesListExecute(r GroupsRolesApiGroupsRol
 		localVarReturnValue  *PaginatedGroupRoleResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesApiService.GroupsRolesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesAPIService.GroupsRolesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -489,27 +489,27 @@ func (a *GroupsRolesApiService) GroupsRolesListExecute(r GroupsRolesApiGroupsRol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type GroupsRolesApiGroupsRolesReadRequest struct {
+type GroupsRolesAPIGroupsRolesReadRequest struct {
 	ctx context.Context
-	ApiService *GroupsRolesApiService
+	ApiService *GroupsRolesAPIService
 	groupsGroupRoleHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r GroupsRolesApiGroupsRolesReadRequest) Fields(fields []string) GroupsRolesApiGroupsRolesReadRequest {
+func (r GroupsRolesAPIGroupsRolesReadRequest) Fields(fields []string) GroupsRolesAPIGroupsRolesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r GroupsRolesApiGroupsRolesReadRequest) ExcludeFields(excludeFields []string) GroupsRolesApiGroupsRolesReadRequest {
+func (r GroupsRolesAPIGroupsRolesReadRequest) ExcludeFields(excludeFields []string) GroupsRolesAPIGroupsRolesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r GroupsRolesApiGroupsRolesReadRequest) Execute() (*GroupRoleResponse, *http.Response, error) {
+func (r GroupsRolesAPIGroupsRolesReadRequest) Execute() (*GroupRoleResponse, *http.Response, error) {
 	return r.ApiService.GroupsRolesReadExecute(r)
 }
 
@@ -520,10 +520,10 @@ ViewSet for GroupRole.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupsGroupRoleHref
- @return GroupsRolesApiGroupsRolesReadRequest
+ @return GroupsRolesAPIGroupsRolesReadRequest
 */
-func (a *GroupsRolesApiService) GroupsRolesRead(ctx context.Context, groupsGroupRoleHref string) GroupsRolesApiGroupsRolesReadRequest {
-	return GroupsRolesApiGroupsRolesReadRequest{
+func (a *GroupsRolesAPIService) GroupsRolesRead(ctx context.Context, groupsGroupRoleHref string) GroupsRolesAPIGroupsRolesReadRequest {
+	return GroupsRolesAPIGroupsRolesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupsGroupRoleHref: groupsGroupRoleHref,
@@ -532,7 +532,7 @@ func (a *GroupsRolesApiService) GroupsRolesRead(ctx context.Context, groupsGroup
 
 // Execute executes the request
 //  @return GroupRoleResponse
-func (a *GroupsRolesApiService) GroupsRolesReadExecute(r GroupsRolesApiGroupsRolesReadRequest) (*GroupRoleResponse, *http.Response, error) {
+func (a *GroupsRolesAPIService) GroupsRolesReadExecute(r GroupsRolesAPIGroupsRolesReadRequest) (*GroupRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -540,7 +540,7 @@ func (a *GroupsRolesApiService) GroupsRolesReadExecute(r GroupsRolesApiGroupsRol
 		localVarReturnValue  *GroupRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesApiService.GroupsRolesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsRolesAPIService.GroupsRolesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

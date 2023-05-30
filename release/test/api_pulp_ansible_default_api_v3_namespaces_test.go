@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleDefaultApiV3NamespacesApiService
+Testing PulpAnsibleDefaultApiV3NamespacesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleDefaultApiV3NamespacesApiService(t *testing.T) {
+func Test_zest_PulpAnsibleDefaultApiV3NamespacesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleDefaultApiV3NamespacesApiService PulpAnsibleGalaxyDefaultApiV3NamespacesList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3NamespacesAPIService PulpAnsibleGalaxyDefaultApiV3NamespacesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3NamespacesApi.PulpAnsibleGalaxyDefaultApiV3NamespacesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3NamespacesAPI.PulpAnsibleGalaxyDefaultApiV3NamespacesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_PulpAnsibleDefaultApiV3NamespacesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpAnsibleDefaultApiV3NamespacesApiService PulpAnsibleGalaxyDefaultApiV3NamespacesRead", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3NamespacesAPIService PulpAnsibleGalaxyDefaultApiV3NamespacesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3NamespacesApi.PulpAnsibleGalaxyDefaultApiV3NamespacesRead(context.Background(), name).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3NamespacesAPI.PulpAnsibleGalaxyDefaultApiV3NamespacesRead(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,30 +22,30 @@ import (
 )
 
 
-// PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService PulpAnsibleApiV3PluginAnsibleClientConfigurationApi service
-type PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService service
+// PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIService PulpAnsibleApiV3PluginAnsibleClientConfigurationAPI service
+type PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIService service
 
-type PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest struct {
+type PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIService
 	path string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest {
+func (r PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest {
+func (r PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) Execute() (*ClientConfigurationResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) Execute() (*ClientConfigurationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadExecute(r)
 }
 
@@ -56,10 +56,10 @@ Return configurations for the ansible-galaxy client.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest
+ @return PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService) PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead(ctx context.Context, path string) PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest {
-	return PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead(ctx context.Context, path string) PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest {
+	return PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -68,7 +68,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService) PulpAnsible
 
 // Execute executes the request
 //  @return ClientConfigurationResponse
-func (a *PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService) PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadExecute(r PulpAnsibleApiV3PluginAnsibleClientConfigurationApiPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) (*ClientConfigurationResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadExecute(r PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIPulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationReadRequest) (*ClientConfigurationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -76,7 +76,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService) PulpAnsible
 		localVarReturnValue  *ClientConfigurationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleClientConfigurationApiService.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleClientConfigurationAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleClientConfigurationRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentModulemdDefaultsApiService
+Testing ContentModulemdDefaultsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentModulemdDefaultsApiService(t *testing.T) {
+func Test_zest_ContentModulemdDefaultsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentModulemdDefaultsApiService ContentRpmModulemdDefaultsCreate", func(t *testing.T) {
+	t.Run("Test ContentModulemdDefaultsAPIService ContentRpmModulemdDefaultsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentModulemdDefaultsApi.ContentRpmModulemdDefaultsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentModulemdDefaultsAPI.ContentRpmModulemdDefaultsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentModulemdDefaultsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentModulemdDefaultsApiService ContentRpmModulemdDefaultsList", func(t *testing.T) {
+	t.Run("Test ContentModulemdDefaultsAPIService ContentRpmModulemdDefaultsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentModulemdDefaultsApi.ContentRpmModulemdDefaultsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentModulemdDefaultsAPI.ContentRpmModulemdDefaultsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentModulemdDefaultsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentModulemdDefaultsApiService ContentRpmModulemdDefaultsRead", func(t *testing.T) {
+	t.Run("Test ContentModulemdDefaultsAPIService ContentRpmModulemdDefaultsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmModulemdDefaultsHref string
 
-		resp, httpRes, err := apiClient.ContentModulemdDefaultsApi.ContentRpmModulemdDefaultsRead(context.Background(), rpmModulemdDefaultsHref).Execute()
+		resp, httpRes, err := apiClient.ContentModulemdDefaultsAPI.ContentRpmModulemdDefaultsRead(context.Background(), rpmModulemdDefaultsHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

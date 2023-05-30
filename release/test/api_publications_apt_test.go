@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PublicationsAptApiService
+Testing PublicationsAptAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PublicationsAptApiService(t *testing.T) {
+func Test_zest_PublicationsAptAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PublicationsAptApiService PublicationsDebAptCreate", func(t *testing.T) {
+	t.Run("Test PublicationsAptAPIService PublicationsDebAptCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsAptApi.PublicationsDebAptCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PublicationsAptAPI.PublicationsDebAptCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,24 +34,24 @@ func Test_zest_PublicationsAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsAptApiService PublicationsDebAptDelete", func(t *testing.T) {
+	t.Run("Test PublicationsAptAPIService PublicationsDebAptDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptPublicationHref string
 
-		httpRes, err := apiClient.PublicationsAptApi.PublicationsDebAptDelete(context.Background(), debAptPublicationHref).Execute()
+		httpRes, err := apiClient.PublicationsAptAPI.PublicationsDebAptDelete(context.Background(), debAptPublicationHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test PublicationsAptApiService PublicationsDebAptList", func(t *testing.T) {
+	t.Run("Test PublicationsAptAPIService PublicationsDebAptList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsAptApi.PublicationsDebAptList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PublicationsAptAPI.PublicationsDebAptList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,13 +59,13 @@ func Test_zest_PublicationsAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsAptApiService PublicationsDebAptRead", func(t *testing.T) {
+	t.Run("Test PublicationsAptAPIService PublicationsDebAptRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptPublicationHref string
 
-		resp, httpRes, err := apiClient.PublicationsAptApi.PublicationsDebAptRead(context.Background(), debAptPublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsAptAPI.PublicationsDebAptRead(context.Background(), debAptPublicationHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,21 +22,21 @@ import (
 )
 
 
-// UsersApiService UsersApi service
-type UsersApiService service
+// UsersAPIService UsersAPI service
+type UsersAPIService service
 
-type UsersApiUsersCreateRequest struct {
+type UsersAPIUsersCreateRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	user *User
 }
 
-func (r UsersApiUsersCreateRequest) User(user User) UsersApiUsersCreateRequest {
+func (r UsersAPIUsersCreateRequest) User(user User) UsersAPIUsersCreateRequest {
 	r.user = &user
 	return r
 }
 
-func (r UsersApiUsersCreateRequest) Execute() (*UserResponse, *http.Response, error) {
+func (r UsersAPIUsersCreateRequest) Execute() (*UserResponse, *http.Response, error) {
 	return r.ApiService.UsersCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ UsersCreate Create an user
 ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UsersApiUsersCreateRequest
+ @return UsersAPIUsersCreateRequest
 */
-func (a *UsersApiService) UsersCreate(ctx context.Context) UsersApiUsersCreateRequest {
-	return UsersApiUsersCreateRequest{
+func (a *UsersAPIService) UsersCreate(ctx context.Context) UsersAPIUsersCreateRequest {
+	return UsersAPIUsersCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *UsersApiService) UsersCreate(ctx context.Context) UsersApiUsersCreateRe
 
 // Execute executes the request
 //  @return UserResponse
-func (a *UsersApiService) UsersCreateExecute(r UsersApiUsersCreateRequest) (*UserResponse, *http.Response, error) {
+func (a *UsersAPIService) UsersCreateExecute(r UsersAPIUsersCreateRequest) (*UserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *UsersApiService) UsersCreateExecute(r UsersApiUsersCreateRequest) (*Use
 		localVarReturnValue  *UserResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UsersCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *UsersApiService) UsersCreateExecute(r UsersApiUsersCreateRequest) (*Use
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UsersApiUsersDeleteRequest struct {
+type UsersAPIUsersDeleteRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	authUserHref string
 }
 
-func (r UsersApiUsersDeleteRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUsersDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UsersDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
- @return UsersApiUsersDeleteRequest
+ @return UsersAPIUsersDeleteRequest
 */
-func (a *UsersApiService) UsersDelete(ctx context.Context, authUserHref string) UsersApiUsersDeleteRequest {
-	return UsersApiUsersDeleteRequest{
+func (a *UsersAPIService) UsersDelete(ctx context.Context, authUserHref string) UsersAPIUsersDeleteRequest {
+	return UsersAPIUsersDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		authUserHref: authUserHref,
@@ -162,14 +162,14 @@ func (a *UsersApiService) UsersDelete(ctx context.Context, authUserHref string) 
 }
 
 // Execute executes the request
-func (a *UsersApiService) UsersDeleteExecute(r UsersApiUsersDeleteRequest) (*http.Response, error) {
+func (a *UsersAPIService) UsersDeleteExecute(r UsersAPIUsersDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UsersDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -227,9 +227,9 @@ func (a *UsersApiService) UsersDeleteExecute(r UsersApiUsersDeleteRequest) (*htt
 	return localVarHTTPResponse, nil
 }
 
-type UsersApiUsersListRequest struct {
+type UsersAPIUsersListRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	email *string
 	emailContains *string
 	emailIcontains *string
@@ -262,180 +262,180 @@ type UsersApiUsersListRequest struct {
 }
 
 // Filter results where email matches value
-func (r UsersApiUsersListRequest) Email(email string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) Email(email string) UsersAPIUsersListRequest {
 	r.email = &email
 	return r
 }
 
 // Filter results where email contains value
-func (r UsersApiUsersListRequest) EmailContains(emailContains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) EmailContains(emailContains string) UsersAPIUsersListRequest {
 	r.emailContains = &emailContains
 	return r
 }
 
 // Filter results where email contains value
-func (r UsersApiUsersListRequest) EmailIcontains(emailIcontains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) EmailIcontains(emailIcontains string) UsersAPIUsersListRequest {
 	r.emailIcontains = &emailIcontains
 	return r
 }
 
 // Filter results where email matches value
-func (r UsersApiUsersListRequest) EmailIexact(emailIexact string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) EmailIexact(emailIexact string) UsersAPIUsersListRequest {
 	r.emailIexact = &emailIexact
 	return r
 }
 
 // Filter results where email is in a comma-separated list of values
-func (r UsersApiUsersListRequest) EmailIn(emailIn []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) EmailIn(emailIn []string) UsersAPIUsersListRequest {
 	r.emailIn = &emailIn
 	return r
 }
 
 // Filter results where first_name matches value
-func (r UsersApiUsersListRequest) FirstName(firstName string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) FirstName(firstName string) UsersAPIUsersListRequest {
 	r.firstName = &firstName
 	return r
 }
 
 // Filter results where first_name contains value
-func (r UsersApiUsersListRequest) FirstNameContains(firstNameContains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) FirstNameContains(firstNameContains string) UsersAPIUsersListRequest {
 	r.firstNameContains = &firstNameContains
 	return r
 }
 
 // Filter results where first_name contains value
-func (r UsersApiUsersListRequest) FirstNameIcontains(firstNameIcontains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) FirstNameIcontains(firstNameIcontains string) UsersAPIUsersListRequest {
 	r.firstNameIcontains = &firstNameIcontains
 	return r
 }
 
 // Filter results where first_name matches value
-func (r UsersApiUsersListRequest) FirstNameIexact(firstNameIexact string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) FirstNameIexact(firstNameIexact string) UsersAPIUsersListRequest {
 	r.firstNameIexact = &firstNameIexact
 	return r
 }
 
 // Filter results where first_name is in a comma-separated list of values
-func (r UsersApiUsersListRequest) FirstNameIn(firstNameIn []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) FirstNameIn(firstNameIn []string) UsersAPIUsersListRequest {
 	r.firstNameIn = &firstNameIn
 	return r
 }
 
 // Filter results where is_active matches value
-func (r UsersApiUsersListRequest) IsActive(isActive bool) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) IsActive(isActive bool) UsersAPIUsersListRequest {
 	r.isActive = &isActive
 	return r
 }
 
 // Filter results where is_staff matches value
-func (r UsersApiUsersListRequest) IsStaff(isStaff bool) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) IsStaff(isStaff bool) UsersAPIUsersListRequest {
 	r.isStaff = &isStaff
 	return r
 }
 
 // Filter results where last_name matches value
-func (r UsersApiUsersListRequest) LastName(lastName string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) LastName(lastName string) UsersAPIUsersListRequest {
 	r.lastName = &lastName
 	return r
 }
 
 // Filter results where last_name contains value
-func (r UsersApiUsersListRequest) LastNameContains(lastNameContains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) LastNameContains(lastNameContains string) UsersAPIUsersListRequest {
 	r.lastNameContains = &lastNameContains
 	return r
 }
 
 // Filter results where last_name contains value
-func (r UsersApiUsersListRequest) LastNameIcontains(lastNameIcontains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) LastNameIcontains(lastNameIcontains string) UsersAPIUsersListRequest {
 	r.lastNameIcontains = &lastNameIcontains
 	return r
 }
 
 // Filter results where last_name matches value
-func (r UsersApiUsersListRequest) LastNameIexact(lastNameIexact string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) LastNameIexact(lastNameIexact string) UsersAPIUsersListRequest {
 	r.lastNameIexact = &lastNameIexact
 	return r
 }
 
 // Filter results where last_name is in a comma-separated list of values
-func (r UsersApiUsersListRequest) LastNameIn(lastNameIn []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) LastNameIn(lastNameIn []string) UsersAPIUsersListRequest {
 	r.lastNameIn = &lastNameIn
 	return r
 }
 
 // Number of results to return per page.
-func (r UsersApiUsersListRequest) Limit(limit int32) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) Limit(limit int32) UsersAPIUsersListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r UsersApiUsersListRequest) Offset(offset int32) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) Offset(offset int32) UsersAPIUsersListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;id&#x60; - Id * &#x60;-id&#x60; - Id (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;last_login&#x60; - Last login * &#x60;-last_login&#x60; - Last login (descending) * &#x60;is_superuser&#x60; - Is superuser * &#x60;-is_superuser&#x60; - Is superuser (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;first_name&#x60; - First name * &#x60;-first_name&#x60; - First name (descending) * &#x60;last_name&#x60; - Last name * &#x60;-last_name&#x60; - Last name (descending) * &#x60;email&#x60; - Email * &#x60;-email&#x60; - Email (descending) * &#x60;is_staff&#x60; - Is staff * &#x60;-is_staff&#x60; - Is staff (descending) * &#x60;is_active&#x60; - Is active * &#x60;-is_active&#x60; - Is active (descending) * &#x60;date_joined&#x60; - Date joined * &#x60;-date_joined&#x60; - Date joined (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r UsersApiUsersListRequest) Ordering(ordering []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) Ordering(ordering []string) UsersAPIUsersListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r UsersApiUsersListRequest) PulpHrefIn(pulpHrefIn []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) PulpHrefIn(pulpHrefIn []string) UsersAPIUsersListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r UsersApiUsersListRequest) PulpIdIn(pulpIdIn []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) PulpIdIn(pulpIdIn []string) UsersAPIUsersListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where username matches value
-func (r UsersApiUsersListRequest) Username(username string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) Username(username string) UsersAPIUsersListRequest {
 	r.username = &username
 	return r
 }
 
 // Filter results where username contains value
-func (r UsersApiUsersListRequest) UsernameContains(usernameContains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) UsernameContains(usernameContains string) UsersAPIUsersListRequest {
 	r.usernameContains = &usernameContains
 	return r
 }
 
 // Filter results where username contains value
-func (r UsersApiUsersListRequest) UsernameIcontains(usernameIcontains string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) UsernameIcontains(usernameIcontains string) UsersAPIUsersListRequest {
 	r.usernameIcontains = &usernameIcontains
 	return r
 }
 
 // Filter results where username matches value
-func (r UsersApiUsersListRequest) UsernameIexact(usernameIexact string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) UsernameIexact(usernameIexact string) UsersAPIUsersListRequest {
 	r.usernameIexact = &usernameIexact
 	return r
 }
 
 // Filter results where username is in a comma-separated list of values
-func (r UsersApiUsersListRequest) UsernameIn(usernameIn []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) UsernameIn(usernameIn []string) UsersAPIUsersListRequest {
 	r.usernameIn = &usernameIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r UsersApiUsersListRequest) Fields(fields []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) Fields(fields []string) UsersAPIUsersListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UsersApiUsersListRequest) ExcludeFields(excludeFields []string) UsersApiUsersListRequest {
+func (r UsersAPIUsersListRequest) ExcludeFields(excludeFields []string) UsersAPIUsersListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UsersApiUsersListRequest) Execute() (*PaginatedUserResponseList, *http.Response, error) {
+func (r UsersAPIUsersListRequest) Execute() (*PaginatedUserResponseList, *http.Response, error) {
 	return r.ApiService.UsersListExecute(r)
 }
 
@@ -445,10 +445,10 @@ UsersList List users
 ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UsersApiUsersListRequest
+ @return UsersAPIUsersListRequest
 */
-func (a *UsersApiService) UsersList(ctx context.Context) UsersApiUsersListRequest {
-	return UsersApiUsersListRequest{
+func (a *UsersAPIService) UsersList(ctx context.Context) UsersAPIUsersListRequest {
+	return UsersAPIUsersListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -456,7 +456,7 @@ func (a *UsersApiService) UsersList(ctx context.Context) UsersApiUsersListReques
 
 // Execute executes the request
 //  @return PaginatedUserResponseList
-func (a *UsersApiService) UsersListExecute(r UsersApiUsersListRequest) (*PaginatedUserResponseList, *http.Response, error) {
+func (a *UsersAPIService) UsersListExecute(r UsersAPIUsersListRequest) (*PaginatedUserResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -464,7 +464,7 @@ func (a *UsersApiService) UsersListExecute(r UsersApiUsersListRequest) (*Paginat
 		localVarReturnValue  *PaginatedUserResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UsersList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -631,19 +631,19 @@ func (a *UsersApiService) UsersListExecute(r UsersApiUsersListRequest) (*Paginat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UsersApiUsersPartialUpdateRequest struct {
+type UsersAPIUsersPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	authUserHref string
 	patchedUser *PatchedUser
 }
 
-func (r UsersApiUsersPartialUpdateRequest) PatchedUser(patchedUser PatchedUser) UsersApiUsersPartialUpdateRequest {
+func (r UsersAPIUsersPartialUpdateRequest) PatchedUser(patchedUser PatchedUser) UsersAPIUsersPartialUpdateRequest {
 	r.patchedUser = &patchedUser
 	return r
 }
 
-func (r UsersApiUsersPartialUpdateRequest) Execute() (*UserResponse, *http.Response, error) {
+func (r UsersAPIUsersPartialUpdateRequest) Execute() (*UserResponse, *http.Response, error) {
 	return r.ApiService.UsersPartialUpdateExecute(r)
 }
 
@@ -654,10 +654,10 @@ ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
- @return UsersApiUsersPartialUpdateRequest
+ @return UsersAPIUsersPartialUpdateRequest
 */
-func (a *UsersApiService) UsersPartialUpdate(ctx context.Context, authUserHref string) UsersApiUsersPartialUpdateRequest {
-	return UsersApiUsersPartialUpdateRequest{
+func (a *UsersAPIService) UsersPartialUpdate(ctx context.Context, authUserHref string) UsersAPIUsersPartialUpdateRequest {
+	return UsersAPIUsersPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		authUserHref: authUserHref,
@@ -666,7 +666,7 @@ func (a *UsersApiService) UsersPartialUpdate(ctx context.Context, authUserHref s
 
 // Execute executes the request
 //  @return UserResponse
-func (a *UsersApiService) UsersPartialUpdateExecute(r UsersApiUsersPartialUpdateRequest) (*UserResponse, *http.Response, error) {
+func (a *UsersAPIService) UsersPartialUpdateExecute(r UsersAPIUsersPartialUpdateRequest) (*UserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -674,7 +674,7 @@ func (a *UsersApiService) UsersPartialUpdateExecute(r UsersApiUsersPartialUpdate
 		localVarReturnValue  *UserResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UsersPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -746,27 +746,27 @@ func (a *UsersApiService) UsersPartialUpdateExecute(r UsersApiUsersPartialUpdate
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UsersApiUsersReadRequest struct {
+type UsersAPIUsersReadRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	authUserHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r UsersApiUsersReadRequest) Fields(fields []string) UsersApiUsersReadRequest {
+func (r UsersAPIUsersReadRequest) Fields(fields []string) UsersAPIUsersReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UsersApiUsersReadRequest) ExcludeFields(excludeFields []string) UsersApiUsersReadRequest {
+func (r UsersAPIUsersReadRequest) ExcludeFields(excludeFields []string) UsersAPIUsersReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UsersApiUsersReadRequest) Execute() (*UserResponse, *http.Response, error) {
+func (r UsersAPIUsersReadRequest) Execute() (*UserResponse, *http.Response, error) {
 	return r.ApiService.UsersReadExecute(r)
 }
 
@@ -777,10 +777,10 @@ ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
- @return UsersApiUsersReadRequest
+ @return UsersAPIUsersReadRequest
 */
-func (a *UsersApiService) UsersRead(ctx context.Context, authUserHref string) UsersApiUsersReadRequest {
-	return UsersApiUsersReadRequest{
+func (a *UsersAPIService) UsersRead(ctx context.Context, authUserHref string) UsersAPIUsersReadRequest {
+	return UsersAPIUsersReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		authUserHref: authUserHref,
@@ -789,7 +789,7 @@ func (a *UsersApiService) UsersRead(ctx context.Context, authUserHref string) Us
 
 // Execute executes the request
 //  @return UserResponse
-func (a *UsersApiService) UsersReadExecute(r UsersApiUsersReadRequest) (*UserResponse, *http.Response, error) {
+func (a *UsersAPIService) UsersReadExecute(r UsersAPIUsersReadRequest) (*UserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -797,7 +797,7 @@ func (a *UsersApiService) UsersReadExecute(r UsersApiUsersReadRequest) (*UserRes
 		localVarReturnValue  *UserResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UsersRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -886,19 +886,19 @@ func (a *UsersApiService) UsersReadExecute(r UsersApiUsersReadRequest) (*UserRes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UsersApiUsersUpdateRequest struct {
+type UsersAPIUsersUpdateRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	authUserHref string
 	user *User
 }
 
-func (r UsersApiUsersUpdateRequest) User(user User) UsersApiUsersUpdateRequest {
+func (r UsersAPIUsersUpdateRequest) User(user User) UsersAPIUsersUpdateRequest {
 	r.user = &user
 	return r
 }
 
-func (r UsersApiUsersUpdateRequest) Execute() (*UserResponse, *http.Response, error) {
+func (r UsersAPIUsersUpdateRequest) Execute() (*UserResponse, *http.Response, error) {
 	return r.ApiService.UsersUpdateExecute(r)
 }
 
@@ -909,10 +909,10 @@ ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param authUserHref
- @return UsersApiUsersUpdateRequest
+ @return UsersAPIUsersUpdateRequest
 */
-func (a *UsersApiService) UsersUpdate(ctx context.Context, authUserHref string) UsersApiUsersUpdateRequest {
-	return UsersApiUsersUpdateRequest{
+func (a *UsersAPIService) UsersUpdate(ctx context.Context, authUserHref string) UsersAPIUsersUpdateRequest {
+	return UsersAPIUsersUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		authUserHref: authUserHref,
@@ -921,7 +921,7 @@ func (a *UsersApiService) UsersUpdate(ctx context.Context, authUserHref string) 
 
 // Execute executes the request
 //  @return UserResponse
-func (a *UsersApiService) UsersUpdateExecute(r UsersApiUsersUpdateRequest) (*UserResponse, *http.Response, error) {
+func (a *UsersAPIService) UsersUpdateExecute(r UsersAPIUsersUpdateRequest) (*UserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -929,7 +929,7 @@ func (a *UsersApiService) UsersUpdateExecute(r UsersApiUsersUpdateRequest) (*Use
 		localVarReturnValue  *UserResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UsersUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UsersUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

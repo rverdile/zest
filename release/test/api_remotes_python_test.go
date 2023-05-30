@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RemotesPythonApiService
+Testing RemotesPythonAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RemotesPythonApiService(t *testing.T) {
+func Test_zest_RemotesPythonAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RemotesPythonApiService RemotesPythonPythonCreate", func(t *testing.T) {
+	t.Run("Test RemotesPythonAPIService RemotesPythonPythonCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesPythonApi.RemotesPythonPythonCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesPythonAPI.RemotesPythonPythonCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_RemotesPythonApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesPythonApiService RemotesPythonPythonDelete", func(t *testing.T) {
+	t.Run("Test RemotesPythonAPIService RemotesPythonPythonDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesPythonApi.RemotesPythonPythonDelete(context.Background(), pythonPythonRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesPythonAPI.RemotesPythonPythonDelete(context.Background(), pythonPythonRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_RemotesPythonApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesPythonApiService RemotesPythonPythonFromBandersnatch", func(t *testing.T) {
+	t.Run("Test RemotesPythonAPIService RemotesPythonPythonFromBandersnatch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesPythonApi.RemotesPythonPythonFromBandersnatch(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesPythonAPI.RemotesPythonPythonFromBandersnatch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,11 +60,11 @@ func Test_zest_RemotesPythonApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesPythonApiService RemotesPythonPythonList", func(t *testing.T) {
+	t.Run("Test RemotesPythonAPIService RemotesPythonPythonList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesPythonApi.RemotesPythonPythonList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesPythonAPI.RemotesPythonPythonList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,27 +72,13 @@ func Test_zest_RemotesPythonApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesPythonApiService RemotesPythonPythonPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pythonPythonRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesPythonApi.RemotesPythonPythonPartialUpdate(context.Background(), pythonPythonRemoteHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesPythonApiService RemotesPythonPythonRead", func(t *testing.T) {
+	t.Run("Test RemotesPythonAPIService RemotesPythonPythonPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesPythonApi.RemotesPythonPythonRead(context.Background(), pythonPythonRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesPythonAPI.RemotesPythonPythonPartialUpdate(context.Background(), pythonPythonRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -100,13 +86,27 @@ func Test_zest_RemotesPythonApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesPythonApiService RemotesPythonPythonUpdate", func(t *testing.T) {
+	t.Run("Test RemotesPythonAPIService RemotesPythonPythonRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesPythonApi.RemotesPythonPythonUpdate(context.Background(), pythonPythonRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesPythonAPI.RemotesPythonPythonRead(context.Background(), pythonPythonRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesPythonAPIService RemotesPythonPythonUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pythonPythonRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesPythonAPI.RemotesPythonPythonUpdate(context.Background(), pythonPythonRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

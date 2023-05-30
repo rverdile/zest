@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentCollectionMarksApiService
+Testing ContentCollectionMarksAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentCollectionMarksApiService(t *testing.T) {
+func Test_zest_ContentCollectionMarksAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentCollectionMarksApiService ContentAnsibleCollectionMarksCreate", func(t *testing.T) {
+	t.Run("Test ContentCollectionMarksAPIService ContentAnsibleCollectionMarksCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionMarksApi.ContentAnsibleCollectionMarksCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionMarksAPI.ContentAnsibleCollectionMarksCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentCollectionMarksApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionMarksApiService ContentAnsibleCollectionMarksList", func(t *testing.T) {
+	t.Run("Test ContentCollectionMarksAPIService ContentAnsibleCollectionMarksList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionMarksApi.ContentAnsibleCollectionMarksList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionMarksAPI.ContentAnsibleCollectionMarksList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentCollectionMarksApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionMarksApiService ContentAnsibleCollectionMarksRead", func(t *testing.T) {
+	t.Run("Test ContentCollectionMarksAPIService ContentAnsibleCollectionMarksRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionVersionMarkHref string
 
-		resp, httpRes, err := apiClient.ContentCollectionMarksApi.ContentAnsibleCollectionMarksRead(context.Background(), ansibleCollectionVersionMarkHref).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionMarksAPI.ContentAnsibleCollectionMarksRead(context.Background(), ansibleCollectionVersionMarkHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,21 +22,21 @@ import (
 )
 
 
-// DistributionsAptApiService DistributionsAptApi service
-type DistributionsAptApiService service
+// DistributionsAptAPIService DistributionsAptAPI service
+type DistributionsAptAPIService service
 
-type DistributionsAptApiDistributionsDebAptCreateRequest struct {
+type DistributionsAptAPIDistributionsDebAptCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAptApiService
+	ApiService *DistributionsAptAPIService
 	debAptDistribution *DebAptDistribution
 }
 
-func (r DistributionsAptApiDistributionsDebAptCreateRequest) DebAptDistribution(debAptDistribution DebAptDistribution) DistributionsAptApiDistributionsDebAptCreateRequest {
+func (r DistributionsAptAPIDistributionsDebAptCreateRequest) DebAptDistribution(debAptDistribution DebAptDistribution) DistributionsAptAPIDistributionsDebAptCreateRequest {
 	r.debAptDistribution = &debAptDistribution
 	return r
 }
 
-func (r DistributionsAptApiDistributionsDebAptCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAptAPIDistributionsDebAptCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsDebAptCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ DistributionsDebAptCreate Create an apt distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsAptApiDistributionsDebAptCreateRequest
+ @return DistributionsAptAPIDistributionsDebAptCreateRequest
 */
-func (a *DistributionsAptApiService) DistributionsDebAptCreate(ctx context.Context) DistributionsAptApiDistributionsDebAptCreateRequest {
-	return DistributionsAptApiDistributionsDebAptCreateRequest{
+func (a *DistributionsAptAPIService) DistributionsDebAptCreate(ctx context.Context) DistributionsAptAPIDistributionsDebAptCreateRequest {
+	return DistributionsAptAPIDistributionsDebAptCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptCreate(ctx context.Conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAptApiService) DistributionsDebAptCreateExecute(r DistributionsAptApiDistributionsDebAptCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAptAPIService) DistributionsDebAptCreateExecute(r DistributionsAptAPIDistributionsDebAptCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptCreateExecute(r Distribu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptApiService.DistributionsDebAptCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptAPIService.DistributionsDebAptCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *DistributionsAptApiService) DistributionsDebAptCreateExecute(r Distribu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAptApiDistributionsDebAptDeleteRequest struct {
+type DistributionsAptAPIDistributionsDebAptDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAptApiService
+	ApiService *DistributionsAptAPIService
 	debAptDistributionHref string
 }
 
-func (r DistributionsAptApiDistributionsDebAptDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAptAPIDistributionsDebAptDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsDebAptDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptDistributionHref
- @return DistributionsAptApiDistributionsDebAptDeleteRequest
+ @return DistributionsAptAPIDistributionsDebAptDeleteRequest
 */
-func (a *DistributionsAptApiService) DistributionsDebAptDelete(ctx context.Context, debAptDistributionHref string) DistributionsAptApiDistributionsDebAptDeleteRequest {
-	return DistributionsAptApiDistributionsDebAptDeleteRequest{
+func (a *DistributionsAptAPIService) DistributionsDebAptDelete(ctx context.Context, debAptDistributionHref string) DistributionsAptAPIDistributionsDebAptDeleteRequest {
+	return DistributionsAptAPIDistributionsDebAptDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptDistributionHref: debAptDistributionHref,
@@ -163,7 +163,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptDelete(ctx context.Conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAptApiService) DistributionsDebAptDeleteExecute(r DistributionsAptApiDistributionsDebAptDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAptAPIService) DistributionsDebAptDeleteExecute(r DistributionsAptAPIDistributionsDebAptDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -171,7 +171,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptDeleteExecute(r Distribu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptApiService.DistributionsDebAptDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptAPIService.DistributionsDebAptDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -238,9 +238,9 @@ func (a *DistributionsAptApiService) DistributionsDebAptDeleteExecute(r Distribu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAptApiDistributionsDebAptListRequest struct {
+type DistributionsAptAPIDistributionsDebAptListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAptApiService
+	ApiService *DistributionsAptAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -264,126 +264,126 @@ type DistributionsAptApiDistributionsDebAptListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsAptApiDistributionsDebAptListRequest) BasePath(basePath string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) BasePath(basePath string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsAptApiDistributionsDebAptListRequest) BasePathContains(basePathContains string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) BasePathContains(basePathContains string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsAptApiDistributionsDebAptListRequest) BasePathIcontains(basePathIcontains string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) BasePathIcontains(basePathIcontains string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsAptApiDistributionsDebAptListRequest) BasePathIn(basePathIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) BasePathIn(basePathIn []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsAptApiDistributionsDebAptListRequest) Limit(limit int32) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) Limit(limit int32) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsAptApiDistributionsDebAptListRequest) Name(name string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) Name(name string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsAptApiDistributionsDebAptListRequest) NameContains(nameContains string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) NameContains(nameContains string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsAptApiDistributionsDebAptListRequest) NameIcontains(nameIcontains string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) NameIcontains(nameIcontains string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsAptApiDistributionsDebAptListRequest) NameIn(nameIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) NameIn(nameIn []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsAptApiDistributionsDebAptListRequest) NameStartswith(nameStartswith string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) NameStartswith(nameStartswith string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsAptApiDistributionsDebAptListRequest) Offset(offset int32) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) Offset(offset int32) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsAptApiDistributionsDebAptListRequest) Ordering(ordering []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) Ordering(ordering []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsAptApiDistributionsDebAptListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsAptApiDistributionsDebAptListRequest) PulpIdIn(pulpIdIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) PulpIdIn(pulpIdIn []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsAptApiDistributionsDebAptListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsAptApiDistributionsDebAptListRequest) Repository(repository string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) Repository(repository string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsAptApiDistributionsDebAptListRequest) RepositoryIn(repositoryIn []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) RepositoryIn(repositoryIn []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsAptApiDistributionsDebAptListRequest) WithContent(withContent string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) WithContent(withContent string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsAptApiDistributionsDebAptListRequest) Fields(fields []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) Fields(fields []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsAptApiDistributionsDebAptListRequest) ExcludeFields(excludeFields []string) DistributionsAptApiDistributionsDebAptListRequest {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) ExcludeFields(excludeFields []string) DistributionsAptAPIDistributionsDebAptListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsAptApiDistributionsDebAptListRequest) Execute() (*PaginateddebAptDistributionResponseList, *http.Response, error) {
+func (r DistributionsAptAPIDistributionsDebAptListRequest) Execute() (*PaginateddebAptDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsDebAptListExecute(r)
 }
 
@@ -397,10 +397,10 @@ much time as is needed to prepare a VerbatimPublication or AptPublication, and t
 exact moment when that publication is made available.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsAptApiDistributionsDebAptListRequest
+ @return DistributionsAptAPIDistributionsDebAptListRequest
 */
-func (a *DistributionsAptApiService) DistributionsDebAptList(ctx context.Context) DistributionsAptApiDistributionsDebAptListRequest {
-	return DistributionsAptApiDistributionsDebAptListRequest{
+func (a *DistributionsAptAPIService) DistributionsDebAptList(ctx context.Context) DistributionsAptAPIDistributionsDebAptListRequest {
+	return DistributionsAptAPIDistributionsDebAptListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -408,7 +408,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptList(ctx context.Context
 
 // Execute executes the request
 //  @return PaginateddebAptDistributionResponseList
-func (a *DistributionsAptApiService) DistributionsDebAptListExecute(r DistributionsAptApiDistributionsDebAptListRequest) (*PaginateddebAptDistributionResponseList, *http.Response, error) {
+func (a *DistributionsAptAPIService) DistributionsDebAptListExecute(r DistributionsAptAPIDistributionsDebAptListRequest) (*PaginateddebAptDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -416,7 +416,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptListExecute(r Distributi
 		localVarReturnValue  *PaginateddebAptDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptApiService.DistributionsDebAptList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptAPIService.DistributionsDebAptList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -556,19 +556,19 @@ func (a *DistributionsAptApiService) DistributionsDebAptListExecute(r Distributi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAptApiDistributionsDebAptPartialUpdateRequest struct {
+type DistributionsAptAPIDistributionsDebAptPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAptApiService
+	ApiService *DistributionsAptAPIService
 	debAptDistributionHref string
 	patcheddebAptDistribution *PatcheddebAptDistribution
 }
 
-func (r DistributionsAptApiDistributionsDebAptPartialUpdateRequest) PatcheddebAptDistribution(patcheddebAptDistribution PatcheddebAptDistribution) DistributionsAptApiDistributionsDebAptPartialUpdateRequest {
+func (r DistributionsAptAPIDistributionsDebAptPartialUpdateRequest) PatcheddebAptDistribution(patcheddebAptDistribution PatcheddebAptDistribution) DistributionsAptAPIDistributionsDebAptPartialUpdateRequest {
 	r.patcheddebAptDistribution = &patcheddebAptDistribution
 	return r
 }
 
-func (r DistributionsAptApiDistributionsDebAptPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAptAPIDistributionsDebAptPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsDebAptPartialUpdateExecute(r)
 }
 
@@ -579,10 +579,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptDistributionHref
- @return DistributionsAptApiDistributionsDebAptPartialUpdateRequest
+ @return DistributionsAptAPIDistributionsDebAptPartialUpdateRequest
 */
-func (a *DistributionsAptApiService) DistributionsDebAptPartialUpdate(ctx context.Context, debAptDistributionHref string) DistributionsAptApiDistributionsDebAptPartialUpdateRequest {
-	return DistributionsAptApiDistributionsDebAptPartialUpdateRequest{
+func (a *DistributionsAptAPIService) DistributionsDebAptPartialUpdate(ctx context.Context, debAptDistributionHref string) DistributionsAptAPIDistributionsDebAptPartialUpdateRequest {
+	return DistributionsAptAPIDistributionsDebAptPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptDistributionHref: debAptDistributionHref,
@@ -591,7 +591,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptPartialUpdate(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAptApiService) DistributionsDebAptPartialUpdateExecute(r DistributionsAptApiDistributionsDebAptPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAptAPIService) DistributionsDebAptPartialUpdateExecute(r DistributionsAptAPIDistributionsDebAptPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -599,7 +599,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptPartialUpdateExecute(r D
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptApiService.DistributionsDebAptPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptAPIService.DistributionsDebAptPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -671,27 +671,27 @@ func (a *DistributionsAptApiService) DistributionsDebAptPartialUpdateExecute(r D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAptApiDistributionsDebAptReadRequest struct {
+type DistributionsAptAPIDistributionsDebAptReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAptApiService
+	ApiService *DistributionsAptAPIService
 	debAptDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsAptApiDistributionsDebAptReadRequest) Fields(fields []string) DistributionsAptApiDistributionsDebAptReadRequest {
+func (r DistributionsAptAPIDistributionsDebAptReadRequest) Fields(fields []string) DistributionsAptAPIDistributionsDebAptReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsAptApiDistributionsDebAptReadRequest) ExcludeFields(excludeFields []string) DistributionsAptApiDistributionsDebAptReadRequest {
+func (r DistributionsAptAPIDistributionsDebAptReadRequest) ExcludeFields(excludeFields []string) DistributionsAptAPIDistributionsDebAptReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsAptApiDistributionsDebAptReadRequest) Execute() (*DebAptDistributionResponse, *http.Response, error) {
+func (r DistributionsAptAPIDistributionsDebAptReadRequest) Execute() (*DebAptDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsDebAptReadExecute(r)
 }
 
@@ -706,10 +706,10 @@ exact moment when that publication is made available.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptDistributionHref
- @return DistributionsAptApiDistributionsDebAptReadRequest
+ @return DistributionsAptAPIDistributionsDebAptReadRequest
 */
-func (a *DistributionsAptApiService) DistributionsDebAptRead(ctx context.Context, debAptDistributionHref string) DistributionsAptApiDistributionsDebAptReadRequest {
-	return DistributionsAptApiDistributionsDebAptReadRequest{
+func (a *DistributionsAptAPIService) DistributionsDebAptRead(ctx context.Context, debAptDistributionHref string) DistributionsAptAPIDistributionsDebAptReadRequest {
+	return DistributionsAptAPIDistributionsDebAptReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptDistributionHref: debAptDistributionHref,
@@ -718,7 +718,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptRead(ctx context.Context
 
 // Execute executes the request
 //  @return DebAptDistributionResponse
-func (a *DistributionsAptApiService) DistributionsDebAptReadExecute(r DistributionsAptApiDistributionsDebAptReadRequest) (*DebAptDistributionResponse, *http.Response, error) {
+func (a *DistributionsAptAPIService) DistributionsDebAptReadExecute(r DistributionsAptAPIDistributionsDebAptReadRequest) (*DebAptDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -726,7 +726,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptReadExecute(r Distributi
 		localVarReturnValue  *DebAptDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptApiService.DistributionsDebAptRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptAPIService.DistributionsDebAptRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -815,19 +815,19 @@ func (a *DistributionsAptApiService) DistributionsDebAptReadExecute(r Distributi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsAptApiDistributionsDebAptUpdateRequest struct {
+type DistributionsAptAPIDistributionsDebAptUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsAptApiService
+	ApiService *DistributionsAptAPIService
 	debAptDistributionHref string
 	debAptDistribution *DebAptDistribution
 }
 
-func (r DistributionsAptApiDistributionsDebAptUpdateRequest) DebAptDistribution(debAptDistribution DebAptDistribution) DistributionsAptApiDistributionsDebAptUpdateRequest {
+func (r DistributionsAptAPIDistributionsDebAptUpdateRequest) DebAptDistribution(debAptDistribution DebAptDistribution) DistributionsAptAPIDistributionsDebAptUpdateRequest {
 	r.debAptDistribution = &debAptDistribution
 	return r
 }
 
-func (r DistributionsAptApiDistributionsDebAptUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsAptAPIDistributionsDebAptUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsDebAptUpdateExecute(r)
 }
 
@@ -838,10 +838,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptDistributionHref
- @return DistributionsAptApiDistributionsDebAptUpdateRequest
+ @return DistributionsAptAPIDistributionsDebAptUpdateRequest
 */
-func (a *DistributionsAptApiService) DistributionsDebAptUpdate(ctx context.Context, debAptDistributionHref string) DistributionsAptApiDistributionsDebAptUpdateRequest {
-	return DistributionsAptApiDistributionsDebAptUpdateRequest{
+func (a *DistributionsAptAPIService) DistributionsDebAptUpdate(ctx context.Context, debAptDistributionHref string) DistributionsAptAPIDistributionsDebAptUpdateRequest {
+	return DistributionsAptAPIDistributionsDebAptUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptDistributionHref: debAptDistributionHref,
@@ -850,7 +850,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptUpdate(ctx context.Conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsAptApiService) DistributionsDebAptUpdateExecute(r DistributionsAptApiDistributionsDebAptUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsAptAPIService) DistributionsDebAptUpdateExecute(r DistributionsAptAPIDistributionsDebAptUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -858,7 +858,7 @@ func (a *DistributionsAptApiService) DistributionsDebAptUpdateExecute(r Distribu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptApiService.DistributionsDebAptUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAptAPIService.DistributionsDebAptUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

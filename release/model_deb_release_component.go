@@ -22,18 +22,22 @@ var _ MappedNullable = &DebReleaseComponent{}
 type DebReleaseComponent struct {
 	// Name of the component.
 	Component string `json:"component"`
-	// Release this component is contained in.
-	Release string `json:"release"`
+	// Name of the distribution.
+	Distribution string `json:"distribution"`
+	Codename string `json:"codename"`
+	Suite string `json:"suite"`
 }
 
 // NewDebReleaseComponent instantiates a new DebReleaseComponent object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDebReleaseComponent(component string, release string) *DebReleaseComponent {
+func NewDebReleaseComponent(component string, distribution string, codename string, suite string) *DebReleaseComponent {
 	this := DebReleaseComponent{}
 	this.Component = component
-	this.Release = release
+	this.Distribution = distribution
+	this.Codename = codename
+	this.Suite = suite
 	return &this
 }
 
@@ -69,28 +73,76 @@ func (o *DebReleaseComponent) SetComponent(v string) {
 	o.Component = v
 }
 
-// GetRelease returns the Release field value
-func (o *DebReleaseComponent) GetRelease() string {
+// GetDistribution returns the Distribution field value
+func (o *DebReleaseComponent) GetDistribution() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Release
+	return o.Distribution
 }
 
-// GetReleaseOk returns a tuple with the Release field value
+// GetDistributionOk returns a tuple with the Distribution field value
 // and a boolean to check if the value has been set.
-func (o *DebReleaseComponent) GetReleaseOk() (*string, bool) {
+func (o *DebReleaseComponent) GetDistributionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Release, true
+	return &o.Distribution, true
 }
 
-// SetRelease sets field value
-func (o *DebReleaseComponent) SetRelease(v string) {
-	o.Release = v
+// SetDistribution sets field value
+func (o *DebReleaseComponent) SetDistribution(v string) {
+	o.Distribution = v
+}
+
+// GetCodename returns the Codename field value
+func (o *DebReleaseComponent) GetCodename() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Codename
+}
+
+// GetCodenameOk returns a tuple with the Codename field value
+// and a boolean to check if the value has been set.
+func (o *DebReleaseComponent) GetCodenameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Codename, true
+}
+
+// SetCodename sets field value
+func (o *DebReleaseComponent) SetCodename(v string) {
+	o.Codename = v
+}
+
+// GetSuite returns the Suite field value
+func (o *DebReleaseComponent) GetSuite() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Suite
+}
+
+// GetSuiteOk returns a tuple with the Suite field value
+// and a boolean to check if the value has been set.
+func (o *DebReleaseComponent) GetSuiteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Suite, true
+}
+
+// SetSuite sets field value
+func (o *DebReleaseComponent) SetSuite(v string) {
+	o.Suite = v
 }
 
 func (o DebReleaseComponent) MarshalJSON() ([]byte, error) {
@@ -104,7 +156,9 @@ func (o DebReleaseComponent) MarshalJSON() ([]byte, error) {
 func (o DebReleaseComponent) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["component"] = o.Component
-	toSerialize["release"] = o.Release
+	toSerialize["distribution"] = o.Distribution
+	toSerialize["codename"] = o.Codename
+	toSerialize["suite"] = o.Suite
 	return toSerialize, nil
 }
 

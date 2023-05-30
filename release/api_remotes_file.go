@@ -23,22 +23,22 @@ import (
 )
 
 
-// RemotesFileApiService RemotesFileApi service
-type RemotesFileApiService service
+// RemotesFileAPIService RemotesFileAPI service
+type RemotesFileAPIService service
 
-type RemotesFileApiRemotesFileFileAddRoleRequest struct {
+type RemotesFileAPIRemotesFileFileAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesFileApiRemotesFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesFileApiRemotesFileFileAddRoleRequest {
+func (r RemotesFileAPIRemotesFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesFileAPIRemotesFileFileAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFileAddRoleRequest
+ @return RemotesFileAPIRemotesFileFileAddRoleRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileAddRole(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFileAddRoleRequest {
-	return RemotesFileApiRemotesFileFileAddRoleRequest{
+func (a *RemotesFileAPIService) RemotesFileFileAddRole(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFileAddRoleRequest {
+	return RemotesFileAPIRemotesFileFileAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -61,7 +61,7 @@ func (a *RemotesFileApiService) RemotesFileFileAddRole(ctx context.Context, file
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesFileApiService) RemotesFileFileAddRoleExecute(r RemotesFileApiRemotesFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileAddRoleExecute(r RemotesFileAPIRemotesFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesFileApiService) RemotesFileFileAddRoleExecute(r RemotesFileApiRe
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *RemotesFileApiService) RemotesFileFileAddRoleExecute(r RemotesFileApiRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileCreateRequest struct {
+type RemotesFileAPIRemotesFileFileCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemote *FileFileRemote
 }
 
-func (r RemotesFileApiRemotesFileFileCreateRequest) FileFileRemote(fileFileRemote FileFileRemote) RemotesFileApiRemotesFileFileCreateRequest {
+func (r RemotesFileAPIRemotesFileFileCreateRequest) FileFileRemote(fileFileRemote FileFileRemote) RemotesFileAPIRemotesFileFileCreateRequest {
 	r.fileFileRemote = &fileFileRemote
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileCreateRequest) Execute() (*FileFileRemoteResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileCreateRequest) Execute() (*FileFileRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileCreateExecute(r)
 }
 
@@ -165,10 +165,10 @@ Content.  The target url of a FileRemote must contain a file manifest, which con
 metadata for all files at the source.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesFileApiRemotesFileFileCreateRequest
+ @return RemotesFileAPIRemotesFileFileCreateRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileCreate(ctx context.Context) RemotesFileApiRemotesFileFileCreateRequest {
-	return RemotesFileApiRemotesFileFileCreateRequest{
+func (a *RemotesFileAPIService) RemotesFileFileCreate(ctx context.Context) RemotesFileAPIRemotesFileFileCreateRequest {
+	return RemotesFileAPIRemotesFileFileCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -176,7 +176,7 @@ func (a *RemotesFileApiService) RemotesFileFileCreate(ctx context.Context) Remot
 
 // Execute executes the request
 //  @return FileFileRemoteResponse
-func (a *RemotesFileApiService) RemotesFileFileCreateExecute(r RemotesFileApiRemotesFileFileCreateRequest) (*FileFileRemoteResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileCreateExecute(r RemotesFileAPIRemotesFileFileCreateRequest) (*FileFileRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *RemotesFileApiService) RemotesFileFileCreateExecute(r RemotesFileApiRem
 		localVarReturnValue  *FileFileRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -253,13 +253,13 @@ func (a *RemotesFileApiService) RemotesFileFileCreateExecute(r RemotesFileApiRem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileDeleteRequest struct {
+type RemotesFileAPIRemotesFileFileDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 }
 
-func (r RemotesFileApiRemotesFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileDeleteExecute(r)
 }
 
@@ -270,10 +270,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFileDeleteRequest
+ @return RemotesFileAPIRemotesFileFileDeleteRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileDelete(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFileDeleteRequest {
-	return RemotesFileApiRemotesFileFileDeleteRequest{
+func (a *RemotesFileAPIService) RemotesFileFileDelete(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFileDeleteRequest {
+	return RemotesFileAPIRemotesFileFileDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -282,7 +282,7 @@ func (a *RemotesFileApiService) RemotesFileFileDelete(ctx context.Context, fileF
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesFileApiService) RemotesFileFileDeleteExecute(r RemotesFileApiRemotesFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileDeleteExecute(r RemotesFileAPIRemotesFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *RemotesFileApiService) RemotesFileFileDeleteExecute(r RemotesFileApiRem
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -357,9 +357,9 @@ func (a *RemotesFileApiService) RemotesFileFileDeleteExecute(r RemotesFileApiRem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileListRequest struct {
+type RemotesFileAPIRemotesFileFileListRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -382,120 +382,120 @@ type RemotesFileApiRemotesFileFileListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesFileApiRemotesFileFileListRequest) Limit(limit int32) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) Limit(limit int32) RemotesFileAPIRemotesFileFileListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesFileApiRemotesFileFileListRequest) Name(name string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) Name(name string) RemotesFileAPIRemotesFileFileListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesFileApiRemotesFileFileListRequest) NameContains(nameContains string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) NameContains(nameContains string) RemotesFileAPIRemotesFileFileListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesFileApiRemotesFileFileListRequest) NameIcontains(nameIcontains string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) NameIcontains(nameIcontains string) RemotesFileAPIRemotesFileFileListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesFileApiRemotesFileFileListRequest) NameIn(nameIn []string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) NameIn(nameIn []string) RemotesFileAPIRemotesFileFileListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesFileApiRemotesFileFileListRequest) NameStartswith(nameStartswith string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) NameStartswith(nameStartswith string) RemotesFileAPIRemotesFileFileListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesFileApiRemotesFileFileListRequest) Offset(offset int32) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) Offset(offset int32) RemotesFileAPIRemotesFileFileListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesFileApiRemotesFileFileListRequest) Ordering(ordering []string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) Ordering(ordering []string) RemotesFileAPIRemotesFileFileListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesFileApiRemotesFileFileListRequest) PulpHrefIn(pulpHrefIn []string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpHrefIn(pulpHrefIn []string) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesFileApiRemotesFileFileListRequest) PulpIdIn(pulpIdIn []string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpIdIn(pulpIdIn []string) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesFileApiRemotesFileFileListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesFileApiRemotesFileFileListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesFileApiRemotesFileFileListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesFileApiRemotesFileFileListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesFileApiRemotesFileFileListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesFileApiRemotesFileFileListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesFileApiRemotesFileFileListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesFileAPIRemotesFileFileListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesFileApiRemotesFileFileListRequest) Fields(fields []string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) Fields(fields []string) RemotesFileAPIRemotesFileFileListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesFileApiRemotesFileFileListRequest) ExcludeFields(excludeFields []string) RemotesFileApiRemotesFileFileListRequest {
+func (r RemotesFileAPIRemotesFileFileListRequest) ExcludeFields(excludeFields []string) RemotesFileAPIRemotesFileFileListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileListRequest) Execute() (*PaginatedfileFileRemoteResponseList, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileListRequest) Execute() (*PaginatedfileFileRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesFileFileListExecute(r)
 }
 
@@ -508,10 +508,10 @@ Content.  The target url of a FileRemote must contain a file manifest, which con
 metadata for all files at the source.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesFileApiRemotesFileFileListRequest
+ @return RemotesFileAPIRemotesFileFileListRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileList(ctx context.Context) RemotesFileApiRemotesFileFileListRequest {
-	return RemotesFileApiRemotesFileFileListRequest{
+func (a *RemotesFileAPIService) RemotesFileFileList(ctx context.Context) RemotesFileAPIRemotesFileFileListRequest {
+	return RemotesFileAPIRemotesFileFileListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -519,7 +519,7 @@ func (a *RemotesFileApiService) RemotesFileFileList(ctx context.Context) Remotes
 
 // Execute executes the request
 //  @return PaginatedfileFileRemoteResponseList
-func (a *RemotesFileApiService) RemotesFileFileListExecute(r RemotesFileApiRemotesFileFileListRequest) (*PaginatedfileFileRemoteResponseList, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileListExecute(r RemotesFileAPIRemotesFileFileListRequest) (*PaginatedfileFileRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -527,7 +527,7 @@ func (a *RemotesFileApiService) RemotesFileFileListExecute(r RemotesFileApiRemot
 		localVarReturnValue  *PaginatedfileFileRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -664,27 +664,27 @@ func (a *RemotesFileApiService) RemotesFileFileListExecute(r RemotesFileApiRemot
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileListRolesRequest struct {
+type RemotesFileAPIRemotesFileFileListRolesRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesFileApiRemotesFileFileListRolesRequest) Fields(fields []string) RemotesFileApiRemotesFileFileListRolesRequest {
+func (r RemotesFileAPIRemotesFileFileListRolesRequest) Fields(fields []string) RemotesFileAPIRemotesFileFileListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesFileApiRemotesFileFileListRolesRequest) ExcludeFields(excludeFields []string) RemotesFileApiRemotesFileFileListRolesRequest {
+func (r RemotesFileAPIRemotesFileFileListRolesRequest) ExcludeFields(excludeFields []string) RemotesFileAPIRemotesFileFileListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileListRolesExecute(r)
 }
 
@@ -695,10 +695,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFileListRolesRequest
+ @return RemotesFileAPIRemotesFileFileListRolesRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileListRoles(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFileListRolesRequest {
-	return RemotesFileApiRemotesFileFileListRolesRequest{
+func (a *RemotesFileAPIService) RemotesFileFileListRoles(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFileListRolesRequest {
+	return RemotesFileAPIRemotesFileFileListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -707,7 +707,7 @@ func (a *RemotesFileApiService) RemotesFileFileListRoles(ctx context.Context, fi
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RemotesFileApiService) RemotesFileFileListRolesExecute(r RemotesFileApiRemotesFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileListRolesExecute(r RemotesFileAPIRemotesFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -715,7 +715,7 @@ func (a *RemotesFileApiService) RemotesFileFileListRolesExecute(r RemotesFileApi
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -804,27 +804,27 @@ func (a *RemotesFileApiService) RemotesFileFileListRolesExecute(r RemotesFileApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileMyPermissionsRequest struct {
+type RemotesFileAPIRemotesFileFileMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesFileApiRemotesFileFileMyPermissionsRequest) Fields(fields []string) RemotesFileApiRemotesFileFileMyPermissionsRequest {
+func (r RemotesFileAPIRemotesFileFileMyPermissionsRequest) Fields(fields []string) RemotesFileAPIRemotesFileFileMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesFileApiRemotesFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesFileApiRemotesFileFileMyPermissionsRequest {
+func (r RemotesFileAPIRemotesFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesFileAPIRemotesFileFileMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileMyPermissionsExecute(r)
 }
 
@@ -835,10 +835,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFileMyPermissionsRequest
+ @return RemotesFileAPIRemotesFileFileMyPermissionsRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileMyPermissions(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFileMyPermissionsRequest {
-	return RemotesFileApiRemotesFileFileMyPermissionsRequest{
+func (a *RemotesFileAPIService) RemotesFileFileMyPermissions(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFileMyPermissionsRequest {
+	return RemotesFileAPIRemotesFileFileMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -847,7 +847,7 @@ func (a *RemotesFileApiService) RemotesFileFileMyPermissions(ctx context.Context
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RemotesFileApiService) RemotesFileFileMyPermissionsExecute(r RemotesFileApiRemotesFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileMyPermissionsExecute(r RemotesFileAPIRemotesFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -855,7 +855,7 @@ func (a *RemotesFileApiService) RemotesFileFileMyPermissionsExecute(r RemotesFil
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -944,19 +944,19 @@ func (a *RemotesFileApiService) RemotesFileFileMyPermissionsExecute(r RemotesFil
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFilePartialUpdateRequest struct {
+type RemotesFileAPIRemotesFileFilePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 	patchedfileFileRemote *PatchedfileFileRemote
 }
 
-func (r RemotesFileApiRemotesFileFilePartialUpdateRequest) PatchedfileFileRemote(patchedfileFileRemote PatchedfileFileRemote) RemotesFileApiRemotesFileFilePartialUpdateRequest {
+func (r RemotesFileAPIRemotesFileFilePartialUpdateRequest) PatchedfileFileRemote(patchedfileFileRemote PatchedfileFileRemote) RemotesFileAPIRemotesFileFilePartialUpdateRequest {
 	r.patchedfileFileRemote = &patchedfileFileRemote
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFilePartialUpdateExecute(r)
 }
 
@@ -967,10 +967,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFilePartialUpdateRequest
+ @return RemotesFileAPIRemotesFileFilePartialUpdateRequest
 */
-func (a *RemotesFileApiService) RemotesFileFilePartialUpdate(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFilePartialUpdateRequest {
-	return RemotesFileApiRemotesFileFilePartialUpdateRequest{
+func (a *RemotesFileAPIService) RemotesFileFilePartialUpdate(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFilePartialUpdateRequest {
+	return RemotesFileAPIRemotesFileFilePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -979,7 +979,7 @@ func (a *RemotesFileApiService) RemotesFileFilePartialUpdate(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesFileApiService) RemotesFileFilePartialUpdateExecute(r RemotesFileApiRemotesFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFilePartialUpdateExecute(r RemotesFileAPIRemotesFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -987,7 +987,7 @@ func (a *RemotesFileApiService) RemotesFileFilePartialUpdateExecute(r RemotesFil
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFilePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFilePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1059,27 +1059,27 @@ func (a *RemotesFileApiService) RemotesFileFilePartialUpdateExecute(r RemotesFil
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileReadRequest struct {
+type RemotesFileAPIRemotesFileFileReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesFileApiRemotesFileFileReadRequest) Fields(fields []string) RemotesFileApiRemotesFileFileReadRequest {
+func (r RemotesFileAPIRemotesFileFileReadRequest) Fields(fields []string) RemotesFileAPIRemotesFileFileReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesFileApiRemotesFileFileReadRequest) ExcludeFields(excludeFields []string) RemotesFileApiRemotesFileFileReadRequest {
+func (r RemotesFileAPIRemotesFileFileReadRequest) ExcludeFields(excludeFields []string) RemotesFileAPIRemotesFileFileReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileReadRequest) Execute() (*FileFileRemoteResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileReadRequest) Execute() (*FileFileRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileReadExecute(r)
 }
 
@@ -1093,10 +1093,10 @@ metadata for all files at the source.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFileReadRequest
+ @return RemotesFileAPIRemotesFileFileReadRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileRead(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFileReadRequest {
-	return RemotesFileApiRemotesFileFileReadRequest{
+func (a *RemotesFileAPIService) RemotesFileFileRead(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFileReadRequest {
+	return RemotesFileAPIRemotesFileFileReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -1105,7 +1105,7 @@ func (a *RemotesFileApiService) RemotesFileFileRead(ctx context.Context, fileFil
 
 // Execute executes the request
 //  @return FileFileRemoteResponse
-func (a *RemotesFileApiService) RemotesFileFileReadExecute(r RemotesFileApiRemotesFileFileReadRequest) (*FileFileRemoteResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileReadExecute(r RemotesFileAPIRemotesFileFileReadRequest) (*FileFileRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1113,7 +1113,7 @@ func (a *RemotesFileApiService) RemotesFileFileReadExecute(r RemotesFileApiRemot
 		localVarReturnValue  *FileFileRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1202,19 +1202,19 @@ func (a *RemotesFileApiService) RemotesFileFileReadExecute(r RemotesFileApiRemot
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileRemoveRoleRequest struct {
+type RemotesFileAPIRemotesFileFileRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesFileApiRemotesFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesFileApiRemotesFileFileRemoveRoleRequest {
+func (r RemotesFileAPIRemotesFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesFileAPIRemotesFileFileRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileRemoveRoleExecute(r)
 }
 
@@ -1225,10 +1225,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFileRemoveRoleRequest
+ @return RemotesFileAPIRemotesFileFileRemoveRoleRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileRemoveRole(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFileRemoveRoleRequest {
-	return RemotesFileApiRemotesFileFileRemoveRoleRequest{
+func (a *RemotesFileAPIService) RemotesFileFileRemoveRole(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFileRemoveRoleRequest {
+	return RemotesFileAPIRemotesFileFileRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -1237,7 +1237,7 @@ func (a *RemotesFileApiService) RemotesFileFileRemoveRole(ctx context.Context, f
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesFileApiService) RemotesFileFileRemoveRoleExecute(r RemotesFileApiRemotesFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileRemoveRoleExecute(r RemotesFileAPIRemotesFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1245,7 +1245,7 @@ func (a *RemotesFileApiService) RemotesFileFileRemoveRoleExecute(r RemotesFileAp
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1317,19 +1317,19 @@ func (a *RemotesFileApiService) RemotesFileFileRemoveRoleExecute(r RemotesFileAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesFileApiRemotesFileFileUpdateRequest struct {
+type RemotesFileAPIRemotesFileFileUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesFileApiService
+	ApiService *RemotesFileAPIService
 	fileFileRemoteHref string
 	fileFileRemote *FileFileRemote
 }
 
-func (r RemotesFileApiRemotesFileFileUpdateRequest) FileFileRemote(fileFileRemote FileFileRemote) RemotesFileApiRemotesFileFileUpdateRequest {
+func (r RemotesFileAPIRemotesFileFileUpdateRequest) FileFileRemote(fileFileRemote FileFileRemote) RemotesFileAPIRemotesFileFileUpdateRequest {
 	r.fileFileRemote = &fileFileRemote
 	return r
 }
 
-func (r RemotesFileApiRemotesFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesFileAPIRemotesFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesFileFileUpdateExecute(r)
 }
 
@@ -1340,10 +1340,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRemoteHref
- @return RemotesFileApiRemotesFileFileUpdateRequest
+ @return RemotesFileAPIRemotesFileFileUpdateRequest
 */
-func (a *RemotesFileApiService) RemotesFileFileUpdate(ctx context.Context, fileFileRemoteHref string) RemotesFileApiRemotesFileFileUpdateRequest {
-	return RemotesFileApiRemotesFileFileUpdateRequest{
+func (a *RemotesFileAPIService) RemotesFileFileUpdate(ctx context.Context, fileFileRemoteHref string) RemotesFileAPIRemotesFileFileUpdateRequest {
+	return RemotesFileAPIRemotesFileFileUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRemoteHref: fileFileRemoteHref,
@@ -1352,7 +1352,7 @@ func (a *RemotesFileApiService) RemotesFileFileUpdate(ctx context.Context, fileF
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesFileApiService) RemotesFileFileUpdateExecute(r RemotesFileApiRemotesFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesFileAPIService) RemotesFileFileUpdateExecute(r RemotesFileAPIRemotesFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1360,7 +1360,7 @@ func (a *RemotesFileApiService) RemotesFileFileUpdateExecute(r RemotesFileApiRem
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileApiService.RemotesFileFileUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesFileAPIService.RemotesFileFileUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -13,16 +13,16 @@ info:
   x-logo:
     url: https://pulp.plan.io/attachments/download/517478/pulp_logo_word_rectangle.svg
   x-pulp-app-versions:
-    core: 3.24.1
-    ansible: 0.17.0
-    certguard: 1.6.4
-    container: 2.14.5
-    deb: 2.20.2
-    file: 1.14.2
-    maven: 0.5.0
-    ostree: 2.0.0
-    python: 3.9.0
-    rpm: 3.19.5
+    core: 3.26.1
+    ansible: 0.18.0
+    certguard: 1.6.5
+    container: 2.15.0
+    deb: 2.21.0
+    file: 1.14.3
+    maven: 0.6.0
+    ostree: 2.1.0
+    python: 3.10.0
+    rpm: 3.21.0
   x-pulp-domain-enabled: false
 servers:
 - url: http://localhost:8080/
@@ -5527,9 +5527,6 @@ paths:
         name: build_essential
         required: false
         schema:
-          enum:
-          - false
-          - true
           nullable: true
           type: boolean
         style: form
@@ -5551,9 +5548,6 @@ paths:
         name: essential
         required: false
         schema:
-          enum:
-          - false
-          - true
           nullable: true
           type: boolean
         style: form
@@ -5920,7 +5914,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Paginateddeb.BasePackageResponseList'
+                $ref: '#/components/schemas/Paginateddeb.InstallerPackageResponseList'
           description: ""
       security:
       - basicAuth: []
@@ -5936,10 +5930,10 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/deb.BasePackage'
+              $ref: '#/components/schemas/deb.InstallerPackage'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/deb.BasePackage'
+              $ref: '#/components/schemas/deb.InstallerPackage'
         required: true
       responses:
         "202":
@@ -5997,7 +5991,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/deb.BasePackageResponse'
+                $ref: '#/components/schemas/deb.InstallerPackageResponse'
           description: ""
       security:
       - basicAuth: []
@@ -6577,9 +6571,6 @@ paths:
         name: build_essential
         required: false
         schema:
-          enum:
-          - false
-          - true
           nullable: true
           type: boolean
         style: form
@@ -6601,9 +6592,6 @@ paths:
         name: essential
         required: false
         schema:
-          enum:
-          - false
-          - true
           nullable: true
           type: boolean
         style: form
@@ -6978,7 +6966,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Paginateddeb.BasePackageResponseList'
+                $ref: '#/components/schemas/Paginateddeb.PackageResponseList'
           description: ""
       security:
       - basicAuth: []
@@ -6994,10 +6982,10 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/deb.BasePackage'
+              $ref: '#/components/schemas/deb.Package'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/deb.BasePackage'
+              $ref: '#/components/schemas/deb.Package'
         required: true
       responses:
         "202":
@@ -7052,7 +7040,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/deb.BasePackageResponse'
+                $ref: '#/components/schemas/deb.PackageResponse'
           description: ""
       security:
       - basicAuth: []
@@ -7075,6 +7063,22 @@ paths:
         explode: true
         in: query
         name: architecture
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where codename matches value
+        explode: true
+        in: query
+        name: codename
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where distribution matches value
+        explode: true
+        in: query
+        name: distribution
         required: false
         schema:
           type: string
@@ -7112,6 +7116,12 @@ paths:
           * `-timestamp_of_interest` - Timestamp of interest (descending)
           * `architecture` - Architecture
           * `-architecture` - Architecture (descending)
+          * `distribution` - Distribution
+          * `-distribution` - Distribution (descending)
+          * `codename` - Codename
+          * `-codename` - Codename (descending)
+          * `suite` - Suite
+          * `-suite` - Suite (descending)
           * `pk` - Pk
           * `-pk` - Pk (descending)
         explode: false
@@ -7122,19 +7132,25 @@ paths:
           items:
             enum:
             - -architecture
+            - -codename
+            - -distribution
             - -pk
             - -pulp_created
             - -pulp_id
             - -pulp_last_updated
             - -pulp_type
+            - -suite
             - -timestamp_of_interest
             - -upstream_id
             - architecture
+            - codename
+            - distribution
             - pk
             - pulp_created
             - pulp_id
             - pulp_last_updated
             - pulp_type
+            - suite
             - timestamp_of_interest
             - upstream_id
             type: string
@@ -7161,15 +7177,6 @@ paths:
             type: string
           type: array
         style: form
-      - description: Filter results where release matches value
-        explode: true
-        in: query
-        name: release
-        required: false
-        schema:
-          format: uri
-          type: string
-        style: form
       - description: Repository Version referenced by HREF
         explode: true
         in: query
@@ -7190,6 +7197,14 @@ paths:
         explode: true
         in: query
         name: repository_version_removed
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where suite matches value
+        explode: true
+        in: query
+        name: suite
         required: false
         schema:
           type: string
@@ -7318,15 +7333,28 @@ paths:
         A ReleaseComponent represents a single APT repository component.
 
         Associated artifacts: None; contains only metadata.
-
-        Every ReleaseComponent is always associated with exactly one Release. This indicates that the
-        release/distribution in question contains this component.
       operationId: content_deb_release_components_list
       parameters:
+      - description: Filter results where codename matches value
+        explode: true
+        in: query
+        name: codename
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Filter results where component matches value
         explode: true
         in: query
         name: component
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where distribution matches value
+        explode: true
+        in: query
+        name: distribution
         required: false
         schema:
           type: string
@@ -7362,8 +7390,14 @@ paths:
           * `-upstream_id` - Upstream id (descending)
           * `timestamp_of_interest` - Timestamp of interest
           * `-timestamp_of_interest` - Timestamp of interest (descending)
+          * `distribution` - Distribution
+          * `-distribution` - Distribution (descending)
           * `component` - Component
           * `-component` - Component (descending)
+          * `codename` - Codename
+          * `-codename` - Codename (descending)
+          * `suite` - Suite
+          * `-suite` - Suite (descending)
           * `pk` - Pk
           * `-pk` - Pk (descending)
         explode: false
@@ -7373,20 +7407,26 @@ paths:
         schema:
           items:
             enum:
+            - -codename
             - -component
+            - -distribution
             - -pk
             - -pulp_created
             - -pulp_id
             - -pulp_last_updated
             - -pulp_type
+            - -suite
             - -timestamp_of_interest
             - -upstream_id
+            - codename
             - component
+            - distribution
             - pk
             - pulp_created
             - pulp_id
             - pulp_last_updated
             - pulp_type
+            - suite
             - timestamp_of_interest
             - upstream_id
             type: string
@@ -7413,15 +7453,6 @@ paths:
             type: string
           type: array
         style: form
-      - description: Filter results where release matches value
-        explode: true
-        in: query
-        name: release
-        required: false
-        schema:
-          format: uri
-          type: string
-        style: form
       - description: Repository Version referenced by HREF
         explode: true
         in: query
@@ -7442,6 +7473,14 @@ paths:
         explode: true
         in: query
         name: repository_version_removed
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where suite matches value
+        explode: true
+        in: query
+        name: suite
         required: false
         schema:
           type: string
@@ -7484,9 +7523,6 @@ paths:
         A ReleaseComponent represents a single APT repository component.
 
         Associated artifacts: None; contains only metadata.
-
-        Every ReleaseComponent is always associated with exactly one Release. This indicates that the
-        release/distribution in question contains this component.
       operationId: content_deb_release_components_create
       requestBody:
         content:
@@ -7519,9 +7555,6 @@ paths:
         A ReleaseComponent represents a single APT repository component.
 
         Associated artifacts: None; contains only metadata.
-
-        Every ReleaseComponent is always associated with exactly one Release. This indicates that the
-        release/distribution in question contains this component.
       operationId: content_deb_release_components_read
       parameters:
       - explode: false
@@ -7868,15 +7901,17 @@ paths:
   /pulp/api/v3/content/deb/releases/:
     get:
       description: |-
-        A Release represents a single APT release/distribution.
+        The Release contains release file fields, that are not relevant to the APT repo structure.
 
         Associated artifacts: None; contains only metadata.
 
-        Note that in the context of the "Release content", the terms "distribution" and "release"
-        are synonyms. An "APT repository release/distribution" is associated with a single 'Release'
-        file below the 'dists/' folder. The "distribution" refers to the path between 'dists/' and the
-        'Release' file. The "distribution" could be considered the name of the "release". It is often
-        (but not always) equal to the "codename" or "suite".
+        By non-structure relevant release file fields, we mean anything other than the Components and
+        Architectures fields. These are handled by their own models and are not part of this model.
+
+        Note that the distribution field is part of this model, but is not added to any published
+        release files. The "distribution" is defined as the path between 'dists/' and some 'Release'
+        file. As such, it encodes the path to the relevant release file within the APT repository.
+        It is often (but not always) equal to the "codename" or the "suite".
       operationId: content_deb_releases_list
       parameters:
       - description: Filter results where codename matches value
@@ -8052,15 +8087,17 @@ paths:
       - "Content: Releases"
     post:
       description: |-
-        A Release represents a single APT release/distribution.
+        The Release contains release file fields, that are not relevant to the APT repo structure.
 
         Associated artifacts: None; contains only metadata.
 
-        Note that in the context of the "Release content", the terms "distribution" and "release"
-        are synonyms. An "APT repository release/distribution" is associated with a single 'Release'
-        file below the 'dists/' folder. The "distribution" refers to the path between 'dists/' and the
-        'Release' file. The "distribution" could be considered the name of the "release". It is often
-        (but not always) equal to the "codename" or "suite".
+        By non-structure relevant release file fields, we mean anything other than the Components and
+        Architectures fields. These are handled by their own models and are not part of this model.
+
+        Note that the distribution field is part of this model, but is not added to any published
+        release files. The "distribution" is defined as the path between 'dists/' and some 'Release'
+        file. As such, it encodes the path to the relevant release file within the APT repository.
+        It is often (but not always) equal to the "codename" or the "suite".
       operationId: content_deb_releases_create
       requestBody:
         content:
@@ -8090,15 +8127,17 @@ paths:
   '{deb_release_href}':
     get:
       description: |-
-        A Release represents a single APT release/distribution.
+        The Release contains release file fields, that are not relevant to the APT repo structure.
 
         Associated artifacts: None; contains only metadata.
 
-        Note that in the context of the "Release content", the terms "distribution" and "release"
-        are synonyms. An "APT repository release/distribution" is associated with a single 'Release'
-        file below the 'dists/' folder. The "distribution" refers to the path between 'dists/' and the
-        'Release' file. The "distribution" could be considered the name of the "release". It is often
-        (but not always) equal to the "codename" or "suite".
+        By non-structure relevant release file fields, we mean anything other than the Components and
+        Architectures fields. These are handled by their own models and are not part of this model.
+
+        Note that the distribution field is part of this model, but is not added to any published
+        release files. The "distribution" is defined as the path between 'dists/' and some 'Release'
+        file. As such, it encodes the path to the relevant release file within the APT repository.
+        It is often (but not always) equal to the "codename" or the "suite".
       operationId: content_deb_releases_read
       parameters:
       - explode: false
@@ -12354,6 +12393,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter results where arch contains value
+        explode: true
+        in: query
+        name: arch__contains
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Filter results where arch is in a comma-separated list of values
         explode: false
         in: query
@@ -12368,6 +12415,14 @@ paths:
         explode: true
         in: query
         name: arch__ne
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where arch starts with value
+        explode: true
+        in: query
+        name: arch__startswith
         required: false
         schema:
           type: string
@@ -12460,6 +12515,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter results where name contains value
+        explode: true
+        in: query
+        name: name__contains
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Filter results where name is in a comma-separated list of values
         explode: false
         in: query
@@ -12474,6 +12537,14 @@ paths:
         explode: true
         in: query
         name: name__ne
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where name starts with value
+        explode: true
+        in: query
+        name: name__startswith
         required: false
         schema:
           type: string
@@ -12722,6 +12793,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter results where release contains value
+        explode: true
+        in: query
+        name: release__contains
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Filter results where release is in a comma-separated list of
           values
         explode: false
@@ -12737,6 +12816,14 @@ paths:
         explode: true
         in: query
         name: release__ne
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter results where release starts with value
+        explode: true
+        in: query
+        name: release__startswith
         required: false
         schema:
           type: string
@@ -19409,6 +19496,7 @@ paths:
           - br
           - bs
           - ca
+          - ckb
           - cs
           - cy
           - da
@@ -19461,6 +19549,7 @@ paths:
           - ml
           - mn
           - mr
+          - ms
           - my
           - nb
           - ne
@@ -19554,6 +19643,7 @@ paths:
           - br
           - bs
           - ca
+          - ckb
           - cs
           - cy
           - da
@@ -19606,6 +19696,7 @@ paths:
           - ml
           - mn
           - mr
+          - ms
           - my
           - nb
           - ne
@@ -31827,6 +31918,14 @@ paths:
       description: Endpoint to list all repositories.
       operationId: repositories_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -32080,6 +32179,14 @@ paths:
             type: integer
           type: array
         style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -32118,6 +32225,14 @@ paths:
       description: ViewSet for Ansible Repositories.
       operationId: repositories_ansible_ansible_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -32339,6 +32454,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -33373,6 +33496,14 @@ paths:
       description: ViewSet for container repo.
       operationId: repositories_container_container_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -33594,6 +33725,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -33666,6 +33805,14 @@ paths:
         Created - during push operation, removed - with ContainerDistribution removal.
       operationId: repositories_container_container_push_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -33887,6 +34034,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -35727,6 +35882,14 @@ paths:
         AptRepositoryVersion.
       operationId: repositories_deb_apt_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -35948,6 +36111,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -36590,6 +36761,14 @@ paths:
         or removed.
       operationId: repositories_file_file_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -36811,6 +36990,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -37604,6 +37791,14 @@ paths:
       description: A ViewSet for MavenRemote.
       operationId: repositories_maven_maven_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -37825,6 +38020,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -38411,6 +38614,14 @@ paths:
       description: A ViewSet class for OSTree repositories.
       operationId: repositories_ostree_ostree_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -38632,6 +38843,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -39332,6 +39551,14 @@ paths:
         synced, added, or removed.
       operationId: repositories_python_python_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -39553,6 +39780,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -40212,6 +40447,14 @@ paths:
       description: A ViewSet for RpmRepository.
       operationId: repositories_rpm_rpm_list
       parameters:
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: latest_with_content
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -40433,6 +40676,14 @@ paths:
           items:
             type: integer
           type: array
+        style: form
+      - description: Content Unit referenced by HREF
+        explode: true
+        in: query
+        name: with_content
+        required: false
+        schema:
+          type: string
         style: form
       - description: A list of fields to include in the response.
         explode: true
@@ -52438,20 +52689,26 @@ components:
         pulp_labels:
           key: pulp_labels
         pulp_href: https://openapi-generator.tech
-        name: name
         base_url: base_url
-        base_path: base_path
+        name: name
         pulp_created: 2000-01-23T04:56:07.000+00:00
+        base_path: base_path
         content_guard: https://openapi-generator.tech
       properties:
-        name:
-          description: "A unique name. Ex, `rawhide` and `stable`."
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
+        base_url:
+          description: The URL for accessing the publication as defined by this distribution.
+          readOnly: true
+          type: string
         base_path:
           description: The base (relative) path component of the published url. Avoid
             paths that                     overlap with other distribution base paths
@@ -52461,19 +52718,13 @@ components:
           format: uri
           readOnly: true
           type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
         content_guard:
           description: An optional content-guard.
           format: uri
           nullable: true
           type: string
-        base_url:
-          description: The URL for accessing the publication as defined by this distribution.
-          readOnly: true
+        name:
+          description: "A unique name. Ex, `rawhide` and `stable`."
           type: string
       required:
       - base_path
@@ -54651,18 +54902,18 @@ components:
         - pulp_labels:
             key: pulp_labels
           pulp_href: https://openapi-generator.tech
-          name: name
           base_url: base_url
-          base_path: base_path
+          name: name
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           content_guard: https://openapi-generator.tech
         - pulp_labels:
             key: pulp_labels
           pulp_href: https://openapi-generator.tech
-          name: name
           base_url: base_url
-          base_path: base_path
+          name: name
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           content_guard: https://openapi-generator.tech
       properties:
         count:
@@ -56811,14 +57062,14 @@ components:
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 7
-          connect_timeout: 0.14658129805029452
+          rate_limit: 2
+          max_retries: 0
           pulp_href: https://openapi-generator.tech
-          max_retries: 2
           tls_validation: true
+          connect_timeout: 0.5637376656633328
           client_cert: client_cert
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-          sock_read_timeout: 0.5637376656633328
+          sock_read_timeout: 0.7061401241503109
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -56826,7 +57077,7 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.5962133916683182
+          sock_connect_timeout: 0.14658129805029452
           pulp_created: 2000-01-23T04:56:07.000+00:00
           hidden_fields:
           - is_set: true
@@ -56835,18 +57086,18 @@ components:
             name: name
           proxy_url: proxy_url
           ca_cert: ca_cert
-          total_timeout: 0.08008281904610115
+          total_timeout: 0.6027456183070403
         - headers:
           - "{}"
           - "{}"
-          rate_limit: 7
-          connect_timeout: 0.14658129805029452
+          rate_limit: 2
+          max_retries: 0
           pulp_href: https://openapi-generator.tech
-          max_retries: 2
           tls_validation: true
+          connect_timeout: 0.5637376656633328
           client_cert: client_cert
           pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-          sock_read_timeout: 0.5637376656633328
+          sock_read_timeout: 0.7061401241503109
           url: url
           download_concurrency: 1
           pulp_labels:
@@ -56854,7 +57105,7 @@ components:
           metadata_only: true
           name: name
           git_ref: git_ref
-          sock_connect_timeout: 0.5962133916683182
+          sock_connect_timeout: 0.14658129805029452
           pulp_created: 2000-01-23T04:56:07.000+00:00
           hidden_fields:
           - is_set: true
@@ -56863,7 +57114,7 @@ components:
             name: name
           proxy_url: proxy_url
           ca_cert: ca_cert
-          total_timeout: 0.08008281904610115
+          total_timeout: 0.6027456183070403
       properties:
         count:
           example: 123
@@ -57115,8 +57366,8 @@ components:
           name: name
           namespace: https://openapi-generator.tech
           description: description
-          base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           repository_version: https://openapi-generator.tech
           repository: https://openapi-generator.tech
           content_guard: https://openapi-generator.tech
@@ -57128,8 +57379,8 @@ components:
           name: name
           namespace: https://openapi-generator.tech
           description: description
-          base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          base_path: base_path
           repository_version: https://openapi-generator.tech
           repository: https://openapi-generator.tech
           content_guard: https://openapi-generator.tech
@@ -57722,109 +57973,6 @@ components:
             $ref: '#/components/schemas/deb.AptRepositoryResponse'
           type: array
       type: object
-    Paginateddeb.BasePackageResponseList:
-      example:
-        next: http://api.example.org/accounts/?offset=400&limit=100
-        previous: http://api.example.org/accounts/?offset=200&limit=100
-        count: 123
-        results:
-        - built_using: built_using
-          enhances: enhances
-          sha256: sha256
-          origin: origin
-          sha512: sha512
-          description: description
-          section: section
-          source: source
-          original_maintainer: original_maintainer
-          maintainer: maintainer
-          artifact: https://openapi-generator.tech
-          bugs: bugs
-          suggests: suggests
-          provides: provides
-          conflicts: conflicts
-          tag: tag
-          architecture: architecture
-          pre_depends: pre_depends
-          sha384: sha384
-          package: package
-          pulp_href: https://openapi-generator.tech
-          breaks: breaks
-          depends: depends
-          replaces: replaces
-          installed_size: installed_size
-          sha224: sha224
-          priority: priority
-          version: version
-          build_essential: build_essential
-          multi_arch: multi_arch
-          sha1: sha1
-          pulp_created: 2000-01-23T04:56:07.000+00:00
-          recommends: recommends
-          relative_path: relative_path
-          description_md5: description_md5
-          auto_built_package: auto_built_package
-          md5: md5
-          essential: essential
-          homepage: homepage
-        - built_using: built_using
-          enhances: enhances
-          sha256: sha256
-          origin: origin
-          sha512: sha512
-          description: description
-          section: section
-          source: source
-          original_maintainer: original_maintainer
-          maintainer: maintainer
-          artifact: https://openapi-generator.tech
-          bugs: bugs
-          suggests: suggests
-          provides: provides
-          conflicts: conflicts
-          tag: tag
-          architecture: architecture
-          pre_depends: pre_depends
-          sha384: sha384
-          package: package
-          pulp_href: https://openapi-generator.tech
-          breaks: breaks
-          depends: depends
-          replaces: replaces
-          installed_size: installed_size
-          sha224: sha224
-          priority: priority
-          version: version
-          build_essential: build_essential
-          multi_arch: multi_arch
-          sha1: sha1
-          pulp_created: 2000-01-23T04:56:07.000+00:00
-          recommends: recommends
-          relative_path: relative_path
-          description_md5: description_md5
-          auto_built_package: auto_built_package
-          md5: md5
-          essential: essential
-          homepage: homepage
-      properties:
-        count:
-          example: 123
-          type: integer
-        next:
-          example: http://api.example.org/accounts/?offset=400&limit=100
-          format: uri
-          nullable: true
-          type: string
-        previous:
-          example: http://api.example.org/accounts/?offset=200&limit=100
-          format: uri
-          nullable: true
-          type: string
-        results:
-          items:
-            $ref: '#/components/schemas/deb.BasePackageResponse'
-          type: array
-      type: object
     Paginateddeb.GenericContentResponseList:
       example:
         next: http://api.example.org/accounts/?offset=400&limit=100
@@ -57907,6 +58055,109 @@ components:
             $ref: '#/components/schemas/deb.InstallerFileIndexResponse'
           type: array
       type: object
+    Paginateddeb.InstallerPackageResponseList:
+      example:
+        next: http://api.example.org/accounts/?offset=400&limit=100
+        previous: http://api.example.org/accounts/?offset=200&limit=100
+        count: 123
+        results:
+        - built_using: built_using
+          enhances: enhances
+          sha256: sha256
+          origin: origin
+          sha512: sha512
+          description: description
+          section: section
+          source: source
+          original_maintainer: original_maintainer
+          maintainer: maintainer
+          artifact: https://openapi-generator.tech
+          bugs: bugs
+          suggests: suggests
+          provides: provides
+          conflicts: conflicts
+          tag: tag
+          architecture: architecture
+          pre_depends: pre_depends
+          sha384: sha384
+          package: package
+          pulp_href: https://openapi-generator.tech
+          breaks: breaks
+          depends: depends
+          replaces: replaces
+          installed_size: installed_size
+          sha224: sha224
+          priority: priority
+          version: version
+          build_essential: build_essential
+          multi_arch: multi_arch
+          sha1: sha1
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          recommends: recommends
+          relative_path: relative_path
+          description_md5: description_md5
+          auto_built_package: auto_built_package
+          md5: md5
+          essential: essential
+          homepage: homepage
+        - built_using: built_using
+          enhances: enhances
+          sha256: sha256
+          origin: origin
+          sha512: sha512
+          description: description
+          section: section
+          source: source
+          original_maintainer: original_maintainer
+          maintainer: maintainer
+          artifact: https://openapi-generator.tech
+          bugs: bugs
+          suggests: suggests
+          provides: provides
+          conflicts: conflicts
+          tag: tag
+          architecture: architecture
+          pre_depends: pre_depends
+          sha384: sha384
+          package: package
+          pulp_href: https://openapi-generator.tech
+          breaks: breaks
+          depends: depends
+          replaces: replaces
+          installed_size: installed_size
+          sha224: sha224
+          priority: priority
+          version: version
+          build_essential: build_essential
+          multi_arch: multi_arch
+          sha1: sha1
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          recommends: recommends
+          relative_path: relative_path
+          description_md5: description_md5
+          auto_built_package: auto_built_package
+          md5: md5
+          essential: essential
+          homepage: homepage
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?offset=400&limit=100
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?offset=200&limit=100
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/deb.InstallerPackageResponse'
+          type: array
+      type: object
     Paginateddeb.PackageIndexResponseList:
       example:
         next: http://api.example.org/accounts/?offset=400&limit=100
@@ -57977,19 +58228,130 @@ components:
             $ref: '#/components/schemas/deb.PackageReleaseComponentResponse'
           type: array
       type: object
+    Paginateddeb.PackageResponseList:
+      example:
+        next: http://api.example.org/accounts/?offset=400&limit=100
+        previous: http://api.example.org/accounts/?offset=200&limit=100
+        count: 123
+        results:
+        - built_using: built_using
+          enhances: enhances
+          sha256: sha256
+          origin: origin
+          sha512: sha512
+          description: description
+          section: section
+          source: source
+          distribution: distribution
+          original_maintainer: original_maintainer
+          maintainer: maintainer
+          artifact: https://openapi-generator.tech
+          bugs: bugs
+          suggests: suggests
+          provides: provides
+          conflicts: conflicts
+          tag: tag
+          architecture: architecture
+          pre_depends: pre_depends
+          sha384: sha384
+          package: package
+          pulp_href: https://openapi-generator.tech
+          breaks: breaks
+          depends: depends
+          replaces: replaces
+          installed_size: installed_size
+          sha224: sha224
+          priority: priority
+          version: version
+          build_essential: build_essential
+          multi_arch: multi_arch
+          sha1: sha1
+          component: component
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          recommends: recommends
+          relative_path: relative_path
+          description_md5: description_md5
+          auto_built_package: auto_built_package
+          md5: md5
+          essential: essential
+          homepage: homepage
+        - built_using: built_using
+          enhances: enhances
+          sha256: sha256
+          origin: origin
+          sha512: sha512
+          description: description
+          section: section
+          source: source
+          distribution: distribution
+          original_maintainer: original_maintainer
+          maintainer: maintainer
+          artifact: https://openapi-generator.tech
+          bugs: bugs
+          suggests: suggests
+          provides: provides
+          conflicts: conflicts
+          tag: tag
+          architecture: architecture
+          pre_depends: pre_depends
+          sha384: sha384
+          package: package
+          pulp_href: https://openapi-generator.tech
+          breaks: breaks
+          depends: depends
+          replaces: replaces
+          installed_size: installed_size
+          sha224: sha224
+          priority: priority
+          version: version
+          build_essential: build_essential
+          multi_arch: multi_arch
+          sha1: sha1
+          component: component
+          pulp_created: 2000-01-23T04:56:07.000+00:00
+          recommends: recommends
+          relative_path: relative_path
+          description_md5: description_md5
+          auto_built_package: auto_built_package
+          md5: md5
+          essential: essential
+          homepage: homepage
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?offset=400&limit=100
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?offset=200&limit=100
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/deb.PackageResponse'
+          type: array
+      type: object
     Paginateddeb.ReleaseArchitectureResponseList:
       example:
         next: http://api.example.org/accounts/?offset=400&limit=100
         previous: http://api.example.org/accounts/?offset=200&limit=100
         count: 123
         results:
-        - pulp_href: https://openapi-generator.tech
-          release: https://openapi-generator.tech
+        - suite: suite
+          pulp_href: https://openapi-generator.tech
+          codename: codename
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          distribution: distribution
           architecture: architecture
-        - pulp_href: https://openapi-generator.tech
-          release: https://openapi-generator.tech
+        - suite: suite
+          pulp_href: https://openapi-generator.tech
+          codename: codename
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          distribution: distribution
           architecture: architecture
       properties:
         count:
@@ -58017,13 +58379,17 @@ components:
         count: 123
         results:
         - component: component
+          suite: suite
           pulp_href: https://openapi-generator.tech
-          release: https://openapi-generator.tech
+          codename: codename
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          distribution: distribution
         - component: component
+          suite: suite
           pulp_href: https://openapi-generator.tech
-          release: https://openapi-generator.tech
+          codename: codename
           pulp_created: 2000-01-23T04:56:07.000+00:00
+          distribution: distribution
       properties:
         count:
           example: 123
@@ -61100,6 +61466,29 @@ components:
     Patchedansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        proxy_password:
+          description: The password to authenticate to the proxy. Extra leading and
+            trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
         total_timeout:
           description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -61108,11 +61497,13 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
+        url:
+          description: The URL of an external content source.
+          minLength: 1
+          type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
         password:
           description: The password to be used for authentication when syncing. Extra
             leading and trailing whitespace characters are not trimmed.
@@ -61120,6 +61511,14 @@ components:
           nullable: true
           type: string
           writeOnly: true
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
@@ -61127,16 +61526,12 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        name:
+          description: A unique name for this remote.
+          minLength: 1
+          type: string
         connect_timeout:
           description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
             \ to be used."
           format: double
@@ -61148,37 +61543,19 @@ components:
           items:
             type: object
           type: array
-        client_key:
-          description: A PEM encoded private key used for authentication.
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
           minLength: 1
           nullable: true
           type: string
-          writeOnly: true
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
-          minLength: 1
-          nullable: true
-          type: string
-        proxy_password:
-          description: The password to authenticate to the proxy. Extra leading and
-            trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        username:
-          description: The username to be used for authentication when syncing.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        name:
-          description: A unique name for this remote.
-          minLength: 1
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
           minLength: 1
           nullable: true
           type: string
@@ -61190,35 +61567,24 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
-          format: int64
-          nullable: true
-          type: integer
-        url:
-          description: The URL of an external content source.
-          minLength: 1
-          type: string
         proxy_username:
           description: The username to authenticte to the proxy.
           minLength: 1
           nullable: true
           type: string
           writeOnly: true
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          format: int64
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
           nullable: true
-          type: integer
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
+          type: string
+          writeOnly: true
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -61399,10 +61765,6 @@ components:
     Patchedcontainer.ContainerDistribution:
       description: A serializer for ContainerDistribution.
       properties:
-        name:
-          description: "A unique name. Ex, `rawhide` and `stable`."
-          minLength: 1
-          type: string
         pulp_labels:
           additionalProperties:
             nullable: true
@@ -61414,15 +61776,19 @@ components:
             (e.g. "foo" and "foo/bar")
           minLength: 1
           type: string
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
         content_guard:
           description: "An optional content-guard. If none is specified, a default\
             \ one will be used."
           format: uri
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
+        name:
+          description: "A unique name. Ex, `rawhide` and `stable`."
+          minLength: 1
           type: string
         repository_version:
           description: RepositoryVersion to be served
@@ -61442,9 +61808,10 @@ components:
     Patchedcontainer.ContainerPushRepository:
       description: Serializer for Container Push Repositories.
       properties:
-        name:
-          description: A unique name for this repository.
-          minLength: 1
+        manifest_signing_service:
+          description: A reference to an associated signing service.
+          format: uri
+          nullable: true
           type: string
         pulp_labels:
           additionalProperties:
@@ -61456,11 +61823,6 @@ components:
           minLength: 1
           nullable: true
           type: string
-        manifest_signing_service:
-          description: A reference to an associated signing service.
-          format: uri
-          nullable: true
-          type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
             retains all versions.
@@ -61468,6 +61830,10 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        name:
+          description: A unique name for this repository.
+          minLength: 1
+          type: string
       type: object
     Patchedcontainer.ContainerRemote:
       description: A Serializer for ContainerRemote.
@@ -66379,12 +66745,10 @@ components:
     ansible.CollectionVersion:
       description: A serializer for CollectionVersion Content.
       properties:
-        upload:
-          description: An uncommitted upload that may be turned into the artifact
-            of the content unit.
+        artifact:
+          description: Artifact file representing the physical content
           format: uri
           type: string
-          writeOnly: true
         file:
           description: An uploaded file that may be turned into the artifact of the
             content unit.
@@ -66397,10 +66761,12 @@ components:
           format: uri
           type: string
           writeOnly: true
-        artifact:
-          description: Artifact file representing the physical content
+        upload:
+          description: An uncommitted upload that may be turned into the artifact
+            of the content unit.
           format: uri
           type: string
+          writeOnly: true
         expected_name:
           description: The name of the collection.
           maxLength: 64
@@ -66502,10 +66868,6 @@ components:
         - authors
         homepage: homepage
       properties:
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
@@ -66514,6 +66876,10 @@ components:
         artifact:
           description: Artifact file representing the physical content
           format: uri
+          type: string
+        pulp_href:
+          format: uri
+          readOnly: true
           type: string
         sha256:
           description: The SHA-256 checksum if available.
@@ -66693,6 +67059,29 @@ components:
     ansible.GitRemote:
       description: A serializer for Git Collection Remotes.
       properties:
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        proxy_password:
+          description: The password to authenticate to the proxy. Extra leading and
+            trailing whitespace characters are not trimmed.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
         total_timeout:
           description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -66701,11 +67090,13 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
+        url:
+          description: The URL of an external content source.
+          minLength: 1
+          type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
         password:
           description: The password to be used for authentication when syncing. Extra
             leading and trailing whitespace characters are not trimmed.
@@ -66713,6 +67104,14 @@ components:
           nullable: true
           type: string
           writeOnly: true
+        sock_connect_timeout:
+          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         download_concurrency:
           description: Total number of simultaneous connections. If not set then the
             default value will be used.
@@ -66720,16 +67119,12 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        name:
+          description: A unique name for this remote.
+          minLength: 1
+          type: string
         connect_timeout:
           description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
-        sock_connect_timeout:
-          description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
             \ to be used."
           format: double
@@ -66741,37 +67136,19 @@ components:
           items:
             type: object
           type: array
-        client_key:
-          description: A PEM encoded private key used for authentication.
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
           minLength: 1
           nullable: true
           type: string
-          writeOnly: true
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
-          minLength: 1
-          nullable: true
-          type: string
-        proxy_password:
-          description: The password to authenticate to the proxy. Extra leading and
-            trailing whitespace characters are not trimmed.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        username:
-          description: The username to be used for authentication when syncing.
-          minLength: 1
-          nullable: true
-          type: string
-          writeOnly: true
-        name:
-          description: A unique name for this remote.
-          minLength: 1
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
           minLength: 1
           nullable: true
           type: string
@@ -66783,35 +67160,24 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          minLength: 1
-          nullable: true
-          type: string
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
-          format: int64
-          nullable: true
-          type: integer
-        url:
-          description: The URL of an external content source.
-          minLength: 1
-          type: string
         proxy_username:
           description: The username to authenticte to the proxy.
           minLength: 1
           nullable: true
           type: string
           writeOnly: true
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          format: int64
+        username:
+          description: The username to be used for authentication when syncing.
+          minLength: 1
           nullable: true
-          type: integer
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
+          type: string
+          writeOnly: true
+        client_key:
+          description: A PEM encoded private key used for authentication.
+          minLength: 1
+          nullable: true
+          type: string
+          writeOnly: true
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -66830,14 +67196,14 @@ components:
         headers:
         - "{}"
         - "{}"
-        rate_limit: 7
-        connect_timeout: 0.14658129805029452
+        rate_limit: 2
+        max_retries: 0
         pulp_href: https://openapi-generator.tech
-        max_retries: 2
         tls_validation: true
+        connect_timeout: 0.5637376656633328
         client_cert: client_cert
         pulp_last_updated: 2000-01-23T04:56:07.000+00:00
-        sock_read_timeout: 0.5637376656633328
+        sock_read_timeout: 0.7061401241503109
         url: url
         download_concurrency: 1
         pulp_labels:
@@ -66845,7 +67211,7 @@ components:
         metadata_only: true
         name: name
         git_ref: git_ref
-        sock_connect_timeout: 0.5962133916683182
+        sock_connect_timeout: 0.14658129805029452
         pulp_created: 2000-01-23T04:56:07.000+00:00
         hidden_fields:
         - is_set: true
@@ -66854,8 +67220,28 @@ components:
           name: name
         proxy_url: proxy_url
         ca_cert: ca_cert
-        total_timeout: 0.08008281904610115
+        total_timeout: 0.6027456183070403
       properties:
+        max_retries:
+          description: Maximum number of retry attempts after a download failure.
+            If not set then the default value (3) will be used.
+          format: int64
+          nullable: true
+          type: integer
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        client_cert:
+          description: A PEM encoded client certificate used for authentication.
+          nullable: true
+          type: string
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
         total_timeout:
           description: "aiohttp.ClientTimeout.total (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -66864,26 +67250,22 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
-        download_concurrency:
-          description: Total number of simultaneous connections. If not set then the
-            default value will be used.
-          format: int64
-          minimum: 1
-          nullable: true
-          type: integer
-        connect_timeout:
-          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
-            \ The default is null, which will cause the default from the aiohttp library\
-            \ to be used."
-          format: double
-          minimum: 0.0
-          nullable: true
-          type: number
+        url:
+          description: The URL of an external content source.
+          type: string
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        tls_validation:
+          description: "If True, TLS peer validation must be performed."
+          type: boolean
+        hidden_fields:
+          description: List of hidden (write only) fields
+          items:
+            $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
+          readOnly: true
+          type: array
         sock_connect_timeout:
           description: "aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -66892,15 +67274,38 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        pulp_href:
-          format: uri
-          readOnly: true
+        download_concurrency:
+          description: Total number of simultaneous connections. If not set then the
+            default value will be used.
+          format: int64
+          minimum: 1
+          nullable: true
+          type: integer
+        name:
+          description: A unique name for this remote.
           type: string
+        connect_timeout:
+          description: "aiohttp.ClientTimeout.connect (q.v.) for download-connections.\
+            \ The default is null, which will cause the default from the aiohttp library\
+            \ to be used."
+          format: double
+          minimum: 0.0
+          nullable: true
+          type: number
         headers:
           description: Headers for aiohttp.Clientsession
           items:
             type: object
           type: array
+        proxy_url:
+          description: "The proxy URL. Format: scheme://host:port"
+          nullable: true
+          type: string
+        rate_limit:
+          description: Limits requests per second for each concurrent downloader
+          format: int64
+          nullable: true
+          type: integer
         ca_cert:
           description: A PEM encoded CA certificate used to validate the server certificate
             presented by the remote server.
@@ -66911,13 +67316,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-        name:
-          description: A unique name for this remote.
-          type: string
-        client_cert:
-          description: A PEM encoded client certificate used for authentication.
-          nullable: true
-          type: string
         sock_read_timeout:
           description: "aiohttp.ClientTimeout.sock_read (q.v.) for download-connections.\
             \ The default is null, which will cause the default from the aiohttp library\
@@ -66926,38 +67324,6 @@ components:
           minimum: 0.0
           nullable: true
           type: number
-        proxy_url:
-          description: "The proxy URL. Format: scheme://host:port"
-          nullable: true
-          type: string
-        max_retries:
-          description: Maximum number of retry attempts after a download failure.
-            If not set then the default value (3) will be used.
-          format: int64
-          nullable: true
-          type: integer
-        url:
-          description: The URL of an external content source.
-          type: string
-        rate_limit:
-          description: Limits requests per second for each concurrent downloader
-          format: int64
-          nullable: true
-          type: integer
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
-        hidden_fields:
-          description: List of hidden (write only) fields
-          items:
-            $ref: '#/components/schemas/RemoteResponse_hidden_fields_inner'
-          readOnly: true
-          type: array
-        tls_validation:
-          description: "If True, TLS peer validation must be performed."
-          type: boolean
         metadata_only:
           description: "If True, only metadata about the content will be stored in\
             \ Pulp. Clients will retrieve content from the remote URL."
@@ -67282,13 +67648,13 @@ components:
         pulp_created: 2000-01-23T04:56:07.000+00:00
         version: version
       properties:
-        artifact:
-          description: Artifact file representing the physical content
-          format: uri
-          type: string
         pulp_href:
           format: uri
           readOnly: true
+          type: string
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
           type: string
         pulp_created:
           description: Timestamp of creation.
@@ -67460,10 +67826,6 @@ components:
     container.ContainerDistribution:
       description: A serializer for ContainerDistribution.
       properties:
-        name:
-          description: "A unique name. Ex, `rawhide` and `stable`."
-          minLength: 1
-          type: string
         pulp_labels:
           additionalProperties:
             nullable: true
@@ -67475,15 +67837,19 @@ components:
             (e.g. "foo" and "foo/bar")
           minLength: 1
           type: string
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
         content_guard:
           description: "An optional content-guard. If none is specified, a default\
             \ one will be used."
           format: uri
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
+        name:
+          description: "A unique name. Ex, `rawhide` and `stable`."
+          minLength: 1
           type: string
         repository_version:
           description: RepositoryVersion to be served
@@ -67513,15 +67879,17 @@ components:
         name: name
         namespace: https://openapi-generator.tech
         description: description
-        base_path: base_path
         pulp_created: 2000-01-23T04:56:07.000+00:00
+        base_path: base_path
         repository_version: https://openapi-generator.tech
         repository: https://openapi-generator.tech
         content_guard: https://openapi-generator.tech
         registry_path: registry_path
       properties:
-        name:
-          description: "A unique name. Ex, `rawhide` and `stable`."
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
         pulp_labels:
           additionalProperties:
@@ -67533,13 +67901,13 @@ components:
             paths that                     overlap with other distribution base paths
             (e.g. "foo" and "foo/bar")
           type: string
+        repository:
+          description: The latest RepositoryVersion for this Repository will be served.
+          format: uri
+          nullable: true
+          type: string
         pulp_href:
           format: uri
-          readOnly: true
-          type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
           readOnly: true
           type: string
         content_guard:
@@ -67547,10 +67915,8 @@ components:
             \ one will be used."
           format: uri
           type: string
-        repository:
-          description: The latest RepositoryVersion for this Repository will be served.
-          format: uri
-          nullable: true
+        name:
+          description: "A unique name. Ex, `rawhide` and `stable`."
           type: string
         repository_version:
           description: RepositoryVersion to be served
@@ -67612,9 +67978,10 @@ components:
     container.ContainerPushRepository:
       description: Serializer for Container Push Repositories.
       properties:
-        name:
-          description: A unique name for this repository.
-          minLength: 1
+        manifest_signing_service:
+          description: A reference to an associated signing service.
+          format: uri
+          nullable: true
           type: string
         pulp_labels:
           additionalProperties:
@@ -67626,11 +67993,6 @@ components:
           minLength: 1
           nullable: true
           type: string
-        manifest_signing_service:
-          description: A reference to an associated signing service.
-          format: uri
-          nullable: true
-          type: string
         retain_repo_versions:
           description: Retain X versions of the repository. Default is null which
             retains all versions.
@@ -67638,6 +68000,10 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        name:
+          description: A unique name for this repository.
+          minLength: 1
+          type: string
       required:
       - name
       type: object
@@ -67655,37 +68021,30 @@ components:
         pulp_created: 2000-01-23T04:56:07.000+00:00
         retain_repo_versions: 1
       properties:
-        name:
-          description: A unique name for this repository.
-          type: string
-        pulp_labels:
-          additionalProperties:
-            nullable: true
-            type: string
-          type: object
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
           readOnly: true
-          type: string
-        description:
-          description: An optional description.
-          nullable: true
           type: string
         manifest_signing_service:
           description: A reference to an associated signing service.
           format: uri
           nullable: true
           type: string
-        versions_href:
+        pulp_labels:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        description:
+          description: An optional description.
+          nullable: true
+          type: string
+        latest_version_href:
           format: uri
           readOnly: true
           type: string
-        latest_version_href:
+        pulp_href:
           format: uri
           readOnly: true
           type: string
@@ -67696,6 +68055,13 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        name:
+          description: A unique name for this repository.
+          type: string
+        versions_href:
+          format: uri
+          readOnly: true
+          type: string
       required:
       - name
       type: object
@@ -68925,7 +69291,161 @@ components:
       required:
       - name
       type: object
-    deb.BasePackage:
+    deb.GenericContent:
+      description: A serializer for GenericContent.
+      properties:
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
+          type: string
+        relative_path:
+          description: Path where the artifact is located relative to distributions
+            base_path
+          minLength: 1
+          type: string
+        file:
+          description: An uploaded file that may be turned into the artifact of the
+            content unit.
+          format: binary
+          type: string
+          writeOnly: true
+        repository:
+          description: A URI of a repository the new content unit should be associated
+            with.
+          format: uri
+          type: string
+          writeOnly: true
+        upload:
+          description: An uncommitted upload that may be turned into the artifact
+            of the content unit.
+          format: uri
+          type: string
+          writeOnly: true
+      required:
+      - relative_path
+      type: object
+    deb.GenericContentResponse:
+      description: A serializer for GenericContent.
+      example:
+        artifact: https://openapi-generator.tech
+        sha1: sha1
+        sha384: sha384
+        pulp_href: https://openapi-generator.tech
+        sha256: sha256
+        sha512: sha512
+        pulp_created: 2000-01-23T04:56:07.000+00:00
+        sha224: sha224
+        relative_path: relative_path
+        md5: md5
+      properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
+          type: string
+        relative_path:
+          description: Path where the artifact is located relative to distributions
+            base_path
+          type: string
+        md5:
+          description: The MD5 checksum if available.
+          readOnly: true
+          type: string
+        sha1:
+          description: The SHA-1 checksum if available.
+          readOnly: true
+          type: string
+        sha224:
+          description: The SHA-224 checksum if available.
+          readOnly: true
+          type: string
+        sha256:
+          description: The SHA-256 checksum if available.
+          readOnly: true
+          type: string
+        sha384:
+          description: The SHA-384 checksum if available.
+          readOnly: true
+          type: string
+        sha512:
+          description: The SHA-512 checksum if available.
+          readOnly: true
+          type: string
+      required:
+      - relative_path
+      type: object
+    deb.InstallerFileIndex:
+      description: A serializer for InstallerFileIndex.
+      properties:
+        artifacts:
+          description: "A dict mapping relative paths inside the Content to the correspondingArtifact\
+            \ URLs. E.g.: {'relative/path': '/artifacts/1/'"
+          type: object
+        component:
+          description: Component of the component - architecture combination.
+          minLength: 1
+          type: string
+        architecture:
+          description: Architecture of the component - architecture combination.
+          minLength: 1
+          type: string
+        relative_path:
+          description: Path of directory containing MD5SUMS and SHA256SUMS relative
+            to url.
+          minLength: 1
+          type: string
+      required:
+      - architecture
+      - artifacts
+      - component
+      type: object
+    deb.InstallerFileIndexResponse:
+      description: A serializer for InstallerFileIndex.
+      example:
+        component: component
+        pulp_href: https://openapi-generator.tech
+        pulp_created: 2000-01-23T04:56:07.000+00:00
+        relative_path: relative_path
+        artifacts: "{}"
+        architecture: architecture
+      properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        artifacts:
+          description: "A dict mapping relative paths inside the Content to the correspondingArtifact\
+            \ URLs. E.g.: {'relative/path': '/artifacts/1/'"
+          type: object
+        component:
+          description: Component of the component - architecture combination.
+          type: string
+        architecture:
+          description: Architecture of the component - architecture combination.
+          type: string
+        relative_path:
+          description: Path of directory containing MD5SUMS and SHA256SUMS relative
+            to url.
+          type: string
+      required:
+      - architecture
+      - artifacts
+      - component
+      type: object
+    deb.InstallerPackage:
       description: A Serializer for InstallerPackage.
       properties:
         artifact:
@@ -68956,7 +69476,7 @@ components:
           type: string
           writeOnly: true
       type: object
-    deb.BasePackageResponse:
+    deb.InstallerPackageResponse:
       description: A Serializer for InstallerPackage.
       example:
         built_using: built_using
@@ -69128,8 +69648,8 @@ components:
           readOnly: true
           type: string
       type: object
-    deb.GenericContent:
-      description: A serializer for GenericContent.
+    deb.Package:
+      description: A Serializer for Package.
       properties:
         artifact:
           description: Artifact file representing the physical content
@@ -69158,129 +69678,14 @@ components:
           format: uri
           type: string
           writeOnly: true
-      required:
-      - relative_path
-      type: object
-    deb.GenericContentResponse:
-      description: A serializer for GenericContent.
-      example:
-        artifact: https://openapi-generator.tech
-        sha1: sha1
-        sha384: sha384
-        pulp_href: https://openapi-generator.tech
-        sha256: sha256
-        sha512: sha512
-        pulp_created: 2000-01-23T04:56:07.000+00:00
-        sha224: sha224
-        relative_path: relative_path
-        md5: md5
-      properties:
-        pulp_href:
-          format: uri
-          readOnly: true
+        distribution:
+          description: Name of the distribution.
+          minLength: 1
           type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
-        artifact:
-          description: Artifact file representing the physical content
-          format: uri
-          type: string
-        relative_path:
-          description: Path where the artifact is located relative to distributions
-            base_path
-          type: string
-        md5:
-          description: The MD5 checksum if available.
-          readOnly: true
-          type: string
-        sha1:
-          description: The SHA-1 checksum if available.
-          readOnly: true
-          type: string
-        sha224:
-          description: The SHA-224 checksum if available.
-          readOnly: true
-          type: string
-        sha256:
-          description: The SHA-256 checksum if available.
-          readOnly: true
-          type: string
-        sha384:
-          description: The SHA-384 checksum if available.
-          readOnly: true
-          type: string
-        sha512:
-          description: The SHA-512 checksum if available.
-          readOnly: true
-          type: string
-      required:
-      - relative_path
-      type: object
-    deb.InstallerFileIndex:
-      description: A serializer for InstallerFileIndex.
-      properties:
-        artifacts:
-          description: "A dict mapping relative paths inside the Content to the correspondingArtifact\
-            \ URLs. E.g.: {'relative/path': '/artifacts/1/'"
-          type: object
         component:
-          description: Component of the component - architecture combination.
+          description: Name of the component.
           minLength: 1
           type: string
-        architecture:
-          description: Architecture of the component - architecture combination.
-          minLength: 1
-          type: string
-        relative_path:
-          description: Path of directory containing MD5SUMS and SHA256SUMS relative
-            to url.
-          minLength: 1
-          type: string
-      required:
-      - architecture
-      - artifacts
-      - component
-      type: object
-    deb.InstallerFileIndexResponse:
-      description: A serializer for InstallerFileIndex.
-      example:
-        component: component
-        pulp_href: https://openapi-generator.tech
-        pulp_created: 2000-01-23T04:56:07.000+00:00
-        relative_path: relative_path
-        artifacts: "{}"
-        architecture: architecture
-      properties:
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
-          type: string
-        artifacts:
-          description: "A dict mapping relative paths inside the Content to the correspondingArtifact\
-            \ URLs. E.g.: {'relative/path': '/artifacts/1/'"
-          type: object
-        component:
-          description: Component of the component - architecture combination.
-          type: string
-        architecture:
-          description: Architecture of the component - architecture combination.
-          type: string
-        relative_path:
-          description: Path of directory containing MD5SUMS and SHA256SUMS relative
-            to url.
-          type: string
-      required:
-      - architecture
-      - artifacts
-      - component
       type: object
     deb.PackageIndex:
       description: A serializer for PackageIndex.
@@ -69383,6 +69788,186 @@ components:
       - package
       - release_component
       type: object
+    deb.PackageResponse:
+      description: A Serializer for Package.
+      example:
+        built_using: built_using
+        enhances: enhances
+        sha256: sha256
+        origin: origin
+        sha512: sha512
+        description: description
+        section: section
+        source: source
+        distribution: distribution
+        original_maintainer: original_maintainer
+        maintainer: maintainer
+        artifact: https://openapi-generator.tech
+        bugs: bugs
+        suggests: suggests
+        provides: provides
+        conflicts: conflicts
+        tag: tag
+        architecture: architecture
+        pre_depends: pre_depends
+        sha384: sha384
+        package: package
+        pulp_href: https://openapi-generator.tech
+        breaks: breaks
+        depends: depends
+        replaces: replaces
+        installed_size: installed_size
+        sha224: sha224
+        priority: priority
+        version: version
+        build_essential: build_essential
+        multi_arch: multi_arch
+        sha1: sha1
+        component: component
+        pulp_created: 2000-01-23T04:56:07.000+00:00
+        recommends: recommends
+        relative_path: relative_path
+        description_md5: description_md5
+        auto_built_package: auto_built_package
+        md5: md5
+        essential: essential
+        homepage: homepage
+      properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
+          type: string
+        artifact:
+          description: Artifact file representing the physical content
+          format: uri
+          type: string
+        relative_path:
+          description: Path where the artifact is located relative to distributions
+            base_path
+          type: string
+        distribution:
+          description: Name of the distribution.
+          type: string
+        component:
+          description: Name of the component.
+          type: string
+        md5:
+          description: The MD5 checksum if available.
+          readOnly: true
+          type: string
+        sha1:
+          description: The SHA-1 checksum if available.
+          readOnly: true
+          type: string
+        sha224:
+          description: The SHA-224 checksum if available.
+          readOnly: true
+          type: string
+        sha256:
+          description: The SHA-256 checksum if available.
+          readOnly: true
+          type: string
+        sha384:
+          description: The SHA-384 checksum if available.
+          readOnly: true
+          type: string
+        sha512:
+          description: The SHA-512 checksum if available.
+          readOnly: true
+          type: string
+        package:
+          readOnly: true
+          type: string
+        source:
+          readOnly: true
+          type: string
+        version:
+          readOnly: true
+          type: string
+        architecture:
+          readOnly: true
+          type: string
+        section:
+          readOnly: true
+          type: string
+        priority:
+          readOnly: true
+          type: string
+        origin:
+          readOnly: true
+          type: string
+        tag:
+          readOnly: true
+          type: string
+        bugs:
+          readOnly: true
+          type: string
+        essential:
+          readOnly: true
+          type: string
+        build_essential:
+          readOnly: true
+          type: string
+        installed_size:
+          readOnly: true
+          type: string
+        maintainer:
+          readOnly: true
+          type: string
+        original_maintainer:
+          readOnly: true
+          type: string
+        description:
+          readOnly: true
+          type: string
+        description_md5:
+          readOnly: true
+          type: string
+        homepage:
+          readOnly: true
+          type: string
+        built_using:
+          readOnly: true
+          type: string
+        auto_built_package:
+          readOnly: true
+          type: string
+        multi_arch:
+          readOnly: true
+          type: string
+        breaks:
+          readOnly: true
+          type: string
+        conflicts:
+          readOnly: true
+          type: string
+        depends:
+          readOnly: true
+          type: string
+        recommends:
+          readOnly: true
+          type: string
+        suggests:
+          readOnly: true
+          type: string
+        enhances:
+          readOnly: true
+          type: string
+        pre_depends:
+          readOnly: true
+          type: string
+        provides:
+          readOnly: true
+          type: string
+        replaces:
+          readOnly: true
+          type: string
+      type: object
     deb.Release:
       description: A Serializer for Release.
       properties:
@@ -69407,20 +69992,30 @@ components:
           description: Name of the architecture.
           minLength: 1
           type: string
-        release:
-          description: Release this architecture is contained in.
-          format: uri
+        distribution:
+          description: Name of the distribution.
+          minLength: 1
+          type: string
+        codename:
+          minLength: 1
+          type: string
+        suite:
+          minLength: 1
           type: string
       required:
       - architecture
-      - release
+      - codename
+      - distribution
+      - suite
       type: object
     deb.ReleaseArchitectureResponse:
       description: A Serializer for ReleaseArchitecture.
       example:
+        suite: suite
         pulp_href: https://openapi-generator.tech
-        release: https://openapi-generator.tech
+        codename: codename
         pulp_created: 2000-01-23T04:56:07.000+00:00
+        distribution: distribution
         architecture: architecture
       properties:
         pulp_href:
@@ -69435,13 +70030,18 @@ components:
         architecture:
           description: Name of the architecture.
           type: string
-        release:
-          description: Release this architecture is contained in.
-          format: uri
+        distribution:
+          description: Name of the distribution.
+          type: string
+        codename:
+          type: string
+        suite:
           type: string
       required:
       - architecture
-      - release
+      - codename
+      - distribution
+      - suite
       type: object
     deb.ReleaseComponent:
       description: A Serializer for ReleaseComponent.
@@ -69450,21 +70050,31 @@ components:
           description: Name of the component.
           minLength: 1
           type: string
-        release:
-          description: Release this component is contained in.
-          format: uri
+        distribution:
+          description: Name of the distribution.
+          minLength: 1
+          type: string
+        codename:
+          minLength: 1
+          type: string
+        suite:
+          minLength: 1
           type: string
       required:
+      - codename
       - component
-      - release
+      - distribution
+      - suite
       type: object
     deb.ReleaseComponentResponse:
       description: A Serializer for ReleaseComponent.
       example:
         component: component
+        suite: suite
         pulp_href: https://openapi-generator.tech
-        release: https://openapi-generator.tech
+        codename: codename
         pulp_created: 2000-01-23T04:56:07.000+00:00
+        distribution: distribution
       properties:
         pulp_href:
           format: uri
@@ -69478,13 +70088,18 @@ components:
         component:
           description: Name of the component.
           type: string
-        release:
-          description: Release this component is contained in.
-          format: uri
+        distribution:
+          description: Name of the distribution.
+          type: string
+        codename:
+          type: string
+        suite:
           type: string
       required:
+      - codename
       - component
-      - release
+      - distribution
+      - suite
       type: object
     deb.ReleaseFile:
       description: A serializer for ReleaseFile.

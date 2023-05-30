@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing UploadsApiService
+Testing UploadsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_UploadsApiService(t *testing.T) {
+func Test_zest_UploadsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UploadsApiService UploadsAddRole", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uploadHref string
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsAddRole(context.Background(), uploadHref).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsAddRole(context.Background(), uploadHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_UploadsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UploadsApiService UploadsCommit", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsCommit", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uploadHref string
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsCommit(context.Background(), uploadHref).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsCommit(context.Background(), uploadHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,11 +50,11 @@ func Test_zest_UploadsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UploadsApiService UploadsCreate", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,38 +62,24 @@ func Test_zest_UploadsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UploadsApiService UploadsDelete", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uploadHref string
 
-		httpRes, err := apiClient.UploadsApi.UploadsDelete(context.Background(), uploadHref).Execute()
+		httpRes, err := apiClient.UploadsAPI.UploadsDelete(context.Background(), uploadHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test UploadsApiService UploadsList", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UploadsApiService UploadsListRoles", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var uploadHref string
-
-		resp, httpRes, err := apiClient.UploadsApi.UploadsListRoles(context.Background(), uploadHref).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,13 +87,13 @@ func Test_zest_UploadsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UploadsApiService UploadsMyPermissions", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uploadHref string
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsMyPermissions(context.Background(), uploadHref).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsListRoles(context.Background(), uploadHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -115,13 +101,13 @@ func Test_zest_UploadsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UploadsApiService UploadsRead", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uploadHref string
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsRead(context.Background(), uploadHref).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsMyPermissions(context.Background(), uploadHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -129,13 +115,13 @@ func Test_zest_UploadsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UploadsApiService UploadsRemoveRole", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uploadHref string
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsRemoveRole(context.Background(), uploadHref).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsRead(context.Background(), uploadHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -143,13 +129,27 @@ func Test_zest_UploadsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UploadsApiService UploadsUpdate", func(t *testing.T) {
+	t.Run("Test UploadsAPIService UploadsRemoveRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uploadHref string
 
-		resp, httpRes, err := apiClient.UploadsApi.UploadsUpdate(context.Background(), uploadHref).Execute()
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsRemoveRole(context.Background(), uploadHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UploadsAPIService UploadsUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var uploadHref string
+
+		resp, httpRes, err := apiClient.UploadsAPI.UploadsUpdate(context.Background(), uploadHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RolesApiService
+Testing RolesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RolesApiService(t *testing.T) {
+func Test_zest_RolesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RolesApiService RolesCreate", func(t *testing.T) {
+	t.Run("Test RolesAPIService RolesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RolesApi.RolesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RolesAPI.RolesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,24 @@ func Test_zest_RolesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RolesApiService RolesDelete", func(t *testing.T) {
+	t.Run("Test RolesAPIService RolesDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var roleHref string
 
-		httpRes, err := apiClient.RolesApi.RolesDelete(context.Background(), roleHref).Execute()
+		httpRes, err := apiClient.RolesAPI.RolesDelete(context.Background(), roleHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test RolesApiService RolesList", func(t *testing.T) {
+	t.Run("Test RolesAPIService RolesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RolesApi.RolesList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RolesApiService RolesPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var roleHref string
-
-		resp, httpRes, err := apiClient.RolesApi.RolesPartialUpdate(context.Background(), roleHref).Execute()
+		resp, httpRes, err := apiClient.RolesAPI.RolesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +59,13 @@ func Test_zest_RolesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RolesApiService RolesRead", func(t *testing.T) {
+	t.Run("Test RolesAPIService RolesPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var roleHref string
 
-		resp, httpRes, err := apiClient.RolesApi.RolesRead(context.Background(), roleHref).Execute()
+		resp, httpRes, err := apiClient.RolesAPI.RolesPartialUpdate(context.Background(), roleHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +73,27 @@ func Test_zest_RolesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RolesApiService RolesUpdate", func(t *testing.T) {
+	t.Run("Test RolesAPIService RolesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var roleHref string
 
-		resp, httpRes, err := apiClient.RolesApi.RolesUpdate(context.Background(), roleHref).Execute()
+		resp, httpRes, err := apiClient.RolesAPI.RolesRead(context.Background(), roleHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RolesAPIService RolesUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var roleHref string
+
+		resp, httpRes, err := apiClient.RolesAPI.RolesUpdate(context.Background(), roleHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

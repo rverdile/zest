@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RemotesContainerApiService
+Testing RemotesContainerAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RemotesContainerApiService(t *testing.T) {
+func Test_zest_RemotesContainerAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerAddRole", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerAddRole(context.Background(), containerContainerRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerAddRole(context.Background(), containerContainerRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_RemotesContainerApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerCreate", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_RemotesContainerApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var containerContainerRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerDelete(context.Background(), containerContainerRemoteHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerListRoles", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerListRoles(context.Background(), containerContainerRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerDelete(context.Background(), containerContainerRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_RemotesContainerApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerMyPermissions", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var containerContainerRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerMyPermissions(context.Background(), containerContainerRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_RemotesContainerApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerPartialUpdate", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerPartialUpdate(context.Background(), containerContainerRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerListRoles(context.Background(), containerContainerRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_RemotesContainerApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerRead", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerRead(context.Background(), containerContainerRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerMyPermissions(context.Background(), containerContainerRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_RemotesContainerApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerRemoveRole", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerRemoveRole(context.Background(), containerContainerRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerPartialUpdate(context.Background(), containerContainerRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,41 @@ func Test_zest_RemotesContainerApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesContainerApiService RemotesContainerContainerUpdate", func(t *testing.T) {
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerContainerRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesContainerApi.RemotesContainerContainerUpdate(context.Background(), containerContainerRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerRead(context.Background(), containerContainerRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var containerContainerRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerRemoveRole(context.Background(), containerContainerRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesContainerAPIService RemotesContainerContainerUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var containerContainerRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesContainerAPI.RemotesContainerContainerUpdate(context.Background(), containerContainerRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

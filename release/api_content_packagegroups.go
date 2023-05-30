@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentPackagegroupsApiService ContentPackagegroupsApi service
-type ContentPackagegroupsApiService service
+// ContentPackagegroupsAPIService ContentPackagegroupsAPI service
+type ContentPackagegroupsAPIService service
 
-type ContentPackagegroupsApiContentRpmPackagegroupsListRequest struct {
+type ContentPackagegroupsAPIContentRpmPackagegroupsListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagegroupsApiService
+	ApiService *ContentPackagegroupsAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentPackagegroupsApiContentRpmPackagegroupsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) Limit(limit int32) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) Limit(limit int32) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) Offset(offset int32) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) Offset(offset int32) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) Ordering(ordering []string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) Ordering(ordering []string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) PulpIdIn(pulpIdIn []string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) PulpIdIn(pulpIdIn []string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) RepositoryVersion(repositoryVersion string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) RepositoryVersion(repositoryVersion string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) Fields(fields []string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) Fields(fields []string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) ExcludeFields(excludeFields []string) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) ExcludeFields(excludeFields []string) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) Execute() (*PaginatedrpmPackageGroupResponseList, *http.Response, error) {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) Execute() (*PaginatedrpmPackageGroupResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagegroupsListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentRpmPackagegroupsList List package groups
 PackageGroup ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagegroupsApiContentRpmPackagegroupsListRequest
+ @return ContentPackagegroupsAPIContentRpmPackagegroupsListRequest
 */
-func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsList(ctx context.Context) ContentPackagegroupsApiContentRpmPackagegroupsListRequest {
-	return ContentPackagegroupsApiContentRpmPackagegroupsListRequest{
+func (a *ContentPackagegroupsAPIService) ContentRpmPackagegroupsList(ctx context.Context) ContentPackagegroupsAPIContentRpmPackagegroupsListRequest {
+	return ContentPackagegroupsAPIContentRpmPackagegroupsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsList(ctx context
 
 // Execute executes the request
 //  @return PaginatedrpmPackageGroupResponseList
-func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsListExecute(r ContentPackagegroupsApiContentRpmPackagegroupsListRequest) (*PaginatedrpmPackageGroupResponseList, *http.Response, error) {
+func (a *ContentPackagegroupsAPIService) ContentRpmPackagegroupsListExecute(r ContentPackagegroupsAPIContentRpmPackagegroupsListRequest) (*PaginatedrpmPackageGroupResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsListExecute(r Co
 		localVarReturnValue  *PaginatedrpmPackageGroupResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagegroupsApiService.ContentRpmPackagegroupsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagegroupsAPIService.ContentRpmPackagegroupsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsListExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagegroupsApiContentRpmPackagegroupsReadRequest struct {
+type ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagegroupsApiService
+	ApiService *ContentPackagegroupsAPIService
 	rpmPackageGroupHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsReadRequest) Fields(fields []string) ContentPackagegroupsApiContentRpmPackagegroupsReadRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest) Fields(fields []string) ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagegroupsApiContentRpmPackagegroupsReadRequest) ExcludeFields(excludeFields []string) ContentPackagegroupsApiContentRpmPackagegroupsReadRequest {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest) ExcludeFields(excludeFields []string) ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagegroupsApiContentRpmPackagegroupsReadRequest) Execute() (*RpmPackageGroupResponse, *http.Response, error) {
+func (r ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest) Execute() (*RpmPackageGroupResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagegroupsReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ PackageGroup ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmPackageGroupHref
- @return ContentPackagegroupsApiContentRpmPackagegroupsReadRequest
+ @return ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest
 */
-func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsRead(ctx context.Context, rpmPackageGroupHref string) ContentPackagegroupsApiContentRpmPackagegroupsReadRequest {
-	return ContentPackagegroupsApiContentRpmPackagegroupsReadRequest{
+func (a *ContentPackagegroupsAPIService) ContentRpmPackagegroupsRead(ctx context.Context, rpmPackageGroupHref string) ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest {
+	return ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmPackageGroupHref: rpmPackageGroupHref,
@@ -282,7 +282,7 @@ func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsRead(ctx context
 
 // Execute executes the request
 //  @return RpmPackageGroupResponse
-func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsReadExecute(r ContentPackagegroupsApiContentRpmPackagegroupsReadRequest) (*RpmPackageGroupResponse, *http.Response, error) {
+func (a *ContentPackagegroupsAPIService) ContentRpmPackagegroupsReadExecute(r ContentPackagegroupsAPIContentRpmPackagegroupsReadRequest) (*RpmPackageGroupResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentPackagegroupsApiService) ContentRpmPackagegroupsReadExecute(r Co
 		localVarReturnValue  *RpmPackageGroupResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagegroupsApiService.ContentRpmPackagegroupsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagegroupsAPIService.ContentRpmPackagegroupsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

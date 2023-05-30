@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentCollectionMarksApiService ContentCollectionMarksApi service
-type ContentCollectionMarksApiService service
+// ContentCollectionMarksAPIService ContentCollectionMarksAPI service
+type ContentCollectionMarksAPIService service
 
-type ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest struct {
+type ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionMarksApiService
+	ApiService *ContentCollectionMarksAPIService
 	ansibleCollectionVersionMark *AnsibleCollectionVersionMark
 }
 
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest) AnsibleCollectionVersionMark(ansibleCollectionVersionMark AnsibleCollectionVersionMark) ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest) AnsibleCollectionVersionMark(ansibleCollectionVersionMark AnsibleCollectionVersionMark) ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest {
 	r.ansibleCollectionVersionMark = &ansibleCollectionVersionMark
 	return r
 }
 
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest) Execute() (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest) Execute() (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionMarksCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentAnsibleCollectionMarksCreate Create a collection version mark
 ViewSet for looking at mark objects for CollectionVersion content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest
+ @return ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest
 */
-func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksCreate(ctx context.Context) ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest {
-	return ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest{
+func (a *ContentCollectionMarksAPIService) ContentAnsibleCollectionMarksCreate(ctx context.Context) ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest {
+	return ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksCreate(c
 
 // Execute executes the request
 //  @return AnsibleCollectionVersionMarkResponse
-func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksCreateExecute(r ContentCollectionMarksApiContentAnsibleCollectionMarksCreateRequest) (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
+func (a *ContentCollectionMarksAPIService) ContentAnsibleCollectionMarksCreateExecute(r ContentCollectionMarksAPIContentAnsibleCollectionMarksCreateRequest) (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksCreateEx
 		localVarReturnValue  *AnsibleCollectionVersionMarkResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionMarksApiService.ContentAnsibleCollectionMarksCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionMarksAPIService.ContentAnsibleCollectionMarksCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,9 +134,9 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksCreateEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest struct {
+type ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionMarksApiService
+	ApiService *ContentCollectionMarksAPIService
 	limit *int32
 	markedCollection *string
 	offset *int32
@@ -153,84 +153,84 @@ type ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Limit(limit int32) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) Limit(limit int32) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter marks for collection version
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) MarkedCollection(markedCollection string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) MarkedCollection(markedCollection string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.markedCollection = &markedCollection
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Offset(offset int32) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) Offset(offset int32) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;value&#x60; - Value * &#x60;-value&#x60; - Value (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Ordering(ordering []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) Ordering(ordering []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter marks by value
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Value(value string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) Value(value string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.value = &value
 	return r
 }
 
 // Filter results where value is in a comma-separated list of values
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) ValueIn(valueIn []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) ValueIn(valueIn []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.valueIn = &valueIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Fields(fields []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) Fields(fields []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) ExcludeFields(excludeFields []string) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) ExcludeFields(excludeFields []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) Execute() (*PaginatedansibleCollectionVersionMarkResponseList, *http.Response, error) {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) Execute() (*PaginatedansibleCollectionVersionMarkResponseList, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionMarksListExecute(r)
 }
 
@@ -240,10 +240,10 @@ ContentAnsibleCollectionMarksList List collection version marks
 ViewSet for looking at mark objects for CollectionVersion content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest
+ @return ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest
 */
-func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksList(ctx context.Context) ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest {
-	return ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest{
+func (a *ContentCollectionMarksAPIService) ContentAnsibleCollectionMarksList(ctx context.Context) ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest {
+	return ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -251,7 +251,7 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksList(ctx
 
 // Execute executes the request
 //  @return PaginatedansibleCollectionVersionMarkResponseList
-func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksListExecute(r ContentCollectionMarksApiContentAnsibleCollectionMarksListRequest) (*PaginatedansibleCollectionVersionMarkResponseList, *http.Response, error) {
+func (a *ContentCollectionMarksAPIService) ContentAnsibleCollectionMarksListExecute(r ContentCollectionMarksAPIContentAnsibleCollectionMarksListRequest) (*PaginatedansibleCollectionVersionMarkResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -259,7 +259,7 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksListExec
 		localVarReturnValue  *PaginatedansibleCollectionVersionMarkResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionMarksApiService.ContentAnsibleCollectionMarksList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionMarksAPIService.ContentAnsibleCollectionMarksList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -378,27 +378,27 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest struct {
+type ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionMarksApiService
+	ApiService *ContentCollectionMarksAPIService
 	ansibleCollectionVersionMarkHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest) Fields(fields []string) ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest) Fields(fields []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest) ExcludeFields(excludeFields []string) ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest) ExcludeFields(excludeFields []string) ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest) Execute() (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
+func (r ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest) Execute() (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionMarksReadExecute(r)
 }
 
@@ -409,10 +409,10 @@ ViewSet for looking at mark objects for CollectionVersion content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionVersionMarkHref
- @return ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest
+ @return ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest
 */
-func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksRead(ctx context.Context, ansibleCollectionVersionMarkHref string) ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest {
-	return ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest{
+func (a *ContentCollectionMarksAPIService) ContentAnsibleCollectionMarksRead(ctx context.Context, ansibleCollectionVersionMarkHref string) ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest {
+	return ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionVersionMarkHref: ansibleCollectionVersionMarkHref,
@@ -421,7 +421,7 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksRead(ctx
 
 // Execute executes the request
 //  @return AnsibleCollectionVersionMarkResponse
-func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksReadExecute(r ContentCollectionMarksApiContentAnsibleCollectionMarksReadRequest) (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
+func (a *ContentCollectionMarksAPIService) ContentAnsibleCollectionMarksReadExecute(r ContentCollectionMarksAPIContentAnsibleCollectionMarksReadRequest) (*AnsibleCollectionVersionMarkResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -429,7 +429,7 @@ func (a *ContentCollectionMarksApiService) ContentAnsibleCollectionMarksReadExec
 		localVarReturnValue  *AnsibleCollectionVersionMarkResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionMarksApiService.ContentAnsibleCollectionMarksRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionMarksAPIService.ContentAnsibleCollectionMarksRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

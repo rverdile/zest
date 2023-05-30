@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentDistributionTreesApiService
+Testing ContentDistributionTreesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentDistributionTreesApiService(t *testing.T) {
+func Test_zest_ContentDistributionTreesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentDistributionTreesApiService ContentRpmDistributionTreesList", func(t *testing.T) {
+	t.Run("Test ContentDistributionTreesAPIService ContentRpmDistributionTreesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentDistributionTreesApi.ContentRpmDistributionTreesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentDistributionTreesAPI.ContentRpmDistributionTreesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentDistributionTreesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentDistributionTreesApiService ContentRpmDistributionTreesRead", func(t *testing.T) {
+	t.Run("Test ContentDistributionTreesAPIService ContentRpmDistributionTreesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmDistributionTreeHref string
 
-		resp, httpRes, err := apiClient.ContentDistributionTreesApi.ContentRpmDistributionTreesRead(context.Background(), rpmDistributionTreeHref).Execute()
+		resp, httpRes, err := apiClient.ContentDistributionTreesAPI.ContentRpmDistributionTreesRead(context.Background(), rpmDistributionTreeHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService
+Testing PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService
 
 */
 
@@ -17,12 +17,12 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -32,7 +32,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiSe
 		var path string
 		var version string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete(context.Background(), distroBasePath, name, namespace, path, version).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsDelete(context.Background(), distroBasePath, name, namespace, path, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -40,7 +40,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiSe
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -49,7 +49,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiSe
 		var namespace string
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList(context.Background(), distroBasePath, name, namespace, path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsList(context.Background(), distroBasePath, name, namespace, path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -57,7 +57,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiSe
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -67,7 +67,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApiSe
 		var path string
 		var version string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead(context.Background(), distroBasePath, name, namespace, path, version).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexVersionsAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexVersionsRead(context.Background(), distroBasePath, name, namespace, path, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

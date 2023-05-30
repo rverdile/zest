@@ -21,12 +21,12 @@ import (
 )
 
 
-// PulpAnsibleTagsApiService PulpAnsibleTagsApi service
-type PulpAnsibleTagsApiService service
+// PulpAnsibleTagsAPIService PulpAnsibleTagsAPI service
+type PulpAnsibleTagsAPIService service
 
-type PulpAnsibleTagsApiPulpAnsibleTagsListRequest struct {
+type PulpAnsibleTagsAPIPulpAnsibleTagsListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleTagsApiService
+	ApiService *PulpAnsibleTagsAPIService
 	limit *int32
 	offset *int32
 	fields *[]string
@@ -34,30 +34,30 @@ type PulpAnsibleTagsApiPulpAnsibleTagsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r PulpAnsibleTagsApiPulpAnsibleTagsListRequest) Limit(limit int32) PulpAnsibleTagsApiPulpAnsibleTagsListRequest {
+func (r PulpAnsibleTagsAPIPulpAnsibleTagsListRequest) Limit(limit int32) PulpAnsibleTagsAPIPulpAnsibleTagsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PulpAnsibleTagsApiPulpAnsibleTagsListRequest) Offset(offset int32) PulpAnsibleTagsApiPulpAnsibleTagsListRequest {
+func (r PulpAnsibleTagsAPIPulpAnsibleTagsListRequest) Offset(offset int32) PulpAnsibleTagsAPIPulpAnsibleTagsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleTagsApiPulpAnsibleTagsListRequest) Fields(fields []string) PulpAnsibleTagsApiPulpAnsibleTagsListRequest {
+func (r PulpAnsibleTagsAPIPulpAnsibleTagsListRequest) Fields(fields []string) PulpAnsibleTagsAPIPulpAnsibleTagsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleTagsApiPulpAnsibleTagsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleTagsApiPulpAnsibleTagsListRequest {
+func (r PulpAnsibleTagsAPIPulpAnsibleTagsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleTagsAPIPulpAnsibleTagsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleTagsApiPulpAnsibleTagsListRequest) Execute() (*PaginatedTagResponseList, *http.Response, error) {
+func (r PulpAnsibleTagsAPIPulpAnsibleTagsListRequest) Execute() (*PaginatedTagResponseList, *http.Response, error) {
 	return r.ApiService.PulpAnsibleTagsListExecute(r)
 }
 
@@ -67,10 +67,10 @@ PulpAnsibleTagsList List tags
 ViewSet for Tag models.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleTagsApiPulpAnsibleTagsListRequest
+ @return PulpAnsibleTagsAPIPulpAnsibleTagsListRequest
 */
-func (a *PulpAnsibleTagsApiService) PulpAnsibleTagsList(ctx context.Context) PulpAnsibleTagsApiPulpAnsibleTagsListRequest {
-	return PulpAnsibleTagsApiPulpAnsibleTagsListRequest{
+func (a *PulpAnsibleTagsAPIService) PulpAnsibleTagsList(ctx context.Context) PulpAnsibleTagsAPIPulpAnsibleTagsListRequest {
+	return PulpAnsibleTagsAPIPulpAnsibleTagsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -78,7 +78,7 @@ func (a *PulpAnsibleTagsApiService) PulpAnsibleTagsList(ctx context.Context) Pul
 
 // Execute executes the request
 //  @return PaginatedTagResponseList
-func (a *PulpAnsibleTagsApiService) PulpAnsibleTagsListExecute(r PulpAnsibleTagsApiPulpAnsibleTagsListRequest) (*PaginatedTagResponseList, *http.Response, error) {
+func (a *PulpAnsibleTagsAPIService) PulpAnsibleTagsListExecute(r PulpAnsibleTagsAPIPulpAnsibleTagsListRequest) (*PaginatedTagResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -86,7 +86,7 @@ func (a *PulpAnsibleTagsApiService) PulpAnsibleTagsListExecute(r PulpAnsibleTags
 		localVarReturnValue  *PaginatedTagResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleTagsApiService.PulpAnsibleTagsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleTagsAPIService.PulpAnsibleTagsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

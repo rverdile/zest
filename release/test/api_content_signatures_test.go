@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentSignaturesApiService
+Testing ContentSignaturesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentSignaturesApiService(t *testing.T) {
+func Test_zest_ContentSignaturesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentSignaturesApiService ContentContainerSignaturesList", func(t *testing.T) {
+	t.Run("Test ContentSignaturesAPIService ContentContainerSignaturesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentSignaturesApi.ContentContainerSignaturesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentSignaturesAPI.ContentContainerSignaturesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentSignaturesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentSignaturesApiService ContentContainerSignaturesRead", func(t *testing.T) {
+	t.Run("Test ContentSignaturesAPIService ContentContainerSignaturesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerManifestSignatureHref string
 
-		resp, httpRes, err := apiClient.ContentSignaturesApi.ContentContainerSignaturesRead(context.Background(), containerManifestSignatureHref).Execute()
+		resp, httpRes, err := apiClient.ContentSignaturesAPI.ContentContainerSignaturesRead(context.Background(), containerManifestSignatureHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

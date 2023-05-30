@@ -22,12 +22,12 @@ import (
 )
 
 
-// PulpMavenApiService PulpMavenApi service
-type PulpMavenApiService service
+// PulpMavenAPIService PulpMavenAPI service
+type PulpMavenAPIService service
 
-type PulpMavenApiPulpMavenGetRequest struct {
+type PulpMavenAPIPulpMavenGetRequest struct {
 	ctx context.Context
-	ApiService *PulpMavenApiService
+	ApiService *PulpMavenAPIService
 	name string
 	path string
 	fields *[]string
@@ -35,18 +35,18 @@ type PulpMavenApiPulpMavenGetRequest struct {
 }
 
 // A list of fields to include in the response.
-func (r PulpMavenApiPulpMavenGetRequest) Fields(fields []string) PulpMavenApiPulpMavenGetRequest {
+func (r PulpMavenAPIPulpMavenGetRequest) Fields(fields []string) PulpMavenAPIPulpMavenGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpMavenApiPulpMavenGetRequest) ExcludeFields(excludeFields []string) PulpMavenApiPulpMavenGetRequest {
+func (r PulpMavenAPIPulpMavenGetRequest) ExcludeFields(excludeFields []string) PulpMavenAPIPulpMavenGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpMavenApiPulpMavenGetRequest) Execute() (*http.Response, error) {
+func (r PulpMavenAPIPulpMavenGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PulpMavenGetExecute(r)
 }
 
@@ -58,10 +58,10 @@ Responds to GET requests about manifests by reference
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param name
  @param path
- @return PulpMavenApiPulpMavenGetRequest
+ @return PulpMavenAPIPulpMavenGetRequest
 */
-func (a *PulpMavenApiService) PulpMavenGet(ctx context.Context, name string, path string) PulpMavenApiPulpMavenGetRequest {
-	return PulpMavenApiPulpMavenGetRequest{
+func (a *PulpMavenAPIService) PulpMavenGet(ctx context.Context, name string, path string) PulpMavenAPIPulpMavenGetRequest {
+	return PulpMavenAPIPulpMavenGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		name: name,
@@ -70,14 +70,14 @@ func (a *PulpMavenApiService) PulpMavenGet(ctx context.Context, name string, pat
 }
 
 // Execute executes the request
-func (a *PulpMavenApiService) PulpMavenGetExecute(r PulpMavenApiPulpMavenGetRequest) (*http.Response, error) {
+func (a *PulpMavenAPIService) PulpMavenGetExecute(r PulpMavenAPIPulpMavenGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpMavenApiService.PulpMavenGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpMavenAPIService.PulpMavenGet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -160,14 +160,14 @@ func (a *PulpMavenApiService) PulpMavenGetExecute(r PulpMavenApiPulpMavenGetRequ
 	return localVarHTTPResponse, nil
 }
 
-type PulpMavenApiPulpMavenPutRequest struct {
+type PulpMavenAPIPulpMavenPutRequest struct {
 	ctx context.Context
-	ApiService *PulpMavenApiService
+	ApiService *PulpMavenAPIService
 	name string
 	path string
 }
 
-func (r PulpMavenApiPulpMavenPutRequest) Execute() (*http.Response, error) {
+func (r PulpMavenAPIPulpMavenPutRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PulpMavenPutExecute(r)
 }
 
@@ -179,10 +179,10 @@ ViewSet for interacting with maven deploy API
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param name
  @param path
- @return PulpMavenApiPulpMavenPutRequest
+ @return PulpMavenAPIPulpMavenPutRequest
 */
-func (a *PulpMavenApiService) PulpMavenPut(ctx context.Context, name string, path string) PulpMavenApiPulpMavenPutRequest {
-	return PulpMavenApiPulpMavenPutRequest{
+func (a *PulpMavenAPIService) PulpMavenPut(ctx context.Context, name string, path string) PulpMavenAPIPulpMavenPutRequest {
+	return PulpMavenAPIPulpMavenPutRequest{
 		ApiService: a,
 		ctx: ctx,
 		name: name,
@@ -191,14 +191,14 @@ func (a *PulpMavenApiService) PulpMavenPut(ctx context.Context, name string, pat
 }
 
 // Execute executes the request
-func (a *PulpMavenApiService) PulpMavenPutExecute(r PulpMavenApiPulpMavenPutRequest) (*http.Response, error) {
+func (a *PulpMavenAPIService) PulpMavenPutExecute(r PulpMavenAPIPulpMavenPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpMavenApiService.PulpMavenPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpMavenAPIService.PulpMavenPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

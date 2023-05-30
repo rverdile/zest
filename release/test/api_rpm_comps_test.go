@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RpmCompsApiService
+Testing RpmCompsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RpmCompsApiService(t *testing.T) {
+func Test_zest_RpmCompsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RpmCompsApiService RpmCompsUpload", func(t *testing.T) {
+	t.Run("Test RpmCompsAPIService RpmCompsUpload", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RpmCompsApi.RpmCompsUpload(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RpmCompsAPI.RpmCompsUpload(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

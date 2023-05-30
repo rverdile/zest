@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentguardsRhsmApiService
+Testing ContentguardsRhsmAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentguardsRhsmApiService(t *testing.T) {
+func Test_zest_ContentguardsRhsmAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentguardsRhsmApiService ContentguardsCertguardRhsmCreate", func(t *testing.T) {
+	t.Run("Test ContentguardsRhsmAPIService ContentguardsCertguardRhsmCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsRhsmApi.ContentguardsCertguardRhsmCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,24 @@ func Test_zest_ContentguardsRhsmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsRhsmApiService ContentguardsCertguardRhsmDelete", func(t *testing.T) {
+	t.Run("Test ContentguardsRhsmAPIService ContentguardsCertguardRhsmDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var certguardRHSMCertGuardHref string
 
-		httpRes, err := apiClient.ContentguardsRhsmApi.ContentguardsCertguardRhsmDelete(context.Background(), certguardRHSMCertGuardHref).Execute()
+		httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmDelete(context.Background(), certguardRHSMCertGuardHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ContentguardsRhsmApiService ContentguardsCertguardRhsmList", func(t *testing.T) {
+	t.Run("Test ContentguardsRhsmAPIService ContentguardsCertguardRhsmList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsRhsmApi.ContentguardsCertguardRhsmList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ContentguardsRhsmApiService ContentguardsCertguardRhsmPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var certguardRHSMCertGuardHref string
-
-		resp, httpRes, err := apiClient.ContentguardsRhsmApi.ContentguardsCertguardRhsmPartialUpdate(context.Background(), certguardRHSMCertGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +59,13 @@ func Test_zest_ContentguardsRhsmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsRhsmApiService ContentguardsCertguardRhsmRead", func(t *testing.T) {
+	t.Run("Test ContentguardsRhsmAPIService ContentguardsCertguardRhsmPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var certguardRHSMCertGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsRhsmApi.ContentguardsCertguardRhsmRead(context.Background(), certguardRHSMCertGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmPartialUpdate(context.Background(), certguardRHSMCertGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +73,27 @@ func Test_zest_ContentguardsRhsmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsRhsmApiService ContentguardsCertguardRhsmUpdate", func(t *testing.T) {
+	t.Run("Test ContentguardsRhsmAPIService ContentguardsCertguardRhsmRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var certguardRHSMCertGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsRhsmApi.ContentguardsCertguardRhsmUpdate(context.Background(), certguardRHSMCertGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmRead(context.Background(), certguardRHSMCertGuardHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ContentguardsRhsmAPIService ContentguardsCertguardRhsmUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var certguardRHSMCertGuardHref string
+
+		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmUpdate(context.Background(), certguardRHSMCertGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

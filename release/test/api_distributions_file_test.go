@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsFileApiService
+Testing DistributionsFileAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsFileApiService(t *testing.T) {
+func Test_zest_DistributionsFileAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFileAddRole", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileAddRole(context.Background(), fileFileDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileAddRole(context.Background(), fileFileDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_DistributionsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFileCreate", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_DistributionsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFileDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var fileFileDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileDelete(context.Background(), fileFileDistributionHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsFileApiService DistributionsFileFileList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsFileApiService DistributionsFileFileListRoles", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileListRoles(context.Background(), fileFileDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileDelete(context.Background(), fileFileDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_DistributionsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFileMyPermissions", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var fileFileDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileMyPermissions(context.Background(), fileFileDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_DistributionsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFilePartialUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFilePartialUpdate(context.Background(), fileFileDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileListRoles(context.Background(), fileFileDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_DistributionsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFileRead", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileRead(context.Background(), fileFileDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileMyPermissions(context.Background(), fileFileDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_DistributionsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFileRemoveRole", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFilePartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileRemoveRole(context.Background(), fileFileDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFilePartialUpdate(context.Background(), fileFileDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,41 @@ func Test_zest_DistributionsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsFileApiService DistributionsFileFileUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsFileApi.DistributionsFileFileUpdate(context.Background(), fileFileDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileRead(context.Background(), fileFileDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var fileFileDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileRemoveRole(context.Background(), fileFileDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsFileAPIService DistributionsFileFileUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var fileFileDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsFileAPI.DistributionsFileFileUpdate(context.Background(), fileFileDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

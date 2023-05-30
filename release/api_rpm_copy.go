@@ -20,21 +20,21 @@ import (
 )
 
 
-// RpmCopyApiService RpmCopyApi service
-type RpmCopyApiService service
+// RpmCopyAPIService RpmCopyAPI service
+type RpmCopyAPIService service
 
-type RpmCopyApiCopyContentRequest struct {
+type RpmCopyAPICopyContentRequest struct {
 	ctx context.Context
-	ApiService *RpmCopyApiService
+	ApiService *RpmCopyAPIService
 	copy *Copy
 }
 
-func (r RpmCopyApiCopyContentRequest) Copy(copy Copy) RpmCopyApiCopyContentRequest {
+func (r RpmCopyAPICopyContentRequest) Copy(copy Copy) RpmCopyAPICopyContentRequest {
 	r.copy = &copy
 	return r
 }
 
-func (r RpmCopyApiCopyContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RpmCopyAPICopyContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.CopyContentExecute(r)
 }
 
@@ -44,10 +44,10 @@ CopyContent Copy content
 Trigger an asynchronous task to copy RPM contentfrom one repository into another, creating a newrepository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RpmCopyApiCopyContentRequest
+ @return RpmCopyAPICopyContentRequest
 */
-func (a *RpmCopyApiService) CopyContent(ctx context.Context) RpmCopyApiCopyContentRequest {
-	return RpmCopyApiCopyContentRequest{
+func (a *RpmCopyAPIService) CopyContent(ctx context.Context) RpmCopyAPICopyContentRequest {
+	return RpmCopyAPICopyContentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *RpmCopyApiService) CopyContent(ctx context.Context) RpmCopyApiCopyConte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RpmCopyApiService) CopyContentExecute(r RpmCopyApiCopyContentRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RpmCopyAPIService) CopyContentExecute(r RpmCopyAPICopyContentRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RpmCopyApiService) CopyContentExecute(r RpmCopyApiCopyContentRequest) (
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RpmCopyApiService.CopyContent")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RpmCopyAPIService.CopyContent")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

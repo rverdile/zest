@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsAptApiService
+Testing DistributionsAptAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsAptApiService(t *testing.T) {
+func Test_zest_DistributionsAptAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsAptApiService DistributionsDebAptCreate", func(t *testing.T) {
+	t.Run("Test DistributionsAptAPIService DistributionsDebAptCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsAptApi.DistributionsDebAptCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsAptAPI.DistributionsDebAptCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_DistributionsAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAptApiService DistributionsDebAptDelete", func(t *testing.T) {
+	t.Run("Test DistributionsAptAPIService DistributionsDebAptDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAptApi.DistributionsDebAptDelete(context.Background(), debAptDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAptAPI.DistributionsDebAptDelete(context.Background(), debAptDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_DistributionsAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAptApiService DistributionsDebAptList", func(t *testing.T) {
+	t.Run("Test DistributionsAptAPIService DistributionsDebAptList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsAptApi.DistributionsDebAptList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsAptAPI.DistributionsDebAptList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_DistributionsAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAptApiService DistributionsDebAptPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var debAptDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsAptApi.DistributionsDebAptPartialUpdate(context.Background(), debAptDistributionHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsAptApiService DistributionsDebAptRead", func(t *testing.T) {
+	t.Run("Test DistributionsAptAPIService DistributionsDebAptPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAptApi.DistributionsDebAptRead(context.Background(), debAptDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAptAPI.DistributionsDebAptPartialUpdate(context.Background(), debAptDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_DistributionsAptApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAptApiService DistributionsDebAptUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsAptAPIService DistributionsDebAptRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debAptDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAptApi.DistributionsDebAptUpdate(context.Background(), debAptDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAptAPI.DistributionsDebAptRead(context.Background(), debAptDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsAptAPIService DistributionsDebAptUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var debAptDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsAptAPI.DistributionsDebAptUpdate(context.Background(), debAptDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

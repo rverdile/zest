@@ -23,22 +23,22 @@ import (
 )
 
 
-// RemotesContainerApiService RemotesContainerApi service
-type RemotesContainerApiService service
+// RemotesContainerAPIService RemotesContainerAPI service
+type RemotesContainerAPIService service
 
-type RemotesContainerApiRemotesContainerContainerAddRoleRequest struct {
+type RemotesContainerAPIRemotesContainerContainerAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesContainerApiRemotesContainerContainerAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesContainerApiRemotesContainerContainerAddRoleRequest {
+func (r RemotesContainerAPIRemotesContainerContainerAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesContainerAPIRemotesContainerContainerAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerAddRoleRequest
+ @return RemotesContainerAPIRemotesContainerContainerAddRoleRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerAddRole(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerAddRoleRequest {
-	return RemotesContainerApiRemotesContainerContainerAddRoleRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerAddRole(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerAddRoleRequest {
+	return RemotesContainerAPIRemotesContainerContainerAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -61,7 +61,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerAddRole(ctx contex
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerAddRoleExecute(r RemotesContainerApiRemotesContainerContainerAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerAddRoleExecute(r RemotesContainerAPIRemotesContainerContainerAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerAddRoleExecute(r R
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *RemotesContainerApiService) RemotesContainerContainerAddRoleExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerCreateRequest struct {
+type RemotesContainerAPIRemotesContainerContainerCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemote *ContainerContainerRemote
 }
 
-func (r RemotesContainerApiRemotesContainerContainerCreateRequest) ContainerContainerRemote(containerContainerRemote ContainerContainerRemote) RemotesContainerApiRemotesContainerContainerCreateRequest {
+func (r RemotesContainerAPIRemotesContainerContainerCreateRequest) ContainerContainerRemote(containerContainerRemote ContainerContainerRemote) RemotesContainerAPIRemotesContainerContainerCreateRequest {
 	r.containerContainerRemote = &containerContainerRemote
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerCreateRequest) Execute() (*ContainerContainerRemoteResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerCreateRequest) Execute() (*ContainerContainerRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerCreateExecute(r)
 }
 
@@ -165,10 +165,10 @@ the ``policy`` field.  ``on_demand`` and ``streamed`` policies can provide
 significant disk space savings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesContainerApiRemotesContainerContainerCreateRequest
+ @return RemotesContainerAPIRemotesContainerContainerCreateRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerCreate(ctx context.Context) RemotesContainerApiRemotesContainerContainerCreateRequest {
-	return RemotesContainerApiRemotesContainerContainerCreateRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerCreate(ctx context.Context) RemotesContainerAPIRemotesContainerContainerCreateRequest {
+	return RemotesContainerAPIRemotesContainerContainerCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -176,7 +176,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerCreate(ctx context
 
 // Execute executes the request
 //  @return ContainerContainerRemoteResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerCreateExecute(r RemotesContainerApiRemotesContainerContainerCreateRequest) (*ContainerContainerRemoteResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerCreateExecute(r RemotesContainerAPIRemotesContainerContainerCreateRequest) (*ContainerContainerRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerCreateExecute(r Re
 		localVarReturnValue  *ContainerContainerRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -253,13 +253,13 @@ func (a *RemotesContainerApiService) RemotesContainerContainerCreateExecute(r Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerDeleteRequest struct {
+type RemotesContainerAPIRemotesContainerContainerDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 }
 
-func (r RemotesContainerApiRemotesContainerContainerDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerDeleteExecute(r)
 }
 
@@ -270,10 +270,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerDeleteRequest
+ @return RemotesContainerAPIRemotesContainerContainerDeleteRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerDelete(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerDeleteRequest {
-	return RemotesContainerApiRemotesContainerContainerDeleteRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerDelete(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerDeleteRequest {
+	return RemotesContainerAPIRemotesContainerContainerDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -282,7 +282,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerDelete(ctx context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerDeleteExecute(r RemotesContainerApiRemotesContainerContainerDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerDeleteExecute(r RemotesContainerAPIRemotesContainerContainerDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerDeleteExecute(r Re
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -357,9 +357,9 @@ func (a *RemotesContainerApiService) RemotesContainerContainerDeleteExecute(r Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerListRequest struct {
+type RemotesContainerAPIRemotesContainerContainerListRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -382,120 +382,120 @@ type RemotesContainerApiRemotesContainerContainerListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesContainerApiRemotesContainerContainerListRequest) Limit(limit int32) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) Limit(limit int32) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) Name(name string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) Name(name string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) NameContains(nameContains string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) NameContains(nameContains string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) NameIcontains(nameIcontains string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) NameIcontains(nameIcontains string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesContainerApiRemotesContainerContainerListRequest) NameIn(nameIn []string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) NameIn(nameIn []string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) NameStartswith(nameStartswith string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) NameStartswith(nameStartswith string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesContainerApiRemotesContainerContainerListRequest) Offset(offset int32) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) Offset(offset int32) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesContainerApiRemotesContainerContainerListRequest) Ordering(ordering []string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) Ordering(ordering []string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpHrefIn(pulpHrefIn []string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpHrefIn(pulpHrefIn []string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpIdIn(pulpIdIn []string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpIdIn(pulpIdIn []string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesContainerApiRemotesContainerContainerListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesContainerApiRemotesContainerContainerListRequest) Fields(fields []string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) Fields(fields []string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesContainerApiRemotesContainerContainerListRequest) ExcludeFields(excludeFields []string) RemotesContainerApiRemotesContainerContainerListRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) ExcludeFields(excludeFields []string) RemotesContainerAPIRemotesContainerContainerListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerListRequest) Execute() (*PaginatedcontainerContainerRemoteResponseList, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerListRequest) Execute() (*PaginatedcontainerContainerRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerListExecute(r)
 }
 
@@ -508,10 +508,10 @@ the ``policy`` field.  ``on_demand`` and ``streamed`` policies can provide
 significant disk space savings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesContainerApiRemotesContainerContainerListRequest
+ @return RemotesContainerAPIRemotesContainerContainerListRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerList(ctx context.Context) RemotesContainerApiRemotesContainerContainerListRequest {
-	return RemotesContainerApiRemotesContainerContainerListRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerList(ctx context.Context) RemotesContainerAPIRemotesContainerContainerListRequest {
+	return RemotesContainerAPIRemotesContainerContainerListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -519,7 +519,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerList(ctx context.C
 
 // Execute executes the request
 //  @return PaginatedcontainerContainerRemoteResponseList
-func (a *RemotesContainerApiService) RemotesContainerContainerListExecute(r RemotesContainerApiRemotesContainerContainerListRequest) (*PaginatedcontainerContainerRemoteResponseList, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerListExecute(r RemotesContainerAPIRemotesContainerContainerListRequest) (*PaginatedcontainerContainerRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -527,7 +527,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerListExecute(r Remo
 		localVarReturnValue  *PaginatedcontainerContainerRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -664,27 +664,27 @@ func (a *RemotesContainerApiService) RemotesContainerContainerListExecute(r Remo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerListRolesRequest struct {
+type RemotesContainerAPIRemotesContainerContainerListRolesRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesContainerApiRemotesContainerContainerListRolesRequest) Fields(fields []string) RemotesContainerApiRemotesContainerContainerListRolesRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRolesRequest) Fields(fields []string) RemotesContainerAPIRemotesContainerContainerListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesContainerApiRemotesContainerContainerListRolesRequest) ExcludeFields(excludeFields []string) RemotesContainerApiRemotesContainerContainerListRolesRequest {
+func (r RemotesContainerAPIRemotesContainerContainerListRolesRequest) ExcludeFields(excludeFields []string) RemotesContainerAPIRemotesContainerContainerListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerListRolesExecute(r)
 }
 
@@ -695,10 +695,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerListRolesRequest
+ @return RemotesContainerAPIRemotesContainerContainerListRolesRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerListRoles(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerListRolesRequest {
-	return RemotesContainerApiRemotesContainerContainerListRolesRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerListRoles(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerListRolesRequest {
+	return RemotesContainerAPIRemotesContainerContainerListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -707,7 +707,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerListRoles(ctx cont
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerListRolesExecute(r RemotesContainerApiRemotesContainerContainerListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerListRolesExecute(r RemotesContainerAPIRemotesContainerContainerListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -715,7 +715,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerListRolesExecute(r
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -804,27 +804,27 @@ func (a *RemotesContainerApiService) RemotesContainerContainerListRolesExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerMyPermissionsRequest struct {
+type RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesContainerApiRemotesContainerContainerMyPermissionsRequest) Fields(fields []string) RemotesContainerApiRemotesContainerContainerMyPermissionsRequest {
+func (r RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest) Fields(fields []string) RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesContainerApiRemotesContainerContainerMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesContainerApiRemotesContainerContainerMyPermissionsRequest {
+func (r RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerMyPermissionsExecute(r)
 }
 
@@ -835,10 +835,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerMyPermissionsRequest
+ @return RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerMyPermissions(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerMyPermissionsRequest {
-	return RemotesContainerApiRemotesContainerContainerMyPermissionsRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerMyPermissions(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest {
+	return RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -847,7 +847,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerMyPermissions(ctx 
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerMyPermissionsExecute(r RemotesContainerApiRemotesContainerContainerMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerMyPermissionsExecute(r RemotesContainerAPIRemotesContainerContainerMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -855,7 +855,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerMyPermissionsExecu
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -944,19 +944,19 @@ func (a *RemotesContainerApiService) RemotesContainerContainerMyPermissionsExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerPartialUpdateRequest struct {
+type RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 	patchedcontainerContainerRemote *PatchedcontainerContainerRemote
 }
 
-func (r RemotesContainerApiRemotesContainerContainerPartialUpdateRequest) PatchedcontainerContainerRemote(patchedcontainerContainerRemote PatchedcontainerContainerRemote) RemotesContainerApiRemotesContainerContainerPartialUpdateRequest {
+func (r RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest) PatchedcontainerContainerRemote(patchedcontainerContainerRemote PatchedcontainerContainerRemote) RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest {
 	r.patchedcontainerContainerRemote = &patchedcontainerContainerRemote
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerPartialUpdateExecute(r)
 }
 
@@ -967,10 +967,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerPartialUpdateRequest
+ @return RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerPartialUpdate(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerPartialUpdateRequest {
-	return RemotesContainerApiRemotesContainerContainerPartialUpdateRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerPartialUpdate(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest {
+	return RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -979,7 +979,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerPartialUpdate(ctx 
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerPartialUpdateExecute(r RemotesContainerApiRemotesContainerContainerPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerPartialUpdateExecute(r RemotesContainerAPIRemotesContainerContainerPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -987,7 +987,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerPartialUpdateExecu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1059,27 +1059,27 @@ func (a *RemotesContainerApiService) RemotesContainerContainerPartialUpdateExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerReadRequest struct {
+type RemotesContainerAPIRemotesContainerContainerReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesContainerApiRemotesContainerContainerReadRequest) Fields(fields []string) RemotesContainerApiRemotesContainerContainerReadRequest {
+func (r RemotesContainerAPIRemotesContainerContainerReadRequest) Fields(fields []string) RemotesContainerAPIRemotesContainerContainerReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesContainerApiRemotesContainerContainerReadRequest) ExcludeFields(excludeFields []string) RemotesContainerApiRemotesContainerContainerReadRequest {
+func (r RemotesContainerAPIRemotesContainerContainerReadRequest) ExcludeFields(excludeFields []string) RemotesContainerAPIRemotesContainerContainerReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerReadRequest) Execute() (*ContainerContainerRemoteResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerReadRequest) Execute() (*ContainerContainerRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerReadExecute(r)
 }
 
@@ -1093,10 +1093,10 @@ significant disk space savings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerReadRequest
+ @return RemotesContainerAPIRemotesContainerContainerReadRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerRead(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerReadRequest {
-	return RemotesContainerApiRemotesContainerContainerReadRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerRead(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerReadRequest {
+	return RemotesContainerAPIRemotesContainerContainerReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -1105,7 +1105,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerRead(ctx context.C
 
 // Execute executes the request
 //  @return ContainerContainerRemoteResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerReadExecute(r RemotesContainerApiRemotesContainerContainerReadRequest) (*ContainerContainerRemoteResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerReadExecute(r RemotesContainerAPIRemotesContainerContainerReadRequest) (*ContainerContainerRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1113,7 +1113,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerReadExecute(r Remo
 		localVarReturnValue  *ContainerContainerRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1202,19 +1202,19 @@ func (a *RemotesContainerApiService) RemotesContainerContainerReadExecute(r Remo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerRemoveRoleRequest struct {
+type RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesContainerApiRemotesContainerContainerRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesContainerApiRemotesContainerContainerRemoveRoleRequest {
+func (r RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerRemoveRoleExecute(r)
 }
 
@@ -1225,10 +1225,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerRemoveRoleRequest
+ @return RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerRemoveRole(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerRemoveRoleRequest {
-	return RemotesContainerApiRemotesContainerContainerRemoveRoleRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerRemoveRole(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest {
+	return RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -1237,7 +1237,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerRemoveRole(ctx con
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerRemoveRoleExecute(r RemotesContainerApiRemotesContainerContainerRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerRemoveRoleExecute(r RemotesContainerAPIRemotesContainerContainerRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1245,7 +1245,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerRemoveRoleExecute(
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1317,19 +1317,19 @@ func (a *RemotesContainerApiService) RemotesContainerContainerRemoveRoleExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesContainerApiRemotesContainerContainerUpdateRequest struct {
+type RemotesContainerAPIRemotesContainerContainerUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesContainerApiService
+	ApiService *RemotesContainerAPIService
 	containerContainerRemoteHref string
 	containerContainerRemote *ContainerContainerRemote
 }
 
-func (r RemotesContainerApiRemotesContainerContainerUpdateRequest) ContainerContainerRemote(containerContainerRemote ContainerContainerRemote) RemotesContainerApiRemotesContainerContainerUpdateRequest {
+func (r RemotesContainerAPIRemotesContainerContainerUpdateRequest) ContainerContainerRemote(containerContainerRemote ContainerContainerRemote) RemotesContainerAPIRemotesContainerContainerUpdateRequest {
 	r.containerContainerRemote = &containerContainerRemote
 	return r
 }
 
-func (r RemotesContainerApiRemotesContainerContainerUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesContainerAPIRemotesContainerContainerUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesContainerContainerUpdateExecute(r)
 }
 
@@ -1340,10 +1340,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRemoteHref
- @return RemotesContainerApiRemotesContainerContainerUpdateRequest
+ @return RemotesContainerAPIRemotesContainerContainerUpdateRequest
 */
-func (a *RemotesContainerApiService) RemotesContainerContainerUpdate(ctx context.Context, containerContainerRemoteHref string) RemotesContainerApiRemotesContainerContainerUpdateRequest {
-	return RemotesContainerApiRemotesContainerContainerUpdateRequest{
+func (a *RemotesContainerAPIService) RemotesContainerContainerUpdate(ctx context.Context, containerContainerRemoteHref string) RemotesContainerAPIRemotesContainerContainerUpdateRequest {
+	return RemotesContainerAPIRemotesContainerContainerUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRemoteHref: containerContainerRemoteHref,
@@ -1352,7 +1352,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerUpdate(ctx context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesContainerApiService) RemotesContainerContainerUpdateExecute(r RemotesContainerApiRemotesContainerContainerUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesContainerAPIService) RemotesContainerContainerUpdateExecute(r RemotesContainerAPIRemotesContainerContainerUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1360,7 +1360,7 @@ func (a *RemotesContainerApiService) RemotesContainerContainerUpdateExecute(r Re
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerApiService.RemotesContainerContainerUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesContainerAPIService.RemotesContainerContainerUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

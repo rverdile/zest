@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsOstreeApiService
+Testing DistributionsOstreeAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsOstreeApiService(t *testing.T) {
+func Test_zest_DistributionsOstreeAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsOstreeApiService DistributionsOstreeOstreeCreate", func(t *testing.T) {
+	t.Run("Test DistributionsOstreeAPIService DistributionsOstreeOstreeCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsOstreeApi.DistributionsOstreeOstreeCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsOstreeAPI.DistributionsOstreeOstreeCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_DistributionsOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsOstreeApiService DistributionsOstreeOstreeDelete", func(t *testing.T) {
+	t.Run("Test DistributionsOstreeAPIService DistributionsOstreeOstreeDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsOstreeApi.DistributionsOstreeOstreeDelete(context.Background(), ostreeOstreeDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsOstreeAPI.DistributionsOstreeOstreeDelete(context.Background(), ostreeOstreeDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_DistributionsOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsOstreeApiService DistributionsOstreeOstreeList", func(t *testing.T) {
+	t.Run("Test DistributionsOstreeAPIService DistributionsOstreeOstreeList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsOstreeApi.DistributionsOstreeOstreeList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsOstreeAPI.DistributionsOstreeOstreeList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_DistributionsOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsOstreeApiService DistributionsOstreeOstreePartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ostreeOstreeDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsOstreeApi.DistributionsOstreeOstreePartialUpdate(context.Background(), ostreeOstreeDistributionHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsOstreeApiService DistributionsOstreeOstreeRead", func(t *testing.T) {
+	t.Run("Test DistributionsOstreeAPIService DistributionsOstreeOstreePartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsOstreeApi.DistributionsOstreeOstreeRead(context.Background(), ostreeOstreeDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsOstreeAPI.DistributionsOstreeOstreePartialUpdate(context.Background(), ostreeOstreeDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_DistributionsOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsOstreeApiService DistributionsOstreeOstreeUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsOstreeAPIService DistributionsOstreeOstreeRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsOstreeApi.DistributionsOstreeOstreeUpdate(context.Background(), ostreeOstreeDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsOstreeAPI.DistributionsOstreeOstreeRead(context.Background(), ostreeOstreeDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsOstreeAPIService DistributionsOstreeOstreeUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ostreeOstreeDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsOstreeAPI.DistributionsOstreeOstreeUpdate(context.Background(), ostreeOstreeDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

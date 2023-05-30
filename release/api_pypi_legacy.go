@@ -22,12 +22,12 @@ import (
 )
 
 
-// PypiLegacyApiService PypiLegacyApi service
-type PypiLegacyApiService service
+// PypiLegacyAPIService PypiLegacyAPI service
+type PypiLegacyAPIService service
 
-type PypiLegacyApiPypiLegacyCreateRequest struct {
+type PypiLegacyAPIPypiLegacyCreateRequest struct {
 	ctx context.Context
-	ApiService *PypiLegacyApiService
+	ApiService *PypiLegacyAPIService
 	path string
 	content *os.File
 	sha256Digest *string
@@ -35,24 +35,24 @@ type PypiLegacyApiPypiLegacyCreateRequest struct {
 }
 
 // A Python package release file to upload to the index.
-func (r PypiLegacyApiPypiLegacyCreateRequest) Content(content *os.File) PypiLegacyApiPypiLegacyCreateRequest {
+func (r PypiLegacyAPIPypiLegacyCreateRequest) Content(content *os.File) PypiLegacyAPIPypiLegacyCreateRequest {
 	r.content = content
 	return r
 }
 
 // SHA256 of package to validate upload integrity.
-func (r PypiLegacyApiPypiLegacyCreateRequest) Sha256Digest(sha256Digest string) PypiLegacyApiPypiLegacyCreateRequest {
+func (r PypiLegacyAPIPypiLegacyCreateRequest) Sha256Digest(sha256Digest string) PypiLegacyAPIPypiLegacyCreateRequest {
 	r.sha256Digest = &sha256Digest
 	return r
 }
 
 // Defaults to &#x60;file_upload&#x60;, don&#39;t change it or request will fail!
-func (r PypiLegacyApiPypiLegacyCreateRequest) Action(action string) PypiLegacyApiPypiLegacyCreateRequest {
+func (r PypiLegacyAPIPypiLegacyCreateRequest) Action(action string) PypiLegacyAPIPypiLegacyCreateRequest {
 	r.action = &action
 	return r
 }
 
-func (r PypiLegacyApiPypiLegacyCreateRequest) Execute() (*PackageUploadTaskResponse, *http.Response, error) {
+func (r PypiLegacyAPIPypiLegacyCreateRequest) Execute() (*PackageUploadTaskResponse, *http.Response, error) {
 	return r.ApiService.PypiLegacyCreateExecute(r)
 }
 
@@ -65,10 +65,10 @@ This is the endpoint that tools like Twine and Poetry use for their upload comma
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PypiLegacyApiPypiLegacyCreateRequest
+ @return PypiLegacyAPIPypiLegacyCreateRequest
 */
-func (a *PypiLegacyApiService) PypiLegacyCreate(ctx context.Context, path string) PypiLegacyApiPypiLegacyCreateRequest {
-	return PypiLegacyApiPypiLegacyCreateRequest{
+func (a *PypiLegacyAPIService) PypiLegacyCreate(ctx context.Context, path string) PypiLegacyAPIPypiLegacyCreateRequest {
+	return PypiLegacyAPIPypiLegacyCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -77,7 +77,7 @@ func (a *PypiLegacyApiService) PypiLegacyCreate(ctx context.Context, path string
 
 // Execute executes the request
 //  @return PackageUploadTaskResponse
-func (a *PypiLegacyApiService) PypiLegacyCreateExecute(r PypiLegacyApiPypiLegacyCreateRequest) (*PackageUploadTaskResponse, *http.Response, error) {
+func (a *PypiLegacyAPIService) PypiLegacyCreateExecute(r PypiLegacyAPIPypiLegacyCreateRequest) (*PackageUploadTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -85,7 +85,7 @@ func (a *PypiLegacyApiService) PypiLegacyCreateExecute(r PypiLegacyApiPypiLegacy
 		localVarReturnValue  *PackageUploadTaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiLegacyApiService.PypiLegacyCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiLegacyAPIService.PypiLegacyCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

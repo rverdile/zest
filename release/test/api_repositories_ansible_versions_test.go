@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesAnsibleVersionsApiService
+Testing RepositoriesAnsibleVersionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesAnsibleVersionsApiService(t *testing.T) {
+func Test_zest_RepositoriesAnsibleVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesAnsibleVersionsApiService RepositoriesAnsibleAnsibleVersionsDelete", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleVersionsAPIService RepositoriesAnsibleAnsibleVersionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsApi.RepositoriesAnsibleAnsibleVersionsDelete(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsAPI.RepositoriesAnsibleAnsibleVersionsDelete(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_RepositoriesAnsibleVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleVersionsApiService RepositoriesAnsibleAnsibleVersionsList", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleVersionsAPIService RepositoriesAnsibleAnsibleVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsApi.RepositoriesAnsibleAnsibleVersionsList(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsAPI.RepositoriesAnsibleAnsibleVersionsList(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_zest_RepositoriesAnsibleVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleVersionsApiService RepositoriesAnsibleAnsibleVersionsRead", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleVersionsAPIService RepositoriesAnsibleAnsibleVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsApi.RepositoriesAnsibleAnsibleVersionsRead(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsAPI.RepositoriesAnsibleAnsibleVersionsRead(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_zest_RepositoriesAnsibleVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleVersionsApiService RepositoriesAnsibleAnsibleVersionsRebuildMetadata", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleVersionsAPIService RepositoriesAnsibleAnsibleVersionsRebuildMetadata", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsApi.RepositoriesAnsibleAnsibleVersionsRebuildMetadata(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsAPI.RepositoriesAnsibleAnsibleVersionsRebuildMetadata(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -78,13 +78,13 @@ func Test_zest_RepositoriesAnsibleVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleVersionsApiService RepositoriesAnsibleAnsibleVersionsRepair", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleVersionsAPIService RepositoriesAnsibleAnsibleVersionsRepair", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsApi.RepositoriesAnsibleAnsibleVersionsRepair(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleVersionsAPI.RepositoriesAnsibleAnsibleVersionsRepair(context.Background(), ansibleAnsibleRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

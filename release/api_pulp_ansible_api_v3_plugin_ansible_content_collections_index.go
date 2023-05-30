@@ -22,19 +22,19 @@ import (
 )
 
 
-// PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApi service
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService service
+// PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPI service
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService service
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService
 	distroBasePath string
 	name string
 	namespace string
 	path string
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteExecute(r)
 }
 
@@ -48,10 +48,10 @@ Trigger an asynchronous delete task
  @param name
  @param namespace
  @param path
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDelete(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDelete(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -63,7 +63,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -71,7 +71,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -147,9 +147,9 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService
 	distroBasePath string
 	path string
 	deprecated *bool
@@ -164,64 +164,64 @@ type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApi
 	excludeFields *[]string
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Deprecated(deprecated bool) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Deprecated(deprecated bool) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.deprecated = &deprecated
 	return r
 }
 
 // Number of results to return per page.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Limit(limit int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Limit(limit int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Name(name string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Name(name string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.name = &name
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Namespace(namespace string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Namespace(namespace string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Offset(offset int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Offset(offset int32) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Ordering(ordering []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Ordering(ordering []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Execute() (*PaginatedCollectionResponseList, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) Execute() (*PaginatedCollectionResponseList, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListExecute(r)
 }
 
@@ -233,10 +233,10 @@ ViewSet for Collections.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
  @param path
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexList(ctx context.Context, distroBasePath string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexList(ctx context.Context, distroBasePath string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -246,7 +246,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 
 // Execute executes the request
 //  @return PaginatedCollectionResponseList
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) (*PaginatedCollectionResponseList, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexListRequest) (*PaginatedCollectionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -254,7 +254,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 		localVarReturnValue  *PaginatedCollectionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -370,9 +370,9 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService
 	distroBasePath string
 	name string
 	namespace string
@@ -382,18 +382,18 @@ type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApi
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) Execute() (*CollectionResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) Execute() (*CollectionResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadExecute(r)
 }
 
@@ -407,10 +407,10 @@ ViewSet for Collections.
  @param name
  @param namespace
  @param path
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexRead(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexRead(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -422,7 +422,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 
 // Execute executes the request
 //  @return CollectionResponse
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) (*CollectionResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexReadRequest) (*CollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -430,7 +430,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 		localVarReturnValue  *CollectionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -528,9 +528,9 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService
 	distroBasePath string
 	name string
 	namespace string
@@ -538,12 +538,12 @@ type PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApi
 	body *map[string]interface{}
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest) Body(body map[string]interface{}) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest) Body(body map[string]interface{}) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest {
 	r.body = &body
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateExecute(r)
 }
 
@@ -557,10 +557,10 @@ Trigger an asynchronous update task
  @param name
  @param namespace
  @param path
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdate(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdate(ctx context.Context, distroBasePath string, name string, namespace string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -572,7 +572,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -580,7 +580,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService) PulpAns
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsIndexAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsIndexUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

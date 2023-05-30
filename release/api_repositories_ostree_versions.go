@@ -23,16 +23,16 @@ import (
 )
 
 
-// RepositoriesOstreeVersionsApiService RepositoriesOstreeVersionsApi service
-type RepositoriesOstreeVersionsApiService service
+// RepositoriesOstreeVersionsAPIService RepositoriesOstreeVersionsAPI service
+type RepositoriesOstreeVersionsAPIService service
 
-type RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsDeleteRequest struct {
+type RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeVersionsApiService
+	ApiService *RepositoriesOstreeVersionsAPIService
 	ostreeOstreeRepositoryVersionHref string
 }
 
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeVersionsDeleteExecute(r)
 }
 
@@ -43,10 +43,10 @@ Trigger an asynchronous task to delete a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryVersionHref
- @return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsDeleteRequest
+ @return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsDeleteRequest
 */
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsDelete(ctx context.Context, ostreeOstreeRepositoryVersionHref string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsDeleteRequest {
-	return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsDeleteRequest{
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsDelete(ctx context.Context, ostreeOstreeRepositoryVersionHref string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsDeleteRequest {
+	return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryVersionHref: ostreeOstreeRepositoryVersionHref,
@@ -55,7 +55,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsD
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsDeleteExecute(r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsDeleteExecute(r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsD
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsApiService.RepositoriesOstreeOstreeVersionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsAPIService.RepositoriesOstreeOstreeVersionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -130,9 +130,9 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest struct {
+type RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeVersionsApiService
+	ApiService *RepositoriesOstreeVersionsAPIService
 	ostreeOstreeRepositoryHref string
 	content *string
 	contentIn *string
@@ -157,126 +157,126 @@ type RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest st
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) Content(content string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) Content(content string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) ContentIn(contentIn string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) ContentIn(contentIn string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) Limit(limit int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) Limit(limit int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where number matches value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) Number(number int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) Number(number int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.number = &number
 	return r
 }
 
 // Filter results where number is greater than value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) NumberGt(numberGt int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) NumberGt(numberGt int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.numberGt = &numberGt
 	return r
 }
 
 // Filter results where number is greater than or equal to value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) NumberGte(numberGte int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) NumberGte(numberGte int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.numberGte = &numberGte
 	return r
 }
 
 // Filter results where number is less than value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) NumberLt(numberLt int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) NumberLt(numberLt int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.numberLt = &numberLt
 	return r
 }
 
 // Filter results where number is less than or equal to value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) NumberLte(numberLte int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) NumberLte(numberLte int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.numberLte = &numberLte
 	return r
 }
 
 // Filter results where number is between two comma separated values
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) NumberRange(numberRange []int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) NumberRange(numberRange []int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.numberRange = &numberRange
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) Offset(offset int32) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) Offset(offset int32) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) Ordering(ordering []string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) Ordering(ordering []string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) Fields(fields []string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) Fields(fields []string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeVersionsListExecute(r)
 }
 
@@ -287,10 +287,10 @@ A ViewSet class that represents a single OSTree repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest
+ @return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest
 */
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsList(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest {
-	return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest{
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsList(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest {
+	return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -299,7 +299,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsL
 
 // Execute executes the request
 //  @return PaginatedRepositoryVersionResponseList
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsListExecute(r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsListExecute(r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -307,7 +307,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsL
 		localVarReturnValue  *PaginatedRepositoryVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsApiService.RepositoriesOstreeOstreeVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsAPIService.RepositoriesOstreeOstreeVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -450,27 +450,27 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest struct {
+type RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeVersionsApiService
+	ApiService *RepositoriesOstreeVersionsAPIService
 	ostreeOstreeRepositoryVersionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest) Fields(fields []string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest) Fields(fields []string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeVersionsReadExecute(r)
 }
 
@@ -481,10 +481,10 @@ A ViewSet class that represents a single OSTree repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryVersionHref
- @return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest
+ @return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest
 */
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsRead(ctx context.Context, ostreeOstreeRepositoryVersionHref string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest {
-	return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest{
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsRead(ctx context.Context, ostreeOstreeRepositoryVersionHref string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest {
+	return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryVersionHref: ostreeOstreeRepositoryVersionHref,
@@ -493,7 +493,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsR
 
 // Execute executes the request
 //  @return RepositoryVersionResponse
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsReadExecute(r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsReadExecute(r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -501,7 +501,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsR
 		localVarReturnValue  *RepositoryVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsApiService.RepositoriesOstreeOstreeVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsAPIService.RepositoriesOstreeOstreeVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -590,19 +590,19 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest struct {
+type RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeVersionsApiService
+	ApiService *RepositoriesOstreeVersionsAPIService
 	ostreeOstreeRepositoryVersionHref string
 	repair *Repair
 }
 
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest) Repair(repair Repair) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest) Repair(repair Repair) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest {
 	r.repair = &repair
 	return r
 }
 
-func (r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeVersionsRepairExecute(r)
 }
 
@@ -613,10 +613,10 @@ Trigger an asynchronous task to repair a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryVersionHref
- @return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest
+ @return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest
 */
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsRepair(ctx context.Context, ostreeOstreeRepositoryVersionHref string) RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest {
-	return RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest{
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsRepair(ctx context.Context, ostreeOstreeRepositoryVersionHref string) RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest {
+	return RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryVersionHref: ostreeOstreeRepositoryVersionHref,
@@ -625,7 +625,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsR
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsRepairExecute(r RepositoriesOstreeVersionsApiRepositoriesOstreeOstreeVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeVersionsAPIService) RepositoriesOstreeOstreeVersionsRepairExecute(r RepositoriesOstreeVersionsAPIRepositoriesOstreeOstreeVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -633,7 +633,7 @@ func (a *RepositoriesOstreeVersionsApiService) RepositoriesOstreeOstreeVersionsR
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsApiService.RepositoriesOstreeOstreeVersionsRepair")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeVersionsAPIService.RepositoriesOstreeOstreeVersionsRepair")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

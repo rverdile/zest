@@ -22,22 +22,22 @@ import (
 )
 
 
-// DistributionsContainerApiService DistributionsContainerApi service
-type DistributionsContainerApiService service
+// DistributionsContainerAPIService DistributionsContainerAPI service
+type DistributionsContainerAPIService service
 
-type DistributionsContainerApiDistributionsContainerContainerAddRoleRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsContainerApiDistributionsContainerContainerAddRoleRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerAddRoleRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerAddRole(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerAddRoleRequest {
-	return DistributionsContainerApiDistributionsContainerContainerAddRoleRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerAddRole(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -60,7 +60,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerAddRol
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerAddRoleExecute(r DistributionsContainerApiDistributionsContainerContainerAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerAddRoleExecute(r DistributionsContainerAPIDistributionsContainerContainerAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerAddRol
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerAddRol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerCreateRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistribution *ContainerContainerDistribution
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerCreateRequest) ContainerContainerDistribution(containerContainerDistribution ContainerContainerDistribution) DistributionsContainerApiDistributionsContainerContainerCreateRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerCreateRequest) ContainerContainerDistribution(containerContainerDistribution ContainerContainerDistribution) DistributionsContainerAPIDistributionsContainerContainerCreateRequest {
 	r.containerContainerDistribution = &containerContainerDistribution
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ DistributionsContainerContainerCreate Create a container distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsContainerApiDistributionsContainerContainerCreateRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerCreateRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerCreate(ctx context.Context) DistributionsContainerApiDistributionsContainerContainerCreateRequest {
-	return DistributionsContainerApiDistributionsContainerContainerCreateRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerCreate(ctx context.Context) DistributionsContainerAPIDistributionsContainerContainerCreateRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerCreate
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerCreateExecute(r DistributionsContainerApiDistributionsContainerContainerCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerCreateExecute(r DistributionsContainerAPIDistributionsContainerContainerCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerCreate
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerCreate
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerDeleteRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerDeleteRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerDeleteRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerDelete(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerDeleteRequest {
-	return DistributionsContainerApiDistributionsContainerContainerDeleteRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerDelete(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerDeleteRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -278,7 +278,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerDelete
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerDeleteExecute(r DistributionsContainerApiDistributionsContainerContainerDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerDeleteExecute(r DistributionsContainerAPIDistributionsContainerContainerDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerDelete
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,9 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerDelete
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerListRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -380,131 +380,131 @@ type DistributionsContainerApiDistributionsContainerContainerListRequest struct 
 }
 
 // Filter results where base_path matches value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) BasePath(basePath string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) BasePath(basePath string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) BasePathContains(basePathContains string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) BasePathContains(basePathContains string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) BasePathIcontains(basePathIcontains string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) BasePathIcontains(basePathIcontains string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) BasePathIn(basePathIn []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) BasePathIn(basePathIn []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) Limit(limit int32) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) Limit(limit int32) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) Name(name string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) Name(name string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) NameContains(nameContains string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) NameContains(nameContains string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) NameIcontains(nameIcontains string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) NameIcontains(nameIcontains string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) NameIn(nameIn []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) NameIn(nameIn []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) NameStartswith(nameStartswith string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) NameStartswith(nameStartswith string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) NamespaceName(namespaceName string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) NamespaceName(namespaceName string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.namespaceName = &namespaceName
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) Offset(offset int32) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) Offset(offset int32) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;private&#x60; - Private * &#x60;-private&#x60; - Private (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) Ordering(ordering []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) Ordering(ordering []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) PulpIdIn(pulpIdIn []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) PulpIdIn(pulpIdIn []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) Repository(repository string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) Repository(repository string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) RepositoryIn(repositoryIn []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) RepositoryIn(repositoryIn []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) WithContent(withContent string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) WithContent(withContent string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) Fields(fields []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) Fields(fields []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) ExcludeFields(excludeFields []string) DistributionsContainerApiDistributionsContainerContainerListRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) ExcludeFields(excludeFields []string) DistributionsContainerAPIDistributionsContainerContainerListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerListRequest) Execute() (*PaginatedcontainerContainerDistributionResponseList, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRequest) Execute() (*PaginatedcontainerContainerDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerListExecute(r)
 }
 
@@ -518,10 +518,10 @@ repository version if ``repository_version``. Note that **either**
 Distribution, but not both.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsContainerApiDistributionsContainerContainerListRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerListRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerList(ctx context.Context) DistributionsContainerApiDistributionsContainerContainerListRequest {
-	return DistributionsContainerApiDistributionsContainerContainerListRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerList(ctx context.Context) DistributionsContainerAPIDistributionsContainerContainerListRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -529,7 +529,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerList(c
 
 // Execute executes the request
 //  @return PaginatedcontainerContainerDistributionResponseList
-func (a *DistributionsContainerApiService) DistributionsContainerContainerListExecute(r DistributionsContainerApiDistributionsContainerContainerListRequest) (*PaginatedcontainerContainerDistributionResponseList, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerListExecute(r DistributionsContainerAPIDistributionsContainerContainerListRequest) (*PaginatedcontainerContainerDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -537,7 +537,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerListEx
 		localVarReturnValue  *PaginatedcontainerContainerDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -680,27 +680,27 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerListEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerListRolesRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerListRolesRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsContainerApiDistributionsContainerContainerListRolesRequest) Fields(fields []string) DistributionsContainerApiDistributionsContainerContainerListRolesRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRolesRequest) Fields(fields []string) DistributionsContainerAPIDistributionsContainerContainerListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsContainerApiDistributionsContainerContainerListRolesRequest) ExcludeFields(excludeFields []string) DistributionsContainerApiDistributionsContainerContainerListRolesRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRolesRequest) ExcludeFields(excludeFields []string) DistributionsContainerAPIDistributionsContainerContainerListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerListRolesExecute(r)
 }
 
@@ -711,10 +711,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerListRolesRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerListRolesRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerListRoles(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerListRolesRequest {
-	return DistributionsContainerApiDistributionsContainerContainerListRolesRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerListRoles(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerListRolesRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -723,7 +723,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerListRo
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerListRolesExecute(r DistributionsContainerApiDistributionsContainerContainerListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerListRolesExecute(r DistributionsContainerAPIDistributionsContainerContainerListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -731,7 +731,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerListRo
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -820,27 +820,27 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerListRo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest) Fields(fields []string) DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest) Fields(fields []string) DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerMyPermissionsExecute(r)
 }
 
@@ -851,10 +851,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerMyPermissions(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest {
-	return DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerMyPermissions(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -863,7 +863,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerMyPerm
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerMyPermissionsExecute(r DistributionsContainerApiDistributionsContainerContainerMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerMyPermissionsExecute(r DistributionsContainerAPIDistributionsContainerContainerMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -871,7 +871,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerMyPerm
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -960,19 +960,19 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerMyPerm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 	patchedcontainerContainerDistribution *PatchedcontainerContainerDistribution
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest) PatchedcontainerContainerDistribution(patchedcontainerContainerDistribution PatchedcontainerContainerDistribution) DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest) PatchedcontainerContainerDistribution(patchedcontainerContainerDistribution PatchedcontainerContainerDistribution) DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest {
 	r.patchedcontainerContainerDistribution = &patchedcontainerContainerDistribution
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerPartialUpdateExecute(r)
 }
 
@@ -983,10 +983,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerPartialUpdate(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest {
-	return DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerPartialUpdate(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -995,7 +995,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerPartia
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerPartialUpdateExecute(r DistributionsContainerApiDistributionsContainerContainerPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerPartialUpdateExecute(r DistributionsContainerAPIDistributionsContainerContainerPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1003,7 +1003,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerPartia
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1075,27 +1075,27 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerPartia
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerReadRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsContainerApiDistributionsContainerContainerReadRequest) Fields(fields []string) DistributionsContainerApiDistributionsContainerContainerReadRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerReadRequest) Fields(fields []string) DistributionsContainerAPIDistributionsContainerContainerReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsContainerApiDistributionsContainerContainerReadRequest) ExcludeFields(excludeFields []string) DistributionsContainerApiDistributionsContainerContainerReadRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerReadRequest) ExcludeFields(excludeFields []string) DistributionsContainerAPIDistributionsContainerContainerReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerReadRequest) Execute() (*ContainerContainerDistributionResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerReadRequest) Execute() (*ContainerContainerDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerReadExecute(r)
 }
 
@@ -1110,10 +1110,10 @@ Distribution, but not both.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerReadRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerReadRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerRead(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerReadRequest {
-	return DistributionsContainerApiDistributionsContainerContainerReadRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerRead(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerReadRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -1122,7 +1122,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerRead(c
 
 // Execute executes the request
 //  @return ContainerContainerDistributionResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerReadExecute(r DistributionsContainerApiDistributionsContainerContainerReadRequest) (*ContainerContainerDistributionResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerReadExecute(r DistributionsContainerAPIDistributionsContainerContainerReadRequest) (*ContainerContainerDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1130,7 +1130,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerReadEx
 		localVarReturnValue  *ContainerContainerDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1219,19 +1219,19 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerReadEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerRemoveRoleExecute(r)
 }
 
@@ -1242,10 +1242,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerRemoveRole(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest {
-	return DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerRemoveRole(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -1254,7 +1254,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerRemove
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerRemoveRoleExecute(r DistributionsContainerApiDistributionsContainerContainerRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerRemoveRoleExecute(r DistributionsContainerAPIDistributionsContainerContainerRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1262,7 +1262,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerRemove
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1334,19 +1334,19 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerRemove
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsContainerApiDistributionsContainerContainerUpdateRequest struct {
+type DistributionsContainerAPIDistributionsContainerContainerUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsContainerApiService
+	ApiService *DistributionsContainerAPIService
 	containerContainerDistributionHref string
 	containerContainerDistribution *ContainerContainerDistribution
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerUpdateRequest) ContainerContainerDistribution(containerContainerDistribution ContainerContainerDistribution) DistributionsContainerApiDistributionsContainerContainerUpdateRequest {
+func (r DistributionsContainerAPIDistributionsContainerContainerUpdateRequest) ContainerContainerDistribution(containerContainerDistribution ContainerContainerDistribution) DistributionsContainerAPIDistributionsContainerContainerUpdateRequest {
 	r.containerContainerDistribution = &containerContainerDistribution
 	return r
 }
 
-func (r DistributionsContainerApiDistributionsContainerContainerUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsContainerAPIDistributionsContainerContainerUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsContainerContainerUpdateExecute(r)
 }
 
@@ -1357,10 +1357,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerDistributionHref
- @return DistributionsContainerApiDistributionsContainerContainerUpdateRequest
+ @return DistributionsContainerAPIDistributionsContainerContainerUpdateRequest
 */
-func (a *DistributionsContainerApiService) DistributionsContainerContainerUpdate(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerApiDistributionsContainerContainerUpdateRequest {
-	return DistributionsContainerApiDistributionsContainerContainerUpdateRequest{
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerUpdate(ctx context.Context, containerContainerDistributionHref string) DistributionsContainerAPIDistributionsContainerContainerUpdateRequest {
+	return DistributionsContainerAPIDistributionsContainerContainerUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerDistributionHref: containerContainerDistributionHref,
@@ -1369,7 +1369,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerUpdate
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsContainerApiService) DistributionsContainerContainerUpdateExecute(r DistributionsContainerApiDistributionsContainerContainerUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsContainerAPIService) DistributionsContainerContainerUpdateExecute(r DistributionsContainerAPIDistributionsContainerContainerUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1377,7 +1377,7 @@ func (a *DistributionsContainerApiService) DistributionsContainerContainerUpdate
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerApiService.DistributionsContainerContainerUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsContainerAPIService.DistributionsContainerContainerUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

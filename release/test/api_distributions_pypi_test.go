@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsPypiApiService
+Testing DistributionsPypiAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsPypiApiService(t *testing.T) {
+func Test_zest_DistributionsPypiAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsPypiApiService DistributionsPythonPypiCreate", func(t *testing.T) {
+	t.Run("Test DistributionsPypiAPIService DistributionsPythonPypiCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsPypiApi.DistributionsPythonPypiCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsPypiAPI.DistributionsPythonPypiCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_DistributionsPypiApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsPypiApiService DistributionsPythonPypiDelete", func(t *testing.T) {
+	t.Run("Test DistributionsPypiAPIService DistributionsPythonPypiDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsPypiApi.DistributionsPythonPypiDelete(context.Background(), pythonPythonDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsPypiAPI.DistributionsPythonPypiDelete(context.Background(), pythonPythonDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_DistributionsPypiApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsPypiApiService DistributionsPythonPypiList", func(t *testing.T) {
+	t.Run("Test DistributionsPypiAPIService DistributionsPythonPypiList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsPypiApi.DistributionsPythonPypiList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsPypiAPI.DistributionsPythonPypiList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_DistributionsPypiApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsPypiApiService DistributionsPythonPypiPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pythonPythonDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsPypiApi.DistributionsPythonPypiPartialUpdate(context.Background(), pythonPythonDistributionHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsPypiApiService DistributionsPythonPypiRead", func(t *testing.T) {
+	t.Run("Test DistributionsPypiAPIService DistributionsPythonPypiPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsPypiApi.DistributionsPythonPypiRead(context.Background(), pythonPythonDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsPypiAPI.DistributionsPythonPypiPartialUpdate(context.Background(), pythonPythonDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_DistributionsPypiApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsPypiApiService DistributionsPythonPypiUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsPypiAPIService DistributionsPythonPypiRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsPypiApi.DistributionsPythonPypiUpdate(context.Background(), pythonPythonDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsPypiAPI.DistributionsPythonPypiRead(context.Background(), pythonPythonDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsPypiAPIService DistributionsPythonPypiUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pythonPythonDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsPypiAPI.DistributionsPythonPypiUpdate(context.Background(), pythonPythonDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

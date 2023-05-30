@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing VersionsApiService
+Testing VersionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_VersionsApiService(t *testing.T) {
+func Test_zest_VersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test VersionsApiService ApiV1RolesVersionsList", func(t *testing.T) {
+	t.Run("Test VersionsAPIService ApiV1RolesVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleRoleHref string
 
-		resp, httpRes, err := apiClient.VersionsApi.ApiV1RolesVersionsList(context.Background(), ansibleRoleHref).Execute()
+		resp, httpRes, err := apiClient.VersionsAPI.ApiV1RolesVersionsList(context.Background(), ansibleRoleHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_VersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test VersionsApiService ApiV2CollectionVersionsList", func(t *testing.T) {
+	t.Run("Test VersionsAPIService ApiV2CollectionVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionVersionHref string
 
-		resp, httpRes, err := apiClient.VersionsApi.ApiV2CollectionVersionsList(context.Background(), ansibleCollectionVersionHref).Execute()
+		resp, httpRes, err := apiClient.VersionsAPI.ApiV2CollectionVersionsList(context.Background(), ansibleCollectionVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

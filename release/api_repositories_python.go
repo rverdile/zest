@@ -22,21 +22,21 @@ import (
 )
 
 
-// RepositoriesPythonApiService RepositoriesPythonApi service
-type RepositoriesPythonApiService service
+// RepositoriesPythonAPIService RepositoriesPythonAPI service
+type RepositoriesPythonAPIService service
 
-type RepositoriesPythonApiRepositoriesPythonPythonCreateRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
 	pythonPythonRepository *PythonPythonRepository
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonCreateRequest) PythonPythonRepository(pythonPythonRepository PythonPythonRepository) RepositoriesPythonApiRepositoriesPythonPythonCreateRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest) PythonPythonRepository(pythonPythonRepository PythonPythonRepository) RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest {
 	r.pythonPythonRepository = &pythonPythonRepository
 	return r
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonCreateRequest) Execute() (*PythonPythonRepositoryResponse, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest) Execute() (*PythonPythonRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonCreateExecute(r)
 }
 
@@ -47,10 +47,10 @@ PythonRepository represents a single Python repository, to which content can be
 synced, added, or removed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesPythonApiRepositoriesPythonPythonCreateRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonCreate(ctx context.Context) RepositoriesPythonApiRepositoriesPythonPythonCreateRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonCreateRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonCreate(ctx context.Context) RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonCreate(ctx contex
 
 // Execute executes the request
 //  @return PythonPythonRepositoryResponse
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonCreateExecute(r RepositoriesPythonApiRepositoriesPythonPythonCreateRequest) (*PythonPythonRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonCreateExecute(r RepositoriesPythonAPIRepositoriesPythonPythonCreateRequest) (*PythonPythonRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonCreateExecute(r R
 		localVarReturnValue  *PythonPythonRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,13 +135,13 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonCreateExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonApiRepositoriesPythonPythonDeleteRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
 	pythonPythonRepositoryHref string
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonDeleteExecute(r)
 }
 
@@ -152,10 +152,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryHref
- @return RepositoriesPythonApiRepositoriesPythonPythonDeleteRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonDeleteRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonDelete(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonApiRepositoriesPythonPythonDeleteRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonDeleteRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonDelete(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonAPIRepositoriesPythonPythonDeleteRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryHref: pythonPythonRepositoryHref,
@@ -164,7 +164,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonDelete(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonDeleteExecute(r RepositoriesPythonApiRepositoriesPythonPythonDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonDeleteExecute(r RepositoriesPythonAPIRepositoriesPythonPythonDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -172,7 +172,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonDeleteExecute(r R
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,9 +239,10 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonDeleteExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonApiRepositoriesPythonPythonListRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -262,143 +263,156 @@ type RepositoriesPythonApiRepositoriesPythonPythonListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) LatestWithContent(latestWithContent string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) Limit(limit int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) Limit(limit int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) Name(name string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) Name(name string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) NameContains(nameContains string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) NameContains(nameContains string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) NameIcontains(nameIcontains string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) NameIcontains(nameIcontains string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) NameIn(nameIn []string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) NameIn(nameIn []string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) NameStartswith(nameStartswith string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) NameStartswith(nameStartswith string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) Offset(offset int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) Offset(offset int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) Ordering(ordering []string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) Ordering(ordering []string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) PulpIdIn(pulpIdIn []string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) PulpIdIn(pulpIdIn []string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) Remote(remote string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) Remote(remote string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) WithContent(withContent string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) Fields(fields []string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) Fields(fields []string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) ExcludeFields(excludeFields []string) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) ExcludeFields(excludeFields []string) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonListRequest) Execute() (*PaginatedpythonPythonRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) Execute() (*PaginatedpythonPythonRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonListExecute(r)
 }
 
@@ -409,10 +423,10 @@ PythonRepository represents a single Python repository, to which content can be
 synced, added, or removed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesPythonApiRepositoriesPythonPythonListRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonListRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonList(ctx context.Context) RepositoriesPythonApiRepositoriesPythonPythonListRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonListRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonList(ctx context.Context) RepositoriesPythonAPIRepositoriesPythonPythonListRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -420,7 +434,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonList(ctx context.
 
 // Execute executes the request
 //  @return PaginatedpythonPythonRepositoryResponseList
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonListExecute(r RepositoriesPythonApiRepositoriesPythonPythonListRequest) (*PaginatedpythonPythonRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonListExecute(r RepositoriesPythonAPIRepositoriesPythonPythonListRequest) (*PaginatedpythonPythonRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -428,7 +442,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonListExecute(r Rep
 		localVarReturnValue  *PaginatedpythonPythonRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -438,6 +452,9 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonListExecute(r Rep
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -497,6 +514,9 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonListExecute(r Rep
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -574,19 +594,19 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonListExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonApiRepositoriesPythonPythonModifyRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
 	pythonPythonRepositoryHref string
 	repositoryAddRemoveContent *RepositoryAddRemoveContent
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesPythonApiRepositoriesPythonPythonModifyRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest {
 	r.repositoryAddRemoveContent = &repositoryAddRemoveContent
 	return r
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonModifyExecute(r)
 }
 
@@ -597,10 +617,10 @@ Trigger an asynchronous task to create a new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryHref
- @return RepositoriesPythonApiRepositoriesPythonPythonModifyRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonModify(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonApiRepositoriesPythonPythonModifyRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonModifyRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonModify(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryHref: pythonPythonRepositoryHref,
@@ -609,7 +629,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonModify(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonModifyExecute(r RepositoriesPythonApiRepositoriesPythonPythonModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonModifyExecute(r RepositoriesPythonAPIRepositoriesPythonPythonModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -617,7 +637,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonModifyExecute(r R
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonModify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonModify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -689,19 +709,19 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonModifyExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
 	pythonPythonRepositoryHref string
 	patchedpythonPythonRepository *PatchedpythonPythonRepository
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest) PatchedpythonPythonRepository(patchedpythonPythonRepository PatchedpythonPythonRepository) RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest) PatchedpythonPythonRepository(patchedpythonPythonRepository PatchedpythonPythonRepository) RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest {
 	r.patchedpythonPythonRepository = &patchedpythonPythonRepository
 	return r
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonPartialUpdateExecute(r)
 }
 
@@ -712,10 +732,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryHref
- @return RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonPartialUpdate(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonPartialUpdate(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryHref: pythonPythonRepositoryHref,
@@ -724,7 +744,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonPartialUpdate(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonPartialUpdateExecute(r RepositoriesPythonApiRepositoriesPythonPythonPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonPartialUpdateExecute(r RepositoriesPythonAPIRepositoriesPythonPythonPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -732,7 +752,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonPartialUpdateExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -804,27 +824,27 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonPartialUpdateExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonApiRepositoriesPythonPythonReadRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
 	pythonPythonRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesPythonApiRepositoriesPythonPythonReadRequest) Fields(fields []string) RepositoriesPythonApiRepositoriesPythonPythonReadRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonReadRequest) Fields(fields []string) RepositoriesPythonAPIRepositoriesPythonPythonReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesPythonApiRepositoriesPythonPythonReadRequest) ExcludeFields(excludeFields []string) RepositoriesPythonApiRepositoriesPythonPythonReadRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonReadRequest) ExcludeFields(excludeFields []string) RepositoriesPythonAPIRepositoriesPythonPythonReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonReadRequest) Execute() (*PythonPythonRepositoryResponse, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonReadRequest) Execute() (*PythonPythonRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonReadExecute(r)
 }
 
@@ -836,10 +856,10 @@ synced, added, or removed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryHref
- @return RepositoriesPythonApiRepositoriesPythonPythonReadRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonReadRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonRead(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonApiRepositoriesPythonPythonReadRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonReadRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonRead(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonAPIRepositoriesPythonPythonReadRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryHref: pythonPythonRepositoryHref,
@@ -848,7 +868,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonRead(ctx context.
 
 // Execute executes the request
 //  @return PythonPythonRepositoryResponse
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonReadExecute(r RepositoriesPythonApiRepositoriesPythonPythonReadRequest) (*PythonPythonRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonReadExecute(r RepositoriesPythonAPIRepositoriesPythonPythonReadRequest) (*PythonPythonRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -856,7 +876,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonReadExecute(r Rep
 		localVarReturnValue  *PythonPythonRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -945,19 +965,19 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonReadExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonApiRepositoriesPythonPythonSyncRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
 	pythonPythonRepositoryHref string
 	repositorySyncURL *RepositorySyncURL
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonSyncRequest) RepositorySyncURL(repositorySyncURL RepositorySyncURL) RepositoriesPythonApiRepositoriesPythonPythonSyncRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest) RepositorySyncURL(repositorySyncURL RepositorySyncURL) RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest {
 	r.repositorySyncURL = &repositorySyncURL
 	return r
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonSyncExecute(r)
 }
 
@@ -971,10 +991,10 @@ new  `RepositoryVersion`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryHref
- @return RepositoriesPythonApiRepositoriesPythonPythonSyncRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonSync(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonApiRepositoriesPythonPythonSyncRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonSyncRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonSync(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryHref: pythonPythonRepositoryHref,
@@ -983,7 +1003,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonSync(ctx context.
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonSyncExecute(r RepositoriesPythonApiRepositoriesPythonPythonSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonSyncExecute(r RepositoriesPythonAPIRepositoriesPythonPythonSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -991,7 +1011,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonSyncExecute(r Rep
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1063,19 +1083,19 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonSyncExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest struct {
+type RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesPythonApiService
+	ApiService *RepositoriesPythonAPIService
 	pythonPythonRepositoryHref string
 	pythonPythonRepository *PythonPythonRepository
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest) PythonPythonRepository(pythonPythonRepository PythonPythonRepository) RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest) PythonPythonRepository(pythonPythonRepository PythonPythonRepository) RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest {
 	r.pythonPythonRepository = &pythonPythonRepository
 	return r
 }
 
-func (r RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesPythonPythonUpdateExecute(r)
 }
 
@@ -1086,10 +1106,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRepositoryHref
- @return RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest
+ @return RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest
 */
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonUpdate(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest {
-	return RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest{
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonUpdate(ctx context.Context, pythonPythonRepositoryHref string) RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest {
+	return RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRepositoryHref: pythonPythonRepositoryHref,
@@ -1098,7 +1118,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonUpdate(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesPythonApiService) RepositoriesPythonPythonUpdateExecute(r RepositoriesPythonApiRepositoriesPythonPythonUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesPythonAPIService) RepositoriesPythonPythonUpdateExecute(r RepositoriesPythonAPIRepositoriesPythonPythonUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1106,7 +1126,7 @@ func (a *RepositoriesPythonApiService) RepositoriesPythonPythonUpdateExecute(r R
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonApiService.RepositoriesPythonPythonUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesPythonAPIService.RepositoriesPythonPythonUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

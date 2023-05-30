@@ -23,12 +23,12 @@ import (
 )
 
 
-// ContentFilesApiService ContentFilesApi service
-type ContentFilesApiService service
+// ContentFilesAPIService ContentFilesAPI service
+type ContentFilesAPIService service
 
-type ContentFilesApiContentFileFilesCreateRequest struct {
+type ContentFilesAPIContentFileFilesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentFilesApiService
+	ApiService *ContentFilesAPIService
 	relativePath *string
 	artifact *string
 	file *os.File
@@ -37,36 +37,36 @@ type ContentFilesApiContentFileFilesCreateRequest struct {
 }
 
 // Path where the artifact is located relative to distributions base_path
-func (r ContentFilesApiContentFileFilesCreateRequest) RelativePath(relativePath string) ContentFilesApiContentFileFilesCreateRequest {
+func (r ContentFilesAPIContentFileFilesCreateRequest) RelativePath(relativePath string) ContentFilesAPIContentFileFilesCreateRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // Artifact file representing the physical content
-func (r ContentFilesApiContentFileFilesCreateRequest) Artifact(artifact string) ContentFilesApiContentFileFilesCreateRequest {
+func (r ContentFilesAPIContentFileFilesCreateRequest) Artifact(artifact string) ContentFilesAPIContentFileFilesCreateRequest {
 	r.artifact = &artifact
 	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentFilesApiContentFileFilesCreateRequest) File(file *os.File) ContentFilesApiContentFileFilesCreateRequest {
+func (r ContentFilesAPIContentFileFilesCreateRequest) File(file *os.File) ContentFilesAPIContentFileFilesCreateRequest {
 	r.file = file
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentFilesApiContentFileFilesCreateRequest) Repository(repository string) ContentFilesApiContentFileFilesCreateRequest {
+func (r ContentFilesAPIContentFileFilesCreateRequest) Repository(repository string) ContentFilesAPIContentFileFilesCreateRequest {
 	r.repository = &repository
 	return r
 }
 
 // An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentFilesApiContentFileFilesCreateRequest) Upload(upload string) ContentFilesApiContentFileFilesCreateRequest {
+func (r ContentFilesAPIContentFileFilesCreateRequest) Upload(upload string) ContentFilesAPIContentFileFilesCreateRequest {
 	r.upload = &upload
 	return r
 }
 
-func (r ContentFilesApiContentFileFilesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentFilesAPIContentFileFilesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentFileFilesCreateExecute(r)
 }
 
@@ -76,10 +76,10 @@ ContentFileFilesCreate Create a file content
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentFilesApiContentFileFilesCreateRequest
+ @return ContentFilesAPIContentFileFilesCreateRequest
 */
-func (a *ContentFilesApiService) ContentFileFilesCreate(ctx context.Context) ContentFilesApiContentFileFilesCreateRequest {
-	return ContentFilesApiContentFileFilesCreateRequest{
+func (a *ContentFilesAPIService) ContentFileFilesCreate(ctx context.Context) ContentFilesAPIContentFileFilesCreateRequest {
+	return ContentFilesAPIContentFileFilesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -87,7 +87,7 @@ func (a *ContentFilesApiService) ContentFileFilesCreate(ctx context.Context) Con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentFilesApiService) ContentFileFilesCreateExecute(r ContentFilesApiContentFileFilesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentFilesAPIService) ContentFileFilesCreateExecute(r ContentFilesAPIContentFileFilesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -95,7 +95,7 @@ func (a *ContentFilesApiService) ContentFileFilesCreateExecute(r ContentFilesApi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentFilesApiService.ContentFileFilesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentFilesAPIService.ContentFileFilesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -192,9 +192,9 @@ func (a *ContentFilesApiService) ContentFileFilesCreateExecute(r ContentFilesApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentFilesApiContentFileFilesListRequest struct {
+type ContentFilesAPIContentFileFilesListRequest struct {
 	ctx context.Context
-	ApiService *ContentFilesApiService
+	ApiService *ContentFilesAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -210,77 +210,77 @@ type ContentFilesApiContentFileFilesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentFilesApiContentFileFilesListRequest) Limit(limit int32) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) Limit(limit int32) ContentFilesAPIContentFileFilesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentFilesApiContentFileFilesListRequest) Offset(offset int32) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) Offset(offset int32) ContentFilesAPIContentFileFilesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentFilesApiContentFileFilesListRequest) Ordering(ordering []string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) Ordering(ordering []string) ContentFilesAPIContentFileFilesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentFilesApiContentFileFilesListRequest) PulpHrefIn(pulpHrefIn []string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) PulpHrefIn(pulpHrefIn []string) ContentFilesAPIContentFileFilesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentFilesApiContentFileFilesListRequest) PulpIdIn(pulpIdIn []string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) PulpIdIn(pulpIdIn []string) ContentFilesAPIContentFileFilesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where relative_path matches value
-func (r ContentFilesApiContentFileFilesListRequest) RelativePath(relativePath string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) RelativePath(relativePath string) ContentFilesAPIContentFileFilesListRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentFilesApiContentFileFilesListRequest) RepositoryVersion(repositoryVersion string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) RepositoryVersion(repositoryVersion string) ContentFilesAPIContentFileFilesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentFilesApiContentFileFilesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentFilesAPIContentFileFilesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentFilesApiContentFileFilesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentFilesAPIContentFileFilesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
-func (r ContentFilesApiContentFileFilesListRequest) Sha256(sha256 string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) Sha256(sha256 string) ContentFilesAPIContentFileFilesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentFilesApiContentFileFilesListRequest) Fields(fields []string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) Fields(fields []string) ContentFilesAPIContentFileFilesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentFilesApiContentFileFilesListRequest) ExcludeFields(excludeFields []string) ContentFilesApiContentFileFilesListRequest {
+func (r ContentFilesAPIContentFileFilesListRequest) ExcludeFields(excludeFields []string) ContentFilesAPIContentFileFilesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentFilesApiContentFileFilesListRequest) Execute() (*PaginatedfileFileContentResponseList, *http.Response, error) {
+func (r ContentFilesAPIContentFileFilesListRequest) Execute() (*PaginatedfileFileContentResponseList, *http.Response, error) {
 	return r.ApiService.ContentFileFilesListExecute(r)
 }
 
@@ -292,10 +292,10 @@ FileContent represents a single file and its metadata, which can be added and re
 repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentFilesApiContentFileFilesListRequest
+ @return ContentFilesAPIContentFileFilesListRequest
 */
-func (a *ContentFilesApiService) ContentFileFilesList(ctx context.Context) ContentFilesApiContentFileFilesListRequest {
-	return ContentFilesApiContentFileFilesListRequest{
+func (a *ContentFilesAPIService) ContentFileFilesList(ctx context.Context) ContentFilesAPIContentFileFilesListRequest {
+	return ContentFilesAPIContentFileFilesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -303,7 +303,7 @@ func (a *ContentFilesApiService) ContentFileFilesList(ctx context.Context) Conte
 
 // Execute executes the request
 //  @return PaginatedfileFileContentResponseList
-func (a *ContentFilesApiService) ContentFileFilesListExecute(r ContentFilesApiContentFileFilesListRequest) (*PaginatedfileFileContentResponseList, *http.Response, error) {
+func (a *ContentFilesAPIService) ContentFileFilesListExecute(r ContentFilesAPIContentFileFilesListRequest) (*PaginatedfileFileContentResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -311,7 +311,7 @@ func (a *ContentFilesApiService) ContentFileFilesListExecute(r ContentFilesApiCo
 		localVarReturnValue  *PaginatedfileFileContentResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentFilesApiService.ContentFileFilesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentFilesAPIService.ContentFileFilesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -427,27 +427,27 @@ func (a *ContentFilesApiService) ContentFileFilesListExecute(r ContentFilesApiCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentFilesApiContentFileFilesReadRequest struct {
+type ContentFilesAPIContentFileFilesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentFilesApiService
+	ApiService *ContentFilesAPIService
 	fileFileContentHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentFilesApiContentFileFilesReadRequest) Fields(fields []string) ContentFilesApiContentFileFilesReadRequest {
+func (r ContentFilesAPIContentFileFilesReadRequest) Fields(fields []string) ContentFilesAPIContentFileFilesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentFilesApiContentFileFilesReadRequest) ExcludeFields(excludeFields []string) ContentFilesApiContentFileFilesReadRequest {
+func (r ContentFilesAPIContentFileFilesReadRequest) ExcludeFields(excludeFields []string) ContentFilesAPIContentFileFilesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentFilesApiContentFileFilesReadRequest) Execute() (*FileFileContentResponse, *http.Response, error) {
+func (r ContentFilesAPIContentFileFilesReadRequest) Execute() (*FileFileContentResponse, *http.Response, error) {
 	return r.ApiService.ContentFileFilesReadExecute(r)
 }
 
@@ -460,10 +460,10 @@ repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileContentHref
- @return ContentFilesApiContentFileFilesReadRequest
+ @return ContentFilesAPIContentFileFilesReadRequest
 */
-func (a *ContentFilesApiService) ContentFileFilesRead(ctx context.Context, fileFileContentHref string) ContentFilesApiContentFileFilesReadRequest {
-	return ContentFilesApiContentFileFilesReadRequest{
+func (a *ContentFilesAPIService) ContentFileFilesRead(ctx context.Context, fileFileContentHref string) ContentFilesAPIContentFileFilesReadRequest {
+	return ContentFilesAPIContentFileFilesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileContentHref: fileFileContentHref,
@@ -472,7 +472,7 @@ func (a *ContentFilesApiService) ContentFileFilesRead(ctx context.Context, fileF
 
 // Execute executes the request
 //  @return FileFileContentResponse
-func (a *ContentFilesApiService) ContentFileFilesReadExecute(r ContentFilesApiContentFileFilesReadRequest) (*FileFileContentResponse, *http.Response, error) {
+func (a *ContentFilesAPIService) ContentFileFilesReadExecute(r ContentFilesAPIContentFileFilesReadRequest) (*FileFileContentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -480,7 +480,7 @@ func (a *ContentFilesApiService) ContentFileFilesReadExecute(r ContentFilesApiCo
 		localVarReturnValue  *FileFileContentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentFilesApiService.ContentFileFilesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentFilesAPIService.ContentFileFilesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

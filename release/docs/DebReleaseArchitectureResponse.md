@@ -7,13 +7,15 @@ Name | Type | Description | Notes
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Architecture** | **string** | Name of the architecture. | 
-**Release** | **string** | Release this architecture is contained in. | 
+**Distribution** | **string** | Name of the distribution. | 
+**Codename** | **string** |  | 
+**Suite** | **string** |  | 
 
 ## Methods
 
 ### NewDebReleaseArchitectureResponse
 
-`func NewDebReleaseArchitectureResponse(architecture string, release string, ) *DebReleaseArchitectureResponse`
+`func NewDebReleaseArchitectureResponse(architecture string, distribution string, codename string, suite string, ) *DebReleaseArchitectureResponse`
 
 NewDebReleaseArchitectureResponse instantiates a new DebReleaseArchitectureResponse object
 This constructor will assign default values to properties that have it defined,
@@ -98,24 +100,64 @@ and a boolean to check if the value has been set.
 SetArchitecture sets Architecture field to given value.
 
 
-### GetRelease
+### GetDistribution
 
-`func (o *DebReleaseArchitectureResponse) GetRelease() string`
+`func (o *DebReleaseArchitectureResponse) GetDistribution() string`
 
-GetRelease returns the Release field if non-nil, zero value otherwise.
+GetDistribution returns the Distribution field if non-nil, zero value otherwise.
 
-### GetReleaseOk
+### GetDistributionOk
 
-`func (o *DebReleaseArchitectureResponse) GetReleaseOk() (*string, bool)`
+`func (o *DebReleaseArchitectureResponse) GetDistributionOk() (*string, bool)`
 
-GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
+GetDistributionOk returns a tuple with the Distribution field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRelease
+### SetDistribution
 
-`func (o *DebReleaseArchitectureResponse) SetRelease(v string)`
+`func (o *DebReleaseArchitectureResponse) SetDistribution(v string)`
 
-SetRelease sets Release field to given value.
+SetDistribution sets Distribution field to given value.
+
+
+### GetCodename
+
+`func (o *DebReleaseArchitectureResponse) GetCodename() string`
+
+GetCodename returns the Codename field if non-nil, zero value otherwise.
+
+### GetCodenameOk
+
+`func (o *DebReleaseArchitectureResponse) GetCodenameOk() (*string, bool)`
+
+GetCodenameOk returns a tuple with the Codename field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodename
+
+`func (o *DebReleaseArchitectureResponse) SetCodename(v string)`
+
+SetCodename sets Codename field to given value.
+
+
+### GetSuite
+
+`func (o *DebReleaseArchitectureResponse) GetSuite() string`
+
+GetSuite returns the Suite field if non-nil, zero value otherwise.
+
+### GetSuiteOk
+
+`func (o *DebReleaseArchitectureResponse) GetSuiteOk() (*string, bool)`
+
+GetSuiteOk returns a tuple with the Suite field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuite
+
+`func (o *DebReleaseArchitectureResponse) SetSuite(v string)`
+
+SetSuite sets Suite field to given value.
 
 
 

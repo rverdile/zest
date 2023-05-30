@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentModulemdDefaultsApiService ContentModulemdDefaultsApi service
-type ContentModulemdDefaultsApiService service
+// ContentModulemdDefaultsAPIService ContentModulemdDefaultsAPI service
+type ContentModulemdDefaultsAPIService service
 
-type ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest struct {
+type ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdDefaultsApiService
+	ApiService *ContentModulemdDefaultsAPIService
 	rpmModulemdDefaults *RpmModulemdDefaults
 }
 
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest) RpmModulemdDefaults(rpmModulemdDefaults RpmModulemdDefaults) ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest) RpmModulemdDefaults(rpmModulemdDefaults RpmModulemdDefaults) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest {
 	r.rpmModulemdDefaults = &rpmModulemdDefaults
 	return r
 }
 
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdDefaultsCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentRpmModulemdDefaultsCreate Create a modulemd defaults
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest
+ @return ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest
 */
-func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsCreate(ctx context.Context) ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest {
-	return ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest{
+func (a *ContentModulemdDefaultsAPIService) ContentRpmModulemdDefaultsCreate(ctx context.Context) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest {
+	return ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsCreate(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsCreateExecute(r ContentModulemdDefaultsApiContentRpmModulemdDefaultsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentModulemdDefaultsAPIService) ContentRpmModulemdDefaultsCreateExecute(r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsCreateExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdDefaultsApiService.ContentRpmModulemdDefaultsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdDefaultsAPIService.ContentRpmModulemdDefaultsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,9 +134,9 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsCreateExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest struct {
+type ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdDefaultsApiService
+	ApiService *ContentModulemdDefaultsAPIService
 	limit *int32
 	module *string
 	moduleIn *[]string
@@ -155,95 +155,95 @@ type ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Limit(limit int32) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Limit(limit int32) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where module matches value
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Module(module string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Module(module string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.module = &module
 	return r
 }
 
 // Filter results where module is in a comma-separated list of values
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) ModuleIn(moduleIn []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) ModuleIn(moduleIn []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.moduleIn = &moduleIn
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Offset(offset int32) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Offset(offset int32) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;module&#x60; - Module * &#x60;-module&#x60; - Module (descending) * &#x60;stream&#x60; - Stream * &#x60;-stream&#x60; - Stream (descending) * &#x60;profiles&#x60; - Profiles * &#x60;-profiles&#x60; - Profiles (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;snippet&#x60; - Snippet * &#x60;-snippet&#x60; - Snippet (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Ordering(ordering []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Ordering(ordering []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) PulpHrefIn(pulpHrefIn []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) PulpHrefIn(pulpHrefIn []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) PulpIdIn(pulpIdIn []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) PulpIdIn(pulpIdIn []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) RepositoryVersion(repositoryVersion string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) RepositoryVersion(repositoryVersion string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Sha256(sha256 string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Sha256(sha256 string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where stream matches value
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Stream(stream string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Stream(stream string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.stream = &stream
 	return r
 }
 
 // Filter results where stream is in a comma-separated list of values
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) StreamIn(streamIn []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) StreamIn(streamIn []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.streamIn = &streamIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Fields(fields []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Fields(fields []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) ExcludeFields(excludeFields []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) ExcludeFields(excludeFields []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) Execute() (*PaginatedrpmModulemdDefaultsResponseList, *http.Response, error) {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) Execute() (*PaginatedrpmModulemdDefaultsResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdDefaultsListExecute(r)
 }
 
@@ -253,10 +253,10 @@ ContentRpmModulemdDefaultsList List modulemd defaultss
 ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest
+ @return ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest
 */
-func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsList(ctx context.Context) ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest {
-	return ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest{
+func (a *ContentModulemdDefaultsAPIService) ContentRpmModulemdDefaultsList(ctx context.Context) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest {
+	return ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -264,7 +264,7 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsList(ctx c
 
 // Execute executes the request
 //  @return PaginatedrpmModulemdDefaultsResponseList
-func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsListExecute(r ContentModulemdDefaultsApiContentRpmModulemdDefaultsListRequest) (*PaginatedrpmModulemdDefaultsResponseList, *http.Response, error) {
+func (a *ContentModulemdDefaultsAPIService) ContentRpmModulemdDefaultsListExecute(r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsListRequest) (*PaginatedrpmModulemdDefaultsResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -272,7 +272,7 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsListExecut
 		localVarReturnValue  *PaginatedrpmModulemdDefaultsResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdDefaultsApiService.ContentRpmModulemdDefaultsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdDefaultsAPIService.ContentRpmModulemdDefaultsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -397,27 +397,27 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsListExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest struct {
+type ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdDefaultsApiService
+	ApiService *ContentModulemdDefaultsAPIService
 	rpmModulemdDefaultsHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest) Fields(fields []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest) Fields(fields []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest) ExcludeFields(excludeFields []string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest) ExcludeFields(excludeFields []string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest) Execute() (*RpmModulemdDefaultsResponse, *http.Response, error) {
+func (r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest) Execute() (*RpmModulemdDefaultsResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdDefaultsReadExecute(r)
 }
 
@@ -428,10 +428,10 @@ ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmModulemdDefaultsHref
- @return ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest
+ @return ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest
 */
-func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsRead(ctx context.Context, rpmModulemdDefaultsHref string) ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest {
-	return ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest{
+func (a *ContentModulemdDefaultsAPIService) ContentRpmModulemdDefaultsRead(ctx context.Context, rpmModulemdDefaultsHref string) ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest {
+	return ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmModulemdDefaultsHref: rpmModulemdDefaultsHref,
@@ -440,7 +440,7 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsRead(ctx c
 
 // Execute executes the request
 //  @return RpmModulemdDefaultsResponse
-func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsReadExecute(r ContentModulemdDefaultsApiContentRpmModulemdDefaultsReadRequest) (*RpmModulemdDefaultsResponse, *http.Response, error) {
+func (a *ContentModulemdDefaultsAPIService) ContentRpmModulemdDefaultsReadExecute(r ContentModulemdDefaultsAPIContentRpmModulemdDefaultsReadRequest) (*RpmModulemdDefaultsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -448,7 +448,7 @@ func (a *ContentModulemdDefaultsApiService) ContentRpmModulemdDefaultsReadExecut
 		localVarReturnValue  *RpmModulemdDefaultsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdDefaultsApiService.ContentRpmModulemdDefaultsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdDefaultsAPIService.ContentRpmModulemdDefaultsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -22,12 +22,12 @@ import (
 )
 
 
-// PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApi service
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService service
+// PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIService PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPI service
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIService service
 
-type PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest struct {
+type PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService
+	ApiService *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIService
 	distroBasePath string
 	path string
 	fields *[]string
@@ -35,18 +35,18 @@ type PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGal
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) Fields(fields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) ExcludeFields(excludeFields []string) PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) Execute() ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
+func (r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) Execute() ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListExecute(r)
 }
 
@@ -58,10 +58,10 @@ Returns paginated CollectionVersions list.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
  @param path
- @return PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest
+ @return PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest
 */
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsList(ctx context.Context, distroBasePath string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest {
-	return PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest{
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsList(ctx context.Context, distroBasePath string, path string) PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest {
+	return PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -71,7 +71,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService) P
 
 // Execute executes the request
 //  @return []UnpaginatedCollectionVersionResponse
-func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
+func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIService) PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListExecute(r PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIPulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsListRequest) ([]UnpaginatedCollectionVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -79,7 +79,7 @@ func (a *PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService) P
 		localVarReturnValue  []UnpaginatedCollectionVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsApiService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleApiV3PluginAnsibleContentCollectionsAllVersionsAPIService.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

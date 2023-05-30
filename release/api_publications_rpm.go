@@ -23,22 +23,22 @@ import (
 )
 
 
-// PublicationsRpmApiService PublicationsRpmApi service
-type PublicationsRpmApiService service
+// PublicationsRpmAPIService PublicationsRpmAPI service
+type PublicationsRpmAPIService service
 
-type PublicationsRpmApiPublicationsRpmRpmAddRoleRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	rpmRpmPublicationHref string
 	nestedRole *NestedRole
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) PublicationsRpmApiPublicationsRpmRpmAddRoleRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmPublicationHref
- @return PublicationsRpmApiPublicationsRpmRpmAddRoleRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmAddRole(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmApiPublicationsRpmRpmAddRoleRequest {
-	return PublicationsRpmApiPublicationsRpmRpmAddRoleRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmAddRole(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmPublicationHref: rpmRpmPublicationHref,
@@ -61,7 +61,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmAddRole(ctx context.Contex
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *PublicationsRpmApiService) PublicationsRpmRpmAddRoleExecute(r PublicationsRpmApiPublicationsRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmAddRoleExecute(r PublicationsRpmAPIPublicationsRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmAddRoleExecute(r Publicati
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmAddRoleExecute(r Publicati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsRpmApiPublicationsRpmRpmCreateRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmCreateRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	rpmRpmPublication *RpmRpmPublication
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmCreateRequest) RpmRpmPublication(rpmRpmPublication RpmRpmPublication) PublicationsRpmApiPublicationsRpmRpmCreateRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmCreateRequest) RpmRpmPublication(rpmRpmPublication RpmRpmPublication) PublicationsRpmAPIPublicationsRpmRpmCreateRequest {
 	r.rpmRpmPublication = &rpmRpmPublication
 	return r
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmCreateExecute(r)
 }
 
@@ -162,10 +162,10 @@ PublicationsRpmRpmCreate Create a rpm publication
 Trigger an asynchronous task to create a new RPM content publication.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsRpmApiPublicationsRpmRpmCreateRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmCreateRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmCreate(ctx context.Context) PublicationsRpmApiPublicationsRpmRpmCreateRequest {
-	return PublicationsRpmApiPublicationsRpmRpmCreateRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmCreate(ctx context.Context) PublicationsRpmAPIPublicationsRpmRpmCreateRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -173,7 +173,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmCreate(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PublicationsRpmApiService) PublicationsRpmRpmCreateExecute(r PublicationsRpmApiPublicationsRpmRpmCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmCreateExecute(r PublicationsRpmAPIPublicationsRpmRpmCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmCreateExecute(r Publicatio
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -250,13 +250,13 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmCreateExecute(r Publicatio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsRpmApiPublicationsRpmRpmDeleteRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmDeleteRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	rpmRpmPublicationHref string
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmDeleteRequest) Execute() (*http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmDeleteExecute(r)
 }
 
@@ -267,10 +267,10 @@ ViewSet for Rpm Publications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmPublicationHref
- @return PublicationsRpmApiPublicationsRpmRpmDeleteRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmDeleteRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmDelete(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmApiPublicationsRpmRpmDeleteRequest {
-	return PublicationsRpmApiPublicationsRpmRpmDeleteRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmDelete(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmAPIPublicationsRpmRpmDeleteRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmPublicationHref: rpmRpmPublicationHref,
@@ -278,14 +278,14 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmDelete(ctx context.Context
 }
 
 // Execute executes the request
-func (a *PublicationsRpmApiService) PublicationsRpmRpmDeleteExecute(r PublicationsRpmApiPublicationsRpmRpmDeleteRequest) (*http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmDeleteExecute(r PublicationsRpmAPIPublicationsRpmRpmDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -343,9 +343,9 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmDeleteExecute(r Publicatio
 	return localVarHTTPResponse, nil
 }
 
-type PublicationsRpmApiPublicationsRpmRpmListRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmListRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	content *string
 	contentIn *string
 	limit *int32
@@ -366,108 +366,108 @@ type PublicationsRpmApiPublicationsRpmRpmListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) Content(content string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) Content(content string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) ContentIn(contentIn string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) ContentIn(contentIn string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) Limit(limit int32) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) Limit(limit int32) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) Offset(offset int32) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) Offset(offset int32) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) Ordering(ordering []string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) Ordering(ordering []string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpCreated(pulpCreated time.Time) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpCreated(pulpCreated time.Time) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) PulpIdIn(pulpIdIn []string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) PulpIdIn(pulpIdIn []string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository referenced by HREF
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) Repository(repository string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) Repository(repository string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) RepositoryVersion(repositoryVersion string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) RepositoryVersion(repositoryVersion string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) Fields(fields []string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) Fields(fields []string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) ExcludeFields(excludeFields []string) PublicationsRpmApiPublicationsRpmRpmListRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) ExcludeFields(excludeFields []string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmListRequest) Execute() (*PaginatedrpmRpmPublicationResponseList, *http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRequest) Execute() (*PaginatedrpmRpmPublicationResponseList, *http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmListExecute(r)
 }
 
@@ -477,10 +477,10 @@ PublicationsRpmRpmList List rpm publications
 ViewSet for Rpm Publications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsRpmApiPublicationsRpmRpmListRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmListRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmList(ctx context.Context) PublicationsRpmApiPublicationsRpmRpmListRequest {
-	return PublicationsRpmApiPublicationsRpmRpmListRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmList(ctx context.Context) PublicationsRpmAPIPublicationsRpmRpmListRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -488,7 +488,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmList(ctx context.Context) 
 
 // Execute executes the request
 //  @return PaginatedrpmRpmPublicationResponseList
-func (a *PublicationsRpmApiService) PublicationsRpmRpmListExecute(r PublicationsRpmApiPublicationsRpmRpmListRequest) (*PaginatedrpmRpmPublicationResponseList, *http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmListExecute(r PublicationsRpmAPIPublicationsRpmRpmListRequest) (*PaginatedrpmRpmPublicationResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -496,7 +496,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmListExecute(r Publications
 		localVarReturnValue  *PaginatedrpmRpmPublicationResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -627,27 +627,27 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmListExecute(r Publications
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsRpmApiPublicationsRpmRpmListRolesRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmListRolesRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	rpmRpmPublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsRpmApiPublicationsRpmRpmListRolesRequest) Fields(fields []string) PublicationsRpmApiPublicationsRpmRpmListRolesRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRolesRequest) Fields(fields []string) PublicationsRpmAPIPublicationsRpmRpmListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsRpmApiPublicationsRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) PublicationsRpmApiPublicationsRpmRpmListRolesRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) PublicationsRpmAPIPublicationsRpmRpmListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmListRolesExecute(r)
 }
 
@@ -658,10 +658,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmPublicationHref
- @return PublicationsRpmApiPublicationsRpmRpmListRolesRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmListRolesRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmListRoles(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmApiPublicationsRpmRpmListRolesRequest {
-	return PublicationsRpmApiPublicationsRpmRpmListRolesRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmListRoles(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmAPIPublicationsRpmRpmListRolesRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmPublicationHref: rpmRpmPublicationHref,
@@ -670,7 +670,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmListRoles(ctx context.Cont
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *PublicationsRpmApiService) PublicationsRpmRpmListRolesExecute(r PublicationsRpmApiPublicationsRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmListRolesExecute(r PublicationsRpmAPIPublicationsRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -678,7 +678,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmListRolesExecute(r Publica
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -767,27 +767,27 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmListRolesExecute(r Publica
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	rpmRpmPublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest) Fields(fields []string) PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest) Fields(fields []string) PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmMyPermissionsExecute(r)
 }
 
@@ -798,10 +798,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmPublicationHref
- @return PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmMyPermissions(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest {
-	return PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmMyPermissions(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmPublicationHref: rpmRpmPublicationHref,
@@ -810,7 +810,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmMyPermissions(ctx context.
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *PublicationsRpmApiService) PublicationsRpmRpmMyPermissionsExecute(r PublicationsRpmApiPublicationsRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmMyPermissionsExecute(r PublicationsRpmAPIPublicationsRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -818,7 +818,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmMyPermissionsExecute(r Pub
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -907,27 +907,27 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmMyPermissionsExecute(r Pub
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsRpmApiPublicationsRpmRpmReadRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmReadRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	rpmRpmPublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsRpmApiPublicationsRpmRpmReadRequest) Fields(fields []string) PublicationsRpmApiPublicationsRpmRpmReadRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmReadRequest) Fields(fields []string) PublicationsRpmAPIPublicationsRpmRpmReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsRpmApiPublicationsRpmRpmReadRequest) ExcludeFields(excludeFields []string) PublicationsRpmApiPublicationsRpmRpmReadRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmReadRequest) ExcludeFields(excludeFields []string) PublicationsRpmAPIPublicationsRpmRpmReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmReadRequest) Execute() (*RpmRpmPublicationResponse, *http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmReadRequest) Execute() (*RpmRpmPublicationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmReadExecute(r)
 }
 
@@ -938,10 +938,10 @@ ViewSet for Rpm Publications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmPublicationHref
- @return PublicationsRpmApiPublicationsRpmRpmReadRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmReadRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmRead(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmApiPublicationsRpmRpmReadRequest {
-	return PublicationsRpmApiPublicationsRpmRpmReadRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmRead(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmAPIPublicationsRpmRpmReadRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmPublicationHref: rpmRpmPublicationHref,
@@ -950,7 +950,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmRead(ctx context.Context, 
 
 // Execute executes the request
 //  @return RpmRpmPublicationResponse
-func (a *PublicationsRpmApiService) PublicationsRpmRpmReadExecute(r PublicationsRpmApiPublicationsRpmRpmReadRequest) (*RpmRpmPublicationResponse, *http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmReadExecute(r PublicationsRpmAPIPublicationsRpmRpmReadRequest) (*RpmRpmPublicationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -958,7 +958,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmReadExecute(r Publications
 		localVarReturnValue  *RpmRpmPublicationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1047,19 +1047,19 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmReadExecute(r Publications
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest struct {
+type PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *PublicationsRpmApiService
+	ApiService *PublicationsRpmAPIService
 	rpmRpmPublicationHref string
 	nestedRole *NestedRole
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest {
+func (r PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.PublicationsRpmRpmRemoveRoleExecute(r)
 }
 
@@ -1070,10 +1070,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmPublicationHref
- @return PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest
+ @return PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest
 */
-func (a *PublicationsRpmApiService) PublicationsRpmRpmRemoveRole(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest {
-	return PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest{
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmRemoveRole(ctx context.Context, rpmRpmPublicationHref string) PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest {
+	return PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmPublicationHref: rpmRpmPublicationHref,
@@ -1082,7 +1082,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmRemoveRole(ctx context.Con
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *PublicationsRpmApiService) PublicationsRpmRpmRemoveRoleExecute(r PublicationsRpmApiPublicationsRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmRemoveRoleExecute(r PublicationsRpmAPIPublicationsRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1090,7 +1090,7 @@ func (a *PublicationsRpmApiService) PublicationsRpmRpmRemoveRoleExecute(r Public
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmApiService.PublicationsRpmRpmRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsRpmAPIService.PublicationsRpmRpmRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

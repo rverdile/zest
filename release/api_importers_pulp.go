@@ -22,21 +22,21 @@ import (
 )
 
 
-// ImportersPulpApiService ImportersPulpApi service
-type ImportersPulpApiService service
+// ImportersPulpAPIService ImportersPulpAPI service
+type ImportersPulpAPIService service
 
-type ImportersPulpApiImportersCorePulpCreateRequest struct {
+type ImportersPulpAPIImportersCorePulpCreateRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpApiService
+	ApiService *ImportersPulpAPIService
 	pulpImporter *PulpImporter
 }
 
-func (r ImportersPulpApiImportersCorePulpCreateRequest) PulpImporter(pulpImporter PulpImporter) ImportersPulpApiImportersCorePulpCreateRequest {
+func (r ImportersPulpAPIImportersCorePulpCreateRequest) PulpImporter(pulpImporter PulpImporter) ImportersPulpAPIImportersCorePulpCreateRequest {
 	r.pulpImporter = &pulpImporter
 	return r
 }
 
-func (r ImportersPulpApiImportersCorePulpCreateRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
+func (r ImportersPulpAPIImportersCorePulpCreateRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ImportersCorePulpCreate Create a pulp importer
 ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ImportersPulpApiImportersCorePulpCreateRequest
+ @return ImportersPulpAPIImportersCorePulpCreateRequest
 */
-func (a *ImportersPulpApiService) ImportersCorePulpCreate(ctx context.Context) ImportersPulpApiImportersCorePulpCreateRequest {
-	return ImportersPulpApiImportersCorePulpCreateRequest{
+func (a *ImportersPulpAPIService) ImportersCorePulpCreate(ctx context.Context) ImportersPulpAPIImportersCorePulpCreateRequest {
+	return ImportersPulpAPIImportersCorePulpCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpCreate(ctx context.Context) I
 
 // Execute executes the request
 //  @return PulpImporterResponse
-func (a *ImportersPulpApiService) ImportersCorePulpCreateExecute(r ImportersPulpApiImportersCorePulpCreateRequest) (*PulpImporterResponse, *http.Response, error) {
+func (a *ImportersPulpAPIService) ImportersCorePulpCreateExecute(r ImportersPulpAPIImportersCorePulpCreateRequest) (*PulpImporterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpCreateExecute(r ImportersPulp
 		localVarReturnValue  *PulpImporterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpApiService.ImportersCorePulpCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpAPIService.ImportersCorePulpCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *ImportersPulpApiService) ImportersCorePulpCreateExecute(r ImportersPulp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ImportersPulpApiImportersCorePulpDeleteRequest struct {
+type ImportersPulpAPIImportersCorePulpDeleteRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpApiService
+	ApiService *ImportersPulpAPIService
 	pulpImporterHref string
 }
 
-func (r ImportersPulpApiImportersCorePulpDeleteRequest) Execute() (*http.Response, error) {
+func (r ImportersPulpAPIImportersCorePulpDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ImportersCorePulpDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpImporterHref
- @return ImportersPulpApiImportersCorePulpDeleteRequest
+ @return ImportersPulpAPIImportersCorePulpDeleteRequest
 */
-func (a *ImportersPulpApiService) ImportersCorePulpDelete(ctx context.Context, pulpImporterHref string) ImportersPulpApiImportersCorePulpDeleteRequest {
-	return ImportersPulpApiImportersCorePulpDeleteRequest{
+func (a *ImportersPulpAPIService) ImportersCorePulpDelete(ctx context.Context, pulpImporterHref string) ImportersPulpAPIImportersCorePulpDeleteRequest {
+	return ImportersPulpAPIImportersCorePulpDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpImporterHref: pulpImporterHref,
@@ -162,14 +162,14 @@ func (a *ImportersPulpApiService) ImportersCorePulpDelete(ctx context.Context, p
 }
 
 // Execute executes the request
-func (a *ImportersPulpApiService) ImportersCorePulpDeleteExecute(r ImportersPulpApiImportersCorePulpDeleteRequest) (*http.Response, error) {
+func (a *ImportersPulpAPIService) ImportersCorePulpDeleteExecute(r ImportersPulpAPIImportersCorePulpDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpApiService.ImportersCorePulpDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpAPIService.ImportersCorePulpDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -227,9 +227,9 @@ func (a *ImportersPulpApiService) ImportersCorePulpDeleteExecute(r ImportersPulp
 	return localVarHTTPResponse, nil
 }
 
-type ImportersPulpApiImportersCorePulpListRequest struct {
+type ImportersPulpAPIImportersCorePulpListRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpApiService
+	ApiService *ImportersPulpAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -245,78 +245,78 @@ type ImportersPulpApiImportersCorePulpListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ImportersPulpApiImportersCorePulpListRequest) Limit(limit int32) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) Limit(limit int32) ImportersPulpAPIImportersCorePulpListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ImportersPulpApiImportersCorePulpListRequest) Name(name string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) Name(name string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ImportersPulpApiImportersCorePulpListRequest) NameContains(nameContains string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) NameContains(nameContains string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ImportersPulpApiImportersCorePulpListRequest) NameIcontains(nameIcontains string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) NameIcontains(nameIcontains string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ImportersPulpApiImportersCorePulpListRequest) NameIn(nameIn []string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) NameIn(nameIn []string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ImportersPulpApiImportersCorePulpListRequest) NameStartswith(nameStartswith string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) NameStartswith(nameStartswith string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ImportersPulpApiImportersCorePulpListRequest) Offset(offset int32) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) Offset(offset int32) ImportersPulpAPIImportersCorePulpListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ImportersPulpApiImportersCorePulpListRequest) Ordering(ordering []string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) Ordering(ordering []string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ImportersPulpApiImportersCorePulpListRequest) PulpHrefIn(pulpHrefIn []string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) PulpHrefIn(pulpHrefIn []string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ImportersPulpApiImportersCorePulpListRequest) PulpIdIn(pulpIdIn []string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) PulpIdIn(pulpIdIn []string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ImportersPulpApiImportersCorePulpListRequest) Fields(fields []string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) Fields(fields []string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ImportersPulpApiImportersCorePulpListRequest) ExcludeFields(excludeFields []string) ImportersPulpApiImportersCorePulpListRequest {
+func (r ImportersPulpAPIImportersCorePulpListRequest) ExcludeFields(excludeFields []string) ImportersPulpAPIImportersCorePulpListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ImportersPulpApiImportersCorePulpListRequest) Execute() (*PaginatedPulpImporterResponseList, *http.Response, error) {
+func (r ImportersPulpAPIImportersCorePulpListRequest) Execute() (*PaginatedPulpImporterResponseList, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpListExecute(r)
 }
 
@@ -326,10 +326,10 @@ ImportersCorePulpList List pulp importers
 ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ImportersPulpApiImportersCorePulpListRequest
+ @return ImportersPulpAPIImportersCorePulpListRequest
 */
-func (a *ImportersPulpApiService) ImportersCorePulpList(ctx context.Context) ImportersPulpApiImportersCorePulpListRequest {
-	return ImportersPulpApiImportersCorePulpListRequest{
+func (a *ImportersPulpAPIService) ImportersCorePulpList(ctx context.Context) ImportersPulpAPIImportersCorePulpListRequest {
+	return ImportersPulpAPIImportersCorePulpListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -337,7 +337,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpList(ctx context.Context) Imp
 
 // Execute executes the request
 //  @return PaginatedPulpImporterResponseList
-func (a *ImportersPulpApiService) ImportersCorePulpListExecute(r ImportersPulpApiImportersCorePulpListRequest) (*PaginatedPulpImporterResponseList, *http.Response, error) {
+func (a *ImportersPulpAPIService) ImportersCorePulpListExecute(r ImportersPulpAPIImportersCorePulpListRequest) (*PaginatedPulpImporterResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -345,7 +345,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpListExecute(r ImportersPulpAp
 		localVarReturnValue  *PaginatedPulpImporterResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpApiService.ImportersCorePulpList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpAPIService.ImportersCorePulpList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -461,19 +461,19 @@ func (a *ImportersPulpApiService) ImportersCorePulpListExecute(r ImportersPulpAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ImportersPulpApiImportersCorePulpPartialUpdateRequest struct {
+type ImportersPulpAPIImportersCorePulpPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpApiService
+	ApiService *ImportersPulpAPIService
 	pulpImporterHref string
 	patchedPulpImporter *PatchedPulpImporter
 }
 
-func (r ImportersPulpApiImportersCorePulpPartialUpdateRequest) PatchedPulpImporter(patchedPulpImporter PatchedPulpImporter) ImportersPulpApiImportersCorePulpPartialUpdateRequest {
+func (r ImportersPulpAPIImportersCorePulpPartialUpdateRequest) PatchedPulpImporter(patchedPulpImporter PatchedPulpImporter) ImportersPulpAPIImportersCorePulpPartialUpdateRequest {
 	r.patchedPulpImporter = &patchedPulpImporter
 	return r
 }
 
-func (r ImportersPulpApiImportersCorePulpPartialUpdateRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
+func (r ImportersPulpAPIImportersCorePulpPartialUpdateRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpPartialUpdateExecute(r)
 }
 
@@ -484,10 +484,10 @@ ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpImporterHref
- @return ImportersPulpApiImportersCorePulpPartialUpdateRequest
+ @return ImportersPulpAPIImportersCorePulpPartialUpdateRequest
 */
-func (a *ImportersPulpApiService) ImportersCorePulpPartialUpdate(ctx context.Context, pulpImporterHref string) ImportersPulpApiImportersCorePulpPartialUpdateRequest {
-	return ImportersPulpApiImportersCorePulpPartialUpdateRequest{
+func (a *ImportersPulpAPIService) ImportersCorePulpPartialUpdate(ctx context.Context, pulpImporterHref string) ImportersPulpAPIImportersCorePulpPartialUpdateRequest {
+	return ImportersPulpAPIImportersCorePulpPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpImporterHref: pulpImporterHref,
@@ -496,7 +496,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpPartialUpdate(ctx context.Con
 
 // Execute executes the request
 //  @return PulpImporterResponse
-func (a *ImportersPulpApiService) ImportersCorePulpPartialUpdateExecute(r ImportersPulpApiImportersCorePulpPartialUpdateRequest) (*PulpImporterResponse, *http.Response, error) {
+func (a *ImportersPulpAPIService) ImportersCorePulpPartialUpdateExecute(r ImportersPulpAPIImportersCorePulpPartialUpdateRequest) (*PulpImporterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -504,7 +504,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpPartialUpdateExecute(r Import
 		localVarReturnValue  *PulpImporterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpApiService.ImportersCorePulpPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpAPIService.ImportersCorePulpPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -576,27 +576,27 @@ func (a *ImportersPulpApiService) ImportersCorePulpPartialUpdateExecute(r Import
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ImportersPulpApiImportersCorePulpReadRequest struct {
+type ImportersPulpAPIImportersCorePulpReadRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpApiService
+	ApiService *ImportersPulpAPIService
 	pulpImporterHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ImportersPulpApiImportersCorePulpReadRequest) Fields(fields []string) ImportersPulpApiImportersCorePulpReadRequest {
+func (r ImportersPulpAPIImportersCorePulpReadRequest) Fields(fields []string) ImportersPulpAPIImportersCorePulpReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ImportersPulpApiImportersCorePulpReadRequest) ExcludeFields(excludeFields []string) ImportersPulpApiImportersCorePulpReadRequest {
+func (r ImportersPulpAPIImportersCorePulpReadRequest) ExcludeFields(excludeFields []string) ImportersPulpAPIImportersCorePulpReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ImportersPulpApiImportersCorePulpReadRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
+func (r ImportersPulpAPIImportersCorePulpReadRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpReadExecute(r)
 }
 
@@ -607,10 +607,10 @@ ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpImporterHref
- @return ImportersPulpApiImportersCorePulpReadRequest
+ @return ImportersPulpAPIImportersCorePulpReadRequest
 */
-func (a *ImportersPulpApiService) ImportersCorePulpRead(ctx context.Context, pulpImporterHref string) ImportersPulpApiImportersCorePulpReadRequest {
-	return ImportersPulpApiImportersCorePulpReadRequest{
+func (a *ImportersPulpAPIService) ImportersCorePulpRead(ctx context.Context, pulpImporterHref string) ImportersPulpAPIImportersCorePulpReadRequest {
+	return ImportersPulpAPIImportersCorePulpReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpImporterHref: pulpImporterHref,
@@ -619,7 +619,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpRead(ctx context.Context, pul
 
 // Execute executes the request
 //  @return PulpImporterResponse
-func (a *ImportersPulpApiService) ImportersCorePulpReadExecute(r ImportersPulpApiImportersCorePulpReadRequest) (*PulpImporterResponse, *http.Response, error) {
+func (a *ImportersPulpAPIService) ImportersCorePulpReadExecute(r ImportersPulpAPIImportersCorePulpReadRequest) (*PulpImporterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -627,7 +627,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpReadExecute(r ImportersPulpAp
 		localVarReturnValue  *PulpImporterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpApiService.ImportersCorePulpRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpAPIService.ImportersCorePulpRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -716,19 +716,19 @@ func (a *ImportersPulpApiService) ImportersCorePulpReadExecute(r ImportersPulpAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ImportersPulpApiImportersCorePulpUpdateRequest struct {
+type ImportersPulpAPIImportersCorePulpUpdateRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpApiService
+	ApiService *ImportersPulpAPIService
 	pulpImporterHref string
 	pulpImporter *PulpImporter
 }
 
-func (r ImportersPulpApiImportersCorePulpUpdateRequest) PulpImporter(pulpImporter PulpImporter) ImportersPulpApiImportersCorePulpUpdateRequest {
+func (r ImportersPulpAPIImportersCorePulpUpdateRequest) PulpImporter(pulpImporter PulpImporter) ImportersPulpAPIImportersCorePulpUpdateRequest {
 	r.pulpImporter = &pulpImporter
 	return r
 }
 
-func (r ImportersPulpApiImportersCorePulpUpdateRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
+func (r ImportersPulpAPIImportersCorePulpUpdateRequest) Execute() (*PulpImporterResponse, *http.Response, error) {
 	return r.ApiService.ImportersCorePulpUpdateExecute(r)
 }
 
@@ -739,10 +739,10 @@ ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpImporterHref
- @return ImportersPulpApiImportersCorePulpUpdateRequest
+ @return ImportersPulpAPIImportersCorePulpUpdateRequest
 */
-func (a *ImportersPulpApiService) ImportersCorePulpUpdate(ctx context.Context, pulpImporterHref string) ImportersPulpApiImportersCorePulpUpdateRequest {
-	return ImportersPulpApiImportersCorePulpUpdateRequest{
+func (a *ImportersPulpAPIService) ImportersCorePulpUpdate(ctx context.Context, pulpImporterHref string) ImportersPulpAPIImportersCorePulpUpdateRequest {
+	return ImportersPulpAPIImportersCorePulpUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpImporterHref: pulpImporterHref,
@@ -751,7 +751,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpUpdate(ctx context.Context, p
 
 // Execute executes the request
 //  @return PulpImporterResponse
-func (a *ImportersPulpApiService) ImportersCorePulpUpdateExecute(r ImportersPulpApiImportersCorePulpUpdateRequest) (*PulpImporterResponse, *http.Response, error) {
+func (a *ImportersPulpAPIService) ImportersCorePulpUpdateExecute(r ImportersPulpAPIImportersCorePulpUpdateRequest) (*PulpImporterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -759,7 +759,7 @@ func (a *ImportersPulpApiService) ImportersCorePulpUpdateExecute(r ImportersPulp
 		localVarReturnValue  *PulpImporterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpApiService.ImportersCorePulpUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpAPIService.ImportersCorePulpUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

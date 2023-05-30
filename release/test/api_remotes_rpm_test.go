@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RemotesRpmApiService
+Testing RemotesRpmAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RemotesRpmApiService(t *testing.T) {
+func Test_zest_RemotesRpmAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmAddRole", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmAddRole(context.Background(), rpmRpmRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmAddRole(context.Background(), rpmRpmRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_RemotesRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmCreate", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_RemotesRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var rpmRpmRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmDelete(context.Background(), rpmRpmRemoteHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmListRoles", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmListRoles(context.Background(), rpmRpmRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmDelete(context.Background(), rpmRpmRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_RemotesRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmMyPermissions", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var rpmRpmRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmMyPermissions(context.Background(), rpmRpmRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_RemotesRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmPartialUpdate", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmPartialUpdate(context.Background(), rpmRpmRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmListRoles(context.Background(), rpmRpmRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_RemotesRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmRead", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmRead(context.Background(), rpmRpmRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmMyPermissions(context.Background(), rpmRpmRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_RemotesRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmRemoveRole", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmRemoveRole(context.Background(), rpmRpmRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmPartialUpdate(context.Background(), rpmRpmRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,41 @@ func Test_zest_RemotesRpmApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesRpmApiService RemotesRpmRpmUpdate", func(t *testing.T) {
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRpmRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesRpmApi.RemotesRpmRpmUpdate(context.Background(), rpmRpmRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmRead(context.Background(), rpmRpmRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var rpmRpmRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmRemoveRole(context.Background(), rpmRpmRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesRpmAPIService RemotesRpmRpmUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var rpmRpmRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesRpmAPI.RemotesRpmRpmUpdate(context.Background(), rpmRpmRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

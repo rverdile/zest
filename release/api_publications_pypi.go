@@ -23,21 +23,21 @@ import (
 )
 
 
-// PublicationsPypiApiService PublicationsPypiApi service
-type PublicationsPypiApiService service
+// PublicationsPypiAPIService PublicationsPypiAPI service
+type PublicationsPypiAPIService service
 
-type PublicationsPypiApiPublicationsPythonPypiCreateRequest struct {
+type PublicationsPypiAPIPublicationsPythonPypiCreateRequest struct {
 	ctx context.Context
-	ApiService *PublicationsPypiApiService
+	ApiService *PublicationsPypiAPIService
 	pythonPythonPublication *PythonPythonPublication
 }
 
-func (r PublicationsPypiApiPublicationsPythonPypiCreateRequest) PythonPythonPublication(pythonPythonPublication PythonPythonPublication) PublicationsPypiApiPublicationsPythonPypiCreateRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiCreateRequest) PythonPythonPublication(pythonPythonPublication PythonPythonPublication) PublicationsPypiAPIPublicationsPythonPypiCreateRequest {
 	r.pythonPythonPublication = &pythonPythonPublication
 	return r
 }
 
-func (r PublicationsPypiApiPublicationsPythonPypiCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PublicationsPypiAPIPublicationsPythonPypiCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsPythonPypiCreateExecute(r)
 }
 
@@ -48,10 +48,10 @@ PublicationsPythonPypiCreate Create a python publication
 Dispatches a publish task, which generates metadata that will be used by pip.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsPypiApiPublicationsPythonPypiCreateRequest
+ @return PublicationsPypiAPIPublicationsPythonPypiCreateRequest
 */
-func (a *PublicationsPypiApiService) PublicationsPythonPypiCreate(ctx context.Context) PublicationsPypiApiPublicationsPythonPypiCreateRequest {
-	return PublicationsPypiApiPublicationsPythonPypiCreateRequest{
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiCreate(ctx context.Context) PublicationsPypiAPIPublicationsPythonPypiCreateRequest {
+	return PublicationsPypiAPIPublicationsPythonPypiCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -59,7 +59,7 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiCreate(ctx context.Co
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PublicationsPypiApiService) PublicationsPythonPypiCreateExecute(r PublicationsPypiApiPublicationsPythonPypiCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiCreateExecute(r PublicationsPypiAPIPublicationsPythonPypiCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -67,7 +67,7 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiCreateExecute(r Publi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiApiService.PublicationsPythonPypiCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiAPIService.PublicationsPythonPypiCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -136,13 +136,13 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiCreateExecute(r Publi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsPypiApiPublicationsPythonPypiDeleteRequest struct {
+type PublicationsPypiAPIPublicationsPythonPypiDeleteRequest struct {
 	ctx context.Context
-	ApiService *PublicationsPypiApiService
+	ApiService *PublicationsPypiAPIService
 	pythonPythonPublicationHref string
 }
 
-func (r PublicationsPypiApiPublicationsPythonPypiDeleteRequest) Execute() (*http.Response, error) {
+func (r PublicationsPypiAPIPublicationsPythonPypiDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PublicationsPythonPypiDeleteExecute(r)
 }
 
@@ -155,10 +155,10 @@ metadata about that content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonPublicationHref
- @return PublicationsPypiApiPublicationsPythonPypiDeleteRequest
+ @return PublicationsPypiAPIPublicationsPythonPypiDeleteRequest
 */
-func (a *PublicationsPypiApiService) PublicationsPythonPypiDelete(ctx context.Context, pythonPythonPublicationHref string) PublicationsPypiApiPublicationsPythonPypiDeleteRequest {
-	return PublicationsPypiApiPublicationsPythonPypiDeleteRequest{
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiDelete(ctx context.Context, pythonPythonPublicationHref string) PublicationsPypiAPIPublicationsPythonPypiDeleteRequest {
+	return PublicationsPypiAPIPublicationsPythonPypiDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonPublicationHref: pythonPythonPublicationHref,
@@ -166,14 +166,14 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiDelete(ctx context.Co
 }
 
 // Execute executes the request
-func (a *PublicationsPypiApiService) PublicationsPythonPypiDeleteExecute(r PublicationsPypiApiPublicationsPythonPypiDeleteRequest) (*http.Response, error) {
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiDeleteExecute(r PublicationsPypiAPIPublicationsPythonPypiDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiApiService.PublicationsPythonPypiDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiAPIService.PublicationsPythonPypiDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -231,9 +231,9 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiDeleteExecute(r Publi
 	return localVarHTTPResponse, nil
 }
 
-type PublicationsPypiApiPublicationsPythonPypiListRequest struct {
+type PublicationsPypiAPIPublicationsPythonPypiListRequest struct {
 	ctx context.Context
-	ApiService *PublicationsPypiApiService
+	ApiService *PublicationsPypiAPIService
 	content *string
 	contentIn *string
 	limit *int32
@@ -254,108 +254,108 @@ type PublicationsPypiApiPublicationsPythonPypiListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) Content(content string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) Content(content string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) ContentIn(contentIn string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) ContentIn(contentIn string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) Limit(limit int32) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) Limit(limit int32) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) Offset(offset int32) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) Offset(offset int32) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;pass_through&#x60; - Pass through * &#x60;-pass_through&#x60; - Pass through (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) Ordering(ordering []string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) Ordering(ordering []string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpCreated(pulpCreated time.Time) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpCreated(pulpCreated time.Time) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpCreatedGt(pulpCreatedGt time.Time) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpCreatedGte(pulpCreatedGte time.Time) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpCreatedLt(pulpCreatedLt time.Time) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpCreatedLte(pulpCreatedLte time.Time) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpHrefIn(pulpHrefIn []string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) PulpIdIn(pulpIdIn []string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) PulpIdIn(pulpIdIn []string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository referenced by HREF
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) Repository(repository string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) Repository(repository string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) RepositoryVersion(repositoryVersion string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) RepositoryVersion(repositoryVersion string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) Fields(fields []string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) Fields(fields []string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) ExcludeFields(excludeFields []string) PublicationsPypiApiPublicationsPythonPypiListRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) ExcludeFields(excludeFields []string) PublicationsPypiAPIPublicationsPythonPypiListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsPypiApiPublicationsPythonPypiListRequest) Execute() (*PaginatedpythonPythonPublicationResponseList, *http.Response, error) {
+func (r PublicationsPypiAPIPublicationsPythonPypiListRequest) Execute() (*PaginatedpythonPythonPublicationResponseList, *http.Response, error) {
 	return r.ApiService.PublicationsPythonPypiListExecute(r)
 }
 
@@ -367,10 +367,10 @@ Python Publications refer to the Python Package content in a repository version,
 metadata about that content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PublicationsPypiApiPublicationsPythonPypiListRequest
+ @return PublicationsPypiAPIPublicationsPythonPypiListRequest
 */
-func (a *PublicationsPypiApiService) PublicationsPythonPypiList(ctx context.Context) PublicationsPypiApiPublicationsPythonPypiListRequest {
-	return PublicationsPypiApiPublicationsPythonPypiListRequest{
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiList(ctx context.Context) PublicationsPypiAPIPublicationsPythonPypiListRequest {
+	return PublicationsPypiAPIPublicationsPythonPypiListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -378,7 +378,7 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiList(ctx context.Cont
 
 // Execute executes the request
 //  @return PaginatedpythonPythonPublicationResponseList
-func (a *PublicationsPypiApiService) PublicationsPythonPypiListExecute(r PublicationsPypiApiPublicationsPythonPypiListRequest) (*PaginatedpythonPythonPublicationResponseList, *http.Response, error) {
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiListExecute(r PublicationsPypiAPIPublicationsPythonPypiListRequest) (*PaginatedpythonPythonPublicationResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -386,7 +386,7 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiListExecute(r Publica
 		localVarReturnValue  *PaginatedpythonPythonPublicationResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiApiService.PublicationsPythonPypiList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiAPIService.PublicationsPythonPypiList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -517,27 +517,27 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiListExecute(r Publica
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PublicationsPypiApiPublicationsPythonPypiReadRequest struct {
+type PublicationsPypiAPIPublicationsPythonPypiReadRequest struct {
 	ctx context.Context
-	ApiService *PublicationsPypiApiService
+	ApiService *PublicationsPypiAPIService
 	pythonPythonPublicationHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PublicationsPypiApiPublicationsPythonPypiReadRequest) Fields(fields []string) PublicationsPypiApiPublicationsPythonPypiReadRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiReadRequest) Fields(fields []string) PublicationsPypiAPIPublicationsPythonPypiReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PublicationsPypiApiPublicationsPythonPypiReadRequest) ExcludeFields(excludeFields []string) PublicationsPypiApiPublicationsPythonPypiReadRequest {
+func (r PublicationsPypiAPIPublicationsPythonPypiReadRequest) ExcludeFields(excludeFields []string) PublicationsPypiAPIPublicationsPythonPypiReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PublicationsPypiApiPublicationsPythonPypiReadRequest) Execute() (*PythonPythonPublicationResponse, *http.Response, error) {
+func (r PublicationsPypiAPIPublicationsPythonPypiReadRequest) Execute() (*PythonPythonPublicationResponse, *http.Response, error) {
 	return r.ApiService.PublicationsPythonPypiReadExecute(r)
 }
 
@@ -550,10 +550,10 @@ metadata about that content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonPublicationHref
- @return PublicationsPypiApiPublicationsPythonPypiReadRequest
+ @return PublicationsPypiAPIPublicationsPythonPypiReadRequest
 */
-func (a *PublicationsPypiApiService) PublicationsPythonPypiRead(ctx context.Context, pythonPythonPublicationHref string) PublicationsPypiApiPublicationsPythonPypiReadRequest {
-	return PublicationsPypiApiPublicationsPythonPypiReadRequest{
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiRead(ctx context.Context, pythonPythonPublicationHref string) PublicationsPypiAPIPublicationsPythonPypiReadRequest {
+	return PublicationsPypiAPIPublicationsPythonPypiReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonPublicationHref: pythonPythonPublicationHref,
@@ -562,7 +562,7 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiRead(ctx context.Cont
 
 // Execute executes the request
 //  @return PythonPythonPublicationResponse
-func (a *PublicationsPypiApiService) PublicationsPythonPypiReadExecute(r PublicationsPypiApiPublicationsPythonPypiReadRequest) (*PythonPythonPublicationResponse, *http.Response, error) {
+func (a *PublicationsPypiAPIService) PublicationsPythonPypiReadExecute(r PublicationsPypiAPIPublicationsPythonPypiReadRequest) (*PythonPythonPublicationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -570,7 +570,7 @@ func (a *PublicationsPypiApiService) PublicationsPythonPypiReadExecute(r Publica
 		localVarReturnValue  *PythonPythonPublicationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiApiService.PublicationsPythonPypiRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicationsPypiAPIService.PublicationsPythonPypiRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

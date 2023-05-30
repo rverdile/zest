@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing UpstreamPulpsApiService
+Testing UpstreamPulpsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_UpstreamPulpsApiService(t *testing.T) {
+func Test_zest_UpstreamPulpsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UpstreamPulpsApiService UpstreamPulpsCreate", func(t *testing.T) {
+	t.Run("Test UpstreamPulpsAPIService UpstreamPulpsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UpstreamPulpsApi.UpstreamPulpsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,24 @@ func Test_zest_UpstreamPulpsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UpstreamPulpsApiService UpstreamPulpsDelete", func(t *testing.T) {
+	t.Run("Test UpstreamPulpsAPIService UpstreamPulpsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var upstreamPulpHref string
 
-		httpRes, err := apiClient.UpstreamPulpsApi.UpstreamPulpsDelete(context.Background(), upstreamPulpHref).Execute()
+		httpRes, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsDelete(context.Background(), upstreamPulpHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test UpstreamPulpsApiService UpstreamPulpsList", func(t *testing.T) {
+	t.Run("Test UpstreamPulpsAPIService UpstreamPulpsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UpstreamPulpsApi.UpstreamPulpsList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UpstreamPulpsApiService UpstreamPulpsPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var upstreamPulpHref string
-
-		resp, httpRes, err := apiClient.UpstreamPulpsApi.UpstreamPulpsPartialUpdate(context.Background(), upstreamPulpHref).Execute()
+		resp, httpRes, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +59,13 @@ func Test_zest_UpstreamPulpsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UpstreamPulpsApiService UpstreamPulpsRead", func(t *testing.T) {
+	t.Run("Test UpstreamPulpsAPIService UpstreamPulpsPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var upstreamPulpHref string
 
-		resp, httpRes, err := apiClient.UpstreamPulpsApi.UpstreamPulpsRead(context.Background(), upstreamPulpHref).Execute()
+		resp, httpRes, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsPartialUpdate(context.Background(), upstreamPulpHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +73,13 @@ func Test_zest_UpstreamPulpsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UpstreamPulpsApiService UpstreamPulpsReplicate", func(t *testing.T) {
+	t.Run("Test UpstreamPulpsAPIService UpstreamPulpsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var upstreamPulpHref string
 
-		resp, httpRes, err := apiClient.UpstreamPulpsApi.UpstreamPulpsReplicate(context.Background(), upstreamPulpHref).Execute()
+		resp, httpRes, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsRead(context.Background(), upstreamPulpHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,13 +87,27 @@ func Test_zest_UpstreamPulpsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UpstreamPulpsApiService UpstreamPulpsUpdate", func(t *testing.T) {
+	t.Run("Test UpstreamPulpsAPIService UpstreamPulpsReplicate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var upstreamPulpHref string
 
-		resp, httpRes, err := apiClient.UpstreamPulpsApi.UpstreamPulpsUpdate(context.Background(), upstreamPulpHref).Execute()
+		resp, httpRes, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsReplicate(context.Background(), upstreamPulpHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UpstreamPulpsAPIService UpstreamPulpsUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var upstreamPulpHref string
+
+		resp, httpRes, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsUpdate(context.Background(), upstreamPulpHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

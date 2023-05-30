@@ -22,21 +22,21 @@ import (
 )
 
 
-// ExportersPulpApiService ExportersPulpApi service
-type ExportersPulpApiService service
+// ExportersPulpAPIService ExportersPulpAPI service
+type ExportersPulpAPIService service
 
-type ExportersPulpApiExportersCorePulpCreateRequest struct {
+type ExportersPulpAPIExportersCorePulpCreateRequest struct {
 	ctx context.Context
-	ApiService *ExportersPulpApiService
+	ApiService *ExportersPulpAPIService
 	pulpExporter *PulpExporter
 }
 
-func (r ExportersPulpApiExportersCorePulpCreateRequest) PulpExporter(pulpExporter PulpExporter) ExportersPulpApiExportersCorePulpCreateRequest {
+func (r ExportersPulpAPIExportersCorePulpCreateRequest) PulpExporter(pulpExporter PulpExporter) ExportersPulpAPIExportersCorePulpCreateRequest {
 	r.pulpExporter = &pulpExporter
 	return r
 }
 
-func (r ExportersPulpApiExportersCorePulpCreateRequest) Execute() (*PulpExporterResponse, *http.Response, error) {
+func (r ExportersPulpAPIExportersCorePulpCreateRequest) Execute() (*PulpExporterResponse, *http.Response, error) {
 	return r.ApiService.ExportersCorePulpCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ExportersCorePulpCreate Create a pulp exporter
 ViewSet for viewing PulpExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ExportersPulpApiExportersCorePulpCreateRequest
+ @return ExportersPulpAPIExportersCorePulpCreateRequest
 */
-func (a *ExportersPulpApiService) ExportersCorePulpCreate(ctx context.Context) ExportersPulpApiExportersCorePulpCreateRequest {
-	return ExportersPulpApiExportersCorePulpCreateRequest{
+func (a *ExportersPulpAPIService) ExportersCorePulpCreate(ctx context.Context) ExportersPulpAPIExportersCorePulpCreateRequest {
+	return ExportersPulpAPIExportersCorePulpCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpCreate(ctx context.Context) E
 
 // Execute executes the request
 //  @return PulpExporterResponse
-func (a *ExportersPulpApiService) ExportersCorePulpCreateExecute(r ExportersPulpApiExportersCorePulpCreateRequest) (*PulpExporterResponse, *http.Response, error) {
+func (a *ExportersPulpAPIService) ExportersCorePulpCreateExecute(r ExportersPulpAPIExportersCorePulpCreateRequest) (*PulpExporterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpCreateExecute(r ExportersPulp
 		localVarReturnValue  *PulpExporterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpApiService.ExportersCorePulpCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpAPIService.ExportersCorePulpCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *ExportersPulpApiService) ExportersCorePulpCreateExecute(r ExportersPulp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ExportersPulpApiExportersCorePulpDeleteRequest struct {
+type ExportersPulpAPIExportersCorePulpDeleteRequest struct {
 	ctx context.Context
-	ApiService *ExportersPulpApiService
+	ApiService *ExportersPulpAPIService
 	pulpExporterHref string
 }
 
-func (r ExportersPulpApiExportersCorePulpDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ExportersPulpAPIExportersCorePulpDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ExportersCorePulpDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpExporterHref
- @return ExportersPulpApiExportersCorePulpDeleteRequest
+ @return ExportersPulpAPIExportersCorePulpDeleteRequest
 */
-func (a *ExportersPulpApiService) ExportersCorePulpDelete(ctx context.Context, pulpExporterHref string) ExportersPulpApiExportersCorePulpDeleteRequest {
-	return ExportersPulpApiExportersCorePulpDeleteRequest{
+func (a *ExportersPulpAPIService) ExportersCorePulpDelete(ctx context.Context, pulpExporterHref string) ExportersPulpAPIExportersCorePulpDeleteRequest {
+	return ExportersPulpAPIExportersCorePulpDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpExporterHref: pulpExporterHref,
@@ -163,7 +163,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpDelete(ctx context.Context, p
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ExportersPulpApiService) ExportersCorePulpDeleteExecute(r ExportersPulpApiExportersCorePulpDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ExportersPulpAPIService) ExportersCorePulpDeleteExecute(r ExportersPulpAPIExportersCorePulpDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -171,7 +171,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpDeleteExecute(r ExportersPulp
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpApiService.ExportersCorePulpDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpAPIService.ExportersCorePulpDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -238,9 +238,9 @@ func (a *ExportersPulpApiService) ExportersCorePulpDeleteExecute(r ExportersPulp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ExportersPulpApiExportersCorePulpListRequest struct {
+type ExportersPulpAPIExportersCorePulpListRequest struct {
 	ctx context.Context
-	ApiService *ExportersPulpApiService
+	ApiService *ExportersPulpAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -256,78 +256,78 @@ type ExportersPulpApiExportersCorePulpListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ExportersPulpApiExportersCorePulpListRequest) Limit(limit int32) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) Limit(limit int32) ExportersPulpAPIExportersCorePulpListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ExportersPulpApiExportersCorePulpListRequest) Name(name string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) Name(name string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ExportersPulpApiExportersCorePulpListRequest) NameContains(nameContains string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) NameContains(nameContains string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ExportersPulpApiExportersCorePulpListRequest) NameIcontains(nameIcontains string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) NameIcontains(nameIcontains string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ExportersPulpApiExportersCorePulpListRequest) NameIn(nameIn []string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) NameIn(nameIn []string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ExportersPulpApiExportersCorePulpListRequest) NameStartswith(nameStartswith string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) NameStartswith(nameStartswith string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ExportersPulpApiExportersCorePulpListRequest) Offset(offset int32) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) Offset(offset int32) ExportersPulpAPIExportersCorePulpListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;path&#x60; - Path * &#x60;-path&#x60; - Path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ExportersPulpApiExportersCorePulpListRequest) Ordering(ordering []string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) Ordering(ordering []string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ExportersPulpApiExportersCorePulpListRequest) PulpHrefIn(pulpHrefIn []string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) PulpHrefIn(pulpHrefIn []string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ExportersPulpApiExportersCorePulpListRequest) PulpIdIn(pulpIdIn []string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) PulpIdIn(pulpIdIn []string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ExportersPulpApiExportersCorePulpListRequest) Fields(fields []string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) Fields(fields []string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ExportersPulpApiExportersCorePulpListRequest) ExcludeFields(excludeFields []string) ExportersPulpApiExportersCorePulpListRequest {
+func (r ExportersPulpAPIExportersCorePulpListRequest) ExcludeFields(excludeFields []string) ExportersPulpAPIExportersCorePulpListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ExportersPulpApiExportersCorePulpListRequest) Execute() (*PaginatedPulpExporterResponseList, *http.Response, error) {
+func (r ExportersPulpAPIExportersCorePulpListRequest) Execute() (*PaginatedPulpExporterResponseList, *http.Response, error) {
 	return r.ApiService.ExportersCorePulpListExecute(r)
 }
 
@@ -337,10 +337,10 @@ ExportersCorePulpList List pulp exporters
 ViewSet for viewing PulpExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ExportersPulpApiExportersCorePulpListRequest
+ @return ExportersPulpAPIExportersCorePulpListRequest
 */
-func (a *ExportersPulpApiService) ExportersCorePulpList(ctx context.Context) ExportersPulpApiExportersCorePulpListRequest {
-	return ExportersPulpApiExportersCorePulpListRequest{
+func (a *ExportersPulpAPIService) ExportersCorePulpList(ctx context.Context) ExportersPulpAPIExportersCorePulpListRequest {
+	return ExportersPulpAPIExportersCorePulpListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -348,7 +348,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpList(ctx context.Context) Exp
 
 // Execute executes the request
 //  @return PaginatedPulpExporterResponseList
-func (a *ExportersPulpApiService) ExportersCorePulpListExecute(r ExportersPulpApiExportersCorePulpListRequest) (*PaginatedPulpExporterResponseList, *http.Response, error) {
+func (a *ExportersPulpAPIService) ExportersCorePulpListExecute(r ExportersPulpAPIExportersCorePulpListRequest) (*PaginatedPulpExporterResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -356,7 +356,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpListExecute(r ExportersPulpAp
 		localVarReturnValue  *PaginatedPulpExporterResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpApiService.ExportersCorePulpList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpAPIService.ExportersCorePulpList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -472,19 +472,19 @@ func (a *ExportersPulpApiService) ExportersCorePulpListExecute(r ExportersPulpAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ExportersPulpApiExportersCorePulpPartialUpdateRequest struct {
+type ExportersPulpAPIExportersCorePulpPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *ExportersPulpApiService
+	ApiService *ExportersPulpAPIService
 	pulpExporterHref string
 	patchedPulpExporter *PatchedPulpExporter
 }
 
-func (r ExportersPulpApiExportersCorePulpPartialUpdateRequest) PatchedPulpExporter(patchedPulpExporter PatchedPulpExporter) ExportersPulpApiExportersCorePulpPartialUpdateRequest {
+func (r ExportersPulpAPIExportersCorePulpPartialUpdateRequest) PatchedPulpExporter(patchedPulpExporter PatchedPulpExporter) ExportersPulpAPIExportersCorePulpPartialUpdateRequest {
 	r.patchedPulpExporter = &patchedPulpExporter
 	return r
 }
 
-func (r ExportersPulpApiExportersCorePulpPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ExportersPulpAPIExportersCorePulpPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ExportersCorePulpPartialUpdateExecute(r)
 }
 
@@ -495,10 +495,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpExporterHref
- @return ExportersPulpApiExportersCorePulpPartialUpdateRequest
+ @return ExportersPulpAPIExportersCorePulpPartialUpdateRequest
 */
-func (a *ExportersPulpApiService) ExportersCorePulpPartialUpdate(ctx context.Context, pulpExporterHref string) ExportersPulpApiExportersCorePulpPartialUpdateRequest {
-	return ExportersPulpApiExportersCorePulpPartialUpdateRequest{
+func (a *ExportersPulpAPIService) ExportersCorePulpPartialUpdate(ctx context.Context, pulpExporterHref string) ExportersPulpAPIExportersCorePulpPartialUpdateRequest {
+	return ExportersPulpAPIExportersCorePulpPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpExporterHref: pulpExporterHref,
@@ -507,7 +507,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpPartialUpdate(ctx context.Con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ExportersPulpApiService) ExportersCorePulpPartialUpdateExecute(r ExportersPulpApiExportersCorePulpPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ExportersPulpAPIService) ExportersCorePulpPartialUpdateExecute(r ExportersPulpAPIExportersCorePulpPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -515,7 +515,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpPartialUpdateExecute(r Export
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpApiService.ExportersCorePulpPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpAPIService.ExportersCorePulpPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -587,27 +587,27 @@ func (a *ExportersPulpApiService) ExportersCorePulpPartialUpdateExecute(r Export
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ExportersPulpApiExportersCorePulpReadRequest struct {
+type ExportersPulpAPIExportersCorePulpReadRequest struct {
 	ctx context.Context
-	ApiService *ExportersPulpApiService
+	ApiService *ExportersPulpAPIService
 	pulpExporterHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ExportersPulpApiExportersCorePulpReadRequest) Fields(fields []string) ExportersPulpApiExportersCorePulpReadRequest {
+func (r ExportersPulpAPIExportersCorePulpReadRequest) Fields(fields []string) ExportersPulpAPIExportersCorePulpReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ExportersPulpApiExportersCorePulpReadRequest) ExcludeFields(excludeFields []string) ExportersPulpApiExportersCorePulpReadRequest {
+func (r ExportersPulpAPIExportersCorePulpReadRequest) ExcludeFields(excludeFields []string) ExportersPulpAPIExportersCorePulpReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ExportersPulpApiExportersCorePulpReadRequest) Execute() (*PulpExporterResponse, *http.Response, error) {
+func (r ExportersPulpAPIExportersCorePulpReadRequest) Execute() (*PulpExporterResponse, *http.Response, error) {
 	return r.ApiService.ExportersCorePulpReadExecute(r)
 }
 
@@ -618,10 +618,10 @@ ViewSet for viewing PulpExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpExporterHref
- @return ExportersPulpApiExportersCorePulpReadRequest
+ @return ExportersPulpAPIExportersCorePulpReadRequest
 */
-func (a *ExportersPulpApiService) ExportersCorePulpRead(ctx context.Context, pulpExporterHref string) ExportersPulpApiExportersCorePulpReadRequest {
-	return ExportersPulpApiExportersCorePulpReadRequest{
+func (a *ExportersPulpAPIService) ExportersCorePulpRead(ctx context.Context, pulpExporterHref string) ExportersPulpAPIExportersCorePulpReadRequest {
+	return ExportersPulpAPIExportersCorePulpReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpExporterHref: pulpExporterHref,
@@ -630,7 +630,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpRead(ctx context.Context, pul
 
 // Execute executes the request
 //  @return PulpExporterResponse
-func (a *ExportersPulpApiService) ExportersCorePulpReadExecute(r ExportersPulpApiExportersCorePulpReadRequest) (*PulpExporterResponse, *http.Response, error) {
+func (a *ExportersPulpAPIService) ExportersCorePulpReadExecute(r ExportersPulpAPIExportersCorePulpReadRequest) (*PulpExporterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -638,7 +638,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpReadExecute(r ExportersPulpAp
 		localVarReturnValue  *PulpExporterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpApiService.ExportersCorePulpRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpAPIService.ExportersCorePulpRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -727,19 +727,19 @@ func (a *ExportersPulpApiService) ExportersCorePulpReadExecute(r ExportersPulpAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ExportersPulpApiExportersCorePulpUpdateRequest struct {
+type ExportersPulpAPIExportersCorePulpUpdateRequest struct {
 	ctx context.Context
-	ApiService *ExportersPulpApiService
+	ApiService *ExportersPulpAPIService
 	pulpExporterHref string
 	pulpExporter *PulpExporter
 }
 
-func (r ExportersPulpApiExportersCorePulpUpdateRequest) PulpExporter(pulpExporter PulpExporter) ExportersPulpApiExportersCorePulpUpdateRequest {
+func (r ExportersPulpAPIExportersCorePulpUpdateRequest) PulpExporter(pulpExporter PulpExporter) ExportersPulpAPIExportersCorePulpUpdateRequest {
 	r.pulpExporter = &pulpExporter
 	return r
 }
 
-func (r ExportersPulpApiExportersCorePulpUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ExportersPulpAPIExportersCorePulpUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ExportersCorePulpUpdateExecute(r)
 }
 
@@ -750,10 +750,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pulpExporterHref
- @return ExportersPulpApiExportersCorePulpUpdateRequest
+ @return ExportersPulpAPIExportersCorePulpUpdateRequest
 */
-func (a *ExportersPulpApiService) ExportersCorePulpUpdate(ctx context.Context, pulpExporterHref string) ExportersPulpApiExportersCorePulpUpdateRequest {
-	return ExportersPulpApiExportersCorePulpUpdateRequest{
+func (a *ExportersPulpAPIService) ExportersCorePulpUpdate(ctx context.Context, pulpExporterHref string) ExportersPulpAPIExportersCorePulpUpdateRequest {
+	return ExportersPulpAPIExportersCorePulpUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pulpExporterHref: pulpExporterHref,
@@ -762,7 +762,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpUpdate(ctx context.Context, p
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ExportersPulpApiService) ExportersCorePulpUpdateExecute(r ExportersPulpApiExportersCorePulpUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ExportersPulpAPIService) ExportersCorePulpUpdateExecute(r ExportersPulpAPIExportersCorePulpUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -770,7 +770,7 @@ func (a *ExportersPulpApiService) ExportersCorePulpUpdateExecute(r ExportersPulp
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpApiService.ExportersCorePulpUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersPulpAPIService.ExportersCorePulpUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

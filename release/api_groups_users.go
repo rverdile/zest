@@ -22,22 +22,22 @@ import (
 )
 
 
-// GroupsUsersApiService GroupsUsersApi service
-type GroupsUsersApiService service
+// GroupsUsersAPIService GroupsUsersAPI service
+type GroupsUsersAPIService service
 
-type GroupsUsersApiGroupsUsersCreateRequest struct {
+type GroupsUsersAPIGroupsUsersCreateRequest struct {
 	ctx context.Context
-	ApiService *GroupsUsersApiService
+	ApiService *GroupsUsersAPIService
 	groupHref string
 	groupUser *GroupUser
 }
 
-func (r GroupsUsersApiGroupsUsersCreateRequest) GroupUser(groupUser GroupUser) GroupsUsersApiGroupsUsersCreateRequest {
+func (r GroupsUsersAPIGroupsUsersCreateRequest) GroupUser(groupUser GroupUser) GroupsUsersAPIGroupsUsersCreateRequest {
 	r.groupUser = &groupUser
 	return r
 }
 
-func (r GroupsUsersApiGroupsUsersCreateRequest) Execute() (*GroupUserResponse, *http.Response, error) {
+func (r GroupsUsersAPIGroupsUsersCreateRequest) Execute() (*GroupUserResponse, *http.Response, error) {
 	return r.ApiService.GroupsUsersCreateExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a user to a group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
- @return GroupsUsersApiGroupsUsersCreateRequest
+ @return GroupsUsersAPIGroupsUsersCreateRequest
 */
-func (a *GroupsUsersApiService) GroupsUsersCreate(ctx context.Context, groupHref string) GroupsUsersApiGroupsUsersCreateRequest {
-	return GroupsUsersApiGroupsUsersCreateRequest{
+func (a *GroupsUsersAPIService) GroupsUsersCreate(ctx context.Context, groupHref string) GroupsUsersAPIGroupsUsersCreateRequest {
+	return GroupsUsersAPIGroupsUsersCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupHref: groupHref,
@@ -60,7 +60,7 @@ func (a *GroupsUsersApiService) GroupsUsersCreate(ctx context.Context, groupHref
 
 // Execute executes the request
 //  @return GroupUserResponse
-func (a *GroupsUsersApiService) GroupsUsersCreateExecute(r GroupsUsersApiGroupsUsersCreateRequest) (*GroupUserResponse, *http.Response, error) {
+func (a *GroupsUsersAPIService) GroupsUsersCreateExecute(r GroupsUsersAPIGroupsUsersCreateRequest) (*GroupUserResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *GroupsUsersApiService) GroupsUsersCreateExecute(r GroupsUsersApiGroupsU
 		localVarReturnValue  *GroupUserResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersApiService.GroupsUsersCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.GroupsUsersCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,13 +140,13 @@ func (a *GroupsUsersApiService) GroupsUsersCreateExecute(r GroupsUsersApiGroupsU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type GroupsUsersApiGroupsUsersDeleteRequest struct {
+type GroupsUsersAPIGroupsUsersDeleteRequest struct {
 	ctx context.Context
-	ApiService *GroupsUsersApiService
+	ApiService *GroupsUsersAPIService
 	groupsUserHref string
 }
 
-func (r GroupsUsersApiGroupsUsersDeleteRequest) Execute() (*http.Response, error) {
+func (r GroupsUsersAPIGroupsUsersDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GroupsUsersDeleteExecute(r)
 }
 
@@ -157,10 +157,10 @@ Remove a user from a group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupsUserHref
- @return GroupsUsersApiGroupsUsersDeleteRequest
+ @return GroupsUsersAPIGroupsUsersDeleteRequest
 */
-func (a *GroupsUsersApiService) GroupsUsersDelete(ctx context.Context, groupsUserHref string) GroupsUsersApiGroupsUsersDeleteRequest {
-	return GroupsUsersApiGroupsUsersDeleteRequest{
+func (a *GroupsUsersAPIService) GroupsUsersDelete(ctx context.Context, groupsUserHref string) GroupsUsersAPIGroupsUsersDeleteRequest {
+	return GroupsUsersAPIGroupsUsersDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupsUserHref: groupsUserHref,
@@ -168,14 +168,14 @@ func (a *GroupsUsersApiService) GroupsUsersDelete(ctx context.Context, groupsUse
 }
 
 // Execute executes the request
-func (a *GroupsUsersApiService) GroupsUsersDeleteExecute(r GroupsUsersApiGroupsUsersDeleteRequest) (*http.Response, error) {
+func (a *GroupsUsersAPIService) GroupsUsersDeleteExecute(r GroupsUsersAPIGroupsUsersDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersApiService.GroupsUsersDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.GroupsUsersDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -233,9 +233,9 @@ func (a *GroupsUsersApiService) GroupsUsersDeleteExecute(r GroupsUsersApiGroupsU
 	return localVarHTTPResponse, nil
 }
 
-type GroupsUsersApiGroupsUsersListRequest struct {
+type GroupsUsersAPIGroupsUsersListRequest struct {
 	ctx context.Context
-	ApiService *GroupsUsersApiService
+	ApiService *GroupsUsersAPIService
 	groupHref string
 	limit *int32
 	offset *int32
@@ -244,30 +244,30 @@ type GroupsUsersApiGroupsUsersListRequest struct {
 }
 
 // Number of results to return per page.
-func (r GroupsUsersApiGroupsUsersListRequest) Limit(limit int32) GroupsUsersApiGroupsUsersListRequest {
+func (r GroupsUsersAPIGroupsUsersListRequest) Limit(limit int32) GroupsUsersAPIGroupsUsersListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r GroupsUsersApiGroupsUsersListRequest) Offset(offset int32) GroupsUsersApiGroupsUsersListRequest {
+func (r GroupsUsersAPIGroupsUsersListRequest) Offset(offset int32) GroupsUsersAPIGroupsUsersListRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r GroupsUsersApiGroupsUsersListRequest) Fields(fields []string) GroupsUsersApiGroupsUsersListRequest {
+func (r GroupsUsersAPIGroupsUsersListRequest) Fields(fields []string) GroupsUsersAPIGroupsUsersListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r GroupsUsersApiGroupsUsersListRequest) ExcludeFields(excludeFields []string) GroupsUsersApiGroupsUsersListRequest {
+func (r GroupsUsersAPIGroupsUsersListRequest) ExcludeFields(excludeFields []string) GroupsUsersAPIGroupsUsersListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r GroupsUsersApiGroupsUsersListRequest) Execute() (*PaginatedGroupUserResponseList, *http.Response, error) {
+func (r GroupsUsersAPIGroupsUsersListRequest) Execute() (*PaginatedGroupUserResponseList, *http.Response, error) {
 	return r.ApiService.GroupsUsersListExecute(r)
 }
 
@@ -278,10 +278,10 @@ List group users.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupHref
- @return GroupsUsersApiGroupsUsersListRequest
+ @return GroupsUsersAPIGroupsUsersListRequest
 */
-func (a *GroupsUsersApiService) GroupsUsersList(ctx context.Context, groupHref string) GroupsUsersApiGroupsUsersListRequest {
-	return GroupsUsersApiGroupsUsersListRequest{
+func (a *GroupsUsersAPIService) GroupsUsersList(ctx context.Context, groupHref string) GroupsUsersAPIGroupsUsersListRequest {
+	return GroupsUsersAPIGroupsUsersListRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupHref: groupHref,
@@ -290,7 +290,7 @@ func (a *GroupsUsersApiService) GroupsUsersList(ctx context.Context, groupHref s
 
 // Execute executes the request
 //  @return PaginatedGroupUserResponseList
-func (a *GroupsUsersApiService) GroupsUsersListExecute(r GroupsUsersApiGroupsUsersListRequest) (*PaginatedGroupUserResponseList, *http.Response, error) {
+func (a *GroupsUsersAPIService) GroupsUsersListExecute(r GroupsUsersAPIGroupsUsersListRequest) (*PaginatedGroupUserResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -298,7 +298,7 @@ func (a *GroupsUsersApiService) GroupsUsersListExecute(r GroupsUsersApiGroupsUse
 		localVarReturnValue  *PaginatedGroupUserResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersApiService.GroupsUsersList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsUsersAPIService.GroupsUsersList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

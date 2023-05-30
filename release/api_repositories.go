@@ -21,12 +21,13 @@ import (
 )
 
 
-// RepositoriesApiService RepositoriesApi service
-type RepositoriesApiService service
+// RepositoriesAPIService RepositoriesAPI service
+type RepositoriesAPIService service
 
-type RepositoriesApiRepositoriesListRequest struct {
+type RepositoriesAPIRepositoriesListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesApiService
+	ApiService *RepositoriesAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -48,149 +49,162 @@ type RepositoriesApiRepositoriesListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesAPIRepositoriesListRequest) LatestWithContent(latestWithContent string) RepositoriesAPIRepositoriesListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesApiRepositoriesListRequest) Limit(limit int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) Limit(limit int32) RepositoriesAPIRepositoriesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesApiRepositoriesListRequest) Name(name string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) Name(name string) RepositoriesAPIRepositoriesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesApiRepositoriesListRequest) NameContains(nameContains string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) NameContains(nameContains string) RepositoriesAPIRepositoriesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesApiRepositoriesListRequest) NameIcontains(nameIcontains string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) NameIcontains(nameIcontains string) RepositoriesAPIRepositoriesListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesApiRepositoriesListRequest) NameIn(nameIn []string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) NameIn(nameIn []string) RepositoriesAPIRepositoriesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesApiRepositoriesListRequest) NameStartswith(nameStartswith string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) NameStartswith(nameStartswith string) RepositoriesAPIRepositoriesListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesApiRepositoriesListRequest) Offset(offset int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) Offset(offset int32) RepositoriesAPIRepositoriesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesApiRepositoriesListRequest) Ordering(ordering []string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) Ordering(ordering []string) RepositoriesAPIRepositoriesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesApiRepositoriesListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesAPIRepositoriesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesApiRepositoriesListRequest) PulpIdIn(pulpIdIn []string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) PulpIdIn(pulpIdIn []string) RepositoriesAPIRepositoriesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesApiRepositoriesListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesAPIRepositoriesListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Pulp type is in  * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;container.container-push&#x60; - container.container-push * &#x60;deb.deb&#x60; - deb.deb * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm
-func (r RepositoriesApiRepositoriesListRequest) PulpTypeIn(pulpTypeIn []string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) PulpTypeIn(pulpTypeIn []string) RepositoriesAPIRepositoriesListRequest {
 	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesApiRepositoriesListRequest) Remote(remote string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) Remote(remote string) RepositoriesAPIRepositoriesListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesApiRepositoriesListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesAPIRepositoriesListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesAPIRepositoriesListRequest) WithContent(withContent string) RepositoriesAPIRepositoriesListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesApiRepositoriesListRequest) Fields(fields []string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) Fields(fields []string) RepositoriesAPIRepositoriesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesApiRepositoriesListRequest) ExcludeFields(excludeFields []string) RepositoriesApiRepositoriesListRequest {
+func (r RepositoriesAPIRepositoriesListRequest) ExcludeFields(excludeFields []string) RepositoriesAPIRepositoriesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesApiRepositoriesListRequest) Execute() (*PaginatedRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesAPIRepositoriesListRequest) Execute() (*PaginatedRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesListExecute(r)
 }
 
@@ -200,10 +214,10 @@ RepositoriesList List repositories
 Endpoint to list all repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesApiRepositoriesListRequest
+ @return RepositoriesAPIRepositoriesListRequest
 */
-func (a *RepositoriesApiService) RepositoriesList(ctx context.Context) RepositoriesApiRepositoriesListRequest {
-	return RepositoriesApiRepositoriesListRequest{
+func (a *RepositoriesAPIService) RepositoriesList(ctx context.Context) RepositoriesAPIRepositoriesListRequest {
+	return RepositoriesAPIRepositoriesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -211,7 +225,7 @@ func (a *RepositoriesApiService) RepositoriesList(ctx context.Context) Repositor
 
 // Execute executes the request
 //  @return PaginatedRepositoryResponseList
-func (a *RepositoriesApiService) RepositoriesListExecute(r RepositoriesApiRepositoriesListRequest) (*PaginatedRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesAPIService) RepositoriesListExecute(r RepositoriesAPIRepositoriesListRequest) (*PaginatedRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -219,7 +233,7 @@ func (a *RepositoriesApiService) RepositoriesListExecute(r RepositoriesApiReposi
 		localVarReturnValue  *PaginatedRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesApiService.RepositoriesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAPIService.RepositoriesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -229,6 +243,9 @@ func (a *RepositoriesApiService) RepositoriesListExecute(r RepositoriesApiReposi
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -291,6 +308,9 @@ func (a *RepositoriesApiService) RepositoriesListExecute(r RepositoriesApiReposi
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields

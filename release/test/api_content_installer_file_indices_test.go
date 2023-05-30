@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentInstallerFileIndicesApiService
+Testing ContentInstallerFileIndicesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentInstallerFileIndicesApiService(t *testing.T) {
+func Test_zest_ContentInstallerFileIndicesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentInstallerFileIndicesApiService ContentDebInstallerFileIndicesCreate", func(t *testing.T) {
+	t.Run("Test ContentInstallerFileIndicesAPIService ContentDebInstallerFileIndicesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentInstallerFileIndicesApi.ContentDebInstallerFileIndicesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentInstallerFileIndicesAPI.ContentDebInstallerFileIndicesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentInstallerFileIndicesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentInstallerFileIndicesApiService ContentDebInstallerFileIndicesList", func(t *testing.T) {
+	t.Run("Test ContentInstallerFileIndicesAPIService ContentDebInstallerFileIndicesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentInstallerFileIndicesApi.ContentDebInstallerFileIndicesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentInstallerFileIndicesAPI.ContentDebInstallerFileIndicesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentInstallerFileIndicesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentInstallerFileIndicesApiService ContentDebInstallerFileIndicesRead", func(t *testing.T) {
+	t.Run("Test ContentInstallerFileIndicesAPIService ContentDebInstallerFileIndicesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debInstallerFileIndexHref string
 
-		resp, httpRes, err := apiClient.ContentInstallerFileIndicesApi.ContentDebInstallerFileIndicesRead(context.Background(), debInstallerFileIndexHref).Execute()
+		resp, httpRes, err := apiClient.ContentInstallerFileIndicesAPI.ContentDebInstallerFileIndicesRead(context.Background(), debInstallerFileIndexHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

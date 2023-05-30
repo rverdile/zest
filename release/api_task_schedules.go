@@ -22,22 +22,22 @@ import (
 )
 
 
-// TaskSchedulesApiService TaskSchedulesApi service
-type TaskSchedulesApiService service
+// TaskSchedulesAPIService TaskSchedulesAPI service
+type TaskSchedulesAPIService service
 
-type TaskSchedulesApiTaskSchedulesAddRoleRequest struct {
+type TaskSchedulesAPITaskSchedulesAddRoleRequest struct {
 	ctx context.Context
-	ApiService *TaskSchedulesApiService
+	ApiService *TaskSchedulesAPIService
 	taskScheduleHref string
 	nestedRole *NestedRole
 }
 
-func (r TaskSchedulesApiTaskSchedulesAddRoleRequest) NestedRole(nestedRole NestedRole) TaskSchedulesApiTaskSchedulesAddRoleRequest {
+func (r TaskSchedulesAPITaskSchedulesAddRoleRequest) NestedRole(nestedRole NestedRole) TaskSchedulesAPITaskSchedulesAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r TaskSchedulesApiTaskSchedulesAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r TaskSchedulesAPITaskSchedulesAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.TaskSchedulesAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskScheduleHref
- @return TaskSchedulesApiTaskSchedulesAddRoleRequest
+ @return TaskSchedulesAPITaskSchedulesAddRoleRequest
 */
-func (a *TaskSchedulesApiService) TaskSchedulesAddRole(ctx context.Context, taskScheduleHref string) TaskSchedulesApiTaskSchedulesAddRoleRequest {
-	return TaskSchedulesApiTaskSchedulesAddRoleRequest{
+func (a *TaskSchedulesAPIService) TaskSchedulesAddRole(ctx context.Context, taskScheduleHref string) TaskSchedulesAPITaskSchedulesAddRoleRequest {
+	return TaskSchedulesAPITaskSchedulesAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskScheduleHref: taskScheduleHref,
@@ -60,7 +60,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesAddRole(ctx context.Context, task
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *TaskSchedulesApiService) TaskSchedulesAddRoleExecute(r TaskSchedulesApiTaskSchedulesAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *TaskSchedulesAPIService) TaskSchedulesAddRoleExecute(r TaskSchedulesAPITaskSchedulesAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesAddRoleExecute(r TaskSchedulesApi
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesApiService.TaskSchedulesAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesAPIService.TaskSchedulesAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,9 +140,9 @@ func (a *TaskSchedulesApiService) TaskSchedulesAddRoleExecute(r TaskSchedulesApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TaskSchedulesApiTaskSchedulesListRequest struct {
+type TaskSchedulesAPITaskSchedulesListRequest struct {
 	ctx context.Context
-	ApiService *TaskSchedulesApiService
+	ApiService *TaskSchedulesAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -157,72 +157,72 @@ type TaskSchedulesApiTaskSchedulesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r TaskSchedulesApiTaskSchedulesListRequest) Limit(limit int32) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) Limit(limit int32) TaskSchedulesAPITaskSchedulesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r TaskSchedulesApiTaskSchedulesListRequest) Name(name string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) Name(name string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r TaskSchedulesApiTaskSchedulesListRequest) NameContains(nameContains string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) NameContains(nameContains string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // The initial index from which to return the results.
-func (r TaskSchedulesApiTaskSchedulesListRequest) Offset(offset int32) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) Offset(offset int32) TaskSchedulesAPITaskSchedulesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;next_dispatch&#x60; - Next dispatch * &#x60;-next_dispatch&#x60; - Next dispatch (descending) * &#x60;dispatch_interval&#x60; - Dispatch interval * &#x60;-dispatch_interval&#x60; - Dispatch interval (descending) * &#x60;task_name&#x60; - Task name * &#x60;-task_name&#x60; - Task name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r TaskSchedulesApiTaskSchedulesListRequest) Ordering(ordering []string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) Ordering(ordering []string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r TaskSchedulesApiTaskSchedulesListRequest) PulpHrefIn(pulpHrefIn []string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) PulpHrefIn(pulpHrefIn []string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r TaskSchedulesApiTaskSchedulesListRequest) PulpIdIn(pulpIdIn []string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) PulpIdIn(pulpIdIn []string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where task_name matches value
-func (r TaskSchedulesApiTaskSchedulesListRequest) TaskName(taskName string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) TaskName(taskName string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.taskName = &taskName
 	return r
 }
 
 // Filter results where task_name contains value
-func (r TaskSchedulesApiTaskSchedulesListRequest) TaskNameContains(taskNameContains string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) TaskNameContains(taskNameContains string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.taskNameContains = &taskNameContains
 	return r
 }
 
 // A list of fields to include in the response.
-func (r TaskSchedulesApiTaskSchedulesListRequest) Fields(fields []string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) Fields(fields []string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TaskSchedulesApiTaskSchedulesListRequest) ExcludeFields(excludeFields []string) TaskSchedulesApiTaskSchedulesListRequest {
+func (r TaskSchedulesAPITaskSchedulesListRequest) ExcludeFields(excludeFields []string) TaskSchedulesAPITaskSchedulesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TaskSchedulesApiTaskSchedulesListRequest) Execute() (*PaginatedTaskScheduleResponseList, *http.Response, error) {
+func (r TaskSchedulesAPITaskSchedulesListRequest) Execute() (*PaginatedTaskScheduleResponseList, *http.Response, error) {
 	return r.ApiService.TaskSchedulesListExecute(r)
 }
 
@@ -232,10 +232,10 @@ TaskSchedulesList List task schedules
 ViewSet to monitor task schedules.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TaskSchedulesApiTaskSchedulesListRequest
+ @return TaskSchedulesAPITaskSchedulesListRequest
 */
-func (a *TaskSchedulesApiService) TaskSchedulesList(ctx context.Context) TaskSchedulesApiTaskSchedulesListRequest {
-	return TaskSchedulesApiTaskSchedulesListRequest{
+func (a *TaskSchedulesAPIService) TaskSchedulesList(ctx context.Context) TaskSchedulesAPITaskSchedulesListRequest {
+	return TaskSchedulesAPITaskSchedulesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -243,7 +243,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesList(ctx context.Context) TaskSch
 
 // Execute executes the request
 //  @return PaginatedTaskScheduleResponseList
-func (a *TaskSchedulesApiService) TaskSchedulesListExecute(r TaskSchedulesApiTaskSchedulesListRequest) (*PaginatedTaskScheduleResponseList, *http.Response, error) {
+func (a *TaskSchedulesAPIService) TaskSchedulesListExecute(r TaskSchedulesAPITaskSchedulesListRequest) (*PaginatedTaskScheduleResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -251,7 +251,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesListExecute(r TaskSchedulesApiTas
 		localVarReturnValue  *PaginatedTaskScheduleResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesApiService.TaskSchedulesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesAPIService.TaskSchedulesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -364,27 +364,27 @@ func (a *TaskSchedulesApiService) TaskSchedulesListExecute(r TaskSchedulesApiTas
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TaskSchedulesApiTaskSchedulesListRolesRequest struct {
+type TaskSchedulesAPITaskSchedulesListRolesRequest struct {
 	ctx context.Context
-	ApiService *TaskSchedulesApiService
+	ApiService *TaskSchedulesAPIService
 	taskScheduleHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r TaskSchedulesApiTaskSchedulesListRolesRequest) Fields(fields []string) TaskSchedulesApiTaskSchedulesListRolesRequest {
+func (r TaskSchedulesAPITaskSchedulesListRolesRequest) Fields(fields []string) TaskSchedulesAPITaskSchedulesListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TaskSchedulesApiTaskSchedulesListRolesRequest) ExcludeFields(excludeFields []string) TaskSchedulesApiTaskSchedulesListRolesRequest {
+func (r TaskSchedulesAPITaskSchedulesListRolesRequest) ExcludeFields(excludeFields []string) TaskSchedulesAPITaskSchedulesListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TaskSchedulesApiTaskSchedulesListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r TaskSchedulesAPITaskSchedulesListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.TaskSchedulesListRolesExecute(r)
 }
 
@@ -395,10 +395,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskScheduleHref
- @return TaskSchedulesApiTaskSchedulesListRolesRequest
+ @return TaskSchedulesAPITaskSchedulesListRolesRequest
 */
-func (a *TaskSchedulesApiService) TaskSchedulesListRoles(ctx context.Context, taskScheduleHref string) TaskSchedulesApiTaskSchedulesListRolesRequest {
-	return TaskSchedulesApiTaskSchedulesListRolesRequest{
+func (a *TaskSchedulesAPIService) TaskSchedulesListRoles(ctx context.Context, taskScheduleHref string) TaskSchedulesAPITaskSchedulesListRolesRequest {
+	return TaskSchedulesAPITaskSchedulesListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskScheduleHref: taskScheduleHref,
@@ -407,7 +407,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesListRoles(ctx context.Context, ta
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *TaskSchedulesApiService) TaskSchedulesListRolesExecute(r TaskSchedulesApiTaskSchedulesListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *TaskSchedulesAPIService) TaskSchedulesListRolesExecute(r TaskSchedulesAPITaskSchedulesListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -415,7 +415,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesListRolesExecute(r TaskSchedulesA
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesApiService.TaskSchedulesListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesAPIService.TaskSchedulesListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -504,27 +504,27 @@ func (a *TaskSchedulesApiService) TaskSchedulesListRolesExecute(r TaskSchedulesA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TaskSchedulesApiTaskSchedulesMyPermissionsRequest struct {
+type TaskSchedulesAPITaskSchedulesMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *TaskSchedulesApiService
+	ApiService *TaskSchedulesAPIService
 	taskScheduleHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r TaskSchedulesApiTaskSchedulesMyPermissionsRequest) Fields(fields []string) TaskSchedulesApiTaskSchedulesMyPermissionsRequest {
+func (r TaskSchedulesAPITaskSchedulesMyPermissionsRequest) Fields(fields []string) TaskSchedulesAPITaskSchedulesMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TaskSchedulesApiTaskSchedulesMyPermissionsRequest) ExcludeFields(excludeFields []string) TaskSchedulesApiTaskSchedulesMyPermissionsRequest {
+func (r TaskSchedulesAPITaskSchedulesMyPermissionsRequest) ExcludeFields(excludeFields []string) TaskSchedulesAPITaskSchedulesMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TaskSchedulesApiTaskSchedulesMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r TaskSchedulesAPITaskSchedulesMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.TaskSchedulesMyPermissionsExecute(r)
 }
 
@@ -535,10 +535,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskScheduleHref
- @return TaskSchedulesApiTaskSchedulesMyPermissionsRequest
+ @return TaskSchedulesAPITaskSchedulesMyPermissionsRequest
 */
-func (a *TaskSchedulesApiService) TaskSchedulesMyPermissions(ctx context.Context, taskScheduleHref string) TaskSchedulesApiTaskSchedulesMyPermissionsRequest {
-	return TaskSchedulesApiTaskSchedulesMyPermissionsRequest{
+func (a *TaskSchedulesAPIService) TaskSchedulesMyPermissions(ctx context.Context, taskScheduleHref string) TaskSchedulesAPITaskSchedulesMyPermissionsRequest {
+	return TaskSchedulesAPITaskSchedulesMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskScheduleHref: taskScheduleHref,
@@ -547,7 +547,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesMyPermissions(ctx context.Context
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *TaskSchedulesApiService) TaskSchedulesMyPermissionsExecute(r TaskSchedulesApiTaskSchedulesMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *TaskSchedulesAPIService) TaskSchedulesMyPermissionsExecute(r TaskSchedulesAPITaskSchedulesMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -555,7 +555,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesMyPermissionsExecute(r TaskSchedu
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesApiService.TaskSchedulesMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesAPIService.TaskSchedulesMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -644,27 +644,27 @@ func (a *TaskSchedulesApiService) TaskSchedulesMyPermissionsExecute(r TaskSchedu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TaskSchedulesApiTaskSchedulesReadRequest struct {
+type TaskSchedulesAPITaskSchedulesReadRequest struct {
 	ctx context.Context
-	ApiService *TaskSchedulesApiService
+	ApiService *TaskSchedulesAPIService
 	taskScheduleHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r TaskSchedulesApiTaskSchedulesReadRequest) Fields(fields []string) TaskSchedulesApiTaskSchedulesReadRequest {
+func (r TaskSchedulesAPITaskSchedulesReadRequest) Fields(fields []string) TaskSchedulesAPITaskSchedulesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r TaskSchedulesApiTaskSchedulesReadRequest) ExcludeFields(excludeFields []string) TaskSchedulesApiTaskSchedulesReadRequest {
+func (r TaskSchedulesAPITaskSchedulesReadRequest) ExcludeFields(excludeFields []string) TaskSchedulesAPITaskSchedulesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r TaskSchedulesApiTaskSchedulesReadRequest) Execute() (*TaskScheduleResponse, *http.Response, error) {
+func (r TaskSchedulesAPITaskSchedulesReadRequest) Execute() (*TaskScheduleResponse, *http.Response, error) {
 	return r.ApiService.TaskSchedulesReadExecute(r)
 }
 
@@ -675,10 +675,10 @@ ViewSet to monitor task schedules.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskScheduleHref
- @return TaskSchedulesApiTaskSchedulesReadRequest
+ @return TaskSchedulesAPITaskSchedulesReadRequest
 */
-func (a *TaskSchedulesApiService) TaskSchedulesRead(ctx context.Context, taskScheduleHref string) TaskSchedulesApiTaskSchedulesReadRequest {
-	return TaskSchedulesApiTaskSchedulesReadRequest{
+func (a *TaskSchedulesAPIService) TaskSchedulesRead(ctx context.Context, taskScheduleHref string) TaskSchedulesAPITaskSchedulesReadRequest {
+	return TaskSchedulesAPITaskSchedulesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskScheduleHref: taskScheduleHref,
@@ -687,7 +687,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesRead(ctx context.Context, taskSch
 
 // Execute executes the request
 //  @return TaskScheduleResponse
-func (a *TaskSchedulesApiService) TaskSchedulesReadExecute(r TaskSchedulesApiTaskSchedulesReadRequest) (*TaskScheduleResponse, *http.Response, error) {
+func (a *TaskSchedulesAPIService) TaskSchedulesReadExecute(r TaskSchedulesAPITaskSchedulesReadRequest) (*TaskScheduleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -695,7 +695,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesReadExecute(r TaskSchedulesApiTas
 		localVarReturnValue  *TaskScheduleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesApiService.TaskSchedulesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesAPIService.TaskSchedulesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -784,19 +784,19 @@ func (a *TaskSchedulesApiService) TaskSchedulesReadExecute(r TaskSchedulesApiTas
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TaskSchedulesApiTaskSchedulesRemoveRoleRequest struct {
+type TaskSchedulesAPITaskSchedulesRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *TaskSchedulesApiService
+	ApiService *TaskSchedulesAPIService
 	taskScheduleHref string
 	nestedRole *NestedRole
 }
 
-func (r TaskSchedulesApiTaskSchedulesRemoveRoleRequest) NestedRole(nestedRole NestedRole) TaskSchedulesApiTaskSchedulesRemoveRoleRequest {
+func (r TaskSchedulesAPITaskSchedulesRemoveRoleRequest) NestedRole(nestedRole NestedRole) TaskSchedulesAPITaskSchedulesRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r TaskSchedulesApiTaskSchedulesRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r TaskSchedulesAPITaskSchedulesRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.TaskSchedulesRemoveRoleExecute(r)
 }
 
@@ -807,10 +807,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taskScheduleHref
- @return TaskSchedulesApiTaskSchedulesRemoveRoleRequest
+ @return TaskSchedulesAPITaskSchedulesRemoveRoleRequest
 */
-func (a *TaskSchedulesApiService) TaskSchedulesRemoveRole(ctx context.Context, taskScheduleHref string) TaskSchedulesApiTaskSchedulesRemoveRoleRequest {
-	return TaskSchedulesApiTaskSchedulesRemoveRoleRequest{
+func (a *TaskSchedulesAPIService) TaskSchedulesRemoveRole(ctx context.Context, taskScheduleHref string) TaskSchedulesAPITaskSchedulesRemoveRoleRequest {
+	return TaskSchedulesAPITaskSchedulesRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		taskScheduleHref: taskScheduleHref,
@@ -819,7 +819,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesRemoveRole(ctx context.Context, t
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *TaskSchedulesApiService) TaskSchedulesRemoveRoleExecute(r TaskSchedulesApiTaskSchedulesRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *TaskSchedulesAPIService) TaskSchedulesRemoveRoleExecute(r TaskSchedulesAPITaskSchedulesRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -827,7 +827,7 @@ func (a *TaskSchedulesApiService) TaskSchedulesRemoveRoleExecute(r TaskSchedules
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesApiService.TaskSchedulesRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskSchedulesAPIService.TaskSchedulesRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -21,12 +21,12 @@ import (
 )
 
 
-// DistributionsApiService DistributionsApi service
-type DistributionsApiService service
+// DistributionsAPIService DistributionsAPI service
+type DistributionsAPIService service
 
-type DistributionsApiDistributionsListRequest struct {
+type DistributionsAPIDistributionsListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsApiService
+	ApiService *DistributionsAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -51,132 +51,132 @@ type DistributionsApiDistributionsListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsApiDistributionsListRequest) BasePath(basePath string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) BasePath(basePath string) DistributionsAPIDistributionsListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsApiDistributionsListRequest) BasePathContains(basePathContains string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) BasePathContains(basePathContains string) DistributionsAPIDistributionsListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsApiDistributionsListRequest) BasePathIcontains(basePathIcontains string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) BasePathIcontains(basePathIcontains string) DistributionsAPIDistributionsListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsApiDistributionsListRequest) BasePathIn(basePathIn []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) BasePathIn(basePathIn []string) DistributionsAPIDistributionsListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsApiDistributionsListRequest) Limit(limit int32) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) Limit(limit int32) DistributionsAPIDistributionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsApiDistributionsListRequest) Name(name string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) Name(name string) DistributionsAPIDistributionsListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsApiDistributionsListRequest) NameContains(nameContains string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) NameContains(nameContains string) DistributionsAPIDistributionsListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsApiDistributionsListRequest) NameIcontains(nameIcontains string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) NameIcontains(nameIcontains string) DistributionsAPIDistributionsListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsApiDistributionsListRequest) NameIn(nameIn []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) NameIn(nameIn []string) DistributionsAPIDistributionsListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsApiDistributionsListRequest) NameStartswith(nameStartswith string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) NameStartswith(nameStartswith string) DistributionsAPIDistributionsListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsApiDistributionsListRequest) Offset(offset int32) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) Offset(offset int32) DistributionsAPIDistributionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsApiDistributionsListRequest) Ordering(ordering []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) Ordering(ordering []string) DistributionsAPIDistributionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsApiDistributionsListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsAPIDistributionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsApiDistributionsListRequest) PulpIdIn(pulpIdIn []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) PulpIdIn(pulpIdIn []string) DistributionsAPIDistributionsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsApiDistributionsListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsAPIDistributionsListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Pulp type is in  * &#x60;core.artifact&#x60; - core.artifact * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-distribution&#x60; - deb.apt-distribution * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm
-func (r DistributionsApiDistributionsListRequest) PulpTypeIn(pulpTypeIn []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) PulpTypeIn(pulpTypeIn []string) DistributionsAPIDistributionsListRequest {
 	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsApiDistributionsListRequest) Repository(repository string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) Repository(repository string) DistributionsAPIDistributionsListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsApiDistributionsListRequest) RepositoryIn(repositoryIn []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) RepositoryIn(repositoryIn []string) DistributionsAPIDistributionsListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsApiDistributionsListRequest) WithContent(withContent string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) WithContent(withContent string) DistributionsAPIDistributionsListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsApiDistributionsListRequest) Fields(fields []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) Fields(fields []string) DistributionsAPIDistributionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsApiDistributionsListRequest) ExcludeFields(excludeFields []string) DistributionsApiDistributionsListRequest {
+func (r DistributionsAPIDistributionsListRequest) ExcludeFields(excludeFields []string) DistributionsAPIDistributionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsApiDistributionsListRequest) Execute() (*PaginatedDistributionResponseList, *http.Response, error) {
+func (r DistributionsAPIDistributionsListRequest) Execute() (*PaginatedDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsListExecute(r)
 }
 
@@ -186,10 +186,10 @@ DistributionsList List distributions
 Provides base viewset for Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsApiDistributionsListRequest
+ @return DistributionsAPIDistributionsListRequest
 */
-func (a *DistributionsApiService) DistributionsList(ctx context.Context) DistributionsApiDistributionsListRequest {
-	return DistributionsApiDistributionsListRequest{
+func (a *DistributionsAPIService) DistributionsList(ctx context.Context) DistributionsAPIDistributionsListRequest {
+	return DistributionsAPIDistributionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -197,7 +197,7 @@ func (a *DistributionsApiService) DistributionsList(ctx context.Context) Distrib
 
 // Execute executes the request
 //  @return PaginatedDistributionResponseList
-func (a *DistributionsApiService) DistributionsListExecute(r DistributionsApiDistributionsListRequest) (*PaginatedDistributionResponseList, *http.Response, error) {
+func (a *DistributionsAPIService) DistributionsListExecute(r DistributionsAPIDistributionsListRequest) (*PaginatedDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -205,7 +205,7 @@ func (a *DistributionsApiService) DistributionsListExecute(r DistributionsApiDis
 		localVarReturnValue  *PaginatedDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsApiService.DistributionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsAPIService.DistributionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

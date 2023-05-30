@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApiService
+Testing PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApiService PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsAPIService PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApi.PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsList(context.Background(), path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsAPI.PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsList(context.Background(), path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApiService(t
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApiService PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsRebuild", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsAPIService PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsRebuild", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsApi.PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsRebuild(context.Background(), path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleSearchCollectionVersionsAPI.PulpAnsibleGalaxyApiV3PluginAnsibleSearchCollectionVersionsRebuild(context.Background(), path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

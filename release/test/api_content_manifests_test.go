@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentManifestsApiService
+Testing ContentManifestsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentManifestsApiService(t *testing.T) {
+func Test_zest_ContentManifestsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentManifestsApiService ContentContainerManifestsList", func(t *testing.T) {
+	t.Run("Test ContentManifestsAPIService ContentContainerManifestsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentManifestsApi.ContentContainerManifestsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentManifestsAPI.ContentContainerManifestsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentManifestsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentManifestsApiService ContentContainerManifestsRead", func(t *testing.T) {
+	t.Run("Test ContentManifestsAPIService ContentContainerManifestsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerManifestHref string
 
-		resp, httpRes, err := apiClient.ContentManifestsApi.ContentContainerManifestsRead(context.Background(), containerManifestHref).Execute()
+		resp, httpRes, err := apiClient.ContentManifestsAPI.ContentContainerManifestsRead(context.Background(), containerManifestHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

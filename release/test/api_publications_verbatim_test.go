@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PublicationsVerbatimApiService
+Testing PublicationsVerbatimAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PublicationsVerbatimApiService(t *testing.T) {
+func Test_zest_PublicationsVerbatimAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PublicationsVerbatimApiService PublicationsDebVerbatimCreate", func(t *testing.T) {
+	t.Run("Test PublicationsVerbatimAPIService PublicationsDebVerbatimCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsVerbatimApi.PublicationsDebVerbatimCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PublicationsVerbatimAPI.PublicationsDebVerbatimCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,24 +34,24 @@ func Test_zest_PublicationsVerbatimApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsVerbatimApiService PublicationsDebVerbatimDelete", func(t *testing.T) {
+	t.Run("Test PublicationsVerbatimAPIService PublicationsDebVerbatimDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debVerbatimPublicationHref string
 
-		httpRes, err := apiClient.PublicationsVerbatimApi.PublicationsDebVerbatimDelete(context.Background(), debVerbatimPublicationHref).Execute()
+		httpRes, err := apiClient.PublicationsVerbatimAPI.PublicationsDebVerbatimDelete(context.Background(), debVerbatimPublicationHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test PublicationsVerbatimApiService PublicationsDebVerbatimList", func(t *testing.T) {
+	t.Run("Test PublicationsVerbatimAPIService PublicationsDebVerbatimList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsVerbatimApi.PublicationsDebVerbatimList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PublicationsVerbatimAPI.PublicationsDebVerbatimList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,13 +59,13 @@ func Test_zest_PublicationsVerbatimApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsVerbatimApiService PublicationsDebVerbatimRead", func(t *testing.T) {
+	t.Run("Test PublicationsVerbatimAPIService PublicationsDebVerbatimRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debVerbatimPublicationHref string
 
-		resp, httpRes, err := apiClient.PublicationsVerbatimApi.PublicationsDebVerbatimRead(context.Background(), debVerbatimPublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsVerbatimAPI.PublicationsDebVerbatimRead(context.Background(), debVerbatimPublicationHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

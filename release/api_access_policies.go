@@ -22,12 +22,12 @@ import (
 )
 
 
-// AccessPoliciesApiService AccessPoliciesApi service
-type AccessPoliciesApiService service
+// AccessPoliciesAPIService AccessPoliciesAPI service
+type AccessPoliciesAPIService service
 
-type AccessPoliciesApiAccessPoliciesListRequest struct {
+type AccessPoliciesAPIAccessPoliciesListRequest struct {
 	ctx context.Context
-	ApiService *AccessPoliciesApiService
+	ApiService *AccessPoliciesAPIService
 	customized *bool
 	limit *int32
 	offset *int32
@@ -44,84 +44,84 @@ type AccessPoliciesApiAccessPoliciesListRequest struct {
 }
 
 // Filter results where customized matches value
-func (r AccessPoliciesApiAccessPoliciesListRequest) Customized(customized bool) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) Customized(customized bool) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.customized = &customized
 	return r
 }
 
 // Number of results to return per page.
-func (r AccessPoliciesApiAccessPoliciesListRequest) Limit(limit int32) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) Limit(limit int32) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r AccessPoliciesApiAccessPoliciesListRequest) Offset(offset int32) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) Offset(offset int32) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;creation_hooks&#x60; - Creation hooks * &#x60;-creation_hooks&#x60; - Creation hooks (descending) * &#x60;statements&#x60; - Statements * &#x60;-statements&#x60; - Statements (descending) * &#x60;viewset_name&#x60; - Viewset name * &#x60;-viewset_name&#x60; - Viewset name (descending) * &#x60;customized&#x60; - Customized * &#x60;-customized&#x60; - Customized (descending) * &#x60;queryset_scoping&#x60; - Queryset scoping * &#x60;-queryset_scoping&#x60; - Queryset scoping (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r AccessPoliciesApiAccessPoliciesListRequest) Ordering(ordering []string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) Ordering(ordering []string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AccessPoliciesApiAccessPoliciesListRequest) PulpHrefIn(pulpHrefIn []string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) PulpHrefIn(pulpHrefIn []string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AccessPoliciesApiAccessPoliciesListRequest) PulpIdIn(pulpIdIn []string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) PulpIdIn(pulpIdIn []string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where viewset_name matches value
-func (r AccessPoliciesApiAccessPoliciesListRequest) ViewsetName(viewsetName string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) ViewsetName(viewsetName string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.viewsetName = &viewsetName
 	return r
 }
 
 // Filter results where viewset_name contains value
-func (r AccessPoliciesApiAccessPoliciesListRequest) ViewsetNameContains(viewsetNameContains string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) ViewsetNameContains(viewsetNameContains string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.viewsetNameContains = &viewsetNameContains
 	return r
 }
 
 // Filter results where viewset_name contains value
-func (r AccessPoliciesApiAccessPoliciesListRequest) ViewsetNameIcontains(viewsetNameIcontains string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) ViewsetNameIcontains(viewsetNameIcontains string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.viewsetNameIcontains = &viewsetNameIcontains
 	return r
 }
 
 // Filter results where viewset_name is in a comma-separated list of values
-func (r AccessPoliciesApiAccessPoliciesListRequest) ViewsetNameIn(viewsetNameIn []string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) ViewsetNameIn(viewsetNameIn []string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.viewsetNameIn = &viewsetNameIn
 	return r
 }
 
 // Filter results where viewset_name starts with value
-func (r AccessPoliciesApiAccessPoliciesListRequest) ViewsetNameStartswith(viewsetNameStartswith string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) ViewsetNameStartswith(viewsetNameStartswith string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.viewsetNameStartswith = &viewsetNameStartswith
 	return r
 }
 
 // A list of fields to include in the response.
-func (r AccessPoliciesApiAccessPoliciesListRequest) Fields(fields []string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) Fields(fields []string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AccessPoliciesApiAccessPoliciesListRequest) ExcludeFields(excludeFields []string) AccessPoliciesApiAccessPoliciesListRequest {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) ExcludeFields(excludeFields []string) AccessPoliciesAPIAccessPoliciesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AccessPoliciesApiAccessPoliciesListRequest) Execute() (*PaginatedAccessPolicyResponseList, *http.Response, error) {
+func (r AccessPoliciesAPIAccessPoliciesListRequest) Execute() (*PaginatedAccessPolicyResponseList, *http.Response, error) {
 	return r.ApiService.AccessPoliciesListExecute(r)
 }
 
@@ -133,10 +133,10 @@ ViewSet for AccessPolicy.
 NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccessPoliciesApiAccessPoliciesListRequest
+ @return AccessPoliciesAPIAccessPoliciesListRequest
 */
-func (a *AccessPoliciesApiService) AccessPoliciesList(ctx context.Context) AccessPoliciesApiAccessPoliciesListRequest {
-	return AccessPoliciesApiAccessPoliciesListRequest{
+func (a *AccessPoliciesAPIService) AccessPoliciesList(ctx context.Context) AccessPoliciesAPIAccessPoliciesListRequest {
+	return AccessPoliciesAPIAccessPoliciesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -144,7 +144,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesList(ctx context.Context) Acces
 
 // Execute executes the request
 //  @return PaginatedAccessPolicyResponseList
-func (a *AccessPoliciesApiService) AccessPoliciesListExecute(r AccessPoliciesApiAccessPoliciesListRequest) (*PaginatedAccessPolicyResponseList, *http.Response, error) {
+func (a *AccessPoliciesAPIService) AccessPoliciesListExecute(r AccessPoliciesAPIAccessPoliciesListRequest) (*PaginatedAccessPolicyResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -152,7 +152,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesListExecute(r AccessPoliciesApi
 		localVarReturnValue  *PaginatedAccessPolicyResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesApiService.AccessPoliciesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesAPIService.AccessPoliciesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -271,19 +271,19 @@ func (a *AccessPoliciesApiService) AccessPoliciesListExecute(r AccessPoliciesApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccessPoliciesApiAccessPoliciesPartialUpdateRequest struct {
+type AccessPoliciesAPIAccessPoliciesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *AccessPoliciesApiService
+	ApiService *AccessPoliciesAPIService
 	accessPolicyHref string
 	patchedAccessPolicy *PatchedAccessPolicy
 }
 
-func (r AccessPoliciesApiAccessPoliciesPartialUpdateRequest) PatchedAccessPolicy(patchedAccessPolicy PatchedAccessPolicy) AccessPoliciesApiAccessPoliciesPartialUpdateRequest {
+func (r AccessPoliciesAPIAccessPoliciesPartialUpdateRequest) PatchedAccessPolicy(patchedAccessPolicy PatchedAccessPolicy) AccessPoliciesAPIAccessPoliciesPartialUpdateRequest {
 	r.patchedAccessPolicy = &patchedAccessPolicy
 	return r
 }
 
-func (r AccessPoliciesApiAccessPoliciesPartialUpdateRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
+func (r AccessPoliciesAPIAccessPoliciesPartialUpdateRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
 	return r.ApiService.AccessPoliciesPartialUpdateExecute(r)
 }
 
@@ -296,10 +296,10 @@ NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accessPolicyHref
- @return AccessPoliciesApiAccessPoliciesPartialUpdateRequest
+ @return AccessPoliciesAPIAccessPoliciesPartialUpdateRequest
 */
-func (a *AccessPoliciesApiService) AccessPoliciesPartialUpdate(ctx context.Context, accessPolicyHref string) AccessPoliciesApiAccessPoliciesPartialUpdateRequest {
-	return AccessPoliciesApiAccessPoliciesPartialUpdateRequest{
+func (a *AccessPoliciesAPIService) AccessPoliciesPartialUpdate(ctx context.Context, accessPolicyHref string) AccessPoliciesAPIAccessPoliciesPartialUpdateRequest {
+	return AccessPoliciesAPIAccessPoliciesPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		accessPolicyHref: accessPolicyHref,
@@ -308,7 +308,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesPartialUpdate(ctx context.Conte
 
 // Execute executes the request
 //  @return AccessPolicyResponse
-func (a *AccessPoliciesApiService) AccessPoliciesPartialUpdateExecute(r AccessPoliciesApiAccessPoliciesPartialUpdateRequest) (*AccessPolicyResponse, *http.Response, error) {
+func (a *AccessPoliciesAPIService) AccessPoliciesPartialUpdateExecute(r AccessPoliciesAPIAccessPoliciesPartialUpdateRequest) (*AccessPolicyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -316,7 +316,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesPartialUpdateExecute(r AccessPo
 		localVarReturnValue  *AccessPolicyResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesApiService.AccessPoliciesPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesAPIService.AccessPoliciesPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -388,27 +388,27 @@ func (a *AccessPoliciesApiService) AccessPoliciesPartialUpdateExecute(r AccessPo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccessPoliciesApiAccessPoliciesReadRequest struct {
+type AccessPoliciesAPIAccessPoliciesReadRequest struct {
 	ctx context.Context
-	ApiService *AccessPoliciesApiService
+	ApiService *AccessPoliciesAPIService
 	accessPolicyHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AccessPoliciesApiAccessPoliciesReadRequest) Fields(fields []string) AccessPoliciesApiAccessPoliciesReadRequest {
+func (r AccessPoliciesAPIAccessPoliciesReadRequest) Fields(fields []string) AccessPoliciesAPIAccessPoliciesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AccessPoliciesApiAccessPoliciesReadRequest) ExcludeFields(excludeFields []string) AccessPoliciesApiAccessPoliciesReadRequest {
+func (r AccessPoliciesAPIAccessPoliciesReadRequest) ExcludeFields(excludeFields []string) AccessPoliciesAPIAccessPoliciesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AccessPoliciesApiAccessPoliciesReadRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
+func (r AccessPoliciesAPIAccessPoliciesReadRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
 	return r.ApiService.AccessPoliciesReadExecute(r)
 }
 
@@ -421,10 +421,10 @@ NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accessPolicyHref
- @return AccessPoliciesApiAccessPoliciesReadRequest
+ @return AccessPoliciesAPIAccessPoliciesReadRequest
 */
-func (a *AccessPoliciesApiService) AccessPoliciesRead(ctx context.Context, accessPolicyHref string) AccessPoliciesApiAccessPoliciesReadRequest {
-	return AccessPoliciesApiAccessPoliciesReadRequest{
+func (a *AccessPoliciesAPIService) AccessPoliciesRead(ctx context.Context, accessPolicyHref string) AccessPoliciesAPIAccessPoliciesReadRequest {
+	return AccessPoliciesAPIAccessPoliciesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		accessPolicyHref: accessPolicyHref,
@@ -433,7 +433,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesRead(ctx context.Context, acces
 
 // Execute executes the request
 //  @return AccessPolicyResponse
-func (a *AccessPoliciesApiService) AccessPoliciesReadExecute(r AccessPoliciesApiAccessPoliciesReadRequest) (*AccessPolicyResponse, *http.Response, error) {
+func (a *AccessPoliciesAPIService) AccessPoliciesReadExecute(r AccessPoliciesAPIAccessPoliciesReadRequest) (*AccessPolicyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -441,7 +441,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesReadExecute(r AccessPoliciesApi
 		localVarReturnValue  *AccessPolicyResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesApiService.AccessPoliciesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesAPIService.AccessPoliciesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -530,13 +530,13 @@ func (a *AccessPoliciesApiService) AccessPoliciesReadExecute(r AccessPoliciesApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccessPoliciesApiAccessPoliciesResetRequest struct {
+type AccessPoliciesAPIAccessPoliciesResetRequest struct {
 	ctx context.Context
-	ApiService *AccessPoliciesApiService
+	ApiService *AccessPoliciesAPIService
 	accessPolicyHref string
 }
 
-func (r AccessPoliciesApiAccessPoliciesResetRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
+func (r AccessPoliciesAPIAccessPoliciesResetRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
 	return r.ApiService.AccessPoliciesResetExecute(r)
 }
 
@@ -547,10 +547,10 @@ Reset the access policy to its uncustomized default value.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accessPolicyHref
- @return AccessPoliciesApiAccessPoliciesResetRequest
+ @return AccessPoliciesAPIAccessPoliciesResetRequest
 */
-func (a *AccessPoliciesApiService) AccessPoliciesReset(ctx context.Context, accessPolicyHref string) AccessPoliciesApiAccessPoliciesResetRequest {
-	return AccessPoliciesApiAccessPoliciesResetRequest{
+func (a *AccessPoliciesAPIService) AccessPoliciesReset(ctx context.Context, accessPolicyHref string) AccessPoliciesAPIAccessPoliciesResetRequest {
+	return AccessPoliciesAPIAccessPoliciesResetRequest{
 		ApiService: a,
 		ctx: ctx,
 		accessPolicyHref: accessPolicyHref,
@@ -559,7 +559,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesReset(ctx context.Context, acce
 
 // Execute executes the request
 //  @return AccessPolicyResponse
-func (a *AccessPoliciesApiService) AccessPoliciesResetExecute(r AccessPoliciesApiAccessPoliciesResetRequest) (*AccessPolicyResponse, *http.Response, error) {
+func (a *AccessPoliciesAPIService) AccessPoliciesResetExecute(r AccessPoliciesAPIAccessPoliciesResetRequest) (*AccessPolicyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -567,7 +567,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesResetExecute(r AccessPoliciesAp
 		localVarReturnValue  *AccessPolicyResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesApiService.AccessPoliciesReset")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesAPIService.AccessPoliciesReset")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -634,19 +634,19 @@ func (a *AccessPoliciesApiService) AccessPoliciesResetExecute(r AccessPoliciesAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccessPoliciesApiAccessPoliciesUpdateRequest struct {
+type AccessPoliciesAPIAccessPoliciesUpdateRequest struct {
 	ctx context.Context
-	ApiService *AccessPoliciesApiService
+	ApiService *AccessPoliciesAPIService
 	accessPolicyHref string
 	accessPolicy *AccessPolicy
 }
 
-func (r AccessPoliciesApiAccessPoliciesUpdateRequest) AccessPolicy(accessPolicy AccessPolicy) AccessPoliciesApiAccessPoliciesUpdateRequest {
+func (r AccessPoliciesAPIAccessPoliciesUpdateRequest) AccessPolicy(accessPolicy AccessPolicy) AccessPoliciesAPIAccessPoliciesUpdateRequest {
 	r.accessPolicy = &accessPolicy
 	return r
 }
 
-func (r AccessPoliciesApiAccessPoliciesUpdateRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
+func (r AccessPoliciesAPIAccessPoliciesUpdateRequest) Execute() (*AccessPolicyResponse, *http.Response, error) {
 	return r.ApiService.AccessPoliciesUpdateExecute(r)
 }
 
@@ -659,10 +659,10 @@ NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accessPolicyHref
- @return AccessPoliciesApiAccessPoliciesUpdateRequest
+ @return AccessPoliciesAPIAccessPoliciesUpdateRequest
 */
-func (a *AccessPoliciesApiService) AccessPoliciesUpdate(ctx context.Context, accessPolicyHref string) AccessPoliciesApiAccessPoliciesUpdateRequest {
-	return AccessPoliciesApiAccessPoliciesUpdateRequest{
+func (a *AccessPoliciesAPIService) AccessPoliciesUpdate(ctx context.Context, accessPolicyHref string) AccessPoliciesAPIAccessPoliciesUpdateRequest {
+	return AccessPoliciesAPIAccessPoliciesUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		accessPolicyHref: accessPolicyHref,
@@ -671,7 +671,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesUpdate(ctx context.Context, acc
 
 // Execute executes the request
 //  @return AccessPolicyResponse
-func (a *AccessPoliciesApiService) AccessPoliciesUpdateExecute(r AccessPoliciesApiAccessPoliciesUpdateRequest) (*AccessPolicyResponse, *http.Response, error) {
+func (a *AccessPoliciesAPIService) AccessPoliciesUpdateExecute(r AccessPoliciesAPIAccessPoliciesUpdateRequest) (*AccessPolicyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -679,7 +679,7 @@ func (a *AccessPoliciesApiService) AccessPoliciesUpdateExecute(r AccessPoliciesA
 		localVarReturnValue  *AccessPolicyResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesApiService.AccessPoliciesUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccessPoliciesAPIService.AccessPoliciesUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

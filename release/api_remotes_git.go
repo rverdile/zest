@@ -23,22 +23,22 @@ import (
 )
 
 
-// RemotesGitApiService RemotesGitApi service
-type RemotesGitApiService service
+// RemotesGitAPIService RemotesGitAPI service
+type RemotesGitAPIService service
 
-type RemotesGitApiRemotesAnsibleGitAddRoleRequest struct {
+type RemotesGitAPIRemotesAnsibleGitAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesGitApiRemotesAnsibleGitAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesGitApiRemotesAnsibleGitAddRoleRequest {
+func (r RemotesGitAPIRemotesAnsibleGitAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesGitAPIRemotesAnsibleGitAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitAddRoleRequest
+ @return RemotesGitAPIRemotesAnsibleGitAddRoleRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitAddRole(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitAddRoleRequest {
-	return RemotesGitApiRemotesAnsibleGitAddRoleRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitAddRole(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitAddRoleRequest {
+	return RemotesGitAPIRemotesAnsibleGitAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -61,7 +61,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitAddRole(ctx context.Context, ans
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitAddRoleExecute(r RemotesGitApiRemotesAnsibleGitAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitAddRoleExecute(r RemotesGitAPIRemotesAnsibleGitAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitAddRoleExecute(r RemotesGitApiRe
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *RemotesGitApiService) RemotesAnsibleGitAddRoleExecute(r RemotesGitApiRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitCreateRequest struct {
+type RemotesGitAPIRemotesAnsibleGitCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemote *AnsibleGitRemote
 }
 
-func (r RemotesGitApiRemotesAnsibleGitCreateRequest) AnsibleGitRemote(ansibleGitRemote AnsibleGitRemote) RemotesGitApiRemotesAnsibleGitCreateRequest {
+func (r RemotesGitAPIRemotesAnsibleGitCreateRequest) AnsibleGitRemote(ansibleGitRemote AnsibleGitRemote) RemotesGitAPIRemotesAnsibleGitCreateRequest {
 	r.ansibleGitRemote = &ansibleGitRemote
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitCreateRequest) Execute() (*AnsibleGitRemoteResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitCreateRequest) Execute() (*AnsibleGitRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitCreateExecute(r)
 }
 
@@ -164,10 +164,10 @@ ViewSet for Ansible Remotes.
 This is a tech preview feature. The functionality may change in the future.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesGitApiRemotesAnsibleGitCreateRequest
+ @return RemotesGitAPIRemotesAnsibleGitCreateRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitCreate(ctx context.Context) RemotesGitApiRemotesAnsibleGitCreateRequest {
-	return RemotesGitApiRemotesAnsibleGitCreateRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitCreate(ctx context.Context) RemotesGitAPIRemotesAnsibleGitCreateRequest {
+	return RemotesGitAPIRemotesAnsibleGitCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -175,7 +175,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitCreate(ctx context.Context) Remo
 
 // Execute executes the request
 //  @return AnsibleGitRemoteResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitCreateExecute(r RemotesGitApiRemotesAnsibleGitCreateRequest) (*AnsibleGitRemoteResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitCreateExecute(r RemotesGitAPIRemotesAnsibleGitCreateRequest) (*AnsibleGitRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -183,7 +183,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitCreateExecute(r RemotesGitApiRem
 		localVarReturnValue  *AnsibleGitRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -252,13 +252,13 @@ func (a *RemotesGitApiService) RemotesAnsibleGitCreateExecute(r RemotesGitApiRem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitDeleteRequest struct {
+type RemotesGitAPIRemotesAnsibleGitDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 }
 
-func (r RemotesGitApiRemotesAnsibleGitDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitDeleteExecute(r)
 }
 
@@ -269,10 +269,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitDeleteRequest
+ @return RemotesGitAPIRemotesAnsibleGitDeleteRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitDelete(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitDeleteRequest {
-	return RemotesGitApiRemotesAnsibleGitDeleteRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitDelete(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitDeleteRequest {
+	return RemotesGitAPIRemotesAnsibleGitDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -281,7 +281,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitDelete(ctx context.Context, ansi
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitDeleteExecute(r RemotesGitApiRemotesAnsibleGitDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitDeleteExecute(r RemotesGitAPIRemotesAnsibleGitDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -289,7 +289,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitDeleteExecute(r RemotesGitApiRem
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -356,9 +356,9 @@ func (a *RemotesGitApiService) RemotesAnsibleGitDeleteExecute(r RemotesGitApiRem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitListRequest struct {
+type RemotesGitAPIRemotesAnsibleGitListRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -381,120 +381,120 @@ type RemotesGitApiRemotesAnsibleGitListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesGitApiRemotesAnsibleGitListRequest) Limit(limit int32) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) Limit(limit int32) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) Name(name string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) Name(name string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) NameContains(nameContains string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) NameContains(nameContains string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) NameIcontains(nameIcontains string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) NameIcontains(nameIcontains string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesGitApiRemotesAnsibleGitListRequest) NameIn(nameIn []string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) NameIn(nameIn []string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) NameStartswith(nameStartswith string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) NameStartswith(nameStartswith string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesGitApiRemotesAnsibleGitListRequest) Offset(offset int32) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) Offset(offset int32) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesGitApiRemotesAnsibleGitListRequest) Ordering(ordering []string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) Ordering(ordering []string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpHrefIn(pulpHrefIn []string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpHrefIn(pulpHrefIn []string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpIdIn(pulpIdIn []string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpIdIn(pulpIdIn []string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesGitApiRemotesAnsibleGitListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesGitApiRemotesAnsibleGitListRequest) Fields(fields []string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) Fields(fields []string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesGitApiRemotesAnsibleGitListRequest) ExcludeFields(excludeFields []string) RemotesGitApiRemotesAnsibleGitListRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) ExcludeFields(excludeFields []string) RemotesGitAPIRemotesAnsibleGitListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitListRequest) Execute() (*PaginatedansibleGitRemoteResponseList, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitListRequest) Execute() (*PaginatedansibleGitRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitListExecute(r)
 }
 
@@ -506,10 +506,10 @@ ViewSet for Ansible Remotes.
 This is a tech preview feature. The functionality may change in the future.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesGitApiRemotesAnsibleGitListRequest
+ @return RemotesGitAPIRemotesAnsibleGitListRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitList(ctx context.Context) RemotesGitApiRemotesAnsibleGitListRequest {
-	return RemotesGitApiRemotesAnsibleGitListRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitList(ctx context.Context) RemotesGitAPIRemotesAnsibleGitListRequest {
+	return RemotesGitAPIRemotesAnsibleGitListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -517,7 +517,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitList(ctx context.Context) Remote
 
 // Execute executes the request
 //  @return PaginatedansibleGitRemoteResponseList
-func (a *RemotesGitApiService) RemotesAnsibleGitListExecute(r RemotesGitApiRemotesAnsibleGitListRequest) (*PaginatedansibleGitRemoteResponseList, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitListExecute(r RemotesGitAPIRemotesAnsibleGitListRequest) (*PaginatedansibleGitRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -525,7 +525,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitListExecute(r RemotesGitApiRemot
 		localVarReturnValue  *PaginatedansibleGitRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -662,27 +662,27 @@ func (a *RemotesGitApiService) RemotesAnsibleGitListExecute(r RemotesGitApiRemot
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitListRolesRequest struct {
+type RemotesGitAPIRemotesAnsibleGitListRolesRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesGitApiRemotesAnsibleGitListRolesRequest) Fields(fields []string) RemotesGitApiRemotesAnsibleGitListRolesRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRolesRequest) Fields(fields []string) RemotesGitAPIRemotesAnsibleGitListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesGitApiRemotesAnsibleGitListRolesRequest) ExcludeFields(excludeFields []string) RemotesGitApiRemotesAnsibleGitListRolesRequest {
+func (r RemotesGitAPIRemotesAnsibleGitListRolesRequest) ExcludeFields(excludeFields []string) RemotesGitAPIRemotesAnsibleGitListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitListRolesExecute(r)
 }
 
@@ -693,10 +693,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitListRolesRequest
+ @return RemotesGitAPIRemotesAnsibleGitListRolesRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitListRoles(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitListRolesRequest {
-	return RemotesGitApiRemotesAnsibleGitListRolesRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitListRoles(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitListRolesRequest {
+	return RemotesGitAPIRemotesAnsibleGitListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -705,7 +705,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitListRoles(ctx context.Context, a
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitListRolesExecute(r RemotesGitApiRemotesAnsibleGitListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitListRolesExecute(r RemotesGitAPIRemotesAnsibleGitListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -713,7 +713,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitListRolesExecute(r RemotesGitApi
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -802,27 +802,27 @@ func (a *RemotesGitApiService) RemotesAnsibleGitListRolesExecute(r RemotesGitApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitMyPermissionsRequest struct {
+type RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesGitApiRemotesAnsibleGitMyPermissionsRequest) Fields(fields []string) RemotesGitApiRemotesAnsibleGitMyPermissionsRequest {
+func (r RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest) Fields(fields []string) RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesGitApiRemotesAnsibleGitMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesGitApiRemotesAnsibleGitMyPermissionsRequest {
+func (r RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitMyPermissionsExecute(r)
 }
 
@@ -833,10 +833,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitMyPermissionsRequest
+ @return RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitMyPermissions(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitMyPermissionsRequest {
-	return RemotesGitApiRemotesAnsibleGitMyPermissionsRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitMyPermissions(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest {
+	return RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -845,7 +845,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitMyPermissions(ctx context.Contex
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitMyPermissionsExecute(r RemotesGitApiRemotesAnsibleGitMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitMyPermissionsExecute(r RemotesGitAPIRemotesAnsibleGitMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -853,7 +853,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitMyPermissionsExecute(r RemotesGi
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -942,19 +942,19 @@ func (a *RemotesGitApiService) RemotesAnsibleGitMyPermissionsExecute(r RemotesGi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitPartialUpdateRequest struct {
+type RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 	patchedansibleGitRemote *PatchedansibleGitRemote
 }
 
-func (r RemotesGitApiRemotesAnsibleGitPartialUpdateRequest) PatchedansibleGitRemote(patchedansibleGitRemote PatchedansibleGitRemote) RemotesGitApiRemotesAnsibleGitPartialUpdateRequest {
+func (r RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest) PatchedansibleGitRemote(patchedansibleGitRemote PatchedansibleGitRemote) RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest {
 	r.patchedansibleGitRemote = &patchedansibleGitRemote
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitPartialUpdateExecute(r)
 }
 
@@ -965,10 +965,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitPartialUpdateRequest
+ @return RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitPartialUpdate(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitPartialUpdateRequest {
-	return RemotesGitApiRemotesAnsibleGitPartialUpdateRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitPartialUpdate(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest {
+	return RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -977,7 +977,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitPartialUpdate(ctx context.Contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitPartialUpdateExecute(r RemotesGitApiRemotesAnsibleGitPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitPartialUpdateExecute(r RemotesGitAPIRemotesAnsibleGitPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -985,7 +985,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitPartialUpdateExecute(r RemotesGi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1057,27 +1057,27 @@ func (a *RemotesGitApiService) RemotesAnsibleGitPartialUpdateExecute(r RemotesGi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitReadRequest struct {
+type RemotesGitAPIRemotesAnsibleGitReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesGitApiRemotesAnsibleGitReadRequest) Fields(fields []string) RemotesGitApiRemotesAnsibleGitReadRequest {
+func (r RemotesGitAPIRemotesAnsibleGitReadRequest) Fields(fields []string) RemotesGitAPIRemotesAnsibleGitReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesGitApiRemotesAnsibleGitReadRequest) ExcludeFields(excludeFields []string) RemotesGitApiRemotesAnsibleGitReadRequest {
+func (r RemotesGitAPIRemotesAnsibleGitReadRequest) ExcludeFields(excludeFields []string) RemotesGitAPIRemotesAnsibleGitReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitReadRequest) Execute() (*AnsibleGitRemoteResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitReadRequest) Execute() (*AnsibleGitRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitReadExecute(r)
 }
 
@@ -1090,10 +1090,10 @@ This is a tech preview feature. The functionality may change in the future.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitReadRequest
+ @return RemotesGitAPIRemotesAnsibleGitReadRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitRead(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitReadRequest {
-	return RemotesGitApiRemotesAnsibleGitReadRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitRead(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitReadRequest {
+	return RemotesGitAPIRemotesAnsibleGitReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -1102,7 +1102,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitRead(ctx context.Context, ansibl
 
 // Execute executes the request
 //  @return AnsibleGitRemoteResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitReadExecute(r RemotesGitApiRemotesAnsibleGitReadRequest) (*AnsibleGitRemoteResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitReadExecute(r RemotesGitAPIRemotesAnsibleGitReadRequest) (*AnsibleGitRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1110,7 +1110,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitReadExecute(r RemotesGitApiRemot
 		localVarReturnValue  *AnsibleGitRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1199,19 +1199,19 @@ func (a *RemotesGitApiService) RemotesAnsibleGitReadExecute(r RemotesGitApiRemot
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitRemoveRoleRequest struct {
+type RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesGitApiRemotesAnsibleGitRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesGitApiRemotesAnsibleGitRemoveRoleRequest {
+func (r RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitRemoveRoleExecute(r)
 }
 
@@ -1222,10 +1222,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitRemoveRoleRequest
+ @return RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitRemoveRole(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitRemoveRoleRequest {
-	return RemotesGitApiRemotesAnsibleGitRemoveRoleRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitRemoveRole(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest {
+	return RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -1234,7 +1234,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitRemoveRole(ctx context.Context, 
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitRemoveRoleExecute(r RemotesGitApiRemotesAnsibleGitRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitRemoveRoleExecute(r RemotesGitAPIRemotesAnsibleGitRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1242,7 +1242,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitRemoveRoleExecute(r RemotesGitAp
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1314,19 +1314,19 @@ func (a *RemotesGitApiService) RemotesAnsibleGitRemoveRoleExecute(r RemotesGitAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesGitApiRemotesAnsibleGitUpdateRequest struct {
+type RemotesGitAPIRemotesAnsibleGitUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesGitApiService
+	ApiService *RemotesGitAPIService
 	ansibleGitRemoteHref string
 	ansibleGitRemote *AnsibleGitRemote
 }
 
-func (r RemotesGitApiRemotesAnsibleGitUpdateRequest) AnsibleGitRemote(ansibleGitRemote AnsibleGitRemote) RemotesGitApiRemotesAnsibleGitUpdateRequest {
+func (r RemotesGitAPIRemotesAnsibleGitUpdateRequest) AnsibleGitRemote(ansibleGitRemote AnsibleGitRemote) RemotesGitAPIRemotesAnsibleGitUpdateRequest {
 	r.ansibleGitRemote = &ansibleGitRemote
 	return r
 }
 
-func (r RemotesGitApiRemotesAnsibleGitUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesGitAPIRemotesAnsibleGitUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleGitUpdateExecute(r)
 }
 
@@ -1337,10 +1337,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleGitRemoteHref
- @return RemotesGitApiRemotesAnsibleGitUpdateRequest
+ @return RemotesGitAPIRemotesAnsibleGitUpdateRequest
 */
-func (a *RemotesGitApiService) RemotesAnsibleGitUpdate(ctx context.Context, ansibleGitRemoteHref string) RemotesGitApiRemotesAnsibleGitUpdateRequest {
-	return RemotesGitApiRemotesAnsibleGitUpdateRequest{
+func (a *RemotesGitAPIService) RemotesAnsibleGitUpdate(ctx context.Context, ansibleGitRemoteHref string) RemotesGitAPIRemotesAnsibleGitUpdateRequest {
+	return RemotesGitAPIRemotesAnsibleGitUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleGitRemoteHref: ansibleGitRemoteHref,
@@ -1349,7 +1349,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitUpdate(ctx context.Context, ansi
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesGitApiService) RemotesAnsibleGitUpdateExecute(r RemotesGitApiRemotesAnsibleGitUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesGitAPIService) RemotesAnsibleGitUpdateExecute(r RemotesGitAPIRemotesAnsibleGitUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1357,7 +1357,7 @@ func (a *RemotesGitApiService) RemotesAnsibleGitUpdateExecute(r RemotesGitApiRem
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitApiService.RemotesAnsibleGitUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesGitAPIService.RemotesAnsibleGitUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

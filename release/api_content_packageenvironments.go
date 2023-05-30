@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentPackageenvironmentsApiService ContentPackageenvironmentsApi service
-type ContentPackageenvironmentsApiService service
+// ContentPackageenvironmentsAPIService ContentPackageenvironmentsAPI service
+type ContentPackageenvironmentsAPIService service
 
-type ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest struct {
+type ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackageenvironmentsApiService
+	ApiService *ContentPackageenvironmentsAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest struc
 }
 
 // Number of results to return per page.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) Limit(limit int32) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) Limit(limit int32) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) Offset(offset int32) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) Offset(offset int32) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) Ordering(ordering []string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) Ordering(ordering []string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) PulpIdIn(pulpIdIn []string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) PulpIdIn(pulpIdIn []string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) RepositoryVersion(repositoryVersion string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) RepositoryVersion(repositoryVersion string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) Fields(fields []string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) Fields(fields []string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) ExcludeFields(excludeFields []string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) ExcludeFields(excludeFields []string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) Execute() (*PaginatedrpmPackageEnvironmentResponseList, *http.Response, error) {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) Execute() (*PaginatedrpmPackageEnvironmentResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmPackageenvironmentsListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentRpmPackageenvironmentsList List package environments
 PackageEnvironment ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest
+ @return ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest
 */
-func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsList(ctx context.Context) ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest {
-	return ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest{
+func (a *ContentPackageenvironmentsAPIService) ContentRpmPackageenvironmentsList(ctx context.Context) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest {
+	return ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsList
 
 // Execute executes the request
 //  @return PaginatedrpmPackageEnvironmentResponseList
-func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsListExecute(r ContentPackageenvironmentsApiContentRpmPackageenvironmentsListRequest) (*PaginatedrpmPackageEnvironmentResponseList, *http.Response, error) {
+func (a *ContentPackageenvironmentsAPIService) ContentRpmPackageenvironmentsListExecute(r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsListRequest) (*PaginatedrpmPackageEnvironmentResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsList
 		localVarReturnValue  *PaginatedrpmPackageEnvironmentResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageenvironmentsApiService.ContentRpmPackageenvironmentsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageenvironmentsAPIService.ContentRpmPackageenvironmentsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsList
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest struct {
+type ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackageenvironmentsApiService
+	ApiService *ContentPackageenvironmentsAPIService
 	rpmPackageEnvironmentHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest) Fields(fields []string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest) Fields(fields []string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest) ExcludeFields(excludeFields []string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest) ExcludeFields(excludeFields []string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest) Execute() (*RpmPackageEnvironmentResponse, *http.Response, error) {
+func (r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest) Execute() (*RpmPackageEnvironmentResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmPackageenvironmentsReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ PackageEnvironment ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmPackageEnvironmentHref
- @return ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest
+ @return ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest
 */
-func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsRead(ctx context.Context, rpmPackageEnvironmentHref string) ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest {
-	return ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest{
+func (a *ContentPackageenvironmentsAPIService) ContentRpmPackageenvironmentsRead(ctx context.Context, rpmPackageEnvironmentHref string) ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest {
+	return ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmPackageEnvironmentHref: rpmPackageEnvironmentHref,
@@ -282,7 +282,7 @@ func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsRead
 
 // Execute executes the request
 //  @return RpmPackageEnvironmentResponse
-func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsReadExecute(r ContentPackageenvironmentsApiContentRpmPackageenvironmentsReadRequest) (*RpmPackageEnvironmentResponse, *http.Response, error) {
+func (a *ContentPackageenvironmentsAPIService) ContentRpmPackageenvironmentsReadExecute(r ContentPackageenvironmentsAPIContentRpmPackageenvironmentsReadRequest) (*RpmPackageEnvironmentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentPackageenvironmentsApiService) ContentRpmPackageenvironmentsRead
 		localVarReturnValue  *RpmPackageEnvironmentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageenvironmentsApiService.ContentRpmPackageenvironmentsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackageenvironmentsAPIService.ContentRpmPackageenvironmentsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

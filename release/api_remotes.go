@@ -22,12 +22,12 @@ import (
 )
 
 
-// RemotesApiService RemotesApi service
-type RemotesApiService service
+// RemotesAPIService RemotesAPI service
+type RemotesAPIService service
 
-type RemotesApiRemotesListRequest struct {
+type RemotesAPIRemotesListRequest struct {
 	ctx context.Context
-	ApiService *RemotesApiService
+	ApiService *RemotesAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -51,126 +51,126 @@ type RemotesApiRemotesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesApiRemotesListRequest) Limit(limit int32) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) Limit(limit int32) RemotesAPIRemotesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesApiRemotesListRequest) Name(name string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) Name(name string) RemotesAPIRemotesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesApiRemotesListRequest) NameContains(nameContains string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) NameContains(nameContains string) RemotesAPIRemotesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesApiRemotesListRequest) NameIcontains(nameIcontains string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) NameIcontains(nameIcontains string) RemotesAPIRemotesListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesApiRemotesListRequest) NameIn(nameIn []string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) NameIn(nameIn []string) RemotesAPIRemotesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesApiRemotesListRequest) NameStartswith(nameStartswith string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) NameStartswith(nameStartswith string) RemotesAPIRemotesListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesApiRemotesListRequest) Offset(offset int32) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) Offset(offset int32) RemotesAPIRemotesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesApiRemotesListRequest) Ordering(ordering []string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) Ordering(ordering []string) RemotesAPIRemotesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesApiRemotesListRequest) PulpHrefIn(pulpHrefIn []string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpHrefIn(pulpHrefIn []string) RemotesAPIRemotesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesApiRemotesListRequest) PulpIdIn(pulpIdIn []string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpIdIn(pulpIdIn []string) RemotesAPIRemotesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesApiRemotesListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesAPIRemotesListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesApiRemotesListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesAPIRemotesListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesApiRemotesListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesAPIRemotesListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesApiRemotesListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesAPIRemotesListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesApiRemotesListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesAPIRemotesListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesApiRemotesListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesAPIRemotesListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesApiRemotesListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesAPIRemotesListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // Pulp type is in  * &#x60;ansible.role&#x60; - ansible.role * &#x60;ansible.collection&#x60; - ansible.collection * &#x60;ansible.git&#x60; - ansible.git * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-remote&#x60; - deb.apt-remote * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln
-func (r RemotesApiRemotesListRequest) PulpTypeIn(pulpTypeIn []string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) PulpTypeIn(pulpTypeIn []string) RemotesAPIRemotesListRequest {
 	r.pulpTypeIn = &pulpTypeIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesApiRemotesListRequest) Fields(fields []string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) Fields(fields []string) RemotesAPIRemotesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesApiRemotesListRequest) ExcludeFields(excludeFields []string) RemotesApiRemotesListRequest {
+func (r RemotesAPIRemotesListRequest) ExcludeFields(excludeFields []string) RemotesAPIRemotesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesApiRemotesListRequest) Execute() (*PaginatedRemoteResponseList, *http.Response, error) {
+func (r RemotesAPIRemotesListRequest) Execute() (*PaginatedRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesListExecute(r)
 }
 
@@ -197,10 +197,10 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesApiRemotesListRequest
+ @return RemotesAPIRemotesListRequest
 */
-func (a *RemotesApiService) RemotesList(ctx context.Context) RemotesApiRemotesListRequest {
-	return RemotesApiRemotesListRequest{
+func (a *RemotesAPIService) RemotesList(ctx context.Context) RemotesAPIRemotesListRequest {
+	return RemotesAPIRemotesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -208,7 +208,7 @@ func (a *RemotesApiService) RemotesList(ctx context.Context) RemotesApiRemotesLi
 
 // Execute executes the request
 //  @return PaginatedRemoteResponseList
-func (a *RemotesApiService) RemotesListExecute(r RemotesApiRemotesListRequest) (*PaginatedRemoteResponseList, *http.Response, error) {
+func (a *RemotesAPIService) RemotesListExecute(r RemotesAPIRemotesListRequest) (*PaginatedRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -216,7 +216,7 @@ func (a *RemotesApiService) RemotesListExecute(r RemotesApiRemotesListRequest) (
 		localVarReturnValue  *PaginatedRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesApiService.RemotesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesAPIService.RemotesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

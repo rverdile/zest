@@ -21,35 +21,35 @@ import (
 )
 
 
-// DocsApiJsonApiService DocsApiJsonApi service
-type DocsApiJsonApiService service
+// DocsApiJsonAPIService DocsApiJsonAPI service
+type DocsApiJsonAPIService service
 
-type DocsApiJsonApiDocsApiJsonGetRequest struct {
+type DocsApiJsonAPIDocsApiJsonGetRequest struct {
 	ctx context.Context
-	ApiService *DocsApiJsonApiService
+	ApiService *DocsApiJsonAPIService
 	lang *string
 	fields *[]string
 	excludeFields *[]string
 }
 
-func (r DocsApiJsonApiDocsApiJsonGetRequest) Lang(lang string) DocsApiJsonApiDocsApiJsonGetRequest {
+func (r DocsApiJsonAPIDocsApiJsonGetRequest) Lang(lang string) DocsApiJsonAPIDocsApiJsonGetRequest {
 	r.lang = &lang
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DocsApiJsonApiDocsApiJsonGetRequest) Fields(fields []string) DocsApiJsonApiDocsApiJsonGetRequest {
+func (r DocsApiJsonAPIDocsApiJsonGetRequest) Fields(fields []string) DocsApiJsonAPIDocsApiJsonGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DocsApiJsonApiDocsApiJsonGetRequest) ExcludeFields(excludeFields []string) DocsApiJsonApiDocsApiJsonGetRequest {
+func (r DocsApiJsonAPIDocsApiJsonGetRequest) ExcludeFields(excludeFields []string) DocsApiJsonAPIDocsApiJsonGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DocsApiJsonApiDocsApiJsonGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r DocsApiJsonAPIDocsApiJsonGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.DocsApiJsonGetExecute(r)
 }
 
@@ -62,10 +62,10 @@ OpenApi3 schema for this API. Format can be selected via content negotiation.
 - JSON: application/vnd.oai.openapi+json
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DocsApiJsonApiDocsApiJsonGetRequest
+ @return DocsApiJsonAPIDocsApiJsonGetRequest
 */
-func (a *DocsApiJsonApiService) DocsApiJsonGet(ctx context.Context) DocsApiJsonApiDocsApiJsonGetRequest {
-	return DocsApiJsonApiDocsApiJsonGetRequest{
+func (a *DocsApiJsonAPIService) DocsApiJsonGet(ctx context.Context) DocsApiJsonAPIDocsApiJsonGetRequest {
+	return DocsApiJsonAPIDocsApiJsonGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -73,7 +73,7 @@ func (a *DocsApiJsonApiService) DocsApiJsonGet(ctx context.Context) DocsApiJsonA
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *DocsApiJsonApiService) DocsApiJsonGetExecute(r DocsApiJsonApiDocsApiJsonGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *DocsApiJsonAPIService) DocsApiJsonGetExecute(r DocsApiJsonAPIDocsApiJsonGetRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -81,7 +81,7 @@ func (a *DocsApiJsonApiService) DocsApiJsonGetExecute(r DocsApiJsonApiDocsApiJso
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocsApiJsonApiService.DocsApiJsonGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocsApiJsonAPIService.DocsApiJsonGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

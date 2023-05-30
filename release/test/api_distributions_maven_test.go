@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsMavenApiService
+Testing DistributionsMavenAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsMavenApiService(t *testing.T) {
+func Test_zest_DistributionsMavenAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsMavenApiService DistributionsMavenMavenCreate", func(t *testing.T) {
+	t.Run("Test DistributionsMavenAPIService DistributionsMavenMavenCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsMavenApi.DistributionsMavenMavenCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsMavenAPI.DistributionsMavenMavenCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_DistributionsMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsMavenApiService DistributionsMavenMavenDelete", func(t *testing.T) {
+	t.Run("Test DistributionsMavenAPIService DistributionsMavenMavenDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsMavenApi.DistributionsMavenMavenDelete(context.Background(), mavenMavenDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsMavenAPI.DistributionsMavenMavenDelete(context.Background(), mavenMavenDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_DistributionsMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsMavenApiService DistributionsMavenMavenList", func(t *testing.T) {
+	t.Run("Test DistributionsMavenAPIService DistributionsMavenMavenList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsMavenApi.DistributionsMavenMavenList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsMavenAPI.DistributionsMavenMavenList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_DistributionsMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsMavenApiService DistributionsMavenMavenPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var mavenMavenDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsMavenApi.DistributionsMavenMavenPartialUpdate(context.Background(), mavenMavenDistributionHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsMavenApiService DistributionsMavenMavenRead", func(t *testing.T) {
+	t.Run("Test DistributionsMavenAPIService DistributionsMavenMavenPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsMavenApi.DistributionsMavenMavenRead(context.Background(), mavenMavenDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsMavenAPI.DistributionsMavenMavenPartialUpdate(context.Background(), mavenMavenDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_DistributionsMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsMavenApiService DistributionsMavenMavenUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsMavenAPIService DistributionsMavenMavenRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsMavenApi.DistributionsMavenMavenUpdate(context.Background(), mavenMavenDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsMavenAPI.DistributionsMavenMavenRead(context.Background(), mavenMavenDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsMavenAPIService DistributionsMavenMavenUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var mavenMavenDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsMavenAPI.DistributionsMavenMavenUpdate(context.Background(), mavenMavenDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ImportersPulpApiService
+Testing ImportersPulpAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ImportersPulpApiService(t *testing.T) {
+func Test_zest_ImportersPulpAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ImportersPulpApiService ImportersCorePulpCreate", func(t *testing.T) {
+	t.Run("Test ImportersPulpAPIService ImportersCorePulpCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ImportersPulpApi.ImportersCorePulpCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpAPI.ImportersCorePulpCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,24 @@ func Test_zest_ImportersPulpApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportersPulpApiService ImportersCorePulpDelete", func(t *testing.T) {
+	t.Run("Test ImportersPulpAPIService ImportersCorePulpDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpImporterHref string
 
-		httpRes, err := apiClient.ImportersPulpApi.ImportersCorePulpDelete(context.Background(), pulpImporterHref).Execute()
+		httpRes, err := apiClient.ImportersPulpAPI.ImportersCorePulpDelete(context.Background(), pulpImporterHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ImportersPulpApiService ImportersCorePulpList", func(t *testing.T) {
+	t.Run("Test ImportersPulpAPIService ImportersCorePulpList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ImportersPulpApi.ImportersCorePulpList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ImportersPulpApiService ImportersCorePulpPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pulpImporterHref string
-
-		resp, httpRes, err := apiClient.ImportersPulpApi.ImportersCorePulpPartialUpdate(context.Background(), pulpImporterHref).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpAPI.ImportersCorePulpList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +59,13 @@ func Test_zest_ImportersPulpApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportersPulpApiService ImportersCorePulpRead", func(t *testing.T) {
+	t.Run("Test ImportersPulpAPIService ImportersCorePulpPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpImporterHref string
 
-		resp, httpRes, err := apiClient.ImportersPulpApi.ImportersCorePulpRead(context.Background(), pulpImporterHref).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpAPI.ImportersCorePulpPartialUpdate(context.Background(), pulpImporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +73,27 @@ func Test_zest_ImportersPulpApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportersPulpApiService ImportersCorePulpUpdate", func(t *testing.T) {
+	t.Run("Test ImportersPulpAPIService ImportersCorePulpRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpImporterHref string
 
-		resp, httpRes, err := apiClient.ImportersPulpApi.ImportersCorePulpUpdate(context.Background(), pulpImporterHref).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpAPI.ImportersCorePulpRead(context.Background(), pulpImporterHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ImportersPulpAPIService ImportersCorePulpUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pulpImporterHref string
+
+		resp, httpRes, err := apiClient.ImportersPulpAPI.ImportersCorePulpUpdate(context.Background(), pulpImporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentFilesApiService
+Testing ContentFilesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentFilesApiService(t *testing.T) {
+func Test_zest_ContentFilesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentFilesApiService ContentFileFilesCreate", func(t *testing.T) {
+	t.Run("Test ContentFilesAPIService ContentFileFilesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentFilesApi.ContentFileFilesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentFilesAPI.ContentFileFilesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentFilesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentFilesApiService ContentFileFilesList", func(t *testing.T) {
+	t.Run("Test ContentFilesAPIService ContentFileFilesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentFilesApi.ContentFileFilesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentFilesAPI.ContentFileFilesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentFilesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentFilesApiService ContentFileFilesRead", func(t *testing.T) {
+	t.Run("Test ContentFilesAPIService ContentFileFilesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileContentHref string
 
-		resp, httpRes, err := apiClient.ContentFilesApi.ContentFileFilesRead(context.Background(), fileFileContentHref).Execute()
+		resp, httpRes, err := apiClient.ContentFilesAPI.ContentFileFilesRead(context.Background(), fileFileContentHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

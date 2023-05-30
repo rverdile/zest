@@ -23,29 +23,29 @@ import (
 )
 
 
-// ContentAdvisoriesApiService ContentAdvisoriesApi service
-type ContentAdvisoriesApiService service
+// ContentAdvisoriesAPIService ContentAdvisoriesAPI service
+type ContentAdvisoriesAPIService service
 
-type ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest struct {
+type ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentAdvisoriesApiService
+	ApiService *ContentAdvisoriesAPIService
 	file *os.File
 	repository *string
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest) File(file *os.File) ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest) File(file *os.File) ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest {
 	r.file = file
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest) Repository(repository string) ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest) Repository(repository string) ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest {
 	r.repository = &repository
 	return r
 }
 
-func (r ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmAdvisoriesCreateExecute(r)
 }
 
@@ -55,10 +55,10 @@ ContentRpmAdvisoriesCreate Create an update record
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest
+ @return ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest
 */
-func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesCreate(ctx context.Context) ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest {
-	return ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest{
+func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesCreate(ctx context.Context) ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest {
+	return ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesCreate(ctx context.Con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesCreateExecute(r ContentAdvisoriesApiContentRpmAdvisoriesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesCreateExecute(r ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -74,7 +74,7 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesCreateExecute(r Conten
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentAdvisoriesApiService.ContentRpmAdvisoriesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentAdvisoriesAPIService.ContentRpmAdvisoriesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -158,9 +158,9 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesCreateExecute(r Conten
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentAdvisoriesApiContentRpmAdvisoriesListRequest struct {
+type ContentAdvisoriesAPIContentRpmAdvisoriesListRequest struct {
 	ctx context.Context
-	ApiService *ContentAdvisoriesApiService
+	ApiService *ContentAdvisoriesAPIService
 	id *string
 	idIn *[]string
 	limit *int32
@@ -185,132 +185,132 @@ type ContentAdvisoriesApiContentRpmAdvisoriesListRequest struct {
 }
 
 // Filter results where id matches value
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Id(id string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Id(id string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.id = &id
 	return r
 }
 
 // Filter results where id is in a comma-separated list of values
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) IdIn(idIn []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) IdIn(idIn []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.idIn = &idIn
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Limit(limit int32) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Limit(limit int32) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Offset(offset int32) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Offset(offset int32) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;id&#x60; - Id * &#x60;-id&#x60; - Id (descending) * &#x60;updated_date&#x60; - Updated date * &#x60;-updated_date&#x60; - Updated date (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;issued_date&#x60; - Issued date * &#x60;-issued_date&#x60; - Issued date (descending) * &#x60;fromstr&#x60; - Fromstr * &#x60;-fromstr&#x60; - Fromstr (descending) * &#x60;status&#x60; - Status * &#x60;-status&#x60; - Status (descending) * &#x60;title&#x60; - Title * &#x60;-title&#x60; - Title (descending) * &#x60;summary&#x60; - Summary * &#x60;-summary&#x60; - Summary (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;type&#x60; - Type * &#x60;-type&#x60; - Type (descending) * &#x60;severity&#x60; - Severity * &#x60;-severity&#x60; - Severity (descending) * &#x60;solution&#x60; - Solution * &#x60;-solution&#x60; - Solution (descending) * &#x60;release&#x60; - Release * &#x60;-release&#x60; - Release (descending) * &#x60;rights&#x60; - Rights * &#x60;-rights&#x60; - Rights (descending) * &#x60;reboot_suggested&#x60; - Reboot suggested * &#x60;-reboot_suggested&#x60; - Reboot suggested (descending) * &#x60;pushcount&#x60; - Pushcount * &#x60;-pushcount&#x60; - Pushcount (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Ordering(ordering []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Ordering(ordering []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) PulpHrefIn(pulpHrefIn []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) PulpHrefIn(pulpHrefIn []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) PulpIdIn(pulpIdIn []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) PulpIdIn(pulpIdIn []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) RepositoryVersion(repositoryVersion string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) RepositoryVersion(repositoryVersion string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where severity matches value
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Severity(severity string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Severity(severity string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.severity = &severity
 	return r
 }
 
 // Filter results where severity is in a comma-separated list of values
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) SeverityIn(severityIn []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) SeverityIn(severityIn []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.severityIn = &severityIn
 	return r
 }
 
 // Filter results where severity not equal to value
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) SeverityNe(severityNe string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) SeverityNe(severityNe string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.severityNe = &severityNe
 	return r
 }
 
 // Filter results where status matches value
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Status(status string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Status(status string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.status = &status
 	return r
 }
 
 // Filter results where status is in a comma-separated list of values
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) StatusIn(statusIn []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) StatusIn(statusIn []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.statusIn = &statusIn
 	return r
 }
 
 // Filter results where status not equal to value
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) StatusNe(statusNe string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) StatusNe(statusNe string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.statusNe = &statusNe
 	return r
 }
 
 // Filter results where type matches value
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Type_(type_ string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Type_(type_ string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.type_ = &type_
 	return r
 }
 
 // Filter results where type is in a comma-separated list of values
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) TypeIn(typeIn []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) TypeIn(typeIn []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.typeIn = &typeIn
 	return r
 }
 
 // Filter results where type not equal to value
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) TypeNe(typeNe string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) TypeNe(typeNe string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.typeNe = &typeNe
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Fields(fields []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Fields(fields []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) ExcludeFields(excludeFields []string) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) ExcludeFields(excludeFields []string) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) Execute() (*PaginatedrpmUpdateRecordResponseList, *http.Response, error) {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) Execute() (*PaginatedrpmUpdateRecordResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmAdvisoriesListExecute(r)
 }
 
@@ -326,10 +326,10 @@ For example::
 Also specify queryset and serializer for UpdateRecord.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentAdvisoriesApiContentRpmAdvisoriesListRequest
+ @return ContentAdvisoriesAPIContentRpmAdvisoriesListRequest
 */
-func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesList(ctx context.Context) ContentAdvisoriesApiContentRpmAdvisoriesListRequest {
-	return ContentAdvisoriesApiContentRpmAdvisoriesListRequest{
+func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesList(ctx context.Context) ContentAdvisoriesAPIContentRpmAdvisoriesListRequest {
+	return ContentAdvisoriesAPIContentRpmAdvisoriesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -337,7 +337,7 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesList(ctx context.Conte
 
 // Execute executes the request
 //  @return PaginatedrpmUpdateRecordResponseList
-func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesListExecute(r ContentAdvisoriesApiContentRpmAdvisoriesListRequest) (*PaginatedrpmUpdateRecordResponseList, *http.Response, error) {
+func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesListExecute(r ContentAdvisoriesAPIContentRpmAdvisoriesListRequest) (*PaginatedrpmUpdateRecordResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -345,7 +345,7 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesListExecute(r ContentA
 		localVarReturnValue  *PaginatedrpmUpdateRecordResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentAdvisoriesApiService.ContentRpmAdvisoriesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentAdvisoriesAPIService.ContentRpmAdvisoriesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -488,27 +488,27 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesListExecute(r ContentA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentAdvisoriesApiContentRpmAdvisoriesReadRequest struct {
+type ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentAdvisoriesApiService
+	ApiService *ContentAdvisoriesAPIService
 	rpmUpdateRecordHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesReadRequest) Fields(fields []string) ContentAdvisoriesApiContentRpmAdvisoriesReadRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest) Fields(fields []string) ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentAdvisoriesApiContentRpmAdvisoriesReadRequest) ExcludeFields(excludeFields []string) ContentAdvisoriesApiContentRpmAdvisoriesReadRequest {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest) ExcludeFields(excludeFields []string) ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentAdvisoriesApiContentRpmAdvisoriesReadRequest) Execute() (*RpmUpdateRecordResponse, *http.Response, error) {
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest) Execute() (*RpmUpdateRecordResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmAdvisoriesReadExecute(r)
 }
 
@@ -525,10 +525,10 @@ Also specify queryset and serializer for UpdateRecord.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUpdateRecordHref
- @return ContentAdvisoriesApiContentRpmAdvisoriesReadRequest
+ @return ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest
 */
-func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesRead(ctx context.Context, rpmUpdateRecordHref string) ContentAdvisoriesApiContentRpmAdvisoriesReadRequest {
-	return ContentAdvisoriesApiContentRpmAdvisoriesReadRequest{
+func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesRead(ctx context.Context, rpmUpdateRecordHref string) ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest {
+	return ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUpdateRecordHref: rpmUpdateRecordHref,
@@ -537,7 +537,7 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesRead(ctx context.Conte
 
 // Execute executes the request
 //  @return RpmUpdateRecordResponse
-func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesReadExecute(r ContentAdvisoriesApiContentRpmAdvisoriesReadRequest) (*RpmUpdateRecordResponse, *http.Response, error) {
+func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesReadExecute(r ContentAdvisoriesAPIContentRpmAdvisoriesReadRequest) (*RpmUpdateRecordResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -545,7 +545,7 @@ func (a *ContentAdvisoriesApiService) ContentRpmAdvisoriesReadExecute(r ContentA
 		localVarReturnValue  *RpmUpdateRecordResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentAdvisoriesApiService.ContentRpmAdvisoriesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentAdvisoriesAPIService.ContentRpmAdvisoriesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

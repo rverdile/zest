@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService
+Testing PulpAnsibleApiV3PluginAnsibleContentNamespacesAPIService
 
 */
 
@@ -17,19 +17,19 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService(t *testing.T) {
+func Test_zest_PulpAnsibleApiV3PluginAnsibleContentNamespacesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesCreate", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var distroBasePath string
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesCreate(context.Background(), distroBasePath, path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesCreate(context.Background(), distroBasePath, path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -37,7 +37,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService(t *testi
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesDelete", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -45,7 +45,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService(t *testi
 		var name string
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesDelete(context.Background(), distroBasePath, name, path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesDelete(context.Background(), distroBasePath, name, path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -53,14 +53,14 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService(t *testi
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var distroBasePath string
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesList(context.Background(), distroBasePath, path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesList(context.Background(), distroBasePath, path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -68,23 +68,7 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService(t *testi
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var distroBasePath string
-		var name string
-		var path string
-
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesPartialUpdate(context.Background(), distroBasePath, name, path).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesRead", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -92,7 +76,23 @@ func Test_zest_PulpAnsibleApiV3PluginAnsibleContentNamespacesApiService(t *testi
 		var name string
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesRead(context.Background(), distroBasePath, name, path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesPartialUpdate(context.Background(), distroBasePath, name, path).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentNamespacesAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesRead", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var distroBasePath string
+		var name string
+		var path string
+
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentNamespacesAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentNamespacesRead(context.Background(), distroBasePath, name, path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

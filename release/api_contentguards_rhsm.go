@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentguardsRhsmApiService ContentguardsRhsmApi service
-type ContentguardsRhsmApiService service
+// ContentguardsRhsmAPIService ContentguardsRhsmAPI service
+type ContentguardsRhsmAPIService service
 
-type ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest struct {
+type ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRhsmApiService
+	ApiService *ContentguardsRhsmAPIService
 	certguardRHSMCertGuard *CertguardRHSMCertGuard
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest) CertguardRHSMCertGuard(certguardRHSMCertGuard CertguardRHSMCertGuard) ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest) CertguardRHSMCertGuard(certguardRHSMCertGuard CertguardRHSMCertGuard) ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest {
 	r.certguardRHSMCertGuard = &certguardRHSMCertGuard
 	return r
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardRhsmCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentguardsCertguardRhsmCreate Create a rhsm cert guard
 RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest
+ @return ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest
 */
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmCreate(ctx context.Context) ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest {
-	return ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest{
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmCreate(ctx context.Context) ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest {
+	return ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmCreate(ctx conte
 
 // Execute executes the request
 //  @return CertguardRHSMCertGuardResponse
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmCreateExecute(r ContentguardsRhsmApiContentguardsCertguardRhsmCreateRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmCreateExecute(r ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmCreateExecute(r 
 		localVarReturnValue  *CertguardRHSMCertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmApiService.ContentguardsCertguardRhsmCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmAPIService.ContentguardsCertguardRhsmCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmCreateExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRhsmApiContentguardsCertguardRhsmDeleteRequest struct {
+type ContentguardsRhsmAPIContentguardsCertguardRhsmDeleteRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRhsmApiService
+	ApiService *ContentguardsRhsmAPIService
 	certguardRHSMCertGuardHref string
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmDeleteRequest) Execute() (*http.Response, error) {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ContentguardsCertguardRhsmDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardRHSMCertGuardHref
- @return ContentguardsRhsmApiContentguardsCertguardRhsmDeleteRequest
+ @return ContentguardsRhsmAPIContentguardsCertguardRhsmDeleteRequest
 */
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmDelete(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmApiContentguardsCertguardRhsmDeleteRequest {
-	return ContentguardsRhsmApiContentguardsCertguardRhsmDeleteRequest{
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmDelete(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmAPIContentguardsCertguardRhsmDeleteRequest {
+	return ContentguardsRhsmAPIContentguardsCertguardRhsmDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardRHSMCertGuardHref: certguardRHSMCertGuardHref,
@@ -162,14 +162,14 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmDelete(ctx conte
 }
 
 // Execute executes the request
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmDeleteExecute(r ContentguardsRhsmApiContentguardsCertguardRhsmDeleteRequest) (*http.Response, error) {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmDeleteExecute(r ContentguardsRhsmAPIContentguardsCertguardRhsmDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmApiService.ContentguardsCertguardRhsmDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmAPIService.ContentguardsCertguardRhsmDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -227,9 +227,9 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmDeleteExecute(r 
 	return localVarHTTPResponse, nil
 }
 
-type ContentguardsRhsmApiContentguardsCertguardRhsmListRequest struct {
+type ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRhsmApiService
+	ApiService *ContentguardsRhsmAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -245,78 +245,78 @@ type ContentguardsRhsmApiContentguardsCertguardRhsmListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) Limit(limit int32) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) Limit(limit int32) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) Name(name string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) Name(name string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) NameContains(nameContains string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) NameContains(nameContains string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) NameIcontains(nameIcontains string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) NameIcontains(nameIcontains string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) NameIn(nameIn []string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) NameIn(nameIn []string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) NameStartswith(nameStartswith string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) NameStartswith(nameStartswith string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) Offset(offset int32) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) Offset(offset int32) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) Ordering(ordering []string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) Ordering(ordering []string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) PulpIdIn(pulpIdIn []string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) PulpIdIn(pulpIdIn []string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) Fields(fields []string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) Fields(fields []string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) ExcludeFields(excludeFields []string) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) ExcludeFields(excludeFields []string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) Execute() (*PaginatedcertguardRHSMCertGuardResponseList, *http.Response, error) {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) Execute() (*PaginatedcertguardRHSMCertGuardResponseList, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardRhsmListExecute(r)
 }
 
@@ -326,10 +326,10 @@ ContentguardsCertguardRhsmList List rhsm cert guards
 RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsRhsmApiContentguardsCertguardRhsmListRequest
+ @return ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest
 */
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmList(ctx context.Context) ContentguardsRhsmApiContentguardsCertguardRhsmListRequest {
-	return ContentguardsRhsmApiContentguardsCertguardRhsmListRequest{
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmList(ctx context.Context) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
+	return ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -337,7 +337,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmList(ctx context
 
 // Execute executes the request
 //  @return PaginatedcertguardRHSMCertGuardResponseList
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmListExecute(r ContentguardsRhsmApiContentguardsCertguardRhsmListRequest) (*PaginatedcertguardRHSMCertGuardResponseList, *http.Response, error) {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmListExecute(r ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest) (*PaginatedcertguardRHSMCertGuardResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -345,7 +345,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmListExecute(r Co
 		localVarReturnValue  *PaginatedcertguardRHSMCertGuardResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmApiService.ContentguardsCertguardRhsmList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmAPIService.ContentguardsCertguardRhsmList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -461,19 +461,19 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmListExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest struct {
+type ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRhsmApiService
+	ApiService *ContentguardsRhsmAPIService
 	certguardRHSMCertGuardHref string
 	patchedcertguardRHSMCertGuard *PatchedcertguardRHSMCertGuard
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest) PatchedcertguardRHSMCertGuard(patchedcertguardRHSMCertGuard PatchedcertguardRHSMCertGuard) ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest) PatchedcertguardRHSMCertGuard(patchedcertguardRHSMCertGuard PatchedcertguardRHSMCertGuard) ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest {
 	r.patchedcertguardRHSMCertGuard = &patchedcertguardRHSMCertGuard
 	return r
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardRhsmPartialUpdateExecute(r)
 }
 
@@ -484,10 +484,10 @@ RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardRHSMCertGuardHref
- @return ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest
+ @return ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest
 */
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmPartialUpdate(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest {
-	return ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest{
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmPartialUpdate(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest {
+	return ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardRHSMCertGuardHref: certguardRHSMCertGuardHref,
@@ -496,7 +496,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmPartialUpdate(ct
 
 // Execute executes the request
 //  @return CertguardRHSMCertGuardResponse
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmPartialUpdateExecute(r ContentguardsRhsmApiContentguardsCertguardRhsmPartialUpdateRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmPartialUpdateExecute(r ContentguardsRhsmAPIContentguardsCertguardRhsmPartialUpdateRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -504,7 +504,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmPartialUpdateExe
 		localVarReturnValue  *CertguardRHSMCertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmApiService.ContentguardsCertguardRhsmPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmAPIService.ContentguardsCertguardRhsmPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -576,27 +576,27 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmPartialUpdateExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest struct {
+type ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRhsmApiService
+	ApiService *ContentguardsRhsmAPIService
 	certguardRHSMCertGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest) Fields(fields []string) ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest) Fields(fields []string) ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest) ExcludeFields(excludeFields []string) ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest) ExcludeFields(excludeFields []string) ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardRhsmReadExecute(r)
 }
 
@@ -607,10 +607,10 @@ RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardRHSMCertGuardHref
- @return ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest
+ @return ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest
 */
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmRead(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest {
-	return ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest{
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmRead(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest {
+	return ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardRHSMCertGuardHref: certguardRHSMCertGuardHref,
@@ -619,7 +619,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmRead(ctx context
 
 // Execute executes the request
 //  @return CertguardRHSMCertGuardResponse
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmReadExecute(r ContentguardsRhsmApiContentguardsCertguardRhsmReadRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmReadExecute(r ContentguardsRhsmAPIContentguardsCertguardRhsmReadRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -627,7 +627,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmReadExecute(r Co
 		localVarReturnValue  *CertguardRHSMCertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmApiService.ContentguardsCertguardRhsmRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmAPIService.ContentguardsCertguardRhsmRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -716,19 +716,19 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmReadExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest struct {
+type ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsRhsmApiService
+	ApiService *ContentguardsRhsmAPIService
 	certguardRHSMCertGuardHref string
 	certguardRHSMCertGuard *CertguardRHSMCertGuard
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest) CertguardRHSMCertGuard(certguardRHSMCertGuard CertguardRHSMCertGuard) ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest) CertguardRHSMCertGuard(certguardRHSMCertGuard CertguardRHSMCertGuard) ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest {
 	r.certguardRHSMCertGuard = &certguardRHSMCertGuard
 	return r
 }
 
-func (r ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (r ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest) Execute() (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardRhsmUpdateExecute(r)
 }
 
@@ -739,10 +739,10 @@ RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardRHSMCertGuardHref
- @return ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest
+ @return ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest
 */
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmUpdate(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest {
-	return ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest{
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmUpdate(ctx context.Context, certguardRHSMCertGuardHref string) ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest {
+	return ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardRHSMCertGuardHref: certguardRHSMCertGuardHref,
@@ -751,7 +751,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmUpdate(ctx conte
 
 // Execute executes the request
 //  @return CertguardRHSMCertGuardResponse
-func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmUpdateExecute(r ContentguardsRhsmApiContentguardsCertguardRhsmUpdateRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmUpdateExecute(r ContentguardsRhsmAPIContentguardsCertguardRhsmUpdateRequest) (*CertguardRHSMCertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -759,7 +759,7 @@ func (a *ContentguardsRhsmApiService) ContentguardsCertguardRhsmUpdateExecute(r 
 		localVarReturnValue  *CertguardRHSMCertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmApiService.ContentguardsCertguardRhsmUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsRhsmAPIService.ContentguardsCertguardRhsmUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentRolesApiService
+Testing ContentRolesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentRolesApiService(t *testing.T) {
+func Test_zest_ContentRolesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentRolesApiService ContentAnsibleRolesCreate", func(t *testing.T) {
+	t.Run("Test ContentRolesAPIService ContentAnsibleRolesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentRolesApi.ContentAnsibleRolesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentRolesAPI.ContentAnsibleRolesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentRolesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentRolesApiService ContentAnsibleRolesList", func(t *testing.T) {
+	t.Run("Test ContentRolesAPIService ContentAnsibleRolesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentRolesApi.ContentAnsibleRolesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentRolesAPI.ContentAnsibleRolesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentRolesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentRolesApiService ContentAnsibleRolesRead", func(t *testing.T) {
+	t.Run("Test ContentRolesAPIService ContentAnsibleRolesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleRoleHref string
 
-		resp, httpRes, err := apiClient.ContentRolesApi.ContentAnsibleRolesRead(context.Background(), ansibleRoleHref).Execute()
+		resp, httpRes, err := apiClient.ContentRolesAPI.ContentAnsibleRolesRead(context.Background(), ansibleRoleHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

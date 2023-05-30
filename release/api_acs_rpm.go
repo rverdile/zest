@@ -22,22 +22,22 @@ import (
 )
 
 
-// AcsRpmApiService AcsRpmApi service
-type AcsRpmApiService service
+// AcsRpmAPIService AcsRpmAPI service
+type AcsRpmAPIService service
 
-type AcsRpmApiAcsRpmRpmAddRoleRequest struct {
+type AcsRpmAPIAcsRpmRpmAddRoleRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 	nestedRole *NestedRole
 }
 
-func (r AcsRpmApiAcsRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) AcsRpmApiAcsRpmRpmAddRoleRequest {
+func (r AcsRpmAPIAcsRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) AcsRpmAPIAcsRpmRpmAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmAddRoleRequest
+ @return AcsRpmAPIAcsRpmRpmAddRoleRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmAddRole(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmAddRoleRequest {
-	return AcsRpmApiAcsRpmRpmAddRoleRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmAddRole(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmAddRoleRequest {
+	return AcsRpmAPIAcsRpmRpmAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -60,7 +60,7 @@ func (a *AcsRpmApiService) AcsRpmRpmAddRole(ctx context.Context, rpmRpmAlternate
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *AcsRpmApiService) AcsRpmRpmAddRoleExecute(r AcsRpmApiAcsRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmAddRoleExecute(r AcsRpmAPIAcsRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *AcsRpmApiService) AcsRpmRpmAddRoleExecute(r AcsRpmApiAcsRpmRpmAddRoleRe
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *AcsRpmApiService) AcsRpmRpmAddRoleExecute(r AcsRpmApiAcsRpmRpmAddRoleRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmCreateRequest struct {
+type AcsRpmAPIAcsRpmRpmCreateRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSource *RpmRpmAlternateContentSource
 }
 
-func (r AcsRpmApiAcsRpmRpmCreateRequest) RpmRpmAlternateContentSource(rpmRpmAlternateContentSource RpmRpmAlternateContentSource) AcsRpmApiAcsRpmRpmCreateRequest {
+func (r AcsRpmAPIAcsRpmRpmCreateRequest) RpmRpmAlternateContentSource(rpmRpmAlternateContentSource RpmRpmAlternateContentSource) AcsRpmAPIAcsRpmRpmCreateRequest {
 	r.rpmRpmAlternateContentSource = &rpmRpmAlternateContentSource
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmCreateRequest) Execute() (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmCreateRequest) Execute() (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ AcsRpmRpmCreate Create a rpm alternate content source
 ViewSet for ACS.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AcsRpmApiAcsRpmRpmCreateRequest
+ @return AcsRpmAPIAcsRpmRpmCreateRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmCreate(ctx context.Context) AcsRpmApiAcsRpmRpmCreateRequest {
-	return AcsRpmApiAcsRpmRpmCreateRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmCreate(ctx context.Context) AcsRpmAPIAcsRpmRpmCreateRequest {
+	return AcsRpmAPIAcsRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *AcsRpmApiService) AcsRpmRpmCreate(ctx context.Context) AcsRpmApiAcsRpmR
 
 // Execute executes the request
 //  @return RpmRpmAlternateContentSourceResponse
-func (a *AcsRpmApiService) AcsRpmRpmCreateExecute(r AcsRpmApiAcsRpmRpmCreateRequest) (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmCreateExecute(r AcsRpmAPIAcsRpmRpmCreateRequest) (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *AcsRpmApiService) AcsRpmRpmCreateExecute(r AcsRpmApiAcsRpmRpmCreateRequ
 		localVarReturnValue  *RpmRpmAlternateContentSourceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *AcsRpmApiService) AcsRpmRpmCreateExecute(r AcsRpmApiAcsRpmRpmCreateRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmDeleteRequest struct {
+type AcsRpmAPIAcsRpmRpmDeleteRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 }
 
-func (r AcsRpmApiAcsRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete ACS task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmDeleteRequest
+ @return AcsRpmAPIAcsRpmRpmDeleteRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmDelete(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmDeleteRequest {
-	return AcsRpmApiAcsRpmRpmDeleteRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmDelete(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmDeleteRequest {
+	return AcsRpmAPIAcsRpmRpmDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -278,7 +278,7 @@ func (a *AcsRpmApiService) AcsRpmRpmDelete(ctx context.Context, rpmRpmAlternateC
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *AcsRpmApiService) AcsRpmRpmDeleteExecute(r AcsRpmApiAcsRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmDeleteExecute(r AcsRpmAPIAcsRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *AcsRpmApiService) AcsRpmRpmDeleteExecute(r AcsRpmApiAcsRpmRpmDeleteRequ
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,9 @@ func (a *AcsRpmApiService) AcsRpmRpmDeleteExecute(r AcsRpmApiAcsRpmRpmDeleteRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmListRequest struct {
+type AcsRpmAPIAcsRpmRpmListRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -371,78 +371,78 @@ type AcsRpmApiAcsRpmRpmListRequest struct {
 }
 
 // Number of results to return per page.
-func (r AcsRpmApiAcsRpmRpmListRequest) Limit(limit int32) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) Limit(limit int32) AcsRpmAPIAcsRpmRpmListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r AcsRpmApiAcsRpmRpmListRequest) Name(name string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) Name(name string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r AcsRpmApiAcsRpmRpmListRequest) NameContains(nameContains string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) NameContains(nameContains string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r AcsRpmApiAcsRpmRpmListRequest) NameIcontains(nameIcontains string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) NameIcontains(nameIcontains string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r AcsRpmApiAcsRpmRpmListRequest) NameIn(nameIn []string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) NameIn(nameIn []string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r AcsRpmApiAcsRpmRpmListRequest) NameStartswith(nameStartswith string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) NameStartswith(nameStartswith string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r AcsRpmApiAcsRpmRpmListRequest) Offset(offset int32) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) Offset(offset int32) AcsRpmAPIAcsRpmRpmListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;last_refreshed&#x60; - Last refreshed * &#x60;-last_refreshed&#x60; - Last refreshed (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r AcsRpmApiAcsRpmRpmListRequest) Ordering(ordering []string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) Ordering(ordering []string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AcsRpmApiAcsRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r AcsRpmApiAcsRpmRpmListRequest) PulpIdIn(pulpIdIn []string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) PulpIdIn(pulpIdIn []string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r AcsRpmApiAcsRpmRpmListRequest) Fields(fields []string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) Fields(fields []string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsRpmApiAcsRpmRpmListRequest) ExcludeFields(excludeFields []string) AcsRpmApiAcsRpmRpmListRequest {
+func (r AcsRpmAPIAcsRpmRpmListRequest) ExcludeFields(excludeFields []string) AcsRpmAPIAcsRpmRpmListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmListRequest) Execute() (*PaginatedrpmRpmAlternateContentSourceResponseList, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmListRequest) Execute() (*PaginatedrpmRpmAlternateContentSourceResponseList, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmListExecute(r)
 }
 
@@ -452,10 +452,10 @@ AcsRpmRpmList List rpm alternate content sources
 ViewSet for ACS.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AcsRpmApiAcsRpmRpmListRequest
+ @return AcsRpmAPIAcsRpmRpmListRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmList(ctx context.Context) AcsRpmApiAcsRpmRpmListRequest {
-	return AcsRpmApiAcsRpmRpmListRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmList(ctx context.Context) AcsRpmAPIAcsRpmRpmListRequest {
+	return AcsRpmAPIAcsRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -463,7 +463,7 @@ func (a *AcsRpmApiService) AcsRpmRpmList(ctx context.Context) AcsRpmApiAcsRpmRpm
 
 // Execute executes the request
 //  @return PaginatedrpmRpmAlternateContentSourceResponseList
-func (a *AcsRpmApiService) AcsRpmRpmListExecute(r AcsRpmApiAcsRpmRpmListRequest) (*PaginatedrpmRpmAlternateContentSourceResponseList, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmListExecute(r AcsRpmAPIAcsRpmRpmListRequest) (*PaginatedrpmRpmAlternateContentSourceResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -471,7 +471,7 @@ func (a *AcsRpmApiService) AcsRpmRpmListExecute(r AcsRpmApiAcsRpmRpmListRequest)
 		localVarReturnValue  *PaginatedrpmRpmAlternateContentSourceResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -587,27 +587,27 @@ func (a *AcsRpmApiService) AcsRpmRpmListExecute(r AcsRpmApiAcsRpmRpmListRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmListRolesRequest struct {
+type AcsRpmAPIAcsRpmRpmListRolesRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AcsRpmApiAcsRpmRpmListRolesRequest) Fields(fields []string) AcsRpmApiAcsRpmRpmListRolesRequest {
+func (r AcsRpmAPIAcsRpmRpmListRolesRequest) Fields(fields []string) AcsRpmAPIAcsRpmRpmListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsRpmApiAcsRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) AcsRpmApiAcsRpmRpmListRolesRequest {
+func (r AcsRpmAPIAcsRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) AcsRpmAPIAcsRpmRpmListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmListRolesExecute(r)
 }
 
@@ -618,10 +618,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmListRolesRequest
+ @return AcsRpmAPIAcsRpmRpmListRolesRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmListRoles(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmListRolesRequest {
-	return AcsRpmApiAcsRpmRpmListRolesRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmListRoles(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmListRolesRequest {
+	return AcsRpmAPIAcsRpmRpmListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -630,7 +630,7 @@ func (a *AcsRpmApiService) AcsRpmRpmListRoles(ctx context.Context, rpmRpmAlterna
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *AcsRpmApiService) AcsRpmRpmListRolesExecute(r AcsRpmApiAcsRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmListRolesExecute(r AcsRpmAPIAcsRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -638,7 +638,7 @@ func (a *AcsRpmApiService) AcsRpmRpmListRolesExecute(r AcsRpmApiAcsRpmRpmListRol
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -727,27 +727,27 @@ func (a *AcsRpmApiService) AcsRpmRpmListRolesExecute(r AcsRpmApiAcsRpmRpmListRol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmMyPermissionsRequest struct {
+type AcsRpmAPIAcsRpmRpmMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AcsRpmApiAcsRpmRpmMyPermissionsRequest) Fields(fields []string) AcsRpmApiAcsRpmRpmMyPermissionsRequest {
+func (r AcsRpmAPIAcsRpmRpmMyPermissionsRequest) Fields(fields []string) AcsRpmAPIAcsRpmRpmMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsRpmApiAcsRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) AcsRpmApiAcsRpmRpmMyPermissionsRequest {
+func (r AcsRpmAPIAcsRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) AcsRpmAPIAcsRpmRpmMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmMyPermissionsExecute(r)
 }
 
@@ -758,10 +758,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmMyPermissionsRequest
+ @return AcsRpmAPIAcsRpmRpmMyPermissionsRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmMyPermissions(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmMyPermissionsRequest {
-	return AcsRpmApiAcsRpmRpmMyPermissionsRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmMyPermissions(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmMyPermissionsRequest {
+	return AcsRpmAPIAcsRpmRpmMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -770,7 +770,7 @@ func (a *AcsRpmApiService) AcsRpmRpmMyPermissions(ctx context.Context, rpmRpmAlt
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *AcsRpmApiService) AcsRpmRpmMyPermissionsExecute(r AcsRpmApiAcsRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmMyPermissionsExecute(r AcsRpmAPIAcsRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -778,7 +778,7 @@ func (a *AcsRpmApiService) AcsRpmRpmMyPermissionsExecute(r AcsRpmApiAcsRpmRpmMyP
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -867,19 +867,19 @@ func (a *AcsRpmApiService) AcsRpmRpmMyPermissionsExecute(r AcsRpmApiAcsRpmRpmMyP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmPartialUpdateRequest struct {
+type AcsRpmAPIAcsRpmRpmPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 	patchedrpmRpmAlternateContentSource *PatchedrpmRpmAlternateContentSource
 }
 
-func (r AcsRpmApiAcsRpmRpmPartialUpdateRequest) PatchedrpmRpmAlternateContentSource(patchedrpmRpmAlternateContentSource PatchedrpmRpmAlternateContentSource) AcsRpmApiAcsRpmRpmPartialUpdateRequest {
+func (r AcsRpmAPIAcsRpmRpmPartialUpdateRequest) PatchedrpmRpmAlternateContentSource(patchedrpmRpmAlternateContentSource PatchedrpmRpmAlternateContentSource) AcsRpmAPIAcsRpmRpmPartialUpdateRequest {
 	r.patchedrpmRpmAlternateContentSource = &patchedrpmRpmAlternateContentSource
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmPartialUpdateExecute(r)
 }
 
@@ -890,10 +890,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmPartialUpdateRequest
+ @return AcsRpmAPIAcsRpmRpmPartialUpdateRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmPartialUpdate(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmPartialUpdateRequest {
-	return AcsRpmApiAcsRpmRpmPartialUpdateRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmPartialUpdate(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmPartialUpdateRequest {
+	return AcsRpmAPIAcsRpmRpmPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -902,7 +902,7 @@ func (a *AcsRpmApiService) AcsRpmRpmPartialUpdate(ctx context.Context, rpmRpmAlt
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *AcsRpmApiService) AcsRpmRpmPartialUpdateExecute(r AcsRpmApiAcsRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmPartialUpdateExecute(r AcsRpmAPIAcsRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -910,7 +910,7 @@ func (a *AcsRpmApiService) AcsRpmRpmPartialUpdateExecute(r AcsRpmApiAcsRpmRpmPar
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -982,27 +982,27 @@ func (a *AcsRpmApiService) AcsRpmRpmPartialUpdateExecute(r AcsRpmApiAcsRpmRpmPar
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmReadRequest struct {
+type AcsRpmAPIAcsRpmRpmReadRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r AcsRpmApiAcsRpmRpmReadRequest) Fields(fields []string) AcsRpmApiAcsRpmRpmReadRequest {
+func (r AcsRpmAPIAcsRpmRpmReadRequest) Fields(fields []string) AcsRpmAPIAcsRpmRpmReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r AcsRpmApiAcsRpmRpmReadRequest) ExcludeFields(excludeFields []string) AcsRpmApiAcsRpmRpmReadRequest {
+func (r AcsRpmAPIAcsRpmRpmReadRequest) ExcludeFields(excludeFields []string) AcsRpmAPIAcsRpmRpmReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmReadRequest) Execute() (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmReadRequest) Execute() (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmReadExecute(r)
 }
 
@@ -1013,10 +1013,10 @@ ViewSet for ACS.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmReadRequest
+ @return AcsRpmAPIAcsRpmRpmReadRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmRead(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmReadRequest {
-	return AcsRpmApiAcsRpmRpmReadRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmRead(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmReadRequest {
+	return AcsRpmAPIAcsRpmRpmReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -1025,7 +1025,7 @@ func (a *AcsRpmApiService) AcsRpmRpmRead(ctx context.Context, rpmRpmAlternateCon
 
 // Execute executes the request
 //  @return RpmRpmAlternateContentSourceResponse
-func (a *AcsRpmApiService) AcsRpmRpmReadExecute(r AcsRpmApiAcsRpmRpmReadRequest) (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmReadExecute(r AcsRpmAPIAcsRpmRpmReadRequest) (*RpmRpmAlternateContentSourceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1033,7 +1033,7 @@ func (a *AcsRpmApiService) AcsRpmRpmReadExecute(r AcsRpmApiAcsRpmRpmReadRequest)
 		localVarReturnValue  *RpmRpmAlternateContentSourceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1122,13 +1122,13 @@ func (a *AcsRpmApiService) AcsRpmRpmReadExecute(r AcsRpmApiAcsRpmRpmReadRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmRefreshRequest struct {
+type AcsRpmAPIAcsRpmRpmRefreshRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 }
 
-func (r AcsRpmApiAcsRpmRpmRefreshRequest) Execute() (*TaskGroupOperationResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmRefreshRequest) Execute() (*TaskGroupOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmRefreshExecute(r)
 }
 
@@ -1139,10 +1139,10 @@ Trigger an asynchronous task to create Alternate Content Source content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmRefreshRequest
+ @return AcsRpmAPIAcsRpmRpmRefreshRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmRefresh(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmRefreshRequest {
-	return AcsRpmApiAcsRpmRpmRefreshRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmRefresh(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmRefreshRequest {
+	return AcsRpmAPIAcsRpmRpmRefreshRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -1151,7 +1151,7 @@ func (a *AcsRpmApiService) AcsRpmRpmRefresh(ctx context.Context, rpmRpmAlternate
 
 // Execute executes the request
 //  @return TaskGroupOperationResponse
-func (a *AcsRpmApiService) AcsRpmRpmRefreshExecute(r AcsRpmApiAcsRpmRpmRefreshRequest) (*TaskGroupOperationResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmRefreshExecute(r AcsRpmAPIAcsRpmRpmRefreshRequest) (*TaskGroupOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1159,7 +1159,7 @@ func (a *AcsRpmApiService) AcsRpmRpmRefreshExecute(r AcsRpmApiAcsRpmRpmRefreshRe
 		localVarReturnValue  *TaskGroupOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmRefresh")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmRefresh")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1226,19 +1226,19 @@ func (a *AcsRpmApiService) AcsRpmRpmRefreshExecute(r AcsRpmApiAcsRpmRpmRefreshRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmRemoveRoleRequest struct {
+type AcsRpmAPIAcsRpmRpmRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 	nestedRole *NestedRole
 }
 
-func (r AcsRpmApiAcsRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) AcsRpmApiAcsRpmRpmRemoveRoleRequest {
+func (r AcsRpmAPIAcsRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) AcsRpmAPIAcsRpmRpmRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmRemoveRoleExecute(r)
 }
 
@@ -1249,10 +1249,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmRemoveRoleRequest
+ @return AcsRpmAPIAcsRpmRpmRemoveRoleRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmRemoveRole(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmRemoveRoleRequest {
-	return AcsRpmApiAcsRpmRpmRemoveRoleRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmRemoveRole(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmRemoveRoleRequest {
+	return AcsRpmAPIAcsRpmRpmRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -1261,7 +1261,7 @@ func (a *AcsRpmApiService) AcsRpmRpmRemoveRole(ctx context.Context, rpmRpmAltern
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *AcsRpmApiService) AcsRpmRpmRemoveRoleExecute(r AcsRpmApiAcsRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmRemoveRoleExecute(r AcsRpmAPIAcsRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1269,7 +1269,7 @@ func (a *AcsRpmApiService) AcsRpmRpmRemoveRoleExecute(r AcsRpmApiAcsRpmRpmRemove
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1341,19 +1341,19 @@ func (a *AcsRpmApiService) AcsRpmRpmRemoveRoleExecute(r AcsRpmApiAcsRpmRpmRemove
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AcsRpmApiAcsRpmRpmUpdateRequest struct {
+type AcsRpmAPIAcsRpmRpmUpdateRequest struct {
 	ctx context.Context
-	ApiService *AcsRpmApiService
+	ApiService *AcsRpmAPIService
 	rpmRpmAlternateContentSourceHref string
 	rpmRpmAlternateContentSource *RpmRpmAlternateContentSource
 }
 
-func (r AcsRpmApiAcsRpmRpmUpdateRequest) RpmRpmAlternateContentSource(rpmRpmAlternateContentSource RpmRpmAlternateContentSource) AcsRpmApiAcsRpmRpmUpdateRequest {
+func (r AcsRpmAPIAcsRpmRpmUpdateRequest) RpmRpmAlternateContentSource(rpmRpmAlternateContentSource RpmRpmAlternateContentSource) AcsRpmAPIAcsRpmRpmUpdateRequest {
 	r.rpmRpmAlternateContentSource = &rpmRpmAlternateContentSource
 	return r
 }
 
-func (r AcsRpmApiAcsRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r AcsRpmAPIAcsRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.AcsRpmRpmUpdateExecute(r)
 }
 
@@ -1364,10 +1364,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmAlternateContentSourceHref
- @return AcsRpmApiAcsRpmRpmUpdateRequest
+ @return AcsRpmAPIAcsRpmRpmUpdateRequest
 */
-func (a *AcsRpmApiService) AcsRpmRpmUpdate(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmApiAcsRpmRpmUpdateRequest {
-	return AcsRpmApiAcsRpmRpmUpdateRequest{
+func (a *AcsRpmAPIService) AcsRpmRpmUpdate(ctx context.Context, rpmRpmAlternateContentSourceHref string) AcsRpmAPIAcsRpmRpmUpdateRequest {
+	return AcsRpmAPIAcsRpmRpmUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmAlternateContentSourceHref: rpmRpmAlternateContentSourceHref,
@@ -1376,7 +1376,7 @@ func (a *AcsRpmApiService) AcsRpmRpmUpdate(ctx context.Context, rpmRpmAlternateC
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *AcsRpmApiService) AcsRpmRpmUpdateExecute(r AcsRpmApiAcsRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *AcsRpmAPIService) AcsRpmRpmUpdateExecute(r AcsRpmAPIAcsRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1384,7 +1384,7 @@ func (a *AcsRpmApiService) AcsRpmRpmUpdateExecute(r AcsRpmApiAcsRpmRpmUpdateRequ
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmApiService.AcsRpmRpmUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AcsRpmAPIService.AcsRpmRpmUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

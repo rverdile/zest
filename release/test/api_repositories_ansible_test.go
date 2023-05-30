@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesAnsibleApiService
+Testing RepositoriesAnsibleAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
+func Test_zest_RepositoriesAnsibleAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleAddRole", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleAddRole(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleAddRole(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleCopyCollectionVersion", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleCopyCollectionVersion", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleCopyCollectionVersion(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleCopyCollectionVersion(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,11 +50,11 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleCreate", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,39 +62,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ansibleAnsibleRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleDelete(context.Background(), ansibleAnsibleRepositoryHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleListRoles", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleListRoles(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleDelete(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +76,11 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleMark", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var ansibleAnsibleRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMark(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleModify", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleModify(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleListRoles(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleMoveCollectionVersion", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleMark", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMoveCollectionVersion(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleMark(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleMyPermissions", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleModify", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleMyPermissions(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleModify(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -158,13 +130,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsiblePartialUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleMoveCollectionVersion", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsiblePartialUpdate(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleMoveCollectionVersion(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -172,13 +144,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleRead", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleRead(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleMyPermissions(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -186,13 +158,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleRebuildMetadata", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsiblePartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleRebuildMetadata(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsiblePartialUpdate(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -200,13 +172,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleRemoveRole", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleRemoveRole(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleRead(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -214,13 +186,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleSign", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleRebuildMetadata", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleSign(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleRebuildMetadata(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -228,13 +200,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleSync", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleRemoveRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleSync(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleRemoveRole(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -242,13 +214,13 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleUnmark", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleSign", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleUnmark(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleSign(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -256,13 +228,41 @@ func Test_zest_RepositoriesAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesAnsibleApiService RepositoriesAnsibleAnsibleUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleSync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesAnsibleApi.RepositoriesAnsibleAnsibleUpdate(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleSync(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleUnmark", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ansibleAnsibleRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleUnmark(context.Background(), ansibleAnsibleRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesAnsibleAPIService RepositoriesAnsibleAnsibleUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ansibleAnsibleRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesAnsibleAPI.RepositoriesAnsibleAnsibleUpdate(context.Background(), ansibleAnsibleRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

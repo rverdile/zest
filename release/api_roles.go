@@ -22,21 +22,21 @@ import (
 )
 
 
-// RolesApiService RolesApi service
-type RolesApiService service
+// RolesAPIService RolesAPI service
+type RolesAPIService service
 
-type RolesApiRolesCreateRequest struct {
+type RolesAPIRolesCreateRequest struct {
 	ctx context.Context
-	ApiService *RolesApiService
+	ApiService *RolesAPIService
 	role *Role
 }
 
-func (r RolesApiRolesCreateRequest) Role(role Role) RolesApiRolesCreateRequest {
+func (r RolesAPIRolesCreateRequest) Role(role Role) RolesAPIRolesCreateRequest {
 	r.role = &role
 	return r
 }
 
-func (r RolesApiRolesCreateRequest) Execute() (*RoleResponse, *http.Response, error) {
+func (r RolesAPIRolesCreateRequest) Execute() (*RoleResponse, *http.Response, error) {
 	return r.ApiService.RolesCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ RolesCreate Create a role
 ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RolesApiRolesCreateRequest
+ @return RolesAPIRolesCreateRequest
 */
-func (a *RolesApiService) RolesCreate(ctx context.Context) RolesApiRolesCreateRequest {
-	return RolesApiRolesCreateRequest{
+func (a *RolesAPIService) RolesCreate(ctx context.Context) RolesAPIRolesCreateRequest {
+	return RolesAPIRolesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *RolesApiService) RolesCreate(ctx context.Context) RolesApiRolesCreateRe
 
 // Execute executes the request
 //  @return RoleResponse
-func (a *RolesApiService) RolesCreateExecute(r RolesApiRolesCreateRequest) (*RoleResponse, *http.Response, error) {
+func (a *RolesAPIService) RolesCreateExecute(r RolesAPIRolesCreateRequest) (*RoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *RolesApiService) RolesCreateExecute(r RolesApiRolesCreateRequest) (*Rol
 		localVarReturnValue  *RoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesApiService.RolesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesAPIService.RolesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *RolesApiService) RolesCreateExecute(r RolesApiRolesCreateRequest) (*Rol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RolesApiRolesDeleteRequest struct {
+type RolesAPIRolesDeleteRequest struct {
 	ctx context.Context
-	ApiService *RolesApiService
+	ApiService *RolesAPIService
 	roleHref string
 }
 
-func (r RolesApiRolesDeleteRequest) Execute() (*http.Response, error) {
+func (r RolesAPIRolesDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RolesDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref
- @return RolesApiRolesDeleteRequest
+ @return RolesAPIRolesDeleteRequest
 */
-func (a *RolesApiService) RolesDelete(ctx context.Context, roleHref string) RolesApiRolesDeleteRequest {
-	return RolesApiRolesDeleteRequest{
+func (a *RolesAPIService) RolesDelete(ctx context.Context, roleHref string) RolesAPIRolesDeleteRequest {
+	return RolesAPIRolesDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		roleHref: roleHref,
@@ -162,14 +162,14 @@ func (a *RolesApiService) RolesDelete(ctx context.Context, roleHref string) Role
 }
 
 // Execute executes the request
-func (a *RolesApiService) RolesDeleteExecute(r RolesApiRolesDeleteRequest) (*http.Response, error) {
+func (a *RolesAPIService) RolesDeleteExecute(r RolesAPIRolesDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesApiService.RolesDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesAPIService.RolesDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -227,9 +227,9 @@ func (a *RolesApiService) RolesDeleteExecute(r RolesApiRolesDeleteRequest) (*htt
 	return localVarHTTPResponse, nil
 }
 
-type RolesApiRolesListRequest struct {
+type RolesAPIRolesListRequest struct {
 	ctx context.Context
-	ApiService *RolesApiService
+	ApiService *RolesAPIService
 	containsPermission *[]string
 	description *string
 	descriptionContains *string
@@ -252,120 +252,120 @@ type RolesApiRolesListRequest struct {
 }
 
 // Filter roles that have any of the permissions in the list.
-func (r RolesApiRolesListRequest) ContainsPermission(containsPermission []string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) ContainsPermission(containsPermission []string) RolesAPIRolesListRequest {
 	r.containsPermission = &containsPermission
 	return r
 }
 
 // Filter results where description matches value
-func (r RolesApiRolesListRequest) Description(description string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) Description(description string) RolesAPIRolesListRequest {
 	r.description = &description
 	return r
 }
 
 // Filter results where description contains value
-func (r RolesApiRolesListRequest) DescriptionContains(descriptionContains string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) DescriptionContains(descriptionContains string) RolesAPIRolesListRequest {
 	r.descriptionContains = &descriptionContains
 	return r
 }
 
 // Filter results where description contains value
-func (r RolesApiRolesListRequest) DescriptionIcontains(descriptionIcontains string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) DescriptionIcontains(descriptionIcontains string) RolesAPIRolesListRequest {
 	r.descriptionIcontains = &descriptionIcontains
 	return r
 }
 
 // Filter results where description matches value
-func (r RolesApiRolesListRequest) DescriptionIexact(descriptionIexact string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) DescriptionIexact(descriptionIexact string) RolesAPIRolesListRequest {
 	r.descriptionIexact = &descriptionIexact
 	return r
 }
 
 // Filter roles that only have permissions for the specified object HREF.
-func (r RolesApiRolesListRequest) ForObjectType(forObjectType string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) ForObjectType(forObjectType string) RolesAPIRolesListRequest {
 	r.forObjectType = &forObjectType
 	return r
 }
 
 // Number of results to return per page.
-func (r RolesApiRolesListRequest) Limit(limit int32) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) Limit(limit int32) RolesAPIRolesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where locked matches value
-func (r RolesApiRolesListRequest) Locked(locked bool) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) Locked(locked bool) RolesAPIRolesListRequest {
 	r.locked = &locked
 	return r
 }
 
 // Filter results where name matches value
-func (r RolesApiRolesListRequest) Name(name string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) Name(name string) RolesAPIRolesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RolesApiRolesListRequest) NameContains(nameContains string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) NameContains(nameContains string) RolesAPIRolesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RolesApiRolesListRequest) NameIcontains(nameIcontains string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) NameIcontains(nameIcontains string) RolesAPIRolesListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RolesApiRolesListRequest) NameIn(nameIn []string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) NameIn(nameIn []string) RolesAPIRolesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RolesApiRolesListRequest) NameStartswith(nameStartswith string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) NameStartswith(nameStartswith string) RolesAPIRolesListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RolesApiRolesListRequest) Offset(offset int32) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) Offset(offset int32) RolesAPIRolesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;locked&#x60; - Locked * &#x60;-locked&#x60; - Locked (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RolesApiRolesListRequest) Ordering(ordering []string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) Ordering(ordering []string) RolesAPIRolesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RolesApiRolesListRequest) PulpHrefIn(pulpHrefIn []string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) PulpHrefIn(pulpHrefIn []string) RolesAPIRolesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RolesApiRolesListRequest) PulpIdIn(pulpIdIn []string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) PulpIdIn(pulpIdIn []string) RolesAPIRolesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RolesApiRolesListRequest) Fields(fields []string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) Fields(fields []string) RolesAPIRolesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RolesApiRolesListRequest) ExcludeFields(excludeFields []string) RolesApiRolesListRequest {
+func (r RolesAPIRolesListRequest) ExcludeFields(excludeFields []string) RolesAPIRolesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RolesApiRolesListRequest) Execute() (*PaginatedRoleResponseList, *http.Response, error) {
+func (r RolesAPIRolesListRequest) Execute() (*PaginatedRoleResponseList, *http.Response, error) {
 	return r.ApiService.RolesListExecute(r)
 }
 
@@ -375,10 +375,10 @@ RolesList List roles
 ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RolesApiRolesListRequest
+ @return RolesAPIRolesListRequest
 */
-func (a *RolesApiService) RolesList(ctx context.Context) RolesApiRolesListRequest {
-	return RolesApiRolesListRequest{
+func (a *RolesAPIService) RolesList(ctx context.Context) RolesAPIRolesListRequest {
+	return RolesAPIRolesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -386,7 +386,7 @@ func (a *RolesApiService) RolesList(ctx context.Context) RolesApiRolesListReques
 
 // Execute executes the request
 //  @return PaginatedRoleResponseList
-func (a *RolesApiService) RolesListExecute(r RolesApiRolesListRequest) (*PaginatedRoleResponseList, *http.Response, error) {
+func (a *RolesAPIService) RolesListExecute(r RolesAPIRolesListRequest) (*PaginatedRoleResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -394,7 +394,7 @@ func (a *RolesApiService) RolesListExecute(r RolesApiRolesListRequest) (*Paginat
 		localVarReturnValue  *PaginatedRoleResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesApiService.RolesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesAPIService.RolesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -539,19 +539,19 @@ func (a *RolesApiService) RolesListExecute(r RolesApiRolesListRequest) (*Paginat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RolesApiRolesPartialUpdateRequest struct {
+type RolesAPIRolesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RolesApiService
+	ApiService *RolesAPIService
 	roleHref string
 	patchedRole *PatchedRole
 }
 
-func (r RolesApiRolesPartialUpdateRequest) PatchedRole(patchedRole PatchedRole) RolesApiRolesPartialUpdateRequest {
+func (r RolesAPIRolesPartialUpdateRequest) PatchedRole(patchedRole PatchedRole) RolesAPIRolesPartialUpdateRequest {
 	r.patchedRole = &patchedRole
 	return r
 }
 
-func (r RolesApiRolesPartialUpdateRequest) Execute() (*RoleResponse, *http.Response, error) {
+func (r RolesAPIRolesPartialUpdateRequest) Execute() (*RoleResponse, *http.Response, error) {
 	return r.ApiService.RolesPartialUpdateExecute(r)
 }
 
@@ -562,10 +562,10 @@ ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref
- @return RolesApiRolesPartialUpdateRequest
+ @return RolesAPIRolesPartialUpdateRequest
 */
-func (a *RolesApiService) RolesPartialUpdate(ctx context.Context, roleHref string) RolesApiRolesPartialUpdateRequest {
-	return RolesApiRolesPartialUpdateRequest{
+func (a *RolesAPIService) RolesPartialUpdate(ctx context.Context, roleHref string) RolesAPIRolesPartialUpdateRequest {
+	return RolesAPIRolesPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		roleHref: roleHref,
@@ -574,7 +574,7 @@ func (a *RolesApiService) RolesPartialUpdate(ctx context.Context, roleHref strin
 
 // Execute executes the request
 //  @return RoleResponse
-func (a *RolesApiService) RolesPartialUpdateExecute(r RolesApiRolesPartialUpdateRequest) (*RoleResponse, *http.Response, error) {
+func (a *RolesAPIService) RolesPartialUpdateExecute(r RolesAPIRolesPartialUpdateRequest) (*RoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -582,7 +582,7 @@ func (a *RolesApiService) RolesPartialUpdateExecute(r RolesApiRolesPartialUpdate
 		localVarReturnValue  *RoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesApiService.RolesPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesAPIService.RolesPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -654,27 +654,27 @@ func (a *RolesApiService) RolesPartialUpdateExecute(r RolesApiRolesPartialUpdate
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RolesApiRolesReadRequest struct {
+type RolesAPIRolesReadRequest struct {
 	ctx context.Context
-	ApiService *RolesApiService
+	ApiService *RolesAPIService
 	roleHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RolesApiRolesReadRequest) Fields(fields []string) RolesApiRolesReadRequest {
+func (r RolesAPIRolesReadRequest) Fields(fields []string) RolesAPIRolesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RolesApiRolesReadRequest) ExcludeFields(excludeFields []string) RolesApiRolesReadRequest {
+func (r RolesAPIRolesReadRequest) ExcludeFields(excludeFields []string) RolesAPIRolesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RolesApiRolesReadRequest) Execute() (*RoleResponse, *http.Response, error) {
+func (r RolesAPIRolesReadRequest) Execute() (*RoleResponse, *http.Response, error) {
 	return r.ApiService.RolesReadExecute(r)
 }
 
@@ -685,10 +685,10 @@ ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref
- @return RolesApiRolesReadRequest
+ @return RolesAPIRolesReadRequest
 */
-func (a *RolesApiService) RolesRead(ctx context.Context, roleHref string) RolesApiRolesReadRequest {
-	return RolesApiRolesReadRequest{
+func (a *RolesAPIService) RolesRead(ctx context.Context, roleHref string) RolesAPIRolesReadRequest {
+	return RolesAPIRolesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		roleHref: roleHref,
@@ -697,7 +697,7 @@ func (a *RolesApiService) RolesRead(ctx context.Context, roleHref string) RolesA
 
 // Execute executes the request
 //  @return RoleResponse
-func (a *RolesApiService) RolesReadExecute(r RolesApiRolesReadRequest) (*RoleResponse, *http.Response, error) {
+func (a *RolesAPIService) RolesReadExecute(r RolesAPIRolesReadRequest) (*RoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -705,7 +705,7 @@ func (a *RolesApiService) RolesReadExecute(r RolesApiRolesReadRequest) (*RoleRes
 		localVarReturnValue  *RoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesApiService.RolesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesAPIService.RolesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -794,19 +794,19 @@ func (a *RolesApiService) RolesReadExecute(r RolesApiRolesReadRequest) (*RoleRes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RolesApiRolesUpdateRequest struct {
+type RolesAPIRolesUpdateRequest struct {
 	ctx context.Context
-	ApiService *RolesApiService
+	ApiService *RolesAPIService
 	roleHref string
 	role *Role
 }
 
-func (r RolesApiRolesUpdateRequest) Role(role Role) RolesApiRolesUpdateRequest {
+func (r RolesAPIRolesUpdateRequest) Role(role Role) RolesAPIRolesUpdateRequest {
 	r.role = &role
 	return r
 }
 
-func (r RolesApiRolesUpdateRequest) Execute() (*RoleResponse, *http.Response, error) {
+func (r RolesAPIRolesUpdateRequest) Execute() (*RoleResponse, *http.Response, error) {
 	return r.ApiService.RolesUpdateExecute(r)
 }
 
@@ -817,10 +817,10 @@ ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param roleHref
- @return RolesApiRolesUpdateRequest
+ @return RolesAPIRolesUpdateRequest
 */
-func (a *RolesApiService) RolesUpdate(ctx context.Context, roleHref string) RolesApiRolesUpdateRequest {
-	return RolesApiRolesUpdateRequest{
+func (a *RolesAPIService) RolesUpdate(ctx context.Context, roleHref string) RolesAPIRolesUpdateRequest {
+	return RolesAPIRolesUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		roleHref: roleHref,
@@ -829,7 +829,7 @@ func (a *RolesApiService) RolesUpdate(ctx context.Context, roleHref string) Role
 
 // Execute executes the request
 //  @return RoleResponse
-func (a *RolesApiService) RolesUpdateExecute(r RolesApiRolesUpdateRequest) (*RoleResponse, *http.Response, error) {
+func (a *RolesAPIService) RolesUpdateExecute(r RolesAPIRolesUpdateRequest) (*RoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -837,7 +837,7 @@ func (a *RolesApiService) RolesUpdateExecute(r RolesApiRolesUpdateRequest) (*Rol
 		localVarReturnValue  *RoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesApiService.RolesUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RolesAPIService.RolesUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

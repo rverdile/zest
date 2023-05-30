@@ -22,22 +22,22 @@ import (
 )
 
 
-// RepositoriesMavenApiService RepositoriesMavenApi service
-type RepositoriesMavenApiService service
+// RepositoriesMavenAPIService RepositoriesMavenAPI service
+type RepositoriesMavenAPIService service
 
-type RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest struct {
+type RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesMavenApiService
+	ApiService *RepositoriesMavenAPIService
 	mavenMavenRepositoryHref string
 	repositoryAddCachedContent *RepositoryAddCachedContent
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest) RepositoryAddCachedContent(repositoryAddCachedContent RepositoryAddCachedContent) RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest) RepositoryAddCachedContent(repositoryAddCachedContent RepositoryAddCachedContent) RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest {
 	r.repositoryAddCachedContent = &repositoryAddCachedContent
 	return r
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesMavenMavenAddCachedContentExecute(r)
 }
 
@@ -48,10 +48,10 @@ Trigger an asynchronous task to add cached content to a repository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRepositoryHref
- @return RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest
+ @return RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest
 */
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenAddCachedContent(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest {
-	return RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest{
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenAddCachedContent(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest {
+	return RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRepositoryHref: mavenMavenRepositoryHref,
@@ -60,7 +60,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenAddCachedContent(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenAddCachedContentExecute(r RepositoriesMavenApiRepositoriesMavenMavenAddCachedContentRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenAddCachedContentExecute(r RepositoriesMavenAPIRepositoriesMavenMavenAddCachedContentRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenAddCachedContentExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenAddCachedContent")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenAPIService.RepositoriesMavenMavenAddCachedContent")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenAddCachedContentExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesMavenApiRepositoriesMavenMavenCreateRequest struct {
+type RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesMavenApiService
+	ApiService *RepositoriesMavenAPIService
 	mavenMavenRepository *MavenMavenRepository
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenCreateRequest) MavenMavenRepository(mavenMavenRepository MavenMavenRepository) RepositoriesMavenApiRepositoriesMavenMavenCreateRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest) MavenMavenRepository(mavenMavenRepository MavenMavenRepository) RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest {
 	r.mavenMavenRepository = &mavenMavenRepository
 	return r
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenCreateRequest) Execute() (*MavenMavenRepositoryResponse, *http.Response, error) {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest) Execute() (*MavenMavenRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesMavenMavenCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ RepositoriesMavenMavenCreate Create a maven repository
 A ViewSet for MavenRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesMavenApiRepositoriesMavenMavenCreateRequest
+ @return RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest
 */
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenCreate(ctx context.Context) RepositoriesMavenApiRepositoriesMavenMavenCreateRequest {
-	return RepositoriesMavenApiRepositoriesMavenMavenCreateRequest{
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenCreate(ctx context.Context) RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest {
+	return RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenCreate(ctx context.C
 
 // Execute executes the request
 //  @return MavenMavenRepositoryResponse
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenCreateExecute(r RepositoriesMavenApiRepositoriesMavenMavenCreateRequest) (*MavenMavenRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenCreateExecute(r RepositoriesMavenAPIRepositoriesMavenMavenCreateRequest) (*MavenMavenRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenCreateExecute(r Repo
 		localVarReturnValue  *MavenMavenRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenAPIService.RepositoriesMavenMavenCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenCreateExecute(r Repo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesMavenApiRepositoriesMavenMavenDeleteRequest struct {
+type RepositoriesMavenAPIRepositoriesMavenMavenDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesMavenApiService
+	ApiService *RepositoriesMavenAPIService
 	mavenMavenRepositoryHref string
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesMavenMavenDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRepositoryHref
- @return RepositoriesMavenApiRepositoriesMavenMavenDeleteRequest
+ @return RepositoriesMavenAPIRepositoriesMavenMavenDeleteRequest
 */
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenDelete(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenApiRepositoriesMavenMavenDeleteRequest {
-	return RepositoriesMavenApiRepositoriesMavenMavenDeleteRequest{
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenDelete(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenAPIRepositoriesMavenMavenDeleteRequest {
+	return RepositoriesMavenAPIRepositoriesMavenMavenDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRepositoryHref: mavenMavenRepositoryHref,
@@ -278,7 +278,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenDelete(ctx context.C
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenDeleteExecute(r RepositoriesMavenApiRepositoriesMavenMavenDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenDeleteExecute(r RepositoriesMavenAPIRepositoriesMavenMavenDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenDeleteExecute(r Repo
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenAPIService.RepositoriesMavenMavenDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,10 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenDeleteExecute(r Repo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesMavenApiRepositoriesMavenMavenListRequest struct {
+type RepositoriesMavenAPIRepositoriesMavenMavenListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesMavenApiService
+	ApiService *RepositoriesMavenAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -376,143 +377,156 @@ type RepositoriesMavenApiRepositoriesMavenMavenListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) LatestWithContent(latestWithContent string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) Limit(limit int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) Limit(limit int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) Name(name string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) Name(name string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) NameContains(nameContains string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) NameContains(nameContains string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) NameIcontains(nameIcontains string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) NameIcontains(nameIcontains string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) NameIn(nameIn []string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) NameIn(nameIn []string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) NameStartswith(nameStartswith string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) NameStartswith(nameStartswith string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) Offset(offset int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) Offset(offset int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) Ordering(ordering []string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) Ordering(ordering []string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) PulpIdIn(pulpIdIn []string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) PulpIdIn(pulpIdIn []string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) Remote(remote string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) Remote(remote string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) WithContent(withContent string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) Fields(fields []string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) Fields(fields []string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) ExcludeFields(excludeFields []string) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) ExcludeFields(excludeFields []string) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenListRequest) Execute() (*PaginatedmavenMavenRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) Execute() (*PaginatedmavenMavenRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesMavenMavenListExecute(r)
 }
 
@@ -522,10 +536,10 @@ RepositoriesMavenMavenList List maven repositorys
 A ViewSet for MavenRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesMavenApiRepositoriesMavenMavenListRequest
+ @return RepositoriesMavenAPIRepositoriesMavenMavenListRequest
 */
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenList(ctx context.Context) RepositoriesMavenApiRepositoriesMavenMavenListRequest {
-	return RepositoriesMavenApiRepositoriesMavenMavenListRequest{
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenList(ctx context.Context) RepositoriesMavenAPIRepositoriesMavenMavenListRequest {
+	return RepositoriesMavenAPIRepositoriesMavenMavenListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -533,7 +547,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenList(ctx context.Con
 
 // Execute executes the request
 //  @return PaginatedmavenMavenRepositoryResponseList
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenListExecute(r RepositoriesMavenApiRepositoriesMavenMavenListRequest) (*PaginatedmavenMavenRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenListExecute(r RepositoriesMavenAPIRepositoriesMavenMavenListRequest) (*PaginatedmavenMavenRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -541,7 +555,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenListExecute(r Reposi
 		localVarReturnValue  *PaginatedmavenMavenRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenAPIService.RepositoriesMavenMavenList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -551,6 +565,9 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenListExecute(r Reposi
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -610,6 +627,9 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenListExecute(r Reposi
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -687,19 +707,19 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenListExecute(r Reposi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest struct {
+type RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesMavenApiService
+	ApiService *RepositoriesMavenAPIService
 	mavenMavenRepositoryHref string
 	patchedmavenMavenRepository *PatchedmavenMavenRepository
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest) PatchedmavenMavenRepository(patchedmavenMavenRepository PatchedmavenMavenRepository) RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest) PatchedmavenMavenRepository(patchedmavenMavenRepository PatchedmavenMavenRepository) RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest {
 	r.patchedmavenMavenRepository = &patchedmavenMavenRepository
 	return r
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesMavenMavenPartialUpdateExecute(r)
 }
 
@@ -710,10 +730,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRepositoryHref
- @return RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest
+ @return RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest
 */
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenPartialUpdate(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest {
-	return RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest{
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenPartialUpdate(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest {
+	return RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRepositoryHref: mavenMavenRepositoryHref,
@@ -722,7 +742,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenPartialUpdate(ctx co
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenPartialUpdateExecute(r RepositoriesMavenApiRepositoriesMavenMavenPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenPartialUpdateExecute(r RepositoriesMavenAPIRepositoriesMavenMavenPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -730,7 +750,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenPartialUpdateExecute
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenAPIService.RepositoriesMavenMavenPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -802,27 +822,27 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenPartialUpdateExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesMavenApiRepositoriesMavenMavenReadRequest struct {
+type RepositoriesMavenAPIRepositoriesMavenMavenReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesMavenApiService
+	ApiService *RepositoriesMavenAPIService
 	mavenMavenRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesMavenApiRepositoriesMavenMavenReadRequest) Fields(fields []string) RepositoriesMavenApiRepositoriesMavenMavenReadRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenReadRequest) Fields(fields []string) RepositoriesMavenAPIRepositoriesMavenMavenReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesMavenApiRepositoriesMavenMavenReadRequest) ExcludeFields(excludeFields []string) RepositoriesMavenApiRepositoriesMavenMavenReadRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenReadRequest) ExcludeFields(excludeFields []string) RepositoriesMavenAPIRepositoriesMavenMavenReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenReadRequest) Execute() (*MavenMavenRepositoryResponse, *http.Response, error) {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenReadRequest) Execute() (*MavenMavenRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesMavenMavenReadExecute(r)
 }
 
@@ -833,10 +853,10 @@ A ViewSet for MavenRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRepositoryHref
- @return RepositoriesMavenApiRepositoriesMavenMavenReadRequest
+ @return RepositoriesMavenAPIRepositoriesMavenMavenReadRequest
 */
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenRead(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenApiRepositoriesMavenMavenReadRequest {
-	return RepositoriesMavenApiRepositoriesMavenMavenReadRequest{
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenRead(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenAPIRepositoriesMavenMavenReadRequest {
+	return RepositoriesMavenAPIRepositoriesMavenMavenReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRepositoryHref: mavenMavenRepositoryHref,
@@ -845,7 +865,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenRead(ctx context.Con
 
 // Execute executes the request
 //  @return MavenMavenRepositoryResponse
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenReadExecute(r RepositoriesMavenApiRepositoriesMavenMavenReadRequest) (*MavenMavenRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenReadExecute(r RepositoriesMavenAPIRepositoriesMavenMavenReadRequest) (*MavenMavenRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -853,7 +873,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenReadExecute(r Reposi
 		localVarReturnValue  *MavenMavenRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenAPIService.RepositoriesMavenMavenRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -942,19 +962,19 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenReadExecute(r Reposi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest struct {
+type RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesMavenApiService
+	ApiService *RepositoriesMavenAPIService
 	mavenMavenRepositoryHref string
 	mavenMavenRepository *MavenMavenRepository
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest) MavenMavenRepository(mavenMavenRepository MavenMavenRepository) RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest) MavenMavenRepository(mavenMavenRepository MavenMavenRepository) RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest {
 	r.mavenMavenRepository = &mavenMavenRepository
 	return r
 }
 
-func (r RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesMavenMavenUpdateExecute(r)
 }
 
@@ -965,10 +985,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRepositoryHref
- @return RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest
+ @return RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest
 */
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenUpdate(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest {
-	return RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest{
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenUpdate(ctx context.Context, mavenMavenRepositoryHref string) RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest {
+	return RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRepositoryHref: mavenMavenRepositoryHref,
@@ -977,7 +997,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenUpdate(ctx context.C
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesMavenApiService) RepositoriesMavenMavenUpdateExecute(r RepositoriesMavenApiRepositoriesMavenMavenUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesMavenAPIService) RepositoriesMavenMavenUpdateExecute(r RepositoriesMavenAPIRepositoriesMavenMavenUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -985,7 +1005,7 @@ func (a *RepositoriesMavenApiService) RepositoriesMavenMavenUpdateExecute(r Repo
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenApiService.RepositoriesMavenMavenUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesMavenAPIService.RepositoriesMavenMavenUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesOstreeVersionsApiService
+Testing RepositoriesOstreeVersionsAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesOstreeVersionsApiService(t *testing.T) {
+func Test_zest_RepositoriesOstreeVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesOstreeVersionsApiService RepositoriesOstreeOstreeVersionsDelete", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeVersionsAPIService RepositoriesOstreeOstreeVersionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsApi.RepositoriesOstreeOstreeVersionsDelete(context.Background(), ostreeOstreeRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsAPI.RepositoriesOstreeOstreeVersionsDelete(context.Background(), ostreeOstreeRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_zest_RepositoriesOstreeVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeVersionsApiService RepositoriesOstreeOstreeVersionsList", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeVersionsAPIService RepositoriesOstreeOstreeVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsApi.RepositoriesOstreeOstreeVersionsList(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsAPI.RepositoriesOstreeOstreeVersionsList(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_zest_RepositoriesOstreeVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeVersionsApiService RepositoriesOstreeOstreeVersionsRead", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeVersionsAPIService RepositoriesOstreeOstreeVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsApi.RepositoriesOstreeOstreeVersionsRead(context.Background(), ostreeOstreeRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsAPI.RepositoriesOstreeOstreeVersionsRead(context.Background(), ostreeOstreeRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_zest_RepositoriesOstreeVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeVersionsApiService RepositoriesOstreeOstreeVersionsRepair", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeVersionsAPIService RepositoriesOstreeOstreeVersionsRepair", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryVersionHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsApi.RepositoriesOstreeOstreeVersionsRepair(context.Background(), ostreeOstreeRepositoryVersionHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeVersionsAPI.RepositoriesOstreeOstreeVersionsRepair(context.Background(), ostreeOstreeRepositoryVersionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

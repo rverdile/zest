@@ -23,12 +23,12 @@ import (
 )
 
 
-// PypiSimpleApiService PypiSimpleApi service
-type PypiSimpleApiService service
+// PypiSimpleAPIService PypiSimpleAPI service
+type PypiSimpleAPIService service
 
-type PypiSimpleApiPypiSimpleCreateRequest struct {
+type PypiSimpleAPIPypiSimpleCreateRequest struct {
 	ctx context.Context
-	ApiService *PypiSimpleApiService
+	ApiService *PypiSimpleAPIService
 	path string
 	content *os.File
 	sha256Digest *string
@@ -36,24 +36,24 @@ type PypiSimpleApiPypiSimpleCreateRequest struct {
 }
 
 // A Python package release file to upload to the index.
-func (r PypiSimpleApiPypiSimpleCreateRequest) Content(content *os.File) PypiSimpleApiPypiSimpleCreateRequest {
+func (r PypiSimpleAPIPypiSimpleCreateRequest) Content(content *os.File) PypiSimpleAPIPypiSimpleCreateRequest {
 	r.content = content
 	return r
 }
 
 // SHA256 of package to validate upload integrity.
-func (r PypiSimpleApiPypiSimpleCreateRequest) Sha256Digest(sha256Digest string) PypiSimpleApiPypiSimpleCreateRequest {
+func (r PypiSimpleAPIPypiSimpleCreateRequest) Sha256Digest(sha256Digest string) PypiSimpleAPIPypiSimpleCreateRequest {
 	r.sha256Digest = &sha256Digest
 	return r
 }
 
 // Defaults to &#x60;file_upload&#x60;, don&#39;t change it or request will fail!
-func (r PypiSimpleApiPypiSimpleCreateRequest) Action(action string) PypiSimpleApiPypiSimpleCreateRequest {
+func (r PypiSimpleAPIPypiSimpleCreateRequest) Action(action string) PypiSimpleAPIPypiSimpleCreateRequest {
 	r.action = &action
 	return r
 }
 
-func (r PypiSimpleApiPypiSimpleCreateRequest) Execute() (*PackageUploadTaskResponse, *http.Response, error) {
+func (r PypiSimpleAPIPypiSimpleCreateRequest) Execute() (*PackageUploadTaskResponse, *http.Response, error) {
 	return r.ApiService.PypiSimpleCreateExecute(r)
 }
 
@@ -67,10 +67,10 @@ Python tools. (pip, twine, poetry, pipenv, ...)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PypiSimpleApiPypiSimpleCreateRequest
+ @return PypiSimpleAPIPypiSimpleCreateRequest
 */
-func (a *PypiSimpleApiService) PypiSimpleCreate(ctx context.Context, path string) PypiSimpleApiPypiSimpleCreateRequest {
-	return PypiSimpleApiPypiSimpleCreateRequest{
+func (a *PypiSimpleAPIService) PypiSimpleCreate(ctx context.Context, path string) PypiSimpleAPIPypiSimpleCreateRequest {
+	return PypiSimpleAPIPypiSimpleCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -79,7 +79,7 @@ func (a *PypiSimpleApiService) PypiSimpleCreate(ctx context.Context, path string
 
 // Execute executes the request
 //  @return PackageUploadTaskResponse
-func (a *PypiSimpleApiService) PypiSimpleCreateExecute(r PypiSimpleApiPypiSimpleCreateRequest) (*PackageUploadTaskResponse, *http.Response, error) {
+func (a *PypiSimpleAPIService) PypiSimpleCreateExecute(r PypiSimpleAPIPypiSimpleCreateRequest) (*PackageUploadTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -87,7 +87,7 @@ func (a *PypiSimpleApiService) PypiSimpleCreateExecute(r PypiSimpleApiPypiSimple
 		localVarReturnValue  *PackageUploadTaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleApiService.PypiSimpleCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleAPIService.PypiSimpleCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -187,9 +187,9 @@ func (a *PypiSimpleApiService) PypiSimpleCreateExecute(r PypiSimpleApiPypiSimple
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PypiSimpleApiPypiSimplePackageReadRequest struct {
+type PypiSimpleAPIPypiSimplePackageReadRequest struct {
 	ctx context.Context
-	ApiService *PypiSimpleApiService
+	ApiService *PypiSimpleAPIService
 	package_ string
 	path string
 	fields *[]string
@@ -197,18 +197,18 @@ type PypiSimpleApiPypiSimplePackageReadRequest struct {
 }
 
 // A list of fields to include in the response.
-func (r PypiSimpleApiPypiSimplePackageReadRequest) Fields(fields []string) PypiSimpleApiPypiSimplePackageReadRequest {
+func (r PypiSimpleAPIPypiSimplePackageReadRequest) Fields(fields []string) PypiSimpleAPIPypiSimplePackageReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PypiSimpleApiPypiSimplePackageReadRequest) ExcludeFields(excludeFields []string) PypiSimpleApiPypiSimplePackageReadRequest {
+func (r PypiSimpleAPIPypiSimplePackageReadRequest) ExcludeFields(excludeFields []string) PypiSimpleAPIPypiSimplePackageReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PypiSimpleApiPypiSimplePackageReadRequest) Execute() (*http.Response, error) {
+func (r PypiSimpleAPIPypiSimplePackageReadRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PypiSimplePackageReadExecute(r)
 }
 
@@ -220,10 +220,10 @@ Retrieves the simple api html page for a package.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param package_
  @param path
- @return PypiSimpleApiPypiSimplePackageReadRequest
+ @return PypiSimpleAPIPypiSimplePackageReadRequest
 */
-func (a *PypiSimpleApiService) PypiSimplePackageRead(ctx context.Context, package_ string, path string) PypiSimpleApiPypiSimplePackageReadRequest {
-	return PypiSimpleApiPypiSimplePackageReadRequest{
+func (a *PypiSimpleAPIService) PypiSimplePackageRead(ctx context.Context, package_ string, path string) PypiSimpleAPIPypiSimplePackageReadRequest {
+	return PypiSimpleAPIPypiSimplePackageReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		package_: package_,
@@ -232,14 +232,14 @@ func (a *PypiSimpleApiService) PypiSimplePackageRead(ctx context.Context, packag
 }
 
 // Execute executes the request
-func (a *PypiSimpleApiService) PypiSimplePackageReadExecute(r PypiSimpleApiPypiSimplePackageReadRequest) (*http.Response, error) {
+func (a *PypiSimpleAPIService) PypiSimplePackageReadExecute(r PypiSimpleAPIPypiSimplePackageReadRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleApiService.PypiSimplePackageRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleAPIService.PypiSimplePackageRead")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -322,27 +322,27 @@ func (a *PypiSimpleApiService) PypiSimplePackageReadExecute(r PypiSimpleApiPypiS
 	return localVarHTTPResponse, nil
 }
 
-type PypiSimpleApiPypiSimpleReadRequest struct {
+type PypiSimpleAPIPypiSimpleReadRequest struct {
 	ctx context.Context
-	ApiService *PypiSimpleApiService
+	ApiService *PypiSimpleAPIService
 	path string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PypiSimpleApiPypiSimpleReadRequest) Fields(fields []string) PypiSimpleApiPypiSimpleReadRequest {
+func (r PypiSimpleAPIPypiSimpleReadRequest) Fields(fields []string) PypiSimpleAPIPypiSimpleReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PypiSimpleApiPypiSimpleReadRequest) ExcludeFields(excludeFields []string) PypiSimpleApiPypiSimpleReadRequest {
+func (r PypiSimpleAPIPypiSimpleReadRequest) ExcludeFields(excludeFields []string) PypiSimpleAPIPypiSimpleReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PypiSimpleApiPypiSimpleReadRequest) Execute() (*http.Response, error) {
+func (r PypiSimpleAPIPypiSimpleReadRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PypiSimpleReadExecute(r)
 }
 
@@ -353,10 +353,10 @@ Gets the simple api html page for the index.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PypiSimpleApiPypiSimpleReadRequest
+ @return PypiSimpleAPIPypiSimpleReadRequest
 */
-func (a *PypiSimpleApiService) PypiSimpleRead(ctx context.Context, path string) PypiSimpleApiPypiSimpleReadRequest {
-	return PypiSimpleApiPypiSimpleReadRequest{
+func (a *PypiSimpleAPIService) PypiSimpleRead(ctx context.Context, path string) PypiSimpleAPIPypiSimpleReadRequest {
+	return PypiSimpleAPIPypiSimpleReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -364,14 +364,14 @@ func (a *PypiSimpleApiService) PypiSimpleRead(ctx context.Context, path string) 
 }
 
 // Execute executes the request
-func (a *PypiSimpleApiService) PypiSimpleReadExecute(r PypiSimpleApiPypiSimpleReadRequest) (*http.Response, error) {
+func (a *PypiSimpleAPIService) PypiSimpleReadExecute(r PypiSimpleAPIPypiSimpleReadRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleApiService.PypiSimpleRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiSimpleAPIService.PypiSimpleRead")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

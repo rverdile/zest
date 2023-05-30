@@ -22,21 +22,21 @@ import (
 )
 
 
-// DomainsApiService DomainsApi service
-type DomainsApiService service
+// DomainsAPIService DomainsAPI service
+type DomainsAPIService service
 
-type DomainsApiDomainsCreateRequest struct {
+type DomainsAPIDomainsCreateRequest struct {
 	ctx context.Context
-	ApiService *DomainsApiService
+	ApiService *DomainsAPIService
 	domain *Domain
 }
 
-func (r DomainsApiDomainsCreateRequest) Domain(domain Domain) DomainsApiDomainsCreateRequest {
+func (r DomainsAPIDomainsCreateRequest) Domain(domain Domain) DomainsAPIDomainsCreateRequest {
 	r.domain = &domain
 	return r
 }
 
-func (r DomainsApiDomainsCreateRequest) Execute() (*DomainResponse, *http.Response, error) {
+func (r DomainsAPIDomainsCreateRequest) Execute() (*DomainResponse, *http.Response, error) {
 	return r.ApiService.DomainsCreateExecute(r)
 }
 
@@ -48,10 +48,10 @@ ViewSet for Domain.
 NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DomainsApiDomainsCreateRequest
+ @return DomainsAPIDomainsCreateRequest
 */
-func (a *DomainsApiService) DomainsCreate(ctx context.Context) DomainsApiDomainsCreateRequest {
-	return DomainsApiDomainsCreateRequest{
+func (a *DomainsAPIService) DomainsCreate(ctx context.Context) DomainsAPIDomainsCreateRequest {
+	return DomainsAPIDomainsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -59,7 +59,7 @@ func (a *DomainsApiService) DomainsCreate(ctx context.Context) DomainsApiDomains
 
 // Execute executes the request
 //  @return DomainResponse
-func (a *DomainsApiService) DomainsCreateExecute(r DomainsApiDomainsCreateRequest) (*DomainResponse, *http.Response, error) {
+func (a *DomainsAPIService) DomainsCreateExecute(r DomainsAPIDomainsCreateRequest) (*DomainResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -67,7 +67,7 @@ func (a *DomainsApiService) DomainsCreateExecute(r DomainsApiDomainsCreateReques
 		localVarReturnValue  *DomainResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsApiService.DomainsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsAPIService.DomainsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -136,13 +136,13 @@ func (a *DomainsApiService) DomainsCreateExecute(r DomainsApiDomainsCreateReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DomainsApiDomainsDeleteRequest struct {
+type DomainsAPIDomainsDeleteRequest struct {
 	ctx context.Context
-	ApiService *DomainsApiService
+	ApiService *DomainsAPIService
 	domainHref string
 }
 
-func (r DomainsApiDomainsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DomainsAPIDomainsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DomainsDeleteExecute(r)
 }
 
@@ -153,10 +153,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param domainHref
- @return DomainsApiDomainsDeleteRequest
+ @return DomainsAPIDomainsDeleteRequest
 */
-func (a *DomainsApiService) DomainsDelete(ctx context.Context, domainHref string) DomainsApiDomainsDeleteRequest {
-	return DomainsApiDomainsDeleteRequest{
+func (a *DomainsAPIService) DomainsDelete(ctx context.Context, domainHref string) DomainsAPIDomainsDeleteRequest {
+	return DomainsAPIDomainsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		domainHref: domainHref,
@@ -165,7 +165,7 @@ func (a *DomainsApiService) DomainsDelete(ctx context.Context, domainHref string
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DomainsApiService) DomainsDeleteExecute(r DomainsApiDomainsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DomainsAPIService) DomainsDeleteExecute(r DomainsAPIDomainsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -173,7 +173,7 @@ func (a *DomainsApiService) DomainsDeleteExecute(r DomainsApiDomainsDeleteReques
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsApiService.DomainsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsAPIService.DomainsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -240,9 +240,9 @@ func (a *DomainsApiService) DomainsDeleteExecute(r DomainsApiDomainsDeleteReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DomainsApiDomainsListRequest struct {
+type DomainsAPIDomainsListRequest struct {
 	ctx context.Context
-	ApiService *DomainsApiService
+	ApiService *DomainsAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -258,78 +258,78 @@ type DomainsApiDomainsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r DomainsApiDomainsListRequest) Limit(limit int32) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) Limit(limit int32) DomainsAPIDomainsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DomainsApiDomainsListRequest) Name(name string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) Name(name string) DomainsAPIDomainsListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DomainsApiDomainsListRequest) NameContains(nameContains string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) NameContains(nameContains string) DomainsAPIDomainsListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DomainsApiDomainsListRequest) NameIcontains(nameIcontains string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) NameIcontains(nameIcontains string) DomainsAPIDomainsListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DomainsApiDomainsListRequest) NameIn(nameIn []string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) NameIn(nameIn []string) DomainsAPIDomainsListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DomainsApiDomainsListRequest) NameStartswith(nameStartswith string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) NameStartswith(nameStartswith string) DomainsAPIDomainsListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DomainsApiDomainsListRequest) Offset(offset int32) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) Offset(offset int32) DomainsAPIDomainsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;storage_class&#x60; - Storage class * &#x60;-storage_class&#x60; - Storage class (descending) * &#x60;storage_settings&#x60; - Storage settings * &#x60;-storage_settings&#x60; - Storage settings (descending) * &#x60;redirect_to_object_storage&#x60; - Redirect to object storage * &#x60;-redirect_to_object_storage&#x60; - Redirect to object storage (descending) * &#x60;hide_guarded_distributions&#x60; - Hide guarded distributions * &#x60;-hide_guarded_distributions&#x60; - Hide guarded distributions (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DomainsApiDomainsListRequest) Ordering(ordering []string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) Ordering(ordering []string) DomainsAPIDomainsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DomainsApiDomainsListRequest) PulpHrefIn(pulpHrefIn []string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) PulpHrefIn(pulpHrefIn []string) DomainsAPIDomainsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DomainsApiDomainsListRequest) PulpIdIn(pulpIdIn []string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) PulpIdIn(pulpIdIn []string) DomainsAPIDomainsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DomainsApiDomainsListRequest) Fields(fields []string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) Fields(fields []string) DomainsAPIDomainsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DomainsApiDomainsListRequest) ExcludeFields(excludeFields []string) DomainsApiDomainsListRequest {
+func (r DomainsAPIDomainsListRequest) ExcludeFields(excludeFields []string) DomainsAPIDomainsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DomainsApiDomainsListRequest) Execute() (*PaginatedDomainResponseList, *http.Response, error) {
+func (r DomainsAPIDomainsListRequest) Execute() (*PaginatedDomainResponseList, *http.Response, error) {
 	return r.ApiService.DomainsListExecute(r)
 }
 
@@ -341,10 +341,10 @@ ViewSet for Domain.
 NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DomainsApiDomainsListRequest
+ @return DomainsAPIDomainsListRequest
 */
-func (a *DomainsApiService) DomainsList(ctx context.Context) DomainsApiDomainsListRequest {
-	return DomainsApiDomainsListRequest{
+func (a *DomainsAPIService) DomainsList(ctx context.Context) DomainsAPIDomainsListRequest {
+	return DomainsAPIDomainsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -352,7 +352,7 @@ func (a *DomainsApiService) DomainsList(ctx context.Context) DomainsApiDomainsLi
 
 // Execute executes the request
 //  @return PaginatedDomainResponseList
-func (a *DomainsApiService) DomainsListExecute(r DomainsApiDomainsListRequest) (*PaginatedDomainResponseList, *http.Response, error) {
+func (a *DomainsAPIService) DomainsListExecute(r DomainsAPIDomainsListRequest) (*PaginatedDomainResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -360,7 +360,7 @@ func (a *DomainsApiService) DomainsListExecute(r DomainsApiDomainsListRequest) (
 		localVarReturnValue  *PaginatedDomainResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsApiService.DomainsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsAPIService.DomainsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -476,19 +476,19 @@ func (a *DomainsApiService) DomainsListExecute(r DomainsApiDomainsListRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DomainsApiDomainsPartialUpdateRequest struct {
+type DomainsAPIDomainsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DomainsApiService
+	ApiService *DomainsAPIService
 	domainHref string
 	patchedDomain *PatchedDomain
 }
 
-func (r DomainsApiDomainsPartialUpdateRequest) PatchedDomain(patchedDomain PatchedDomain) DomainsApiDomainsPartialUpdateRequest {
+func (r DomainsAPIDomainsPartialUpdateRequest) PatchedDomain(patchedDomain PatchedDomain) DomainsAPIDomainsPartialUpdateRequest {
 	r.patchedDomain = &patchedDomain
 	return r
 }
 
-func (r DomainsApiDomainsPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DomainsAPIDomainsPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DomainsPartialUpdateExecute(r)
 }
 
@@ -499,10 +499,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param domainHref
- @return DomainsApiDomainsPartialUpdateRequest
+ @return DomainsAPIDomainsPartialUpdateRequest
 */
-func (a *DomainsApiService) DomainsPartialUpdate(ctx context.Context, domainHref string) DomainsApiDomainsPartialUpdateRequest {
-	return DomainsApiDomainsPartialUpdateRequest{
+func (a *DomainsAPIService) DomainsPartialUpdate(ctx context.Context, domainHref string) DomainsAPIDomainsPartialUpdateRequest {
+	return DomainsAPIDomainsPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		domainHref: domainHref,
@@ -511,7 +511,7 @@ func (a *DomainsApiService) DomainsPartialUpdate(ctx context.Context, domainHref
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DomainsApiService) DomainsPartialUpdateExecute(r DomainsApiDomainsPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DomainsAPIService) DomainsPartialUpdateExecute(r DomainsAPIDomainsPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -519,7 +519,7 @@ func (a *DomainsApiService) DomainsPartialUpdateExecute(r DomainsApiDomainsParti
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsApiService.DomainsPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsAPIService.DomainsPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -591,27 +591,27 @@ func (a *DomainsApiService) DomainsPartialUpdateExecute(r DomainsApiDomainsParti
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DomainsApiDomainsReadRequest struct {
+type DomainsAPIDomainsReadRequest struct {
 	ctx context.Context
-	ApiService *DomainsApiService
+	ApiService *DomainsAPIService
 	domainHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DomainsApiDomainsReadRequest) Fields(fields []string) DomainsApiDomainsReadRequest {
+func (r DomainsAPIDomainsReadRequest) Fields(fields []string) DomainsAPIDomainsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DomainsApiDomainsReadRequest) ExcludeFields(excludeFields []string) DomainsApiDomainsReadRequest {
+func (r DomainsAPIDomainsReadRequest) ExcludeFields(excludeFields []string) DomainsAPIDomainsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DomainsApiDomainsReadRequest) Execute() (*DomainResponse, *http.Response, error) {
+func (r DomainsAPIDomainsReadRequest) Execute() (*DomainResponse, *http.Response, error) {
 	return r.ApiService.DomainsReadExecute(r)
 }
 
@@ -624,10 +624,10 @@ NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param domainHref
- @return DomainsApiDomainsReadRequest
+ @return DomainsAPIDomainsReadRequest
 */
-func (a *DomainsApiService) DomainsRead(ctx context.Context, domainHref string) DomainsApiDomainsReadRequest {
-	return DomainsApiDomainsReadRequest{
+func (a *DomainsAPIService) DomainsRead(ctx context.Context, domainHref string) DomainsAPIDomainsReadRequest {
+	return DomainsAPIDomainsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		domainHref: domainHref,
@@ -636,7 +636,7 @@ func (a *DomainsApiService) DomainsRead(ctx context.Context, domainHref string) 
 
 // Execute executes the request
 //  @return DomainResponse
-func (a *DomainsApiService) DomainsReadExecute(r DomainsApiDomainsReadRequest) (*DomainResponse, *http.Response, error) {
+func (a *DomainsAPIService) DomainsReadExecute(r DomainsAPIDomainsReadRequest) (*DomainResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -644,7 +644,7 @@ func (a *DomainsApiService) DomainsReadExecute(r DomainsApiDomainsReadRequest) (
 		localVarReturnValue  *DomainResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsApiService.DomainsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsAPIService.DomainsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -733,19 +733,19 @@ func (a *DomainsApiService) DomainsReadExecute(r DomainsApiDomainsReadRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DomainsApiDomainsUpdateRequest struct {
+type DomainsAPIDomainsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DomainsApiService
+	ApiService *DomainsAPIService
 	domainHref string
 	domain *Domain
 }
 
-func (r DomainsApiDomainsUpdateRequest) Domain(domain Domain) DomainsApiDomainsUpdateRequest {
+func (r DomainsAPIDomainsUpdateRequest) Domain(domain Domain) DomainsAPIDomainsUpdateRequest {
 	r.domain = &domain
 	return r
 }
 
-func (r DomainsApiDomainsUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DomainsAPIDomainsUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DomainsUpdateExecute(r)
 }
 
@@ -756,10 +756,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param domainHref
- @return DomainsApiDomainsUpdateRequest
+ @return DomainsAPIDomainsUpdateRequest
 */
-func (a *DomainsApiService) DomainsUpdate(ctx context.Context, domainHref string) DomainsApiDomainsUpdateRequest {
-	return DomainsApiDomainsUpdateRequest{
+func (a *DomainsAPIService) DomainsUpdate(ctx context.Context, domainHref string) DomainsAPIDomainsUpdateRequest {
+	return DomainsAPIDomainsUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		domainHref: domainHref,
@@ -768,7 +768,7 @@ func (a *DomainsApiService) DomainsUpdate(ctx context.Context, domainHref string
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DomainsApiService) DomainsUpdateExecute(r DomainsApiDomainsUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DomainsAPIService) DomainsUpdateExecute(r DomainsAPIDomainsUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -776,7 +776,7 @@ func (a *DomainsApiService) DomainsUpdateExecute(r DomainsApiDomainsUpdateReques
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsApiService.DomainsUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DomainsAPIService.DomainsUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

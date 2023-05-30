@@ -23,22 +23,22 @@ import (
 )
 
 
-// RemotesCollectionApiService RemotesCollectionApi service
-type RemotesCollectionApiService service
+// RemotesCollectionAPIService RemotesCollectionAPI service
+type RemotesCollectionAPIService service
 
-type RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionAddRole(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionAddRole(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -61,7 +61,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionAddRole(ctx contex
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionAddRoleExecute(r RemotesCollectionApiRemotesAnsibleCollectionAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionAddRoleExecute(r RemotesCollectionAPIRemotesAnsibleCollectionAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionAddRoleExecute(r R
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionAddRoleExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionCreateRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemote *AnsibleCollectionRemote
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionCreateRequest) AnsibleCollectionRemote(ansibleCollectionRemote AnsibleCollectionRemote) RemotesCollectionApiRemotesAnsibleCollectionCreateRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest) AnsibleCollectionRemote(ansibleCollectionRemote AnsibleCollectionRemote) RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest {
 	r.ansibleCollectionRemote = &ansibleCollectionRemote
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionCreateRequest) Execute() (*AnsibleCollectionRemoteResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest) Execute() (*AnsibleCollectionRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionCreateExecute(r)
 }
 
@@ -162,10 +162,10 @@ RemotesAnsibleCollectionCreate Create a collection remote
 ViewSet for Collection Remotes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesCollectionApiRemotesAnsibleCollectionCreateRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionCreate(ctx context.Context) RemotesCollectionApiRemotesAnsibleCollectionCreateRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionCreateRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionCreate(ctx context.Context) RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -173,7 +173,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionCreate(ctx context
 
 // Execute executes the request
 //  @return AnsibleCollectionRemoteResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionCreateExecute(r RemotesCollectionApiRemotesAnsibleCollectionCreateRequest) (*AnsibleCollectionRemoteResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionCreateExecute(r RemotesCollectionAPIRemotesAnsibleCollectionCreateRequest) (*AnsibleCollectionRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionCreateExecute(r Re
 		localVarReturnValue  *AnsibleCollectionRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -250,13 +250,13 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionCreateExecute(r Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionDeleteRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionDeleteExecute(r)
 }
 
@@ -267,10 +267,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionDeleteRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionDeleteRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionDelete(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionDeleteRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionDeleteRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionDelete(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionDeleteRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -279,7 +279,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionDelete(ctx context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionDeleteExecute(r RemotesCollectionApiRemotesAnsibleCollectionDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionDeleteExecute(r RemotesCollectionAPIRemotesAnsibleCollectionDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -287,7 +287,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionDeleteExecute(r Re
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -354,9 +354,9 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionDeleteExecute(r Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionListRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionListRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -383,144 +383,144 @@ type RemotesCollectionApiRemotesAnsibleCollectionListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) Limit(limit int32) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) Limit(limit int32) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) Name(name string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) Name(name string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) NameContains(nameContains string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) NameContains(nameContains string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) NameIcontains(nameIcontains string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) NameIcontains(nameIcontains string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) NameIn(nameIn []string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) NameIn(nameIn []string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) NameStartswith(nameStartswith string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) NameStartswith(nameStartswith string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) Offset(offset int32) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) Offset(offset int32) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;requirements_file&#x60; - Requirements file * &#x60;-requirements_file&#x60; - Requirements file (descending) * &#x60;auth_url&#x60; - Auth url * &#x60;-auth_url&#x60; - Auth url (descending) * &#x60;token&#x60; - Token * &#x60;-token&#x60; - Token (descending) * &#x60;sync_dependencies&#x60; - Sync dependencies * &#x60;-sync_dependencies&#x60; - Sync dependencies (descending) * &#x60;signed_only&#x60; - Signed only * &#x60;-signed_only&#x60; - Signed only (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) Ordering(ordering []string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) Ordering(ordering []string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpHrefIn(pulpHrefIn []string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpHrefIn(pulpHrefIn []string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpIdIn(pulpIdIn []string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpIdIn(pulpIdIn []string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // Filter results where url matches value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) Url(url string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) Url(url string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.url = &url
 	return r
 }
 
 // Filter results where url contains value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) UrlContains(urlContains string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) UrlContains(urlContains string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.urlContains = &urlContains
 	return r
 }
 
 // Filter results where url contains value
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) UrlIcontains(urlIcontains string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) UrlIcontains(urlIcontains string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.urlIcontains = &urlIcontains
 	return r
 }
 
 // Filter results where url is in a comma-separated list of values
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) UrlIn(urlIn []string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) UrlIn(urlIn []string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.urlIn = &urlIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) Fields(fields []string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) Fields(fields []string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) ExcludeFields(excludeFields []string) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) ExcludeFields(excludeFields []string) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRequest) Execute() (*PaginatedansibleCollectionRemoteResponseList, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) Execute() (*PaginatedansibleCollectionRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionListExecute(r)
 }
 
@@ -530,10 +530,10 @@ RemotesAnsibleCollectionList List collection remotes
 ViewSet for Collection Remotes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesCollectionApiRemotesAnsibleCollectionListRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionListRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionList(ctx context.Context) RemotesCollectionApiRemotesAnsibleCollectionListRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionListRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionList(ctx context.Context) RemotesCollectionAPIRemotesAnsibleCollectionListRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -541,7 +541,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionList(ctx context.C
 
 // Execute executes the request
 //  @return PaginatedansibleCollectionRemoteResponseList
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListExecute(r RemotesCollectionApiRemotesAnsibleCollectionListRequest) (*PaginatedansibleCollectionRemoteResponseList, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionListExecute(r RemotesCollectionAPIRemotesAnsibleCollectionListRequest) (*PaginatedansibleCollectionRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -549,7 +549,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListExecute(r Remo
 		localVarReturnValue  *PaginatedansibleCollectionRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -698,27 +698,27 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListExecute(r Remo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest) Fields(fields []string) RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest) Fields(fields []string) RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest) ExcludeFields(excludeFields []string) RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest) ExcludeFields(excludeFields []string) RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionListRolesExecute(r)
 }
 
@@ -729,10 +729,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListRoles(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionListRoles(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -741,7 +741,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListRoles(ctx cont
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListRolesExecute(r RemotesCollectionApiRemotesAnsibleCollectionListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionListRolesExecute(r RemotesCollectionAPIRemotesAnsibleCollectionListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -749,7 +749,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListRolesExecute(r
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -838,27 +838,27 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionListRolesExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest) Fields(fields []string) RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest) Fields(fields []string) RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionMyPermissionsExecute(r)
 }
 
@@ -869,10 +869,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionMyPermissions(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionMyPermissions(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -881,7 +881,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionMyPermissions(ctx 
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionMyPermissionsExecute(r RemotesCollectionApiRemotesAnsibleCollectionMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionMyPermissionsExecute(r RemotesCollectionAPIRemotesAnsibleCollectionMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -889,7 +889,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionMyPermissionsExecu
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -978,19 +978,19 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionMyPermissionsExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 	patchedansibleCollectionRemote *PatchedansibleCollectionRemote
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest) PatchedansibleCollectionRemote(patchedansibleCollectionRemote PatchedansibleCollectionRemote) RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest) PatchedansibleCollectionRemote(patchedansibleCollectionRemote PatchedansibleCollectionRemote) RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest {
 	r.patchedansibleCollectionRemote = &patchedansibleCollectionRemote
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionPartialUpdateExecute(r)
 }
 
@@ -1001,10 +1001,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionPartialUpdate(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionPartialUpdate(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -1013,7 +1013,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionPartialUpdate(ctx 
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionPartialUpdateExecute(r RemotesCollectionApiRemotesAnsibleCollectionPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionPartialUpdateExecute(r RemotesCollectionAPIRemotesAnsibleCollectionPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1021,7 +1021,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionPartialUpdateExecu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1093,27 +1093,27 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionPartialUpdateExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionReadRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionReadRequest) Fields(fields []string) RemotesCollectionApiRemotesAnsibleCollectionReadRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionReadRequest) Fields(fields []string) RemotesCollectionAPIRemotesAnsibleCollectionReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesCollectionApiRemotesAnsibleCollectionReadRequest) ExcludeFields(excludeFields []string) RemotesCollectionApiRemotesAnsibleCollectionReadRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionReadRequest) ExcludeFields(excludeFields []string) RemotesCollectionAPIRemotesAnsibleCollectionReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionReadRequest) Execute() (*AnsibleCollectionRemoteResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionReadRequest) Execute() (*AnsibleCollectionRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionReadExecute(r)
 }
 
@@ -1124,10 +1124,10 @@ ViewSet for Collection Remotes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionReadRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionReadRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionRead(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionReadRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionReadRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionRead(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionReadRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -1136,7 +1136,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionRead(ctx context.C
 
 // Execute executes the request
 //  @return AnsibleCollectionRemoteResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionReadExecute(r RemotesCollectionApiRemotesAnsibleCollectionReadRequest) (*AnsibleCollectionRemoteResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionReadExecute(r RemotesCollectionAPIRemotesAnsibleCollectionReadRequest) (*AnsibleCollectionRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1144,7 +1144,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionReadExecute(r Remo
 		localVarReturnValue  *AnsibleCollectionRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1233,19 +1233,19 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionReadExecute(r Remo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionRemoveRoleExecute(r)
 }
 
@@ -1256,10 +1256,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionRemoveRole(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionRemoveRole(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -1268,7 +1268,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionRemoveRole(ctx con
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionRemoveRoleExecute(r RemotesCollectionApiRemotesAnsibleCollectionRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionRemoveRoleExecute(r RemotesCollectionAPIRemotesAnsibleCollectionRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1276,7 +1276,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionRemoveRoleExecute(
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1348,19 +1348,19 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionRemoveRoleExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest struct {
+type RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesCollectionApiService
+	ApiService *RemotesCollectionAPIService
 	ansibleCollectionRemoteHref string
 	ansibleCollectionRemote *AnsibleCollectionRemote
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest) AnsibleCollectionRemote(ansibleCollectionRemote AnsibleCollectionRemote) RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest) AnsibleCollectionRemote(ansibleCollectionRemote AnsibleCollectionRemote) RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest {
 	r.ansibleCollectionRemote = &ansibleCollectionRemote
 	return r
 }
 
-func (r RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesAnsibleCollectionUpdateExecute(r)
 }
 
@@ -1371,10 +1371,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionRemoteHref
- @return RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest
+ @return RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest
 */
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionUpdate(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest {
-	return RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest{
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionUpdate(ctx context.Context, ansibleCollectionRemoteHref string) RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest {
+	return RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionRemoteHref: ansibleCollectionRemoteHref,
@@ -1383,7 +1383,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionUpdate(ctx context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesCollectionApiService) RemotesAnsibleCollectionUpdateExecute(r RemotesCollectionApiRemotesAnsibleCollectionUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesCollectionAPIService) RemotesAnsibleCollectionUpdateExecute(r RemotesCollectionAPIRemotesAnsibleCollectionUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1391,7 +1391,7 @@ func (a *RemotesCollectionApiService) RemotesAnsibleCollectionUpdateExecute(r Re
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionApiService.RemotesAnsibleCollectionUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesCollectionAPIService.RemotesAnsibleCollectionUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

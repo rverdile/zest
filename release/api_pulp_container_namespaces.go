@@ -22,22 +22,22 @@ import (
 )
 
 
-// PulpContainerNamespacesApiService PulpContainerNamespacesApi service
-type PulpContainerNamespacesApiService service
+// PulpContainerNamespacesAPIService PulpContainerNamespacesAPI service
+type PulpContainerNamespacesAPIService service
 
-type PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	containerContainerNamespaceHref string
 	nestedRole *NestedRole
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest) NestedRole(nestedRole NestedRole) PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest) NestedRole(nestedRole NestedRole) PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerNamespaceHref
- @return PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesAddRole(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesAddRole(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerNamespaceHref: containerContainerNamespaceHref,
@@ -60,7 +60,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesAddRole(ctx c
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesAddRoleExecute(r PulpContainerNamespacesApiPulpContainerNamespacesAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesAddRoleExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesAddRoleExecut
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesAddRoleExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	containerContainerNamespace *ContainerContainerNamespace
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest) ContainerContainerNamespace(containerContainerNamespace ContainerContainerNamespace) PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest) ContainerContainerNamespace(containerContainerNamespace ContainerContainerNamespace) PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest {
 	r.containerContainerNamespace = &containerContainerNamespace
 	return r
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest) Execute() (*ContainerContainerNamespaceResponse, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest) Execute() (*ContainerContainerNamespaceResponse, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ PulpContainerNamespacesCreate Create a container namespace
 ViewSet for ContainerNamespaces.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesCreate(ctx context.Context) PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesCreate(ctx context.Context) PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesCreate(ctx co
 
 // Execute executes the request
 //  @return ContainerContainerNamespaceResponse
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesCreateExecute(r PulpContainerNamespacesApiPulpContainerNamespacesCreateRequest) (*ContainerContainerNamespaceResponse, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesCreateExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesCreateRequest) (*ContainerContainerNamespaceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesCreateExecute
 		localVarReturnValue  *ContainerContainerNamespaceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesCreateExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpContainerNamespacesApiPulpContainerNamespacesDeleteRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesDeleteRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	containerContainerNamespaceHref string
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerNamespaceHref
- @return PulpContainerNamespacesApiPulpContainerNamespacesDeleteRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesDeleteRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesDelete(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesApiPulpContainerNamespacesDeleteRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesDeleteRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesDelete(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesAPIPulpContainerNamespacesDeleteRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerNamespaceHref: containerContainerNamespaceHref,
@@ -278,7 +278,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesDelete(ctx co
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesDeleteExecute(r PulpContainerNamespacesApiPulpContainerNamespacesDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesDeleteExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesDeleteExecute
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,9 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesDeleteExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpContainerNamespacesApiPulpContainerNamespacesListRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesListRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -371,78 +371,78 @@ type PulpContainerNamespacesApiPulpContainerNamespacesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) Limit(limit int32) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) Limit(limit int32) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) Name(name string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) Name(name string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) NameContains(nameContains string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) NameContains(nameContains string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) NameIcontains(nameIcontains string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) NameIcontains(nameIcontains string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) NameIn(nameIn []string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) NameIn(nameIn []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) NameStartswith(nameStartswith string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) NameStartswith(nameStartswith string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) Offset(offset int32) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) Offset(offset int32) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) Ordering(ordering []string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) Ordering(ordering []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) PulpHrefIn(pulpHrefIn []string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) PulpHrefIn(pulpHrefIn []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) PulpIdIn(pulpIdIn []string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) PulpIdIn(pulpIdIn []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) Fields(fields []string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) Fields(fields []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) Execute() (*PaginatedcontainerContainerNamespaceResponseList, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) Execute() (*PaginatedcontainerContainerNamespaceResponseList, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesListExecute(r)
 }
 
@@ -452,10 +452,10 @@ PulpContainerNamespacesList List container namespaces
 ViewSet for ContainerNamespaces.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpContainerNamespacesApiPulpContainerNamespacesListRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesListRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesList(ctx context.Context) PulpContainerNamespacesApiPulpContainerNamespacesListRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesListRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesList(ctx context.Context) PulpContainerNamespacesAPIPulpContainerNamespacesListRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -463,7 +463,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesList(ctx cont
 
 // Execute executes the request
 //  @return PaginatedcontainerContainerNamespaceResponseList
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListExecute(r PulpContainerNamespacesApiPulpContainerNamespacesListRequest) (*PaginatedcontainerContainerNamespaceResponseList, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesListExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesListRequest) (*PaginatedcontainerContainerNamespaceResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -471,7 +471,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListExecute(r
 		localVarReturnValue  *PaginatedcontainerContainerNamespaceResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -587,27 +587,27 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	containerContainerNamespaceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest) Fields(fields []string) PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest) Fields(fields []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesListRolesExecute(r)
 }
 
@@ -618,10 +618,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerNamespaceHref
- @return PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListRoles(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesListRoles(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerNamespaceHref: containerContainerNamespaceHref,
@@ -630,7 +630,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListRoles(ctx
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListRolesExecute(r PulpContainerNamespacesApiPulpContainerNamespacesListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesListRolesExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -638,7 +638,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListRolesExec
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -727,27 +727,27 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesListRolesExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	containerContainerNamespaceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest) Fields(fields []string) PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest) Fields(fields []string) PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesMyPermissionsExecute(r)
 }
 
@@ -758,10 +758,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerNamespaceHref
- @return PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesMyPermissions(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesMyPermissions(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerNamespaceHref: containerContainerNamespaceHref,
@@ -770,7 +770,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesMyPermissions
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesMyPermissionsExecute(r PulpContainerNamespacesApiPulpContainerNamespacesMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesMyPermissionsExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -778,7 +778,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesMyPermissions
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -867,27 +867,27 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesMyPermissions
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpContainerNamespacesApiPulpContainerNamespacesReadRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	containerContainerNamespaceHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesReadRequest) Fields(fields []string) PulpContainerNamespacesApiPulpContainerNamespacesReadRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest) Fields(fields []string) PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpContainerNamespacesApiPulpContainerNamespacesReadRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesApiPulpContainerNamespacesReadRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest) ExcludeFields(excludeFields []string) PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesReadRequest) Execute() (*ContainerContainerNamespaceResponse, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest) Execute() (*ContainerContainerNamespaceResponse, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesReadExecute(r)
 }
 
@@ -898,10 +898,10 @@ ViewSet for ContainerNamespaces.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerNamespaceHref
- @return PulpContainerNamespacesApiPulpContainerNamespacesReadRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesRead(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesApiPulpContainerNamespacesReadRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesReadRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesRead(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerNamespaceHref: containerContainerNamespaceHref,
@@ -910,7 +910,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesRead(ctx cont
 
 // Execute executes the request
 //  @return ContainerContainerNamespaceResponse
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesReadExecute(r PulpContainerNamespacesApiPulpContainerNamespacesReadRequest) (*ContainerContainerNamespaceResponse, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesReadExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesReadRequest) (*ContainerContainerNamespaceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -918,7 +918,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesReadExecute(r
 		localVarReturnValue  *ContainerContainerNamespaceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1007,19 +1007,19 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesReadExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest struct {
+type PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *PulpContainerNamespacesApiService
+	ApiService *PulpContainerNamespacesAPIService
 	containerContainerNamespaceHref string
 	nestedRole *NestedRole
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest) NestedRole(nestedRole NestedRole) PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest) NestedRole(nestedRole NestedRole) PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.PulpContainerNamespacesRemoveRoleExecute(r)
 }
 
@@ -1030,10 +1030,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerNamespaceHref
- @return PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest
+ @return PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest
 */
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesRemoveRole(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest {
-	return PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest{
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesRemoveRole(ctx context.Context, containerContainerNamespaceHref string) PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest {
+	return PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerNamespaceHref: containerContainerNamespaceHref,
@@ -1042,7 +1042,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesRemoveRole(ct
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesRemoveRoleExecute(r PulpContainerNamespacesApiPulpContainerNamespacesRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *PulpContainerNamespacesAPIService) PulpContainerNamespacesRemoveRoleExecute(r PulpContainerNamespacesAPIPulpContainerNamespacesRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1050,7 +1050,7 @@ func (a *PulpContainerNamespacesApiService) PulpContainerNamespacesRemoveRoleExe
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesApiService.PulpContainerNamespacesRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpContainerNamespacesAPIService.PulpContainerNamespacesRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

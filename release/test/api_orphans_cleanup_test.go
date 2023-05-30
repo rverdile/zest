@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing OrphansCleanupApiService
+Testing OrphansCleanupAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_OrphansCleanupApiService(t *testing.T) {
+func Test_zest_OrphansCleanupAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test OrphansCleanupApiService OrphansCleanupCleanup", func(t *testing.T) {
+	t.Run("Test OrphansCleanupAPIService OrphansCleanupCleanup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.OrphansCleanupApi.OrphansCleanupCleanup(context.Background()).Execute()
+		resp, httpRes, err := apiClient.OrphansCleanupAPI.OrphansCleanupCleanup(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

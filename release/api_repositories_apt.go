@@ -22,21 +22,21 @@ import (
 )
 
 
-// RepositoriesAptApiService RepositoriesAptApi service
-type RepositoriesAptApiService service
+// RepositoriesAptAPIService RepositoriesAptAPI service
+type RepositoriesAptAPIService service
 
-type RepositoriesAptApiRepositoriesDebAptCreateRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
 	debAptRepository *DebAptRepository
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptCreateRequest) DebAptRepository(debAptRepository DebAptRepository) RepositoriesAptApiRepositoriesDebAptCreateRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptCreateRequest) DebAptRepository(debAptRepository DebAptRepository) RepositoriesAptAPIRepositoriesDebAptCreateRequest {
 	r.debAptRepository = &debAptRepository
 	return r
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptCreateRequest) Execute() (*DebAptRepositoryResponse, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptCreateRequest) Execute() (*DebAptRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptCreateExecute(r)
 }
 
@@ -49,10 +49,10 @@ It may be filled with content via synchronization or content upload to create an
 AptRepositoryVersion.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesAptApiRepositoriesDebAptCreateRequest
+ @return RepositoriesAptAPIRepositoriesDebAptCreateRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptCreate(ctx context.Context) RepositoriesAptApiRepositoriesDebAptCreateRequest {
-	return RepositoriesAptApiRepositoriesDebAptCreateRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptCreate(ctx context.Context) RepositoriesAptAPIRepositoriesDebAptCreateRequest {
+	return RepositoriesAptAPIRepositoriesDebAptCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -60,7 +60,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptCreate(ctx context.Context
 
 // Execute executes the request
 //  @return DebAptRepositoryResponse
-func (a *RepositoriesAptApiService) RepositoriesDebAptCreateExecute(r RepositoriesAptApiRepositoriesDebAptCreateRequest) (*DebAptRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptCreateExecute(r RepositoriesAptAPIRepositoriesDebAptCreateRequest) (*DebAptRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptCreateExecute(r Repositori
 		localVarReturnValue  *DebAptRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -137,13 +137,13 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptCreateExecute(r Repositori
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAptApiRepositoriesDebAptDeleteRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
 	debAptRepositoryHref string
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptDeleteExecute(r)
 }
 
@@ -154,10 +154,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRepositoryHref
- @return RepositoriesAptApiRepositoriesDebAptDeleteRequest
+ @return RepositoriesAptAPIRepositoriesDebAptDeleteRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptDelete(ctx context.Context, debAptRepositoryHref string) RepositoriesAptApiRepositoriesDebAptDeleteRequest {
-	return RepositoriesAptApiRepositoriesDebAptDeleteRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptDelete(ctx context.Context, debAptRepositoryHref string) RepositoriesAptAPIRepositoriesDebAptDeleteRequest {
+	return RepositoriesAptAPIRepositoriesDebAptDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRepositoryHref: debAptRepositoryHref,
@@ -166,7 +166,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptDelete(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAptApiService) RepositoriesDebAptDeleteExecute(r RepositoriesAptApiRepositoriesDebAptDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptDeleteExecute(r RepositoriesAptAPIRepositoriesDebAptDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -174,7 +174,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptDeleteExecute(r Repositori
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -241,9 +241,10 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptDeleteExecute(r Repositori
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAptApiRepositoriesDebAptListRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -264,143 +265,156 @@ type RepositoriesAptApiRepositoriesDebAptListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) LatestWithContent(latestWithContent string) RepositoriesAptAPIRepositoriesDebAptListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) Limit(limit int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) Limit(limit int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) Name(name string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) Name(name string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) NameContains(nameContains string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) NameContains(nameContains string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) NameIcontains(nameIcontains string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) NameIcontains(nameIcontains string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) NameIn(nameIn []string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) NameIn(nameIn []string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) NameStartswith(nameStartswith string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) NameStartswith(nameStartswith string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) Offset(offset int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) Offset(offset int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) Ordering(ordering []string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) Ordering(ordering []string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) PulpIdIn(pulpIdIn []string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) PulpIdIn(pulpIdIn []string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) Remote(remote string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) Remote(remote string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) WithContent(withContent string) RepositoriesAptAPIRepositoriesDebAptListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) Fields(fields []string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) Fields(fields []string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) ExcludeFields(excludeFields []string) RepositoriesAptApiRepositoriesDebAptListRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) ExcludeFields(excludeFields []string) RepositoriesAptAPIRepositoriesDebAptListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptListRequest) Execute() (*PaginateddebAptRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptListRequest) Execute() (*PaginateddebAptRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptListExecute(r)
 }
 
@@ -413,10 +427,10 @@ It may be filled with content via synchronization or content upload to create an
 AptRepositoryVersion.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesAptApiRepositoriesDebAptListRequest
+ @return RepositoriesAptAPIRepositoriesDebAptListRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptList(ctx context.Context) RepositoriesAptApiRepositoriesDebAptListRequest {
-	return RepositoriesAptApiRepositoriesDebAptListRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptList(ctx context.Context) RepositoriesAptAPIRepositoriesDebAptListRequest {
+	return RepositoriesAptAPIRepositoriesDebAptListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -424,7 +438,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptList(ctx context.Context) 
 
 // Execute executes the request
 //  @return PaginateddebAptRepositoryResponseList
-func (a *RepositoriesAptApiService) RepositoriesDebAptListExecute(r RepositoriesAptApiRepositoriesDebAptListRequest) (*PaginateddebAptRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptListExecute(r RepositoriesAptAPIRepositoriesDebAptListRequest) (*PaginateddebAptRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -432,7 +446,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptListExecute(r Repositories
 		localVarReturnValue  *PaginateddebAptRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -442,6 +456,9 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptListExecute(r Repositories
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -501,6 +518,9 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptListExecute(r Repositories
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -578,19 +598,19 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptListExecute(r Repositories
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAptApiRepositoriesDebAptModifyRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptModifyRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
 	debAptRepositoryHref string
 	repositoryAddRemoveContent *RepositoryAddRemoveContent
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesAptApiRepositoriesDebAptModifyRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesAptAPIRepositoriesDebAptModifyRequest {
 	r.repositoryAddRemoveContent = &repositoryAddRemoveContent
 	return r
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptModifyExecute(r)
 }
 
@@ -601,10 +621,10 @@ Trigger an asynchronous task to create a new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRepositoryHref
- @return RepositoriesAptApiRepositoriesDebAptModifyRequest
+ @return RepositoriesAptAPIRepositoriesDebAptModifyRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptModify(ctx context.Context, debAptRepositoryHref string) RepositoriesAptApiRepositoriesDebAptModifyRequest {
-	return RepositoriesAptApiRepositoriesDebAptModifyRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptModify(ctx context.Context, debAptRepositoryHref string) RepositoriesAptAPIRepositoriesDebAptModifyRequest {
+	return RepositoriesAptAPIRepositoriesDebAptModifyRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRepositoryHref: debAptRepositoryHref,
@@ -613,7 +633,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptModify(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAptApiService) RepositoriesDebAptModifyExecute(r RepositoriesAptApiRepositoriesDebAptModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptModifyExecute(r RepositoriesAptAPIRepositoriesDebAptModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -621,7 +641,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptModifyExecute(r Repositori
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptModify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptModify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -693,19 +713,19 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptModifyExecute(r Repositori
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
 	debAptRepositoryHref string
 	patcheddebAptRepository *PatcheddebAptRepository
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest) PatcheddebAptRepository(patcheddebAptRepository PatcheddebAptRepository) RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest) PatcheddebAptRepository(patcheddebAptRepository PatcheddebAptRepository) RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest {
 	r.patcheddebAptRepository = &patcheddebAptRepository
 	return r
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptPartialUpdateExecute(r)
 }
 
@@ -716,10 +736,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRepositoryHref
- @return RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest
+ @return RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptPartialUpdate(ctx context.Context, debAptRepositoryHref string) RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest {
-	return RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptPartialUpdate(ctx context.Context, debAptRepositoryHref string) RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest {
+	return RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRepositoryHref: debAptRepositoryHref,
@@ -728,7 +748,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptPartialUpdate(ctx context.
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAptApiService) RepositoriesDebAptPartialUpdateExecute(r RepositoriesAptApiRepositoriesDebAptPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptPartialUpdateExecute(r RepositoriesAptAPIRepositoriesDebAptPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -736,7 +756,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptPartialUpdateExecute(r Rep
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -808,27 +828,27 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptPartialUpdateExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAptApiRepositoriesDebAptReadRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
 	debAptRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesAptApiRepositoriesDebAptReadRequest) Fields(fields []string) RepositoriesAptApiRepositoriesDebAptReadRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptReadRequest) Fields(fields []string) RepositoriesAptAPIRepositoriesDebAptReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAptApiRepositoriesDebAptReadRequest) ExcludeFields(excludeFields []string) RepositoriesAptApiRepositoriesDebAptReadRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptReadRequest) ExcludeFields(excludeFields []string) RepositoriesAptAPIRepositoriesDebAptReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptReadRequest) Execute() (*DebAptRepositoryResponse, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptReadRequest) Execute() (*DebAptRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptReadExecute(r)
 }
 
@@ -842,10 +862,10 @@ AptRepositoryVersion.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRepositoryHref
- @return RepositoriesAptApiRepositoriesDebAptReadRequest
+ @return RepositoriesAptAPIRepositoriesDebAptReadRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptRead(ctx context.Context, debAptRepositoryHref string) RepositoriesAptApiRepositoriesDebAptReadRequest {
-	return RepositoriesAptApiRepositoriesDebAptReadRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptRead(ctx context.Context, debAptRepositoryHref string) RepositoriesAptAPIRepositoriesDebAptReadRequest {
+	return RepositoriesAptAPIRepositoriesDebAptReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRepositoryHref: debAptRepositoryHref,
@@ -854,7 +874,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptRead(ctx context.Context, 
 
 // Execute executes the request
 //  @return DebAptRepositoryResponse
-func (a *RepositoriesAptApiService) RepositoriesDebAptReadExecute(r RepositoriesAptApiRepositoriesDebAptReadRequest) (*DebAptRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptReadExecute(r RepositoriesAptAPIRepositoriesDebAptReadRequest) (*DebAptRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -862,7 +882,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptReadExecute(r Repositories
 		localVarReturnValue  *DebAptRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -951,19 +971,19 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptReadExecute(r Repositories
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAptApiRepositoriesDebAptSyncRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptSyncRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
 	debAptRepositoryHref string
 	aptRepositorySyncURL *AptRepositorySyncURL
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptSyncRequest) AptRepositorySyncURL(aptRepositorySyncURL AptRepositorySyncURL) RepositoriesAptApiRepositoriesDebAptSyncRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptSyncRequest) AptRepositorySyncURL(aptRepositorySyncURL AptRepositorySyncURL) RepositoriesAptAPIRepositoriesDebAptSyncRequest {
 	r.aptRepositorySyncURL = &aptRepositorySyncURL
 	return r
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptSyncExecute(r)
 }
 
@@ -974,10 +994,10 @@ Trigger an asynchronous task to sync content
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRepositoryHref
- @return RepositoriesAptApiRepositoriesDebAptSyncRequest
+ @return RepositoriesAptAPIRepositoriesDebAptSyncRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptSync(ctx context.Context, debAptRepositoryHref string) RepositoriesAptApiRepositoriesDebAptSyncRequest {
-	return RepositoriesAptApiRepositoriesDebAptSyncRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptSync(ctx context.Context, debAptRepositoryHref string) RepositoriesAptAPIRepositoriesDebAptSyncRequest {
+	return RepositoriesAptAPIRepositoriesDebAptSyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRepositoryHref: debAptRepositoryHref,
@@ -986,7 +1006,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptSync(ctx context.Context, 
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAptApiService) RepositoriesDebAptSyncExecute(r RepositoriesAptApiRepositoriesDebAptSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptSyncExecute(r RepositoriesAptAPIRepositoriesDebAptSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -994,7 +1014,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptSyncExecute(r Repositories
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1066,19 +1086,19 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptSyncExecute(r Repositories
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAptApiRepositoriesDebAptUpdateRequest struct {
+type RepositoriesAptAPIRepositoriesDebAptUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAptApiService
+	ApiService *RepositoriesAptAPIService
 	debAptRepositoryHref string
 	debAptRepository *DebAptRepository
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptUpdateRequest) DebAptRepository(debAptRepository DebAptRepository) RepositoriesAptApiRepositoriesDebAptUpdateRequest {
+func (r RepositoriesAptAPIRepositoriesDebAptUpdateRequest) DebAptRepository(debAptRepository DebAptRepository) RepositoriesAptAPIRepositoriesDebAptUpdateRequest {
 	r.debAptRepository = &debAptRepository
 	return r
 }
 
-func (r RepositoriesAptApiRepositoriesDebAptUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAptAPIRepositoriesDebAptUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesDebAptUpdateExecute(r)
 }
 
@@ -1089,10 +1109,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debAptRepositoryHref
- @return RepositoriesAptApiRepositoriesDebAptUpdateRequest
+ @return RepositoriesAptAPIRepositoriesDebAptUpdateRequest
 */
-func (a *RepositoriesAptApiService) RepositoriesDebAptUpdate(ctx context.Context, debAptRepositoryHref string) RepositoriesAptApiRepositoriesDebAptUpdateRequest {
-	return RepositoriesAptApiRepositoriesDebAptUpdateRequest{
+func (a *RepositoriesAptAPIService) RepositoriesDebAptUpdate(ctx context.Context, debAptRepositoryHref string) RepositoriesAptAPIRepositoriesDebAptUpdateRequest {
+	return RepositoriesAptAPIRepositoriesDebAptUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		debAptRepositoryHref: debAptRepositoryHref,
@@ -1101,7 +1121,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptUpdate(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAptApiService) RepositoriesDebAptUpdateExecute(r RepositoriesAptApiRepositoriesDebAptUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAptAPIService) RepositoriesDebAptUpdateExecute(r RepositoriesAptAPIRepositoriesDebAptUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1109,7 +1129,7 @@ func (a *RepositoriesAptApiService) RepositoriesDebAptUpdateExecute(r Repositori
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptApiService.RepositoriesDebAptUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAptAPIService.RepositoriesDebAptUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

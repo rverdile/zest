@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ApiRolesApiService
+Testing ApiRolesAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ApiRolesApiService(t *testing.T) {
+func Test_zest_ApiRolesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ApiRolesApiService ApiV1RolesGet", func(t *testing.T) {
+	t.Run("Test ApiRolesAPIService ApiV1RolesGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleRoleHref string
 
-		resp, httpRes, err := apiClient.ApiRolesApi.ApiV1RolesGet(context.Background(), ansibleRoleHref).Execute()
+		resp, httpRes, err := apiClient.ApiRolesAPI.ApiV1RolesGet(context.Background(), ansibleRoleHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

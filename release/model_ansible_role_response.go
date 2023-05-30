@@ -21,9 +21,9 @@ var _ MappedNullable = &AnsibleRoleResponse{}
 
 // AnsibleRoleResponse A serializer for Role versions.
 type AnsibleRoleResponse struct {
+	PulpHref *string `json:"pulp_href,omitempty"`
 	// Artifact file representing the physical content
 	Artifact string `json:"artifact"`
-	PulpHref *string `json:"pulp_href,omitempty"`
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
 	Version string `json:"version"`
@@ -50,30 +50,6 @@ func NewAnsibleRoleResponse(artifact string, version string, name string, namesp
 func NewAnsibleRoleResponseWithDefaults() *AnsibleRoleResponse {
 	this := AnsibleRoleResponse{}
 	return &this
-}
-
-// GetArtifact returns the Artifact field value
-func (o *AnsibleRoleResponse) GetArtifact() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Artifact
-}
-
-// GetArtifactOk returns a tuple with the Artifact field value
-// and a boolean to check if the value has been set.
-func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Artifact, true
-}
-
-// SetArtifact sets field value
-func (o *AnsibleRoleResponse) SetArtifact(v string) {
-	o.Artifact = v
 }
 
 // GetPulpHref returns the PulpHref field value if set, zero value otherwise.
@@ -106,6 +82,30 @@ func (o *AnsibleRoleResponse) HasPulpHref() bool {
 // SetPulpHref gets a reference to the given string and assigns it to the PulpHref field.
 func (o *AnsibleRoleResponse) SetPulpHref(v string) {
 	o.PulpHref = &v
+}
+
+// GetArtifact returns the Artifact field value
+func (o *AnsibleRoleResponse) GetArtifact() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Artifact
+}
+
+// GetArtifactOk returns a tuple with the Artifact field value
+// and a boolean to check if the value has been set.
+func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Artifact, true
+}
+
+// SetArtifact sets field value
+func (o *AnsibleRoleResponse) SetArtifact(v string) {
+	o.Artifact = v
 }
 
 // GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
@@ -222,8 +222,8 @@ func (o AnsibleRoleResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleRoleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["artifact"] = o.Artifact
 	// skip: pulp_href is readOnly
+	toSerialize["artifact"] = o.Artifact
 	// skip: pulp_created is readOnly
 	toSerialize["version"] = o.Version
 	toSerialize["name"] = o.Name

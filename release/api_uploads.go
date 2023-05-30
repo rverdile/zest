@@ -23,22 +23,22 @@ import (
 )
 
 
-// UploadsApiService UploadsApi service
-type UploadsApiService service
+// UploadsAPIService UploadsAPI service
+type UploadsAPIService service
 
-type UploadsApiUploadsAddRoleRequest struct {
+type UploadsAPIUploadsAddRoleRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	uploadHref string
 	upload *Upload
 }
 
-func (r UploadsApiUploadsAddRoleRequest) Upload(upload Upload) UploadsApiUploadsAddRoleRequest {
+func (r UploadsAPIUploadsAddRoleRequest) Upload(upload Upload) UploadsAPIUploadsAddRoleRequest {
 	r.upload = &upload
 	return r
 }
 
-func (r UploadsApiUploadsAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r UploadsAPIUploadsAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.UploadsAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsAddRoleRequest
+ @return UploadsAPIUploadsAddRoleRequest
 */
-func (a *UploadsApiService) UploadsAddRole(ctx context.Context, uploadHref string) UploadsApiUploadsAddRoleRequest {
-	return UploadsApiUploadsAddRoleRequest{
+func (a *UploadsAPIService) UploadsAddRole(ctx context.Context, uploadHref string) UploadsAPIUploadsAddRoleRequest {
+	return UploadsAPIUploadsAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -61,7 +61,7 @@ func (a *UploadsApiService) UploadsAddRole(ctx context.Context, uploadHref strin
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *UploadsApiService) UploadsAddRoleExecute(r UploadsApiUploadsAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsAddRoleExecute(r UploadsAPIUploadsAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *UploadsApiService) UploadsAddRoleExecute(r UploadsApiUploadsAddRoleRequ
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,19 +141,19 @@ func (a *UploadsApiService) UploadsAddRoleExecute(r UploadsApiUploadsAddRoleRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsCommitRequest struct {
+type UploadsAPIUploadsCommitRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	uploadHref string
 	uploadCommit *UploadCommit
 }
 
-func (r UploadsApiUploadsCommitRequest) UploadCommit(uploadCommit UploadCommit) UploadsApiUploadsCommitRequest {
+func (r UploadsAPIUploadsCommitRequest) UploadCommit(uploadCommit UploadCommit) UploadsAPIUploadsCommitRequest {
 	r.uploadCommit = &uploadCommit
 	return r
 }
 
-func (r UploadsApiUploadsCommitRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r UploadsAPIUploadsCommitRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.UploadsCommitExecute(r)
 }
 
@@ -164,10 +164,10 @@ Queues a Task that creates an Artifact, and the Upload gets deleted and cannot b
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsCommitRequest
+ @return UploadsAPIUploadsCommitRequest
 */
-func (a *UploadsApiService) UploadsCommit(ctx context.Context, uploadHref string) UploadsApiUploadsCommitRequest {
-	return UploadsApiUploadsCommitRequest{
+func (a *UploadsAPIService) UploadsCommit(ctx context.Context, uploadHref string) UploadsAPIUploadsCommitRequest {
+	return UploadsAPIUploadsCommitRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -176,7 +176,7 @@ func (a *UploadsApiService) UploadsCommit(ctx context.Context, uploadHref string
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *UploadsApiService) UploadsCommitExecute(r UploadsApiUploadsCommitRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsCommitExecute(r UploadsAPIUploadsCommitRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *UploadsApiService) UploadsCommitExecute(r UploadsApiUploadsCommitReques
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsCommit")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsCommit")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -256,18 +256,18 @@ func (a *UploadsApiService) UploadsCommitExecute(r UploadsApiUploadsCommitReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsCreateRequest struct {
+type UploadsAPIUploadsCreateRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	upload *Upload
 }
 
-func (r UploadsApiUploadsCreateRequest) Upload(upload Upload) UploadsApiUploadsCreateRequest {
+func (r UploadsAPIUploadsCreateRequest) Upload(upload Upload) UploadsAPIUploadsCreateRequest {
 	r.upload = &upload
 	return r
 }
 
-func (r UploadsApiUploadsCreateRequest) Execute() (*UploadResponse, *http.Response, error) {
+func (r UploadsAPIUploadsCreateRequest) Execute() (*UploadResponse, *http.Response, error) {
 	return r.ApiService.UploadsCreateExecute(r)
 }
 
@@ -277,10 +277,10 @@ UploadsCreate Create an upload
 View for chunked uploads.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UploadsApiUploadsCreateRequest
+ @return UploadsAPIUploadsCreateRequest
 */
-func (a *UploadsApiService) UploadsCreate(ctx context.Context) UploadsApiUploadsCreateRequest {
-	return UploadsApiUploadsCreateRequest{
+func (a *UploadsAPIService) UploadsCreate(ctx context.Context) UploadsAPIUploadsCreateRequest {
+	return UploadsAPIUploadsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -288,7 +288,7 @@ func (a *UploadsApiService) UploadsCreate(ctx context.Context) UploadsApiUploads
 
 // Execute executes the request
 //  @return UploadResponse
-func (a *UploadsApiService) UploadsCreateExecute(r UploadsApiUploadsCreateRequest) (*UploadResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsCreateExecute(r UploadsAPIUploadsCreateRequest) (*UploadResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -296,7 +296,7 @@ func (a *UploadsApiService) UploadsCreateExecute(r UploadsApiUploadsCreateReques
 		localVarReturnValue  *UploadResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -365,13 +365,13 @@ func (a *UploadsApiService) UploadsCreateExecute(r UploadsApiUploadsCreateReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsDeleteRequest struct {
+type UploadsAPIUploadsDeleteRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	uploadHref string
 }
 
-func (r UploadsApiUploadsDeleteRequest) Execute() (*http.Response, error) {
+func (r UploadsAPIUploadsDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UploadsDeleteExecute(r)
 }
 
@@ -382,10 +382,10 @@ View for chunked uploads.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsDeleteRequest
+ @return UploadsAPIUploadsDeleteRequest
 */
-func (a *UploadsApiService) UploadsDelete(ctx context.Context, uploadHref string) UploadsApiUploadsDeleteRequest {
-	return UploadsApiUploadsDeleteRequest{
+func (a *UploadsAPIService) UploadsDelete(ctx context.Context, uploadHref string) UploadsAPIUploadsDeleteRequest {
+	return UploadsAPIUploadsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -393,14 +393,14 @@ func (a *UploadsApiService) UploadsDelete(ctx context.Context, uploadHref string
 }
 
 // Execute executes the request
-func (a *UploadsApiService) UploadsDeleteExecute(r UploadsApiUploadsDeleteRequest) (*http.Response, error) {
+func (a *UploadsAPIService) UploadsDeleteExecute(r UploadsAPIUploadsDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -458,9 +458,9 @@ func (a *UploadsApiService) UploadsDeleteExecute(r UploadsApiUploadsDeleteReques
 	return localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsListRequest struct {
+type UploadsAPIUploadsListRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -475,72 +475,72 @@ type UploadsApiUploadsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r UploadsApiUploadsListRequest) Limit(limit int32) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) Limit(limit int32) UploadsAPIUploadsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r UploadsApiUploadsListRequest) Offset(offset int32) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) Offset(offset int32) UploadsAPIUploadsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;size&#x60; - Size * &#x60;-size&#x60; - Size (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r UploadsApiUploadsListRequest) Ordering(ordering []string) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) Ordering(ordering []string) UploadsAPIUploadsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r UploadsApiUploadsListRequest) PulpHrefIn(pulpHrefIn []string) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) PulpHrefIn(pulpHrefIn []string) UploadsAPIUploadsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r UploadsApiUploadsListRequest) PulpIdIn(pulpIdIn []string) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) PulpIdIn(pulpIdIn []string) UploadsAPIUploadsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where size matches value
-func (r UploadsApiUploadsListRequest) Size(size int32) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) Size(size int32) UploadsAPIUploadsListRequest {
 	r.size = &size
 	return r
 }
 
 // Filter results where size is greater than value
-func (r UploadsApiUploadsListRequest) SizeGt(sizeGt int32) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) SizeGt(sizeGt int32) UploadsAPIUploadsListRequest {
 	r.sizeGt = &sizeGt
 	return r
 }
 
 // Filter results where size is less than value
-func (r UploadsApiUploadsListRequest) SizeLt(sizeLt int32) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) SizeLt(sizeLt int32) UploadsAPIUploadsListRequest {
 	r.sizeLt = &sizeLt
 	return r
 }
 
 // Filter results where size is between two comma separated values
-func (r UploadsApiUploadsListRequest) SizeRange(sizeRange []int32) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) SizeRange(sizeRange []int32) UploadsAPIUploadsListRequest {
 	r.sizeRange = &sizeRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r UploadsApiUploadsListRequest) Fields(fields []string) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) Fields(fields []string) UploadsAPIUploadsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UploadsApiUploadsListRequest) ExcludeFields(excludeFields []string) UploadsApiUploadsListRequest {
+func (r UploadsAPIUploadsListRequest) ExcludeFields(excludeFields []string) UploadsAPIUploadsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UploadsApiUploadsListRequest) Execute() (*PaginatedUploadResponseList, *http.Response, error) {
+func (r UploadsAPIUploadsListRequest) Execute() (*PaginatedUploadResponseList, *http.Response, error) {
 	return r.ApiService.UploadsListExecute(r)
 }
 
@@ -550,10 +550,10 @@ UploadsList List uploads
 View for chunked uploads.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UploadsApiUploadsListRequest
+ @return UploadsAPIUploadsListRequest
 */
-func (a *UploadsApiService) UploadsList(ctx context.Context) UploadsApiUploadsListRequest {
-	return UploadsApiUploadsListRequest{
+func (a *UploadsAPIService) UploadsList(ctx context.Context) UploadsAPIUploadsListRequest {
+	return UploadsAPIUploadsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -561,7 +561,7 @@ func (a *UploadsApiService) UploadsList(ctx context.Context) UploadsApiUploadsLi
 
 // Execute executes the request
 //  @return PaginatedUploadResponseList
-func (a *UploadsApiService) UploadsListExecute(r UploadsApiUploadsListRequest) (*PaginatedUploadResponseList, *http.Response, error) {
+func (a *UploadsAPIService) UploadsListExecute(r UploadsAPIUploadsListRequest) (*PaginatedUploadResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -569,7 +569,7 @@ func (a *UploadsApiService) UploadsListExecute(r UploadsApiUploadsListRequest) (
 		localVarReturnValue  *PaginatedUploadResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -682,27 +682,27 @@ func (a *UploadsApiService) UploadsListExecute(r UploadsApiUploadsListRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsListRolesRequest struct {
+type UploadsAPIUploadsListRolesRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	uploadHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r UploadsApiUploadsListRolesRequest) Fields(fields []string) UploadsApiUploadsListRolesRequest {
+func (r UploadsAPIUploadsListRolesRequest) Fields(fields []string) UploadsAPIUploadsListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UploadsApiUploadsListRolesRequest) ExcludeFields(excludeFields []string) UploadsApiUploadsListRolesRequest {
+func (r UploadsAPIUploadsListRolesRequest) ExcludeFields(excludeFields []string) UploadsAPIUploadsListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UploadsApiUploadsListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r UploadsAPIUploadsListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.UploadsListRolesExecute(r)
 }
 
@@ -713,10 +713,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsListRolesRequest
+ @return UploadsAPIUploadsListRolesRequest
 */
-func (a *UploadsApiService) UploadsListRoles(ctx context.Context, uploadHref string) UploadsApiUploadsListRolesRequest {
-	return UploadsApiUploadsListRolesRequest{
+func (a *UploadsAPIService) UploadsListRoles(ctx context.Context, uploadHref string) UploadsAPIUploadsListRolesRequest {
+	return UploadsAPIUploadsListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -725,7 +725,7 @@ func (a *UploadsApiService) UploadsListRoles(ctx context.Context, uploadHref str
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *UploadsApiService) UploadsListRolesExecute(r UploadsApiUploadsListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsListRolesExecute(r UploadsAPIUploadsListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -733,7 +733,7 @@ func (a *UploadsApiService) UploadsListRolesExecute(r UploadsApiUploadsListRoles
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -822,27 +822,27 @@ func (a *UploadsApiService) UploadsListRolesExecute(r UploadsApiUploadsListRoles
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsMyPermissionsRequest struct {
+type UploadsAPIUploadsMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	uploadHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r UploadsApiUploadsMyPermissionsRequest) Fields(fields []string) UploadsApiUploadsMyPermissionsRequest {
+func (r UploadsAPIUploadsMyPermissionsRequest) Fields(fields []string) UploadsAPIUploadsMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UploadsApiUploadsMyPermissionsRequest) ExcludeFields(excludeFields []string) UploadsApiUploadsMyPermissionsRequest {
+func (r UploadsAPIUploadsMyPermissionsRequest) ExcludeFields(excludeFields []string) UploadsAPIUploadsMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UploadsApiUploadsMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r UploadsAPIUploadsMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.UploadsMyPermissionsExecute(r)
 }
 
@@ -853,10 +853,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsMyPermissionsRequest
+ @return UploadsAPIUploadsMyPermissionsRequest
 */
-func (a *UploadsApiService) UploadsMyPermissions(ctx context.Context, uploadHref string) UploadsApiUploadsMyPermissionsRequest {
-	return UploadsApiUploadsMyPermissionsRequest{
+func (a *UploadsAPIService) UploadsMyPermissions(ctx context.Context, uploadHref string) UploadsAPIUploadsMyPermissionsRequest {
+	return UploadsAPIUploadsMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -865,7 +865,7 @@ func (a *UploadsApiService) UploadsMyPermissions(ctx context.Context, uploadHref
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *UploadsApiService) UploadsMyPermissionsExecute(r UploadsApiUploadsMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsMyPermissionsExecute(r UploadsAPIUploadsMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -873,7 +873,7 @@ func (a *UploadsApiService) UploadsMyPermissionsExecute(r UploadsApiUploadsMyPer
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -962,27 +962,27 @@ func (a *UploadsApiService) UploadsMyPermissionsExecute(r UploadsApiUploadsMyPer
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsReadRequest struct {
+type UploadsAPIUploadsReadRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	uploadHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r UploadsApiUploadsReadRequest) Fields(fields []string) UploadsApiUploadsReadRequest {
+func (r UploadsAPIUploadsReadRequest) Fields(fields []string) UploadsAPIUploadsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r UploadsApiUploadsReadRequest) ExcludeFields(excludeFields []string) UploadsApiUploadsReadRequest {
+func (r UploadsAPIUploadsReadRequest) ExcludeFields(excludeFields []string) UploadsAPIUploadsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r UploadsApiUploadsReadRequest) Execute() (*UploadDetailResponse, *http.Response, error) {
+func (r UploadsAPIUploadsReadRequest) Execute() (*UploadDetailResponse, *http.Response, error) {
 	return r.ApiService.UploadsReadExecute(r)
 }
 
@@ -993,10 +993,10 @@ View for chunked uploads.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsReadRequest
+ @return UploadsAPIUploadsReadRequest
 */
-func (a *UploadsApiService) UploadsRead(ctx context.Context, uploadHref string) UploadsApiUploadsReadRequest {
-	return UploadsApiUploadsReadRequest{
+func (a *UploadsAPIService) UploadsRead(ctx context.Context, uploadHref string) UploadsAPIUploadsReadRequest {
+	return UploadsAPIUploadsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -1005,7 +1005,7 @@ func (a *UploadsApiService) UploadsRead(ctx context.Context, uploadHref string) 
 
 // Execute executes the request
 //  @return UploadDetailResponse
-func (a *UploadsApiService) UploadsReadExecute(r UploadsApiUploadsReadRequest) (*UploadDetailResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsReadExecute(r UploadsAPIUploadsReadRequest) (*UploadDetailResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1013,7 +1013,7 @@ func (a *UploadsApiService) UploadsReadExecute(r UploadsApiUploadsReadRequest) (
 		localVarReturnValue  *UploadDetailResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1102,19 +1102,19 @@ func (a *UploadsApiService) UploadsReadExecute(r UploadsApiUploadsReadRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsRemoveRoleRequest struct {
+type UploadsAPIUploadsRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	uploadHref string
 	upload *Upload
 }
 
-func (r UploadsApiUploadsRemoveRoleRequest) Upload(upload Upload) UploadsApiUploadsRemoveRoleRequest {
+func (r UploadsAPIUploadsRemoveRoleRequest) Upload(upload Upload) UploadsAPIUploadsRemoveRoleRequest {
 	r.upload = &upload
 	return r
 }
 
-func (r UploadsApiUploadsRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r UploadsAPIUploadsRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.UploadsRemoveRoleExecute(r)
 }
 
@@ -1125,10 +1125,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsRemoveRoleRequest
+ @return UploadsAPIUploadsRemoveRoleRequest
 */
-func (a *UploadsApiService) UploadsRemoveRole(ctx context.Context, uploadHref string) UploadsApiUploadsRemoveRoleRequest {
-	return UploadsApiUploadsRemoveRoleRequest{
+func (a *UploadsAPIService) UploadsRemoveRole(ctx context.Context, uploadHref string) UploadsAPIUploadsRemoveRoleRequest {
+	return UploadsAPIUploadsRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -1137,7 +1137,7 @@ func (a *UploadsApiService) UploadsRemoveRole(ctx context.Context, uploadHref st
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *UploadsApiService) UploadsRemoveRoleExecute(r UploadsApiUploadsRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsRemoveRoleExecute(r UploadsAPIUploadsRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1145,7 +1145,7 @@ func (a *UploadsApiService) UploadsRemoveRoleExecute(r UploadsApiUploadsRemoveRo
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1217,9 +1217,9 @@ func (a *UploadsApiService) UploadsRemoveRoleExecute(r UploadsApiUploadsRemoveRo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UploadsApiUploadsUpdateRequest struct {
+type UploadsAPIUploadsUpdateRequest struct {
 	ctx context.Context
-	ApiService *UploadsApiService
+	ApiService *UploadsAPIService
 	contentRange *string
 	uploadHref string
 	file *os.File
@@ -1227,24 +1227,24 @@ type UploadsApiUploadsUpdateRequest struct {
 }
 
 // The Content-Range header specifies the location of the file chunk within the file.
-func (r UploadsApiUploadsUpdateRequest) ContentRange(contentRange string) UploadsApiUploadsUpdateRequest {
+func (r UploadsAPIUploadsUpdateRequest) ContentRange(contentRange string) UploadsAPIUploadsUpdateRequest {
 	r.contentRange = &contentRange
 	return r
 }
 
 // A chunk of the uploaded file.
-func (r UploadsApiUploadsUpdateRequest) File(file *os.File) UploadsApiUploadsUpdateRequest {
+func (r UploadsAPIUploadsUpdateRequest) File(file *os.File) UploadsAPIUploadsUpdateRequest {
 	r.file = file
 	return r
 }
 
 // The SHA-256 checksum of the chunk if available.
-func (r UploadsApiUploadsUpdateRequest) Sha256(sha256 string) UploadsApiUploadsUpdateRequest {
+func (r UploadsAPIUploadsUpdateRequest) Sha256(sha256 string) UploadsAPIUploadsUpdateRequest {
 	r.sha256 = &sha256
 	return r
 }
 
-func (r UploadsApiUploadsUpdateRequest) Execute() (*UploadResponse, *http.Response, error) {
+func (r UploadsAPIUploadsUpdateRequest) Execute() (*UploadResponse, *http.Response, error) {
 	return r.ApiService.UploadsUpdateExecute(r)
 }
 
@@ -1255,10 +1255,10 @@ Upload a chunk for an upload.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param uploadHref
- @return UploadsApiUploadsUpdateRequest
+ @return UploadsAPIUploadsUpdateRequest
 */
-func (a *UploadsApiService) UploadsUpdate(ctx context.Context, uploadHref string) UploadsApiUploadsUpdateRequest {
-	return UploadsApiUploadsUpdateRequest{
+func (a *UploadsAPIService) UploadsUpdate(ctx context.Context, uploadHref string) UploadsAPIUploadsUpdateRequest {
+	return UploadsAPIUploadsUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		uploadHref: uploadHref,
@@ -1267,7 +1267,7 @@ func (a *UploadsApiService) UploadsUpdate(ctx context.Context, uploadHref string
 
 // Execute executes the request
 //  @return UploadResponse
-func (a *UploadsApiService) UploadsUpdateExecute(r UploadsApiUploadsUpdateRequest) (*UploadResponse, *http.Response, error) {
+func (a *UploadsAPIService) UploadsUpdateExecute(r UploadsAPIUploadsUpdateRequest) (*UploadResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1275,7 +1275,7 @@ func (a *UploadsApiService) UploadsUpdateExecute(r UploadsApiUploadsUpdateReques
 		localVarReturnValue  *UploadResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsApiService.UploadsUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UploadsAPIService.UploadsUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

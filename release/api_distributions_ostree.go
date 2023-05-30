@@ -22,21 +22,21 @@ import (
 )
 
 
-// DistributionsOstreeApiService DistributionsOstreeApi service
-type DistributionsOstreeApiService service
+// DistributionsOstreeAPIService DistributionsOstreeAPI service
+type DistributionsOstreeAPIService service
 
-type DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest struct {
+type DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsOstreeApiService
+	ApiService *DistributionsOstreeAPIService
 	ostreeOstreeDistribution *OstreeOstreeDistribution
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest) OstreeOstreeDistribution(ostreeOstreeDistribution OstreeOstreeDistribution) DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest) OstreeOstreeDistribution(ostreeOstreeDistribution OstreeOstreeDistribution) DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest {
 	r.ostreeOstreeDistribution = &ostreeOstreeDistribution
 	return r
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsOstreeOstreeCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ DistributionsOstreeOstreeCreate Create an ostree distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest
+ @return DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest
 */
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeCreate(ctx context.Context) DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest {
-	return DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest{
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeCreate(ctx context.Context) DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest {
+	return DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeCreate(ctx cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeCreateExecute(r DistributionsOstreeApiDistributionsOstreeOstreeCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeCreateExecute(r DistributionsOstreeAPIDistributionsOstreeOstreeCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeCreateExecute(r
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeApiService.DistributionsOstreeOstreeCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeAPIService.DistributionsOstreeOstreeCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeCreateExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsOstreeApiDistributionsOstreeOstreeDeleteRequest struct {
+type DistributionsOstreeAPIDistributionsOstreeOstreeDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsOstreeApiService
+	ApiService *DistributionsOstreeAPIService
 	ostreeOstreeDistributionHref string
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreeDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsOstreeOstreeDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeDistributionHref
- @return DistributionsOstreeApiDistributionsOstreeOstreeDeleteRequest
+ @return DistributionsOstreeAPIDistributionsOstreeOstreeDeleteRequest
 */
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeDelete(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeApiDistributionsOstreeOstreeDeleteRequest {
-	return DistributionsOstreeApiDistributionsOstreeOstreeDeleteRequest{
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeDelete(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeAPIDistributionsOstreeOstreeDeleteRequest {
+	return DistributionsOstreeAPIDistributionsOstreeOstreeDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeDistributionHref: ostreeOstreeDistributionHref,
@@ -163,7 +163,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeDelete(ctx cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeDeleteExecute(r DistributionsOstreeApiDistributionsOstreeOstreeDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeDeleteExecute(r DistributionsOstreeAPIDistributionsOstreeOstreeDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -171,7 +171,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeDeleteExecute(r
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeApiService.DistributionsOstreeOstreeDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeAPIService.DistributionsOstreeOstreeDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -238,9 +238,9 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeDeleteExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsOstreeApiDistributionsOstreeOstreeListRequest struct {
+type DistributionsOstreeAPIDistributionsOstreeOstreeListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsOstreeApiService
+	ApiService *DistributionsOstreeAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -264,126 +264,126 @@ type DistributionsOstreeApiDistributionsOstreeOstreeListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) BasePath(basePath string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) BasePath(basePath string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) BasePathContains(basePathContains string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) BasePathContains(basePathContains string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) BasePathIcontains(basePathIcontains string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) BasePathIcontains(basePathIcontains string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) BasePathIn(basePathIn []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) BasePathIn(basePathIn []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) Limit(limit int32) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) Limit(limit int32) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) Name(name string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) Name(name string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) NameContains(nameContains string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) NameContains(nameContains string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) NameIcontains(nameIcontains string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) NameIcontains(nameIcontains string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) NameIn(nameIn []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) NameIn(nameIn []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) NameStartswith(nameStartswith string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) NameStartswith(nameStartswith string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) Offset(offset int32) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) Offset(offset int32) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) Ordering(ordering []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) Ordering(ordering []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) PulpIdIn(pulpIdIn []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) PulpIdIn(pulpIdIn []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) Repository(repository string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) Repository(repository string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) RepositoryIn(repositoryIn []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) RepositoryIn(repositoryIn []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) WithContent(withContent string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) WithContent(withContent string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) Fields(fields []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) Fields(fields []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) ExcludeFields(excludeFields []string) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) ExcludeFields(excludeFields []string) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) Execute() (*PaginatedostreeOstreeDistributionResponseList, *http.Response, error) {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) Execute() (*PaginatedostreeOstreeDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsOstreeOstreeListExecute(r)
 }
 
@@ -393,10 +393,10 @@ DistributionsOstreeOstreeList List ostree distributions
 A ViewSet class for OSTree distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsOstreeApiDistributionsOstreeOstreeListRequest
+ @return DistributionsOstreeAPIDistributionsOstreeOstreeListRequest
 */
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeList(ctx context.Context) DistributionsOstreeApiDistributionsOstreeOstreeListRequest {
-	return DistributionsOstreeApiDistributionsOstreeOstreeListRequest{
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeList(ctx context.Context) DistributionsOstreeAPIDistributionsOstreeOstreeListRequest {
+	return DistributionsOstreeAPIDistributionsOstreeOstreeListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -404,7 +404,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeList(ctx contex
 
 // Execute executes the request
 //  @return PaginatedostreeOstreeDistributionResponseList
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeListExecute(r DistributionsOstreeApiDistributionsOstreeOstreeListRequest) (*PaginatedostreeOstreeDistributionResponseList, *http.Response, error) {
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeListExecute(r DistributionsOstreeAPIDistributionsOstreeOstreeListRequest) (*PaginatedostreeOstreeDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -412,7 +412,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeListExecute(r D
 		localVarReturnValue  *PaginatedostreeOstreeDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeApiService.DistributionsOstreeOstreeList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeAPIService.DistributionsOstreeOstreeList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -552,19 +552,19 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeListExecute(r D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest struct {
+type DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsOstreeApiService
+	ApiService *DistributionsOstreeAPIService
 	ostreeOstreeDistributionHref string
 	patchedostreeOstreeDistribution *PatchedostreeOstreeDistribution
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest) PatchedostreeOstreeDistribution(patchedostreeOstreeDistribution PatchedostreeOstreeDistribution) DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest) PatchedostreeOstreeDistribution(patchedostreeOstreeDistribution PatchedostreeOstreeDistribution) DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest {
 	r.patchedostreeOstreeDistribution = &patchedostreeOstreeDistribution
 	return r
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsOstreeOstreePartialUpdateExecute(r)
 }
 
@@ -575,10 +575,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeDistributionHref
- @return DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest
+ @return DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest
 */
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreePartialUpdate(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest {
-	return DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest{
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreePartialUpdate(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest {
+	return DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeDistributionHref: ostreeOstreeDistributionHref,
@@ -587,7 +587,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreePartialUpdate(c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreePartialUpdateExecute(r DistributionsOstreeApiDistributionsOstreeOstreePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreePartialUpdateExecute(r DistributionsOstreeAPIDistributionsOstreeOstreePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -595,7 +595,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreePartialUpdateEx
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeApiService.DistributionsOstreeOstreePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeAPIService.DistributionsOstreeOstreePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -667,27 +667,27 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreePartialUpdateEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsOstreeApiDistributionsOstreeOstreeReadRequest struct {
+type DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsOstreeApiService
+	ApiService *DistributionsOstreeAPIService
 	ostreeOstreeDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeReadRequest) Fields(fields []string) DistributionsOstreeApiDistributionsOstreeOstreeReadRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest) Fields(fields []string) DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsOstreeApiDistributionsOstreeOstreeReadRequest) ExcludeFields(excludeFields []string) DistributionsOstreeApiDistributionsOstreeOstreeReadRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest) ExcludeFields(excludeFields []string) DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreeReadRequest) Execute() (*OstreeOstreeDistributionResponse, *http.Response, error) {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest) Execute() (*OstreeOstreeDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsOstreeOstreeReadExecute(r)
 }
 
@@ -698,10 +698,10 @@ A ViewSet class for OSTree distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeDistributionHref
- @return DistributionsOstreeApiDistributionsOstreeOstreeReadRequest
+ @return DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest
 */
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeRead(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeApiDistributionsOstreeOstreeReadRequest {
-	return DistributionsOstreeApiDistributionsOstreeOstreeReadRequest{
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeRead(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest {
+	return DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeDistributionHref: ostreeOstreeDistributionHref,
@@ -710,7 +710,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeRead(ctx contex
 
 // Execute executes the request
 //  @return OstreeOstreeDistributionResponse
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeReadExecute(r DistributionsOstreeApiDistributionsOstreeOstreeReadRequest) (*OstreeOstreeDistributionResponse, *http.Response, error) {
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeReadExecute(r DistributionsOstreeAPIDistributionsOstreeOstreeReadRequest) (*OstreeOstreeDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -718,7 +718,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeReadExecute(r D
 		localVarReturnValue  *OstreeOstreeDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeApiService.DistributionsOstreeOstreeRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeAPIService.DistributionsOstreeOstreeRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -807,19 +807,19 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeReadExecute(r D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest struct {
+type DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsOstreeApiService
+	ApiService *DistributionsOstreeAPIService
 	ostreeOstreeDistributionHref string
 	ostreeOstreeDistribution *OstreeOstreeDistribution
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest) OstreeOstreeDistribution(ostreeOstreeDistribution OstreeOstreeDistribution) DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest) OstreeOstreeDistribution(ostreeOstreeDistribution OstreeOstreeDistribution) DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest {
 	r.ostreeOstreeDistribution = &ostreeOstreeDistribution
 	return r
 }
 
-func (r DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsOstreeOstreeUpdateExecute(r)
 }
 
@@ -830,10 +830,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeDistributionHref
- @return DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest
+ @return DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest
 */
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeUpdate(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest {
-	return DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest{
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeUpdate(ctx context.Context, ostreeOstreeDistributionHref string) DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest {
+	return DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeDistributionHref: ostreeOstreeDistributionHref,
@@ -842,7 +842,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeUpdate(ctx cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeUpdateExecute(r DistributionsOstreeApiDistributionsOstreeOstreeUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsOstreeAPIService) DistributionsOstreeOstreeUpdateExecute(r DistributionsOstreeAPIDistributionsOstreeOstreeUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -850,7 +850,7 @@ func (a *DistributionsOstreeApiService) DistributionsOstreeOstreeUpdateExecute(r
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeApiService.DistributionsOstreeOstreeUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsOstreeAPIService.DistributionsOstreeOstreeUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

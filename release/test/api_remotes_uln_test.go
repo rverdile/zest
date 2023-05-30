@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RemotesUlnApiService
+Testing RemotesUlnAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RemotesUlnApiService(t *testing.T) {
+func Test_zest_RemotesUlnAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnAddRole", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmUlnRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnAddRole(context.Background(), rpmUlnRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnAddRole(context.Background(), rpmUlnRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_RemotesUlnApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnCreate", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_RemotesUlnApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var rpmUlnRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnDelete(context.Background(), rpmUlnRemoteHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnListRoles", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmUlnRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnListRoles(context.Background(), rpmUlnRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnDelete(context.Background(), rpmUlnRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_RemotesUlnApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnMyPermissions", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var rpmUlnRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnMyPermissions(context.Background(), rpmUlnRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_RemotesUlnApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnPartialUpdate", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmUlnRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnPartialUpdate(context.Background(), rpmUlnRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnListRoles(context.Background(), rpmUlnRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_RemotesUlnApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnRead", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmUlnRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnRead(context.Background(), rpmUlnRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnMyPermissions(context.Background(), rpmUlnRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_RemotesUlnApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnRemoveRole", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmUlnRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnRemoveRole(context.Background(), rpmUlnRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnPartialUpdate(context.Background(), rpmUlnRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,41 @@ func Test_zest_RemotesUlnApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesUlnApiService RemotesRpmUlnUpdate", func(t *testing.T) {
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmUlnRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesUlnApi.RemotesRpmUlnUpdate(context.Background(), rpmUlnRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnRead(context.Background(), rpmUlnRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var rpmUlnRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnRemoveRole(context.Background(), rpmUlnRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesUlnAPIService RemotesRpmUlnUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var rpmUlnRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesUlnAPI.RemotesRpmUlnUpdate(context.Background(), rpmUlnRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

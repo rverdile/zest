@@ -22,21 +22,21 @@ import (
 )
 
 
-// RepositoriesOstreeApiService RepositoriesOstreeApi service
-type RepositoriesOstreeApiService service
+// RepositoriesOstreeAPIService RepositoriesOstreeAPI service
+type RepositoriesOstreeAPIService service
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepository *OstreeOstreeRepository
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest) OstreeOstreeRepository(ostreeOstreeRepository OstreeOstreeRepository) RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest) OstreeOstreeRepository(ostreeOstreeRepository OstreeOstreeRepository) RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest {
 	r.ostreeOstreeRepository = &ostreeOstreeRepository
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest) Execute() (*OstreeOstreeRepositoryResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest) Execute() (*OstreeOstreeRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ RepositoriesOstreeOstreeCreate Create an ostree repository
 A ViewSet class for OSTree repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeCreate(ctx context.Context) RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeCreate(ctx context.Context) RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeCreate(ctx contex
 
 // Execute executes the request
 //  @return OstreeOstreeRepositoryResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeCreateExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeCreateRequest) (*OstreeOstreeRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeCreateExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeCreateRequest) (*OstreeOstreeRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeCreateExecute(r R
 		localVarReturnValue  *OstreeOstreeRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeCreateExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeDeleteRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeDeleteRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeDeleteRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeDelete(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreeDeleteRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeDeleteRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeDelete(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreeDeleteRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -163,7 +163,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeDelete(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeDeleteExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeDeleteExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -171,7 +171,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeDeleteExecute(r R
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -238,19 +238,19 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeDeleteExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 	ostreeImportAll *OstreeImportAll
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest) OstreeImportAll(ostreeImportAll OstreeImportAll) RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest) OstreeImportAll(ostreeImportAll OstreeImportAll) RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest {
 	r.ostreeImportAll = &ostreeImportAll
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeImportAllExecute(r)
 }
 
@@ -261,10 +261,10 @@ Trigger an asynchronous task to import all refs and commits to a repository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportAll(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeImportAll(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -273,7 +273,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportAll(ctx con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportAllExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeImportAllRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeImportAllExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeImportAllRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -281,7 +281,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportAllExecute(
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeImportAll")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeImportAll")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,19 +353,19 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportAllExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 	ostreeImportCommitsToRef *OstreeImportCommitsToRef
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest) OstreeImportCommitsToRef(ostreeImportCommitsToRef OstreeImportCommitsToRef) RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest) OstreeImportCommitsToRef(ostreeImportCommitsToRef OstreeImportCommitsToRef) RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest {
 	r.ostreeImportCommitsToRef = &ostreeImportCommitsToRef
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeImportCommitsExecute(r)
 }
 
@@ -376,10 +376,10 @@ Trigger an asynchronous task to append child commits to a repository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportCommits(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeImportCommits(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -388,7 +388,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportCommits(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportCommitsExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeImportCommitsRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeImportCommitsExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeImportCommitsRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -396,7 +396,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportCommitsExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeImportCommits")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeImportCommits")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -468,9 +468,10 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeImportCommitsExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -491,143 +492,156 @@ type RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) LatestWithContent(latestWithContent string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Limit(limit int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) Limit(limit int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Name(name string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) Name(name string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) NameContains(nameContains string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) NameContains(nameContains string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) NameIcontains(nameIcontains string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) NameIcontains(nameIcontains string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) NameIn(nameIn []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) NameIn(nameIn []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) NameStartswith(nameStartswith string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) NameStartswith(nameStartswith string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Offset(offset int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) Offset(offset int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Ordering(ordering []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) Ordering(ordering []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) PulpIdIn(pulpIdIn []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) PulpIdIn(pulpIdIn []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Remote(remote string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) Remote(remote string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) WithContent(withContent string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Fields(fields []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) Fields(fields []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) Execute() (*PaginatedostreeOstreeRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) Execute() (*PaginatedostreeOstreeRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeListExecute(r)
 }
 
@@ -637,10 +651,10 @@ RepositoriesOstreeOstreeList List ostree repositorys
 A ViewSet class for OSTree repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeList(ctx context.Context) RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeList(ctx context.Context) RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -648,7 +662,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeList(ctx context.
 
 // Execute executes the request
 //  @return PaginatedostreeOstreeRepositoryResponseList
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeListExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeListRequest) (*PaginatedostreeOstreeRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeListExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeListRequest) (*PaginatedostreeOstreeRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -656,7 +670,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeListExecute(r Rep
 		localVarReturnValue  *PaginatedostreeOstreeRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -666,6 +680,9 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeListExecute(r Rep
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -725,6 +742,9 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeListExecute(r Rep
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -802,19 +822,19 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeListExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 	repositoryAddRemoveContent *RepositoryAddRemoveContent
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest {
 	r.repositoryAddRemoveContent = &repositoryAddRemoveContent
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeModifyExecute(r)
 }
 
@@ -825,10 +845,10 @@ Trigger an asynchronous task to modify content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeModify(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeModify(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -837,7 +857,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeModify(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeModifyExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeModifyExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -845,7 +865,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeModifyExecute(r R
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeModify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeModify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -917,19 +937,19 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeModifyExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 	patchedostreeOstreeRepository *PatchedostreeOstreeRepository
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest) PatchedostreeOstreeRepository(patchedostreeOstreeRepository PatchedostreeOstreeRepository) RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest) PatchedostreeOstreeRepository(patchedostreeOstreeRepository PatchedostreeOstreeRepository) RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest {
 	r.patchedostreeOstreeRepository = &patchedostreeOstreeRepository
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreePartialUpdateExecute(r)
 }
 
@@ -940,10 +960,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreePartialUpdate(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreePartialUpdate(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -952,7 +972,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreePartialUpdate(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreePartialUpdateExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreePartialUpdateExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -960,7 +980,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreePartialUpdateExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1032,27 +1052,27 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreePartialUpdateExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest) Fields(fields []string) RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest) Fields(fields []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest) ExcludeFields(excludeFields []string) RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest) Execute() (*OstreeOstreeRepositoryResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest) Execute() (*OstreeOstreeRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeReadExecute(r)
 }
 
@@ -1063,10 +1083,10 @@ A ViewSet class for OSTree repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeRead(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeRead(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -1075,7 +1095,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeRead(ctx context.
 
 // Execute executes the request
 //  @return OstreeOstreeRepositoryResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeReadExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeReadRequest) (*OstreeOstreeRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeReadExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeReadRequest) (*OstreeOstreeRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1083,7 +1103,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeReadExecute(r Rep
 		localVarReturnValue  *OstreeOstreeRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1172,19 +1192,19 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeReadExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 	repositorySyncURL *RepositorySyncURL
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest) RepositorySyncURL(repositorySyncURL RepositorySyncURL) RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest) RepositorySyncURL(repositorySyncURL RepositorySyncURL) RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest {
 	r.repositorySyncURL = &repositorySyncURL
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeSyncExecute(r)
 }
 
@@ -1195,10 +1215,10 @@ Trigger an asynchronous task to sync content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeSync(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeSync(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -1207,7 +1227,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeSync(ctx context.
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeSyncExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeSyncExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1215,7 +1235,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeSyncExecute(r Rep
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1287,19 +1307,19 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeSyncExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest struct {
+type RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesOstreeApiService
+	ApiService *RepositoriesOstreeAPIService
 	ostreeOstreeRepositoryHref string
 	ostreeOstreeRepository *OstreeOstreeRepository
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest) OstreeOstreeRepository(ostreeOstreeRepository OstreeOstreeRepository) RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest) OstreeOstreeRepository(ostreeOstreeRepository OstreeOstreeRepository) RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest {
 	r.ostreeOstreeRepository = &ostreeOstreeRepository
 	return r
 }
 
-func (r RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesOstreeOstreeUpdateExecute(r)
 }
 
@@ -1310,10 +1330,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRepositoryHref
- @return RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest
+ @return RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest
 */
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeUpdate(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest {
-	return RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest{
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeUpdate(ctx context.Context, ostreeOstreeRepositoryHref string) RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest {
+	return RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRepositoryHref: ostreeOstreeRepositoryHref,
@@ -1322,7 +1342,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeUpdate(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeUpdateExecute(r RepositoriesOstreeApiRepositoriesOstreeOstreeUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesOstreeAPIService) RepositoriesOstreeOstreeUpdateExecute(r RepositoriesOstreeAPIRepositoriesOstreeOstreeUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1330,7 +1350,7 @@ func (a *RepositoriesOstreeApiService) RepositoriesOstreeOstreeUpdateExecute(r R
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeApiService.RepositoriesOstreeOstreeUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesOstreeAPIService.RepositoriesOstreeOstreeUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

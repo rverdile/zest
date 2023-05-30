@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RemotesGitApiService
+Testing RemotesGitAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RemotesGitApiService(t *testing.T) {
+func Test_zest_RemotesGitAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitAddRole", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleGitRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitAddRole(context.Background(), ansibleGitRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitAddRole(context.Background(), ansibleGitRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_RemotesGitApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitCreate", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_RemotesGitApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ansibleGitRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitDelete(context.Background(), ansibleGitRemoteHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitListRoles", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleGitRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitListRoles(context.Background(), ansibleGitRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitDelete(context.Background(), ansibleGitRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_RemotesGitApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitMyPermissions", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var ansibleGitRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitMyPermissions(context.Background(), ansibleGitRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_RemotesGitApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitPartialUpdate", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleGitRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitPartialUpdate(context.Background(), ansibleGitRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitListRoles(context.Background(), ansibleGitRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_RemotesGitApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitRead", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleGitRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitRead(context.Background(), ansibleGitRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitMyPermissions(context.Background(), ansibleGitRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_RemotesGitApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitRemoveRole", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleGitRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitRemoveRole(context.Background(), ansibleGitRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitPartialUpdate(context.Background(), ansibleGitRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,41 @@ func Test_zest_RemotesGitApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesGitApiService RemotesAnsibleGitUpdate", func(t *testing.T) {
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleGitRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesGitApi.RemotesAnsibleGitUpdate(context.Background(), ansibleGitRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitRead(context.Background(), ansibleGitRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ansibleGitRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitRemoveRole(context.Background(), ansibleGitRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesGitAPIService RemotesAnsibleGitUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ansibleGitRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesGitAPI.RemotesAnsibleGitUpdate(context.Background(), ansibleGitRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

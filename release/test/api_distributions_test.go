@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsApiService
+Testing DistributionsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsApiService(t *testing.T) {
+func Test_zest_DistributionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsApiService DistributionsList", func(t *testing.T) {
+	t.Run("Test DistributionsAPIService DistributionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsApi.DistributionsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsAPI.DistributionsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,22 +22,22 @@ import (
 )
 
 
-// ExportersFilesystemExportsApiService ExportersFilesystemExportsApi service
-type ExportersFilesystemExportsApiService service
+// ExportersFilesystemExportsAPIService ExportersFilesystemExportsAPI service
+type ExportersFilesystemExportsAPIService service
 
-type ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest struct {
+type ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest struct {
 	ctx context.Context
-	ApiService *ExportersFilesystemExportsApiService
+	ApiService *ExportersFilesystemExportsAPIService
 	filesystemExporterHref string
 	filesystemExport *FilesystemExport
 }
 
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest) FilesystemExport(filesystemExport FilesystemExport) ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest) FilesystemExport(filesystemExport FilesystemExport) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest {
 	r.filesystemExport = &filesystemExport
 	return r
 }
 
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ExportersCoreFilesystemExportsCreateExecute(r)
 }
 
@@ -48,10 +48,10 @@ Trigger an asynchronous task to export files to the filesystem
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemExporterHref
- @return ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest
+ @return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest
 */
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsCreate(ctx context.Context, filesystemExporterHref string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest {
-	return ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest{
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsCreate(ctx context.Context, filesystemExporterHref string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest {
+	return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		filesystemExporterHref: filesystemExporterHref,
@@ -60,7 +60,7 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsCre
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsCreateExecute(r ExportersFilesystemExportsApiExportersCoreFilesystemExportsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsCreateExecute(r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsCre
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsApiService.ExportersCoreFilesystemExportsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsAPIService.ExportersCoreFilesystemExportsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,13 +140,13 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsCre
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ExportersFilesystemExportsApiExportersCoreFilesystemExportsDeleteRequest struct {
+type ExportersFilesystemExportsAPIExportersCoreFilesystemExportsDeleteRequest struct {
 	ctx context.Context
-	ApiService *ExportersFilesystemExportsApiService
+	ApiService *ExportersFilesystemExportsAPIService
 	filesystemFilesystemExportHref string
 }
 
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsDeleteRequest) Execute() (*http.Response, error) {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ExportersCoreFilesystemExportsDeleteExecute(r)
 }
 
@@ -157,10 +157,10 @@ Endpoint for managing FilesystemExports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemFilesystemExportHref
- @return ExportersFilesystemExportsApiExportersCoreFilesystemExportsDeleteRequest
+ @return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsDeleteRequest
 */
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsDelete(ctx context.Context, filesystemFilesystemExportHref string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsDeleteRequest {
-	return ExportersFilesystemExportsApiExportersCoreFilesystemExportsDeleteRequest{
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsDelete(ctx context.Context, filesystemFilesystemExportHref string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsDeleteRequest {
+	return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		filesystemFilesystemExportHref: filesystemFilesystemExportHref,
@@ -168,14 +168,14 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsDel
 }
 
 // Execute executes the request
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsDeleteExecute(r ExportersFilesystemExportsApiExportersCoreFilesystemExportsDeleteRequest) (*http.Response, error) {
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsDeleteExecute(r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsApiService.ExportersCoreFilesystemExportsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsAPIService.ExportersCoreFilesystemExportsDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -233,9 +233,9 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsDel
 	return localVarHTTPResponse, nil
 }
 
-type ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest struct {
+type ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest struct {
 	ctx context.Context
-	ApiService *ExportersFilesystemExportsApiService
+	ApiService *ExportersFilesystemExportsAPIService
 	filesystemExporterHref string
 	limit *int32
 	offset *int32
@@ -244,30 +244,30 @@ type ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest stru
 }
 
 // Number of results to return per page.
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest) Limit(limit int32) ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest) Limit(limit int32) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest) Offset(offset int32) ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest) Offset(offset int32) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest) Fields(fields []string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest) Fields(fields []string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest) ExcludeFields(excludeFields []string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest) ExcludeFields(excludeFields []string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest) Execute() (*PaginatedFilesystemExportResponseList, *http.Response, error) {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest) Execute() (*PaginatedFilesystemExportResponseList, *http.Response, error) {
 	return r.ApiService.ExportersCoreFilesystemExportsListExecute(r)
 }
 
@@ -278,10 +278,10 @@ Endpoint for managing FilesystemExports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemExporterHref
- @return ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest
+ @return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest
 */
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsList(ctx context.Context, filesystemExporterHref string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest {
-	return ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest{
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsList(ctx context.Context, filesystemExporterHref string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest {
+	return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		filesystemExporterHref: filesystemExporterHref,
@@ -290,7 +290,7 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsLis
 
 // Execute executes the request
 //  @return PaginatedFilesystemExportResponseList
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsListExecute(r ExportersFilesystemExportsApiExportersCoreFilesystemExportsListRequest) (*PaginatedFilesystemExportResponseList, *http.Response, error) {
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsListExecute(r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsListRequest) (*PaginatedFilesystemExportResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -298,7 +298,7 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsLis
 		localVarReturnValue  *PaginatedFilesystemExportResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsApiService.ExportersCoreFilesystemExportsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsAPIService.ExportersCoreFilesystemExportsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -393,27 +393,27 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsLis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest struct {
+type ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest struct {
 	ctx context.Context
-	ApiService *ExportersFilesystemExportsApiService
+	ApiService *ExportersFilesystemExportsAPIService
 	filesystemFilesystemExportHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest) Fields(fields []string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest) Fields(fields []string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest) ExcludeFields(excludeFields []string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest) ExcludeFields(excludeFields []string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest) Execute() (*FilesystemExportResponse, *http.Response, error) {
+func (r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest) Execute() (*FilesystemExportResponse, *http.Response, error) {
 	return r.ApiService.ExportersCoreFilesystemExportsReadExecute(r)
 }
 
@@ -424,10 +424,10 @@ Endpoint for managing FilesystemExports.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param filesystemFilesystemExportHref
- @return ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest
+ @return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest
 */
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsRead(ctx context.Context, filesystemFilesystemExportHref string) ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest {
-	return ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest{
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsRead(ctx context.Context, filesystemFilesystemExportHref string) ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest {
+	return ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		filesystemFilesystemExportHref: filesystemFilesystemExportHref,
@@ -436,7 +436,7 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsRea
 
 // Execute executes the request
 //  @return FilesystemExportResponse
-func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsReadExecute(r ExportersFilesystemExportsApiExportersCoreFilesystemExportsReadRequest) (*FilesystemExportResponse, *http.Response, error) {
+func (a *ExportersFilesystemExportsAPIService) ExportersCoreFilesystemExportsReadExecute(r ExportersFilesystemExportsAPIExportersCoreFilesystemExportsReadRequest) (*FilesystemExportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -444,7 +444,7 @@ func (a *ExportersFilesystemExportsApiService) ExportersCoreFilesystemExportsRea
 		localVarReturnValue  *FilesystemExportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsApiService.ExportersCoreFilesystemExportsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExportersFilesystemExportsAPIService.ExportersCoreFilesystemExportsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

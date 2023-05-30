@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleApiV2CollectionsVersionsApiService
+Testing PulpAnsibleApiV2CollectionsVersionsAPIService
 
 */
 
@@ -17,12 +17,12 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleApiV2CollectionsVersionsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleApiV2CollectionsVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleApiV2CollectionsVersionsApiService PulpAnsibleGalaxyApiV2CollectionsVersionsGet", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV2CollectionsVersionsAPIService PulpAnsibleGalaxyApiV2CollectionsVersionsGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -31,7 +31,7 @@ func Test_zest_PulpAnsibleApiV2CollectionsVersionsApiService(t *testing.T) {
 		var path string
 		var version string
 
-		httpRes, err := apiClient.PulpAnsibleApiV2CollectionsVersionsApi.PulpAnsibleGalaxyApiV2CollectionsVersionsGet(context.Background(), name, namespace, path, version).Execute()
+		httpRes, err := apiClient.PulpAnsibleApiV2CollectionsVersionsAPI.PulpAnsibleGalaxyApiV2CollectionsVersionsGet(context.Background(), name, namespace, path, version).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

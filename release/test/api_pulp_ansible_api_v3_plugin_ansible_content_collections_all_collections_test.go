@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsApiService
+Testing PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsAPIService
 
 */
 
@@ -17,19 +17,19 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsApiService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllCollectionsList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsAPIService PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllCollectionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var distroBasePath string
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsApi.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllCollectionsList(context.Background(), distroBasePath, path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3PluginAnsibleContentCollectionsAllCollectionsAPI.PulpAnsibleGalaxyApiV3PluginAnsibleContentCollectionsAllCollectionsList(context.Background(), distroBasePath, path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ArtifactsApiService
+Testing ArtifactsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ArtifactsApiService(t *testing.T) {
+func Test_zest_ArtifactsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ArtifactsApiService ArtifactsCreate", func(t *testing.T) {
+	t.Run("Test ArtifactsAPIService ArtifactsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ArtifactsApi.ArtifactsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ArtifactsAPI.ArtifactsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,24 +34,24 @@ func Test_zest_ArtifactsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ArtifactsApiService ArtifactsDelete", func(t *testing.T) {
+	t.Run("Test ArtifactsAPIService ArtifactsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var artifactHref string
 
-		httpRes, err := apiClient.ArtifactsApi.ArtifactsDelete(context.Background(), artifactHref).Execute()
+		httpRes, err := apiClient.ArtifactsAPI.ArtifactsDelete(context.Background(), artifactHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ArtifactsApiService ArtifactsList", func(t *testing.T) {
+	t.Run("Test ArtifactsAPIService ArtifactsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ArtifactsApi.ArtifactsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ArtifactsAPI.ArtifactsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,13 +59,13 @@ func Test_zest_ArtifactsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ArtifactsApiService ArtifactsRead", func(t *testing.T) {
+	t.Run("Test ArtifactsAPIService ArtifactsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var artifactHref string
 
-		resp, httpRes, err := apiClient.ArtifactsApi.ArtifactsRead(context.Background(), artifactHref).Execute()
+		resp, httpRes, err := apiClient.ArtifactsAPI.ArtifactsRead(context.Background(), artifactHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

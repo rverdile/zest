@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoryVersionsApiService
+Testing RepositoryVersionsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoryVersionsApiService(t *testing.T) {
+func Test_zest_RepositoryVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoryVersionsApiService RepositoryVersionsList", func(t *testing.T) {
+	t.Run("Test RepositoryVersionsAPIService RepositoryVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoryVersionsApi.RepositoryVersionsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoryVersionsAPI.RepositoryVersionsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

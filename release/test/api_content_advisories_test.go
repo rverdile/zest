@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentAdvisoriesApiService
+Testing ContentAdvisoriesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentAdvisoriesApiService(t *testing.T) {
+func Test_zest_ContentAdvisoriesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentAdvisoriesApiService ContentRpmAdvisoriesCreate", func(t *testing.T) {
+	t.Run("Test ContentAdvisoriesAPIService ContentRpmAdvisoriesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentAdvisoriesApi.ContentRpmAdvisoriesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentAdvisoriesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentAdvisoriesApiService ContentRpmAdvisoriesList", func(t *testing.T) {
+	t.Run("Test ContentAdvisoriesAPIService ContentRpmAdvisoriesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentAdvisoriesApi.ContentRpmAdvisoriesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentAdvisoriesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentAdvisoriesApiService ContentRpmAdvisoriesRead", func(t *testing.T) {
+	t.Run("Test ContentAdvisoriesAPIService ContentRpmAdvisoriesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmUpdateRecordHref string
 
-		resp, httpRes, err := apiClient.ContentAdvisoriesApi.ContentRpmAdvisoriesRead(context.Background(), rpmUpdateRecordHref).Execute()
+		resp, httpRes, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesRead(context.Background(), rpmUpdateRecordHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentArtifactApiService ContentArtifactApi service
-type ContentArtifactApiService service
+// ContentArtifactAPIService ContentArtifactAPI service
+type ContentArtifactAPIService service
 
-type ContentArtifactApiContentMavenArtifactCreateRequest struct {
+type ContentArtifactAPIContentMavenArtifactCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentArtifactApiService
+	ApiService *ContentArtifactAPIService
 	mavenMavenArtifact *MavenMavenArtifact
 }
 
-func (r ContentArtifactApiContentMavenArtifactCreateRequest) MavenMavenArtifact(mavenMavenArtifact MavenMavenArtifact) ContentArtifactApiContentMavenArtifactCreateRequest {
+func (r ContentArtifactAPIContentMavenArtifactCreateRequest) MavenMavenArtifact(mavenMavenArtifact MavenMavenArtifact) ContentArtifactAPIContentMavenArtifactCreateRequest {
 	r.mavenMavenArtifact = &mavenMavenArtifact
 	return r
 }
 
-func (r ContentArtifactApiContentMavenArtifactCreateRequest) Execute() (*MavenMavenArtifactResponse, *http.Response, error) {
+func (r ContentArtifactAPIContentMavenArtifactCreateRequest) Execute() (*MavenMavenArtifactResponse, *http.Response, error) {
 	return r.ApiService.ContentMavenArtifactCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentMavenArtifactCreate Create a maven artifact
 A ViewSet for MavenArtifact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentArtifactApiContentMavenArtifactCreateRequest
+ @return ContentArtifactAPIContentMavenArtifactCreateRequest
 */
-func (a *ContentArtifactApiService) ContentMavenArtifactCreate(ctx context.Context) ContentArtifactApiContentMavenArtifactCreateRequest {
-	return ContentArtifactApiContentMavenArtifactCreateRequest{
+func (a *ContentArtifactAPIService) ContentMavenArtifactCreate(ctx context.Context) ContentArtifactAPIContentMavenArtifactCreateRequest {
+	return ContentArtifactAPIContentMavenArtifactCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentArtifactApiService) ContentMavenArtifactCreate(ctx context.Conte
 
 // Execute executes the request
 //  @return MavenMavenArtifactResponse
-func (a *ContentArtifactApiService) ContentMavenArtifactCreateExecute(r ContentArtifactApiContentMavenArtifactCreateRequest) (*MavenMavenArtifactResponse, *http.Response, error) {
+func (a *ContentArtifactAPIService) ContentMavenArtifactCreateExecute(r ContentArtifactAPIContentMavenArtifactCreateRequest) (*MavenMavenArtifactResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentArtifactApiService) ContentMavenArtifactCreateExecute(r ContentA
 		localVarReturnValue  *MavenMavenArtifactResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentArtifactApiService.ContentMavenArtifactCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentArtifactAPIService.ContentMavenArtifactCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,9 +134,9 @@ func (a *ContentArtifactApiService) ContentMavenArtifactCreateExecute(r ContentA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentArtifactApiContentMavenArtifactListRequest struct {
+type ContentArtifactAPIContentMavenArtifactListRequest struct {
 	ctx context.Context
-	ApiService *ContentArtifactApiService
+	ApiService *ContentArtifactAPIService
 	artifactId *string
 	filename *string
 	groupId *string
@@ -154,90 +154,90 @@ type ContentArtifactApiContentMavenArtifactListRequest struct {
 }
 
 // Filter results where artifact_id matches value
-func (r ContentArtifactApiContentMavenArtifactListRequest) ArtifactId(artifactId string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) ArtifactId(artifactId string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.artifactId = &artifactId
 	return r
 }
 
 // Filter results where filename matches value
-func (r ContentArtifactApiContentMavenArtifactListRequest) Filename(filename string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) Filename(filename string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.filename = &filename
 	return r
 }
 
 // Filter results where group_id matches value
-func (r ContentArtifactApiContentMavenArtifactListRequest) GroupId(groupId string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) GroupId(groupId string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.groupId = &groupId
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentArtifactApiContentMavenArtifactListRequest) Limit(limit int32) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) Limit(limit int32) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentArtifactApiContentMavenArtifactListRequest) Offset(offset int32) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) Offset(offset int32) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;group_id&#x60; - Group id * &#x60;-group_id&#x60; - Group id (descending) * &#x60;artifact_id&#x60; - Artifact id * &#x60;-artifact_id&#x60; - Artifact id (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;filename&#x60; - Filename * &#x60;-filename&#x60; - Filename (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentArtifactApiContentMavenArtifactListRequest) Ordering(ordering []string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) Ordering(ordering []string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentArtifactApiContentMavenArtifactListRequest) PulpHrefIn(pulpHrefIn []string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) PulpHrefIn(pulpHrefIn []string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentArtifactApiContentMavenArtifactListRequest) PulpIdIn(pulpIdIn []string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) PulpIdIn(pulpIdIn []string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentArtifactApiContentMavenArtifactListRequest) RepositoryVersion(repositoryVersion string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) RepositoryVersion(repositoryVersion string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentArtifactApiContentMavenArtifactListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentArtifactApiContentMavenArtifactListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentArtifactApiContentMavenArtifactListRequest) Version(version string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) Version(version string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.version = &version
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentArtifactApiContentMavenArtifactListRequest) Fields(fields []string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) Fields(fields []string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentArtifactApiContentMavenArtifactListRequest) ExcludeFields(excludeFields []string) ContentArtifactApiContentMavenArtifactListRequest {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) ExcludeFields(excludeFields []string) ContentArtifactAPIContentMavenArtifactListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentArtifactApiContentMavenArtifactListRequest) Execute() (*PaginatedmavenMavenArtifactResponseList, *http.Response, error) {
+func (r ContentArtifactAPIContentMavenArtifactListRequest) Execute() (*PaginatedmavenMavenArtifactResponseList, *http.Response, error) {
 	return r.ApiService.ContentMavenArtifactListExecute(r)
 }
 
@@ -247,10 +247,10 @@ ContentMavenArtifactList List maven artifacts
 A ViewSet for MavenArtifact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentArtifactApiContentMavenArtifactListRequest
+ @return ContentArtifactAPIContentMavenArtifactListRequest
 */
-func (a *ContentArtifactApiService) ContentMavenArtifactList(ctx context.Context) ContentArtifactApiContentMavenArtifactListRequest {
-	return ContentArtifactApiContentMavenArtifactListRequest{
+func (a *ContentArtifactAPIService) ContentMavenArtifactList(ctx context.Context) ContentArtifactAPIContentMavenArtifactListRequest {
+	return ContentArtifactAPIContentMavenArtifactListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -258,7 +258,7 @@ func (a *ContentArtifactApiService) ContentMavenArtifactList(ctx context.Context
 
 // Execute executes the request
 //  @return PaginatedmavenMavenArtifactResponseList
-func (a *ContentArtifactApiService) ContentMavenArtifactListExecute(r ContentArtifactApiContentMavenArtifactListRequest) (*PaginatedmavenMavenArtifactResponseList, *http.Response, error) {
+func (a *ContentArtifactAPIService) ContentMavenArtifactListExecute(r ContentArtifactAPIContentMavenArtifactListRequest) (*PaginatedmavenMavenArtifactResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -266,7 +266,7 @@ func (a *ContentArtifactApiService) ContentMavenArtifactListExecute(r ContentArt
 		localVarReturnValue  *PaginatedmavenMavenArtifactResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentArtifactApiService.ContentMavenArtifactList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentArtifactAPIService.ContentMavenArtifactList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -388,27 +388,27 @@ func (a *ContentArtifactApiService) ContentMavenArtifactListExecute(r ContentArt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentArtifactApiContentMavenArtifactReadRequest struct {
+type ContentArtifactAPIContentMavenArtifactReadRequest struct {
 	ctx context.Context
-	ApiService *ContentArtifactApiService
+	ApiService *ContentArtifactAPIService
 	mavenMavenArtifactHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentArtifactApiContentMavenArtifactReadRequest) Fields(fields []string) ContentArtifactApiContentMavenArtifactReadRequest {
+func (r ContentArtifactAPIContentMavenArtifactReadRequest) Fields(fields []string) ContentArtifactAPIContentMavenArtifactReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentArtifactApiContentMavenArtifactReadRequest) ExcludeFields(excludeFields []string) ContentArtifactApiContentMavenArtifactReadRequest {
+func (r ContentArtifactAPIContentMavenArtifactReadRequest) ExcludeFields(excludeFields []string) ContentArtifactAPIContentMavenArtifactReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentArtifactApiContentMavenArtifactReadRequest) Execute() (*MavenMavenArtifactResponse, *http.Response, error) {
+func (r ContentArtifactAPIContentMavenArtifactReadRequest) Execute() (*MavenMavenArtifactResponse, *http.Response, error) {
 	return r.ApiService.ContentMavenArtifactReadExecute(r)
 }
 
@@ -419,10 +419,10 @@ A ViewSet for MavenArtifact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenArtifactHref
- @return ContentArtifactApiContentMavenArtifactReadRequest
+ @return ContentArtifactAPIContentMavenArtifactReadRequest
 */
-func (a *ContentArtifactApiService) ContentMavenArtifactRead(ctx context.Context, mavenMavenArtifactHref string) ContentArtifactApiContentMavenArtifactReadRequest {
-	return ContentArtifactApiContentMavenArtifactReadRequest{
+func (a *ContentArtifactAPIService) ContentMavenArtifactRead(ctx context.Context, mavenMavenArtifactHref string) ContentArtifactAPIContentMavenArtifactReadRequest {
+	return ContentArtifactAPIContentMavenArtifactReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenArtifactHref: mavenMavenArtifactHref,
@@ -431,7 +431,7 @@ func (a *ContentArtifactApiService) ContentMavenArtifactRead(ctx context.Context
 
 // Execute executes the request
 //  @return MavenMavenArtifactResponse
-func (a *ContentArtifactApiService) ContentMavenArtifactReadExecute(r ContentArtifactApiContentMavenArtifactReadRequest) (*MavenMavenArtifactResponse, *http.Response, error) {
+func (a *ContentArtifactAPIService) ContentMavenArtifactReadExecute(r ContentArtifactAPIContentMavenArtifactReadRequest) (*MavenMavenArtifactResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -439,7 +439,7 @@ func (a *ContentArtifactApiService) ContentMavenArtifactReadExecute(r ContentArt
 		localVarReturnValue  *MavenMavenArtifactResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentArtifactApiService.ContentMavenArtifactRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentArtifactAPIService.ContentMavenArtifactRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

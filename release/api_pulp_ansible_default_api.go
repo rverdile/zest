@@ -20,15 +20,15 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiApiService PulpAnsibleDefaultApiApi service
-type PulpAnsibleDefaultApiApiService service
+// PulpAnsibleDefaultApiAPIService PulpAnsibleDefaultApiAPI service
+type PulpAnsibleDefaultApiAPIService service
 
-type PulpAnsibleDefaultApiApiPulpAnsibleGalaxyDefaultApiGetRequest struct {
+type PulpAnsibleDefaultApiAPIPulpAnsibleGalaxyDefaultApiGetRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiApiService
+	ApiService *PulpAnsibleDefaultApiAPIService
 }
 
-func (r PulpAnsibleDefaultApiApiPulpAnsibleGalaxyDefaultApiGetRequest) Execute() (*http.Response, error) {
+func (r PulpAnsibleDefaultApiAPIPulpAnsibleGalaxyDefaultApiGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiGetExecute(r)
 }
 
@@ -38,24 +38,24 @@ PulpAnsibleGalaxyDefaultApiGet Method for PulpAnsibleGalaxyDefaultApiGet
 Return a response to the "GET" action.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleDefaultApiApiPulpAnsibleGalaxyDefaultApiGetRequest
+ @return PulpAnsibleDefaultApiAPIPulpAnsibleGalaxyDefaultApiGetRequest
 */
-func (a *PulpAnsibleDefaultApiApiService) PulpAnsibleGalaxyDefaultApiGet(ctx context.Context) PulpAnsibleDefaultApiApiPulpAnsibleGalaxyDefaultApiGetRequest {
-	return PulpAnsibleDefaultApiApiPulpAnsibleGalaxyDefaultApiGetRequest{
+func (a *PulpAnsibleDefaultApiAPIService) PulpAnsibleGalaxyDefaultApiGet(ctx context.Context) PulpAnsibleDefaultApiAPIPulpAnsibleGalaxyDefaultApiGetRequest {
+	return PulpAnsibleDefaultApiAPIPulpAnsibleGalaxyDefaultApiGetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *PulpAnsibleDefaultApiApiService) PulpAnsibleGalaxyDefaultApiGetExecute(r PulpAnsibleDefaultApiApiPulpAnsibleGalaxyDefaultApiGetRequest) (*http.Response, error) {
+func (a *PulpAnsibleDefaultApiAPIService) PulpAnsibleGalaxyDefaultApiGetExecute(r PulpAnsibleDefaultApiAPIPulpAnsibleGalaxyDefaultApiGetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiApiService.PulpAnsibleGalaxyDefaultApiGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiAPIService.PulpAnsibleGalaxyDefaultApiGet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

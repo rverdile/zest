@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentPackageIndicesApiService
+Testing ContentPackageIndicesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentPackageIndicesApiService(t *testing.T) {
+func Test_zest_ContentPackageIndicesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentPackageIndicesApiService ContentDebPackageIndicesCreate", func(t *testing.T) {
+	t.Run("Test ContentPackageIndicesAPIService ContentDebPackageIndicesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackageIndicesApi.ContentDebPackageIndicesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackageIndicesAPI.ContentDebPackageIndicesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentPackageIndicesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackageIndicesApiService ContentDebPackageIndicesList", func(t *testing.T) {
+	t.Run("Test ContentPackageIndicesAPIService ContentDebPackageIndicesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackageIndicesApi.ContentDebPackageIndicesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackageIndicesAPI.ContentDebPackageIndicesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentPackageIndicesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackageIndicesApiService ContentDebPackageIndicesRead", func(t *testing.T) {
+	t.Run("Test ContentPackageIndicesAPIService ContentDebPackageIndicesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debPackageIndexHref string
 
-		resp, httpRes, err := apiClient.ContentPackageIndicesApi.ContentDebPackageIndicesRead(context.Background(), debPackageIndexHref).Execute()
+		resp, httpRes, err := apiClient.ContentPackageIndicesAPI.ContentDebPackageIndicesRead(context.Background(), debPackageIndexHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

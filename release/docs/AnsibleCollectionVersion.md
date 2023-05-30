@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Upload** | Pointer to **string** | An uncommitted upload that may be turned into the artifact of the content unit. | [optional] 
+**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
 **File** | Pointer to ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | [optional] 
 **Repository** | Pointer to **string** | A URI of a repository the new content unit should be associated with. | [optional] 
-**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
+**Upload** | Pointer to **string** | An uncommitted upload that may be turned into the artifact of the content unit. | [optional] 
 **ExpectedName** | Pointer to **string** | The name of the collection. | [optional] 
 **ExpectedNamespace** | Pointer to **string** | The namespace of the collection. | [optional] 
 **ExpectedVersion** | Pointer to **string** | The version of the collection. | [optional] 
@@ -31,30 +31,30 @@ NewAnsibleCollectionVersionWithDefaults instantiates a new AnsibleCollectionVers
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetUpload
+### GetArtifact
 
-`func (o *AnsibleCollectionVersion) GetUpload() string`
+`func (o *AnsibleCollectionVersion) GetArtifact() string`
 
-GetUpload returns the Upload field if non-nil, zero value otherwise.
+GetArtifact returns the Artifact field if non-nil, zero value otherwise.
 
-### GetUploadOk
+### GetArtifactOk
 
-`func (o *AnsibleCollectionVersion) GetUploadOk() (*string, bool)`
+`func (o *AnsibleCollectionVersion) GetArtifactOk() (*string, bool)`
 
-GetUploadOk returns a tuple with the Upload field if it's non-nil, zero value otherwise
+GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUpload
+### SetArtifact
 
-`func (o *AnsibleCollectionVersion) SetUpload(v string)`
+`func (o *AnsibleCollectionVersion) SetArtifact(v string)`
 
-SetUpload sets Upload field to given value.
+SetArtifact sets Artifact field to given value.
 
-### HasUpload
+### HasArtifact
 
-`func (o *AnsibleCollectionVersion) HasUpload() bool`
+`func (o *AnsibleCollectionVersion) HasArtifact() bool`
 
-HasUpload returns a boolean if a field has been set.
+HasArtifact returns a boolean if a field has been set.
 
 ### GetFile
 
@@ -106,30 +106,30 @@ SetRepository sets Repository field to given value.
 
 HasRepository returns a boolean if a field has been set.
 
-### GetArtifact
+### GetUpload
 
-`func (o *AnsibleCollectionVersion) GetArtifact() string`
+`func (o *AnsibleCollectionVersion) GetUpload() string`
 
-GetArtifact returns the Artifact field if non-nil, zero value otherwise.
+GetUpload returns the Upload field if non-nil, zero value otherwise.
 
-### GetArtifactOk
+### GetUploadOk
 
-`func (o *AnsibleCollectionVersion) GetArtifactOk() (*string, bool)`
+`func (o *AnsibleCollectionVersion) GetUploadOk() (*string, bool)`
 
-GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
+GetUploadOk returns a tuple with the Upload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetArtifact
+### SetUpload
 
-`func (o *AnsibleCollectionVersion) SetArtifact(v string)`
+`func (o *AnsibleCollectionVersion) SetUpload(v string)`
 
-SetArtifact sets Artifact field to given value.
+SetUpload sets Upload field to given value.
 
-### HasArtifact
+### HasUpload
 
-`func (o *AnsibleCollectionVersion) HasArtifact() bool`
+`func (o *AnsibleCollectionVersion) HasUpload() bool`
 
-HasArtifact returns a boolean if a field has been set.
+HasUpload returns a boolean if a field has been set.
 
 ### GetExpectedName
 

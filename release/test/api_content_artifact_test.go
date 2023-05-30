@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentArtifactApiService
+Testing ContentArtifactAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentArtifactApiService(t *testing.T) {
+func Test_zest_ContentArtifactAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentArtifactApiService ContentMavenArtifactCreate", func(t *testing.T) {
+	t.Run("Test ContentArtifactAPIService ContentMavenArtifactCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentArtifactApi.ContentMavenArtifactCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentArtifactAPI.ContentMavenArtifactCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentArtifactApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentArtifactApiService ContentMavenArtifactList", func(t *testing.T) {
+	t.Run("Test ContentArtifactAPIService ContentMavenArtifactList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentArtifactApi.ContentMavenArtifactList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentArtifactAPI.ContentMavenArtifactList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentArtifactApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentArtifactApiService ContentMavenArtifactRead", func(t *testing.T) {
+	t.Run("Test ContentArtifactAPIService ContentMavenArtifactRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenArtifactHref string
 
-		resp, httpRes, err := apiClient.ContentArtifactApi.ContentMavenArtifactRead(context.Background(), mavenMavenArtifactHref).Execute()
+		resp, httpRes, err := apiClient.ContentArtifactAPI.ContentMavenArtifactRead(context.Background(), mavenMavenArtifactHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

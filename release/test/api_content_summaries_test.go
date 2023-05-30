@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentSummariesApiService
+Testing ContentSummariesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentSummariesApiService(t *testing.T) {
+func Test_zest_ContentSummariesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentSummariesApiService ContentOstreeSummariesList", func(t *testing.T) {
+	t.Run("Test ContentSummariesAPIService ContentOstreeSummariesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentSummariesApi.ContentOstreeSummariesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentSummariesAPI.ContentOstreeSummariesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentSummariesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentSummariesApiService ContentOstreeSummariesRead", func(t *testing.T) {
+	t.Run("Test ContentSummariesAPIService ContentOstreeSummariesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeSummaryHref string
 
-		resp, httpRes, err := apiClient.ContentSummariesApi.ContentOstreeSummariesRead(context.Background(), ostreeOstreeSummaryHref).Execute()
+		resp, httpRes, err := apiClient.ContentSummariesAPI.ContentOstreeSummariesRead(context.Background(), ostreeOstreeSummaryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

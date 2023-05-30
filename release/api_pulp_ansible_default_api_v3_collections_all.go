@@ -21,12 +21,12 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3CollectionsAllApiService PulpAnsibleDefaultApiV3CollectionsAllApi service
-type PulpAnsibleDefaultApiV3CollectionsAllApiService service
+// PulpAnsibleDefaultApiV3CollectionsAllAPIService PulpAnsibleDefaultApiV3CollectionsAllAPI service
+type PulpAnsibleDefaultApiV3CollectionsAllAPIService service
 
-type PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest struct {
+type PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3CollectionsAllApiService
+	ApiService *PulpAnsibleDefaultApiV3CollectionsAllAPIService
 	deprecated *bool
 	name *string
 	namespace *string
@@ -37,52 +37,52 @@ type PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3Collec
 	excludeFields *[]string
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Deprecated(deprecated bool) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Deprecated(deprecated bool) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.deprecated = &deprecated
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Name(name string) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Name(name string) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.name = &name
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Namespace(namespace string) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Namespace(namespace string) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Execute() ([]CollectionResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) Execute() ([]CollectionResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsAllListExecute(r)
 }
 
@@ -92,12 +92,12 @@ PulpAnsibleGalaxyDefaultApiV3CollectionsAllList Method for PulpAnsibleGalaxyDefa
 Legacy v3 endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest
+ @return PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3CollectionsAllApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsAllList(ctx context.Context) PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
-	return PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest{
+func (a *PulpAnsibleDefaultApiV3CollectionsAllAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsAllList(ctx context.Context) PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest {
+	return PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -106,7 +106,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsAllApiService) PulpAnsibleGalaxyDefau
 // Execute executes the request
 //  @return []CollectionResponse
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3CollectionsAllApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsAllListExecute(r PulpAnsibleDefaultApiV3CollectionsAllApiPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) ([]CollectionResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3CollectionsAllAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsAllListExecute(r PulpAnsibleDefaultApiV3CollectionsAllAPIPulpAnsibleGalaxyDefaultApiV3CollectionsAllListRequest) ([]CollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -114,7 +114,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsAllApiService) PulpAnsibleGalaxyDefau
 		localVarReturnValue  []CollectionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsAllApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsAllList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsAllAPIService.PulpAnsibleGalaxyDefaultApiV3CollectionsAllList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -22,21 +22,21 @@ import (
 )
 
 
-// DistributionsPypiApiService DistributionsPypiApi service
-type DistributionsPypiApiService service
+// DistributionsPypiAPIService DistributionsPypiAPI service
+type DistributionsPypiAPIService service
 
-type DistributionsPypiApiDistributionsPythonPypiCreateRequest struct {
+type DistributionsPypiAPIDistributionsPythonPypiCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsPypiApiService
+	ApiService *DistributionsPypiAPIService
 	pythonPythonDistribution *PythonPythonDistribution
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiCreateRequest) PythonPythonDistribution(pythonPythonDistribution PythonPythonDistribution) DistributionsPypiApiDistributionsPythonPypiCreateRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiCreateRequest) PythonPythonDistribution(pythonPythonDistribution PythonPythonDistribution) DistributionsPypiAPIDistributionsPythonPypiCreateRequest {
 	r.pythonPythonDistribution = &pythonPythonDistribution
 	return r
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsPypiAPIDistributionsPythonPypiCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsPythonPypiCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ DistributionsPythonPypiCreate Create a python distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsPypiApiDistributionsPythonPypiCreateRequest
+ @return DistributionsPypiAPIDistributionsPythonPypiCreateRequest
 */
-func (a *DistributionsPypiApiService) DistributionsPythonPypiCreate(ctx context.Context) DistributionsPypiApiDistributionsPythonPypiCreateRequest {
-	return DistributionsPypiApiDistributionsPythonPypiCreateRequest{
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiCreate(ctx context.Context) DistributionsPypiAPIDistributionsPythonPypiCreateRequest {
+	return DistributionsPypiAPIDistributionsPythonPypiCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiCreate(ctx context.
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsPypiApiService) DistributionsPythonPypiCreateExecute(r DistributionsPypiApiDistributionsPythonPypiCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiCreateExecute(r DistributionsPypiAPIDistributionsPythonPypiCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiCreateExecute(r Dis
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiApiService.DistributionsPythonPypiCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiAPIService.DistributionsPythonPypiCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiCreateExecute(r Dis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsPypiApiDistributionsPythonPypiDeleteRequest struct {
+type DistributionsPypiAPIDistributionsPythonPypiDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsPypiApiService
+	ApiService *DistributionsPypiAPIService
 	pythonPythonDistributionHref string
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsPypiAPIDistributionsPythonPypiDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsPythonPypiDeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonDistributionHref
- @return DistributionsPypiApiDistributionsPythonPypiDeleteRequest
+ @return DistributionsPypiAPIDistributionsPythonPypiDeleteRequest
 */
-func (a *DistributionsPypiApiService) DistributionsPythonPypiDelete(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiApiDistributionsPythonPypiDeleteRequest {
-	return DistributionsPypiApiDistributionsPythonPypiDeleteRequest{
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiDelete(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiAPIDistributionsPythonPypiDeleteRequest {
+	return DistributionsPypiAPIDistributionsPythonPypiDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonDistributionHref: pythonPythonDistributionHref,
@@ -163,7 +163,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiDelete(ctx context.
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsPypiApiService) DistributionsPythonPypiDeleteExecute(r DistributionsPypiApiDistributionsPythonPypiDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiDeleteExecute(r DistributionsPypiAPIDistributionsPythonPypiDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -171,7 +171,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiDeleteExecute(r Dis
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiApiService.DistributionsPythonPypiDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiAPIService.DistributionsPythonPypiDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -238,9 +238,9 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiDeleteExecute(r Dis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsPypiApiDistributionsPythonPypiListRequest struct {
+type DistributionsPypiAPIDistributionsPythonPypiListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsPypiApiService
+	ApiService *DistributionsPypiAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -264,126 +264,126 @@ type DistributionsPypiApiDistributionsPythonPypiListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) BasePath(basePath string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) BasePath(basePath string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) BasePathContains(basePathContains string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) BasePathContains(basePathContains string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) BasePathIcontains(basePathIcontains string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) BasePathIcontains(basePathIcontains string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) BasePathIn(basePathIn []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) BasePathIn(basePathIn []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) Limit(limit int32) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) Limit(limit int32) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) Name(name string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) Name(name string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) NameContains(nameContains string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) NameContains(nameContains string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) NameIcontains(nameIcontains string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) NameIcontains(nameIcontains string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) NameIn(nameIn []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) NameIn(nameIn []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) NameStartswith(nameStartswith string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) NameStartswith(nameStartswith string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) Offset(offset int32) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) Offset(offset int32) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) Ordering(ordering []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) Ordering(ordering []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) PulpIdIn(pulpIdIn []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) PulpIdIn(pulpIdIn []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) Repository(repository string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) Repository(repository string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) RepositoryIn(repositoryIn []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) RepositoryIn(repositoryIn []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) WithContent(withContent string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) WithContent(withContent string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) Fields(fields []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) Fields(fields []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) ExcludeFields(excludeFields []string) DistributionsPypiApiDistributionsPythonPypiListRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) ExcludeFields(excludeFields []string) DistributionsPypiAPIDistributionsPythonPypiListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiListRequest) Execute() (*PaginatedpythonPythonDistributionResponseList, *http.Response, error) {
+func (r DistributionsPypiAPIDistributionsPythonPypiListRequest) Execute() (*PaginatedpythonPythonDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsPythonPypiListExecute(r)
 }
 
@@ -398,10 +398,10 @@ Distributions should not be confused with "Python Distribution" as defined by th
 community. In Pulp usage, Python content is referred to as Python Package Content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsPypiApiDistributionsPythonPypiListRequest
+ @return DistributionsPypiAPIDistributionsPythonPypiListRequest
 */
-func (a *DistributionsPypiApiService) DistributionsPythonPypiList(ctx context.Context) DistributionsPypiApiDistributionsPythonPypiListRequest {
-	return DistributionsPypiApiDistributionsPythonPypiListRequest{
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiList(ctx context.Context) DistributionsPypiAPIDistributionsPythonPypiListRequest {
+	return DistributionsPypiAPIDistributionsPythonPypiListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -409,7 +409,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiList(ctx context.Co
 
 // Execute executes the request
 //  @return PaginatedpythonPythonDistributionResponseList
-func (a *DistributionsPypiApiService) DistributionsPythonPypiListExecute(r DistributionsPypiApiDistributionsPythonPypiListRequest) (*PaginatedpythonPythonDistributionResponseList, *http.Response, error) {
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiListExecute(r DistributionsPypiAPIDistributionsPythonPypiListRequest) (*PaginatedpythonPythonDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -417,7 +417,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiListExecute(r Distr
 		localVarReturnValue  *PaginatedpythonPythonDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiApiService.DistributionsPythonPypiList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiAPIService.DistributionsPythonPypiList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -557,19 +557,19 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiListExecute(r Distr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest struct {
+type DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsPypiApiService
+	ApiService *DistributionsPypiAPIService
 	pythonPythonDistributionHref string
 	patchedpythonPythonDistribution *PatchedpythonPythonDistribution
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest) PatchedpythonPythonDistribution(patchedpythonPythonDistribution PatchedpythonPythonDistribution) DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest) PatchedpythonPythonDistribution(patchedpythonPythonDistribution PatchedpythonPythonDistribution) DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest {
 	r.patchedpythonPythonDistribution = &patchedpythonPythonDistribution
 	return r
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsPythonPypiPartialUpdateExecute(r)
 }
 
@@ -580,10 +580,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonDistributionHref
- @return DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest
+ @return DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest
 */
-func (a *DistributionsPypiApiService) DistributionsPythonPypiPartialUpdate(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest {
-	return DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest{
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiPartialUpdate(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest {
+	return DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonDistributionHref: pythonPythonDistributionHref,
@@ -592,7 +592,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiPartialUpdate(ctx c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsPypiApiService) DistributionsPythonPypiPartialUpdateExecute(r DistributionsPypiApiDistributionsPythonPypiPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiPartialUpdateExecute(r DistributionsPypiAPIDistributionsPythonPypiPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -600,7 +600,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiPartialUpdateExecut
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiApiService.DistributionsPythonPypiPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiAPIService.DistributionsPythonPypiPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -672,27 +672,27 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiPartialUpdateExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsPypiApiDistributionsPythonPypiReadRequest struct {
+type DistributionsPypiAPIDistributionsPythonPypiReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsPypiApiService
+	ApiService *DistributionsPypiAPIService
 	pythonPythonDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsPypiApiDistributionsPythonPypiReadRequest) Fields(fields []string) DistributionsPypiApiDistributionsPythonPypiReadRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiReadRequest) Fields(fields []string) DistributionsPypiAPIDistributionsPythonPypiReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsPypiApiDistributionsPythonPypiReadRequest) ExcludeFields(excludeFields []string) DistributionsPypiApiDistributionsPythonPypiReadRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiReadRequest) ExcludeFields(excludeFields []string) DistributionsPypiAPIDistributionsPythonPypiReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiReadRequest) Execute() (*PythonPythonDistributionResponse, *http.Response, error) {
+func (r DistributionsPypiAPIDistributionsPythonPypiReadRequest) Execute() (*PythonPythonDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsPythonPypiReadExecute(r)
 }
 
@@ -708,10 +708,10 @@ community. In Pulp usage, Python content is referred to as Python Package Conten
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonDistributionHref
- @return DistributionsPypiApiDistributionsPythonPypiReadRequest
+ @return DistributionsPypiAPIDistributionsPythonPypiReadRequest
 */
-func (a *DistributionsPypiApiService) DistributionsPythonPypiRead(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiApiDistributionsPythonPypiReadRequest {
-	return DistributionsPypiApiDistributionsPythonPypiReadRequest{
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiRead(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiAPIDistributionsPythonPypiReadRequest {
+	return DistributionsPypiAPIDistributionsPythonPypiReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonDistributionHref: pythonPythonDistributionHref,
@@ -720,7 +720,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiRead(ctx context.Co
 
 // Execute executes the request
 //  @return PythonPythonDistributionResponse
-func (a *DistributionsPypiApiService) DistributionsPythonPypiReadExecute(r DistributionsPypiApiDistributionsPythonPypiReadRequest) (*PythonPythonDistributionResponse, *http.Response, error) {
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiReadExecute(r DistributionsPypiAPIDistributionsPythonPypiReadRequest) (*PythonPythonDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -728,7 +728,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiReadExecute(r Distr
 		localVarReturnValue  *PythonPythonDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiApiService.DistributionsPythonPypiRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiAPIService.DistributionsPythonPypiRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -817,19 +817,19 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiReadExecute(r Distr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsPypiApiDistributionsPythonPypiUpdateRequest struct {
+type DistributionsPypiAPIDistributionsPythonPypiUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsPypiApiService
+	ApiService *DistributionsPypiAPIService
 	pythonPythonDistributionHref string
 	pythonPythonDistribution *PythonPythonDistribution
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiUpdateRequest) PythonPythonDistribution(pythonPythonDistribution PythonPythonDistribution) DistributionsPypiApiDistributionsPythonPypiUpdateRequest {
+func (r DistributionsPypiAPIDistributionsPythonPypiUpdateRequest) PythonPythonDistribution(pythonPythonDistribution PythonPythonDistribution) DistributionsPypiAPIDistributionsPythonPypiUpdateRequest {
 	r.pythonPythonDistribution = &pythonPythonDistribution
 	return r
 }
 
-func (r DistributionsPypiApiDistributionsPythonPypiUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsPypiAPIDistributionsPythonPypiUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsPythonPypiUpdateExecute(r)
 }
 
@@ -840,10 +840,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonDistributionHref
- @return DistributionsPypiApiDistributionsPythonPypiUpdateRequest
+ @return DistributionsPypiAPIDistributionsPythonPypiUpdateRequest
 */
-func (a *DistributionsPypiApiService) DistributionsPythonPypiUpdate(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiApiDistributionsPythonPypiUpdateRequest {
-	return DistributionsPypiApiDistributionsPythonPypiUpdateRequest{
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiUpdate(ctx context.Context, pythonPythonDistributionHref string) DistributionsPypiAPIDistributionsPythonPypiUpdateRequest {
+	return DistributionsPypiAPIDistributionsPythonPypiUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonDistributionHref: pythonPythonDistributionHref,
@@ -852,7 +852,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiUpdate(ctx context.
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsPypiApiService) DistributionsPythonPypiUpdateExecute(r DistributionsPypiApiDistributionsPythonPypiUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsPypiAPIService) DistributionsPythonPypiUpdateExecute(r DistributionsPypiAPIDistributionsPythonPypiUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -860,7 +860,7 @@ func (a *DistributionsPypiApiService) DistributionsPythonPypiUpdateExecute(r Dis
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiApiService.DistributionsPythonPypiUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsPypiAPIService.DistributionsPythonPypiUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

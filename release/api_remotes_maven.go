@@ -23,21 +23,21 @@ import (
 )
 
 
-// RemotesMavenApiService RemotesMavenApi service
-type RemotesMavenApiService service
+// RemotesMavenAPIService RemotesMavenAPI service
+type RemotesMavenAPIService service
 
-type RemotesMavenApiRemotesMavenMavenCreateRequest struct {
+type RemotesMavenAPIRemotesMavenMavenCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesMavenApiService
+	ApiService *RemotesMavenAPIService
 	mavenMavenRemote *MavenMavenRemote
 }
 
-func (r RemotesMavenApiRemotesMavenMavenCreateRequest) MavenMavenRemote(mavenMavenRemote MavenMavenRemote) RemotesMavenApiRemotesMavenMavenCreateRequest {
+func (r RemotesMavenAPIRemotesMavenMavenCreateRequest) MavenMavenRemote(mavenMavenRemote MavenMavenRemote) RemotesMavenAPIRemotesMavenMavenCreateRequest {
 	r.mavenMavenRemote = &mavenMavenRemote
 	return r
 }
 
-func (r RemotesMavenApiRemotesMavenMavenCreateRequest) Execute() (*MavenMavenRemoteResponse, *http.Response, error) {
+func (r RemotesMavenAPIRemotesMavenMavenCreateRequest) Execute() (*MavenMavenRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesMavenMavenCreateExecute(r)
 }
 
@@ -47,10 +47,10 @@ RemotesMavenMavenCreate Create a maven remote
 A ViewSet for MavenRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesMavenApiRemotesMavenMavenCreateRequest
+ @return RemotesMavenAPIRemotesMavenMavenCreateRequest
 */
-func (a *RemotesMavenApiService) RemotesMavenMavenCreate(ctx context.Context) RemotesMavenApiRemotesMavenMavenCreateRequest {
-	return RemotesMavenApiRemotesMavenMavenCreateRequest{
+func (a *RemotesMavenAPIService) RemotesMavenMavenCreate(ctx context.Context) RemotesMavenAPIRemotesMavenMavenCreateRequest {
+	return RemotesMavenAPIRemotesMavenMavenCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenCreate(ctx context.Context) Re
 
 // Execute executes the request
 //  @return MavenMavenRemoteResponse
-func (a *RemotesMavenApiService) RemotesMavenMavenCreateExecute(r RemotesMavenApiRemotesMavenMavenCreateRequest) (*MavenMavenRemoteResponse, *http.Response, error) {
+func (a *RemotesMavenAPIService) RemotesMavenMavenCreateExecute(r RemotesMavenAPIRemotesMavenMavenCreateRequest) (*MavenMavenRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenCreateExecute(r RemotesMavenAp
 		localVarReturnValue  *MavenMavenRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenApiService.RemotesMavenMavenCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenAPIService.RemotesMavenMavenCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,13 +135,13 @@ func (a *RemotesMavenApiService) RemotesMavenMavenCreateExecute(r RemotesMavenAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesMavenApiRemotesMavenMavenDeleteRequest struct {
+type RemotesMavenAPIRemotesMavenMavenDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesMavenApiService
+	ApiService *RemotesMavenAPIService
 	mavenMavenRemoteHref string
 }
 
-func (r RemotesMavenApiRemotesMavenMavenDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesMavenAPIRemotesMavenMavenDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesMavenMavenDeleteExecute(r)
 }
 
@@ -152,10 +152,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRemoteHref
- @return RemotesMavenApiRemotesMavenMavenDeleteRequest
+ @return RemotesMavenAPIRemotesMavenMavenDeleteRequest
 */
-func (a *RemotesMavenApiService) RemotesMavenMavenDelete(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenApiRemotesMavenMavenDeleteRequest {
-	return RemotesMavenApiRemotesMavenMavenDeleteRequest{
+func (a *RemotesMavenAPIService) RemotesMavenMavenDelete(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenAPIRemotesMavenMavenDeleteRequest {
+	return RemotesMavenAPIRemotesMavenMavenDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRemoteHref: mavenMavenRemoteHref,
@@ -164,7 +164,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenDelete(ctx context.Context, ma
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesMavenApiService) RemotesMavenMavenDeleteExecute(r RemotesMavenApiRemotesMavenMavenDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesMavenAPIService) RemotesMavenMavenDeleteExecute(r RemotesMavenAPIRemotesMavenMavenDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -172,7 +172,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenDeleteExecute(r RemotesMavenAp
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenApiService.RemotesMavenMavenDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenAPIService.RemotesMavenMavenDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,9 +239,9 @@ func (a *RemotesMavenApiService) RemotesMavenMavenDeleteExecute(r RemotesMavenAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesMavenApiRemotesMavenMavenListRequest struct {
+type RemotesMavenAPIRemotesMavenMavenListRequest struct {
 	ctx context.Context
-	ApiService *RemotesMavenApiService
+	ApiService *RemotesMavenAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -264,120 +264,120 @@ type RemotesMavenApiRemotesMavenMavenListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesMavenApiRemotesMavenMavenListRequest) Limit(limit int32) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) Limit(limit int32) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) Name(name string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) Name(name string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) NameContains(nameContains string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) NameContains(nameContains string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) NameIcontains(nameIcontains string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) NameIcontains(nameIcontains string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesMavenApiRemotesMavenMavenListRequest) NameIn(nameIn []string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) NameIn(nameIn []string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) NameStartswith(nameStartswith string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) NameStartswith(nameStartswith string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesMavenApiRemotesMavenMavenListRequest) Offset(offset int32) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) Offset(offset int32) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesMavenApiRemotesMavenMavenListRequest) Ordering(ordering []string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) Ordering(ordering []string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpHrefIn(pulpHrefIn []string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpHrefIn(pulpHrefIn []string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpIdIn(pulpIdIn []string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpIdIn(pulpIdIn []string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesMavenApiRemotesMavenMavenListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesMavenApiRemotesMavenMavenListRequest) Fields(fields []string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) Fields(fields []string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesMavenApiRemotesMavenMavenListRequest) ExcludeFields(excludeFields []string) RemotesMavenApiRemotesMavenMavenListRequest {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) ExcludeFields(excludeFields []string) RemotesMavenAPIRemotesMavenMavenListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesMavenApiRemotesMavenMavenListRequest) Execute() (*PaginatedmavenMavenRemoteResponseList, *http.Response, error) {
+func (r RemotesMavenAPIRemotesMavenMavenListRequest) Execute() (*PaginatedmavenMavenRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesMavenMavenListExecute(r)
 }
 
@@ -387,10 +387,10 @@ RemotesMavenMavenList List maven remotes
 A ViewSet for MavenRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesMavenApiRemotesMavenMavenListRequest
+ @return RemotesMavenAPIRemotesMavenMavenListRequest
 */
-func (a *RemotesMavenApiService) RemotesMavenMavenList(ctx context.Context) RemotesMavenApiRemotesMavenMavenListRequest {
-	return RemotesMavenApiRemotesMavenMavenListRequest{
+func (a *RemotesMavenAPIService) RemotesMavenMavenList(ctx context.Context) RemotesMavenAPIRemotesMavenMavenListRequest {
+	return RemotesMavenAPIRemotesMavenMavenListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -398,7 +398,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenList(ctx context.Context) Remo
 
 // Execute executes the request
 //  @return PaginatedmavenMavenRemoteResponseList
-func (a *RemotesMavenApiService) RemotesMavenMavenListExecute(r RemotesMavenApiRemotesMavenMavenListRequest) (*PaginatedmavenMavenRemoteResponseList, *http.Response, error) {
+func (a *RemotesMavenAPIService) RemotesMavenMavenListExecute(r RemotesMavenAPIRemotesMavenMavenListRequest) (*PaginatedmavenMavenRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -406,7 +406,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenListExecute(r RemotesMavenApiR
 		localVarReturnValue  *PaginatedmavenMavenRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenApiService.RemotesMavenMavenList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenAPIService.RemotesMavenMavenList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -543,19 +543,19 @@ func (a *RemotesMavenApiService) RemotesMavenMavenListExecute(r RemotesMavenApiR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesMavenApiRemotesMavenMavenPartialUpdateRequest struct {
+type RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesMavenApiService
+	ApiService *RemotesMavenAPIService
 	mavenMavenRemoteHref string
 	patchedmavenMavenRemote *PatchedmavenMavenRemote
 }
 
-func (r RemotesMavenApiRemotesMavenMavenPartialUpdateRequest) PatchedmavenMavenRemote(patchedmavenMavenRemote PatchedmavenMavenRemote) RemotesMavenApiRemotesMavenMavenPartialUpdateRequest {
+func (r RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest) PatchedmavenMavenRemote(patchedmavenMavenRemote PatchedmavenMavenRemote) RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest {
 	r.patchedmavenMavenRemote = &patchedmavenMavenRemote
 	return r
 }
 
-func (r RemotesMavenApiRemotesMavenMavenPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesMavenMavenPartialUpdateExecute(r)
 }
 
@@ -566,10 +566,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRemoteHref
- @return RemotesMavenApiRemotesMavenMavenPartialUpdateRequest
+ @return RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest
 */
-func (a *RemotesMavenApiService) RemotesMavenMavenPartialUpdate(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenApiRemotesMavenMavenPartialUpdateRequest {
-	return RemotesMavenApiRemotesMavenMavenPartialUpdateRequest{
+func (a *RemotesMavenAPIService) RemotesMavenMavenPartialUpdate(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest {
+	return RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRemoteHref: mavenMavenRemoteHref,
@@ -578,7 +578,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenPartialUpdate(ctx context.Cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesMavenApiService) RemotesMavenMavenPartialUpdateExecute(r RemotesMavenApiRemotesMavenMavenPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesMavenAPIService) RemotesMavenMavenPartialUpdateExecute(r RemotesMavenAPIRemotesMavenMavenPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -586,7 +586,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenPartialUpdateExecute(r Remotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenApiService.RemotesMavenMavenPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenAPIService.RemotesMavenMavenPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -658,27 +658,27 @@ func (a *RemotesMavenApiService) RemotesMavenMavenPartialUpdateExecute(r Remotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesMavenApiRemotesMavenMavenReadRequest struct {
+type RemotesMavenAPIRemotesMavenMavenReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesMavenApiService
+	ApiService *RemotesMavenAPIService
 	mavenMavenRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesMavenApiRemotesMavenMavenReadRequest) Fields(fields []string) RemotesMavenApiRemotesMavenMavenReadRequest {
+func (r RemotesMavenAPIRemotesMavenMavenReadRequest) Fields(fields []string) RemotesMavenAPIRemotesMavenMavenReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesMavenApiRemotesMavenMavenReadRequest) ExcludeFields(excludeFields []string) RemotesMavenApiRemotesMavenMavenReadRequest {
+func (r RemotesMavenAPIRemotesMavenMavenReadRequest) ExcludeFields(excludeFields []string) RemotesMavenAPIRemotesMavenMavenReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesMavenApiRemotesMavenMavenReadRequest) Execute() (*MavenMavenRemoteResponse, *http.Response, error) {
+func (r RemotesMavenAPIRemotesMavenMavenReadRequest) Execute() (*MavenMavenRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesMavenMavenReadExecute(r)
 }
 
@@ -689,10 +689,10 @@ A ViewSet for MavenRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRemoteHref
- @return RemotesMavenApiRemotesMavenMavenReadRequest
+ @return RemotesMavenAPIRemotesMavenMavenReadRequest
 */
-func (a *RemotesMavenApiService) RemotesMavenMavenRead(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenApiRemotesMavenMavenReadRequest {
-	return RemotesMavenApiRemotesMavenMavenReadRequest{
+func (a *RemotesMavenAPIService) RemotesMavenMavenRead(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenAPIRemotesMavenMavenReadRequest {
+	return RemotesMavenAPIRemotesMavenMavenReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRemoteHref: mavenMavenRemoteHref,
@@ -701,7 +701,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenRead(ctx context.Context, mave
 
 // Execute executes the request
 //  @return MavenMavenRemoteResponse
-func (a *RemotesMavenApiService) RemotesMavenMavenReadExecute(r RemotesMavenApiRemotesMavenMavenReadRequest) (*MavenMavenRemoteResponse, *http.Response, error) {
+func (a *RemotesMavenAPIService) RemotesMavenMavenReadExecute(r RemotesMavenAPIRemotesMavenMavenReadRequest) (*MavenMavenRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -709,7 +709,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenReadExecute(r RemotesMavenApiR
 		localVarReturnValue  *MavenMavenRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenApiService.RemotesMavenMavenRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenAPIService.RemotesMavenMavenRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -798,19 +798,19 @@ func (a *RemotesMavenApiService) RemotesMavenMavenReadExecute(r RemotesMavenApiR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesMavenApiRemotesMavenMavenUpdateRequest struct {
+type RemotesMavenAPIRemotesMavenMavenUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesMavenApiService
+	ApiService *RemotesMavenAPIService
 	mavenMavenRemoteHref string
 	mavenMavenRemote *MavenMavenRemote
 }
 
-func (r RemotesMavenApiRemotesMavenMavenUpdateRequest) MavenMavenRemote(mavenMavenRemote MavenMavenRemote) RemotesMavenApiRemotesMavenMavenUpdateRequest {
+func (r RemotesMavenAPIRemotesMavenMavenUpdateRequest) MavenMavenRemote(mavenMavenRemote MavenMavenRemote) RemotesMavenAPIRemotesMavenMavenUpdateRequest {
 	r.mavenMavenRemote = &mavenMavenRemote
 	return r
 }
 
-func (r RemotesMavenApiRemotesMavenMavenUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesMavenAPIRemotesMavenMavenUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesMavenMavenUpdateExecute(r)
 }
 
@@ -821,10 +821,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param mavenMavenRemoteHref
- @return RemotesMavenApiRemotesMavenMavenUpdateRequest
+ @return RemotesMavenAPIRemotesMavenMavenUpdateRequest
 */
-func (a *RemotesMavenApiService) RemotesMavenMavenUpdate(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenApiRemotesMavenMavenUpdateRequest {
-	return RemotesMavenApiRemotesMavenMavenUpdateRequest{
+func (a *RemotesMavenAPIService) RemotesMavenMavenUpdate(ctx context.Context, mavenMavenRemoteHref string) RemotesMavenAPIRemotesMavenMavenUpdateRequest {
+	return RemotesMavenAPIRemotesMavenMavenUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		mavenMavenRemoteHref: mavenMavenRemoteHref,
@@ -833,7 +833,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenUpdate(ctx context.Context, ma
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesMavenApiService) RemotesMavenMavenUpdateExecute(r RemotesMavenApiRemotesMavenMavenUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesMavenAPIService) RemotesMavenMavenUpdateExecute(r RemotesMavenAPIRemotesMavenMavenUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -841,7 +841,7 @@ func (a *RemotesMavenApiService) RemotesMavenMavenUpdateExecute(r RemotesMavenAp
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenApiService.RemotesMavenMavenUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesMavenAPIService.RemotesMavenMavenUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

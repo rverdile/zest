@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesFileApiService
+Testing RepositoriesFileAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesFileApiService(t *testing.T) {
+func Test_zest_RepositoriesFileAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileAddRole", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileAddRole(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileAddRole(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileCreate", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var fileFileRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileDelete(context.Background(), fileFileRepositoryHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileListRoles", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileListRoles(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileDelete(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileModify", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var fileFileRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileModify(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileMyPermissions", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileMyPermissions(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileListRoles(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFilePartialUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileModify", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFilePartialUpdate(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileModify(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileRead", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileRead(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileMyPermissions(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,13 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileRemoveRole", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFilePartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileRemoveRole(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFilePartialUpdate(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -158,13 +130,13 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileSync", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileSync(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileRead(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -172,13 +144,41 @@ func Test_zest_RepositoriesFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesFileApiService RepositoriesFileFileUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileRemoveRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFileRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesFileApi.RepositoriesFileFileUpdate(context.Background(), fileFileRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileRemoveRole(context.Background(), fileFileRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileSync", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var fileFileRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileSync(context.Background(), fileFileRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesFileAPIService RepositoriesFileFileUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var fileFileRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesFileAPI.RepositoriesFileFileUpdate(context.Background(), fileFileRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

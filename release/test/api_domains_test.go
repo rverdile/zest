@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DomainsApiService
+Testing DomainsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DomainsApiService(t *testing.T) {
+func Test_zest_DomainsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DomainsApiService DomainsCreate", func(t *testing.T) {
+	t.Run("Test DomainsAPIService DomainsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DomainsApi.DomainsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_DomainsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DomainsApiService DomainsDelete", func(t *testing.T) {
+	t.Run("Test DomainsAPIService DomainsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var domainHref string
 
-		resp, httpRes, err := apiClient.DomainsApi.DomainsDelete(context.Background(), domainHref).Execute()
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsDelete(context.Background(), domainHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_DomainsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DomainsApiService DomainsList", func(t *testing.T) {
+	t.Run("Test DomainsAPIService DomainsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DomainsApi.DomainsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_DomainsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DomainsApiService DomainsPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var domainHref string
-
-		resp, httpRes, err := apiClient.DomainsApi.DomainsPartialUpdate(context.Background(), domainHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DomainsApiService DomainsRead", func(t *testing.T) {
+	t.Run("Test DomainsAPIService DomainsPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var domainHref string
 
-		resp, httpRes, err := apiClient.DomainsApi.DomainsRead(context.Background(), domainHref).Execute()
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsPartialUpdate(context.Background(), domainHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_DomainsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DomainsApiService DomainsUpdate", func(t *testing.T) {
+	t.Run("Test DomainsAPIService DomainsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var domainHref string
 
-		resp, httpRes, err := apiClient.DomainsApi.DomainsUpdate(context.Background(), domainHref).Execute()
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsRead(context.Background(), domainHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DomainsAPIService DomainsUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var domainHref string
+
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsUpdate(context.Background(), domainHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

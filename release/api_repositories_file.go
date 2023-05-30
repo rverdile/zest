@@ -22,22 +22,22 @@ import (
 )
 
 
-// RepositoriesFileApiService RepositoriesFileApi service
-type RepositoriesFileApiService service
+// RepositoriesFileAPIService RepositoriesFileAPI service
+type RepositoriesFileAPIService service
 
-type RepositoriesFileApiRepositoriesFileFileAddRoleRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesFileApiRepositoriesFileFileAddRoleRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesFileAPIRepositoriesFileFileAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileAddRoleRequest
+ @return RepositoriesFileAPIRepositoriesFileFileAddRoleRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileAddRole(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileAddRoleRequest {
-	return RepositoriesFileApiRepositoriesFileFileAddRoleRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileAddRole(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileAddRoleRequest {
+	return RepositoriesFileAPIRepositoriesFileFileAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -60,7 +60,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileAddRole(ctx context.Con
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileAddRoleExecute(r RepositoriesFileApiRepositoriesFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileAddRoleExecute(r RepositoriesFileAPIRepositoriesFileFileAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileAddRoleExecute(r Reposi
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileAddRoleExecute(r Reposi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileCreateRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepository *FileFileRepository
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileCreateRequest) FileFileRepository(fileFileRepository FileFileRepository) RepositoriesFileApiRepositoriesFileFileCreateRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileCreateRequest) FileFileRepository(fileFileRepository FileFileRepository) RepositoriesFileAPIRepositoriesFileFileCreateRequest {
 	r.fileFileRepository = &fileFileRepository
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileCreateRequest) Execute() (*FileFileRepositoryResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileCreateRequest) Execute() (*FileFileRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileCreateExecute(r)
 }
 
@@ -163,10 +163,10 @@ FileRepository represents a single file repository, to which content can be sync
 or removed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesFileApiRepositoriesFileFileCreateRequest
+ @return RepositoriesFileAPIRepositoriesFileFileCreateRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileCreate(ctx context.Context) RepositoriesFileApiRepositoriesFileFileCreateRequest {
-	return RepositoriesFileApiRepositoriesFileFileCreateRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileCreate(ctx context.Context) RepositoriesFileAPIRepositoriesFileFileCreateRequest {
+	return RepositoriesFileAPIRepositoriesFileFileCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -174,7 +174,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileCreate(ctx context.Cont
 
 // Execute executes the request
 //  @return FileFileRepositoryResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileCreateExecute(r RepositoriesFileApiRepositoriesFileFileCreateRequest) (*FileFileRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileCreateExecute(r RepositoriesFileAPIRepositoriesFileFileCreateRequest) (*FileFileRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -182,7 +182,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileCreateExecute(r Reposit
 		localVarReturnValue  *FileFileRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -251,13 +251,13 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileCreateExecute(r Reposit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileDeleteRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileDeleteExecute(r)
 }
 
@@ -268,10 +268,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileDeleteRequest
+ @return RepositoriesFileAPIRepositoriesFileFileDeleteRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileDelete(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileDeleteRequest {
-	return RepositoriesFileApiRepositoriesFileFileDeleteRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileDelete(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileDeleteRequest {
+	return RepositoriesFileAPIRepositoriesFileFileDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -280,7 +280,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileDelete(ctx context.Cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileDeleteExecute(r RepositoriesFileApiRepositoriesFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileDeleteExecute(r RepositoriesFileAPIRepositoriesFileFileDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -288,7 +288,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileDeleteExecute(r Reposit
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -355,9 +355,10 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileDeleteExecute(r Reposit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileListRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -378,143 +379,156 @@ type RepositoriesFileApiRepositoriesFileFileListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) LatestWithContent(latestWithContent string) RepositoriesFileAPIRepositoriesFileFileListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) Limit(limit int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) Limit(limit int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) Name(name string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) Name(name string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) NameContains(nameContains string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) NameContains(nameContains string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) NameIcontains(nameIcontains string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) NameIcontains(nameIcontains string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) NameIn(nameIn []string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) NameIn(nameIn []string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) NameStartswith(nameStartswith string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) NameStartswith(nameStartswith string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) Offset(offset int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) Offset(offset int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) Ordering(ordering []string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) Ordering(ordering []string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) PulpIdIn(pulpIdIn []string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) PulpIdIn(pulpIdIn []string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) Remote(remote string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) Remote(remote string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) WithContent(withContent string) RepositoriesFileAPIRepositoriesFileFileListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) Fields(fields []string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) Fields(fields []string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) ExcludeFields(excludeFields []string) RepositoriesFileApiRepositoriesFileFileListRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) ExcludeFields(excludeFields []string) RepositoriesFileAPIRepositoriesFileFileListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileListRequest) Execute() (*PaginatedfileFileRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileListRequest) Execute() (*PaginatedfileFileRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileListExecute(r)
 }
 
@@ -526,10 +540,10 @@ FileRepository represents a single file repository, to which content can be sync
 or removed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesFileApiRepositoriesFileFileListRequest
+ @return RepositoriesFileAPIRepositoriesFileFileListRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileList(ctx context.Context) RepositoriesFileApiRepositoriesFileFileListRequest {
-	return RepositoriesFileApiRepositoriesFileFileListRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileList(ctx context.Context) RepositoriesFileAPIRepositoriesFileFileListRequest {
+	return RepositoriesFileAPIRepositoriesFileFileListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -537,7 +551,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileList(ctx context.Contex
 
 // Execute executes the request
 //  @return PaginatedfileFileRepositoryResponseList
-func (a *RepositoriesFileApiService) RepositoriesFileFileListExecute(r RepositoriesFileApiRepositoriesFileFileListRequest) (*PaginatedfileFileRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileListExecute(r RepositoriesFileAPIRepositoriesFileFileListRequest) (*PaginatedfileFileRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -545,7 +559,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileListExecute(r Repositor
 		localVarReturnValue  *PaginatedfileFileRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -555,6 +569,9 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileListExecute(r Repositor
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -614,6 +631,9 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileListExecute(r Repositor
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -691,27 +711,27 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileListExecute(r Repositor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileListRolesRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileListRolesRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesFileApiRepositoriesFileFileListRolesRequest) Fields(fields []string) RepositoriesFileApiRepositoriesFileFileListRolesRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRolesRequest) Fields(fields []string) RepositoriesFileAPIRepositoriesFileFileListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesFileApiRepositoriesFileFileListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesFileApiRepositoriesFileFileListRolesRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesFileAPIRepositoriesFileFileListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileListRolesExecute(r)
 }
 
@@ -722,10 +742,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileListRolesRequest
+ @return RepositoriesFileAPIRepositoriesFileFileListRolesRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileListRoles(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileListRolesRequest {
-	return RepositoriesFileApiRepositoriesFileFileListRolesRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileListRoles(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileListRolesRequest {
+	return RepositoriesFileAPIRepositoriesFileFileListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -734,7 +754,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileListRoles(ctx context.C
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileListRolesExecute(r RepositoriesFileApiRepositoriesFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileListRolesExecute(r RepositoriesFileAPIRepositoriesFileFileListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -742,7 +762,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileListRolesExecute(r Repo
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -831,19 +851,19 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileListRolesExecute(r Repo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileModifyRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileModifyRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	repositoryAddRemoveContent *RepositoryAddRemoveContent
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesFileApiRepositoriesFileFileModifyRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesFileAPIRepositoriesFileFileModifyRequest {
 	r.repositoryAddRemoveContent = &repositoryAddRemoveContent
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileModifyExecute(r)
 }
 
@@ -854,10 +874,10 @@ Trigger an asynchronous task to create a new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileModifyRequest
+ @return RepositoriesFileAPIRepositoriesFileFileModifyRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileModify(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileModifyRequest {
-	return RepositoriesFileApiRepositoriesFileFileModifyRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileModify(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileModifyRequest {
+	return RepositoriesFileAPIRepositoriesFileFileModifyRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -866,7 +886,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileModify(ctx context.Cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileModifyExecute(r RepositoriesFileApiRepositoriesFileFileModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileModifyExecute(r RepositoriesFileAPIRepositoriesFileFileModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -874,7 +894,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileModifyExecute(r Reposit
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileModify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileModify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -946,27 +966,27 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileModifyExecute(r Reposit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest) Fields(fields []string) RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest) Fields(fields []string) RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileMyPermissionsExecute(r)
 }
 
@@ -977,10 +997,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest
+ @return RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileMyPermissions(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest {
-	return RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileMyPermissions(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest {
+	return RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -989,7 +1009,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileMyPermissions(ctx conte
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileMyPermissionsExecute(r RepositoriesFileApiRepositoriesFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileMyPermissionsExecute(r RepositoriesFileAPIRepositoriesFileFileMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -997,7 +1017,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileMyPermissionsExecute(r 
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1086,19 +1106,19 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileMyPermissionsExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest struct {
+type RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	patchedfileFileRepository *PatchedfileFileRepository
 }
 
-func (r RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest) PatchedfileFileRepository(patchedfileFileRepository PatchedfileFileRepository) RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest {
+func (r RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest) PatchedfileFileRepository(patchedfileFileRepository PatchedfileFileRepository) RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest {
 	r.patchedfileFileRepository = &patchedfileFileRepository
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFilePartialUpdateExecute(r)
 }
 
@@ -1109,10 +1129,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest
+ @return RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFilePartialUpdate(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest {
-	return RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFilePartialUpdate(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest {
+	return RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -1121,7 +1141,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFilePartialUpdate(ctx conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFilePartialUpdateExecute(r RepositoriesFileApiRepositoriesFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFilePartialUpdateExecute(r RepositoriesFileAPIRepositoriesFileFilePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1129,7 +1149,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFilePartialUpdateExecute(r 
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFilePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFilePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1201,27 +1221,27 @@ func (a *RepositoriesFileApiService) RepositoriesFileFilePartialUpdateExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileReadRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesFileApiRepositoriesFileFileReadRequest) Fields(fields []string) RepositoriesFileApiRepositoriesFileFileReadRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileReadRequest) Fields(fields []string) RepositoriesFileAPIRepositoriesFileFileReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesFileApiRepositoriesFileFileReadRequest) ExcludeFields(excludeFields []string) RepositoriesFileApiRepositoriesFileFileReadRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileReadRequest) ExcludeFields(excludeFields []string) RepositoriesFileAPIRepositoriesFileFileReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileReadRequest) Execute() (*FileFileRepositoryResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileReadRequest) Execute() (*FileFileRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileReadExecute(r)
 }
 
@@ -1234,10 +1254,10 @@ or removed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileReadRequest
+ @return RepositoriesFileAPIRepositoriesFileFileReadRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileRead(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileReadRequest {
-	return RepositoriesFileApiRepositoriesFileFileReadRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileRead(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileReadRequest {
+	return RepositoriesFileAPIRepositoriesFileFileReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -1246,7 +1266,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileRead(ctx context.Contex
 
 // Execute executes the request
 //  @return FileFileRepositoryResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileReadExecute(r RepositoriesFileApiRepositoriesFileFileReadRequest) (*FileFileRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileReadExecute(r RepositoriesFileAPIRepositoriesFileFileReadRequest) (*FileFileRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1254,7 +1274,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileReadExecute(r Repositor
 		localVarReturnValue  *FileFileRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1343,19 +1363,19 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileReadExecute(r Repositor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileRemoveRoleExecute(r)
 }
 
@@ -1366,10 +1386,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest
+ @return RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileRemoveRole(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest {
-	return RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileRemoveRole(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest {
+	return RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -1378,7 +1398,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileRemoveRole(ctx context.
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileRemoveRoleExecute(r RepositoriesFileApiRepositoriesFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileRemoveRoleExecute(r RepositoriesFileAPIRepositoriesFileFileRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1386,7 +1406,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileRemoveRoleExecute(r Rep
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1458,19 +1478,19 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileRemoveRoleExecute(r Rep
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileSyncRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileSyncRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	repositorySyncURL *RepositorySyncURL
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileSyncRequest) RepositorySyncURL(repositorySyncURL RepositorySyncURL) RepositoriesFileApiRepositoriesFileFileSyncRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileSyncRequest) RepositorySyncURL(repositorySyncURL RepositorySyncURL) RepositoriesFileAPIRepositoriesFileFileSyncRequest {
 	r.repositorySyncURL = &repositorySyncURL
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileSyncExecute(r)
 }
 
@@ -1481,10 +1501,10 @@ Trigger an asynchronous task to sync file content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileSyncRequest
+ @return RepositoriesFileAPIRepositoriesFileFileSyncRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileSync(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileSyncRequest {
-	return RepositoriesFileApiRepositoriesFileFileSyncRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileSync(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileSyncRequest {
+	return RepositoriesFileAPIRepositoriesFileFileSyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -1493,7 +1513,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileSync(ctx context.Contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileSyncExecute(r RepositoriesFileApiRepositoriesFileFileSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileSyncExecute(r RepositoriesFileAPIRepositoriesFileFileSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1501,7 +1521,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileSyncExecute(r Repositor
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1573,19 +1593,19 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileSyncExecute(r Repositor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileApiRepositoriesFileFileUpdateRequest struct {
+type RepositoriesFileAPIRepositoriesFileFileUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileApiService
+	ApiService *RepositoriesFileAPIService
 	fileFileRepositoryHref string
 	fileFileRepository *FileFileRepository
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileUpdateRequest) FileFileRepository(fileFileRepository FileFileRepository) RepositoriesFileApiRepositoriesFileFileUpdateRequest {
+func (r RepositoriesFileAPIRepositoriesFileFileUpdateRequest) FileFileRepository(fileFileRepository FileFileRepository) RepositoriesFileAPIRepositoriesFileFileUpdateRequest {
 	r.fileFileRepository = &fileFileRepository
 	return r
 }
 
-func (r RepositoriesFileApiRepositoriesFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesFileAPIRepositoriesFileFileUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileUpdateExecute(r)
 }
 
@@ -1596,10 +1616,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileApiRepositoriesFileFileUpdateRequest
+ @return RepositoriesFileAPIRepositoriesFileFileUpdateRequest
 */
-func (a *RepositoriesFileApiService) RepositoriesFileFileUpdate(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileApiRepositoriesFileFileUpdateRequest {
-	return RepositoriesFileApiRepositoriesFileFileUpdateRequest{
+func (a *RepositoriesFileAPIService) RepositoriesFileFileUpdate(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileAPIRepositoriesFileFileUpdateRequest {
+	return RepositoriesFileAPIRepositoriesFileFileUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -1608,7 +1628,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileUpdate(ctx context.Cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesFileApiService) RepositoriesFileFileUpdateExecute(r RepositoriesFileApiRepositoriesFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesFileAPIService) RepositoriesFileFileUpdateExecute(r RepositoriesFileAPIRepositoriesFileFileUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1616,7 +1636,7 @@ func (a *RepositoriesFileApiService) RepositoriesFileFileUpdateExecute(r Reposit
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileApiService.RepositoriesFileFileUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileAPIService.RepositoriesFileFileUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

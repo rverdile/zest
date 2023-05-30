@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentCommitsApiService ContentCommitsApi service
-type ContentCommitsApiService service
+// ContentCommitsAPIService ContentCommitsAPI service
+type ContentCommitsAPIService service
 
-type ContentCommitsApiContentOstreeCommitsListRequest struct {
+type ContentCommitsAPIContentOstreeCommitsListRequest struct {
 	ctx context.Context
-	ApiService *ContentCommitsApiService
+	ApiService *ContentCommitsAPIService
 	checksum *string
 	limit *int32
 	offset *int32
@@ -42,72 +42,72 @@ type ContentCommitsApiContentOstreeCommitsListRequest struct {
 }
 
 // Filter results where checksum matches value
-func (r ContentCommitsApiContentOstreeCommitsListRequest) Checksum(checksum string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) Checksum(checksum string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.checksum = &checksum
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentCommitsApiContentOstreeCommitsListRequest) Limit(limit int32) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) Limit(limit int32) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentCommitsApiContentOstreeCommitsListRequest) Offset(offset int32) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) Offset(offset int32) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;checksum&#x60; - Checksum * &#x60;-checksum&#x60; - Checksum (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentCommitsApiContentOstreeCommitsListRequest) Ordering(ordering []string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) Ordering(ordering []string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCommitsApiContentOstreeCommitsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCommitsApiContentOstreeCommitsListRequest) PulpIdIn(pulpIdIn []string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) PulpIdIn(pulpIdIn []string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCommitsApiContentOstreeCommitsListRequest) RepositoryVersion(repositoryVersion string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) RepositoryVersion(repositoryVersion string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCommitsApiContentOstreeCommitsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCommitsApiContentOstreeCommitsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentCommitsApiContentOstreeCommitsListRequest) Fields(fields []string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) Fields(fields []string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCommitsApiContentOstreeCommitsListRequest) ExcludeFields(excludeFields []string) ContentCommitsApiContentOstreeCommitsListRequest {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) ExcludeFields(excludeFields []string) ContentCommitsAPIContentOstreeCommitsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCommitsApiContentOstreeCommitsListRequest) Execute() (*PaginatedostreeOstreeCommitResponseList, *http.Response, error) {
+func (r ContentCommitsAPIContentOstreeCommitsListRequest) Execute() (*PaginatedostreeOstreeCommitResponseList, *http.Response, error) {
 	return r.ApiService.ContentOstreeCommitsListExecute(r)
 }
 
@@ -117,10 +117,10 @@ ContentOstreeCommitsList List ostree commits
 A ViewSet class for OSTree commits.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCommitsApiContentOstreeCommitsListRequest
+ @return ContentCommitsAPIContentOstreeCommitsListRequest
 */
-func (a *ContentCommitsApiService) ContentOstreeCommitsList(ctx context.Context) ContentCommitsApiContentOstreeCommitsListRequest {
-	return ContentCommitsApiContentOstreeCommitsListRequest{
+func (a *ContentCommitsAPIService) ContentOstreeCommitsList(ctx context.Context) ContentCommitsAPIContentOstreeCommitsListRequest {
+	return ContentCommitsAPIContentOstreeCommitsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -128,7 +128,7 @@ func (a *ContentCommitsApiService) ContentOstreeCommitsList(ctx context.Context)
 
 // Execute executes the request
 //  @return PaginatedostreeOstreeCommitResponseList
-func (a *ContentCommitsApiService) ContentOstreeCommitsListExecute(r ContentCommitsApiContentOstreeCommitsListRequest) (*PaginatedostreeOstreeCommitResponseList, *http.Response, error) {
+func (a *ContentCommitsAPIService) ContentOstreeCommitsListExecute(r ContentCommitsAPIContentOstreeCommitsListRequest) (*PaginatedostreeOstreeCommitResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -136,7 +136,7 @@ func (a *ContentCommitsApiService) ContentOstreeCommitsListExecute(r ContentComm
 		localVarReturnValue  *PaginatedostreeOstreeCommitResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCommitsApiService.ContentOstreeCommitsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCommitsAPIService.ContentOstreeCommitsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,27 +249,27 @@ func (a *ContentCommitsApiService) ContentOstreeCommitsListExecute(r ContentComm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCommitsApiContentOstreeCommitsReadRequest struct {
+type ContentCommitsAPIContentOstreeCommitsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentCommitsApiService
+	ApiService *ContentCommitsAPIService
 	ostreeOstreeCommitHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentCommitsApiContentOstreeCommitsReadRequest) Fields(fields []string) ContentCommitsApiContentOstreeCommitsReadRequest {
+func (r ContentCommitsAPIContentOstreeCommitsReadRequest) Fields(fields []string) ContentCommitsAPIContentOstreeCommitsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCommitsApiContentOstreeCommitsReadRequest) ExcludeFields(excludeFields []string) ContentCommitsApiContentOstreeCommitsReadRequest {
+func (r ContentCommitsAPIContentOstreeCommitsReadRequest) ExcludeFields(excludeFields []string) ContentCommitsAPIContentOstreeCommitsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCommitsApiContentOstreeCommitsReadRequest) Execute() (*OstreeOstreeCommitResponse, *http.Response, error) {
+func (r ContentCommitsAPIContentOstreeCommitsReadRequest) Execute() (*OstreeOstreeCommitResponse, *http.Response, error) {
 	return r.ApiService.ContentOstreeCommitsReadExecute(r)
 }
 
@@ -280,10 +280,10 @@ A ViewSet class for OSTree commits.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeCommitHref
- @return ContentCommitsApiContentOstreeCommitsReadRequest
+ @return ContentCommitsAPIContentOstreeCommitsReadRequest
 */
-func (a *ContentCommitsApiService) ContentOstreeCommitsRead(ctx context.Context, ostreeOstreeCommitHref string) ContentCommitsApiContentOstreeCommitsReadRequest {
-	return ContentCommitsApiContentOstreeCommitsReadRequest{
+func (a *ContentCommitsAPIService) ContentOstreeCommitsRead(ctx context.Context, ostreeOstreeCommitHref string) ContentCommitsAPIContentOstreeCommitsReadRequest {
+	return ContentCommitsAPIContentOstreeCommitsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeCommitHref: ostreeOstreeCommitHref,
@@ -292,7 +292,7 @@ func (a *ContentCommitsApiService) ContentOstreeCommitsRead(ctx context.Context,
 
 // Execute executes the request
 //  @return OstreeOstreeCommitResponse
-func (a *ContentCommitsApiService) ContentOstreeCommitsReadExecute(r ContentCommitsApiContentOstreeCommitsReadRequest) (*OstreeOstreeCommitResponse, *http.Response, error) {
+func (a *ContentCommitsAPIService) ContentOstreeCommitsReadExecute(r ContentCommitsAPIContentOstreeCommitsReadRequest) (*OstreeOstreeCommitResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -300,7 +300,7 @@ func (a *ContentCommitsApiService) ContentOstreeCommitsReadExecute(r ContentComm
 		localVarReturnValue  *OstreeOstreeCommitResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCommitsApiService.ContentOstreeCommitsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCommitsAPIService.ContentOstreeCommitsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

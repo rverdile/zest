@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentRepoMetadataFilesApiService
+Testing ContentRepoMetadataFilesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentRepoMetadataFilesApiService(t *testing.T) {
+func Test_zest_ContentRepoMetadataFilesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentRepoMetadataFilesApiService ContentRpmRepoMetadataFilesList", func(t *testing.T) {
+	t.Run("Test ContentRepoMetadataFilesAPIService ContentRpmRepoMetadataFilesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentRepoMetadataFilesApi.ContentRpmRepoMetadataFilesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentRepoMetadataFilesAPI.ContentRpmRepoMetadataFilesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentRepoMetadataFilesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentRepoMetadataFilesApiService ContentRpmRepoMetadataFilesRead", func(t *testing.T) {
+	t.Run("Test ContentRepoMetadataFilesAPIService ContentRpmRepoMetadataFilesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmRepoMetadataFileHref string
 
-		resp, httpRes, err := apiClient.ContentRepoMetadataFilesApi.ContentRpmRepoMetadataFilesRead(context.Background(), rpmRepoMetadataFileHref).Execute()
+		resp, httpRes, err := apiClient.ContentRepoMetadataFilesAPI.ContentRpmRepoMetadataFilesRead(context.Background(), rpmRepoMetadataFileHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

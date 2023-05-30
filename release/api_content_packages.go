@@ -23,50 +23,64 @@ import (
 )
 
 
-// ContentPackagesApiService ContentPackagesApi service
-type ContentPackagesApiService service
+// ContentPackagesAPIService ContentPackagesAPI service
+type ContentPackagesAPIService service
 
-type ContentPackagesApiContentDebPackagesCreateRequest struct {
+type ContentPackagesAPIContentDebPackagesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	artifact *string
 	relativePath *string
 	file *os.File
 	repository *string
 	upload *string
+	distribution *string
+	component *string
 }
 
 // Artifact file representing the physical content
-func (r ContentPackagesApiContentDebPackagesCreateRequest) Artifact(artifact string) ContentPackagesApiContentDebPackagesCreateRequest {
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) Artifact(artifact string) ContentPackagesAPIContentDebPackagesCreateRequest {
 	r.artifact = &artifact
 	return r
 }
 
 // Path where the artifact is located relative to distributions base_path
-func (r ContentPackagesApiContentDebPackagesCreateRequest) RelativePath(relativePath string) ContentPackagesApiContentDebPackagesCreateRequest {
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) RelativePath(relativePath string) ContentPackagesAPIContentDebPackagesCreateRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentPackagesApiContentDebPackagesCreateRequest) File(file *os.File) ContentPackagesApiContentDebPackagesCreateRequest {
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) File(file *os.File) ContentPackagesAPIContentDebPackagesCreateRequest {
 	r.file = file
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentPackagesApiContentDebPackagesCreateRequest) Repository(repository string) ContentPackagesApiContentDebPackagesCreateRequest {
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) Repository(repository string) ContentPackagesAPIContentDebPackagesCreateRequest {
 	r.repository = &repository
 	return r
 }
 
 // An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentPackagesApiContentDebPackagesCreateRequest) Upload(upload string) ContentPackagesApiContentDebPackagesCreateRequest {
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) Upload(upload string) ContentPackagesAPIContentDebPackagesCreateRequest {
 	r.upload = &upload
 	return r
 }
 
-func (r ContentPackagesApiContentDebPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+// Name of the distribution.
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) Distribution(distribution string) ContentPackagesAPIContentDebPackagesCreateRequest {
+	r.distribution = &distribution
+	return r
+}
+
+// Name of the component.
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) Component(component string) ContentPackagesAPIContentDebPackagesCreateRequest {
+	r.component = &component
+	return r
+}
+
+func (r ContentPackagesAPIContentDebPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentDebPackagesCreateExecute(r)
 }
 
@@ -76,10 +90,10 @@ ContentDebPackagesCreate Create a package
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagesApiContentDebPackagesCreateRequest
+ @return ContentPackagesAPIContentDebPackagesCreateRequest
 */
-func (a *ContentPackagesApiService) ContentDebPackagesCreate(ctx context.Context) ContentPackagesApiContentDebPackagesCreateRequest {
-	return ContentPackagesApiContentDebPackagesCreateRequest{
+func (a *ContentPackagesAPIService) ContentDebPackagesCreate(ctx context.Context) ContentPackagesAPIContentDebPackagesCreateRequest {
+	return ContentPackagesAPIContentDebPackagesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -87,7 +101,7 @@ func (a *ContentPackagesApiService) ContentDebPackagesCreate(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentPackagesApiService) ContentDebPackagesCreateExecute(r ContentPackagesApiContentDebPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentPackagesAPIService) ContentDebPackagesCreateExecute(r ContentPackagesAPIContentDebPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -95,7 +109,7 @@ func (a *ContentPackagesApiService) ContentDebPackagesCreateExecute(r ContentPac
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentDebPackagesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentDebPackagesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -151,6 +165,12 @@ func (a *ContentPackagesApiService) ContentDebPackagesCreateExecute(r ContentPac
 	if r.upload != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
 	}
+	if r.distribution != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "distribution", r.distribution, "")
+	}
+	if r.component != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "component", r.component, "")
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -188,9 +208,9 @@ func (a *ContentPackagesApiService) ContentDebPackagesCreateExecute(r ContentPac
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentDebPackagesListRequest struct {
+type ContentPackagesAPIContentDebPackagesListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	architecture *string
 	autoBuiltPackage *string
 	buildEssential *bool
@@ -222,174 +242,174 @@ type ContentPackagesApiContentDebPackagesListRequest struct {
 }
 
 // Filter results where architecture matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Architecture(architecture string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Architecture(architecture string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.architecture = &architecture
 	return r
 }
 
 // Filter results where auto_built_package matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) AutoBuiltPackage(autoBuiltPackage string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) AutoBuiltPackage(autoBuiltPackage string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.autoBuiltPackage = &autoBuiltPackage
 	return r
 }
 
 // Filter results where build_essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
-func (r ContentPackagesApiContentDebPackagesListRequest) BuildEssential(buildEssential bool) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) BuildEssential(buildEssential bool) ContentPackagesAPIContentDebPackagesListRequest {
 	r.buildEssential = &buildEssential
 	return r
 }
 
 // Filter results where built_using matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) BuiltUsing(builtUsing string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) BuiltUsing(builtUsing string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.builtUsing = &builtUsing
 	return r
 }
 
 // Filter results where essential matches value  * &#x60;True&#x60; - yes * &#x60;False&#x60; - no
-func (r ContentPackagesApiContentDebPackagesListRequest) Essential(essential bool) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Essential(essential bool) ContentPackagesAPIContentDebPackagesListRequest {
 	r.essential = &essential
 	return r
 }
 
 // Filter results where installed_size matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) InstalledSize(installedSize int32) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) InstalledSize(installedSize int32) ContentPackagesAPIContentDebPackagesListRequest {
 	r.installedSize = &installedSize
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentPackagesApiContentDebPackagesListRequest) Limit(limit int32) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Limit(limit int32) ContentPackagesAPIContentDebPackagesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where maintainer matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Maintainer(maintainer string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Maintainer(maintainer string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.maintainer = &maintainer
 	return r
 }
 
 // Filter results where multi_arch matches value  * &#x60;no&#x60; - no * &#x60;same&#x60; - same * &#x60;foreign&#x60; - foreign * &#x60;allowed&#x60; - allowed
-func (r ContentPackagesApiContentDebPackagesListRequest) MultiArch(multiArch string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) MultiArch(multiArch string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.multiArch = &multiArch
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentPackagesApiContentDebPackagesListRequest) Offset(offset int32) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Offset(offset int32) ContentPackagesAPIContentDebPackagesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;package&#x60; - Package * &#x60;-package&#x60; - Package (descending) * &#x60;source&#x60; - Source * &#x60;-source&#x60; - Source (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;architecture&#x60; - Architecture * &#x60;-architecture&#x60; - Architecture (descending) * &#x60;section&#x60; - Section * &#x60;-section&#x60; - Section (descending) * &#x60;priority&#x60; - Priority * &#x60;-priority&#x60; - Priority (descending) * &#x60;origin&#x60; - Origin * &#x60;-origin&#x60; - Origin (descending) * &#x60;tag&#x60; - Tag * &#x60;-tag&#x60; - Tag (descending) * &#x60;bugs&#x60; - Bugs * &#x60;-bugs&#x60; - Bugs (descending) * &#x60;essential&#x60; - Essential * &#x60;-essential&#x60; - Essential (descending) * &#x60;build_essential&#x60; - Build essential * &#x60;-build_essential&#x60; - Build essential (descending) * &#x60;installed_size&#x60; - Installed size * &#x60;-installed_size&#x60; - Installed size (descending) * &#x60;maintainer&#x60; - Maintainer * &#x60;-maintainer&#x60; - Maintainer (descending) * &#x60;original_maintainer&#x60; - Original maintainer * &#x60;-original_maintainer&#x60; - Original maintainer (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;description_md5&#x60; - Description md5 * &#x60;-description_md5&#x60; - Description md5 (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;built_using&#x60; - Built using * &#x60;-built_using&#x60; - Built using (descending) * &#x60;auto_built_package&#x60; - Auto built package * &#x60;-auto_built_package&#x60; - Auto built package (descending) * &#x60;multi_arch&#x60; - Multi arch * &#x60;-multi_arch&#x60; - Multi arch (descending) * &#x60;breaks&#x60; - Breaks * &#x60;-breaks&#x60; - Breaks (descending) * &#x60;conflicts&#x60; - Conflicts * &#x60;-conflicts&#x60; - Conflicts (descending) * &#x60;depends&#x60; - Depends * &#x60;-depends&#x60; - Depends (descending) * &#x60;recommends&#x60; - Recommends * &#x60;-recommends&#x60; - Recommends (descending) * &#x60;suggests&#x60; - Suggests * &#x60;-suggests&#x60; - Suggests (descending) * &#x60;enhances&#x60; - Enhances * &#x60;-enhances&#x60; - Enhances (descending) * &#x60;pre_depends&#x60; - Pre depends * &#x60;-pre_depends&#x60; - Pre depends (descending) * &#x60;provides&#x60; - Provides * &#x60;-provides&#x60; - Provides (descending) * &#x60;replaces&#x60; - Replaces * &#x60;-replaces&#x60; - Replaces (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;custom_fields&#x60; - Custom fields * &#x60;-custom_fields&#x60; - Custom fields (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackagesApiContentDebPackagesListRequest) Ordering(ordering []string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Ordering(ordering []string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where origin matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Origin(origin string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Origin(origin string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.origin = &origin
 	return r
 }
 
 // Filter results where original_maintainer matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) OriginalMaintainer(originalMaintainer string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) OriginalMaintainer(originalMaintainer string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.originalMaintainer = &originalMaintainer
 	return r
 }
 
 // Filter results where package matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Package_(package_ string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Package_(package_ string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.package_ = &package_
 	return r
 }
 
 // Filter results where priority matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Priority(priority string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Priority(priority string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.priority = &priority
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagesApiContentDebPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagesApiContentDebPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where relative_path matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) RelativePath(relativePath string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) RelativePath(relativePath string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentDebPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentDebPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentDebPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where section matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Section(section string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Section(section string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.section = &section
 	return r
 }
 
 // Filter results where sha256 matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Sha256(sha256 string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Sha256(sha256 string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where source matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Source(source string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Source(source string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.source = &source
 	return r
 }
 
 // Filter results where tag matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Tag(tag string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Tag(tag string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.tag = &tag
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentPackagesApiContentDebPackagesListRequest) Version(version string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Version(version string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.version = &version
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagesApiContentDebPackagesListRequest) Fields(fields []string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Fields(fields []string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagesApiContentDebPackagesListRequest) ExcludeFields(excludeFields []string) ContentPackagesApiContentDebPackagesListRequest {
+func (r ContentPackagesAPIContentDebPackagesListRequest) ExcludeFields(excludeFields []string) ContentPackagesAPIContentDebPackagesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagesApiContentDebPackagesListRequest) Execute() (*PaginateddebBasePackageResponseList, *http.Response, error) {
+func (r ContentPackagesAPIContentDebPackagesListRequest) Execute() (*PaginateddebPackageResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebPackagesListExecute(r)
 }
 
@@ -401,26 +421,26 @@ A Package represents a '.deb' binary package.
 Associated artifacts: Exactly one '.deb' package file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagesApiContentDebPackagesListRequest
+ @return ContentPackagesAPIContentDebPackagesListRequest
 */
-func (a *ContentPackagesApiService) ContentDebPackagesList(ctx context.Context) ContentPackagesApiContentDebPackagesListRequest {
-	return ContentPackagesApiContentDebPackagesListRequest{
+func (a *ContentPackagesAPIService) ContentDebPackagesList(ctx context.Context) ContentPackagesAPIContentDebPackagesListRequest {
+	return ContentPackagesAPIContentDebPackagesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginateddebBasePackageResponseList
-func (a *ContentPackagesApiService) ContentDebPackagesListExecute(r ContentPackagesApiContentDebPackagesListRequest) (*PaginateddebBasePackageResponseList, *http.Response, error) {
+//  @return PaginateddebPackageResponseList
+func (a *ContentPackagesAPIService) ContentDebPackagesListExecute(r ContentPackagesAPIContentDebPackagesListRequest) (*PaginateddebPackageResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PaginateddebBasePackageResponseList
+		localVarReturnValue  *PaginateddebPackageResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentDebPackagesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentDebPackagesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -584,27 +604,27 @@ func (a *ContentPackagesApiService) ContentDebPackagesListExecute(r ContentPacka
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentDebPackagesReadRequest struct {
+type ContentPackagesAPIContentDebPackagesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	debPackageHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagesApiContentDebPackagesReadRequest) Fields(fields []string) ContentPackagesApiContentDebPackagesReadRequest {
+func (r ContentPackagesAPIContentDebPackagesReadRequest) Fields(fields []string) ContentPackagesAPIContentDebPackagesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagesApiContentDebPackagesReadRequest) ExcludeFields(excludeFields []string) ContentPackagesApiContentDebPackagesReadRequest {
+func (r ContentPackagesAPIContentDebPackagesReadRequest) ExcludeFields(excludeFields []string) ContentPackagesAPIContentDebPackagesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagesApiContentDebPackagesReadRequest) Execute() (*DebBasePackageResponse, *http.Response, error) {
+func (r ContentPackagesAPIContentDebPackagesReadRequest) Execute() (*DebPackageResponse, *http.Response, error) {
 	return r.ApiService.ContentDebPackagesReadExecute(r)
 }
 
@@ -617,10 +637,10 @@ Associated artifacts: Exactly one '.deb' package file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debPackageHref
- @return ContentPackagesApiContentDebPackagesReadRequest
+ @return ContentPackagesAPIContentDebPackagesReadRequest
 */
-func (a *ContentPackagesApiService) ContentDebPackagesRead(ctx context.Context, debPackageHref string) ContentPackagesApiContentDebPackagesReadRequest {
-	return ContentPackagesApiContentDebPackagesReadRequest{
+func (a *ContentPackagesAPIService) ContentDebPackagesRead(ctx context.Context, debPackageHref string) ContentPackagesAPIContentDebPackagesReadRequest {
+	return ContentPackagesAPIContentDebPackagesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debPackageHref: debPackageHref,
@@ -628,16 +648,16 @@ func (a *ContentPackagesApiService) ContentDebPackagesRead(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return DebBasePackageResponse
-func (a *ContentPackagesApiService) ContentDebPackagesReadExecute(r ContentPackagesApiContentDebPackagesReadRequest) (*DebBasePackageResponse, *http.Response, error) {
+//  @return DebPackageResponse
+func (a *ContentPackagesAPIService) ContentDebPackagesReadExecute(r ContentPackagesAPIContentDebPackagesReadRequest) (*DebPackageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DebBasePackageResponse
+		localVarReturnValue  *DebPackageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentDebPackagesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentDebPackagesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -726,9 +746,9 @@ func (a *ContentPackagesApiService) ContentDebPackagesReadExecute(r ContentPacka
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentPythonPackagesCreateRequest struct {
+type ContentPackagesAPIContentPythonPackagesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	relativePath *string
 	artifact *string
 	file *os.File
@@ -759,168 +779,168 @@ type ContentPackagesApiContentPythonPackagesCreateRequest struct {
 }
 
 // Path where the artifact is located relative to distributions base_path
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) RelativePath(relativePath string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) RelativePath(relativePath string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // Artifact file representing the physical content
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Artifact(artifact string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Artifact(artifact string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.artifact = &artifact
 	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) File(file *os.File) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) File(file *os.File) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.file = file
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Repository(repository string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Repository(repository string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.repository = &repository
 	return r
 }
 
 // An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Upload(upload string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Upload(upload string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.upload = &upload
 	return r
 }
 
 // The SHA256 digest of this package.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Sha256(sha256 string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Sha256(sha256 string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // A one-line summary of what the package does.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Summary(summary string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Summary(summary string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.summary = &summary
 	return r
 }
 
 // A longer description of the package that can run to several paragraphs.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Description(description string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Description(description string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.description = &description
 	return r
 }
 
 // A string stating the markup syntax (if any) used in the distribution’s description, so that tools can intelligently render the description.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) DescriptionContentType(descriptionContentType string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) DescriptionContentType(descriptionContentType string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.descriptionContentType = &descriptionContentType
 	return r
 }
 
 // Additional keywords to be used to assist searching for the package in a larger catalog.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Keywords(keywords string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Keywords(keywords string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.keywords = &keywords
 	return r
 }
 
 // The URL for the package&#39;s home page.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) HomePage(homePage string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) HomePage(homePage string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.homePage = &homePage
 	return r
 }
 
 // Legacy field denoting the URL from which this package can be downloaded.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) DownloadUrl(downloadUrl string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) DownloadUrl(downloadUrl string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.downloadUrl = &downloadUrl
 	return r
 }
 
 // Text containing the author&#39;s name. Contact information can also be added, separated with newlines.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Author(author string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Author(author string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.author = &author
 	return r
 }
 
 // The author&#39;s e-mail address. 
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) AuthorEmail(authorEmail string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) AuthorEmail(authorEmail string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.authorEmail = &authorEmail
 	return r
 }
 
 // The maintainer&#39;s name at a minimum; additional contact information may be provided.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Maintainer(maintainer string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Maintainer(maintainer string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.maintainer = &maintainer
 	return r
 }
 
 // The maintainer&#39;s e-mail address.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) MaintainerEmail(maintainerEmail string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) MaintainerEmail(maintainerEmail string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.maintainerEmail = &maintainerEmail
 	return r
 }
 
 // Text indicating the license covering the distribution
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) License(license string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) License(license string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.license = &license
 	return r
 }
 
 // The Python version(s) that the distribution is guaranteed to be compatible with.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) RequiresPython(requiresPython string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) RequiresPython(requiresPython string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.requiresPython = &requiresPython
 	return r
 }
 
 // A browsable URL for the project and a label for it, separated by a comma.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) ProjectUrl(projectUrl string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) ProjectUrl(projectUrl string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.projectUrl = &projectUrl
 	return r
 }
 
 // A dictionary of labels and URLs for the project.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) ProjectUrls(projectUrls map[string]interface{}) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) ProjectUrls(projectUrls map[string]interface{}) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.projectUrls = &projectUrls
 	return r
 }
 
 // A comma-separated list of platform specifications, summarizing the operating systems supported by the package.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Platform(platform string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Platform(platform string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.platform = &platform
 	return r
 }
 
 // Field to specify the OS and CPU for which the binary package was compiled. 
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) SupportedPlatform(supportedPlatform string) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) SupportedPlatform(supportedPlatform string) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.supportedPlatform = &supportedPlatform
 	return r
 }
 
 // A JSON list containing names of some other distutils project required by this distribution.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) RequiresDist(requiresDist map[string]interface{}) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) RequiresDist(requiresDist map[string]interface{}) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.requiresDist = &requiresDist
 	return r
 }
 
 // A JSON list containing names of a Distutils project which is contained within this distribution.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) ProvidesDist(providesDist map[string]interface{}) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) ProvidesDist(providesDist map[string]interface{}) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.providesDist = &providesDist
 	return r
 }
 
 // A JSON list containing names of a distutils project&#39;s distribution which this distribution renders obsolete, meaning that the two projects should not be installed at the same time.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) ObsoletesDist(obsoletesDist map[string]interface{}) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) ObsoletesDist(obsoletesDist map[string]interface{}) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.obsoletesDist = &obsoletesDist
 	return r
 }
 
 // A JSON list containing some dependency in the system that the distribution is to be used.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) RequiresExternal(requiresExternal map[string]interface{}) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) RequiresExternal(requiresExternal map[string]interface{}) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.requiresExternal = &requiresExternal
 	return r
 }
 
 // A JSON list containing classification values for a Python package.
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Classifiers(classifiers map[string]interface{}) ContentPackagesApiContentPythonPackagesCreateRequest {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Classifiers(classifiers map[string]interface{}) ContentPackagesAPIContentPythonPackagesCreateRequest {
 	r.classifiers = &classifiers
 	return r
 }
 
-func (r ContentPackagesApiContentPythonPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentPackagesAPIContentPythonPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentPythonPackagesCreateExecute(r)
 }
 
@@ -930,10 +950,10 @@ ContentPythonPackagesCreate Create a python package content
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagesApiContentPythonPackagesCreateRequest
+ @return ContentPackagesAPIContentPythonPackagesCreateRequest
 */
-func (a *ContentPackagesApiService) ContentPythonPackagesCreate(ctx context.Context) ContentPackagesApiContentPythonPackagesCreateRequest {
-	return ContentPackagesApiContentPythonPackagesCreateRequest{
+func (a *ContentPackagesAPIService) ContentPythonPackagesCreate(ctx context.Context) ContentPackagesAPIContentPythonPackagesCreateRequest {
+	return ContentPackagesAPIContentPythonPackagesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -941,7 +961,7 @@ func (a *ContentPackagesApiService) ContentPythonPackagesCreate(ctx context.Cont
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentPackagesApiService) ContentPythonPackagesCreateExecute(r ContentPackagesApiContentPythonPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentPackagesAPIService) ContentPythonPackagesCreateExecute(r ContentPackagesAPIContentPythonPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -949,7 +969,7 @@ func (a *ContentPackagesApiService) ContentPythonPackagesCreateExecute(r Content
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentPythonPackagesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentPythonPackagesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1112,9 +1132,9 @@ func (a *ContentPackagesApiService) ContentPythonPackagesCreateExecute(r Content
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentPythonPackagesListRequest struct {
+type ContentPackagesAPIContentPythonPackagesListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	author *string
 	authorIn *[]string
 	filename *string
@@ -1149,192 +1169,192 @@ type ContentPackagesApiContentPythonPackagesListRequest struct {
 }
 
 // Filter results where author matches value
-func (r ContentPackagesApiContentPythonPackagesListRequest) Author(author string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Author(author string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.author = &author
 	return r
 }
 
 // Filter results where author is in a comma-separated list of values
-func (r ContentPackagesApiContentPythonPackagesListRequest) AuthorIn(authorIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) AuthorIn(authorIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.authorIn = &authorIn
 	return r
 }
 
 // Filter results where filename matches value
-func (r ContentPackagesApiContentPythonPackagesListRequest) Filename(filename string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Filename(filename string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.filename = &filename
 	return r
 }
 
 // Filter results where filename contains value
-func (r ContentPackagesApiContentPythonPackagesListRequest) FilenameContains(filenameContains string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) FilenameContains(filenameContains string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.filenameContains = &filenameContains
 	return r
 }
 
 // Filter results where filename is in a comma-separated list of values
-func (r ContentPackagesApiContentPythonPackagesListRequest) FilenameIn(filenameIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) FilenameIn(filenameIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.filenameIn = &filenameIn
 	return r
 }
 
 // Filter results where keywords contains value
-func (r ContentPackagesApiContentPythonPackagesListRequest) KeywordsContains(keywordsContains string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) KeywordsContains(keywordsContains string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.keywordsContains = &keywordsContains
 	return r
 }
 
 // Filter results where keywords is in a comma-separated list of values
-func (r ContentPackagesApiContentPythonPackagesListRequest) KeywordsIn(keywordsIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) KeywordsIn(keywordsIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.keywordsIn = &keywordsIn
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentPackagesApiContentPythonPackagesListRequest) Limit(limit int32) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Limit(limit int32) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentPackagesApiContentPythonPackagesListRequest) Name(name string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Name(name string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentPackagesApiContentPythonPackagesListRequest) NameIn(nameIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) NameIn(nameIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentPackagesApiContentPythonPackagesListRequest) Offset(offset int32) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Offset(offset int32) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;filename&#x60; - Filename * &#x60;-filename&#x60; - Filename (descending) * &#x60;packagetype&#x60; - Packagetype * &#x60;-packagetype&#x60; - Packagetype (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;python_version&#x60; - Python version * &#x60;-python_version&#x60; - Python version (descending) * &#x60;metadata_version&#x60; - Metadata version * &#x60;-metadata_version&#x60; - Metadata version (descending) * &#x60;summary&#x60; - Summary * &#x60;-summary&#x60; - Summary (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;keywords&#x60; - Keywords * &#x60;-keywords&#x60; - Keywords (descending) * &#x60;home_page&#x60; - Home page * &#x60;-home_page&#x60; - Home page (descending) * &#x60;download_url&#x60; - Download url * &#x60;-download_url&#x60; - Download url (descending) * &#x60;author&#x60; - Author * &#x60;-author&#x60; - Author (descending) * &#x60;author_email&#x60; - Author email * &#x60;-author_email&#x60; - Author email (descending) * &#x60;maintainer&#x60; - Maintainer * &#x60;-maintainer&#x60; - Maintainer (descending) * &#x60;maintainer_email&#x60; - Maintainer email * &#x60;-maintainer_email&#x60; - Maintainer email (descending) * &#x60;license&#x60; - License * &#x60;-license&#x60; - License (descending) * &#x60;requires_python&#x60; - Requires python * &#x60;-requires_python&#x60; - Requires python (descending) * &#x60;project_url&#x60; - Project url * &#x60;-project_url&#x60; - Project url (descending) * &#x60;platform&#x60; - Platform * &#x60;-platform&#x60; - Platform (descending) * &#x60;supported_platform&#x60; - Supported platform * &#x60;-supported_platform&#x60; - Supported platform (descending) * &#x60;requires_dist&#x60; - Requires dist * &#x60;-requires_dist&#x60; - Requires dist (descending) * &#x60;provides_dist&#x60; - Provides dist * &#x60;-provides_dist&#x60; - Provides dist (descending) * &#x60;obsoletes_dist&#x60; - Obsoletes dist * &#x60;-obsoletes_dist&#x60; - Obsoletes dist (descending) * &#x60;requires_external&#x60; - Requires external * &#x60;-requires_external&#x60; - Requires external (descending) * &#x60;classifiers&#x60; - Classifiers * &#x60;-classifiers&#x60; - Classifiers (descending) * &#x60;project_urls&#x60; - Project urls * &#x60;-project_urls&#x60; - Project urls (descending) * &#x60;description_content_type&#x60; - Description content type * &#x60;-description_content_type&#x60; - Description content type (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackagesApiContentPythonPackagesListRequest) Ordering(ordering []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Ordering(ordering []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where packagetype matches value  * &#x60;bdist_dmg&#x60; - bdist_dmg * &#x60;bdist_dumb&#x60; - bdist_dumb * &#x60;bdist_egg&#x60; - bdist_egg * &#x60;bdist_msi&#x60; - bdist_msi * &#x60;bdist_rpm&#x60; - bdist_rpm * &#x60;bdist_wheel&#x60; - bdist_wheel * &#x60;bdist_wininst&#x60; - bdist_wininst * &#x60;sdist&#x60; - sdist
-func (r ContentPackagesApiContentPythonPackagesListRequest) Packagetype(packagetype string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Packagetype(packagetype string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.packagetype = &packagetype
 	return r
 }
 
 // Filter results where packagetype is in a comma-separated list of values
-func (r ContentPackagesApiContentPythonPackagesListRequest) PackagetypeIn(packagetypeIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) PackagetypeIn(packagetypeIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.packagetypeIn = &packagetypeIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagesApiContentPythonPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagesApiContentPythonPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentPythonPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentPythonPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentPythonPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where requires_python matches value
-func (r ContentPackagesApiContentPythonPackagesListRequest) RequiresPython(requiresPython string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) RequiresPython(requiresPython string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.requiresPython = &requiresPython
 	return r
 }
 
 // Filter results where requires_python contains value
-func (r ContentPackagesApiContentPythonPackagesListRequest) RequiresPythonContains(requiresPythonContains string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) RequiresPythonContains(requiresPythonContains string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.requiresPythonContains = &requiresPythonContains
 	return r
 }
 
 // Filter results where requires_python is in a comma-separated list of values
-func (r ContentPackagesApiContentPythonPackagesListRequest) RequiresPythonIn(requiresPythonIn []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) RequiresPythonIn(requiresPythonIn []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.requiresPythonIn = &requiresPythonIn
 	return r
 }
 
 // Filter results where sha256 matches value
-func (r ContentPackagesApiContentPythonPackagesListRequest) Sha256(sha256 string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Sha256(sha256 string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where sha256 is in a comma-separated list of values
-func (r ContentPackagesApiContentPythonPackagesListRequest) Sha256In(sha256In []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Sha256In(sha256In []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.sha256In = &sha256In
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentPackagesApiContentPythonPackagesListRequest) Version(version string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Version(version string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.version = &version
 	return r
 }
 
 // Filter results where version is greater than value
-func (r ContentPackagesApiContentPythonPackagesListRequest) VersionGt(versionGt string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) VersionGt(versionGt string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.versionGt = &versionGt
 	return r
 }
 
 // Filter results where version is greater than or equal to value
-func (r ContentPackagesApiContentPythonPackagesListRequest) VersionGte(versionGte string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) VersionGte(versionGte string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.versionGte = &versionGte
 	return r
 }
 
 // Filter results where version is less than value
-func (r ContentPackagesApiContentPythonPackagesListRequest) VersionLt(versionLt string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) VersionLt(versionLt string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.versionLt = &versionLt
 	return r
 }
 
 // Filter results where version is less than or equal to value
-func (r ContentPackagesApiContentPythonPackagesListRequest) VersionLte(versionLte string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) VersionLte(versionLte string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.versionLte = &versionLte
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagesApiContentPythonPackagesListRequest) Fields(fields []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Fields(fields []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagesApiContentPythonPackagesListRequest) ExcludeFields(excludeFields []string) ContentPackagesApiContentPythonPackagesListRequest {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) ExcludeFields(excludeFields []string) ContentPackagesAPIContentPythonPackagesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagesApiContentPythonPackagesListRequest) Execute() (*PaginatedpythonPythonPackageContentResponseList, *http.Response, error) {
+func (r ContentPackagesAPIContentPythonPackagesListRequest) Execute() (*PaginatedpythonPythonPackageContentResponseList, *http.Response, error) {
 	return r.ApiService.ContentPythonPackagesListExecute(r)
 }
 
@@ -1349,10 +1369,10 @@ PythonPackageContent corresponds to a single filename, for example
 `pulpcore-3.0.0rc1-py3-none-any.whl` or `pulpcore-3.0.0rc1.tar.gz`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagesApiContentPythonPackagesListRequest
+ @return ContentPackagesAPIContentPythonPackagesListRequest
 */
-func (a *ContentPackagesApiService) ContentPythonPackagesList(ctx context.Context) ContentPackagesApiContentPythonPackagesListRequest {
-	return ContentPackagesApiContentPythonPackagesListRequest{
+func (a *ContentPackagesAPIService) ContentPythonPackagesList(ctx context.Context) ContentPackagesAPIContentPythonPackagesListRequest {
+	return ContentPackagesAPIContentPythonPackagesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1360,7 +1380,7 @@ func (a *ContentPackagesApiService) ContentPythonPackagesList(ctx context.Contex
 
 // Execute executes the request
 //  @return PaginatedpythonPythonPackageContentResponseList
-func (a *ContentPackagesApiService) ContentPythonPackagesListExecute(r ContentPackagesApiContentPythonPackagesListRequest) (*PaginatedpythonPythonPackageContentResponseList, *http.Response, error) {
+func (a *ContentPackagesAPIService) ContentPythonPackagesListExecute(r ContentPackagesAPIContentPythonPackagesListRequest) (*PaginatedpythonPythonPackageContentResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1368,7 +1388,7 @@ func (a *ContentPackagesApiService) ContentPythonPackagesListExecute(r ContentPa
 		localVarReturnValue  *PaginatedpythonPythonPackageContentResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentPythonPackagesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentPythonPackagesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1541,27 +1561,27 @@ func (a *ContentPackagesApiService) ContentPythonPackagesListExecute(r ContentPa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentPythonPackagesReadRequest struct {
+type ContentPackagesAPIContentPythonPackagesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	pythonPythonPackageContentHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagesApiContentPythonPackagesReadRequest) Fields(fields []string) ContentPackagesApiContentPythonPackagesReadRequest {
+func (r ContentPackagesAPIContentPythonPackagesReadRequest) Fields(fields []string) ContentPackagesAPIContentPythonPackagesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagesApiContentPythonPackagesReadRequest) ExcludeFields(excludeFields []string) ContentPackagesApiContentPythonPackagesReadRequest {
+func (r ContentPackagesAPIContentPythonPackagesReadRequest) ExcludeFields(excludeFields []string) ContentPackagesAPIContentPythonPackagesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagesApiContentPythonPackagesReadRequest) Execute() (*PythonPythonPackageContentResponse, *http.Response, error) {
+func (r ContentPackagesAPIContentPythonPackagesReadRequest) Execute() (*PythonPythonPackageContentResponse, *http.Response, error) {
 	return r.ApiService.ContentPythonPackagesReadExecute(r)
 }
 
@@ -1577,10 +1597,10 @@ PythonPackageContent corresponds to a single filename, for example
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonPackageContentHref
- @return ContentPackagesApiContentPythonPackagesReadRequest
+ @return ContentPackagesAPIContentPythonPackagesReadRequest
 */
-func (a *ContentPackagesApiService) ContentPythonPackagesRead(ctx context.Context, pythonPythonPackageContentHref string) ContentPackagesApiContentPythonPackagesReadRequest {
-	return ContentPackagesApiContentPythonPackagesReadRequest{
+func (a *ContentPackagesAPIService) ContentPythonPackagesRead(ctx context.Context, pythonPythonPackageContentHref string) ContentPackagesAPIContentPythonPackagesReadRequest {
+	return ContentPackagesAPIContentPythonPackagesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonPackageContentHref: pythonPythonPackageContentHref,
@@ -1589,7 +1609,7 @@ func (a *ContentPackagesApiService) ContentPythonPackagesRead(ctx context.Contex
 
 // Execute executes the request
 //  @return PythonPythonPackageContentResponse
-func (a *ContentPackagesApiService) ContentPythonPackagesReadExecute(r ContentPackagesApiContentPythonPackagesReadRequest) (*PythonPythonPackageContentResponse, *http.Response, error) {
+func (a *ContentPackagesAPIService) ContentPythonPackagesReadExecute(r ContentPackagesAPIContentPythonPackagesReadRequest) (*PythonPythonPackageContentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1597,7 +1617,7 @@ func (a *ContentPackagesApiService) ContentPythonPackagesReadExecute(r ContentPa
 		localVarReturnValue  *PythonPythonPackageContentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentPythonPackagesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentPythonPackagesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1686,9 +1706,9 @@ func (a *ContentPackagesApiService) ContentPythonPackagesReadExecute(r ContentPa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentRpmPackagesCreateRequest struct {
+type ContentPackagesAPIContentRpmPackagesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	artifact *string
 	relativePath *string
 	file *os.File
@@ -1697,36 +1717,36 @@ type ContentPackagesApiContentRpmPackagesCreateRequest struct {
 }
 
 // Artifact file representing the physical content
-func (r ContentPackagesApiContentRpmPackagesCreateRequest) Artifact(artifact string) ContentPackagesApiContentRpmPackagesCreateRequest {
+func (r ContentPackagesAPIContentRpmPackagesCreateRequest) Artifact(artifact string) ContentPackagesAPIContentRpmPackagesCreateRequest {
 	r.artifact = &artifact
 	return r
 }
 
 // Path where the artifact is located relative to distributions base_path
-func (r ContentPackagesApiContentRpmPackagesCreateRequest) RelativePath(relativePath string) ContentPackagesApiContentRpmPackagesCreateRequest {
+func (r ContentPackagesAPIContentRpmPackagesCreateRequest) RelativePath(relativePath string) ContentPackagesAPIContentRpmPackagesCreateRequest {
 	r.relativePath = &relativePath
 	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentPackagesApiContentRpmPackagesCreateRequest) File(file *os.File) ContentPackagesApiContentRpmPackagesCreateRequest {
+func (r ContentPackagesAPIContentRpmPackagesCreateRequest) File(file *os.File) ContentPackagesAPIContentRpmPackagesCreateRequest {
 	r.file = file
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentPackagesApiContentRpmPackagesCreateRequest) Repository(repository string) ContentPackagesApiContentRpmPackagesCreateRequest {
+func (r ContentPackagesAPIContentRpmPackagesCreateRequest) Repository(repository string) ContentPackagesAPIContentRpmPackagesCreateRequest {
 	r.repository = &repository
 	return r
 }
 
 // An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentPackagesApiContentRpmPackagesCreateRequest) Upload(upload string) ContentPackagesApiContentRpmPackagesCreateRequest {
+func (r ContentPackagesAPIContentRpmPackagesCreateRequest) Upload(upload string) ContentPackagesAPIContentRpmPackagesCreateRequest {
 	r.upload = &upload
 	return r
 }
 
-func (r ContentPackagesApiContentRpmPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentPackagesAPIContentRpmPackagesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagesCreateExecute(r)
 }
 
@@ -1736,10 +1756,10 @@ ContentRpmPackagesCreate Create a package
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagesApiContentRpmPackagesCreateRequest
+ @return ContentPackagesAPIContentRpmPackagesCreateRequest
 */
-func (a *ContentPackagesApiService) ContentRpmPackagesCreate(ctx context.Context) ContentPackagesApiContentRpmPackagesCreateRequest {
-	return ContentPackagesApiContentRpmPackagesCreateRequest{
+func (a *ContentPackagesAPIService) ContentRpmPackagesCreate(ctx context.Context) ContentPackagesAPIContentRpmPackagesCreateRequest {
+	return ContentPackagesAPIContentRpmPackagesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1747,7 +1767,7 @@ func (a *ContentPackagesApiService) ContentRpmPackagesCreate(ctx context.Context
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentPackagesApiService) ContentRpmPackagesCreateExecute(r ContentPackagesApiContentRpmPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentPackagesAPIService) ContentRpmPackagesCreateExecute(r ContentPackagesAPIContentRpmPackagesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1755,7 +1775,7 @@ func (a *ContentPackagesApiService) ContentRpmPackagesCreateExecute(r ContentPac
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentRpmPackagesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentRpmPackagesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1848,12 +1868,14 @@ func (a *ContentPackagesApiService) ContentRpmPackagesCreateExecute(r ContentPac
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentRpmPackagesListRequest struct {
+type ContentPackagesAPIContentRpmPackagesListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	arch *string
+	archContains *string
 	archIn *[]string
 	archNe *string
+	archStartswith *string
 	checksumType *string
 	checksumTypeIn *[]string
 	checksumTypeNe *string
@@ -1862,8 +1884,10 @@ type ContentPackagesApiContentRpmPackagesListRequest struct {
 	epochNe *string
 	limit *int32
 	name *string
+	nameContains *string
 	nameIn *[]string
 	nameNe *string
+	nameStartswith *string
 	offset *int32
 	ordering *[]string
 	pkgId *string
@@ -1871,8 +1895,10 @@ type ContentPackagesApiContentRpmPackagesListRequest struct {
 	pulpHrefIn *[]string
 	pulpIdIn *[]string
 	release *string
+	releaseContains *string
 	releaseIn *[]string
 	releaseNe *string
+	releaseStartswith *string
 	repositoryVersion *string
 	repositoryVersionAdded *string
 	repositoryVersionRemoved *string
@@ -1885,191 +1911,227 @@ type ContentPackagesApiContentRpmPackagesListRequest struct {
 }
 
 // Filter results where arch matches value
-func (r ContentPackagesApiContentRpmPackagesListRequest) Arch(arch string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Arch(arch string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.arch = &arch
 	return r
 }
 
+// Filter results where arch contains value
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ArchContains(archContains string) ContentPackagesAPIContentRpmPackagesListRequest {
+	r.archContains = &archContains
+	return r
+}
+
 // Filter results where arch is in a comma-separated list of values
-func (r ContentPackagesApiContentRpmPackagesListRequest) ArchIn(archIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ArchIn(archIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.archIn = &archIn
 	return r
 }
 
 // Filter results where arch not equal to value
-func (r ContentPackagesApiContentRpmPackagesListRequest) ArchNe(archNe string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ArchNe(archNe string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.archNe = &archNe
 	return r
 }
 
+// Filter results where arch starts with value
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ArchStartswith(archStartswith string) ContentPackagesAPIContentRpmPackagesListRequest {
+	r.archStartswith = &archStartswith
+	return r
+}
+
 // Filter results where checksum_type matches value  * &#x60;unknown&#x60; - unknown * &#x60;md5&#x60; - md5 * &#x60;sha1&#x60; - sha1 * &#x60;sha1&#x60; - sha1 * &#x60;sha224&#x60; - sha224 * &#x60;sha256&#x60; - sha256 * &#x60;sha384&#x60; - sha384 * &#x60;sha512&#x60; - sha512
-func (r ContentPackagesApiContentRpmPackagesListRequest) ChecksumType(checksumType string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ChecksumType(checksumType string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.checksumType = &checksumType
 	return r
 }
 
 // Filter results where checksum_type is in a comma-separated list of values
-func (r ContentPackagesApiContentRpmPackagesListRequest) ChecksumTypeIn(checksumTypeIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ChecksumTypeIn(checksumTypeIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.checksumTypeIn = &checksumTypeIn
 	return r
 }
 
 // Filter results where checksum_type not equal to value
-func (r ContentPackagesApiContentRpmPackagesListRequest) ChecksumTypeNe(checksumTypeNe string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ChecksumTypeNe(checksumTypeNe string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.checksumTypeNe = &checksumTypeNe
 	return r
 }
 
 // Filter results where epoch matches value
-func (r ContentPackagesApiContentRpmPackagesListRequest) Epoch(epoch string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Epoch(epoch string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.epoch = &epoch
 	return r
 }
 
 // Filter results where epoch is in a comma-separated list of values
-func (r ContentPackagesApiContentRpmPackagesListRequest) EpochIn(epochIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) EpochIn(epochIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.epochIn = &epochIn
 	return r
 }
 
 // Filter results where epoch not equal to value
-func (r ContentPackagesApiContentRpmPackagesListRequest) EpochNe(epochNe string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) EpochNe(epochNe string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.epochNe = &epochNe
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentPackagesApiContentRpmPackagesListRequest) Limit(limit int32) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Limit(limit int32) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentPackagesApiContentRpmPackagesListRequest) Name(name string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Name(name string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.name = &name
 	return r
 }
 
+// Filter results where name contains value
+func (r ContentPackagesAPIContentRpmPackagesListRequest) NameContains(nameContains string) ContentPackagesAPIContentRpmPackagesListRequest {
+	r.nameContains = &nameContains
+	return r
+}
+
 // Filter results where name is in a comma-separated list of values
-func (r ContentPackagesApiContentRpmPackagesListRequest) NameIn(nameIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) NameIn(nameIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name not equal to value
-func (r ContentPackagesApiContentRpmPackagesListRequest) NameNe(nameNe string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) NameNe(nameNe string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.nameNe = &nameNe
 	return r
 }
 
+// Filter results where name starts with value
+func (r ContentPackagesAPIContentRpmPackagesListRequest) NameStartswith(nameStartswith string) ContentPackagesAPIContentRpmPackagesListRequest {
+	r.nameStartswith = &nameStartswith
+	return r
+}
+
 // The initial index from which to return the results.
-func (r ContentPackagesApiContentRpmPackagesListRequest) Offset(offset int32) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Offset(offset int32) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;epoch&#x60; - Epoch * &#x60;-epoch&#x60; - Epoch (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;release&#x60; - Release * &#x60;-release&#x60; - Release (descending) * &#x60;arch&#x60; - Arch * &#x60;-arch&#x60; - Arch (descending) * &#x60;evr&#x60; - Evr * &#x60;-evr&#x60; - Evr (descending) * &#x60;pkgId&#x60; - Pkgid * &#x60;-pkgId&#x60; - Pkgid (descending) * &#x60;checksum_type&#x60; - Checksum type * &#x60;-checksum_type&#x60; - Checksum type (descending) * &#x60;summary&#x60; - Summary * &#x60;-summary&#x60; - Summary (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;changelogs&#x60; - Changelogs * &#x60;-changelogs&#x60; - Changelogs (descending) * &#x60;files&#x60; - Files * &#x60;-files&#x60; - Files (descending) * &#x60;requires&#x60; - Requires * &#x60;-requires&#x60; - Requires (descending) * &#x60;provides&#x60; - Provides * &#x60;-provides&#x60; - Provides (descending) * &#x60;conflicts&#x60; - Conflicts * &#x60;-conflicts&#x60; - Conflicts (descending) * &#x60;obsoletes&#x60; - Obsoletes * &#x60;-obsoletes&#x60; - Obsoletes (descending) * &#x60;suggests&#x60; - Suggests * &#x60;-suggests&#x60; - Suggests (descending) * &#x60;enhances&#x60; - Enhances * &#x60;-enhances&#x60; - Enhances (descending) * &#x60;recommends&#x60; - Recommends * &#x60;-recommends&#x60; - Recommends (descending) * &#x60;supplements&#x60; - Supplements * &#x60;-supplements&#x60; - Supplements (descending) * &#x60;location_base&#x60; - Location base * &#x60;-location_base&#x60; - Location base (descending) * &#x60;location_href&#x60; - Location href * &#x60;-location_href&#x60; - Location href (descending) * &#x60;rpm_buildhost&#x60; - Rpm buildhost * &#x60;-rpm_buildhost&#x60; - Rpm buildhost (descending) * &#x60;rpm_group&#x60; - Rpm group * &#x60;-rpm_group&#x60; - Rpm group (descending) * &#x60;rpm_license&#x60; - Rpm license * &#x60;-rpm_license&#x60; - Rpm license (descending) * &#x60;rpm_packager&#x60; - Rpm packager * &#x60;-rpm_packager&#x60; - Rpm packager (descending) * &#x60;rpm_sourcerpm&#x60; - Rpm sourcerpm * &#x60;-rpm_sourcerpm&#x60; - Rpm sourcerpm (descending) * &#x60;rpm_vendor&#x60; - Rpm vendor * &#x60;-rpm_vendor&#x60; - Rpm vendor (descending) * &#x60;rpm_header_start&#x60; - Rpm header start * &#x60;-rpm_header_start&#x60; - Rpm header start (descending) * &#x60;rpm_header_end&#x60; - Rpm header end * &#x60;-rpm_header_end&#x60; - Rpm header end (descending) * &#x60;size_archive&#x60; - Size archive * &#x60;-size_archive&#x60; - Size archive (descending) * &#x60;size_installed&#x60; - Size installed * &#x60;-size_installed&#x60; - Size installed (descending) * &#x60;size_package&#x60; - Size package * &#x60;-size_package&#x60; - Size package (descending) * &#x60;time_build&#x60; - Time build * &#x60;-time_build&#x60; - Time build (descending) * &#x60;time_file&#x60; - Time file * &#x60;-time_file&#x60; - Time file (descending) * &#x60;is_modular&#x60; - Is modular * &#x60;-is_modular&#x60; - Is modular (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackagesApiContentRpmPackagesListRequest) Ordering(ordering []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Ordering(ordering []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pkgId matches value
-func (r ContentPackagesApiContentRpmPackagesListRequest) PkgId(pkgId string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) PkgId(pkgId string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.pkgId = &pkgId
 	return r
 }
 
 // Filter results where pkgId is in a comma-separated list of values
-func (r ContentPackagesApiContentRpmPackagesListRequest) PkgIdIn(pkgIdIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) PkgIdIn(pkgIdIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.pkgIdIn = &pkgIdIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagesApiContentRpmPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagesApiContentRpmPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter results where release matches value
-func (r ContentPackagesApiContentRpmPackagesListRequest) Release(release string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Release(release string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.release = &release
 	return r
 }
 
+// Filter results where release contains value
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ReleaseContains(releaseContains string) ContentPackagesAPIContentRpmPackagesListRequest {
+	r.releaseContains = &releaseContains
+	return r
+}
+
 // Filter results where release is in a comma-separated list of values
-func (r ContentPackagesApiContentRpmPackagesListRequest) ReleaseIn(releaseIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ReleaseIn(releaseIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.releaseIn = &releaseIn
 	return r
 }
 
 // Filter results where release not equal to value
-func (r ContentPackagesApiContentRpmPackagesListRequest) ReleaseNe(releaseNe string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ReleaseNe(releaseNe string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.releaseNe = &releaseNe
 	return r
 }
 
+// Filter results where release starts with value
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ReleaseStartswith(releaseStartswith string) ContentPackagesAPIContentRpmPackagesListRequest {
+	r.releaseStartswith = &releaseStartswith
+	return r
+}
+
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentRpmPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentRpmPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagesApiContentRpmPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
-func (r ContentPackagesApiContentRpmPackagesListRequest) Sha256(sha256 string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Sha256(sha256 string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentPackagesApiContentRpmPackagesListRequest) Version(version string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Version(version string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.version = &version
 	return r
 }
 
 // Filter results where version is in a comma-separated list of values
-func (r ContentPackagesApiContentRpmPackagesListRequest) VersionIn(versionIn []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) VersionIn(versionIn []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.versionIn = &versionIn
 	return r
 }
 
 // Filter results where version not equal to value
-func (r ContentPackagesApiContentRpmPackagesListRequest) VersionNe(versionNe string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) VersionNe(versionNe string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.versionNe = &versionNe
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagesApiContentRpmPackagesListRequest) Fields(fields []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Fields(fields []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagesApiContentRpmPackagesListRequest) ExcludeFields(excludeFields []string) ContentPackagesApiContentRpmPackagesListRequest {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) ExcludeFields(excludeFields []string) ContentPackagesAPIContentRpmPackagesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagesApiContentRpmPackagesListRequest) Execute() (*PaginatedrpmPackageResponseList, *http.Response, error) {
+func (r ContentPackagesAPIContentRpmPackagesListRequest) Execute() (*PaginatedrpmPackageResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagesListExecute(r)
 }
 
@@ -2085,10 +2147,10 @@ For example::
 Also specify queryset and serializer for Package.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagesApiContentRpmPackagesListRequest
+ @return ContentPackagesAPIContentRpmPackagesListRequest
 */
-func (a *ContentPackagesApiService) ContentRpmPackagesList(ctx context.Context) ContentPackagesApiContentRpmPackagesListRequest {
-	return ContentPackagesApiContentRpmPackagesListRequest{
+func (a *ContentPackagesAPIService) ContentRpmPackagesList(ctx context.Context) ContentPackagesAPIContentRpmPackagesListRequest {
+	return ContentPackagesAPIContentRpmPackagesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2096,7 +2158,7 @@ func (a *ContentPackagesApiService) ContentRpmPackagesList(ctx context.Context) 
 
 // Execute executes the request
 //  @return PaginatedrpmPackageResponseList
-func (a *ContentPackagesApiService) ContentRpmPackagesListExecute(r ContentPackagesApiContentRpmPackagesListRequest) (*PaginatedrpmPackageResponseList, *http.Response, error) {
+func (a *ContentPackagesAPIService) ContentRpmPackagesListExecute(r ContentPackagesAPIContentRpmPackagesListRequest) (*PaginatedrpmPackageResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2104,7 +2166,7 @@ func (a *ContentPackagesApiService) ContentRpmPackagesListExecute(r ContentPacka
 		localVarReturnValue  *PaginatedrpmPackageResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentRpmPackagesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentRpmPackagesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2117,11 +2179,17 @@ func (a *ContentPackagesApiService) ContentRpmPackagesListExecute(r ContentPacka
 	if r.arch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "arch", r.arch, "")
 	}
+	if r.archContains != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "arch__contains", r.archContains, "")
+	}
 	if r.archIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "arch__in", r.archIn, "csv")
 	}
 	if r.archNe != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "arch__ne", r.archNe, "")
+	}
+	if r.archStartswith != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "arch__startswith", r.archStartswith, "")
 	}
 	if r.checksumType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "checksum_type", r.checksumType, "")
@@ -2147,11 +2215,17 @@ func (a *ContentPackagesApiService) ContentRpmPackagesListExecute(r ContentPacka
 	if r.name != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
 	}
+	if r.nameContains != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name__contains", r.nameContains, "")
+	}
 	if r.nameIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name__in", r.nameIn, "csv")
 	}
 	if r.nameNe != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name__ne", r.nameNe, "")
+	}
+	if r.nameStartswith != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name__startswith", r.nameStartswith, "")
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
@@ -2174,11 +2248,17 @@ func (a *ContentPackagesApiService) ContentRpmPackagesListExecute(r ContentPacka
 	if r.release != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "release", r.release, "")
 	}
+	if r.releaseContains != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "release__contains", r.releaseContains, "")
+	}
 	if r.releaseIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "release__in", r.releaseIn, "csv")
 	}
 	if r.releaseNe != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "release__ne", r.releaseNe, "")
+	}
+	if r.releaseStartswith != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "release__startswith", r.releaseStartswith, "")
 	}
 	if r.repositoryVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "repository_version", r.repositoryVersion, "")
@@ -2277,27 +2357,27 @@ func (a *ContentPackagesApiService) ContentRpmPackagesListExecute(r ContentPacka
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagesApiContentRpmPackagesReadRequest struct {
+type ContentPackagesAPIContentRpmPackagesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagesApiService
+	ApiService *ContentPackagesAPIService
 	rpmPackageHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagesApiContentRpmPackagesReadRequest) Fields(fields []string) ContentPackagesApiContentRpmPackagesReadRequest {
+func (r ContentPackagesAPIContentRpmPackagesReadRequest) Fields(fields []string) ContentPackagesAPIContentRpmPackagesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagesApiContentRpmPackagesReadRequest) ExcludeFields(excludeFields []string) ContentPackagesApiContentRpmPackagesReadRequest {
+func (r ContentPackagesAPIContentRpmPackagesReadRequest) ExcludeFields(excludeFields []string) ContentPackagesAPIContentRpmPackagesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagesApiContentRpmPackagesReadRequest) Execute() (*RpmPackageResponse, *http.Response, error) {
+func (r ContentPackagesAPIContentRpmPackagesReadRequest) Execute() (*RpmPackageResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagesReadExecute(r)
 }
 
@@ -2314,10 +2394,10 @@ Also specify queryset and serializer for Package.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmPackageHref
- @return ContentPackagesApiContentRpmPackagesReadRequest
+ @return ContentPackagesAPIContentRpmPackagesReadRequest
 */
-func (a *ContentPackagesApiService) ContentRpmPackagesRead(ctx context.Context, rpmPackageHref string) ContentPackagesApiContentRpmPackagesReadRequest {
-	return ContentPackagesApiContentRpmPackagesReadRequest{
+func (a *ContentPackagesAPIService) ContentRpmPackagesRead(ctx context.Context, rpmPackageHref string) ContentPackagesAPIContentRpmPackagesReadRequest {
+	return ContentPackagesAPIContentRpmPackagesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmPackageHref: rpmPackageHref,
@@ -2326,7 +2406,7 @@ func (a *ContentPackagesApiService) ContentRpmPackagesRead(ctx context.Context, 
 
 // Execute executes the request
 //  @return RpmPackageResponse
-func (a *ContentPackagesApiService) ContentRpmPackagesReadExecute(r ContentPackagesApiContentRpmPackagesReadRequest) (*RpmPackageResponse, *http.Response, error) {
+func (a *ContentPackagesAPIService) ContentRpmPackagesReadExecute(r ContentPackagesAPIContentRpmPackagesReadRequest) (*RpmPackageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2334,7 +2414,7 @@ func (a *ContentPackagesApiService) ContentRpmPackagesReadExecute(r ContentPacka
 		localVarReturnValue  *RpmPackageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesApiService.ContentRpmPackagesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagesAPIService.ContentRpmPackagesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

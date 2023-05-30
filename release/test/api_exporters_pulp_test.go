@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ExportersPulpApiService
+Testing ExportersPulpAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ExportersPulpApiService(t *testing.T) {
+func Test_zest_ExportersPulpAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ExportersPulpApiService ExportersCorePulpCreate", func(t *testing.T) {
+	t.Run("Test ExportersPulpAPIService ExportersCorePulpCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExportersPulpApi.ExportersCorePulpCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpAPI.ExportersCorePulpCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ExportersPulpApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersPulpApiService ExportersCorePulpDelete", func(t *testing.T) {
+	t.Run("Test ExportersPulpAPIService ExportersCorePulpDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersPulpApi.ExportersCorePulpDelete(context.Background(), pulpExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpAPI.ExportersCorePulpDelete(context.Background(), pulpExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_ExportersPulpApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersPulpApiService ExportersCorePulpList", func(t *testing.T) {
+	t.Run("Test ExportersPulpAPIService ExportersCorePulpList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExportersPulpApi.ExportersCorePulpList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpAPI.ExportersCorePulpList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_ExportersPulpApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersPulpApiService ExportersCorePulpPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pulpExporterHref string
-
-		resp, httpRes, err := apiClient.ExportersPulpApi.ExportersCorePulpPartialUpdate(context.Background(), pulpExporterHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ExportersPulpApiService ExportersCorePulpRead", func(t *testing.T) {
+	t.Run("Test ExportersPulpAPIService ExportersCorePulpPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersPulpApi.ExportersCorePulpRead(context.Background(), pulpExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpAPI.ExportersCorePulpPartialUpdate(context.Background(), pulpExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_ExportersPulpApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersPulpApiService ExportersCorePulpUpdate", func(t *testing.T) {
+	t.Run("Test ExportersPulpAPIService ExportersCorePulpRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pulpExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersPulpApi.ExportersCorePulpUpdate(context.Background(), pulpExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersPulpAPI.ExportersCorePulpRead(context.Background(), pulpExporterHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ExportersPulpAPIService ExportersCorePulpUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pulpExporterHref string
+
+		resp, httpRes, err := apiClient.ExportersPulpAPI.ExportersCorePulpUpdate(context.Background(), pulpExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

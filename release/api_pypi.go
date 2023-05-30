@@ -22,30 +22,30 @@ import (
 )
 
 
-// PypiApiService PypiApi service
-type PypiApiService service
+// PypiAPIService PypiAPI service
+type PypiAPIService service
 
-type PypiApiPypiReadRequest struct {
+type PypiAPIPypiReadRequest struct {
 	ctx context.Context
-	ApiService *PypiApiService
+	ApiService *PypiAPIService
 	path string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r PypiApiPypiReadRequest) Fields(fields []string) PypiApiPypiReadRequest {
+func (r PypiAPIPypiReadRequest) Fields(fields []string) PypiAPIPypiReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PypiApiPypiReadRequest) ExcludeFields(excludeFields []string) PypiApiPypiReadRequest {
+func (r PypiAPIPypiReadRequest) ExcludeFields(excludeFields []string) PypiAPIPypiReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PypiApiPypiReadRequest) Execute() (*SummaryResponse, *http.Response, error) {
+func (r PypiAPIPypiReadRequest) Execute() (*SummaryResponse, *http.Response, error) {
 	return r.ApiService.PypiReadExecute(r)
 }
 
@@ -56,10 +56,10 @@ Gets package summary stats of index.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param path
- @return PypiApiPypiReadRequest
+ @return PypiAPIPypiReadRequest
 */
-func (a *PypiApiService) PypiRead(ctx context.Context, path string) PypiApiPypiReadRequest {
-	return PypiApiPypiReadRequest{
+func (a *PypiAPIService) PypiRead(ctx context.Context, path string) PypiAPIPypiReadRequest {
+	return PypiAPIPypiReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		path: path,
@@ -68,7 +68,7 @@ func (a *PypiApiService) PypiRead(ctx context.Context, path string) PypiApiPypiR
 
 // Execute executes the request
 //  @return SummaryResponse
-func (a *PypiApiService) PypiReadExecute(r PypiApiPypiReadRequest) (*SummaryResponse, *http.Response, error) {
+func (a *PypiAPIService) PypiReadExecute(r PypiAPIPypiReadRequest) (*SummaryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -76,7 +76,7 @@ func (a *PypiApiService) PypiReadExecute(r PypiApiPypiReadRequest) (*SummaryResp
 		localVarReturnValue  *SummaryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiApiService.PypiRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PypiAPIService.PypiRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

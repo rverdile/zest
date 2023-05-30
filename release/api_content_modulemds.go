@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentModulemdsApiService ContentModulemdsApi service
-type ContentModulemdsApiService service
+// ContentModulemdsAPIService ContentModulemdsAPI service
+type ContentModulemdsAPIService service
 
-type ContentModulemdsApiContentRpmModulemdsCreateRequest struct {
+type ContentModulemdsAPIContentRpmModulemdsCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdsApiService
+	ApiService *ContentModulemdsAPIService
 	rpmModulemd *RpmModulemd
 }
 
-func (r ContentModulemdsApiContentRpmModulemdsCreateRequest) RpmModulemd(rpmModulemd RpmModulemd) ContentModulemdsApiContentRpmModulemdsCreateRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsCreateRequest) RpmModulemd(rpmModulemd RpmModulemd) ContentModulemdsAPIContentRpmModulemdsCreateRequest {
 	r.rpmModulemd = &rpmModulemd
 	return r
 }
 
-func (r ContentModulemdsApiContentRpmModulemdsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentModulemdsAPIContentRpmModulemdsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdsCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentRpmModulemdsCreate Create a modulemd
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentModulemdsApiContentRpmModulemdsCreateRequest
+ @return ContentModulemdsAPIContentRpmModulemdsCreateRequest
 */
-func (a *ContentModulemdsApiService) ContentRpmModulemdsCreate(ctx context.Context) ContentModulemdsApiContentRpmModulemdsCreateRequest {
-	return ContentModulemdsApiContentRpmModulemdsCreateRequest{
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsCreate(ctx context.Context) ContentModulemdsAPIContentRpmModulemdsCreateRequest {
+	return ContentModulemdsAPIContentRpmModulemdsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsCreate(ctx context.Conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentModulemdsApiService) ContentRpmModulemdsCreateExecute(r ContentModulemdsApiContentRpmModulemdsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsCreateExecute(r ContentModulemdsAPIContentRpmModulemdsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsCreateExecute(r ContentM
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdsApiService.ContentRpmModulemdsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdsAPIService.ContentRpmModulemdsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,9 +134,9 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsCreateExecute(r ContentM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentModulemdsApiContentRpmModulemdsListRequest struct {
+type ContentModulemdsAPIContentRpmModulemdsListRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdsApiService
+	ApiService *ContentModulemdsAPIService
 	arch *string
 	archIn *[]string
 	context *string
@@ -161,131 +161,131 @@ type ContentModulemdsApiContentRpmModulemdsListRequest struct {
 }
 
 // Filter results where arch matches value
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Arch(arch string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Arch(arch string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.arch = &arch
 	return r
 }
 
 // Filter results where arch is in a comma-separated list of values
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) ArchIn(archIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) ArchIn(archIn []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.archIn = &archIn
 	return r
 }
 
 // Filter results where context matches value
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Context(context string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Context(context string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.context = &context
 	return r
 }
 
 // Filter results where context is in a comma-separated list of values
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) ContextIn(contextIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) ContextIn(contextIn []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.contextIn = &contextIn
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Limit(limit int32) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Limit(limit int32) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Name(name string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Name(name string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) NameIn(nameIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) NameIn(nameIn []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Offset(offset int32) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Offset(offset int32) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;stream&#x60; - Stream * &#x60;-stream&#x60; - Stream (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;context&#x60; - Context * &#x60;-context&#x60; - Context (descending) * &#x60;arch&#x60; - Arch * &#x60;-arch&#x60; - Arch (descending) * &#x60;static_context&#x60; - Static context * &#x60;-static_context&#x60; - Static context (descending) * &#x60;dependencies&#x60; - Dependencies * &#x60;-dependencies&#x60; - Dependencies (descending) * &#x60;artifacts&#x60; - Artifacts * &#x60;-artifacts&#x60; - Artifacts (descending) * &#x60;profiles&#x60; - Profiles * &#x60;-profiles&#x60; - Profiles (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;snippet&#x60; - Snippet * &#x60;-snippet&#x60; - Snippet (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Ordering(ordering []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Ordering(ordering []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) PulpHrefIn(pulpHrefIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) PulpHrefIn(pulpHrefIn []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) PulpIdIn(pulpIdIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) PulpIdIn(pulpIdIn []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) RepositoryVersion(repositoryVersion string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) RepositoryVersion(repositoryVersion string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Sha256(sha256 string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Sha256(sha256 string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where stream matches value
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Stream(stream string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Stream(stream string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.stream = &stream
 	return r
 }
 
 // Filter results where stream is in a comma-separated list of values
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) StreamIn(streamIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) StreamIn(streamIn []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.streamIn = &streamIn
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Version(version string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Version(version string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.version = &version
 	return r
 }
 
 // Filter results where version is in a comma-separated list of values
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) VersionIn(versionIn []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) VersionIn(versionIn []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.versionIn = &versionIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Fields(fields []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Fields(fields []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) ExcludeFields(excludeFields []string) ContentModulemdsApiContentRpmModulemdsListRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) ExcludeFields(excludeFields []string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentModulemdsApiContentRpmModulemdsListRequest) Execute() (*PaginatedrpmModulemdResponseList, *http.Response, error) {
+func (r ContentModulemdsAPIContentRpmModulemdsListRequest) Execute() (*PaginatedrpmModulemdResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdsListExecute(r)
 }
 
@@ -295,10 +295,10 @@ ContentRpmModulemdsList List modulemds
 ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentModulemdsApiContentRpmModulemdsListRequest
+ @return ContentModulemdsAPIContentRpmModulemdsListRequest
 */
-func (a *ContentModulemdsApiService) ContentRpmModulemdsList(ctx context.Context) ContentModulemdsApiContentRpmModulemdsListRequest {
-	return ContentModulemdsApiContentRpmModulemdsListRequest{
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsList(ctx context.Context) ContentModulemdsAPIContentRpmModulemdsListRequest {
+	return ContentModulemdsAPIContentRpmModulemdsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -306,7 +306,7 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsList(ctx context.Context
 
 // Execute executes the request
 //  @return PaginatedrpmModulemdResponseList
-func (a *ContentModulemdsApiService) ContentRpmModulemdsListExecute(r ContentModulemdsApiContentRpmModulemdsListRequest) (*PaginatedrpmModulemdResponseList, *http.Response, error) {
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsListExecute(r ContentModulemdsAPIContentRpmModulemdsListRequest) (*PaginatedrpmModulemdResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -314,7 +314,7 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsListExecute(r ContentMod
 		localVarReturnValue  *PaginatedrpmModulemdResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdsApiService.ContentRpmModulemdsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdsAPIService.ContentRpmModulemdsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -457,27 +457,27 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsListExecute(r ContentMod
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentModulemdsApiContentRpmModulemdsReadRequest struct {
+type ContentModulemdsAPIContentRpmModulemdsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentModulemdsApiService
+	ApiService *ContentModulemdsAPIService
 	rpmModulemdHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentModulemdsApiContentRpmModulemdsReadRequest) Fields(fields []string) ContentModulemdsApiContentRpmModulemdsReadRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsReadRequest) Fields(fields []string) ContentModulemdsAPIContentRpmModulemdsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentModulemdsApiContentRpmModulemdsReadRequest) ExcludeFields(excludeFields []string) ContentModulemdsApiContentRpmModulemdsReadRequest {
+func (r ContentModulemdsAPIContentRpmModulemdsReadRequest) ExcludeFields(excludeFields []string) ContentModulemdsAPIContentRpmModulemdsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentModulemdsApiContentRpmModulemdsReadRequest) Execute() (*RpmModulemdResponse, *http.Response, error) {
+func (r ContentModulemdsAPIContentRpmModulemdsReadRequest) Execute() (*RpmModulemdResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmModulemdsReadExecute(r)
 }
 
@@ -488,10 +488,10 @@ ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmModulemdHref
- @return ContentModulemdsApiContentRpmModulemdsReadRequest
+ @return ContentModulemdsAPIContentRpmModulemdsReadRequest
 */
-func (a *ContentModulemdsApiService) ContentRpmModulemdsRead(ctx context.Context, rpmModulemdHref string) ContentModulemdsApiContentRpmModulemdsReadRequest {
-	return ContentModulemdsApiContentRpmModulemdsReadRequest{
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsRead(ctx context.Context, rpmModulemdHref string) ContentModulemdsAPIContentRpmModulemdsReadRequest {
+	return ContentModulemdsAPIContentRpmModulemdsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmModulemdHref: rpmModulemdHref,
@@ -500,7 +500,7 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsRead(ctx context.Context
 
 // Execute executes the request
 //  @return RpmModulemdResponse
-func (a *ContentModulemdsApiService) ContentRpmModulemdsReadExecute(r ContentModulemdsApiContentRpmModulemdsReadRequest) (*RpmModulemdResponse, *http.Response, error) {
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsReadExecute(r ContentModulemdsAPIContentRpmModulemdsReadRequest) (*RpmModulemdResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -508,7 +508,7 @@ func (a *ContentModulemdsApiService) ContentRpmModulemdsReadExecute(r ContentMod
 		localVarReturnValue  *RpmModulemdResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdsApiService.ContentRpmModulemdsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentModulemdsAPIService.ContentRpmModulemdsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleApiV3ArtifactsCollectionsApiService
+Testing PulpAnsibleApiV3ArtifactsCollectionsAPIService
 
 */
 
@@ -17,19 +17,19 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleApiV3ArtifactsCollectionsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleApiV3ArtifactsCollectionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleApiV3ArtifactsCollectionsApiService PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3ArtifactsCollectionsAPIService PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var filename string
 		var path string
 
-		httpRes, err := apiClient.PulpAnsibleApiV3ArtifactsCollectionsApi.PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet(context.Background(), filename, path).Execute()
+		httpRes, err := apiClient.PulpAnsibleApiV3ArtifactsCollectionsAPI.PulpAnsibleGalaxyApiV3ArtifactsCollectionsGet(context.Background(), filename, path).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

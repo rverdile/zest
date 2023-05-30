@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentCollectionSignaturesApiService
+Testing ContentCollectionSignaturesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentCollectionSignaturesApiService(t *testing.T) {
+func Test_zest_ContentCollectionSignaturesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentCollectionSignaturesApiService ContentAnsibleCollectionSignaturesCreate", func(t *testing.T) {
+	t.Run("Test ContentCollectionSignaturesAPIService ContentAnsibleCollectionSignaturesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionSignaturesApi.ContentAnsibleCollectionSignaturesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionSignaturesAPI.ContentAnsibleCollectionSignaturesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentCollectionSignaturesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionSignaturesApiService ContentAnsibleCollectionSignaturesList", func(t *testing.T) {
+	t.Run("Test ContentCollectionSignaturesAPIService ContentAnsibleCollectionSignaturesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentCollectionSignaturesApi.ContentAnsibleCollectionSignaturesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionSignaturesAPI.ContentAnsibleCollectionSignaturesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentCollectionSignaturesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentCollectionSignaturesApiService ContentAnsibleCollectionSignaturesRead", func(t *testing.T) {
+	t.Run("Test ContentCollectionSignaturesAPIService ContentAnsibleCollectionSignaturesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleCollectionVersionSignatureHref string
 
-		resp, httpRes, err := apiClient.ContentCollectionSignaturesApi.ContentAnsibleCollectionSignaturesRead(context.Background(), ansibleCollectionVersionSignatureHref).Execute()
+		resp, httpRes, err := apiClient.ContentCollectionSignaturesAPI.ContentAnsibleCollectionSignaturesRead(context.Background(), ansibleCollectionVersionSignatureHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -23,22 +23,22 @@ import (
 )
 
 
-// RemotesRpmApiService RemotesRpmApi service
-type RemotesRpmApiService service
+// RemotesRpmAPIService RemotesRpmAPI service
+type RemotesRpmAPIService service
 
-type RemotesRpmApiRemotesRpmRpmAddRoleRequest struct {
+type RemotesRpmAPIRemotesRpmRpmAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesRpmApiRemotesRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesRpmApiRemotesRpmRpmAddRoleRequest {
+func (r RemotesRpmAPIRemotesRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesRpmAPIRemotesRpmRpmAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmAddRoleRequest
+ @return RemotesRpmAPIRemotesRpmRpmAddRoleRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmAddRole(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmAddRoleRequest {
-	return RemotesRpmApiRemotesRpmRpmAddRoleRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmAddRole(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmAddRoleRequest {
+	return RemotesRpmAPIRemotesRpmRpmAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -61,7 +61,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmAddRole(ctx context.Context, rpmRpmR
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmAddRoleExecute(r RemotesRpmApiRemotesRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmAddRoleExecute(r RemotesRpmAPIRemotesRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmAddRoleExecute(r RemotesRpmApiRemote
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *RemotesRpmApiService) RemotesRpmRpmAddRoleExecute(r RemotesRpmApiRemote
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmCreateRequest struct {
+type RemotesRpmAPIRemotesRpmRpmCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemote *RpmRpmRemote
 }
 
-func (r RemotesRpmApiRemotesRpmRpmCreateRequest) RpmRpmRemote(rpmRpmRemote RpmRpmRemote) RemotesRpmApiRemotesRpmRpmCreateRequest {
+func (r RemotesRpmAPIRemotesRpmRpmCreateRequest) RpmRpmRemote(rpmRpmRemote RpmRpmRemote) RemotesRpmAPIRemotesRpmRpmCreateRequest {
 	r.rpmRpmRemote = &rpmRpmRemote
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmCreateRequest) Execute() (*RpmRpmRemoteResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmCreateRequest) Execute() (*RpmRpmRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmCreateExecute(r)
 }
 
@@ -162,10 +162,10 @@ RemotesRpmRpmCreate Create a rpm remote
 A ViewSet for RpmRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesRpmApiRemotesRpmRpmCreateRequest
+ @return RemotesRpmAPIRemotesRpmRpmCreateRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmCreate(ctx context.Context) RemotesRpmApiRemotesRpmRpmCreateRequest {
-	return RemotesRpmApiRemotesRpmRpmCreateRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmCreate(ctx context.Context) RemotesRpmAPIRemotesRpmRpmCreateRequest {
+	return RemotesRpmAPIRemotesRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -173,7 +173,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmCreate(ctx context.Context) RemotesR
 
 // Execute executes the request
 //  @return RpmRpmRemoteResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmCreateExecute(r RemotesRpmApiRemotesRpmRpmCreateRequest) (*RpmRpmRemoteResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmCreateExecute(r RemotesRpmAPIRemotesRpmRpmCreateRequest) (*RpmRpmRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmCreateExecute(r RemotesRpmApiRemotes
 		localVarReturnValue  *RpmRpmRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -250,13 +250,13 @@ func (a *RemotesRpmApiService) RemotesRpmRpmCreateExecute(r RemotesRpmApiRemotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmDeleteRequest struct {
+type RemotesRpmAPIRemotesRpmRpmDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 }
 
-func (r RemotesRpmApiRemotesRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmDeleteExecute(r)
 }
 
@@ -267,10 +267,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmDeleteRequest
+ @return RemotesRpmAPIRemotesRpmRpmDeleteRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmDelete(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmDeleteRequest {
-	return RemotesRpmApiRemotesRpmRpmDeleteRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmDelete(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmDeleteRequest {
+	return RemotesRpmAPIRemotesRpmRpmDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -279,7 +279,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmDelete(ctx context.Context, rpmRpmRe
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmDeleteExecute(r RemotesRpmApiRemotesRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmDeleteExecute(r RemotesRpmAPIRemotesRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -287,7 +287,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmDeleteExecute(r RemotesRpmApiRemotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -354,9 +354,9 @@ func (a *RemotesRpmApiService) RemotesRpmRpmDeleteExecute(r RemotesRpmApiRemotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmListRequest struct {
+type RemotesRpmAPIRemotesRpmRpmListRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -379,120 +379,120 @@ type RemotesRpmApiRemotesRpmRpmListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesRpmApiRemotesRpmRpmListRequest) Limit(limit int32) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) Limit(limit int32) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) Name(name string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) Name(name string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) NameContains(nameContains string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) NameContains(nameContains string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) NameIcontains(nameIcontains string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) NameIcontains(nameIcontains string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesRpmApiRemotesRpmRpmListRequest) NameIn(nameIn []string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) NameIn(nameIn []string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) NameStartswith(nameStartswith string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) NameStartswith(nameStartswith string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesRpmApiRemotesRpmRpmListRequest) Offset(offset int32) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) Offset(offset int32) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesRpmApiRemotesRpmRpmListRequest) Ordering(ordering []string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) Ordering(ordering []string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpIdIn(pulpIdIn []string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpIdIn(pulpIdIn []string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesRpmApiRemotesRpmRpmListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesRpmApiRemotesRpmRpmListRequest) Fields(fields []string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) Fields(fields []string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRpmApiRemotesRpmRpmListRequest) ExcludeFields(excludeFields []string) RemotesRpmApiRemotesRpmRpmListRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) ExcludeFields(excludeFields []string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmListRequest) Execute() (*PaginatedrpmRpmRemoteResponseList, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmListRequest) Execute() (*PaginatedrpmRpmRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmListExecute(r)
 }
 
@@ -502,10 +502,10 @@ RemotesRpmRpmList List rpm remotes
 A ViewSet for RpmRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesRpmApiRemotesRpmRpmListRequest
+ @return RemotesRpmAPIRemotesRpmRpmListRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmList(ctx context.Context) RemotesRpmApiRemotesRpmRpmListRequest {
-	return RemotesRpmApiRemotesRpmRpmListRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmList(ctx context.Context) RemotesRpmAPIRemotesRpmRpmListRequest {
+	return RemotesRpmAPIRemotesRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -513,7 +513,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmList(ctx context.Context) RemotesRpm
 
 // Execute executes the request
 //  @return PaginatedrpmRpmRemoteResponseList
-func (a *RemotesRpmApiService) RemotesRpmRpmListExecute(r RemotesRpmApiRemotesRpmRpmListRequest) (*PaginatedrpmRpmRemoteResponseList, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmListExecute(r RemotesRpmAPIRemotesRpmRpmListRequest) (*PaginatedrpmRpmRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -521,7 +521,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmListExecute(r RemotesRpmApiRemotesRp
 		localVarReturnValue  *PaginatedrpmRpmRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -658,27 +658,27 @@ func (a *RemotesRpmApiService) RemotesRpmRpmListExecute(r RemotesRpmApiRemotesRp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmListRolesRequest struct {
+type RemotesRpmAPIRemotesRpmRpmListRolesRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesRpmApiRemotesRpmRpmListRolesRequest) Fields(fields []string) RemotesRpmApiRemotesRpmRpmListRolesRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRolesRequest) Fields(fields []string) RemotesRpmAPIRemotesRpmRpmListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRpmApiRemotesRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) RemotesRpmApiRemotesRpmRpmListRolesRequest {
+func (r RemotesRpmAPIRemotesRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) RemotesRpmAPIRemotesRpmRpmListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmListRolesExecute(r)
 }
 
@@ -689,10 +689,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmListRolesRequest
+ @return RemotesRpmAPIRemotesRpmRpmListRolesRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmListRoles(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmListRolesRequest {
-	return RemotesRpmApiRemotesRpmRpmListRolesRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmListRoles(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmListRolesRequest {
+	return RemotesRpmAPIRemotesRpmRpmListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -701,7 +701,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmListRoles(ctx context.Context, rpmRp
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmListRolesExecute(r RemotesRpmApiRemotesRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmListRolesExecute(r RemotesRpmAPIRemotesRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -709,7 +709,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmListRolesExecute(r RemotesRpmApiRemo
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -798,27 +798,27 @@ func (a *RemotesRpmApiService) RemotesRpmRpmListRolesExecute(r RemotesRpmApiRemo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmMyPermissionsRequest struct {
+type RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesRpmApiRemotesRpmRpmMyPermissionsRequest) Fields(fields []string) RemotesRpmApiRemotesRpmRpmMyPermissionsRequest {
+func (r RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest) Fields(fields []string) RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRpmApiRemotesRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesRpmApiRemotesRpmRpmMyPermissionsRequest {
+func (r RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmMyPermissionsExecute(r)
 }
 
@@ -829,10 +829,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmMyPermissionsRequest
+ @return RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmMyPermissions(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmMyPermissionsRequest {
-	return RemotesRpmApiRemotesRpmRpmMyPermissionsRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmMyPermissions(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest {
+	return RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -841,7 +841,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmMyPermissions(ctx context.Context, r
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmMyPermissionsExecute(r RemotesRpmApiRemotesRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmMyPermissionsExecute(r RemotesRpmAPIRemotesRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -849,7 +849,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmMyPermissionsExecute(r RemotesRpmApi
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -938,19 +938,19 @@ func (a *RemotesRpmApiService) RemotesRpmRpmMyPermissionsExecute(r RemotesRpmApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmPartialUpdateRequest struct {
+type RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 	patchedrpmRpmRemote *PatchedrpmRpmRemote
 }
 
-func (r RemotesRpmApiRemotesRpmRpmPartialUpdateRequest) PatchedrpmRpmRemote(patchedrpmRpmRemote PatchedrpmRpmRemote) RemotesRpmApiRemotesRpmRpmPartialUpdateRequest {
+func (r RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest) PatchedrpmRpmRemote(patchedrpmRpmRemote PatchedrpmRpmRemote) RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest {
 	r.patchedrpmRpmRemote = &patchedrpmRpmRemote
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmPartialUpdateExecute(r)
 }
 
@@ -961,10 +961,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmPartialUpdateRequest
+ @return RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmPartialUpdate(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmPartialUpdateRequest {
-	return RemotesRpmApiRemotesRpmRpmPartialUpdateRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmPartialUpdate(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest {
+	return RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -973,7 +973,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmPartialUpdate(ctx context.Context, r
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmPartialUpdateExecute(r RemotesRpmApiRemotesRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmPartialUpdateExecute(r RemotesRpmAPIRemotesRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -981,7 +981,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmPartialUpdateExecute(r RemotesRpmApi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1053,27 +1053,27 @@ func (a *RemotesRpmApiService) RemotesRpmRpmPartialUpdateExecute(r RemotesRpmApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmReadRequest struct {
+type RemotesRpmAPIRemotesRpmRpmReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesRpmApiRemotesRpmRpmReadRequest) Fields(fields []string) RemotesRpmApiRemotesRpmRpmReadRequest {
+func (r RemotesRpmAPIRemotesRpmRpmReadRequest) Fields(fields []string) RemotesRpmAPIRemotesRpmRpmReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesRpmApiRemotesRpmRpmReadRequest) ExcludeFields(excludeFields []string) RemotesRpmApiRemotesRpmRpmReadRequest {
+func (r RemotesRpmAPIRemotesRpmRpmReadRequest) ExcludeFields(excludeFields []string) RemotesRpmAPIRemotesRpmRpmReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmReadRequest) Execute() (*RpmRpmRemoteResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmReadRequest) Execute() (*RpmRpmRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmReadExecute(r)
 }
 
@@ -1084,10 +1084,10 @@ A ViewSet for RpmRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmReadRequest
+ @return RemotesRpmAPIRemotesRpmRpmReadRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmRead(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmReadRequest {
-	return RemotesRpmApiRemotesRpmRpmReadRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmRead(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmReadRequest {
+	return RemotesRpmAPIRemotesRpmRpmReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -1096,7 +1096,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmRead(ctx context.Context, rpmRpmRemo
 
 // Execute executes the request
 //  @return RpmRpmRemoteResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmReadExecute(r RemotesRpmApiRemotesRpmRpmReadRequest) (*RpmRpmRemoteResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmReadExecute(r RemotesRpmAPIRemotesRpmRpmReadRequest) (*RpmRpmRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1104,7 +1104,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmReadExecute(r RemotesRpmApiRemotesRp
 		localVarReturnValue  *RpmRpmRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1193,19 +1193,19 @@ func (a *RemotesRpmApiService) RemotesRpmRpmReadExecute(r RemotesRpmApiRemotesRp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmRemoveRoleRequest struct {
+type RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesRpmApiRemotesRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesRpmApiRemotesRpmRpmRemoveRoleRequest {
+func (r RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmRemoveRoleExecute(r)
 }
 
@@ -1216,10 +1216,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmRemoveRoleRequest
+ @return RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmRemoveRole(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmRemoveRoleRequest {
-	return RemotesRpmApiRemotesRpmRpmRemoveRoleRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmRemoveRole(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest {
+	return RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -1228,7 +1228,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmRemoveRole(ctx context.Context, rpmR
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmRemoveRoleExecute(r RemotesRpmApiRemotesRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmRemoveRoleExecute(r RemotesRpmAPIRemotesRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1236,7 +1236,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmRemoveRoleExecute(r RemotesRpmApiRem
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1308,19 +1308,19 @@ func (a *RemotesRpmApiService) RemotesRpmRpmRemoveRoleExecute(r RemotesRpmApiRem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesRpmApiRemotesRpmRpmUpdateRequest struct {
+type RemotesRpmAPIRemotesRpmRpmUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesRpmApiService
+	ApiService *RemotesRpmAPIService
 	rpmRpmRemoteHref string
 	rpmRpmRemote *RpmRpmRemote
 }
 
-func (r RemotesRpmApiRemotesRpmRpmUpdateRequest) RpmRpmRemote(rpmRpmRemote RpmRpmRemote) RemotesRpmApiRemotesRpmRpmUpdateRequest {
+func (r RemotesRpmAPIRemotesRpmRpmUpdateRequest) RpmRpmRemote(rpmRpmRemote RpmRpmRemote) RemotesRpmAPIRemotesRpmRpmUpdateRequest {
 	r.rpmRpmRemote = &rpmRpmRemote
 	return r
 }
 
-func (r RemotesRpmApiRemotesRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesRpmAPIRemotesRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmRpmUpdateExecute(r)
 }
 
@@ -1331,10 +1331,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRemoteHref
- @return RemotesRpmApiRemotesRpmRpmUpdateRequest
+ @return RemotesRpmAPIRemotesRpmRpmUpdateRequest
 */
-func (a *RemotesRpmApiService) RemotesRpmRpmUpdate(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmApiRemotesRpmRpmUpdateRequest {
-	return RemotesRpmApiRemotesRpmRpmUpdateRequest{
+func (a *RemotesRpmAPIService) RemotesRpmRpmUpdate(ctx context.Context, rpmRpmRemoteHref string) RemotesRpmAPIRemotesRpmRpmUpdateRequest {
+	return RemotesRpmAPIRemotesRpmRpmUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRemoteHref: rpmRpmRemoteHref,
@@ -1343,7 +1343,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmUpdate(ctx context.Context, rpmRpmRe
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesRpmApiService) RemotesRpmRpmUpdateExecute(r RemotesRpmApiRemotesRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesRpmAPIService) RemotesRpmRpmUpdateExecute(r RemotesRpmAPIRemotesRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1351,7 +1351,7 @@ func (a *RemotesRpmApiService) RemotesRpmRpmUpdateExecute(r RemotesRpmApiRemotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmApiService.RemotesRpmRpmUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesRpmAPIService.RemotesRpmRpmUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

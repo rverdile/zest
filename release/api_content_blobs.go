@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentBlobsApiService ContentBlobsApi service
-type ContentBlobsApiService service
+// ContentBlobsAPIService ContentBlobsAPI service
+type ContentBlobsAPIService service
 
-type ContentBlobsApiContentContainerBlobsListRequest struct {
+type ContentBlobsAPIContentContainerBlobsListRequest struct {
 	ctx context.Context
-	ApiService *ContentBlobsApiService
+	ApiService *ContentBlobsAPIService
 	digest *string
 	digestIn *[]string
 	limit *int32
@@ -43,78 +43,78 @@ type ContentBlobsApiContentContainerBlobsListRequest struct {
 }
 
 // Filter results where digest matches value
-func (r ContentBlobsApiContentContainerBlobsListRequest) Digest(digest string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) Digest(digest string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.digest = &digest
 	return r
 }
 
 // Filter results where digest is in a comma-separated list of values
-func (r ContentBlobsApiContentContainerBlobsListRequest) DigestIn(digestIn []string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) DigestIn(digestIn []string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.digestIn = &digestIn
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentBlobsApiContentContainerBlobsListRequest) Limit(limit int32) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) Limit(limit int32) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentBlobsApiContentContainerBlobsListRequest) Offset(offset int32) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) Offset(offset int32) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentBlobsApiContentContainerBlobsListRequest) Ordering(ordering []string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) Ordering(ordering []string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentBlobsApiContentContainerBlobsListRequest) PulpHrefIn(pulpHrefIn []string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) PulpHrefIn(pulpHrefIn []string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentBlobsApiContentContainerBlobsListRequest) PulpIdIn(pulpIdIn []string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) PulpIdIn(pulpIdIn []string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentBlobsApiContentContainerBlobsListRequest) RepositoryVersion(repositoryVersion string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) RepositoryVersion(repositoryVersion string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentBlobsApiContentContainerBlobsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentBlobsApiContentContainerBlobsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentBlobsApiContentContainerBlobsListRequest) Fields(fields []string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) Fields(fields []string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentBlobsApiContentContainerBlobsListRequest) ExcludeFields(excludeFields []string) ContentBlobsApiContentContainerBlobsListRequest {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) ExcludeFields(excludeFields []string) ContentBlobsAPIContentContainerBlobsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentBlobsApiContentContainerBlobsListRequest) Execute() (*PaginatedcontainerBlobResponseList, *http.Response, error) {
+func (r ContentBlobsAPIContentContainerBlobsListRequest) Execute() (*PaginatedcontainerBlobResponseList, *http.Response, error) {
 	return r.ApiService.ContentContainerBlobsListExecute(r)
 }
 
@@ -124,10 +124,10 @@ ContentContainerBlobsList List blobs
 ViewSet for Blobs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentBlobsApiContentContainerBlobsListRequest
+ @return ContentBlobsAPIContentContainerBlobsListRequest
 */
-func (a *ContentBlobsApiService) ContentContainerBlobsList(ctx context.Context) ContentBlobsApiContentContainerBlobsListRequest {
-	return ContentBlobsApiContentContainerBlobsListRequest{
+func (a *ContentBlobsAPIService) ContentContainerBlobsList(ctx context.Context) ContentBlobsAPIContentContainerBlobsListRequest {
+	return ContentBlobsAPIContentContainerBlobsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -135,7 +135,7 @@ func (a *ContentBlobsApiService) ContentContainerBlobsList(ctx context.Context) 
 
 // Execute executes the request
 //  @return PaginatedcontainerBlobResponseList
-func (a *ContentBlobsApiService) ContentContainerBlobsListExecute(r ContentBlobsApiContentContainerBlobsListRequest) (*PaginatedcontainerBlobResponseList, *http.Response, error) {
+func (a *ContentBlobsAPIService) ContentContainerBlobsListExecute(r ContentBlobsAPIContentContainerBlobsListRequest) (*PaginatedcontainerBlobResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -143,7 +143,7 @@ func (a *ContentBlobsApiService) ContentContainerBlobsListExecute(r ContentBlobs
 		localVarReturnValue  *PaginatedcontainerBlobResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentBlobsApiService.ContentContainerBlobsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentBlobsAPIService.ContentContainerBlobsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -259,27 +259,27 @@ func (a *ContentBlobsApiService) ContentContainerBlobsListExecute(r ContentBlobs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentBlobsApiContentContainerBlobsReadRequest struct {
+type ContentBlobsAPIContentContainerBlobsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentBlobsApiService
+	ApiService *ContentBlobsAPIService
 	containerBlobHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentBlobsApiContentContainerBlobsReadRequest) Fields(fields []string) ContentBlobsApiContentContainerBlobsReadRequest {
+func (r ContentBlobsAPIContentContainerBlobsReadRequest) Fields(fields []string) ContentBlobsAPIContentContainerBlobsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentBlobsApiContentContainerBlobsReadRequest) ExcludeFields(excludeFields []string) ContentBlobsApiContentContainerBlobsReadRequest {
+func (r ContentBlobsAPIContentContainerBlobsReadRequest) ExcludeFields(excludeFields []string) ContentBlobsAPIContentContainerBlobsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentBlobsApiContentContainerBlobsReadRequest) Execute() (*ContainerBlobResponse, *http.Response, error) {
+func (r ContentBlobsAPIContentContainerBlobsReadRequest) Execute() (*ContainerBlobResponse, *http.Response, error) {
 	return r.ApiService.ContentContainerBlobsReadExecute(r)
 }
 
@@ -290,10 +290,10 @@ ViewSet for Blobs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerBlobHref
- @return ContentBlobsApiContentContainerBlobsReadRequest
+ @return ContentBlobsAPIContentContainerBlobsReadRequest
 */
-func (a *ContentBlobsApiService) ContentContainerBlobsRead(ctx context.Context, containerBlobHref string) ContentBlobsApiContentContainerBlobsReadRequest {
-	return ContentBlobsApiContentContainerBlobsReadRequest{
+func (a *ContentBlobsAPIService) ContentContainerBlobsRead(ctx context.Context, containerBlobHref string) ContentBlobsAPIContentContainerBlobsReadRequest {
+	return ContentBlobsAPIContentContainerBlobsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerBlobHref: containerBlobHref,
@@ -302,7 +302,7 @@ func (a *ContentBlobsApiService) ContentContainerBlobsRead(ctx context.Context, 
 
 // Execute executes the request
 //  @return ContainerBlobResponse
-func (a *ContentBlobsApiService) ContentContainerBlobsReadExecute(r ContentBlobsApiContentContainerBlobsReadRequest) (*ContainerBlobResponse, *http.Response, error) {
+func (a *ContentBlobsAPIService) ContentContainerBlobsReadExecute(r ContentBlobsAPIContentContainerBlobsReadRequest) (*ContainerBlobResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -310,7 +310,7 @@ func (a *ContentBlobsApiService) ContentContainerBlobsReadExecute(r ContentBlobs
 		localVarReturnValue  *ContainerBlobResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentBlobsApiService.ContentContainerBlobsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentBlobsAPIService.ContentContainerBlobsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

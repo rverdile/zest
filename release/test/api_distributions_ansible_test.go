@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing DistributionsAnsibleApiService
+Testing DistributionsAnsibleAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
+func Test_zest_DistributionsAnsibleAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleAddRole", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleAddRole(context.Background(), ansibleAnsibleDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleAddRole(context.Background(), ansibleAnsibleDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleCreate", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ansibleAnsibleDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleDelete(context.Background(), ansibleAnsibleDistributionHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleListRoles", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleListRoles(context.Background(), ansibleAnsibleDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleDelete(context.Background(), ansibleAnsibleDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleMyPermissions", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var ansibleAnsibleDistributionHref string
-
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleMyPermissions(context.Background(), ansibleAnsibleDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,13 @@ func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsiblePartialUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsiblePartialUpdate(context.Background(), ansibleAnsibleDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleListRoles(context.Background(), ansibleAnsibleDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,13 @@ func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleRead", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleRead(context.Background(), ansibleAnsibleDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleMyPermissions(context.Background(), ansibleAnsibleDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +102,13 @@ func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleRemoveRole", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsiblePartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleRemoveRole(context.Background(), ansibleAnsibleDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsiblePartialUpdate(context.Background(), ansibleAnsibleDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +116,41 @@ func Test_zest_DistributionsAnsibleApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test DistributionsAnsibleApiService DistributionsAnsibleAnsibleUpdate", func(t *testing.T) {
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleDistributionHref string
 
-		resp, httpRes, err := apiClient.DistributionsAnsibleApi.DistributionsAnsibleAnsibleUpdate(context.Background(), ansibleAnsibleDistributionHref).Execute()
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleRead(context.Background(), ansibleAnsibleDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ansibleAnsibleDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleRemoveRole(context.Background(), ansibleAnsibleDistributionHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DistributionsAnsibleAPIService DistributionsAnsibleAnsibleUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ansibleAnsibleDistributionHref string
+
+		resp, httpRes, err := apiClient.DistributionsAnsibleAPI.DistributionsAnsibleAnsibleUpdate(context.Background(), ansibleAnsibleDistributionHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

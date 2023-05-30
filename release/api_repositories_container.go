@@ -23,22 +23,22 @@ import (
 )
 
 
-// RepositoriesContainerApiService RepositoriesContainerApi service
-type RepositoriesContainerApiService service
+// RepositoriesContainerAPIService RepositoriesContainerAPI service
+type RepositoriesContainerAPIService service
 
-type RepositoriesContainerApiRepositoriesContainerContainerAddRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerAddRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	recursiveManage *RecursiveManage
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerAddRequest) RecursiveManage(recursiveManage RecursiveManage) RepositoriesContainerApiRepositoriesContainerContainerAddRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerAddRequest) RecursiveManage(recursiveManage RecursiveManage) RepositoriesContainerAPIRepositoriesContainerContainerAddRequest {
 	r.recursiveManage = &recursiveManage
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerAddRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerAddRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerAddExecute(r)
 }
 
@@ -49,10 +49,10 @@ Trigger an asynchronous task to recursively add container content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerAddRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerAddRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAdd(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerAddRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerAddRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerAdd(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerAddRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerAddRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -61,7 +61,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAdd(ctx 
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddExecute(r RepositoriesContainerApiRepositoriesContainerContainerAddRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerAddExecute(r RepositoriesContainerAPIRepositoriesContainerContainerAddRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddExecu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerAdd")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerAdd")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,19 +141,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerAddRoleExecute(r)
 }
 
@@ -164,10 +164,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddRole(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerAddRole(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -176,7 +176,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddRole(
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddRoleExecute(r RepositoriesContainerApiRepositoriesContainerContainerAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerAddRoleExecute(r RepositoriesContainerAPIRepositoriesContainerContainerAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddRoleE
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -256,9 +256,9 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerAddRoleE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	containerfileArtifact *string
 	containerfile *os.File
@@ -267,30 +267,30 @@ type RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest str
 }
 
 // Artifact representing the Containerfile that should be used to run podman-build.
-func (r RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest) ContainerfileArtifact(containerfileArtifact string) RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest) ContainerfileArtifact(containerfileArtifact string) RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest {
 	r.containerfileArtifact = &containerfileArtifact
 	return r
 }
 
 // An uploaded Containerfile that should be used to run podman-build.
-func (r RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest) Containerfile(containerfile *os.File) RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest) Containerfile(containerfile *os.File) RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest {
 	r.containerfile = containerfile
 	return r
 }
 
 // A tag name for the new image being built.
-func (r RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest) Tag(tag string) RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest) Tag(tag string) RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest {
 	r.tag = &tag
 	return r
 }
 
 // A JSON string where each key is an artifact href and the value is it&#39;s relative path (name) inside the /pulp_working_directory of the build container executing the Containerfile.
-func (r RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest) Artifacts(artifacts map[string]interface{}) RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest) Artifacts(artifacts map[string]interface{}) RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest {
 	r.artifacts = &artifacts
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerBuildImageExecute(r)
 }
 
@@ -301,10 +301,10 @@ Trigger an asynchronous task to build an OCI image from a Containerfile. A new r
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerBuildImage(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerBuildImage(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -313,7 +313,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerBuildIma
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerBuildImageExecute(r RepositoriesContainerApiRepositoriesContainerContainerBuildImageRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerBuildImageExecute(r RepositoriesContainerAPIRepositoriesContainerContainerBuildImageRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -321,7 +321,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerBuildIma
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerBuildImage")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerBuildImage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -414,19 +414,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerBuildIma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	manifestCopy *ManifestCopy
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest) ManifestCopy(manifestCopy ManifestCopy) RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest) ManifestCopy(manifestCopy ManifestCopy) RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest {
 	r.manifestCopy = &manifestCopy
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerCopyManifestsExecute(r)
 }
 
@@ -437,10 +437,10 @@ Trigger an asynchronous task to copy manifests
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyManifests(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerCopyManifests(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -449,7 +449,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyMani
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyManifestsExecute(r RepositoriesContainerApiRepositoriesContainerContainerCopyManifestsRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerCopyManifestsExecute(r RepositoriesContainerAPIRepositoriesContainerContainerCopyManifestsRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -457,7 +457,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyMani
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerCopyManifests")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerCopyManifests")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -529,19 +529,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyMani
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	tagCopy *TagCopy
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest) TagCopy(tagCopy TagCopy) RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest) TagCopy(tagCopy TagCopy) RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest {
 	r.tagCopy = &tagCopy
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerCopyTagsExecute(r)
 }
 
@@ -552,10 +552,10 @@ Trigger an asynchronous task to copy tags
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyTags(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerCopyTags(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -564,7 +564,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyTags
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyTagsExecute(r RepositoriesContainerApiRepositoriesContainerContainerCopyTagsRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerCopyTagsExecute(r RepositoriesContainerAPIRepositoriesContainerContainerCopyTagsRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -572,7 +572,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyTags
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerCopyTags")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerCopyTags")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -644,18 +644,18 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCopyTags
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerCreateRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepository *ContainerContainerRepository
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerCreateRequest) ContainerContainerRepository(containerContainerRepository ContainerContainerRepository) RepositoriesContainerApiRepositoriesContainerContainerCreateRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest) ContainerContainerRepository(containerContainerRepository ContainerContainerRepository) RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest {
 	r.containerContainerRepository = &containerContainerRepository
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerCreateRequest) Execute() (*ContainerContainerRepositoryResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest) Execute() (*ContainerContainerRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerCreateExecute(r)
 }
 
@@ -665,10 +665,10 @@ RepositoriesContainerContainerCreate Create a container repository
 ViewSet for container repo.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesContainerApiRepositoriesContainerContainerCreateRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCreate(ctx context.Context) RepositoriesContainerApiRepositoriesContainerContainerCreateRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerCreateRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerCreate(ctx context.Context) RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -676,7 +676,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCreate(c
 
 // Execute executes the request
 //  @return ContainerContainerRepositoryResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCreateExecute(r RepositoriesContainerApiRepositoriesContainerContainerCreateRequest) (*ContainerContainerRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerCreateExecute(r RepositoriesContainerAPIRepositoriesContainerContainerCreateRequest) (*ContainerContainerRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -684,7 +684,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCreateEx
 		localVarReturnValue  *ContainerContainerRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -753,13 +753,13 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerCreateEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerDeleteRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerDeleteExecute(r)
 }
 
@@ -770,10 +770,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerDeleteRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerDeleteRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerDelete(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerDeleteRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerDeleteRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerDelete(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerDeleteRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -782,7 +782,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerDelete(c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerDeleteExecute(r RepositoriesContainerApiRepositoriesContainerContainerDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerDeleteExecute(r RepositoriesContainerAPIRepositoriesContainerContainerDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -790,7 +790,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerDeleteEx
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -857,9 +857,10 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerDeleteEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerListRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -880,143 +881,156 @@ type RepositoriesContainerApiRepositoriesContainerContainerListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) LatestWithContent(latestWithContent string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) Limit(limit int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) Limit(limit int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) Name(name string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) Name(name string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) NameContains(nameContains string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) NameContains(nameContains string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) NameIcontains(nameIcontains string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) NameIcontains(nameIcontains string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) NameIn(nameIn []string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) NameIn(nameIn []string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) NameStartswith(nameStartswith string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) NameStartswith(nameStartswith string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) Offset(offset int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) Offset(offset int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) Ordering(ordering []string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) Ordering(ordering []string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) PulpIdIn(pulpIdIn []string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) PulpIdIn(pulpIdIn []string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) Remote(remote string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) Remote(remote string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) WithContent(withContent string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) Fields(fields []string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) Fields(fields []string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) ExcludeFields(excludeFields []string) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) ExcludeFields(excludeFields []string) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRequest) Execute() (*PaginatedcontainerContainerRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) Execute() (*PaginatedcontainerContainerRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerListExecute(r)
 }
 
@@ -1026,10 +1040,10 @@ RepositoriesContainerContainerList List container repositorys
 ViewSet for container repo.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesContainerApiRepositoriesContainerContainerListRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerListRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerList(ctx context.Context) RepositoriesContainerApiRepositoriesContainerContainerListRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerListRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerList(ctx context.Context) RepositoriesContainerAPIRepositoriesContainerContainerListRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1037,7 +1051,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerList(ctx
 
 // Execute executes the request
 //  @return PaginatedcontainerContainerRepositoryResponseList
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListExecute(r RepositoriesContainerApiRepositoriesContainerContainerListRequest) (*PaginatedcontainerContainerRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerListExecute(r RepositoriesContainerAPIRepositoriesContainerContainerListRequest) (*PaginatedcontainerContainerRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1045,7 +1059,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListExec
 		localVarReturnValue  *PaginatedcontainerContainerRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1055,6 +1069,9 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListExec
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -1114,6 +1131,9 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListExec
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -1191,27 +1211,27 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest) Fields(fields []string) RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest) Fields(fields []string) RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerListRolesExecute(r)
 }
 
@@ -1222,10 +1242,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListRoles(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerListRoles(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -1234,7 +1254,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListRole
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListRolesExecute(r RepositoriesContainerApiRepositoriesContainerContainerListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerListRolesExecute(r RepositoriesContainerAPIRepositoriesContainerContainerListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1242,7 +1262,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListRole
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1331,27 +1351,27 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerListRole
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest) Fields(fields []string) RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest) Fields(fields []string) RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerMyPermissionsExecute(r)
 }
 
@@ -1362,10 +1382,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerMyPermissions(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerMyPermissions(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -1374,7 +1394,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerMyPermis
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerMyPermissionsExecute(r RepositoriesContainerApiRepositoriesContainerContainerMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerMyPermissionsExecute(r RepositoriesContainerAPIRepositoriesContainerContainerMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1382,7 +1402,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerMyPermis
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1471,19 +1491,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerMyPermis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	patchedcontainerContainerRepository *PatchedcontainerContainerRepository
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest) PatchedcontainerContainerRepository(patchedcontainerContainerRepository PatchedcontainerContainerRepository) RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest) PatchedcontainerContainerRepository(patchedcontainerContainerRepository PatchedcontainerContainerRepository) RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest {
 	r.patchedcontainerContainerRepository = &patchedcontainerContainerRepository
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerPartialUpdateExecute(r)
 }
 
@@ -1494,10 +1514,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerPartialUpdate(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerPartialUpdate(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -1506,7 +1526,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerPartialU
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerPartialUpdateExecute(r RepositoriesContainerApiRepositoriesContainerContainerPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerPartialUpdateExecute(r RepositoriesContainerAPIRepositoriesContainerContainerPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1514,7 +1534,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerPartialU
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1586,27 +1606,27 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerPartialU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerReadRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerReadRequest) Fields(fields []string) RepositoriesContainerApiRepositoriesContainerContainerReadRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerReadRequest) Fields(fields []string) RepositoriesContainerAPIRepositoriesContainerContainerReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesContainerApiRepositoriesContainerContainerReadRequest) ExcludeFields(excludeFields []string) RepositoriesContainerApiRepositoriesContainerContainerReadRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerReadRequest) ExcludeFields(excludeFields []string) RepositoriesContainerAPIRepositoriesContainerContainerReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerReadRequest) Execute() (*ContainerContainerRepositoryResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerReadRequest) Execute() (*ContainerContainerRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerReadExecute(r)
 }
 
@@ -1617,10 +1637,10 @@ ViewSet for container repo.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerReadRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerReadRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRead(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerReadRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerReadRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerRead(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerReadRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -1629,7 +1649,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRead(ctx
 
 // Execute executes the request
 //  @return ContainerContainerRepositoryResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerReadExecute(r RepositoriesContainerApiRepositoriesContainerContainerReadRequest) (*ContainerContainerRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerReadExecute(r RepositoriesContainerAPIRepositoriesContainerContainerReadRequest) (*ContainerContainerRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1637,7 +1657,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerReadExec
 		localVarReturnValue  *ContainerContainerRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1726,19 +1746,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerReadExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	recursiveManage *RecursiveManage
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest) RecursiveManage(recursiveManage RecursiveManage) RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest) RecursiveManage(recursiveManage RecursiveManage) RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest {
 	r.recursiveManage = &recursiveManage
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerRemoveExecute(r)
 }
 
@@ -1749,10 +1769,10 @@ Trigger an async task to recursively remove container content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemove(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerRemove(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -1761,7 +1781,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemove(c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveExecute(r RepositoriesContainerApiRepositoriesContainerContainerRemoveRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerRemoveExecute(r RepositoriesContainerAPIRepositoriesContainerContainerRemoveRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1769,7 +1789,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveEx
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerRemove")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerRemove")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1841,19 +1861,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerRemoveRoleExecute(r)
 }
 
@@ -1864,10 +1884,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveRole(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerRemoveRole(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -1876,7 +1896,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveRo
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveRoleExecute(r RepositoriesContainerApiRepositoriesContainerContainerRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerRemoveRoleExecute(r RepositoriesContainerAPIRepositoriesContainerContainerRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1884,7 +1904,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveRo
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1956,19 +1976,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerRemoveRo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerSignRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerSignRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	repositorySign *RepositorySign
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerSignRequest) RepositorySign(repositorySign RepositorySign) RepositoriesContainerApiRepositoriesContainerContainerSignRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerSignRequest) RepositorySign(repositorySign RepositorySign) RepositoriesContainerAPIRepositoriesContainerContainerSignRequest {
 	r.repositorySign = &repositorySign
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerSignRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerSignRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerSignExecute(r)
 }
 
@@ -1979,10 +1999,10 @@ Trigger an asynchronous task to sign content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerSignRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerSignRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSign(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerSignRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerSignRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerSign(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerSignRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerSignRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -1991,7 +2011,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSign(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSignExecute(r RepositoriesContainerApiRepositoriesContainerContainerSignRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerSignExecute(r RepositoriesContainerAPIRepositoriesContainerContainerSignRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1999,7 +2019,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSignExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerSign")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerSign")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2071,19 +2091,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSignExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerSyncRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	containerRepositorySyncURL *ContainerRepositorySyncURL
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerSyncRequest) ContainerRepositorySyncURL(containerRepositorySyncURL ContainerRepositorySyncURL) RepositoriesContainerApiRepositoriesContainerContainerSyncRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest) ContainerRepositorySyncURL(containerRepositorySyncURL ContainerRepositorySyncURL) RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest {
 	r.containerRepositorySyncURL = &containerRepositorySyncURL
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerSyncExecute(r)
 }
 
@@ -2094,10 +2114,10 @@ Trigger an asynchronous task to sync content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerSyncRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSync(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerSyncRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerSyncRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerSync(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -2106,7 +2126,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSync(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSyncExecute(r RepositoriesContainerApiRepositoriesContainerContainerSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerSyncExecute(r RepositoriesContainerAPIRepositoriesContainerContainerSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2114,7 +2134,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSyncExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2186,19 +2206,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerSyncExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerTagRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerTagRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	tagImage *TagImage
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerTagRequest) TagImage(tagImage TagImage) RepositoriesContainerApiRepositoriesContainerContainerTagRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerTagRequest) TagImage(tagImage TagImage) RepositoriesContainerAPIRepositoriesContainerContainerTagRequest {
 	r.tagImage = &tagImage
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerTagRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerTagRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerTagExecute(r)
 }
 
@@ -2209,10 +2229,10 @@ Trigger an asynchronous task to tag an image in the repository
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerTagRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerTagRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerTag(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerTagRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerTagRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerTag(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerTagRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerTagRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -2221,7 +2241,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerTag(ctx 
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerTagExecute(r RepositoriesContainerApiRepositoriesContainerContainerTagRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerTagExecute(r RepositoriesContainerAPIRepositoriesContainerContainerTagRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2229,7 +2249,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerTagExecu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerTag")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerTag")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2301,19 +2321,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerTagExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerUntagRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	unTagImage *UnTagImage
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerUntagRequest) UnTagImage(unTagImage UnTagImage) RepositoriesContainerApiRepositoriesContainerContainerUntagRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest) UnTagImage(unTagImage UnTagImage) RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest {
 	r.unTagImage = &unTagImage
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerUntagRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerUntagExecute(r)
 }
 
@@ -2324,10 +2344,10 @@ Trigger an asynchronous task to untag an image in the repository
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerUntagRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUntag(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerUntagRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerUntagRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerUntag(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -2336,7 +2356,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUntag(ct
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUntagExecute(r RepositoriesContainerApiRepositoriesContainerContainerUntagRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerUntagExecute(r RepositoriesContainerAPIRepositoriesContainerContainerUntagRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2344,7 +2364,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUntagExe
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerUntag")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerUntag")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2416,19 +2436,19 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUntagExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest struct {
+type RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesContainerApiService
+	ApiService *RepositoriesContainerAPIService
 	containerContainerRepositoryHref string
 	containerContainerRepository *ContainerContainerRepository
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest) ContainerContainerRepository(containerContainerRepository ContainerContainerRepository) RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest) ContainerContainerRepository(containerContainerRepository ContainerContainerRepository) RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest {
 	r.containerContainerRepository = &containerContainerRepository
 	return r
 }
 
-func (r RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesContainerContainerUpdateExecute(r)
 }
 
@@ -2439,10 +2459,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerContainerRepositoryHref
- @return RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest
+ @return RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest
 */
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUpdate(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest {
-	return RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest{
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerUpdate(ctx context.Context, containerContainerRepositoryHref string) RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest {
+	return RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerContainerRepositoryHref: containerContainerRepositoryHref,
@@ -2451,7 +2471,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUpdate(c
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUpdateExecute(r RepositoriesContainerApiRepositoriesContainerContainerUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesContainerAPIService) RepositoriesContainerContainerUpdateExecute(r RepositoriesContainerAPIRepositoriesContainerContainerUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2459,7 +2479,7 @@ func (a *RepositoriesContainerApiService) RepositoriesContainerContainerUpdateEx
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerApiService.RepositoriesContainerContainerUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesContainerAPIService.RepositoriesContainerContainerUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

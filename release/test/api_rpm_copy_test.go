@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RpmCopyApiService
+Testing RpmCopyAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RpmCopyApiService(t *testing.T) {
+func Test_zest_RpmCopyAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RpmCopyApiService CopyContent", func(t *testing.T) {
+	t.Run("Test RpmCopyAPIService CopyContent", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RpmCopyApi.CopyContent(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RpmCopyAPI.CopyContent(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

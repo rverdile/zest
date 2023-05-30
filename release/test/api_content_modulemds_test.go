@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentModulemdsApiService
+Testing ContentModulemdsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentModulemdsApiService(t *testing.T) {
+func Test_zest_ContentModulemdsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentModulemdsApiService ContentRpmModulemdsCreate", func(t *testing.T) {
+	t.Run("Test ContentModulemdsAPIService ContentRpmModulemdsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentModulemdsApi.ContentRpmModulemdsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentModulemdsAPI.ContentRpmModulemdsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentModulemdsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentModulemdsApiService ContentRpmModulemdsList", func(t *testing.T) {
+	t.Run("Test ContentModulemdsAPIService ContentRpmModulemdsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentModulemdsApi.ContentRpmModulemdsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentModulemdsAPI.ContentRpmModulemdsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentModulemdsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentModulemdsApiService ContentRpmModulemdsRead", func(t *testing.T) {
+	t.Run("Test ContentModulemdsAPIService ContentRpmModulemdsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmModulemdHref string
 
-		resp, httpRes, err := apiClient.ContentModulemdsApi.ContentRpmModulemdsRead(context.Background(), rpmModulemdHref).Execute()
+		resp, httpRes, err := apiClient.ContentModulemdsAPI.ContentRpmModulemdsRead(context.Background(), rpmModulemdHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

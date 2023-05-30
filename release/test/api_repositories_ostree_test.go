@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesOstreeApiService
+Testing RepositoriesOstreeAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
+func Test_zest_RepositoriesOstreeAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeCreate", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeDelete", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeDelete(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeDelete(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeImportAll", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeImportAll", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeImportAll(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeImportAll(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeImportCommits", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeImportCommits", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeImportCommits(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeImportCommits(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,11 +76,11 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeList", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,27 +88,13 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeModify", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ostreeOstreeRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeModify(context.Background(), ostreeOstreeRepositoryHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreePartialUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeModify", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreePartialUpdate(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeModify(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +102,13 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeRead", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreePartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeRead(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreePartialUpdate(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +116,13 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeSync", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeSync(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeRead(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,13 +130,27 @@ func Test_zest_RepositoriesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesOstreeApiService RepositoriesOstreeOstreeUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeSync", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesOstreeApi.RepositoriesOstreeOstreeUpdate(context.Background(), ostreeOstreeRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeSync(context.Background(), ostreeOstreeRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesOstreeAPIService RepositoriesOstreeOstreeUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ostreeOstreeRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesOstreeAPI.RepositoriesOstreeOstreeUpdate(context.Background(), ostreeOstreeRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

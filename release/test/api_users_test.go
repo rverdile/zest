@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing UsersApiService
+Testing UsersAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_UsersApiService(t *testing.T) {
+func Test_zest_UsersAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UsersApiService UsersCreate", func(t *testing.T) {
+	t.Run("Test UsersAPIService UsersCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UsersApi.UsersCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UsersAPI.UsersCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,38 +34,24 @@ func Test_zest_UsersApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UsersApiService UsersDelete", func(t *testing.T) {
+	t.Run("Test UsersAPIService UsersDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var authUserHref string
 
-		httpRes, err := apiClient.UsersApi.UsersDelete(context.Background(), authUserHref).Execute()
+		httpRes, err := apiClient.UsersAPI.UsersDelete(context.Background(), authUserHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test UsersApiService UsersList", func(t *testing.T) {
+	t.Run("Test UsersAPIService UsersList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UsersApi.UsersList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test UsersApiService UsersPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var authUserHref string
-
-		resp, httpRes, err := apiClient.UsersApi.UsersPartialUpdate(context.Background(), authUserHref).Execute()
+		resp, httpRes, err := apiClient.UsersAPI.UsersList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,13 +59,13 @@ func Test_zest_UsersApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UsersApiService UsersRead", func(t *testing.T) {
+	t.Run("Test UsersAPIService UsersPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var authUserHref string
 
-		resp, httpRes, err := apiClient.UsersApi.UsersRead(context.Background(), authUserHref).Execute()
+		resp, httpRes, err := apiClient.UsersAPI.UsersPartialUpdate(context.Background(), authUserHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +73,27 @@ func Test_zest_UsersApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test UsersApiService UsersUpdate", func(t *testing.T) {
+	t.Run("Test UsersAPIService UsersRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var authUserHref string
 
-		resp, httpRes, err := apiClient.UsersApi.UsersUpdate(context.Background(), authUserHref).Execute()
+		resp, httpRes, err := apiClient.UsersAPI.UsersRead(context.Background(), authUserHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsersAPIService UsersUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var authUserHref string
+
+		resp, httpRes, err := apiClient.UsersAPI.UsersUpdate(context.Background(), authUserHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

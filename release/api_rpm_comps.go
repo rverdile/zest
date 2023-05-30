@@ -21,36 +21,36 @@ import (
 )
 
 
-// RpmCompsApiService RpmCompsApi service
-type RpmCompsApiService service
+// RpmCompsAPIService RpmCompsAPI service
+type RpmCompsAPIService service
 
-type RpmCompsApiRpmCompsUploadRequest struct {
+type RpmCompsAPIRpmCompsUploadRequest struct {
 	ctx context.Context
-	ApiService *RpmCompsApiService
+	ApiService *RpmCompsAPIService
 	file *os.File
 	repository *string
 	replace *bool
 }
 
 // Full path of a comps.xml file that may be parsed into comps.xml Content units.
-func (r RpmCompsApiRpmCompsUploadRequest) File(file *os.File) RpmCompsApiRpmCompsUploadRequest {
+func (r RpmCompsAPIRpmCompsUploadRequest) File(file *os.File) RpmCompsAPIRpmCompsUploadRequest {
 	r.file = file
 	return r
 }
 
 // URI of an RPM repository the comps.xml content units should be associated to.
-func (r RpmCompsApiRpmCompsUploadRequest) Repository(repository string) RpmCompsApiRpmCompsUploadRequest {
+func (r RpmCompsAPIRpmCompsUploadRequest) Repository(repository string) RpmCompsAPIRpmCompsUploadRequest {
 	r.repository = &repository
 	return r
 }
 
 // If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository.
-func (r RpmCompsApiRpmCompsUploadRequest) Replace(replace bool) RpmCompsApiRpmCompsUploadRequest {
+func (r RpmCompsAPIRpmCompsUploadRequest) Replace(replace bool) RpmCompsAPIRpmCompsUploadRequest {
 	r.replace = &replace
 	return r
 }
 
-func (r RpmCompsApiRpmCompsUploadRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RpmCompsAPIRpmCompsUploadRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RpmCompsUploadExecute(r)
 }
 
@@ -60,10 +60,10 @@ RpmCompsUpload Upload comps.xml
 Trigger an asynchronous task to upload a comps.xml file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RpmCompsApiRpmCompsUploadRequest
+ @return RpmCompsAPIRpmCompsUploadRequest
 */
-func (a *RpmCompsApiService) RpmCompsUpload(ctx context.Context) RpmCompsApiRpmCompsUploadRequest {
-	return RpmCompsApiRpmCompsUploadRequest{
+func (a *RpmCompsAPIService) RpmCompsUpload(ctx context.Context) RpmCompsAPIRpmCompsUploadRequest {
+	return RpmCompsAPIRpmCompsUploadRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -71,7 +71,7 @@ func (a *RpmCompsApiService) RpmCompsUpload(ctx context.Context) RpmCompsApiRpmC
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RpmCompsApiService) RpmCompsUploadExecute(r RpmCompsApiRpmCompsUploadRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RpmCompsAPIService) RpmCompsUploadExecute(r RpmCompsAPIRpmCompsUploadRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -79,7 +79,7 @@ func (a *RpmCompsApiService) RpmCompsUploadExecute(r RpmCompsApiRpmCompsUploadRe
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RpmCompsApiService.RpmCompsUpload")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RpmCompsAPIService.RpmCompsUpload")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

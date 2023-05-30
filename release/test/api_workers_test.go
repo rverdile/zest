@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing WorkersApiService
+Testing WorkersAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_WorkersApiService(t *testing.T) {
+func Test_zest_WorkersAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test WorkersApiService WorkersList", func(t *testing.T) {
+	t.Run("Test WorkersAPIService WorkersList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.WorkersApi.WorkersList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.WorkersAPI.WorkersList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_WorkersApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkersApiService WorkersRead", func(t *testing.T) {
+	t.Run("Test WorkersAPIService WorkersRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var workerHref string
 
-		resp, httpRes, err := apiClient.WorkersApi.WorkersRead(context.Background(), workerHref).Execute()
+		resp, httpRes, err := apiClient.WorkersAPI.WorkersRead(context.Background(), workerHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

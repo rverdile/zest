@@ -23,36 +23,36 @@ import (
 )
 
 
-// ContentCollectionSignaturesApiService ContentCollectionSignaturesApi service
-type ContentCollectionSignaturesApiService service
+// ContentCollectionSignaturesAPIService ContentCollectionSignaturesAPI service
+type ContentCollectionSignaturesAPIService service
 
-type ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest struct {
+type ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionSignaturesApiService
+	ApiService *ContentCollectionSignaturesAPIService
 	file *os.File
 	signedCollection *string
 	repository *string
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest) File(file *os.File) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest) File(file *os.File) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest {
 	r.file = file
 	return r
 }
 
 // The content this signature is pointing to.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest) SignedCollection(signedCollection string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest) SignedCollection(signedCollection string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest {
 	r.signedCollection = &signedCollection
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest) Repository(repository string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest) Repository(repository string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest {
 	r.repository = &repository
 	return r
 }
 
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionSignaturesCreateExecute(r)
 }
 
@@ -62,10 +62,10 @@ ContentAnsibleCollectionSignaturesCreate Create a collection version signature
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest
+ @return ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest
 */
-func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignaturesCreate(ctx context.Context) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest {
-	return ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest{
+func (a *ContentCollectionSignaturesAPIService) ContentAnsibleCollectionSignaturesCreate(ctx context.Context) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest {
+	return ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -73,7 +73,7 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignaturesCreateExecute(r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentCollectionSignaturesAPIService) ContentAnsibleCollectionSignaturesCreateExecute(r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -81,7 +81,7 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionSignaturesApiService.ContentAnsibleCollectionSignaturesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionSignaturesAPIService.ContentAnsibleCollectionSignaturesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -172,9 +172,9 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest struct {
+type ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionSignaturesApiService
+	ApiService *ContentCollectionSignaturesAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -192,90 +192,90 @@ type ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest
 }
 
 // Number of results to return per page.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) Limit(limit int32) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) Limit(limit int32) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) Offset(offset int32) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) Offset(offset int32) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;data&#x60; - Data * &#x60;-data&#x60; - Data (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;pubkey_fingerprint&#x60; - Pubkey fingerprint * &#x60;-pubkey_fingerprint&#x60; - Pubkey fingerprint (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) Ordering(ordering []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) Ordering(ordering []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pubkey_fingerprint matches value
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) PubkeyFingerprint(pubkeyFingerprint string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) PubkeyFingerprint(pubkeyFingerprint string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.pubkeyFingerprint = &pubkeyFingerprint
 	return r
 }
 
 // Filter results where pubkey_fingerprint is in a comma-separated list of values
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) PubkeyFingerprintIn(pubkeyFingerprintIn []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) PubkeyFingerprintIn(pubkeyFingerprintIn []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.pubkeyFingerprintIn = &pubkeyFingerprintIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter signatures for collection version
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) SignedCollection(signedCollection string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) SignedCollection(signedCollection string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.signedCollection = &signedCollection
 	return r
 }
 
 // Filter signatures produced by signature service
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) SigningService(signingService string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) SigningService(signingService string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.signingService = &signingService
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) Fields(fields []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) Fields(fields []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) ExcludeFields(excludeFields []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) ExcludeFields(excludeFields []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) Execute() (*PaginatedansibleCollectionVersionSignatureResponseList, *http.Response, error) {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) Execute() (*PaginatedansibleCollectionVersionSignatureResponseList, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionSignaturesListExecute(r)
 }
 
@@ -285,10 +285,10 @@ ContentAnsibleCollectionSignaturesList List collection version signatures
 ViewSet for looking at signature objects for CollectionVersion content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest
+ @return ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest
 */
-func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignaturesList(ctx context.Context) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest {
-	return ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest{
+func (a *ContentCollectionSignaturesAPIService) ContentAnsibleCollectionSignaturesList(ctx context.Context) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest {
+	return ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -296,7 +296,7 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 
 // Execute executes the request
 //  @return PaginatedansibleCollectionVersionSignatureResponseList
-func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignaturesListExecute(r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesListRequest) (*PaginatedansibleCollectionVersionSignatureResponseList, *http.Response, error) {
+func (a *ContentCollectionSignaturesAPIService) ContentAnsibleCollectionSignaturesListExecute(r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesListRequest) (*PaginatedansibleCollectionVersionSignatureResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -304,7 +304,7 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 		localVarReturnValue  *PaginatedansibleCollectionVersionSignatureResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionSignaturesApiService.ContentAnsibleCollectionSignaturesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionSignaturesAPIService.ContentAnsibleCollectionSignaturesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -426,27 +426,27 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest struct {
+type ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionSignaturesApiService
+	ApiService *ContentCollectionSignaturesAPIService
 	ansibleCollectionVersionSignatureHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest) Fields(fields []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest) Fields(fields []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest) ExcludeFields(excludeFields []string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest) ExcludeFields(excludeFields []string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest) Execute() (*AnsibleCollectionVersionSignatureResponse, *http.Response, error) {
+func (r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest) Execute() (*AnsibleCollectionVersionSignatureResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionSignaturesReadExecute(r)
 }
 
@@ -457,10 +457,10 @@ ViewSet for looking at signature objects for CollectionVersion content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionVersionSignatureHref
- @return ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest
+ @return ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest
 */
-func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignaturesRead(ctx context.Context, ansibleCollectionVersionSignatureHref string) ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest {
-	return ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest{
+func (a *ContentCollectionSignaturesAPIService) ContentAnsibleCollectionSignaturesRead(ctx context.Context, ansibleCollectionVersionSignatureHref string) ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest {
+	return ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionVersionSignatureHref: ansibleCollectionVersionSignatureHref,
@@ -469,7 +469,7 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 
 // Execute executes the request
 //  @return AnsibleCollectionVersionSignatureResponse
-func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignaturesReadExecute(r ContentCollectionSignaturesApiContentAnsibleCollectionSignaturesReadRequest) (*AnsibleCollectionVersionSignatureResponse, *http.Response, error) {
+func (a *ContentCollectionSignaturesAPIService) ContentAnsibleCollectionSignaturesReadExecute(r ContentCollectionSignaturesAPIContentAnsibleCollectionSignaturesReadRequest) (*AnsibleCollectionVersionSignatureResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -477,7 +477,7 @@ func (a *ContentCollectionSignaturesApiService) ContentAnsibleCollectionSignatur
 		localVarReturnValue  *AnsibleCollectionVersionSignatureResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionSignaturesApiService.ContentAnsibleCollectionSignaturesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionSignaturesAPIService.ContentAnsibleCollectionSignaturesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

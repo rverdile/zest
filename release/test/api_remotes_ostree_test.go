@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RemotesOstreeApiService
+Testing RemotesOstreeAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RemotesOstreeApiService(t *testing.T) {
+func Test_zest_RemotesOstreeAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RemotesOstreeApiService RemotesOstreeOstreeCreate", func(t *testing.T) {
+	t.Run("Test RemotesOstreeAPIService RemotesOstreeOstreeCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesOstreeApi.RemotesOstreeOstreeCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesOstreeAPI.RemotesOstreeOstreeCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_RemotesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesOstreeApiService RemotesOstreeOstreeDelete", func(t *testing.T) {
+	t.Run("Test RemotesOstreeAPIService RemotesOstreeOstreeDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesOstreeApi.RemotesOstreeOstreeDelete(context.Background(), ostreeOstreeRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesOstreeAPI.RemotesOstreeOstreeDelete(context.Background(), ostreeOstreeRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_RemotesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesOstreeApiService RemotesOstreeOstreeList", func(t *testing.T) {
+	t.Run("Test RemotesOstreeAPIService RemotesOstreeOstreeList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RemotesOstreeApi.RemotesOstreeOstreeList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RemotesOstreeAPI.RemotesOstreeOstreeList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_RemotesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesOstreeApiService RemotesOstreeOstreePartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ostreeOstreeRemoteHref string
-
-		resp, httpRes, err := apiClient.RemotesOstreeApi.RemotesOstreeOstreePartialUpdate(context.Background(), ostreeOstreeRemoteHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RemotesOstreeApiService RemotesOstreeOstreeRead", func(t *testing.T) {
+	t.Run("Test RemotesOstreeAPIService RemotesOstreeOstreePartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesOstreeApi.RemotesOstreeOstreeRead(context.Background(), ostreeOstreeRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesOstreeAPI.RemotesOstreeOstreePartialUpdate(context.Background(), ostreeOstreeRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_RemotesOstreeApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RemotesOstreeApiService RemotesOstreeOstreeUpdate", func(t *testing.T) {
+	t.Run("Test RemotesOstreeAPIService RemotesOstreeOstreeRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeRemoteHref string
 
-		resp, httpRes, err := apiClient.RemotesOstreeApi.RemotesOstreeOstreeUpdate(context.Background(), ostreeOstreeRemoteHref).Execute()
+		resp, httpRes, err := apiClient.RemotesOstreeAPI.RemotesOstreeOstreeRead(context.Background(), ostreeOstreeRemoteHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RemotesOstreeAPIService RemotesOstreeOstreeUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var ostreeOstreeRemoteHref string
+
+		resp, httpRes, err := apiClient.RemotesOstreeAPI.RemotesOstreeOstreeUpdate(context.Background(), ostreeOstreeRemoteHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

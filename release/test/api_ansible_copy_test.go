@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing AnsibleCopyApiService
+Testing AnsibleCopyAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_AnsibleCopyApiService(t *testing.T) {
+func Test_zest_AnsibleCopyAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AnsibleCopyApiService CopyContent", func(t *testing.T) {
+	t.Run("Test AnsibleCopyAPIService CopyContent", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AnsibleCopyApi.CopyContent(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AnsibleCopyAPI.CopyContent(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

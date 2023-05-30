@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpMavenApiService
+Testing PulpMavenAPIService
 
 */
 
@@ -17,33 +17,33 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpMavenApiService(t *testing.T) {
+func Test_zest_PulpMavenAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpMavenApiService PulpMavenGet", func(t *testing.T) {
+	t.Run("Test PulpMavenAPIService PulpMavenGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 		var path string
 
-		httpRes, err := apiClient.PulpMavenApi.PulpMavenGet(context.Background(), name, path).Execute()
+		httpRes, err := apiClient.PulpMavenAPI.PulpMavenGet(context.Background(), name, path).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test PulpMavenApiService PulpMavenPut", func(t *testing.T) {
+	t.Run("Test PulpMavenAPIService PulpMavenPut", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 		var path string
 
-		httpRes, err := apiClient.PulpMavenApi.PulpMavenPut(context.Background(), name, path).Execute()
+		httpRes, err := apiClient.PulpMavenAPI.PulpMavenPut(context.Background(), name, path).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

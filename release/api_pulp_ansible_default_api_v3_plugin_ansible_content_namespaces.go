@@ -23,12 +23,12 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApi service
-type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService service
+// PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPI service
+type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService service
 
-type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest struct {
+type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService
+	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService
 	distroBasePath string
 	name *string
 	company *string
@@ -40,48 +40,48 @@ type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDe
 }
 
 // Required named, only accepts lowercase, numbers and underscores.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Name(name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Name(name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
 	r.name = &name
 	return r
 }
 
 // Optional namespace company owner.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Company(company string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Company(company string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
 	r.company = &company
 	return r
 }
 
 // Optional namespace contact email.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Email(email string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Email(email string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
 	r.email = &email
 	return r
 }
 
 // Optional short description.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Description(description string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Description(description string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
 	r.description = &description
 	return r
 }
 
 // Optional resource page in markdown format.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Resources(resources string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Resources(resources string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
 	r.resources = &resources
 	return r
 }
 
 // Labeled related links.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Links(links []NamespaceLink) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Links(links []NamespaceLink) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
 	r.links = &links
 	return r
 }
 
 // Optional avatar image for Namespace
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Avatar(avatar *os.File) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Avatar(avatar *os.File) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
 	r.avatar = avatar
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateExecute(r)
 }
 
@@ -92,10 +92,10 @@ Custom exception handler mixin class.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
- @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest
+ @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest
 */
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreate(ctx context.Context, distroBasePath string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
-	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest{
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreate(ctx context.Context, distroBasePath string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest {
+	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -104,7 +104,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -112,7 +112,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -221,14 +221,14 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest struct {
+type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService
+	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService
 	distroBasePath string
 	name string
 }
 
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteExecute(r)
 }
 
@@ -240,10 +240,10 @@ Try to remove the Namespace if no Collections under Namespace are present.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
  @param name
- @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest
+ @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest
 */
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDelete(ctx context.Context, distroBasePath string, name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest {
-	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest{
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDelete(ctx context.Context, distroBasePath string, name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest {
+	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -253,7 +253,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -261,7 +261,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -331,9 +331,9 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest struct {
+type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService
+	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService
 	distroBasePath string
 	company *string
 	companyContains *string
@@ -357,120 +357,120 @@ type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDe
 }
 
 // Filter results where company matches value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Company(company string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Company(company string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.company = &company
 	return r
 }
 
 // Filter results where company contains value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyContains(companyContains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyContains(companyContains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.companyContains = &companyContains
 	return r
 }
 
 // Filter results where company contains value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyIcontains(companyIcontains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyIcontains(companyIcontains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.companyIcontains = &companyIcontains
 	return r
 }
 
 // Filter results where company is in a comma-separated list of values
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyIn(companyIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyIn(companyIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.companyIn = &companyIn
 	return r
 }
 
 // Filter results where company starts with value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyStartswith(companyStartswith string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) CompanyStartswith(companyStartswith string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.companyStartswith = &companyStartswith
 	return r
 }
 
 // Number of results to return per page.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Limit(limit int32) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Limit(limit int32) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where metadata_sha256 matches value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) MetadataSha256(metadataSha256 string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) MetadataSha256(metadataSha256 string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.metadataSha256 = &metadataSha256
 	return r
 }
 
 // Filter results where metadata_sha256 is in a comma-separated list of values
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) MetadataSha256In(metadataSha256In []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) MetadataSha256In(metadataSha256In []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.metadataSha256In = &metadataSha256In
 	return r
 }
 
 // Filter results where name matches value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Name(name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Name(name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameContains(nameContains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameContains(nameContains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameIcontains(nameIcontains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameIcontains(nameIcontains string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameIn(nameIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameIn(nameIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameStartswith(nameStartswith string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) NameStartswith(nameStartswith string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Offset(offset int32) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Offset(offset int32) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;company&#x60; - Company * &#x60;-company&#x60; - Company (descending) * &#x60;email&#x60; - Email * &#x60;-email&#x60; - Email (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;resources&#x60; - Resources * &#x60;-resources&#x60; - Resources (descending) * &#x60;links&#x60; - Links * &#x60;-links&#x60; - Links (descending) * &#x60;avatar_sha256&#x60; - Avatar sha256 * &#x60;-avatar_sha256&#x60; - Avatar sha256 (descending) * &#x60;metadata_sha256&#x60; - Metadata sha256 * &#x60;-metadata_sha256&#x60; - Metadata sha256 (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Ordering(ordering []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) PulpHrefIn(pulpHrefIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) PulpIdIn(pulpIdIn []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Fields(fields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Fields(fields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Execute() (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) Execute() (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListExecute(r)
 }
 
@@ -481,10 +481,10 @@ Custom exception handler mixin class.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
- @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest
+ @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest
 */
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesList(ctx context.Context, distroBasePath string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
-	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest{
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesList(ctx context.Context, distroBasePath string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest {
+	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -493,7 +493,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 
 // Execute executes the request
 //  @return PaginatedansibleAnsibleNamespaceMetadataResponseList
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesListRequest) (*PaginatedansibleAnsibleNamespaceMetadataResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -501,7 +501,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 		localVarReturnValue  *PaginatedansibleAnsibleNamespaceMetadataResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -641,9 +641,9 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest struct {
+type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService
+	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService
 	distroBasePath string
 	name string
 	name2 *string
@@ -656,48 +656,48 @@ type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDe
 }
 
 // Required named, only accepts lowercase, numbers and underscores.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Name2(name2 string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Name2(name2 string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
 	r.name2 = &name2
 	return r
 }
 
 // Optional namespace company owner.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Company(company string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Company(company string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
 	r.company = &company
 	return r
 }
 
 // Optional namespace contact email.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Email(email string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Email(email string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
 	r.email = &email
 	return r
 }
 
 // Optional short description.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Description(description string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Description(description string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
 	r.description = &description
 	return r
 }
 
 // Optional resource page in markdown format.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Resources(resources string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Resources(resources string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
 	r.resources = &resources
 	return r
 }
 
 // Labeled related links.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Links(links []NamespaceLink) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Links(links []NamespaceLink) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
 	r.links = &links
 	return r
 }
 
 // Optional avatar image for Namespace
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Avatar(avatar *os.File) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Avatar(avatar *os.File) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
 	r.avatar = avatar
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateExecute(r)
 }
 
@@ -709,10 +709,10 @@ Custom exception handler mixin class.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
  @param name
- @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest
+ @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest
 */
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdate(ctx context.Context, distroBasePath string, name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
-	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest{
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdate(ctx context.Context, distroBasePath string, name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest {
+	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -722,7 +722,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -730,7 +730,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -835,9 +835,9 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest struct {
+type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService
+	ApiService *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService
 	distroBasePath string
 	name string
 	fields *[]string
@@ -845,18 +845,18 @@ type PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDe
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) Execute() (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) Execute() (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadExecute(r)
 }
 
@@ -868,10 +868,10 @@ Custom exception handler mixin class.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param distroBasePath
  @param name
- @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest
+ @return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest
 */
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesRead(ctx context.Context, distroBasePath string, name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest {
-	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest{
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesRead(ctx context.Context, distroBasePath string, name string) PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest {
+	return PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		distroBasePath: distroBasePath,
@@ -881,7 +881,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 
 // Execute executes the request
 //  @return AnsibleAnsibleNamespaceMetadataResponse
-func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService) PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadExecute(r PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIPulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesReadRequest) (*AnsibleAnsibleNamespaceMetadataResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -889,7 +889,7 @@ func (a *PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService) PulpAn
 		localVarReturnValue  *AnsibleAnsibleNamespaceMetadataResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesApiService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3PluginAnsibleContentNamespacesAPIService.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentNamespacesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

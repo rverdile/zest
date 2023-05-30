@@ -23,21 +23,21 @@ import (
 )
 
 
-// RemotesOstreeApiService RemotesOstreeApi service
-type RemotesOstreeApiService service
+// RemotesOstreeAPIService RemotesOstreeAPI service
+type RemotesOstreeAPIService service
 
-type RemotesOstreeApiRemotesOstreeOstreeCreateRequest struct {
+type RemotesOstreeAPIRemotesOstreeOstreeCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesOstreeApiService
+	ApiService *RemotesOstreeAPIService
 	ostreeOstreeRemote *OstreeOstreeRemote
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreeCreateRequest) OstreeOstreeRemote(ostreeOstreeRemote OstreeOstreeRemote) RemotesOstreeApiRemotesOstreeOstreeCreateRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeCreateRequest) OstreeOstreeRemote(ostreeOstreeRemote OstreeOstreeRemote) RemotesOstreeAPIRemotesOstreeOstreeCreateRequest {
 	r.ostreeOstreeRemote = &ostreeOstreeRemote
 	return r
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreeCreateRequest) Execute() (*OstreeOstreeRemoteResponse, *http.Response, error) {
+func (r RemotesOstreeAPIRemotesOstreeOstreeCreateRequest) Execute() (*OstreeOstreeRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesOstreeOstreeCreateExecute(r)
 }
 
@@ -47,10 +47,10 @@ RemotesOstreeOstreeCreate Create an ostree remote
 A ViewSet class for OSTree remote repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesOstreeApiRemotesOstreeOstreeCreateRequest
+ @return RemotesOstreeAPIRemotesOstreeOstreeCreateRequest
 */
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeCreate(ctx context.Context) RemotesOstreeApiRemotesOstreeOstreeCreateRequest {
-	return RemotesOstreeApiRemotesOstreeOstreeCreateRequest{
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeCreate(ctx context.Context) RemotesOstreeAPIRemotesOstreeOstreeCreateRequest {
+	return RemotesOstreeAPIRemotesOstreeOstreeCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeCreate(ctx context.Context)
 
 // Execute executes the request
 //  @return OstreeOstreeRemoteResponse
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeCreateExecute(r RemotesOstreeApiRemotesOstreeOstreeCreateRequest) (*OstreeOstreeRemoteResponse, *http.Response, error) {
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeCreateExecute(r RemotesOstreeAPIRemotesOstreeOstreeCreateRequest) (*OstreeOstreeRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeCreateExecute(r RemotesOstr
 		localVarReturnValue  *OstreeOstreeRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeApiService.RemotesOstreeOstreeCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeAPIService.RemotesOstreeOstreeCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,13 +135,13 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeCreateExecute(r RemotesOstr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesOstreeApiRemotesOstreeOstreeDeleteRequest struct {
+type RemotesOstreeAPIRemotesOstreeOstreeDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesOstreeApiService
+	ApiService *RemotesOstreeAPIService
 	ostreeOstreeRemoteHref string
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreeDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesOstreeAPIRemotesOstreeOstreeDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesOstreeOstreeDeleteExecute(r)
 }
 
@@ -152,10 +152,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRemoteHref
- @return RemotesOstreeApiRemotesOstreeOstreeDeleteRequest
+ @return RemotesOstreeAPIRemotesOstreeOstreeDeleteRequest
 */
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeDelete(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeApiRemotesOstreeOstreeDeleteRequest {
-	return RemotesOstreeApiRemotesOstreeOstreeDeleteRequest{
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeDelete(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeAPIRemotesOstreeOstreeDeleteRequest {
+	return RemotesOstreeAPIRemotesOstreeOstreeDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRemoteHref: ostreeOstreeRemoteHref,
@@ -164,7 +164,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeDelete(ctx context.Context,
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeDeleteExecute(r RemotesOstreeApiRemotesOstreeOstreeDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeDeleteExecute(r RemotesOstreeAPIRemotesOstreeOstreeDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -172,7 +172,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeDeleteExecute(r RemotesOstr
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeApiService.RemotesOstreeOstreeDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeAPIService.RemotesOstreeOstreeDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,9 +239,9 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeDeleteExecute(r RemotesOstr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesOstreeApiRemotesOstreeOstreeListRequest struct {
+type RemotesOstreeAPIRemotesOstreeOstreeListRequest struct {
 	ctx context.Context
-	ApiService *RemotesOstreeApiService
+	ApiService *RemotesOstreeAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -264,120 +264,120 @@ type RemotesOstreeApiRemotesOstreeOstreeListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) Limit(limit int32) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) Limit(limit int32) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) Name(name string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) Name(name string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) NameContains(nameContains string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) NameContains(nameContains string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) NameIcontains(nameIcontains string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) NameIcontains(nameIcontains string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) NameIn(nameIn []string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) NameIn(nameIn []string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) NameStartswith(nameStartswith string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) NameStartswith(nameStartswith string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) Offset(offset int32) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) Offset(offset int32) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) Ordering(ordering []string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) Ordering(ordering []string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpHrefIn(pulpHrefIn []string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpHrefIn(pulpHrefIn []string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpIdIn(pulpIdIn []string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpIdIn(pulpIdIn []string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) Fields(fields []string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) Fields(fields []string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) ExcludeFields(excludeFields []string) RemotesOstreeApiRemotesOstreeOstreeListRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) ExcludeFields(excludeFields []string) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreeListRequest) Execute() (*PaginatedostreeOstreeRemoteResponseList, *http.Response, error) {
+func (r RemotesOstreeAPIRemotesOstreeOstreeListRequest) Execute() (*PaginatedostreeOstreeRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesOstreeOstreeListExecute(r)
 }
 
@@ -387,10 +387,10 @@ RemotesOstreeOstreeList List ostree remotes
 A ViewSet class for OSTree remote repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesOstreeApiRemotesOstreeOstreeListRequest
+ @return RemotesOstreeAPIRemotesOstreeOstreeListRequest
 */
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeList(ctx context.Context) RemotesOstreeApiRemotesOstreeOstreeListRequest {
-	return RemotesOstreeApiRemotesOstreeOstreeListRequest{
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeList(ctx context.Context) RemotesOstreeAPIRemotesOstreeOstreeListRequest {
+	return RemotesOstreeAPIRemotesOstreeOstreeListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -398,7 +398,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeList(ctx context.Context) R
 
 // Execute executes the request
 //  @return PaginatedostreeOstreeRemoteResponseList
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeListExecute(r RemotesOstreeApiRemotesOstreeOstreeListRequest) (*PaginatedostreeOstreeRemoteResponseList, *http.Response, error) {
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeListExecute(r RemotesOstreeAPIRemotesOstreeOstreeListRequest) (*PaginatedostreeOstreeRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -406,7 +406,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeListExecute(r RemotesOstree
 		localVarReturnValue  *PaginatedostreeOstreeRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeApiService.RemotesOstreeOstreeList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeAPIService.RemotesOstreeOstreeList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -543,19 +543,19 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeListExecute(r RemotesOstree
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest struct {
+type RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesOstreeApiService
+	ApiService *RemotesOstreeAPIService
 	ostreeOstreeRemoteHref string
 	patchedostreeOstreeRemote *PatchedostreeOstreeRemote
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest) PatchedostreeOstreeRemote(patchedostreeOstreeRemote PatchedostreeOstreeRemote) RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest) PatchedostreeOstreeRemote(patchedostreeOstreeRemote PatchedostreeOstreeRemote) RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest {
 	r.patchedostreeOstreeRemote = &patchedostreeOstreeRemote
 	return r
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesOstreeOstreePartialUpdateExecute(r)
 }
 
@@ -566,10 +566,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRemoteHref
- @return RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest
+ @return RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest
 */
-func (a *RemotesOstreeApiService) RemotesOstreeOstreePartialUpdate(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest {
-	return RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest{
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreePartialUpdate(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest {
+	return RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRemoteHref: ostreeOstreeRemoteHref,
@@ -578,7 +578,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreePartialUpdate(ctx context.C
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesOstreeApiService) RemotesOstreeOstreePartialUpdateExecute(r RemotesOstreeApiRemotesOstreeOstreePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreePartialUpdateExecute(r RemotesOstreeAPIRemotesOstreeOstreePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -586,7 +586,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreePartialUpdateExecute(r Remo
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeApiService.RemotesOstreeOstreePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeAPIService.RemotesOstreeOstreePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -658,27 +658,27 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreePartialUpdateExecute(r Remo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesOstreeApiRemotesOstreeOstreeReadRequest struct {
+type RemotesOstreeAPIRemotesOstreeOstreeReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesOstreeApiService
+	ApiService *RemotesOstreeAPIService
 	ostreeOstreeRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesOstreeApiRemotesOstreeOstreeReadRequest) Fields(fields []string) RemotesOstreeApiRemotesOstreeOstreeReadRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeReadRequest) Fields(fields []string) RemotesOstreeAPIRemotesOstreeOstreeReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesOstreeApiRemotesOstreeOstreeReadRequest) ExcludeFields(excludeFields []string) RemotesOstreeApiRemotesOstreeOstreeReadRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeReadRequest) ExcludeFields(excludeFields []string) RemotesOstreeAPIRemotesOstreeOstreeReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreeReadRequest) Execute() (*OstreeOstreeRemoteResponse, *http.Response, error) {
+func (r RemotesOstreeAPIRemotesOstreeOstreeReadRequest) Execute() (*OstreeOstreeRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesOstreeOstreeReadExecute(r)
 }
 
@@ -689,10 +689,10 @@ A ViewSet class for OSTree remote repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRemoteHref
- @return RemotesOstreeApiRemotesOstreeOstreeReadRequest
+ @return RemotesOstreeAPIRemotesOstreeOstreeReadRequest
 */
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeRead(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeApiRemotesOstreeOstreeReadRequest {
-	return RemotesOstreeApiRemotesOstreeOstreeReadRequest{
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeRead(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeAPIRemotesOstreeOstreeReadRequest {
+	return RemotesOstreeAPIRemotesOstreeOstreeReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRemoteHref: ostreeOstreeRemoteHref,
@@ -701,7 +701,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeRead(ctx context.Context, o
 
 // Execute executes the request
 //  @return OstreeOstreeRemoteResponse
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeReadExecute(r RemotesOstreeApiRemotesOstreeOstreeReadRequest) (*OstreeOstreeRemoteResponse, *http.Response, error) {
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeReadExecute(r RemotesOstreeAPIRemotesOstreeOstreeReadRequest) (*OstreeOstreeRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -709,7 +709,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeReadExecute(r RemotesOstree
 		localVarReturnValue  *OstreeOstreeRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeApiService.RemotesOstreeOstreeRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeAPIService.RemotesOstreeOstreeRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -798,19 +798,19 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeReadExecute(r RemotesOstree
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesOstreeApiRemotesOstreeOstreeUpdateRequest struct {
+type RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesOstreeApiService
+	ApiService *RemotesOstreeAPIService
 	ostreeOstreeRemoteHref string
 	ostreeOstreeRemote *OstreeOstreeRemote
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreeUpdateRequest) OstreeOstreeRemote(ostreeOstreeRemote OstreeOstreeRemote) RemotesOstreeApiRemotesOstreeOstreeUpdateRequest {
+func (r RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest) OstreeOstreeRemote(ostreeOstreeRemote OstreeOstreeRemote) RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest {
 	r.ostreeOstreeRemote = &ostreeOstreeRemote
 	return r
 }
 
-func (r RemotesOstreeApiRemotesOstreeOstreeUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesOstreeOstreeUpdateExecute(r)
 }
 
@@ -821,10 +821,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ostreeOstreeRemoteHref
- @return RemotesOstreeApiRemotesOstreeOstreeUpdateRequest
+ @return RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest
 */
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeUpdate(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeApiRemotesOstreeOstreeUpdateRequest {
-	return RemotesOstreeApiRemotesOstreeOstreeUpdateRequest{
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeUpdate(ctx context.Context, ostreeOstreeRemoteHref string) RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest {
+	return RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ostreeOstreeRemoteHref: ostreeOstreeRemoteHref,
@@ -833,7 +833,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeUpdate(ctx context.Context,
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesOstreeApiService) RemotesOstreeOstreeUpdateExecute(r RemotesOstreeApiRemotesOstreeOstreeUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesOstreeAPIService) RemotesOstreeOstreeUpdateExecute(r RemotesOstreeAPIRemotesOstreeOstreeUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -841,7 +841,7 @@ func (a *RemotesOstreeApiService) RemotesOstreeOstreeUpdateExecute(r RemotesOstr
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeApiService.RemotesOstreeOstreeUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesOstreeAPIService.RemotesOstreeOstreeUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -20,15 +20,15 @@ import (
 )
 
 
-// OrphansApiService OrphansApi service
-type OrphansApiService service
+// OrphansAPIService OrphansAPI service
+type OrphansAPIService service
 
-type OrphansApiOrphansDeleteRequest struct {
+type OrphansAPIOrphansDeleteRequest struct {
 	ctx context.Context
-	ApiService *OrphansApiService
+	ApiService *OrphansAPIService
 }
 
-func (r OrphansApiOrphansDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r OrphansAPIOrphansDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.OrphansDeleteExecute(r)
 }
 
@@ -38,10 +38,10 @@ OrphansDelete Delete orphans
 DEPRECATED! Trigger an asynchronous task that deletes all orphaned content and artifacts. Use the `POST /pulp/api/v3/orphans/cleanup/` call instead.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrphansApiOrphansDeleteRequest
+ @return OrphansAPIOrphansDeleteRequest
 */
-func (a *OrphansApiService) OrphansDelete(ctx context.Context) OrphansApiOrphansDeleteRequest {
-	return OrphansApiOrphansDeleteRequest{
+func (a *OrphansAPIService) OrphansDelete(ctx context.Context) OrphansAPIOrphansDeleteRequest {
+	return OrphansAPIOrphansDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -49,7 +49,7 @@ func (a *OrphansApiService) OrphansDelete(ctx context.Context) OrphansApiOrphans
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *OrphansApiService) OrphansDeleteExecute(r OrphansApiOrphansDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *OrphansAPIService) OrphansDeleteExecute(r OrphansAPIOrphansDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -57,7 +57,7 @@ func (a *OrphansApiService) OrphansDeleteExecute(r OrphansApiOrphansDeleteReques
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrphansApiService.OrphansDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrphansAPIService.OrphansDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

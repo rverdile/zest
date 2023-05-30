@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PypiApiService
+Testing PypiAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PypiApiService(t *testing.T) {
+func Test_zest_PypiAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PypiApiService PypiRead", func(t *testing.T) {
+	t.Run("Test PypiAPIService PypiRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var path string
 
-		resp, httpRes, err := apiClient.PypiApi.PypiRead(context.Background(), path).Execute()
+		resp, httpRes, err := apiClient.PypiAPI.PypiRead(context.Background(), path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

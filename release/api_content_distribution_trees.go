@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentDistributionTreesApiService ContentDistributionTreesApi service
-type ContentDistributionTreesApiService service
+// ContentDistributionTreesAPIService ContentDistributionTreesAPI service
+type ContentDistributionTreesAPIService service
 
-type ContentDistributionTreesApiContentRpmDistributionTreesListRequest struct {
+type ContentDistributionTreesAPIContentRpmDistributionTreesListRequest struct {
 	ctx context.Context
-	ApiService *ContentDistributionTreesApiService
+	ApiService *ContentDistributionTreesAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentDistributionTreesApiContentRpmDistributionTreesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) Limit(limit int32) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) Limit(limit int32) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) Offset(offset int32) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) Offset(offset int32) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) Ordering(ordering []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) Ordering(ordering []string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) PulpHrefIn(pulpHrefIn []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) PulpHrefIn(pulpHrefIn []string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) PulpIdIn(pulpIdIn []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) PulpIdIn(pulpIdIn []string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) RepositoryVersion(repositoryVersion string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) RepositoryVersion(repositoryVersion string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) Fields(fields []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) Fields(fields []string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) ExcludeFields(excludeFields []string) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) ExcludeFields(excludeFields []string) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) Execute() (*PaginatedrpmDistributionTreeResponseList, *http.Response, error) {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) Execute() (*PaginatedrpmDistributionTreeResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmDistributionTreesListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentRpmDistributionTreesList List distribution trees
 Distribution Tree Viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentDistributionTreesApiContentRpmDistributionTreesListRequest
+ @return ContentDistributionTreesAPIContentRpmDistributionTreesListRequest
 */
-func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesList(ctx context.Context) ContentDistributionTreesApiContentRpmDistributionTreesListRequest {
-	return ContentDistributionTreesApiContentRpmDistributionTreesListRequest{
+func (a *ContentDistributionTreesAPIService) ContentRpmDistributionTreesList(ctx context.Context) ContentDistributionTreesAPIContentRpmDistributionTreesListRequest {
+	return ContentDistributionTreesAPIContentRpmDistributionTreesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesList(ctx
 
 // Execute executes the request
 //  @return PaginatedrpmDistributionTreeResponseList
-func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesListExecute(r ContentDistributionTreesApiContentRpmDistributionTreesListRequest) (*PaginatedrpmDistributionTreeResponseList, *http.Response, error) {
+func (a *ContentDistributionTreesAPIService) ContentRpmDistributionTreesListExecute(r ContentDistributionTreesAPIContentRpmDistributionTreesListRequest) (*PaginatedrpmDistributionTreeResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesListExec
 		localVarReturnValue  *PaginatedrpmDistributionTreeResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentDistributionTreesApiService.ContentRpmDistributionTreesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentDistributionTreesAPIService.ContentRpmDistributionTreesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentDistributionTreesApiContentRpmDistributionTreesReadRequest struct {
+type ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentDistributionTreesApiService
+	ApiService *ContentDistributionTreesAPIService
 	rpmDistributionTreeHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesReadRequest) Fields(fields []string) ContentDistributionTreesApiContentRpmDistributionTreesReadRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest) Fields(fields []string) ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentDistributionTreesApiContentRpmDistributionTreesReadRequest) ExcludeFields(excludeFields []string) ContentDistributionTreesApiContentRpmDistributionTreesReadRequest {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest) ExcludeFields(excludeFields []string) ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentDistributionTreesApiContentRpmDistributionTreesReadRequest) Execute() (*RpmDistributionTreeResponse, *http.Response, error) {
+func (r ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest) Execute() (*RpmDistributionTreeResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmDistributionTreesReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ Distribution Tree Viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmDistributionTreeHref
- @return ContentDistributionTreesApiContentRpmDistributionTreesReadRequest
+ @return ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest
 */
-func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesRead(ctx context.Context, rpmDistributionTreeHref string) ContentDistributionTreesApiContentRpmDistributionTreesReadRequest {
-	return ContentDistributionTreesApiContentRpmDistributionTreesReadRequest{
+func (a *ContentDistributionTreesAPIService) ContentRpmDistributionTreesRead(ctx context.Context, rpmDistributionTreeHref string) ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest {
+	return ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmDistributionTreeHref: rpmDistributionTreeHref,
@@ -282,7 +282,7 @@ func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesRead(ctx
 
 // Execute executes the request
 //  @return RpmDistributionTreeResponse
-func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesReadExecute(r ContentDistributionTreesApiContentRpmDistributionTreesReadRequest) (*RpmDistributionTreeResponse, *http.Response, error) {
+func (a *ContentDistributionTreesAPIService) ContentRpmDistributionTreesReadExecute(r ContentDistributionTreesAPIContentRpmDistributionTreesReadRequest) (*RpmDistributionTreeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentDistributionTreesApiService) ContentRpmDistributionTreesReadExec
 		localVarReturnValue  *RpmDistributionTreeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentDistributionTreesApiService.ContentRpmDistributionTreesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentDistributionTreesAPIService.ContentRpmDistributionTreesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

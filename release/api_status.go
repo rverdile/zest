@@ -20,15 +20,15 @@ import (
 )
 
 
-// StatusApiService StatusApi service
-type StatusApiService service
+// StatusAPIService StatusAPI service
+type StatusAPIService service
 
-type StatusApiStatusReadRequest struct {
+type StatusAPIStatusReadRequest struct {
 	ctx context.Context
-	ApiService *StatusApiService
+	ApiService *StatusAPIService
 }
 
-func (r StatusApiStatusReadRequest) Execute() (*StatusResponse, *http.Response, error) {
+func (r StatusAPIStatusReadRequest) Execute() (*StatusResponse, *http.Response, error) {
 	return r.ApiService.StatusReadExecute(r)
 }
 
@@ -46,10 +46,10 @@ Information includes:
  * disk usage information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return StatusApiStatusReadRequest
+ @return StatusAPIStatusReadRequest
 */
-func (a *StatusApiService) StatusRead(ctx context.Context) StatusApiStatusReadRequest {
-	return StatusApiStatusReadRequest{
+func (a *StatusAPIService) StatusRead(ctx context.Context) StatusAPIStatusReadRequest {
+	return StatusAPIStatusReadRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *StatusApiService) StatusRead(ctx context.Context) StatusApiStatusReadRe
 
 // Execute executes the request
 //  @return StatusResponse
-func (a *StatusApiService) StatusReadExecute(r StatusApiStatusReadRequest) (*StatusResponse, *http.Response, error) {
+func (a *StatusAPIService) StatusReadExecute(r StatusAPIStatusReadRequest) (*StatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *StatusApiService) StatusReadExecute(r StatusApiStatusReadRequest) (*Sta
 		localVarReturnValue  *StatusResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatusApiService.StatusRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatusAPIService.StatusRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

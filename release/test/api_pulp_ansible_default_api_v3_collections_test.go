@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleDefaultApiV3CollectionsApiService
+Testing PulpAnsibleDefaultApiV3CollectionsAPIService
 
 */
 
@@ -17,19 +17,19 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleDefaultApiV3CollectionsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleDefaultApiV3CollectionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleDefaultApiV3CollectionsApiService PulpAnsibleGalaxyDefaultApiV3CollectionsDelete", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3CollectionsAPIService PulpAnsibleGalaxyDefaultApiV3CollectionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 		var namespace string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsApi.PulpAnsibleGalaxyDefaultApiV3CollectionsDelete(context.Background(), name, namespace).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsAPI.PulpAnsibleGalaxyDefaultApiV3CollectionsDelete(context.Background(), name, namespace).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -37,11 +37,11 @@ func Test_zest_PulpAnsibleDefaultApiV3CollectionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpAnsibleDefaultApiV3CollectionsApiService PulpAnsibleGalaxyDefaultApiV3CollectionsList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3CollectionsAPIService PulpAnsibleGalaxyDefaultApiV3CollectionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsApi.PulpAnsibleGalaxyDefaultApiV3CollectionsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsAPI.PulpAnsibleGalaxyDefaultApiV3CollectionsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -49,14 +49,14 @@ func Test_zest_PulpAnsibleDefaultApiV3CollectionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpAnsibleDefaultApiV3CollectionsApiService PulpAnsibleGalaxyDefaultApiV3CollectionsRead", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3CollectionsAPIService PulpAnsibleGalaxyDefaultApiV3CollectionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 		var namespace string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsApi.PulpAnsibleGalaxyDefaultApiV3CollectionsRead(context.Background(), name, namespace).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsAPI.PulpAnsibleGalaxyDefaultApiV3CollectionsRead(context.Background(), name, namespace).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,14 +64,14 @@ func Test_zest_PulpAnsibleDefaultApiV3CollectionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpAnsibleDefaultApiV3CollectionsApiService PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3CollectionsAPIService PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 		var namespace string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsApi.PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate(context.Background(), name, namespace).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3CollectionsAPI.PulpAnsibleGalaxyDefaultApiV3CollectionsUpdate(context.Background(), name, namespace).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

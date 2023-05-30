@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleApiV3CollectionsVersionsApiService
+Testing PulpAnsibleApiV3CollectionsVersionsAPIService
 
 */
 
@@ -17,12 +17,12 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleApiV3CollectionsVersionsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleApiV3CollectionsVersionsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleApiV3CollectionsVersionsApiService PulpAnsibleGalaxyApiV3CollectionsVersionsDelete", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3CollectionsVersionsAPIService PulpAnsibleGalaxyApiV3CollectionsVersionsDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -31,7 +31,7 @@ func Test_zest_PulpAnsibleApiV3CollectionsVersionsApiService(t *testing.T) {
 		var path string
 		var version string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3CollectionsVersionsApi.PulpAnsibleGalaxyApiV3CollectionsVersionsDelete(context.Background(), name, namespace, path, version).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3CollectionsVersionsAPI.PulpAnsibleGalaxyApiV3CollectionsVersionsDelete(context.Background(), name, namespace, path, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -39,7 +39,7 @@ func Test_zest_PulpAnsibleApiV3CollectionsVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3CollectionsVersionsApiService PulpAnsibleGalaxyApiV3CollectionsVersionsList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3CollectionsVersionsAPIService PulpAnsibleGalaxyApiV3CollectionsVersionsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -47,7 +47,7 @@ func Test_zest_PulpAnsibleApiV3CollectionsVersionsApiService(t *testing.T) {
 		var namespace string
 		var path string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3CollectionsVersionsApi.PulpAnsibleGalaxyApiV3CollectionsVersionsList(context.Background(), name, namespace, path).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3CollectionsVersionsAPI.PulpAnsibleGalaxyApiV3CollectionsVersionsList(context.Background(), name, namespace, path).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -55,7 +55,7 @@ func Test_zest_PulpAnsibleApiV3CollectionsVersionsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PulpAnsibleApiV3CollectionsVersionsApiService PulpAnsibleGalaxyApiV3CollectionsVersionsRead", func(t *testing.T) {
+	t.Run("Test PulpAnsibleApiV3CollectionsVersionsAPIService PulpAnsibleGalaxyApiV3CollectionsVersionsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -64,7 +64,7 @@ func Test_zest_PulpAnsibleApiV3CollectionsVersionsApiService(t *testing.T) {
 		var path string
 		var version string
 
-		resp, httpRes, err := apiClient.PulpAnsibleApiV3CollectionsVersionsApi.PulpAnsibleGalaxyApiV3CollectionsVersionsRead(context.Background(), name, namespace, path, version).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleApiV3CollectionsVersionsAPI.PulpAnsibleGalaxyApiV3CollectionsVersionsRead(context.Background(), name, namespace, path, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

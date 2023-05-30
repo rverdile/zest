@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentPackagecategoriesApiService ContentPackagecategoriesApi service
-type ContentPackagecategoriesApiService service
+// ContentPackagecategoriesAPIService ContentPackagecategoriesAPI service
+type ContentPackagecategoriesAPIService service
 
-type ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest struct {
+type ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagecategoriesApiService
+	ApiService *ContentPackagecategoriesAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) Limit(limit int32) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) Limit(limit int32) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) Offset(offset int32) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) Offset(offset int32) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) Ordering(ordering []string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) Ordering(ordering []string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) PulpIdIn(pulpIdIn []string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) RepositoryVersion(repositoryVersion string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) Fields(fields []string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) Fields(fields []string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) ExcludeFields(excludeFields []string) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) ExcludeFields(excludeFields []string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) Execute() (*PaginatedrpmPackageCategoryResponseList, *http.Response, error) {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) Execute() (*PaginatedrpmPackageCategoryResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagecategoriesListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentRpmPackagecategoriesList List package categorys
 PackageCategory ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest
+ @return ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest
 */
-func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesList(ctx context.Context) ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest {
-	return ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest{
+func (a *ContentPackagecategoriesAPIService) ContentRpmPackagecategoriesList(ctx context.Context) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
+	return ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesList(ctx
 
 // Execute executes the request
 //  @return PaginatedrpmPackageCategoryResponseList
-func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesListExecute(r ContentPackagecategoriesApiContentRpmPackagecategoriesListRequest) (*PaginatedrpmPackageCategoryResponseList, *http.Response, error) {
+func (a *ContentPackagecategoriesAPIService) ContentRpmPackagecategoriesListExecute(r ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest) (*PaginatedrpmPackageCategoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesListExec
 		localVarReturnValue  *PaginatedrpmPackageCategoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagecategoriesApiService.ContentRpmPackagecategoriesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagecategoriesAPIService.ContentRpmPackagecategoriesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesListExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest struct {
+type ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagecategoriesApiService
+	ApiService *ContentPackagecategoriesAPIService
 	rpmPackageCategoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest) Fields(fields []string) ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest) Fields(fields []string) ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest) ExcludeFields(excludeFields []string) ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest) ExcludeFields(excludeFields []string) ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest) Execute() (*RpmPackageCategoryResponse, *http.Response, error) {
+func (r ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest) Execute() (*RpmPackageCategoryResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagecategoriesReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ PackageCategory ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmPackageCategoryHref
- @return ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest
+ @return ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest
 */
-func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesRead(ctx context.Context, rpmPackageCategoryHref string) ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest {
-	return ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest{
+func (a *ContentPackagecategoriesAPIService) ContentRpmPackagecategoriesRead(ctx context.Context, rpmPackageCategoryHref string) ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest {
+	return ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmPackageCategoryHref: rpmPackageCategoryHref,
@@ -282,7 +282,7 @@ func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesRead(ctx
 
 // Execute executes the request
 //  @return RpmPackageCategoryResponse
-func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesReadExecute(r ContentPackagecategoriesApiContentRpmPackagecategoriesReadRequest) (*RpmPackageCategoryResponse, *http.Response, error) {
+func (a *ContentPackagecategoriesAPIService) ContentRpmPackagecategoriesReadExecute(r ContentPackagecategoriesAPIContentRpmPackagecategoriesReadRequest) (*RpmPackageCategoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentPackagecategoriesApiService) ContentRpmPackagecategoriesReadExec
 		localVarReturnValue  *RpmPackageCategoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagecategoriesApiService.ContentRpmPackagecategoriesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagecategoriesAPIService.ContentRpmPackagecategoriesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

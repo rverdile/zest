@@ -23,22 +23,22 @@ import (
 )
 
 
-// RemotesUlnApiService RemotesUlnApi service
-type RemotesUlnApiService service
+// RemotesUlnAPIService RemotesUlnAPI service
+type RemotesUlnAPIService service
 
-type RemotesUlnApiRemotesRpmUlnAddRoleRequest struct {
+type RemotesUlnAPIRemotesRpmUlnAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesUlnApiRemotesRpmUlnAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesUlnApiRemotesRpmUlnAddRoleRequest {
+func (r RemotesUlnAPIRemotesRpmUlnAddRoleRequest) NestedRole(nestedRole NestedRole) RemotesUlnAPIRemotesRpmUlnAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnAddRoleExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnAddRoleRequest
+ @return RemotesUlnAPIRemotesRpmUlnAddRoleRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnAddRole(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnAddRoleRequest {
-	return RemotesUlnApiRemotesRpmUlnAddRoleRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnAddRole(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnAddRoleRequest {
+	return RemotesUlnAPIRemotesRpmUlnAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -61,7 +61,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnAddRole(ctx context.Context, rpmUlnR
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnAddRoleExecute(r RemotesUlnApiRemotesRpmUlnAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnAddRoleExecute(r RemotesUlnAPIRemotesRpmUlnAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnAddRoleExecute(r RemotesUlnApiRemote
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,18 +141,18 @@ func (a *RemotesUlnApiService) RemotesRpmUlnAddRoleExecute(r RemotesUlnApiRemote
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnCreateRequest struct {
+type RemotesUlnAPIRemotesRpmUlnCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemote *RpmUlnRemote
 }
 
-func (r RemotesUlnApiRemotesRpmUlnCreateRequest) RpmUlnRemote(rpmUlnRemote RpmUlnRemote) RemotesUlnApiRemotesRpmUlnCreateRequest {
+func (r RemotesUlnAPIRemotesRpmUlnCreateRequest) RpmUlnRemote(rpmUlnRemote RpmUlnRemote) RemotesUlnAPIRemotesRpmUlnCreateRequest {
 	r.rpmUlnRemote = &rpmUlnRemote
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnCreateRequest) Execute() (*RpmUlnRemoteResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnCreateRequest) Execute() (*RpmUlnRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnCreateExecute(r)
 }
 
@@ -162,10 +162,10 @@ RemotesRpmUlnCreate Create an uln remote
 A ViewSet for UlnRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesUlnApiRemotesRpmUlnCreateRequest
+ @return RemotesUlnAPIRemotesRpmUlnCreateRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnCreate(ctx context.Context) RemotesUlnApiRemotesRpmUlnCreateRequest {
-	return RemotesUlnApiRemotesRpmUlnCreateRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnCreate(ctx context.Context) RemotesUlnAPIRemotesRpmUlnCreateRequest {
+	return RemotesUlnAPIRemotesRpmUlnCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -173,7 +173,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnCreate(ctx context.Context) RemotesU
 
 // Execute executes the request
 //  @return RpmUlnRemoteResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnCreateExecute(r RemotesUlnApiRemotesRpmUlnCreateRequest) (*RpmUlnRemoteResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnCreateExecute(r RemotesUlnAPIRemotesRpmUlnCreateRequest) (*RpmUlnRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnCreateExecute(r RemotesUlnApiRemotes
 		localVarReturnValue  *RpmUlnRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -250,13 +250,13 @@ func (a *RemotesUlnApiService) RemotesRpmUlnCreateExecute(r RemotesUlnApiRemotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnDeleteRequest struct {
+type RemotesUlnAPIRemotesRpmUlnDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 }
 
-func (r RemotesUlnApiRemotesRpmUlnDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnDeleteExecute(r)
 }
 
@@ -267,10 +267,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnDeleteRequest
+ @return RemotesUlnAPIRemotesRpmUlnDeleteRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnDelete(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnDeleteRequest {
-	return RemotesUlnApiRemotesRpmUlnDeleteRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnDelete(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnDeleteRequest {
+	return RemotesUlnAPIRemotesRpmUlnDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -279,7 +279,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnDelete(ctx context.Context, rpmUlnRe
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnDeleteExecute(r RemotesUlnApiRemotesRpmUlnDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnDeleteExecute(r RemotesUlnAPIRemotesRpmUlnDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -287,7 +287,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnDeleteExecute(r RemotesUlnApiRemotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -354,9 +354,9 @@ func (a *RemotesUlnApiService) RemotesRpmUlnDeleteExecute(r RemotesUlnApiRemotes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnListRequest struct {
+type RemotesUlnAPIRemotesRpmUlnListRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -379,120 +379,120 @@ type RemotesUlnApiRemotesRpmUlnListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesUlnApiRemotesRpmUlnListRequest) Limit(limit int32) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) Limit(limit int32) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) Name(name string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) Name(name string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) NameContains(nameContains string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) NameContains(nameContains string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) NameIcontains(nameIcontains string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) NameIcontains(nameIcontains string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesUlnApiRemotesRpmUlnListRequest) NameIn(nameIn []string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) NameIn(nameIn []string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) NameStartswith(nameStartswith string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) NameStartswith(nameStartswith string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesUlnApiRemotesRpmUlnListRequest) Offset(offset int32) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) Offset(offset int32) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesUlnApiRemotesRpmUlnListRequest) Ordering(ordering []string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) Ordering(ordering []string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpHrefIn(pulpHrefIn []string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpHrefIn(pulpHrefIn []string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpIdIn(pulpIdIn []string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpIdIn(pulpIdIn []string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesUlnApiRemotesRpmUlnListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesUlnApiRemotesRpmUlnListRequest) Fields(fields []string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) Fields(fields []string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesUlnApiRemotesRpmUlnListRequest) ExcludeFields(excludeFields []string) RemotesUlnApiRemotesRpmUlnListRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) ExcludeFields(excludeFields []string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnListRequest) Execute() (*PaginatedrpmUlnRemoteResponseList, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnListRequest) Execute() (*PaginatedrpmUlnRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnListExecute(r)
 }
 
@@ -502,10 +502,10 @@ RemotesRpmUlnList List uln remotes
 A ViewSet for UlnRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesUlnApiRemotesRpmUlnListRequest
+ @return RemotesUlnAPIRemotesRpmUlnListRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnList(ctx context.Context) RemotesUlnApiRemotesRpmUlnListRequest {
-	return RemotesUlnApiRemotesRpmUlnListRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnList(ctx context.Context) RemotesUlnAPIRemotesRpmUlnListRequest {
+	return RemotesUlnAPIRemotesRpmUlnListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -513,7 +513,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnList(ctx context.Context) RemotesUln
 
 // Execute executes the request
 //  @return PaginatedrpmUlnRemoteResponseList
-func (a *RemotesUlnApiService) RemotesRpmUlnListExecute(r RemotesUlnApiRemotesRpmUlnListRequest) (*PaginatedrpmUlnRemoteResponseList, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnListExecute(r RemotesUlnAPIRemotesRpmUlnListRequest) (*PaginatedrpmUlnRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -521,7 +521,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnListExecute(r RemotesUlnApiRemotesRp
 		localVarReturnValue  *PaginatedrpmUlnRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -658,27 +658,27 @@ func (a *RemotesUlnApiService) RemotesRpmUlnListExecute(r RemotesUlnApiRemotesRp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnListRolesRequest struct {
+type RemotesUlnAPIRemotesRpmUlnListRolesRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesUlnApiRemotesRpmUlnListRolesRequest) Fields(fields []string) RemotesUlnApiRemotesRpmUlnListRolesRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRolesRequest) Fields(fields []string) RemotesUlnAPIRemotesRpmUlnListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesUlnApiRemotesRpmUlnListRolesRequest) ExcludeFields(excludeFields []string) RemotesUlnApiRemotesRpmUlnListRolesRequest {
+func (r RemotesUlnAPIRemotesRpmUlnListRolesRequest) ExcludeFields(excludeFields []string) RemotesUlnAPIRemotesRpmUlnListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnListRolesExecute(r)
 }
 
@@ -689,10 +689,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnListRolesRequest
+ @return RemotesUlnAPIRemotesRpmUlnListRolesRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnListRoles(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnListRolesRequest {
-	return RemotesUlnApiRemotesRpmUlnListRolesRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnListRoles(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnListRolesRequest {
+	return RemotesUlnAPIRemotesRpmUlnListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -701,7 +701,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnListRoles(ctx context.Context, rpmUl
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnListRolesExecute(r RemotesUlnApiRemotesRpmUlnListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnListRolesExecute(r RemotesUlnAPIRemotesRpmUlnListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -709,7 +709,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnListRolesExecute(r RemotesUlnApiRemo
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -798,27 +798,27 @@ func (a *RemotesUlnApiService) RemotesRpmUlnListRolesExecute(r RemotesUlnApiRemo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnMyPermissionsRequest struct {
+type RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesUlnApiRemotesRpmUlnMyPermissionsRequest) Fields(fields []string) RemotesUlnApiRemotesRpmUlnMyPermissionsRequest {
+func (r RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest) Fields(fields []string) RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesUlnApiRemotesRpmUlnMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesUlnApiRemotesRpmUlnMyPermissionsRequest {
+func (r RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest) ExcludeFields(excludeFields []string) RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnMyPermissionsExecute(r)
 }
 
@@ -829,10 +829,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnMyPermissionsRequest
+ @return RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnMyPermissions(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnMyPermissionsRequest {
-	return RemotesUlnApiRemotesRpmUlnMyPermissionsRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnMyPermissions(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest {
+	return RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -841,7 +841,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnMyPermissions(ctx context.Context, r
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnMyPermissionsExecute(r RemotesUlnApiRemotesRpmUlnMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnMyPermissionsExecute(r RemotesUlnAPIRemotesRpmUlnMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -849,7 +849,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnMyPermissionsExecute(r RemotesUlnApi
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -938,19 +938,19 @@ func (a *RemotesUlnApiService) RemotesRpmUlnMyPermissionsExecute(r RemotesUlnApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnPartialUpdateRequest struct {
+type RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 	patchedrpmUlnRemote *PatchedrpmUlnRemote
 }
 
-func (r RemotesUlnApiRemotesRpmUlnPartialUpdateRequest) PatchedrpmUlnRemote(patchedrpmUlnRemote PatchedrpmUlnRemote) RemotesUlnApiRemotesRpmUlnPartialUpdateRequest {
+func (r RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest) PatchedrpmUlnRemote(patchedrpmUlnRemote PatchedrpmUlnRemote) RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest {
 	r.patchedrpmUlnRemote = &patchedrpmUlnRemote
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnPartialUpdateExecute(r)
 }
 
@@ -961,10 +961,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnPartialUpdateRequest
+ @return RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnPartialUpdate(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnPartialUpdateRequest {
-	return RemotesUlnApiRemotesRpmUlnPartialUpdateRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnPartialUpdate(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest {
+	return RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -973,7 +973,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnPartialUpdate(ctx context.Context, r
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnPartialUpdateExecute(r RemotesUlnApiRemotesRpmUlnPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnPartialUpdateExecute(r RemotesUlnAPIRemotesRpmUlnPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -981,7 +981,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnPartialUpdateExecute(r RemotesUlnApi
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1053,27 +1053,27 @@ func (a *RemotesUlnApiService) RemotesRpmUlnPartialUpdateExecute(r RemotesUlnApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnReadRequest struct {
+type RemotesUlnAPIRemotesRpmUlnReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesUlnApiRemotesRpmUlnReadRequest) Fields(fields []string) RemotesUlnApiRemotesRpmUlnReadRequest {
+func (r RemotesUlnAPIRemotesRpmUlnReadRequest) Fields(fields []string) RemotesUlnAPIRemotesRpmUlnReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesUlnApiRemotesRpmUlnReadRequest) ExcludeFields(excludeFields []string) RemotesUlnApiRemotesRpmUlnReadRequest {
+func (r RemotesUlnAPIRemotesRpmUlnReadRequest) ExcludeFields(excludeFields []string) RemotesUlnAPIRemotesRpmUlnReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnReadRequest) Execute() (*RpmUlnRemoteResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnReadRequest) Execute() (*RpmUlnRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnReadExecute(r)
 }
 
@@ -1084,10 +1084,10 @@ A ViewSet for UlnRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnReadRequest
+ @return RemotesUlnAPIRemotesRpmUlnReadRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnRead(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnReadRequest {
-	return RemotesUlnApiRemotesRpmUlnReadRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnRead(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnReadRequest {
+	return RemotesUlnAPIRemotesRpmUlnReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -1096,7 +1096,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnRead(ctx context.Context, rpmUlnRemo
 
 // Execute executes the request
 //  @return RpmUlnRemoteResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnReadExecute(r RemotesUlnApiRemotesRpmUlnReadRequest) (*RpmUlnRemoteResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnReadExecute(r RemotesUlnAPIRemotesRpmUlnReadRequest) (*RpmUlnRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1104,7 +1104,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnReadExecute(r RemotesUlnApiRemotesRp
 		localVarReturnValue  *RpmUlnRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1193,19 +1193,19 @@ func (a *RemotesUlnApiService) RemotesRpmUlnReadExecute(r RemotesUlnApiRemotesRp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnRemoveRoleRequest struct {
+type RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 	nestedRole *NestedRole
 }
 
-func (r RemotesUlnApiRemotesRpmUlnRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesUlnApiRemotesRpmUlnRemoveRoleRequest {
+func (r RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest) NestedRole(nestedRole NestedRole) RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnRemoveRoleExecute(r)
 }
 
@@ -1216,10 +1216,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnRemoveRoleRequest
+ @return RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnRemoveRole(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnRemoveRoleRequest {
-	return RemotesUlnApiRemotesRpmUlnRemoveRoleRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnRemoveRole(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest {
+	return RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -1228,7 +1228,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnRemoveRole(ctx context.Context, rpmU
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnRemoveRoleExecute(r RemotesUlnApiRemotesRpmUlnRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnRemoveRoleExecute(r RemotesUlnAPIRemotesRpmUlnRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1236,7 +1236,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnRemoveRoleExecute(r RemotesUlnApiRem
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1308,19 +1308,19 @@ func (a *RemotesUlnApiService) RemotesRpmUlnRemoveRoleExecute(r RemotesUlnApiRem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesUlnApiRemotesRpmUlnUpdateRequest struct {
+type RemotesUlnAPIRemotesRpmUlnUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesUlnApiService
+	ApiService *RemotesUlnAPIService
 	rpmUlnRemoteHref string
 	rpmUlnRemote *RpmUlnRemote
 }
 
-func (r RemotesUlnApiRemotesRpmUlnUpdateRequest) RpmUlnRemote(rpmUlnRemote RpmUlnRemote) RemotesUlnApiRemotesRpmUlnUpdateRequest {
+func (r RemotesUlnAPIRemotesRpmUlnUpdateRequest) RpmUlnRemote(rpmUlnRemote RpmUlnRemote) RemotesUlnAPIRemotesRpmUlnUpdateRequest {
 	r.rpmUlnRemote = &rpmUlnRemote
 	return r
 }
 
-func (r RemotesUlnApiRemotesRpmUlnUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesUlnAPIRemotesRpmUlnUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesRpmUlnUpdateExecute(r)
 }
 
@@ -1331,10 +1331,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmUlnRemoteHref
- @return RemotesUlnApiRemotesRpmUlnUpdateRequest
+ @return RemotesUlnAPIRemotesRpmUlnUpdateRequest
 */
-func (a *RemotesUlnApiService) RemotesRpmUlnUpdate(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnApiRemotesRpmUlnUpdateRequest {
-	return RemotesUlnApiRemotesRpmUlnUpdateRequest{
+func (a *RemotesUlnAPIService) RemotesRpmUlnUpdate(ctx context.Context, rpmUlnRemoteHref string) RemotesUlnAPIRemotesRpmUlnUpdateRequest {
+	return RemotesUlnAPIRemotesRpmUlnUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmUlnRemoteHref: rpmUlnRemoteHref,
@@ -1343,7 +1343,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnUpdate(ctx context.Context, rpmUlnRe
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesUlnApiService) RemotesRpmUlnUpdateExecute(r RemotesUlnApiRemotesRpmUlnUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesUlnAPIService) RemotesRpmUlnUpdateExecute(r RemotesUlnAPIRemotesRpmUlnUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1351,7 +1351,7 @@ func (a *RemotesUlnApiService) RemotesRpmUlnUpdateExecute(r RemotesUlnApiRemotes
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnApiService.RemotesRpmUlnUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesUlnAPIService.RemotesRpmUlnUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

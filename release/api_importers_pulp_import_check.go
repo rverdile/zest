@@ -20,21 +20,21 @@ import (
 )
 
 
-// ImportersPulpImportCheckApiService ImportersPulpImportCheckApi service
-type ImportersPulpImportCheckApiService service
+// ImportersPulpImportCheckAPIService ImportersPulpImportCheckAPI service
+type ImportersPulpImportCheckAPIService service
 
-type ImportersPulpImportCheckApiPulpImportCheckPostRequest struct {
+type ImportersPulpImportCheckAPIPulpImportCheckPostRequest struct {
 	ctx context.Context
-	ApiService *ImportersPulpImportCheckApiService
+	ApiService *ImportersPulpImportCheckAPIService
 	pulpImportCheck *PulpImportCheck
 }
 
-func (r ImportersPulpImportCheckApiPulpImportCheckPostRequest) PulpImportCheck(pulpImportCheck PulpImportCheck) ImportersPulpImportCheckApiPulpImportCheckPostRequest {
+func (r ImportersPulpImportCheckAPIPulpImportCheckPostRequest) PulpImportCheck(pulpImportCheck PulpImportCheck) ImportersPulpImportCheckAPIPulpImportCheckPostRequest {
 	r.pulpImportCheck = &pulpImportCheck
 	return r
 }
 
-func (r ImportersPulpImportCheckApiPulpImportCheckPostRequest) Execute() (*PulpImportCheckResponse, *http.Response, error) {
+func (r ImportersPulpImportCheckAPIPulpImportCheckPostRequest) Execute() (*PulpImportCheckResponse, *http.Response, error) {
 	return r.ApiService.PulpImportCheckPostExecute(r)
 }
 
@@ -50,10 +50,10 @@ Evaluates validity of proposed PulpImport parameters 'toc', 'path', and 'repo_ma
 * Checks that repo_mapping is valid JSON
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ImportersPulpImportCheckApiPulpImportCheckPostRequest
+ @return ImportersPulpImportCheckAPIPulpImportCheckPostRequest
 */
-func (a *ImportersPulpImportCheckApiService) PulpImportCheckPost(ctx context.Context) ImportersPulpImportCheckApiPulpImportCheckPostRequest {
-	return ImportersPulpImportCheckApiPulpImportCheckPostRequest{
+func (a *ImportersPulpImportCheckAPIService) PulpImportCheckPost(ctx context.Context) ImportersPulpImportCheckAPIPulpImportCheckPostRequest {
+	return ImportersPulpImportCheckAPIPulpImportCheckPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -61,7 +61,7 @@ func (a *ImportersPulpImportCheckApiService) PulpImportCheckPost(ctx context.Con
 
 // Execute executes the request
 //  @return PulpImportCheckResponse
-func (a *ImportersPulpImportCheckApiService) PulpImportCheckPostExecute(r ImportersPulpImportCheckApiPulpImportCheckPostRequest) (*PulpImportCheckResponse, *http.Response, error) {
+func (a *ImportersPulpImportCheckAPIService) PulpImportCheckPostExecute(r ImportersPulpImportCheckAPIPulpImportCheckPostRequest) (*PulpImportCheckResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *ImportersPulpImportCheckApiService) PulpImportCheckPostExecute(r Import
 		localVarReturnValue  *PulpImportCheckResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportCheckApiService.PulpImportCheckPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportersPulpImportCheckAPIService.PulpImportCheckPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

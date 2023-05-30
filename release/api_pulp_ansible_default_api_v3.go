@@ -20,15 +20,15 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3ApiService PulpAnsibleDefaultApiV3Api service
-type PulpAnsibleDefaultApiV3ApiService service
+// PulpAnsibleDefaultApiV3APIService PulpAnsibleDefaultApiV3API service
+type PulpAnsibleDefaultApiV3APIService service
 
-type PulpAnsibleDefaultApiV3ApiPulpAnsibleGalaxyDefaultApiV3ReadRequest struct {
+type PulpAnsibleDefaultApiV3APIPulpAnsibleGalaxyDefaultApiV3ReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3ApiService
+	ApiService *PulpAnsibleDefaultApiV3APIService
 }
 
-func (r PulpAnsibleDefaultApiV3ApiPulpAnsibleGalaxyDefaultApiV3ReadRequest) Execute() (*RepoMetadataResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3APIPulpAnsibleGalaxyDefaultApiV3ReadRequest) Execute() (*RepoMetadataResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3ReadExecute(r)
 }
 
@@ -38,12 +38,12 @@ PulpAnsibleGalaxyDefaultApiV3Read Method for PulpAnsibleGalaxyDefaultApiV3Read
 Legacy v3 endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PulpAnsibleDefaultApiV3ApiPulpAnsibleGalaxyDefaultApiV3ReadRequest
+ @return PulpAnsibleDefaultApiV3APIPulpAnsibleGalaxyDefaultApiV3ReadRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3ApiService) PulpAnsibleGalaxyDefaultApiV3Read(ctx context.Context) PulpAnsibleDefaultApiV3ApiPulpAnsibleGalaxyDefaultApiV3ReadRequest {
-	return PulpAnsibleDefaultApiV3ApiPulpAnsibleGalaxyDefaultApiV3ReadRequest{
+func (a *PulpAnsibleDefaultApiV3APIService) PulpAnsibleGalaxyDefaultApiV3Read(ctx context.Context) PulpAnsibleDefaultApiV3APIPulpAnsibleGalaxyDefaultApiV3ReadRequest {
+	return PulpAnsibleDefaultApiV3APIPulpAnsibleGalaxyDefaultApiV3ReadRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -52,7 +52,7 @@ func (a *PulpAnsibleDefaultApiV3ApiService) PulpAnsibleGalaxyDefaultApiV3Read(ct
 // Execute executes the request
 //  @return RepoMetadataResponse
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3ApiService) PulpAnsibleGalaxyDefaultApiV3ReadExecute(r PulpAnsibleDefaultApiV3ApiPulpAnsibleGalaxyDefaultApiV3ReadRequest) (*RepoMetadataResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3APIService) PulpAnsibleGalaxyDefaultApiV3ReadExecute(r PulpAnsibleDefaultApiV3APIPulpAnsibleGalaxyDefaultApiV3ReadRequest) (*RepoMetadataResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -60,7 +60,7 @@ func (a *PulpAnsibleDefaultApiV3ApiService) PulpAnsibleGalaxyDefaultApiV3ReadExe
 		localVarReturnValue  *RepoMetadataResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3ApiService.PulpAnsibleGalaxyDefaultApiV3Read")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3APIService.PulpAnsibleGalaxyDefaultApiV3Read")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

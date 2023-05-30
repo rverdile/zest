@@ -23,16 +23,16 @@ import (
 )
 
 
-// RepositoriesFileVersionsApiService RepositoriesFileVersionsApi service
-type RepositoriesFileVersionsApiService service
+// RepositoriesFileVersionsAPIService RepositoriesFileVersionsAPI service
+type RepositoriesFileVersionsAPIService service
 
-type RepositoriesFileVersionsApiRepositoriesFileFileVersionsDeleteRequest struct {
+type RepositoriesFileVersionsAPIRepositoriesFileFileVersionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileVersionsApiService
+	ApiService *RepositoriesFileVersionsAPIService
 	fileFileRepositoryVersionHref string
 }
 
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileVersionsDeleteExecute(r)
 }
 
@@ -43,10 +43,10 @@ Trigger an asynchronous task to delete a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryVersionHref
- @return RepositoriesFileVersionsApiRepositoriesFileFileVersionsDeleteRequest
+ @return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsDeleteRequest
 */
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsDelete(ctx context.Context, fileFileRepositoryVersionHref string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsDeleteRequest {
-	return RepositoriesFileVersionsApiRepositoriesFileFileVersionsDeleteRequest{
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsDelete(ctx context.Context, fileFileRepositoryVersionHref string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsDeleteRequest {
+	return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryVersionHref: fileFileRepositoryVersionHref,
@@ -55,7 +55,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsDelete(
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsDeleteExecute(r RepositoriesFileVersionsApiRepositoriesFileFileVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsDeleteExecute(r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsDeleteE
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsApiService.RepositoriesFileFileVersionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsAPIService.RepositoriesFileFileVersionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -130,9 +130,9 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsDeleteE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest struct {
+type RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileVersionsApiService
+	ApiService *RepositoriesFileVersionsAPIService
 	fileFileRepositoryHref string
 	content *string
 	contentIn *string
@@ -157,126 +157,126 @@ type RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) Content(content string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) Content(content string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) ContentIn(contentIn string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) ContentIn(contentIn string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) Limit(limit int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) Limit(limit int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where number matches value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) Number(number int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) Number(number int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.number = &number
 	return r
 }
 
 // Filter results where number is greater than value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) NumberGt(numberGt int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) NumberGt(numberGt int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.numberGt = &numberGt
 	return r
 }
 
 // Filter results where number is greater than or equal to value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) NumberGte(numberGte int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) NumberGte(numberGte int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.numberGte = &numberGte
 	return r
 }
 
 // Filter results where number is less than value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) NumberLt(numberLt int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) NumberLt(numberLt int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.numberLt = &numberLt
 	return r
 }
 
 // Filter results where number is less than or equal to value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) NumberLte(numberLte int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) NumberLte(numberLte int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.numberLte = &numberLte
 	return r
 }
 
 // Filter results where number is between two comma separated values
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) NumberRange(numberRange []int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) NumberRange(numberRange []int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.numberRange = &numberRange
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) Offset(offset int32) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) Offset(offset int32) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) Ordering(ordering []string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) Ordering(ordering []string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) Fields(fields []string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) Fields(fields []string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileVersionsListExecute(r)
 }
 
@@ -288,10 +288,10 @@ FileRepositoryVersion represents a single file repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryHref
- @return RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest
+ @return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest
 */
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsList(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest {
-	return RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest{
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsList(ctx context.Context, fileFileRepositoryHref string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest {
+	return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryHref: fileFileRepositoryHref,
@@ -300,7 +300,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsList(ct
 
 // Execute executes the request
 //  @return PaginatedRepositoryVersionResponseList
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsListExecute(r RepositoriesFileVersionsApiRepositoriesFileFileVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsListExecute(r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -308,7 +308,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsListExe
 		localVarReturnValue  *PaginatedRepositoryVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsApiService.RepositoriesFileFileVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsAPIService.RepositoriesFileFileVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -451,27 +451,27 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsListExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest struct {
+type RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileVersionsApiService
+	ApiService *RepositoriesFileVersionsAPIService
 	fileFileRepositoryVersionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest) Fields(fields []string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest) Fields(fields []string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileVersionsReadExecute(r)
 }
 
@@ -483,10 +483,10 @@ FileRepositoryVersion represents a single file repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryVersionHref
- @return RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest
+ @return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest
 */
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsRead(ctx context.Context, fileFileRepositoryVersionHref string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest {
-	return RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest{
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsRead(ctx context.Context, fileFileRepositoryVersionHref string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest {
+	return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryVersionHref: fileFileRepositoryVersionHref,
@@ -495,7 +495,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsRead(ct
 
 // Execute executes the request
 //  @return RepositoryVersionResponse
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsReadExecute(r RepositoriesFileVersionsApiRepositoriesFileFileVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsReadExecute(r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -503,7 +503,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsReadExe
 		localVarReturnValue  *RepositoryVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsApiService.RepositoriesFileFileVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsAPIService.RepositoriesFileFileVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -592,19 +592,19 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsReadExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest struct {
+type RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesFileVersionsApiService
+	ApiService *RepositoriesFileVersionsAPIService
 	fileFileRepositoryVersionHref string
 	repair *Repair
 }
 
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest) Repair(repair Repair) RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest) Repair(repair Repair) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest {
 	r.repair = &repair
 	return r
 }
 
-func (r RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesFileFileVersionsRepairExecute(r)
 }
 
@@ -615,10 +615,10 @@ Trigger an asynchronous task to repair a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileFileRepositoryVersionHref
- @return RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest
+ @return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest
 */
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsRepair(ctx context.Context, fileFileRepositoryVersionHref string) RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest {
-	return RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest{
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsRepair(ctx context.Context, fileFileRepositoryVersionHref string) RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest {
+	return RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileFileRepositoryVersionHref: fileFileRepositoryVersionHref,
@@ -627,7 +627,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsRepair(
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsRepairExecute(r RepositoriesFileVersionsApiRepositoriesFileFileVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesFileVersionsAPIService) RepositoriesFileFileVersionsRepairExecute(r RepositoriesFileVersionsAPIRepositoriesFileFileVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -635,7 +635,7 @@ func (a *RepositoriesFileVersionsApiService) RepositoriesFileFileVersionsRepairE
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsApiService.RepositoriesFileFileVersionsRepair")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesFileVersionsAPIService.RepositoriesFileFileVersionsRepair")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

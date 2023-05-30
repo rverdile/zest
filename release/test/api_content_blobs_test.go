@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentBlobsApiService
+Testing ContentBlobsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentBlobsApiService(t *testing.T) {
+func Test_zest_ContentBlobsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentBlobsApiService ContentContainerBlobsList", func(t *testing.T) {
+	t.Run("Test ContentBlobsAPIService ContentContainerBlobsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentBlobsApi.ContentContainerBlobsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentBlobsAPI.ContentContainerBlobsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentBlobsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentBlobsApiService ContentContainerBlobsRead", func(t *testing.T) {
+	t.Run("Test ContentBlobsAPIService ContentContainerBlobsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var containerBlobHref string
 
-		resp, httpRes, err := apiClient.ContentBlobsApi.ContentContainerBlobsRead(context.Background(), containerBlobHref).Execute()
+		resp, httpRes, err := apiClient.ContentBlobsAPI.ContentContainerBlobsRead(context.Background(), containerBlobHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

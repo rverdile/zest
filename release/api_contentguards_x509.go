@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentguardsX509ApiService ContentguardsX509Api service
-type ContentguardsX509ApiService service
+// ContentguardsX509APIService ContentguardsX509API service
+type ContentguardsX509APIService service
 
-type ContentguardsX509ApiContentguardsCertguardX509CreateRequest struct {
+type ContentguardsX509APIContentguardsCertguardX509CreateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsX509ApiService
+	ApiService *ContentguardsX509APIService
 	certguardX509CertGuard *CertguardX509CertGuard
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509CreateRequest) CertguardX509CertGuard(certguardX509CertGuard CertguardX509CertGuard) ContentguardsX509ApiContentguardsCertguardX509CreateRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509CreateRequest) CertguardX509CertGuard(certguardX509CertGuard CertguardX509CertGuard) ContentguardsX509APIContentguardsCertguardX509CreateRequest {
 	r.certguardX509CertGuard = &certguardX509CertGuard
 	return r
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509CreateRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (r ContentguardsX509APIContentguardsCertguardX509CreateRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardX509CreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentguardsCertguardX509Create Create a x509 cert guard
 X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsX509ApiContentguardsCertguardX509CreateRequest
+ @return ContentguardsX509APIContentguardsCertguardX509CreateRequest
 */
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Create(ctx context.Context) ContentguardsX509ApiContentguardsCertguardX509CreateRequest {
-	return ContentguardsX509ApiContentguardsCertguardX509CreateRequest{
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509Create(ctx context.Context) ContentguardsX509APIContentguardsCertguardX509CreateRequest {
+	return ContentguardsX509APIContentguardsCertguardX509CreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Create(ctx conte
 
 // Execute executes the request
 //  @return CertguardX509CertGuardResponse
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509CreateExecute(r ContentguardsX509ApiContentguardsCertguardX509CreateRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509CreateExecute(r ContentguardsX509APIContentguardsCertguardX509CreateRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509CreateExecute(r 
 		localVarReturnValue  *CertguardX509CertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509ApiService.ContentguardsCertguardX509Create")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509APIService.ContentguardsCertguardX509Create")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,13 +134,13 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509CreateExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsX509ApiContentguardsCertguardX509DeleteRequest struct {
+type ContentguardsX509APIContentguardsCertguardX509DeleteRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsX509ApiService
+	ApiService *ContentguardsX509APIService
 	certguardX509CertGuardHref string
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509DeleteRequest) Execute() (*http.Response, error) {
+func (r ContentguardsX509APIContentguardsCertguardX509DeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ContentguardsCertguardX509DeleteExecute(r)
 }
 
@@ -151,10 +151,10 @@ X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardX509CertGuardHref
- @return ContentguardsX509ApiContentguardsCertguardX509DeleteRequest
+ @return ContentguardsX509APIContentguardsCertguardX509DeleteRequest
 */
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Delete(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509ApiContentguardsCertguardX509DeleteRequest {
-	return ContentguardsX509ApiContentguardsCertguardX509DeleteRequest{
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509Delete(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509APIContentguardsCertguardX509DeleteRequest {
+	return ContentguardsX509APIContentguardsCertguardX509DeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardX509CertGuardHref: certguardX509CertGuardHref,
@@ -162,14 +162,14 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Delete(ctx conte
 }
 
 // Execute executes the request
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509DeleteExecute(r ContentguardsX509ApiContentguardsCertguardX509DeleteRequest) (*http.Response, error) {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509DeleteExecute(r ContentguardsX509APIContentguardsCertguardX509DeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509ApiService.ContentguardsCertguardX509Delete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509APIService.ContentguardsCertguardX509Delete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -227,9 +227,9 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509DeleteExecute(r 
 	return localVarHTTPResponse, nil
 }
 
-type ContentguardsX509ApiContentguardsCertguardX509ListRequest struct {
+type ContentguardsX509APIContentguardsCertguardX509ListRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsX509ApiService
+	ApiService *ContentguardsX509APIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -245,78 +245,78 @@ type ContentguardsX509ApiContentguardsCertguardX509ListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) Limit(limit int32) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) Limit(limit int32) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) Name(name string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) Name(name string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) NameContains(nameContains string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) NameContains(nameContains string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) NameIcontains(nameIcontains string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) NameIcontains(nameIcontains string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) NameIn(nameIn []string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) NameIn(nameIn []string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) NameStartswith(nameStartswith string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) NameStartswith(nameStartswith string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) Offset(offset int32) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) Offset(offset int32) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) Ordering(ordering []string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) Ordering(ordering []string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) PulpIdIn(pulpIdIn []string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) PulpIdIn(pulpIdIn []string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) Fields(fields []string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) Fields(fields []string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) ExcludeFields(excludeFields []string) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) ExcludeFields(excludeFields []string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509ListRequest) Execute() (*PaginatedcertguardX509CertGuardResponseList, *http.Response, error) {
+func (r ContentguardsX509APIContentguardsCertguardX509ListRequest) Execute() (*PaginatedcertguardX509CertGuardResponseList, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardX509ListExecute(r)
 }
 
@@ -326,10 +326,10 @@ ContentguardsCertguardX509List List x509 cert guards
 X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsX509ApiContentguardsCertguardX509ListRequest
+ @return ContentguardsX509APIContentguardsCertguardX509ListRequest
 */
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509List(ctx context.Context) ContentguardsX509ApiContentguardsCertguardX509ListRequest {
-	return ContentguardsX509ApiContentguardsCertguardX509ListRequest{
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509List(ctx context.Context) ContentguardsX509APIContentguardsCertguardX509ListRequest {
+	return ContentguardsX509APIContentguardsCertguardX509ListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -337,7 +337,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509List(ctx context
 
 // Execute executes the request
 //  @return PaginatedcertguardX509CertGuardResponseList
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509ListExecute(r ContentguardsX509ApiContentguardsCertguardX509ListRequest) (*PaginatedcertguardX509CertGuardResponseList, *http.Response, error) {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509ListExecute(r ContentguardsX509APIContentguardsCertguardX509ListRequest) (*PaginatedcertguardX509CertGuardResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -345,7 +345,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509ListExecute(r Co
 		localVarReturnValue  *PaginatedcertguardX509CertGuardResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509ApiService.ContentguardsCertguardX509List")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509APIService.ContentguardsCertguardX509List")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -461,19 +461,19 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509ListExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest struct {
+type ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsX509ApiService
+	ApiService *ContentguardsX509APIService
 	certguardX509CertGuardHref string
 	patchedcertguardX509CertGuard *PatchedcertguardX509CertGuard
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest) PatchedcertguardX509CertGuard(patchedcertguardX509CertGuard PatchedcertguardX509CertGuard) ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest) PatchedcertguardX509CertGuard(patchedcertguardX509CertGuard PatchedcertguardX509CertGuard) ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest {
 	r.patchedcertguardX509CertGuard = &patchedcertguardX509CertGuard
 	return r
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (r ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardX509PartialUpdateExecute(r)
 }
 
@@ -484,10 +484,10 @@ X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardX509CertGuardHref
- @return ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest
+ @return ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest
 */
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509PartialUpdate(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest {
-	return ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest{
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509PartialUpdate(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest {
+	return ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardX509CertGuardHref: certguardX509CertGuardHref,
@@ -496,7 +496,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509PartialUpdate(ct
 
 // Execute executes the request
 //  @return CertguardX509CertGuardResponse
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509PartialUpdateExecute(r ContentguardsX509ApiContentguardsCertguardX509PartialUpdateRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509PartialUpdateExecute(r ContentguardsX509APIContentguardsCertguardX509PartialUpdateRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -504,7 +504,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509PartialUpdateExe
 		localVarReturnValue  *CertguardX509CertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509ApiService.ContentguardsCertguardX509PartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509APIService.ContentguardsCertguardX509PartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -576,27 +576,27 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509PartialUpdateExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsX509ApiContentguardsCertguardX509ReadRequest struct {
+type ContentguardsX509APIContentguardsCertguardX509ReadRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsX509ApiService
+	ApiService *ContentguardsX509APIService
 	certguardX509CertGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsX509ApiContentguardsCertguardX509ReadRequest) Fields(fields []string) ContentguardsX509ApiContentguardsCertguardX509ReadRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ReadRequest) Fields(fields []string) ContentguardsX509APIContentguardsCertguardX509ReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsX509ApiContentguardsCertguardX509ReadRequest) ExcludeFields(excludeFields []string) ContentguardsX509ApiContentguardsCertguardX509ReadRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509ReadRequest) ExcludeFields(excludeFields []string) ContentguardsX509APIContentguardsCertguardX509ReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509ReadRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (r ContentguardsX509APIContentguardsCertguardX509ReadRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardX509ReadExecute(r)
 }
 
@@ -607,10 +607,10 @@ X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardX509CertGuardHref
- @return ContentguardsX509ApiContentguardsCertguardX509ReadRequest
+ @return ContentguardsX509APIContentguardsCertguardX509ReadRequest
 */
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Read(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509ApiContentguardsCertguardX509ReadRequest {
-	return ContentguardsX509ApiContentguardsCertguardX509ReadRequest{
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509Read(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509APIContentguardsCertguardX509ReadRequest {
+	return ContentguardsX509APIContentguardsCertguardX509ReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardX509CertGuardHref: certguardX509CertGuardHref,
@@ -619,7 +619,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Read(ctx context
 
 // Execute executes the request
 //  @return CertguardX509CertGuardResponse
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509ReadExecute(r ContentguardsX509ApiContentguardsCertguardX509ReadRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509ReadExecute(r ContentguardsX509APIContentguardsCertguardX509ReadRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -627,7 +627,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509ReadExecute(r Co
 		localVarReturnValue  *CertguardX509CertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509ApiService.ContentguardsCertguardX509Read")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509APIService.ContentguardsCertguardX509Read")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -716,19 +716,19 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509ReadExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsX509ApiContentguardsCertguardX509UpdateRequest struct {
+type ContentguardsX509APIContentguardsCertguardX509UpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsX509ApiService
+	ApiService *ContentguardsX509APIService
 	certguardX509CertGuardHref string
 	certguardX509CertGuard *CertguardX509CertGuard
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509UpdateRequest) CertguardX509CertGuard(certguardX509CertGuard CertguardX509CertGuard) ContentguardsX509ApiContentguardsCertguardX509UpdateRequest {
+func (r ContentguardsX509APIContentguardsCertguardX509UpdateRequest) CertguardX509CertGuard(certguardX509CertGuard CertguardX509CertGuard) ContentguardsX509APIContentguardsCertguardX509UpdateRequest {
 	r.certguardX509CertGuard = &certguardX509CertGuard
 	return r
 }
 
-func (r ContentguardsX509ApiContentguardsCertguardX509UpdateRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (r ContentguardsX509APIContentguardsCertguardX509UpdateRequest) Execute() (*CertguardX509CertGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCertguardX509UpdateExecute(r)
 }
 
@@ -739,10 +739,10 @@ X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param certguardX509CertGuardHref
- @return ContentguardsX509ApiContentguardsCertguardX509UpdateRequest
+ @return ContentguardsX509APIContentguardsCertguardX509UpdateRequest
 */
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Update(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509ApiContentguardsCertguardX509UpdateRequest {
-	return ContentguardsX509ApiContentguardsCertguardX509UpdateRequest{
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509Update(ctx context.Context, certguardX509CertGuardHref string) ContentguardsX509APIContentguardsCertguardX509UpdateRequest {
+	return ContentguardsX509APIContentguardsCertguardX509UpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		certguardX509CertGuardHref: certguardX509CertGuardHref,
@@ -751,7 +751,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509Update(ctx conte
 
 // Execute executes the request
 //  @return CertguardX509CertGuardResponse
-func (a *ContentguardsX509ApiService) ContentguardsCertguardX509UpdateExecute(r ContentguardsX509ApiContentguardsCertguardX509UpdateRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509UpdateExecute(r ContentguardsX509APIContentguardsCertguardX509UpdateRequest) (*CertguardX509CertGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -759,7 +759,7 @@ func (a *ContentguardsX509ApiService) ContentguardsCertguardX509UpdateExecute(r 
 		localVarReturnValue  *CertguardX509CertGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509ApiService.ContentguardsCertguardX509Update")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsX509APIService.ContentguardsCertguardX509Update")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

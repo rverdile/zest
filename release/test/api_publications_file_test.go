@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PublicationsFileApiService
+Testing PublicationsFileAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PublicationsFileApiService(t *testing.T) {
+func Test_zest_PublicationsFileAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PublicationsFileApiService PublicationsFileFileAddRole", func(t *testing.T) {
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFilePublicationHref string
 
-		resp, httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileAddRole(context.Background(), fileFilePublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileAddRole(context.Background(), fileFilePublicationHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_PublicationsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsFileApiService PublicationsFileFileCreate", func(t *testing.T) {
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,38 +48,24 @@ func Test_zest_PublicationsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsFileApiService PublicationsFileFileDelete", func(t *testing.T) {
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFilePublicationHref string
 
-		httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileDelete(context.Background(), fileFilePublicationHref).Execute()
+		httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileDelete(context.Background(), fileFilePublicationHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test PublicationsFileApiService PublicationsFileFileList", func(t *testing.T) {
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PublicationsFileApiService PublicationsFileFileListRoles", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var fileFilePublicationHref string
-
-		resp, httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileListRoles(context.Background(), fileFilePublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +73,13 @@ func Test_zest_PublicationsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsFileApiService PublicationsFileFileMyPermissions", func(t *testing.T) {
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFilePublicationHref string
 
-		resp, httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileMyPermissions(context.Background(), fileFilePublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileListRoles(context.Background(), fileFilePublicationHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,13 +87,13 @@ func Test_zest_PublicationsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsFileApiService PublicationsFileFileRead", func(t *testing.T) {
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFilePublicationHref string
 
-		resp, httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileRead(context.Background(), fileFilePublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileMyPermissions(context.Background(), fileFilePublicationHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -115,13 +101,27 @@ func Test_zest_PublicationsFileApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test PublicationsFileApiService PublicationsFileFileRemoveRole", func(t *testing.T) {
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileFilePublicationHref string
 
-		resp, httpRes, err := apiClient.PublicationsFileApi.PublicationsFileFileRemoveRole(context.Background(), fileFilePublicationHref).Execute()
+		resp, httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileRead(context.Background(), fileFilePublicationHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PublicationsFileAPIService PublicationsFileFileRemoveRole", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var fileFilePublicationHref string
+
+		resp, httpRes, err := apiClient.PublicationsFileAPI.PublicationsFileFileRemoveRole(context.Background(), fileFilePublicationHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

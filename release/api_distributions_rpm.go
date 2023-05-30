@@ -22,22 +22,22 @@ import (
 )
 
 
-// DistributionsRpmApiService DistributionsRpmApi service
-type DistributionsRpmApiService service
+// DistributionsRpmAPIService DistributionsRpmAPI service
+type DistributionsRpmAPIService service
 
-type DistributionsRpmApiDistributionsRpmRpmAddRoleRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsRpmApiDistributionsRpmRpmAddRoleRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest) NestedRole(nestedRole NestedRole) DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmAddRoleRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmAddRole(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmAddRoleRequest {
-	return DistributionsRpmApiDistributionsRpmRpmAddRoleRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmAddRole(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -60,7 +60,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmAddRole(ctx context.Cont
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmAddRoleExecute(r DistributionsRpmApiDistributionsRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmAddRoleExecute(r DistributionsRpmAPIDistributionsRpmRpmAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmAddRoleExecute(r Distrib
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmAddRoleExecute(r Distrib
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmCreateRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmCreateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistribution *RpmRpmDistribution
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmCreateRequest) RpmRpmDistribution(rpmRpmDistribution RpmRpmDistribution) DistributionsRpmApiDistributionsRpmRpmCreateRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmCreateRequest) RpmRpmDistribution(rpmRpmDistribution RpmRpmDistribution) DistributionsRpmAPIDistributionsRpmRpmCreateRequest {
 	r.rpmRpmDistribution = &rpmRpmDistribution
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ DistributionsRpmRpmCreate Create a rpm distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsRpmApiDistributionsRpmRpmCreateRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmCreateRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmCreate(ctx context.Context) DistributionsRpmApiDistributionsRpmRpmCreateRequest {
-	return DistributionsRpmApiDistributionsRpmRpmCreateRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmCreate(ctx context.Context) DistributionsRpmAPIDistributionsRpmRpmCreateRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmCreate(ctx context.Conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmCreateExecute(r DistributionsRpmApiDistributionsRpmRpmCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmCreateExecute(r DistributionsRpmAPIDistributionsRpmRpmCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmCreateExecute(r Distribu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmCreateExecute(r Distribu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmDeleteRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmDeleteRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmDeleteRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmDeleteRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmDelete(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmDeleteRequest {
-	return DistributionsRpmApiDistributionsRpmRpmDeleteRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmDelete(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmDeleteRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -278,7 +278,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmDelete(ctx context.Conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmDeleteExecute(r DistributionsRpmApiDistributionsRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmDeleteExecute(r DistributionsRpmAPIDistributionsRpmRpmDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmDeleteExecute(r Distribu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,9 +353,9 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmDeleteExecute(r Distribu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmListRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmListRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -379,126 +379,126 @@ type DistributionsRpmApiDistributionsRpmRpmListRequest struct {
 }
 
 // Filter results where base_path matches value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) BasePath(basePath string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) BasePath(basePath string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.basePath = &basePath
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) BasePathContains(basePathContains string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) BasePathContains(basePathContains string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.basePathContains = &basePathContains
 	return r
 }
 
 // Filter results where base_path contains value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) BasePathIcontains(basePathIcontains string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) BasePathIcontains(basePathIcontains string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.basePathIcontains = &basePathIcontains
 	return r
 }
 
 // Filter results where base_path is in a comma-separated list of values
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) BasePathIn(basePathIn []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) BasePathIn(basePathIn []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.basePathIn = &basePathIn
 	return r
 }
 
 // Number of results to return per page.
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) Limit(limit int32) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) Limit(limit int32) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) Name(name string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) Name(name string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) NameContains(nameContains string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) NameContains(nameContains string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) NameIcontains(nameIcontains string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) NameIcontains(nameIcontains string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) NameIn(nameIn []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) NameIn(nameIn []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) NameStartswith(nameStartswith string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) NameStartswith(nameStartswith string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) Offset(offset int32) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) Offset(offset int32) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;base_path&#x60; - Base path * &#x60;-base_path&#x60; - Base path (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) Ordering(ordering []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) Ordering(ordering []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) PulpHrefIn(pulpHrefIn []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) PulpIdIn(pulpIdIn []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) PulpIdIn(pulpIdIn []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) PulpLabelSelect(pulpLabelSelect string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where repository matches value
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) Repository(repository string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) Repository(repository string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.repository = &repository
 	return r
 }
 
 // Filter results where repository is in a comma-separated list of values
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) RepositoryIn(repositoryIn []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) RepositoryIn(repositoryIn []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.repositoryIn = &repositoryIn
 	return r
 }
 
 // Filter distributions based on the content served by them
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) WithContent(withContent string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) WithContent(withContent string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.withContent = &withContent
 	return r
 }
 
 // A list of fields to include in the response.
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) Fields(fields []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) Fields(fields []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) ExcludeFields(excludeFields []string) DistributionsRpmApiDistributionsRpmRpmListRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) ExcludeFields(excludeFields []string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmListRequest) Execute() (*PaginatedrpmRpmDistributionResponseList, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRequest) Execute() (*PaginatedrpmRpmDistributionResponseList, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmListExecute(r)
 }
 
@@ -508,10 +508,10 @@ DistributionsRpmRpmList List rpm distributions
 ViewSet for RPM Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DistributionsRpmApiDistributionsRpmRpmListRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmListRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmList(ctx context.Context) DistributionsRpmApiDistributionsRpmRpmListRequest {
-	return DistributionsRpmApiDistributionsRpmRpmListRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmList(ctx context.Context) DistributionsRpmAPIDistributionsRpmRpmListRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -519,7 +519,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmList(ctx context.Context
 
 // Execute executes the request
 //  @return PaginatedrpmRpmDistributionResponseList
-func (a *DistributionsRpmApiService) DistributionsRpmRpmListExecute(r DistributionsRpmApiDistributionsRpmRpmListRequest) (*PaginatedrpmRpmDistributionResponseList, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmListExecute(r DistributionsRpmAPIDistributionsRpmRpmListRequest) (*PaginatedrpmRpmDistributionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -527,7 +527,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmListExecute(r Distributi
 		localVarReturnValue  *PaginatedrpmRpmDistributionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -667,27 +667,27 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmListExecute(r Distributi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmListRolesRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmListRolesRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsRpmApiDistributionsRpmRpmListRolesRequest) Fields(fields []string) DistributionsRpmApiDistributionsRpmRpmListRolesRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRolesRequest) Fields(fields []string) DistributionsRpmAPIDistributionsRpmRpmListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsRpmApiDistributionsRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) DistributionsRpmApiDistributionsRpmRpmListRolesRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRolesRequest) ExcludeFields(excludeFields []string) DistributionsRpmAPIDistributionsRpmRpmListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmListRolesExecute(r)
 }
 
@@ -698,10 +698,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmListRolesRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmListRolesRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmListRoles(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmListRolesRequest {
-	return DistributionsRpmApiDistributionsRpmRpmListRolesRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmListRoles(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmListRolesRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -710,7 +710,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmListRoles(ctx context.Co
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmListRolesExecute(r DistributionsRpmApiDistributionsRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmListRolesExecute(r DistributionsRpmAPIDistributionsRpmRpmListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -718,7 +718,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmListRolesExecute(r Distr
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -807,27 +807,27 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmListRolesExecute(r Distr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest) Fields(fields []string) DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest) Fields(fields []string) DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest) ExcludeFields(excludeFields []string) DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmMyPermissionsExecute(r)
 }
 
@@ -838,10 +838,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmMyPermissions(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest {
-	return DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmMyPermissions(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -850,7 +850,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmMyPermissions(ctx contex
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmMyPermissionsExecute(r DistributionsRpmApiDistributionsRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmMyPermissionsExecute(r DistributionsRpmAPIDistributionsRpmRpmMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -858,7 +858,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmMyPermissionsExecute(r D
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -947,19 +947,19 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmMyPermissionsExecute(r D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 	patchedrpmRpmDistribution *PatchedrpmRpmDistribution
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest) PatchedrpmRpmDistribution(patchedrpmRpmDistribution PatchedrpmRpmDistribution) DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest) PatchedrpmRpmDistribution(patchedrpmRpmDistribution PatchedrpmRpmDistribution) DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest {
 	r.patchedrpmRpmDistribution = &patchedrpmRpmDistribution
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmPartialUpdateExecute(r)
 }
 
@@ -970,10 +970,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmPartialUpdate(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest {
-	return DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmPartialUpdate(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -982,7 +982,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmPartialUpdate(ctx contex
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmPartialUpdateExecute(r DistributionsRpmApiDistributionsRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmPartialUpdateExecute(r DistributionsRpmAPIDistributionsRpmRpmPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -990,7 +990,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmPartialUpdateExecute(r D
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1062,27 +1062,27 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmPartialUpdateExecute(r D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmReadRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmReadRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r DistributionsRpmApiDistributionsRpmRpmReadRequest) Fields(fields []string) DistributionsRpmApiDistributionsRpmRpmReadRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmReadRequest) Fields(fields []string) DistributionsRpmAPIDistributionsRpmRpmReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r DistributionsRpmApiDistributionsRpmRpmReadRequest) ExcludeFields(excludeFields []string) DistributionsRpmApiDistributionsRpmRpmReadRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmReadRequest) ExcludeFields(excludeFields []string) DistributionsRpmAPIDistributionsRpmRpmReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmReadRequest) Execute() (*RpmRpmDistributionResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmReadRequest) Execute() (*RpmRpmDistributionResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmReadExecute(r)
 }
 
@@ -1093,10 +1093,10 @@ ViewSet for RPM Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmReadRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmReadRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmRead(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmReadRequest {
-	return DistributionsRpmApiDistributionsRpmRpmReadRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmRead(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmReadRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -1105,7 +1105,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmRead(ctx context.Context
 
 // Execute executes the request
 //  @return RpmRpmDistributionResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmReadExecute(r DistributionsRpmApiDistributionsRpmRpmReadRequest) (*RpmRpmDistributionResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmReadExecute(r DistributionsRpmAPIDistributionsRpmRpmReadRequest) (*RpmRpmDistributionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1113,7 +1113,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmReadExecute(r Distributi
 		localVarReturnValue  *RpmRpmDistributionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1202,19 +1202,19 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmReadExecute(r Distributi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 	nestedRole *NestedRole
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest) NestedRole(nestedRole NestedRole) DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmRemoveRoleExecute(r)
 }
 
@@ -1225,10 +1225,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmRemoveRole(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest {
-	return DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmRemoveRole(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -1237,7 +1237,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmRemoveRole(ctx context.C
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmRemoveRoleExecute(r DistributionsRpmApiDistributionsRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmRemoveRoleExecute(r DistributionsRpmAPIDistributionsRpmRpmRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1245,7 +1245,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmRemoveRoleExecute(r Dist
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1317,19 +1317,19 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmRemoveRoleExecute(r Dist
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DistributionsRpmApiDistributionsRpmRpmUpdateRequest struct {
+type DistributionsRpmAPIDistributionsRpmRpmUpdateRequest struct {
 	ctx context.Context
-	ApiService *DistributionsRpmApiService
+	ApiService *DistributionsRpmAPIService
 	rpmRpmDistributionHref string
 	rpmRpmDistribution *RpmRpmDistribution
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmUpdateRequest) RpmRpmDistribution(rpmRpmDistribution RpmRpmDistribution) DistributionsRpmApiDistributionsRpmRpmUpdateRequest {
+func (r DistributionsRpmAPIDistributionsRpmRpmUpdateRequest) RpmRpmDistribution(rpmRpmDistribution RpmRpmDistribution) DistributionsRpmAPIDistributionsRpmRpmUpdateRequest {
 	r.rpmRpmDistribution = &rpmRpmDistribution
 	return r
 }
 
-func (r DistributionsRpmApiDistributionsRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r DistributionsRpmAPIDistributionsRpmRpmUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.DistributionsRpmRpmUpdateExecute(r)
 }
 
@@ -1340,10 +1340,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmDistributionHref
- @return DistributionsRpmApiDistributionsRpmRpmUpdateRequest
+ @return DistributionsRpmAPIDistributionsRpmRpmUpdateRequest
 */
-func (a *DistributionsRpmApiService) DistributionsRpmRpmUpdate(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmApiDistributionsRpmRpmUpdateRequest {
-	return DistributionsRpmApiDistributionsRpmRpmUpdateRequest{
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmUpdate(ctx context.Context, rpmRpmDistributionHref string) DistributionsRpmAPIDistributionsRpmRpmUpdateRequest {
+	return DistributionsRpmAPIDistributionsRpmRpmUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmDistributionHref: rpmRpmDistributionHref,
@@ -1352,7 +1352,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmUpdate(ctx context.Conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *DistributionsRpmApiService) DistributionsRpmRpmUpdateExecute(r DistributionsRpmApiDistributionsRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmUpdateExecute(r DistributionsRpmAPIDistributionsRpmRpmUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1360,7 +1360,7 @@ func (a *DistributionsRpmApiService) DistributionsRpmRpmUpdateExecute(r Distribu
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmApiService.DistributionsRpmRpmUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DistributionsRpmAPIService.DistributionsRpmRpmUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

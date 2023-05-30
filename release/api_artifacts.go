@@ -23,12 +23,12 @@ import (
 )
 
 
-// ArtifactsApiService ArtifactsApi service
-type ArtifactsApiService service
+// ArtifactsAPIService ArtifactsAPI service
+type ArtifactsAPIService service
 
-type ArtifactsApiArtifactsCreateRequest struct {
+type ArtifactsAPIArtifactsCreateRequest struct {
 	ctx context.Context
-	ApiService *ArtifactsApiService
+	ApiService *ArtifactsAPIService
 	file *os.File
 	size *int64
 	md5 *string
@@ -40,54 +40,54 @@ type ArtifactsApiArtifactsCreateRequest struct {
 }
 
 // The stored file.
-func (r ArtifactsApiArtifactsCreateRequest) File(file *os.File) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) File(file *os.File) ArtifactsAPIArtifactsCreateRequest {
 	r.file = file
 	return r
 }
 
 // The size of the file in bytes.
-func (r ArtifactsApiArtifactsCreateRequest) Size(size int64) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) Size(size int64) ArtifactsAPIArtifactsCreateRequest {
 	r.size = &size
 	return r
 }
 
 // The MD5 checksum of the file if available.
-func (r ArtifactsApiArtifactsCreateRequest) Md5(md5 string) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) Md5(md5 string) ArtifactsAPIArtifactsCreateRequest {
 	r.md5 = &md5
 	return r
 }
 
 // The SHA-1 checksum of the file if available.
-func (r ArtifactsApiArtifactsCreateRequest) Sha1(sha1 string) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) Sha1(sha1 string) ArtifactsAPIArtifactsCreateRequest {
 	r.sha1 = &sha1
 	return r
 }
 
 // The SHA-224 checksum of the file if available.
-func (r ArtifactsApiArtifactsCreateRequest) Sha224(sha224 string) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) Sha224(sha224 string) ArtifactsAPIArtifactsCreateRequest {
 	r.sha224 = &sha224
 	return r
 }
 
 // The SHA-256 checksum of the file if available.
-func (r ArtifactsApiArtifactsCreateRequest) Sha256(sha256 string) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) Sha256(sha256 string) ArtifactsAPIArtifactsCreateRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // The SHA-384 checksum of the file if available.
-func (r ArtifactsApiArtifactsCreateRequest) Sha384(sha384 string) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) Sha384(sha384 string) ArtifactsAPIArtifactsCreateRequest {
 	r.sha384 = &sha384
 	return r
 }
 
 // The SHA-512 checksum of the file if available.
-func (r ArtifactsApiArtifactsCreateRequest) Sha512(sha512 string) ArtifactsApiArtifactsCreateRequest {
+func (r ArtifactsAPIArtifactsCreateRequest) Sha512(sha512 string) ArtifactsAPIArtifactsCreateRequest {
 	r.sha512 = &sha512
 	return r
 }
 
-func (r ArtifactsApiArtifactsCreateRequest) Execute() (*ArtifactResponse, *http.Response, error) {
+func (r ArtifactsAPIArtifactsCreateRequest) Execute() (*ArtifactResponse, *http.Response, error) {
 	return r.ApiService.ArtifactsCreateExecute(r)
 }
 
@@ -114,10 +114,10 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ArtifactsApiArtifactsCreateRequest
+ @return ArtifactsAPIArtifactsCreateRequest
 */
-func (a *ArtifactsApiService) ArtifactsCreate(ctx context.Context) ArtifactsApiArtifactsCreateRequest {
-	return ArtifactsApiArtifactsCreateRequest{
+func (a *ArtifactsAPIService) ArtifactsCreate(ctx context.Context) ArtifactsAPIArtifactsCreateRequest {
+	return ArtifactsAPIArtifactsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -125,7 +125,7 @@ func (a *ArtifactsApiService) ArtifactsCreate(ctx context.Context) ArtifactsApiA
 
 // Execute executes the request
 //  @return ArtifactResponse
-func (a *ArtifactsApiService) ArtifactsCreateExecute(r ArtifactsApiArtifactsCreateRequest) (*ArtifactResponse, *http.Response, error) {
+func (a *ArtifactsAPIService) ArtifactsCreateExecute(r ArtifactsAPIArtifactsCreateRequest) (*ArtifactResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -133,7 +133,7 @@ func (a *ArtifactsApiService) ArtifactsCreateExecute(r ArtifactsApiArtifactsCrea
 		localVarReturnValue  *ArtifactResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.ArtifactsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsAPIService.ArtifactsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -238,13 +238,13 @@ func (a *ArtifactsApiService) ArtifactsCreateExecute(r ArtifactsApiArtifactsCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ArtifactsApiArtifactsDeleteRequest struct {
+type ArtifactsAPIArtifactsDeleteRequest struct {
 	ctx context.Context
-	ApiService *ArtifactsApiService
+	ApiService *ArtifactsAPIService
 	artifactHref string
 }
 
-func (r ArtifactsApiArtifactsDeleteRequest) Execute() (*http.Response, error) {
+func (r ArtifactsAPIArtifactsDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ArtifactsDeleteExecute(r)
 }
 
@@ -255,10 +255,10 @@ Remove Artifact only if it is not associated with any Content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param artifactHref
- @return ArtifactsApiArtifactsDeleteRequest
+ @return ArtifactsAPIArtifactsDeleteRequest
 */
-func (a *ArtifactsApiService) ArtifactsDelete(ctx context.Context, artifactHref string) ArtifactsApiArtifactsDeleteRequest {
-	return ArtifactsApiArtifactsDeleteRequest{
+func (a *ArtifactsAPIService) ArtifactsDelete(ctx context.Context, artifactHref string) ArtifactsAPIArtifactsDeleteRequest {
+	return ArtifactsAPIArtifactsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		artifactHref: artifactHref,
@@ -266,14 +266,14 @@ func (a *ArtifactsApiService) ArtifactsDelete(ctx context.Context, artifactHref 
 }
 
 // Execute executes the request
-func (a *ArtifactsApiService) ArtifactsDeleteExecute(r ArtifactsApiArtifactsDeleteRequest) (*http.Response, error) {
+func (a *ArtifactsAPIService) ArtifactsDeleteExecute(r ArtifactsAPIArtifactsDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.ArtifactsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsAPIService.ArtifactsDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -331,9 +331,9 @@ func (a *ArtifactsApiService) ArtifactsDeleteExecute(r ArtifactsApiArtifactsDele
 	return localVarHTTPResponse, nil
 }
 
-type ArtifactsApiArtifactsListRequest struct {
+type ArtifactsAPIArtifactsListRequest struct {
 	ctx context.Context
-	ApiService *ArtifactsApiService
+	ApiService *ArtifactsAPIService
 	limit *int32
 	md5 *string
 	offset *int32
@@ -351,90 +351,90 @@ type ArtifactsApiArtifactsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ArtifactsApiArtifactsListRequest) Limit(limit int32) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Limit(limit int32) ArtifactsAPIArtifactsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where md5 matches value
-func (r ArtifactsApiArtifactsListRequest) Md5(md5 string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Md5(md5 string) ArtifactsAPIArtifactsListRequest {
 	r.md5 = &md5
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ArtifactsApiArtifactsListRequest) Offset(offset int32) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Offset(offset int32) ArtifactsAPIArtifactsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;file&#x60; - File * &#x60;-file&#x60; - File (descending) * &#x60;size&#x60; - Size * &#x60;-size&#x60; - Size (descending) * &#x60;md5&#x60; - Md5 * &#x60;-md5&#x60; - Md5 (descending) * &#x60;sha1&#x60; - Sha1 * &#x60;-sha1&#x60; - Sha1 (descending) * &#x60;sha224&#x60; - Sha224 * &#x60;-sha224&#x60; - Sha224 (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;sha384&#x60; - Sha384 * &#x60;-sha384&#x60; - Sha384 (descending) * &#x60;sha512&#x60; - Sha512 * &#x60;-sha512&#x60; - Sha512 (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ArtifactsApiArtifactsListRequest) Ordering(ordering []string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Ordering(ordering []string) ArtifactsAPIArtifactsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ArtifactsApiArtifactsListRequest) PulpHrefIn(pulpHrefIn []string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) PulpHrefIn(pulpHrefIn []string) ArtifactsAPIArtifactsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ArtifactsApiArtifactsListRequest) PulpIdIn(pulpIdIn []string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) PulpIdIn(pulpIdIn []string) ArtifactsAPIArtifactsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ArtifactsApiArtifactsListRequest) RepositoryVersion(repositoryVersion string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) RepositoryVersion(repositoryVersion string) ArtifactsAPIArtifactsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Filter results where sha1 matches value
-func (r ArtifactsApiArtifactsListRequest) Sha1(sha1 string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Sha1(sha1 string) ArtifactsAPIArtifactsListRequest {
 	r.sha1 = &sha1
 	return r
 }
 
 // Filter results where sha224 matches value
-func (r ArtifactsApiArtifactsListRequest) Sha224(sha224 string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Sha224(sha224 string) ArtifactsAPIArtifactsListRequest {
 	r.sha224 = &sha224
 	return r
 }
 
 // Filter results where sha256 matches value
-func (r ArtifactsApiArtifactsListRequest) Sha256(sha256 string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Sha256(sha256 string) ArtifactsAPIArtifactsListRequest {
 	r.sha256 = &sha256
 	return r
 }
 
 // Filter results where sha384 matches value
-func (r ArtifactsApiArtifactsListRequest) Sha384(sha384 string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Sha384(sha384 string) ArtifactsAPIArtifactsListRequest {
 	r.sha384 = &sha384
 	return r
 }
 
 // Filter results where sha512 matches value
-func (r ArtifactsApiArtifactsListRequest) Sha512(sha512 string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Sha512(sha512 string) ArtifactsAPIArtifactsListRequest {
 	r.sha512 = &sha512
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ArtifactsApiArtifactsListRequest) Fields(fields []string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) Fields(fields []string) ArtifactsAPIArtifactsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ArtifactsApiArtifactsListRequest) ExcludeFields(excludeFields []string) ArtifactsApiArtifactsListRequest {
+func (r ArtifactsAPIArtifactsListRequest) ExcludeFields(excludeFields []string) ArtifactsAPIArtifactsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ArtifactsApiArtifactsListRequest) Execute() (*PaginatedArtifactResponseList, *http.Response, error) {
+func (r ArtifactsAPIArtifactsListRequest) Execute() (*PaginatedArtifactResponseList, *http.Response, error) {
 	return r.ApiService.ArtifactsListExecute(r)
 }
 
@@ -461,10 +461,10 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ArtifactsApiArtifactsListRequest
+ @return ArtifactsAPIArtifactsListRequest
 */
-func (a *ArtifactsApiService) ArtifactsList(ctx context.Context) ArtifactsApiArtifactsListRequest {
-	return ArtifactsApiArtifactsListRequest{
+func (a *ArtifactsAPIService) ArtifactsList(ctx context.Context) ArtifactsAPIArtifactsListRequest {
+	return ArtifactsAPIArtifactsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -472,7 +472,7 @@ func (a *ArtifactsApiService) ArtifactsList(ctx context.Context) ArtifactsApiArt
 
 // Execute executes the request
 //  @return PaginatedArtifactResponseList
-func (a *ArtifactsApiService) ArtifactsListExecute(r ArtifactsApiArtifactsListRequest) (*PaginatedArtifactResponseList, *http.Response, error) {
+func (a *ArtifactsAPIService) ArtifactsListExecute(r ArtifactsAPIArtifactsListRequest) (*PaginatedArtifactResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -480,7 +480,7 @@ func (a *ArtifactsApiService) ArtifactsListExecute(r ArtifactsApiArtifactsListRe
 		localVarReturnValue  *PaginatedArtifactResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.ArtifactsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsAPIService.ArtifactsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -602,27 +602,27 @@ func (a *ArtifactsApiService) ArtifactsListExecute(r ArtifactsApiArtifactsListRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ArtifactsApiArtifactsReadRequest struct {
+type ArtifactsAPIArtifactsReadRequest struct {
 	ctx context.Context
-	ApiService *ArtifactsApiService
+	ApiService *ArtifactsAPIService
 	artifactHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ArtifactsApiArtifactsReadRequest) Fields(fields []string) ArtifactsApiArtifactsReadRequest {
+func (r ArtifactsAPIArtifactsReadRequest) Fields(fields []string) ArtifactsAPIArtifactsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ArtifactsApiArtifactsReadRequest) ExcludeFields(excludeFields []string) ArtifactsApiArtifactsReadRequest {
+func (r ArtifactsAPIArtifactsReadRequest) ExcludeFields(excludeFields []string) ArtifactsAPIArtifactsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ArtifactsApiArtifactsReadRequest) Execute() (*ArtifactResponse, *http.Response, error) {
+func (r ArtifactsAPIArtifactsReadRequest) Execute() (*ArtifactResponse, *http.Response, error) {
 	return r.ApiService.ArtifactsReadExecute(r)
 }
 
@@ -650,10 +650,10 @@ Attributes:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param artifactHref
- @return ArtifactsApiArtifactsReadRequest
+ @return ArtifactsAPIArtifactsReadRequest
 */
-func (a *ArtifactsApiService) ArtifactsRead(ctx context.Context, artifactHref string) ArtifactsApiArtifactsReadRequest {
-	return ArtifactsApiArtifactsReadRequest{
+func (a *ArtifactsAPIService) ArtifactsRead(ctx context.Context, artifactHref string) ArtifactsAPIArtifactsReadRequest {
+	return ArtifactsAPIArtifactsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		artifactHref: artifactHref,
@@ -662,7 +662,7 @@ func (a *ArtifactsApiService) ArtifactsRead(ctx context.Context, artifactHref st
 
 // Execute executes the request
 //  @return ArtifactResponse
-func (a *ArtifactsApiService) ArtifactsReadExecute(r ArtifactsApiArtifactsReadRequest) (*ArtifactResponse, *http.Response, error) {
+func (a *ArtifactsAPIService) ArtifactsReadExecute(r ArtifactsAPIArtifactsReadRequest) (*ArtifactResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -670,7 +670,7 @@ func (a *ArtifactsApiService) ArtifactsReadExecute(r ArtifactsApiArtifactsReadRe
 		localVarReturnValue  *ArtifactResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.ArtifactsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsAPIService.ArtifactsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

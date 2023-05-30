@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentReleasesApiService
+Testing ContentReleasesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentReleasesApiService(t *testing.T) {
+func Test_zest_ContentReleasesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentReleasesApiService ContentDebReleasesCreate", func(t *testing.T) {
+	t.Run("Test ContentReleasesAPIService ContentDebReleasesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentReleasesApi.ContentDebReleasesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentReleasesAPI.ContentDebReleasesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentReleasesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentReleasesApiService ContentDebReleasesList", func(t *testing.T) {
+	t.Run("Test ContentReleasesAPIService ContentDebReleasesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentReleasesApi.ContentDebReleasesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentReleasesAPI.ContentDebReleasesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentReleasesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentReleasesApiService ContentDebReleasesRead", func(t *testing.T) {
+	t.Run("Test ContentReleasesAPIService ContentDebReleasesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debReleaseHref string
 
-		resp, httpRes, err := apiClient.ContentReleasesApi.ContentDebReleasesRead(context.Background(), debReleaseHref).Execute()
+		resp, httpRes, err := apiClient.ContentReleasesAPI.ContentDebReleasesRead(context.Background(), debReleaseHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

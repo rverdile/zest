@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing TokenApiService
+Testing TokenAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_TokenApiService(t *testing.T) {
+func Test_zest_TokenAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TokenApiService TokenGet", func(t *testing.T) {
+	t.Run("Test TokenAPIService TokenGet", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.TokenApi.TokenGet(context.Background()).Execute()
+		httpRes, err := apiClient.TokenAPI.TokenGet(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

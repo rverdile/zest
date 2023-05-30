@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentObjectsApiService
+Testing ContentObjectsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentObjectsApiService(t *testing.T) {
+func Test_zest_ContentObjectsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentObjectsApiService ContentOstreeObjectsList", func(t *testing.T) {
+	t.Run("Test ContentObjectsAPIService ContentOstreeObjectsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentObjectsApi.ContentOstreeObjectsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentObjectsAPI.ContentOstreeObjectsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ContentObjectsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentObjectsApiService ContentOstreeObjectsRead", func(t *testing.T) {
+	t.Run("Test ContentObjectsAPIService ContentOstreeObjectsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ostreeOstreeObjectHref string
 
-		resp, httpRes, err := apiClient.ContentObjectsApi.ContentOstreeObjectsRead(context.Background(), ostreeOstreeObjectHref).Execute()
+		resp, httpRes, err := apiClient.ContentObjectsAPI.ContentOstreeObjectsRead(context.Background(), ostreeOstreeObjectHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -7,13 +7,15 @@ Name | Type | Description | Notes
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
 **Component** | **string** | Name of the component. | 
-**Release** | **string** | Release this component is contained in. | 
+**Distribution** | **string** | Name of the distribution. | 
+**Codename** | **string** |  | 
+**Suite** | **string** |  | 
 
 ## Methods
 
 ### NewDebReleaseComponentResponse
 
-`func NewDebReleaseComponentResponse(component string, release string, ) *DebReleaseComponentResponse`
+`func NewDebReleaseComponentResponse(component string, distribution string, codename string, suite string, ) *DebReleaseComponentResponse`
 
 NewDebReleaseComponentResponse instantiates a new DebReleaseComponentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -98,24 +100,64 @@ and a boolean to check if the value has been set.
 SetComponent sets Component field to given value.
 
 
-### GetRelease
+### GetDistribution
 
-`func (o *DebReleaseComponentResponse) GetRelease() string`
+`func (o *DebReleaseComponentResponse) GetDistribution() string`
 
-GetRelease returns the Release field if non-nil, zero value otherwise.
+GetDistribution returns the Distribution field if non-nil, zero value otherwise.
 
-### GetReleaseOk
+### GetDistributionOk
 
-`func (o *DebReleaseComponentResponse) GetReleaseOk() (*string, bool)`
+`func (o *DebReleaseComponentResponse) GetDistributionOk() (*string, bool)`
 
-GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
+GetDistributionOk returns a tuple with the Distribution field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRelease
+### SetDistribution
 
-`func (o *DebReleaseComponentResponse) SetRelease(v string)`
+`func (o *DebReleaseComponentResponse) SetDistribution(v string)`
 
-SetRelease sets Release field to given value.
+SetDistribution sets Distribution field to given value.
+
+
+### GetCodename
+
+`func (o *DebReleaseComponentResponse) GetCodename() string`
+
+GetCodename returns the Codename field if non-nil, zero value otherwise.
+
+### GetCodenameOk
+
+`func (o *DebReleaseComponentResponse) GetCodenameOk() (*string, bool)`
+
+GetCodenameOk returns a tuple with the Codename field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCodename
+
+`func (o *DebReleaseComponentResponse) SetCodename(v string)`
+
+SetCodename sets Codename field to given value.
+
+
+### GetSuite
+
+`func (o *DebReleaseComponentResponse) GetSuite() string`
+
+GetSuite returns the Suite field if non-nil, zero value otherwise.
+
+### GetSuiteOk
+
+`func (o *DebReleaseComponentResponse) GetSuiteOk() (*string, bool)`
+
+GetSuiteOk returns a tuple with the Suite field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuite
+
+`func (o *DebReleaseComponentResponse) SetSuite(v string)`
+
+SetSuite sets Suite field to given value.
 
 
 

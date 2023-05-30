@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentReleaseFilesApiService
+Testing ContentReleaseFilesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentReleaseFilesApiService(t *testing.T) {
+func Test_zest_ContentReleaseFilesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentReleaseFilesApiService ContentDebReleaseFilesCreate", func(t *testing.T) {
+	t.Run("Test ContentReleaseFilesAPIService ContentDebReleaseFilesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentReleaseFilesApi.ContentDebReleaseFilesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentReleaseFilesAPI.ContentDebReleaseFilesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentReleaseFilesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentReleaseFilesApiService ContentDebReleaseFilesList", func(t *testing.T) {
+	t.Run("Test ContentReleaseFilesAPIService ContentDebReleaseFilesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentReleaseFilesApi.ContentDebReleaseFilesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentReleaseFilesAPI.ContentDebReleaseFilesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentReleaseFilesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentReleaseFilesApiService ContentDebReleaseFilesRead", func(t *testing.T) {
+	t.Run("Test ContentReleaseFilesAPIService ContentDebReleaseFilesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debReleaseFileHref string
 
-		resp, httpRes, err := apiClient.ContentReleaseFilesApi.ContentDebReleaseFilesRead(context.Background(), debReleaseFileHref).Execute()
+		resp, httpRes, err := apiClient.ContentReleaseFilesAPI.ContentDebReleaseFilesRead(context.Background(), debReleaseFileHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

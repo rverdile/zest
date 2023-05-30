@@ -24,21 +24,21 @@ import (
 )
 
 
-// RemotesPythonApiService RemotesPythonApi service
-type RemotesPythonApiService service
+// RemotesPythonAPIService RemotesPythonAPI service
+type RemotesPythonAPIService service
 
-type RemotesPythonApiRemotesPythonPythonCreateRequest struct {
+type RemotesPythonAPIRemotesPythonPythonCreateRequest struct {
 	ctx context.Context
-	ApiService *RemotesPythonApiService
+	ApiService *RemotesPythonAPIService
 	pythonPythonRemote *PythonPythonRemote
 }
 
-func (r RemotesPythonApiRemotesPythonPythonCreateRequest) PythonPythonRemote(pythonPythonRemote PythonPythonRemote) RemotesPythonApiRemotesPythonPythonCreateRequest {
+func (r RemotesPythonAPIRemotesPythonPythonCreateRequest) PythonPythonRemote(pythonPythonRemote PythonPythonRemote) RemotesPythonAPIRemotesPythonPythonCreateRequest {
 	r.pythonPythonRemote = &pythonPythonRemote
 	return r
 }
 
-func (r RemotesPythonApiRemotesPythonPythonCreateRequest) Execute() (*PythonPythonRemoteResponse, *http.Response, error) {
+func (r RemotesPythonAPIRemotesPythonPythonCreateRequest) Execute() (*PythonPythonRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesPythonPythonCreateExecute(r)
 }
 
@@ -51,10 +51,10 @@ PyPI.  Fields include upstream repository config. Python Remotes are also used t
 upstream repositories, and contains sync settings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesPythonApiRemotesPythonPythonCreateRequest
+ @return RemotesPythonAPIRemotesPythonPythonCreateRequest
 */
-func (a *RemotesPythonApiService) RemotesPythonPythonCreate(ctx context.Context) RemotesPythonApiRemotesPythonPythonCreateRequest {
-	return RemotesPythonApiRemotesPythonPythonCreateRequest{
+func (a *RemotesPythonAPIService) RemotesPythonPythonCreate(ctx context.Context) RemotesPythonAPIRemotesPythonPythonCreateRequest {
+	return RemotesPythonAPIRemotesPythonPythonCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -62,7 +62,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonCreate(ctx context.Context)
 
 // Execute executes the request
 //  @return PythonPythonRemoteResponse
-func (a *RemotesPythonApiService) RemotesPythonPythonCreateExecute(r RemotesPythonApiRemotesPythonPythonCreateRequest) (*PythonPythonRemoteResponse, *http.Response, error) {
+func (a *RemotesPythonAPIService) RemotesPythonPythonCreateExecute(r RemotesPythonAPIRemotesPythonPythonCreateRequest) (*PythonPythonRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -70,7 +70,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonCreateExecute(r RemotesPyth
 		localVarReturnValue  *PythonPythonRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonApiService.RemotesPythonPythonCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonAPIService.RemotesPythonPythonCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -139,13 +139,13 @@ func (a *RemotesPythonApiService) RemotesPythonPythonCreateExecute(r RemotesPyth
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesPythonApiRemotesPythonPythonDeleteRequest struct {
+type RemotesPythonAPIRemotesPythonPythonDeleteRequest struct {
 	ctx context.Context
-	ApiService *RemotesPythonApiService
+	ApiService *RemotesPythonAPIService
 	pythonPythonRemoteHref string
 }
 
-func (r RemotesPythonApiRemotesPythonPythonDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesPythonAPIRemotesPythonPythonDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesPythonPythonDeleteExecute(r)
 }
 
@@ -156,10 +156,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRemoteHref
- @return RemotesPythonApiRemotesPythonPythonDeleteRequest
+ @return RemotesPythonAPIRemotesPythonPythonDeleteRequest
 */
-func (a *RemotesPythonApiService) RemotesPythonPythonDelete(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonApiRemotesPythonPythonDeleteRequest {
-	return RemotesPythonApiRemotesPythonPythonDeleteRequest{
+func (a *RemotesPythonAPIService) RemotesPythonPythonDelete(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonAPIRemotesPythonPythonDeleteRequest {
+	return RemotesPythonAPIRemotesPythonPythonDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRemoteHref: pythonPythonRemoteHref,
@@ -168,7 +168,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonDelete(ctx context.Context,
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesPythonApiService) RemotesPythonPythonDeleteExecute(r RemotesPythonApiRemotesPythonPythonDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesPythonAPIService) RemotesPythonPythonDeleteExecute(r RemotesPythonAPIRemotesPythonPythonDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -176,7 +176,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonDeleteExecute(r RemotesPyth
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonApiService.RemotesPythonPythonDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonAPIService.RemotesPythonPythonDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -243,32 +243,32 @@ func (a *RemotesPythonApiService) RemotesPythonPythonDeleteExecute(r RemotesPyth
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest struct {
+type RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest struct {
 	ctx context.Context
-	ApiService *RemotesPythonApiService
+	ApiService *RemotesPythonAPIService
 	config *os.File
 	name *string
 	policy *Policy762Enum
 }
 
 // A Bandersnatch config that may be used to construct a Python Remote.
-func (r RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest) Config(config *os.File) RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest {
+func (r RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest) Config(config *os.File) RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest {
 	r.config = config
 	return r
 }
 
 // A unique name for this remote
-func (r RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest) Name(name string) RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest {
+func (r RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest) Name(name string) RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest {
 	r.name = &name
 	return r
 }
 
-func (r RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest) Policy(policy Policy762Enum) RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest {
+func (r RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest) Policy(policy Policy762Enum) RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest {
 	r.policy = &policy
 	return r
 }
 
-func (r RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest) Execute() (*PythonPythonRemoteResponse, *http.Response, error) {
+func (r RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest) Execute() (*PythonPythonRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesPythonPythonFromBandersnatchExecute(r)
 }
 
@@ -279,10 +279,10 @@ RemotesPythonPythonFromBandersnatch Create from Bandersnatch
 Takes the fields specified in the Bandersnatch config and creates a Python Remote from it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest
+ @return RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest
 */
-func (a *RemotesPythonApiService) RemotesPythonPythonFromBandersnatch(ctx context.Context) RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest {
-	return RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest{
+func (a *RemotesPythonAPIService) RemotesPythonPythonFromBandersnatch(ctx context.Context) RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest {
+	return RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -290,7 +290,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonFromBandersnatch(ctx contex
 
 // Execute executes the request
 //  @return PythonPythonRemoteResponse
-func (a *RemotesPythonApiService) RemotesPythonPythonFromBandersnatchExecute(r RemotesPythonApiRemotesPythonPythonFromBandersnatchRequest) (*PythonPythonRemoteResponse, *http.Response, error) {
+func (a *RemotesPythonAPIService) RemotesPythonPythonFromBandersnatchExecute(r RemotesPythonAPIRemotesPythonPythonFromBandersnatchRequest) (*PythonPythonRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -298,7 +298,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonFromBandersnatchExecute(r R
 		localVarReturnValue  *PythonPythonRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonApiService.RemotesPythonPythonFromBandersnatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonAPIService.RemotesPythonPythonFromBandersnatch")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -392,9 +392,9 @@ func (a *RemotesPythonApiService) RemotesPythonPythonFromBandersnatchExecute(r R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesPythonApiRemotesPythonPythonListRequest struct {
+type RemotesPythonAPIRemotesPythonPythonListRequest struct {
 	ctx context.Context
-	ApiService *RemotesPythonApiService
+	ApiService *RemotesPythonAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -417,120 +417,120 @@ type RemotesPythonApiRemotesPythonPythonListRequest struct {
 }
 
 // Number of results to return per page.
-func (r RemotesPythonApiRemotesPythonPythonListRequest) Limit(limit int32) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) Limit(limit int32) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) Name(name string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) Name(name string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) NameContains(nameContains string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) NameContains(nameContains string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) NameIcontains(nameIcontains string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) NameIcontains(nameIcontains string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RemotesPythonApiRemotesPythonPythonListRequest) NameIn(nameIn []string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) NameIn(nameIn []string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) NameStartswith(nameStartswith string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) NameStartswith(nameStartswith string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RemotesPythonApiRemotesPythonPythonListRequest) Offset(offset int32) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) Offset(offset int32) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;url&#x60; - Url * &#x60;-url&#x60; - Url (descending) * &#x60;ca_cert&#x60; - Ca cert * &#x60;-ca_cert&#x60; - Ca cert (descending) * &#x60;client_cert&#x60; - Client cert * &#x60;-client_cert&#x60; - Client cert (descending) * &#x60;client_key&#x60; - Client key * &#x60;-client_key&#x60; - Client key (descending) * &#x60;tls_validation&#x60; - Tls validation * &#x60;-tls_validation&#x60; - Tls validation (descending) * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;password&#x60; - Password * &#x60;-password&#x60; - Password (descending) * &#x60;proxy_url&#x60; - Proxy url * &#x60;-proxy_url&#x60; - Proxy url (descending) * &#x60;proxy_username&#x60; - Proxy username * &#x60;-proxy_username&#x60; - Proxy username (descending) * &#x60;proxy_password&#x60; - Proxy password * &#x60;-proxy_password&#x60; - Proxy password (descending) * &#x60;download_concurrency&#x60; - Download concurrency * &#x60;-download_concurrency&#x60; - Download concurrency (descending) * &#x60;max_retries&#x60; - Max retries * &#x60;-max_retries&#x60; - Max retries (descending) * &#x60;policy&#x60; - Policy * &#x60;-policy&#x60; - Policy (descending) * &#x60;total_timeout&#x60; - Total timeout * &#x60;-total_timeout&#x60; - Total timeout (descending) * &#x60;connect_timeout&#x60; - Connect timeout * &#x60;-connect_timeout&#x60; - Connect timeout (descending) * &#x60;sock_connect_timeout&#x60; - Sock connect timeout * &#x60;-sock_connect_timeout&#x60; - Sock connect timeout (descending) * &#x60;sock_read_timeout&#x60; - Sock read timeout * &#x60;-sock_read_timeout&#x60; - Sock read timeout (descending) * &#x60;headers&#x60; - Headers * &#x60;-headers&#x60; - Headers (descending) * &#x60;rate_limit&#x60; - Rate limit * &#x60;-rate_limit&#x60; - Rate limit (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RemotesPythonApiRemotesPythonPythonListRequest) Ordering(ordering []string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) Ordering(ordering []string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpHrefIn(pulpHrefIn []string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpHrefIn(pulpHrefIn []string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpIdIn(pulpIdIn []string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpIdIn(pulpIdIn []string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpLabelSelect(pulpLabelSelect string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Filter results where pulp_last_updated matches value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpLastUpdated(pulpLastUpdated time.Time) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpLastUpdated = &pulpLastUpdated
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpLastUpdatedGt(pulpLastUpdatedGt time.Time) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpLastUpdatedGt = &pulpLastUpdatedGt
 	return r
 }
 
 // Filter results where pulp_last_updated is greater than or equal to value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpLastUpdatedGte(pulpLastUpdatedGte time.Time) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpLastUpdatedGte = &pulpLastUpdatedGte
 	return r
 }
 
 // Filter results where pulp_last_updated is less than value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpLastUpdatedLt(pulpLastUpdatedLt time.Time) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpLastUpdatedLt = &pulpLastUpdatedLt
 	return r
 }
 
 // Filter results where pulp_last_updated is less than or equal to value
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpLastUpdatedLte(pulpLastUpdatedLte time.Time) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpLastUpdatedLte = &pulpLastUpdatedLte
 	return r
 }
 
 // Filter results where pulp_last_updated is between two comma separated values
-func (r RemotesPythonApiRemotesPythonPythonListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) PulpLastUpdatedRange(pulpLastUpdatedRange []time.Time) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.pulpLastUpdatedRange = &pulpLastUpdatedRange
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RemotesPythonApiRemotesPythonPythonListRequest) Fields(fields []string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) Fields(fields []string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesPythonApiRemotesPythonPythonListRequest) ExcludeFields(excludeFields []string) RemotesPythonApiRemotesPythonPythonListRequest {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) ExcludeFields(excludeFields []string) RemotesPythonAPIRemotesPythonPythonListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesPythonApiRemotesPythonPythonListRequest) Execute() (*PaginatedpythonPythonRemoteResponseList, *http.Response, error) {
+func (r RemotesPythonAPIRemotesPythonPythonListRequest) Execute() (*PaginatedpythonPythonRemoteResponseList, *http.Response, error) {
 	return r.ApiService.RemotesPythonPythonListExecute(r)
 }
 
@@ -543,10 +543,10 @@ PyPI.  Fields include upstream repository config. Python Remotes are also used t
 upstream repositories, and contains sync settings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RemotesPythonApiRemotesPythonPythonListRequest
+ @return RemotesPythonAPIRemotesPythonPythonListRequest
 */
-func (a *RemotesPythonApiService) RemotesPythonPythonList(ctx context.Context) RemotesPythonApiRemotesPythonPythonListRequest {
-	return RemotesPythonApiRemotesPythonPythonListRequest{
+func (a *RemotesPythonAPIService) RemotesPythonPythonList(ctx context.Context) RemotesPythonAPIRemotesPythonPythonListRequest {
+	return RemotesPythonAPIRemotesPythonPythonListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -554,7 +554,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonList(ctx context.Context) R
 
 // Execute executes the request
 //  @return PaginatedpythonPythonRemoteResponseList
-func (a *RemotesPythonApiService) RemotesPythonPythonListExecute(r RemotesPythonApiRemotesPythonPythonListRequest) (*PaginatedpythonPythonRemoteResponseList, *http.Response, error) {
+func (a *RemotesPythonAPIService) RemotesPythonPythonListExecute(r RemotesPythonAPIRemotesPythonPythonListRequest) (*PaginatedpythonPythonRemoteResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -562,7 +562,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonListExecute(r RemotesPython
 		localVarReturnValue  *PaginatedpythonPythonRemoteResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonApiService.RemotesPythonPythonList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonAPIService.RemotesPythonPythonList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -699,19 +699,19 @@ func (a *RemotesPythonApiService) RemotesPythonPythonListExecute(r RemotesPython
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesPythonApiRemotesPythonPythonPartialUpdateRequest struct {
+type RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesPythonApiService
+	ApiService *RemotesPythonAPIService
 	pythonPythonRemoteHref string
 	patchedpythonPythonRemote *PatchedpythonPythonRemote
 }
 
-func (r RemotesPythonApiRemotesPythonPythonPartialUpdateRequest) PatchedpythonPythonRemote(patchedpythonPythonRemote PatchedpythonPythonRemote) RemotesPythonApiRemotesPythonPythonPartialUpdateRequest {
+func (r RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest) PatchedpythonPythonRemote(patchedpythonPythonRemote PatchedpythonPythonRemote) RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest {
 	r.patchedpythonPythonRemote = &patchedpythonPythonRemote
 	return r
 }
 
-func (r RemotesPythonApiRemotesPythonPythonPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesPythonPythonPartialUpdateExecute(r)
 }
 
@@ -722,10 +722,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRemoteHref
- @return RemotesPythonApiRemotesPythonPythonPartialUpdateRequest
+ @return RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest
 */
-func (a *RemotesPythonApiService) RemotesPythonPythonPartialUpdate(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonApiRemotesPythonPythonPartialUpdateRequest {
-	return RemotesPythonApiRemotesPythonPythonPartialUpdateRequest{
+func (a *RemotesPythonAPIService) RemotesPythonPythonPartialUpdate(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest {
+	return RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRemoteHref: pythonPythonRemoteHref,
@@ -734,7 +734,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonPartialUpdate(ctx context.C
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesPythonApiService) RemotesPythonPythonPartialUpdateExecute(r RemotesPythonApiRemotesPythonPythonPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesPythonAPIService) RemotesPythonPythonPartialUpdateExecute(r RemotesPythonAPIRemotesPythonPythonPartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -742,7 +742,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonPartialUpdateExecute(r Remo
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonApiService.RemotesPythonPythonPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonAPIService.RemotesPythonPythonPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -814,27 +814,27 @@ func (a *RemotesPythonApiService) RemotesPythonPythonPartialUpdateExecute(r Remo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesPythonApiRemotesPythonPythonReadRequest struct {
+type RemotesPythonAPIRemotesPythonPythonReadRequest struct {
 	ctx context.Context
-	ApiService *RemotesPythonApiService
+	ApiService *RemotesPythonAPIService
 	pythonPythonRemoteHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RemotesPythonApiRemotesPythonPythonReadRequest) Fields(fields []string) RemotesPythonApiRemotesPythonPythonReadRequest {
+func (r RemotesPythonAPIRemotesPythonPythonReadRequest) Fields(fields []string) RemotesPythonAPIRemotesPythonPythonReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RemotesPythonApiRemotesPythonPythonReadRequest) ExcludeFields(excludeFields []string) RemotesPythonApiRemotesPythonPythonReadRequest {
+func (r RemotesPythonAPIRemotesPythonPythonReadRequest) ExcludeFields(excludeFields []string) RemotesPythonAPIRemotesPythonPythonReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RemotesPythonApiRemotesPythonPythonReadRequest) Execute() (*PythonPythonRemoteResponse, *http.Response, error) {
+func (r RemotesPythonAPIRemotesPythonPythonReadRequest) Execute() (*PythonPythonRemoteResponse, *http.Response, error) {
 	return r.ApiService.RemotesPythonPythonReadExecute(r)
 }
 
@@ -848,10 +848,10 @@ upstream repositories, and contains sync settings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRemoteHref
- @return RemotesPythonApiRemotesPythonPythonReadRequest
+ @return RemotesPythonAPIRemotesPythonPythonReadRequest
 */
-func (a *RemotesPythonApiService) RemotesPythonPythonRead(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonApiRemotesPythonPythonReadRequest {
-	return RemotesPythonApiRemotesPythonPythonReadRequest{
+func (a *RemotesPythonAPIService) RemotesPythonPythonRead(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonAPIRemotesPythonPythonReadRequest {
+	return RemotesPythonAPIRemotesPythonPythonReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRemoteHref: pythonPythonRemoteHref,
@@ -860,7 +860,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonRead(ctx context.Context, p
 
 // Execute executes the request
 //  @return PythonPythonRemoteResponse
-func (a *RemotesPythonApiService) RemotesPythonPythonReadExecute(r RemotesPythonApiRemotesPythonPythonReadRequest) (*PythonPythonRemoteResponse, *http.Response, error) {
+func (a *RemotesPythonAPIService) RemotesPythonPythonReadExecute(r RemotesPythonAPIRemotesPythonPythonReadRequest) (*PythonPythonRemoteResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -868,7 +868,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonReadExecute(r RemotesPython
 		localVarReturnValue  *PythonPythonRemoteResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonApiService.RemotesPythonPythonRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonAPIService.RemotesPythonPythonRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -957,19 +957,19 @@ func (a *RemotesPythonApiService) RemotesPythonPythonReadExecute(r RemotesPython
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RemotesPythonApiRemotesPythonPythonUpdateRequest struct {
+type RemotesPythonAPIRemotesPythonPythonUpdateRequest struct {
 	ctx context.Context
-	ApiService *RemotesPythonApiService
+	ApiService *RemotesPythonAPIService
 	pythonPythonRemoteHref string
 	pythonPythonRemote *PythonPythonRemote
 }
 
-func (r RemotesPythonApiRemotesPythonPythonUpdateRequest) PythonPythonRemote(pythonPythonRemote PythonPythonRemote) RemotesPythonApiRemotesPythonPythonUpdateRequest {
+func (r RemotesPythonAPIRemotesPythonPythonUpdateRequest) PythonPythonRemote(pythonPythonRemote PythonPythonRemote) RemotesPythonAPIRemotesPythonPythonUpdateRequest {
 	r.pythonPythonRemote = &pythonPythonRemote
 	return r
 }
 
-func (r RemotesPythonApiRemotesPythonPythonUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RemotesPythonAPIRemotesPythonPythonUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RemotesPythonPythonUpdateExecute(r)
 }
 
@@ -980,10 +980,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pythonPythonRemoteHref
- @return RemotesPythonApiRemotesPythonPythonUpdateRequest
+ @return RemotesPythonAPIRemotesPythonPythonUpdateRequest
 */
-func (a *RemotesPythonApiService) RemotesPythonPythonUpdate(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonApiRemotesPythonPythonUpdateRequest {
-	return RemotesPythonApiRemotesPythonPythonUpdateRequest{
+func (a *RemotesPythonAPIService) RemotesPythonPythonUpdate(ctx context.Context, pythonPythonRemoteHref string) RemotesPythonAPIRemotesPythonPythonUpdateRequest {
+	return RemotesPythonAPIRemotesPythonPythonUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		pythonPythonRemoteHref: pythonPythonRemoteHref,
@@ -992,7 +992,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonUpdate(ctx context.Context,
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RemotesPythonApiService) RemotesPythonPythonUpdateExecute(r RemotesPythonApiRemotesPythonPythonUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RemotesPythonAPIService) RemotesPythonPythonUpdateExecute(r RemotesPythonAPIRemotesPythonPythonUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1000,7 +1000,7 @@ func (a *RemotesPythonApiService) RemotesPythonPythonUpdateExecute(r RemotesPyth
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonApiService.RemotesPythonPythonUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RemotesPythonAPIService.RemotesPythonPythonUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

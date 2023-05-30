@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentGenericContentsApiService
+Testing ContentGenericContentsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentGenericContentsApiService(t *testing.T) {
+func Test_zest_ContentGenericContentsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentGenericContentsApiService ContentDebGenericContentsCreate", func(t *testing.T) {
+	t.Run("Test ContentGenericContentsAPIService ContentDebGenericContentsCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentGenericContentsApi.ContentDebGenericContentsCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentGenericContentsAPI.ContentDebGenericContentsCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentGenericContentsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentGenericContentsApiService ContentDebGenericContentsList", func(t *testing.T) {
+	t.Run("Test ContentGenericContentsAPIService ContentDebGenericContentsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentGenericContentsApi.ContentDebGenericContentsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentGenericContentsAPI.ContentDebGenericContentsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentGenericContentsApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentGenericContentsApiService ContentDebGenericContentsRead", func(t *testing.T) {
+	t.Run("Test ContentGenericContentsAPIService ContentDebGenericContentsRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debGenericContentHref string
 
-		resp, httpRes, err := apiClient.ContentGenericContentsApi.ContentDebGenericContentsRead(context.Background(), debGenericContentHref).Execute()
+		resp, httpRes, err := apiClient.ContentGenericContentsAPI.ContentDebGenericContentsRead(context.Background(), debGenericContentHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

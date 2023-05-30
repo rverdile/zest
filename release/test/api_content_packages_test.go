@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentPackagesApiService
+Testing ContentPackagesAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentPackagesApiService(t *testing.T) {
+func Test_zest_ContentPackagesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentPackagesApiService ContentDebPackagesCreate", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentDebPackagesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentDebPackagesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentDebPackagesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentDebPackagesList", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentDebPackagesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentDebPackagesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentDebPackagesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentDebPackagesRead", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentDebPackagesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var debPackageHref string
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentDebPackagesRead(context.Background(), debPackageHref).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentDebPackagesRead(context.Background(), debPackageHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,11 +60,11 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentPythonPackagesCreate", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentPythonPackagesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentPythonPackagesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentPythonPackagesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,11 +72,11 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentPythonPackagesList", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentPythonPackagesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentPythonPackagesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentPythonPackagesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -84,13 +84,13 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentPythonPackagesRead", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentPythonPackagesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pythonPythonPackageContentHref string
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentPythonPackagesRead(context.Background(), pythonPythonPackageContentHref).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentPythonPackagesRead(context.Background(), pythonPythonPackageContentHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -98,11 +98,11 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentRpmPackagesCreate", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentRpmPackagesCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentRpmPackagesCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentRpmPackagesCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -110,11 +110,11 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentRpmPackagesList", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentRpmPackagesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentRpmPackagesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentRpmPackagesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -122,13 +122,13 @@ func Test_zest_ContentPackagesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentPackagesApiService ContentRpmPackagesRead", func(t *testing.T) {
+	t.Run("Test ContentPackagesAPIService ContentRpmPackagesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var rpmPackageHref string
 
-		resp, httpRes, err := apiClient.ContentPackagesApi.ContentRpmPackagesRead(context.Background(), rpmPackageHref).Execute()
+		resp, httpRes, err := apiClient.ContentPackagesAPI.ContentRpmPackagesRead(context.Background(), rpmPackageHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

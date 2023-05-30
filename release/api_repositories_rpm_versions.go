@@ -23,16 +23,16 @@ import (
 )
 
 
-// RepositoriesRpmVersionsApiService RepositoriesRpmVersionsApi service
-type RepositoriesRpmVersionsApiService service
+// RepositoriesRpmVersionsAPIService RepositoriesRpmVersionsAPI service
+type RepositoriesRpmVersionsAPIService service
 
-type RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsDeleteRequest struct {
+type RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmVersionsApiService
+	ApiService *RepositoriesRpmVersionsAPIService
 	rpmRpmRepositoryVersionHref string
 }
 
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmVersionsDeleteExecute(r)
 }
 
@@ -43,10 +43,10 @@ Trigger an asynchronous task to delete a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryVersionHref
- @return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsDeleteRequest
+ @return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsDeleteRequest
 */
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsDelete(ctx context.Context, rpmRpmRepositoryVersionHref string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsDeleteRequest {
-	return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsDeleteRequest{
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsDelete(ctx context.Context, rpmRpmRepositoryVersionHref string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsDeleteRequest {
+	return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryVersionHref: rpmRpmRepositoryVersionHref,
@@ -55,7 +55,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsDelete(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsDeleteExecute(r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsDeleteExecute(r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsDeleteExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsApiService.RepositoriesRpmRpmVersionsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsAPIService.RepositoriesRpmRpmVersionsDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -130,9 +130,9 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsDeleteExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest struct {
+type RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmVersionsApiService
+	ApiService *RepositoriesRpmVersionsAPIService
 	rpmRpmRepositoryHref string
 	content *string
 	contentIn *string
@@ -157,126 +157,126 @@ type RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest struct {
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) Content(content string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) Content(content string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.content = &content
 	return r
 }
 
 // Content Unit referenced by HREF
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) ContentIn(contentIn string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) ContentIn(contentIn string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.contentIn = &contentIn
 	return r
 }
 
 // Number of results to return per page.
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) Limit(limit int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) Limit(limit int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where number matches value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) Number(number int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) Number(number int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.number = &number
 	return r
 }
 
 // Filter results where number is greater than value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) NumberGt(numberGt int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) NumberGt(numberGt int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.numberGt = &numberGt
 	return r
 }
 
 // Filter results where number is greater than or equal to value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) NumberGte(numberGte int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) NumberGte(numberGte int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.numberGte = &numberGte
 	return r
 }
 
 // Filter results where number is less than value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) NumberLt(numberLt int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) NumberLt(numberLt int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.numberLt = &numberLt
 	return r
 }
 
 // Filter results where number is less than or equal to value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) NumberLte(numberLte int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) NumberLte(numberLte int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.numberLte = &numberLte
 	return r
 }
 
 // Filter results where number is between two comma separated values
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) NumberRange(numberRange []int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) NumberRange(numberRange []int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.numberRange = &numberRange
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) Offset(offset int32) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) Offset(offset int32) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;number&#x60; - Number * &#x60;-number&#x60; - Number (descending) * &#x60;complete&#x60; - Complete * &#x60;-complete&#x60; - Complete (descending) * &#x60;info&#x60; - Info * &#x60;-info&#x60; - Info (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) Ordering(ordering []string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) Ordering(ordering []string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Filter results where pulp_created matches value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) PulpCreated(pulpCreated time.Time) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.pulpCreated = &pulpCreated
 	return r
 }
 
 // Filter results where pulp_created is greater than value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) PulpCreatedGt(pulpCreatedGt time.Time) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.pulpCreatedGt = &pulpCreatedGt
 	return r
 }
 
 // Filter results where pulp_created is greater than or equal to value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) PulpCreatedGte(pulpCreatedGte time.Time) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.pulpCreatedGte = &pulpCreatedGte
 	return r
 }
 
 // Filter results where pulp_created is less than value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) PulpCreatedLt(pulpCreatedLt time.Time) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.pulpCreatedLt = &pulpCreatedLt
 	return r
 }
 
 // Filter results where pulp_created is less than or equal to value
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) PulpCreatedLte(pulpCreatedLte time.Time) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.pulpCreatedLte = &pulpCreatedLte
 	return r
 }
 
 // Filter results where pulp_created is between two comma separated values
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) PulpCreatedRange(pulpCreatedRange []time.Time) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.pulpCreatedRange = &pulpCreatedRange
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) Fields(fields []string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) Fields(fields []string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) ExcludeFields(excludeFields []string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) Execute() (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmVersionsListExecute(r)
 }
 
@@ -287,10 +287,10 @@ RpmRepositoryVersion represents a single rpm repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryHref
- @return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest
+ @return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest
 */
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsList(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest {
-	return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest{
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsList(ctx context.Context, rpmRpmRepositoryHref string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest {
+	return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryHref: rpmRpmRepositoryHref,
@@ -299,7 +299,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsList(ctx c
 
 // Execute executes the request
 //  @return PaginatedRepositoryVersionResponseList
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsListExecute(r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsListExecute(r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsListRequest) (*PaginatedRepositoryVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -307,7 +307,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsListExecut
 		localVarReturnValue  *PaginatedRepositoryVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsApiService.RepositoriesRpmRpmVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsAPIService.RepositoriesRpmRpmVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -450,27 +450,27 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsListExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest struct {
+type RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmVersionsApiService
+	ApiService *RepositoriesRpmVersionsAPIService
 	rpmRpmRepositoryVersionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest) Fields(fields []string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest) Fields(fields []string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest) ExcludeFields(excludeFields []string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest) Execute() (*RepositoryVersionResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmVersionsReadExecute(r)
 }
 
@@ -481,10 +481,10 @@ RpmRepositoryVersion represents a single rpm repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryVersionHref
- @return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest
+ @return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest
 */
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsRead(ctx context.Context, rpmRpmRepositoryVersionHref string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest {
-	return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest{
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsRead(ctx context.Context, rpmRpmRepositoryVersionHref string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest {
+	return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryVersionHref: rpmRpmRepositoryVersionHref,
@@ -493,7 +493,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsRead(ctx c
 
 // Execute executes the request
 //  @return RepositoryVersionResponse
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsReadExecute(r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsReadExecute(r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsReadRequest) (*RepositoryVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -501,7 +501,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsReadExecut
 		localVarReturnValue  *RepositoryVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsApiService.RepositoriesRpmRpmVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsAPIService.RepositoriesRpmRpmVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -590,19 +590,19 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsReadExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest struct {
+type RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesRpmVersionsApiService
+	ApiService *RepositoriesRpmVersionsAPIService
 	rpmRpmRepositoryVersionHref string
 	repair *Repair
 }
 
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest) Repair(repair Repair) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest) Repair(repair Repair) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest {
 	r.repair = &repair
 	return r
 }
 
-func (r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesRpmRpmVersionsRepairExecute(r)
 }
 
@@ -613,10 +613,10 @@ Trigger an asynchronous task to repair a repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmRpmRepositoryVersionHref
- @return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest
+ @return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest
 */
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsRepair(ctx context.Context, rpmRpmRepositoryVersionHref string) RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest {
-	return RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest{
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsRepair(ctx context.Context, rpmRpmRepositoryVersionHref string) RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest {
+	return RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmRpmRepositoryVersionHref: rpmRpmRepositoryVersionHref,
@@ -625,7 +625,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsRepair(ctx
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsRepairExecute(r RepositoriesRpmVersionsApiRepositoriesRpmRpmVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesRpmVersionsAPIService) RepositoriesRpmRpmVersionsRepairExecute(r RepositoriesRpmVersionsAPIRepositoriesRpmRpmVersionsRepairRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -633,7 +633,7 @@ func (a *RepositoriesRpmVersionsApiService) RepositoriesRpmRpmVersionsRepairExec
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsApiService.RepositoriesRpmRpmVersionsRepair")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesRpmVersionsAPIService.RepositoriesRpmRpmVersionsRepair")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

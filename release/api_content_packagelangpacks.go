@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentPackagelangpacksApiService ContentPackagelangpacksApi service
-type ContentPackagelangpacksApiService service
+// ContentPackagelangpacksAPIService ContentPackagelangpacksAPI service
+type ContentPackagelangpacksAPIService service
 
-type ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest struct {
+type ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagelangpacksApiService
+	ApiService *ContentPackagelangpacksAPIService
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -41,66 +41,66 @@ type ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) Limit(limit int32) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) Limit(limit int32) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) Offset(offset int32) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) Offset(offset int32) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) Ordering(ordering []string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) Ordering(ordering []string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) PulpHrefIn(pulpHrefIn []string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) PulpIdIn(pulpIdIn []string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) PulpIdIn(pulpIdIn []string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) RepositoryVersion(repositoryVersion string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) RepositoryVersion(repositoryVersion string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) Fields(fields []string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) Fields(fields []string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) ExcludeFields(excludeFields []string) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) ExcludeFields(excludeFields []string) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) Execute() (*PaginatedrpmPackageLangpacksResponseList, *http.Response, error) {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) Execute() (*PaginatedrpmPackageLangpacksResponseList, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagelangpacksListExecute(r)
 }
 
@@ -110,10 +110,10 @@ ContentRpmPackagelangpacksList List package langpackss
 PackageLangpacks ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest
+ @return ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest
 */
-func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksList(ctx context.Context) ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest {
-	return ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest{
+func (a *ContentPackagelangpacksAPIService) ContentRpmPackagelangpacksList(ctx context.Context) ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest {
+	return ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -121,7 +121,7 @@ func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksList(ctx c
 
 // Execute executes the request
 //  @return PaginatedrpmPackageLangpacksResponseList
-func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksListExecute(r ContentPackagelangpacksApiContentRpmPackagelangpacksListRequest) (*PaginatedrpmPackageLangpacksResponseList, *http.Response, error) {
+func (a *ContentPackagelangpacksAPIService) ContentRpmPackagelangpacksListExecute(r ContentPackagelangpacksAPIContentRpmPackagelangpacksListRequest) (*PaginatedrpmPackageLangpacksResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,7 +129,7 @@ func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksListExecut
 		localVarReturnValue  *PaginatedrpmPackageLangpacksResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagelangpacksApiService.ContentRpmPackagelangpacksList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagelangpacksAPIService.ContentRpmPackagelangpacksList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,27 +239,27 @@ func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksListExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest struct {
+type ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest struct {
 	ctx context.Context
-	ApiService *ContentPackagelangpacksApiService
+	ApiService *ContentPackagelangpacksAPIService
 	rpmPackageLangpacksHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest) Fields(fields []string) ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest) Fields(fields []string) ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest) ExcludeFields(excludeFields []string) ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest) ExcludeFields(excludeFields []string) ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest) Execute() (*RpmPackageLangpacksResponse, *http.Response, error) {
+func (r ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest) Execute() (*RpmPackageLangpacksResponse, *http.Response, error) {
 	return r.ApiService.ContentRpmPackagelangpacksReadExecute(r)
 }
 
@@ -270,10 +270,10 @@ PackageLangpacks ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param rpmPackageLangpacksHref
- @return ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest
+ @return ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest
 */
-func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksRead(ctx context.Context, rpmPackageLangpacksHref string) ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest {
-	return ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest{
+func (a *ContentPackagelangpacksAPIService) ContentRpmPackagelangpacksRead(ctx context.Context, rpmPackageLangpacksHref string) ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest {
+	return ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		rpmPackageLangpacksHref: rpmPackageLangpacksHref,
@@ -282,7 +282,7 @@ func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksRead(ctx c
 
 // Execute executes the request
 //  @return RpmPackageLangpacksResponse
-func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksReadExecute(r ContentPackagelangpacksApiContentRpmPackagelangpacksReadRequest) (*RpmPackageLangpacksResponse, *http.Response, error) {
+func (a *ContentPackagelangpacksAPIService) ContentRpmPackagelangpacksReadExecute(r ContentPackagelangpacksAPIContentRpmPackagelangpacksReadRequest) (*RpmPackageLangpacksResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *ContentPackagelangpacksApiService) ContentRpmPackagelangpacksReadExecut
 		localVarReturnValue  *RpmPackageLangpacksResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagelangpacksApiService.ContentRpmPackagelangpacksRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentPackagelangpacksAPIService.ContentRpmPackagelangpacksRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

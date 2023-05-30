@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentguardsContentRedirectApiService
+Testing ContentguardsContentRedirectAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
+func Test_zest_ContentguardsContentRedirectAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectAddRole", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectAddRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var contentRedirectContentGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectAddRole(context.Background(), contentRedirectContentGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectAddRole(context.Background(), contentRedirectContentGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectCreate", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,38 +48,24 @@ func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectDelete", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var contentRedirectContentGuardHref string
 
-		httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectDelete(context.Background(), contentRedirectContentGuardHref).Execute()
+		httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectDelete(context.Background(), contentRedirectContentGuardHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectList", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectListRoles", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var contentRedirectContentGuardHref string
-
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectListRoles(context.Background(), contentRedirectContentGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +73,13 @@ func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectMyPermissions", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectListRoles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var contentRedirectContentGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectMyPermissions(context.Background(), contentRedirectContentGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectListRoles(context.Background(), contentRedirectContentGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -101,13 +87,13 @@ func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectPartialUpdate", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectMyPermissions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var contentRedirectContentGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectPartialUpdate(context.Background(), contentRedirectContentGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectMyPermissions(context.Background(), contentRedirectContentGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -115,13 +101,13 @@ func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectRead", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var contentRedirectContentGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectRead(context.Background(), contentRedirectContentGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectPartialUpdate(context.Background(), contentRedirectContentGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -129,13 +115,13 @@ func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectRemoveRole", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var contentRedirectContentGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectRemoveRole(context.Background(), contentRedirectContentGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectRead(context.Background(), contentRedirectContentGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -143,13 +129,27 @@ func Test_zest_ContentguardsContentRedirectApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentguardsContentRedirectApiService ContentguardsCoreContentRedirectUpdate", func(t *testing.T) {
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectRemoveRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var contentRedirectContentGuardHref string
 
-		resp, httpRes, err := apiClient.ContentguardsContentRedirectApi.ContentguardsCoreContentRedirectUpdate(context.Background(), contentRedirectContentGuardHref).Execute()
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectRemoveRole(context.Background(), contentRedirectContentGuardHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ContentguardsContentRedirectAPIService ContentguardsCoreContentRedirectUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var contentRedirectContentGuardHref string
+
+		resp, httpRes, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectUpdate(context.Background(), contentRedirectContentGuardHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

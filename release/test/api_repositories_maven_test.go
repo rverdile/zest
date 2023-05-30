@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing RepositoriesMavenApiService
+Testing RepositoriesMavenAPIService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_RepositoriesMavenApiService(t *testing.T) {
+func Test_zest_RepositoriesMavenAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RepositoriesMavenApiService RepositoriesMavenMavenAddCachedContent", func(t *testing.T) {
+	t.Run("Test RepositoriesMavenAPIService RepositoriesMavenMavenAddCachedContent", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenAddCachedContent(context.Background(), mavenMavenRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesMavenAPI.RepositoriesMavenMavenAddCachedContent(context.Background(), mavenMavenRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_zest_RepositoriesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesMavenApiService RepositoriesMavenMavenCreate", func(t *testing.T) {
+	t.Run("Test RepositoriesMavenAPIService RepositoriesMavenMavenCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RepositoriesMavenAPI.RepositoriesMavenMavenCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,39 +48,13 @@ func Test_zest_RepositoriesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesMavenApiService RepositoriesMavenMavenDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var mavenMavenRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenDelete(context.Background(), mavenMavenRepositoryHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesMavenApiService RepositoriesMavenMavenList", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenList(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RepositoriesMavenApiService RepositoriesMavenMavenPartialUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesMavenAPIService RepositoriesMavenMavenDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenPartialUpdate(context.Background(), mavenMavenRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesMavenAPI.RepositoriesMavenMavenDelete(context.Background(), mavenMavenRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +62,11 @@ func Test_zest_RepositoriesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesMavenApiService RepositoriesMavenMavenRead", func(t *testing.T) {
+	t.Run("Test RepositoriesMavenAPIService RepositoriesMavenMavenList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var mavenMavenRepositoryHref string
-
-		resp, httpRes, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenRead(context.Background(), mavenMavenRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesMavenAPI.RepositoriesMavenMavenList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +74,41 @@ func Test_zest_RepositoriesMavenApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test RepositoriesMavenApiService RepositoriesMavenMavenUpdate", func(t *testing.T) {
+	t.Run("Test RepositoriesMavenAPIService RepositoriesMavenMavenPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var mavenMavenRepositoryHref string
 
-		resp, httpRes, err := apiClient.RepositoriesMavenApi.RepositoriesMavenMavenUpdate(context.Background(), mavenMavenRepositoryHref).Execute()
+		resp, httpRes, err := apiClient.RepositoriesMavenAPI.RepositoriesMavenMavenPartialUpdate(context.Background(), mavenMavenRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesMavenAPIService RepositoriesMavenMavenRead", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var mavenMavenRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesMavenAPI.RepositoriesMavenMavenRead(context.Background(), mavenMavenRepositoryHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RepositoriesMavenAPIService RepositoriesMavenMavenUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var mavenMavenRepositoryHref string
+
+		resp, httpRes, err := apiClient.RepositoriesMavenAPI.RepositoriesMavenMavenUpdate(context.Background(), mavenMavenRepositoryHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

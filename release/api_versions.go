@@ -22,12 +22,12 @@ import (
 )
 
 
-// VersionsApiService VersionsApi service
-type VersionsApiService service
+// VersionsAPIService VersionsAPI service
+type VersionsAPIService service
 
-type VersionsApiApiV1RolesVersionsListRequest struct {
+type VersionsAPIApiV1RolesVersionsListRequest struct {
 	ctx context.Context
-	ApiService *VersionsApiService
+	ApiService *VersionsAPIService
 	ansibleRoleHref string
 	limit *int32
 	offset *int32
@@ -36,30 +36,30 @@ type VersionsApiApiV1RolesVersionsListRequest struct {
 }
 
 // Number of results to return per page.
-func (r VersionsApiApiV1RolesVersionsListRequest) Limit(limit int32) VersionsApiApiV1RolesVersionsListRequest {
+func (r VersionsAPIApiV1RolesVersionsListRequest) Limit(limit int32) VersionsAPIApiV1RolesVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r VersionsApiApiV1RolesVersionsListRequest) Offset(offset int32) VersionsApiApiV1RolesVersionsListRequest {
+func (r VersionsAPIApiV1RolesVersionsListRequest) Offset(offset int32) VersionsAPIApiV1RolesVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // A list of fields to include in the response.
-func (r VersionsApiApiV1RolesVersionsListRequest) Fields(fields []string) VersionsApiApiV1RolesVersionsListRequest {
+func (r VersionsAPIApiV1RolesVersionsListRequest) Fields(fields []string) VersionsAPIApiV1RolesVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r VersionsApiApiV1RolesVersionsListRequest) ExcludeFields(excludeFields []string) VersionsApiApiV1RolesVersionsListRequest {
+func (r VersionsAPIApiV1RolesVersionsListRequest) ExcludeFields(excludeFields []string) VersionsAPIApiV1RolesVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r VersionsApiApiV1RolesVersionsListRequest) Execute() (*PaginatedGalaxyRoleVersionResponseList, *http.Response, error) {
+func (r VersionsAPIApiV1RolesVersionsListRequest) Execute() (*PaginatedGalaxyRoleVersionResponseList, *http.Response, error) {
 	return r.ApiService.ApiV1RolesVersionsListExecute(r)
 }
 
@@ -70,10 +70,10 @@ APIView for Role Versions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleHref
- @return VersionsApiApiV1RolesVersionsListRequest
+ @return VersionsAPIApiV1RolesVersionsListRequest
 */
-func (a *VersionsApiService) ApiV1RolesVersionsList(ctx context.Context, ansibleRoleHref string) VersionsApiApiV1RolesVersionsListRequest {
-	return VersionsApiApiV1RolesVersionsListRequest{
+func (a *VersionsAPIService) ApiV1RolesVersionsList(ctx context.Context, ansibleRoleHref string) VersionsAPIApiV1RolesVersionsListRequest {
+	return VersionsAPIApiV1RolesVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleHref: ansibleRoleHref,
@@ -82,7 +82,7 @@ func (a *VersionsApiService) ApiV1RolesVersionsList(ctx context.Context, ansible
 
 // Execute executes the request
 //  @return PaginatedGalaxyRoleVersionResponseList
-func (a *VersionsApiService) ApiV1RolesVersionsListExecute(r VersionsApiApiV1RolesVersionsListRequest) (*PaginatedGalaxyRoleVersionResponseList, *http.Response, error) {
+func (a *VersionsAPIService) ApiV1RolesVersionsListExecute(r VersionsAPIApiV1RolesVersionsListRequest) (*PaginatedGalaxyRoleVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -90,7 +90,7 @@ func (a *VersionsApiService) ApiV1RolesVersionsListExecute(r VersionsApiApiV1Rol
 		localVarReturnValue  *PaginatedGalaxyRoleVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionsApiService.ApiV1RolesVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionsAPIService.ApiV1RolesVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -185,9 +185,9 @@ func (a *VersionsApiService) ApiV1RolesVersionsListExecute(r VersionsApiApiV1Rol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type VersionsApiApiV2CollectionVersionsListRequest struct {
+type VersionsAPIApiV2CollectionVersionsListRequest struct {
 	ctx context.Context
-	ApiService *VersionsApiService
+	ApiService *VersionsAPIService
 	ansibleCollectionVersionHref string
 	page *int32
 	fields *[]string
@@ -195,24 +195,24 @@ type VersionsApiApiV2CollectionVersionsListRequest struct {
 }
 
 // A page number within the paginated result set.
-func (r VersionsApiApiV2CollectionVersionsListRequest) Page(page int32) VersionsApiApiV2CollectionVersionsListRequest {
+func (r VersionsAPIApiV2CollectionVersionsListRequest) Page(page int32) VersionsAPIApiV2CollectionVersionsListRequest {
 	r.page = &page
 	return r
 }
 
 // A list of fields to include in the response.
-func (r VersionsApiApiV2CollectionVersionsListRequest) Fields(fields []string) VersionsApiApiV2CollectionVersionsListRequest {
+func (r VersionsAPIApiV2CollectionVersionsListRequest) Fields(fields []string) VersionsAPIApiV2CollectionVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r VersionsApiApiV2CollectionVersionsListRequest) ExcludeFields(excludeFields []string) VersionsApiApiV2CollectionVersionsListRequest {
+func (r VersionsAPIApiV2CollectionVersionsListRequest) ExcludeFields(excludeFields []string) VersionsAPIApiV2CollectionVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r VersionsApiApiV2CollectionVersionsListRequest) Execute() (*PaginatedGalaxyCollectionVersionResponseList, *http.Response, error) {
+func (r VersionsAPIApiV2CollectionVersionsListRequest) Execute() (*PaginatedGalaxyCollectionVersionResponseList, *http.Response, error) {
 	return r.ApiService.ApiV2CollectionVersionsListExecute(r)
 }
 
@@ -223,10 +223,10 @@ APIView for Collections by namespace/name.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionVersionHref
- @return VersionsApiApiV2CollectionVersionsListRequest
+ @return VersionsAPIApiV2CollectionVersionsListRequest
 */
-func (a *VersionsApiService) ApiV2CollectionVersionsList(ctx context.Context, ansibleCollectionVersionHref string) VersionsApiApiV2CollectionVersionsListRequest {
-	return VersionsApiApiV2CollectionVersionsListRequest{
+func (a *VersionsAPIService) ApiV2CollectionVersionsList(ctx context.Context, ansibleCollectionVersionHref string) VersionsAPIApiV2CollectionVersionsListRequest {
+	return VersionsAPIApiV2CollectionVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionVersionHref: ansibleCollectionVersionHref,
@@ -235,7 +235,7 @@ func (a *VersionsApiService) ApiV2CollectionVersionsList(ctx context.Context, an
 
 // Execute executes the request
 //  @return PaginatedGalaxyCollectionVersionResponseList
-func (a *VersionsApiService) ApiV2CollectionVersionsListExecute(r VersionsApiApiV2CollectionVersionsListRequest) (*PaginatedGalaxyCollectionVersionResponseList, *http.Response, error) {
+func (a *VersionsAPIService) ApiV2CollectionVersionsListExecute(r VersionsAPIApiV2CollectionVersionsListRequest) (*PaginatedGalaxyCollectionVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -243,7 +243,7 @@ func (a *VersionsApiService) ApiV2CollectionVersionsListExecute(r VersionsApiApi
 		localVarReturnValue  *PaginatedGalaxyCollectionVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionsApiService.ApiV2CollectionVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionsAPIService.ApiV2CollectionVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

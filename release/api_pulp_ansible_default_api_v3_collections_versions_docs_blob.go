@@ -22,12 +22,12 @@ import (
 )
 
 
-// PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApi service
-type PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService service
+// PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIService PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPI service
+type PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIService service
 
-type PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest struct {
+type PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest struct {
 	ctx context.Context
-	ApiService *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService
+	ApiService *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIService
 	name string
 	namespace string
 	version string
@@ -36,18 +36,18 @@ type PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefau
 }
 
 // A list of fields to include in the response.
-func (r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) Fields(fields []string) PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest {
+func (r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) ExcludeFields(excludeFields []string) PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) Execute() (*CollectionVersionDocsResponse, *http.Response, error) {
+func (r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) Execute() (*CollectionVersionDocsResponse, *http.Response, error) {
 	return r.ApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadExecute(r)
 }
 
@@ -60,12 +60,12 @@ Legacy v3 endpoint.
  @param name
  @param namespace
  @param version
- @return PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest
+ @return PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest
 
 Deprecated
 */
-func (a *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobRead(ctx context.Context, name string, namespace string, version string) PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest {
-	return PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest{
+func (a *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobRead(ctx context.Context, name string, namespace string, version string) PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest {
+	return PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		name: name,
@@ -77,7 +77,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService) PulpAnsib
 // Execute executes the request
 //  @return CollectionVersionDocsResponse
 // Deprecated
-func (a *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService) PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadExecute(r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) (*CollectionVersionDocsResponse, *http.Response, error) {
+func (a *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIService) PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadExecute(r PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIPulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobReadRequest) (*CollectionVersionDocsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -85,7 +85,7 @@ func (a *PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService) PulpAnsib
 		localVarReturnValue  *CollectionVersionDocsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobApiService.PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PulpAnsibleDefaultApiV3CollectionsVersionsDocsBlobAPIService.PulpAnsibleGalaxyDefaultApiV3CollectionsVersionsDocsBlobRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

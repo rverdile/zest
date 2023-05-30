@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiService
+Testing PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPIService
 
 */
 
@@ -17,12 +17,12 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiService(t *testing.T) {
+func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexDelete", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPIService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -30,7 +30,7 @@ func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiSer
 		var name string
 		var namespace string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexDelete(context.Background(), distroBasePath, name, namespace).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPI.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexDelete(context.Background(), distroBasePath, name, namespace).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -38,13 +38,13 @@ func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiSer
 
 	})
 
-	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPIService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var distroBasePath string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexList(context.Background(), distroBasePath).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPI.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexList(context.Background(), distroBasePath).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -52,23 +52,7 @@ func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiSer
 
 	})
 
-	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexRead", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var distroBasePath string
-		var name string
-		var namespace string
-
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexRead(context.Background(), distroBasePath, name, namespace).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexUpdate", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPIService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
@@ -76,7 +60,23 @@ func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApiSer
 		var name string
 		var namespace string
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexUpdate(context.Background(), distroBasePath, name, namespace).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPI.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexRead(context.Background(), distroBasePath, name, namespace).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPIService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var distroBasePath string
+		var name string
+		var namespace string
+
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleContentCollectionsIndexAPI.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleContentCollectionsIndexUpdate(context.Background(), distroBasePath, name, namespace).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

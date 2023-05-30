@@ -22,22 +22,22 @@ import (
 )
 
 
-// ContentguardsContentRedirectApiService ContentguardsContentRedirectApi service
-type ContentguardsContentRedirectApiService service
+// ContentguardsContentRedirectAPIService ContentguardsContentRedirectAPI service
+type ContentguardsContentRedirectAPIService service
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 	nestedRole *NestedRole
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectAddRole(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectAddRole(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -60,7 +60,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectAddRoleExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectAddRoleExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,18 +140,18 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuard *ContentRedirectContentGuard
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest) ContentRedirectContentGuard(contentRedirectContentGuard ContentRedirectContentGuard) ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest) ContentRedirectContentGuard(contentRedirectContentGuard ContentRedirectContentGuard) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest {
 	r.contentRedirectContentGuard = &contentRedirectContentGuard
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectCreateExecute(r)
 }
 
@@ -161,10 +161,10 @@ ContentguardsCoreContentRedirectCreate Create a content redirect content guard
 Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectCreate(ctx context.Context) ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectCreate(ctx context.Context) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -172,7 +172,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return ContentRedirectContentGuardResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectCreateExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectCreateRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectCreateExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *ContentRedirectContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -249,13 +249,13 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectDeleteRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectDeleteRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectDeleteRequest) Execute() (*http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectDeleteExecute(r)
 }
 
@@ -266,10 +266,10 @@ Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectDeleteRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectDeleteRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectDelete(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectDeleteRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectDeleteRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectDelete(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectDeleteRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -277,14 +277,14 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 }
 
 // Execute executes the request
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectDeleteExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectDeleteRequest) (*http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectDeleteExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -342,9 +342,9 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	limit *int32
 	name *string
 	nameContains *string
@@ -360,78 +360,78 @@ type ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest 
 }
 
 // Number of results to return per page.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) Limit(limit int32) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) Limit(limit int32) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) Name(name string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) Name(name string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) NameContains(nameContains string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) NameContains(nameContains string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) NameIcontains(nameIcontains string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) NameIcontains(nameIcontains string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) NameIn(nameIn []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) NameIn(nameIn []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) NameStartswith(nameStartswith string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) NameStartswith(nameStartswith string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) Offset(offset int32) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) Offset(offset int32) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) Ordering(ordering []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) Ordering(ordering []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) PulpHrefIn(pulpHrefIn []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) PulpIdIn(pulpIdIn []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) PulpIdIn(pulpIdIn []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) Fields(fields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) Fields(fields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) Execute() (*PaginatedContentRedirectContentGuardResponseList, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) Execute() (*PaginatedContentRedirectContentGuardResponseList, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectListExecute(r)
 }
 
@@ -441,10 +441,10 @@ ContentguardsCoreContentRedirectList List content redirect content guards
 Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectList(ctx context.Context) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectList(ctx context.Context) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -452,7 +452,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return PaginatedContentRedirectContentGuardResponseList
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectListExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRequest) (*PaginatedContentRedirectContentGuardResponseList, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectListExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest) (*PaginatedContentRedirectContentGuardResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -460,7 +460,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *PaginatedContentRedirectContentGuardResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -576,27 +576,27 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest) Fields(fields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest) Fields(fields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectListRolesExecute(r)
 }
 
@@ -607,10 +607,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectListRoles(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectListRoles(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -619,7 +619,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectListRolesExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectListRolesExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -627,7 +627,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -716,27 +716,27 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest) Fields(fields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest) Fields(fields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectMyPermissionsExecute(r)
 }
 
@@ -747,10 +747,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectMyPermissions(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectMyPermissions(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -759,7 +759,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectMyPermissionsExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectMyPermissionsExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -767,7 +767,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -856,19 +856,19 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 	patchedContentRedirectContentGuard *PatchedContentRedirectContentGuard
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest) PatchedContentRedirectContentGuard(patchedContentRedirectContentGuard PatchedContentRedirectContentGuard) ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest) PatchedContentRedirectContentGuard(patchedContentRedirectContentGuard PatchedContentRedirectContentGuard) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest {
 	r.patchedContentRedirectContentGuard = &patchedContentRedirectContentGuard
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectPartialUpdateExecute(r)
 }
 
@@ -879,10 +879,10 @@ Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectPartialUpdate(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectPartialUpdate(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -891,7 +891,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return ContentRedirectContentGuardResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectPartialUpdateExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectPartialUpdateRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectPartialUpdateExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectPartialUpdateRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -899,7 +899,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *ContentRedirectContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectPartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectPartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -971,27 +971,27 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest) Fields(fields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest) Fields(fields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest) ExcludeFields(excludeFields []string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectReadExecute(r)
 }
 
@@ -1002,10 +1002,10 @@ Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectRead(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectRead(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -1014,7 +1014,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return ContentRedirectContentGuardResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectReadExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectReadRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectReadExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectReadRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1022,7 +1022,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *ContentRedirectContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1111,19 +1111,19 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 	nestedRole *NestedRole
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest) NestedRole(nestedRole NestedRole) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectRemoveRoleExecute(r)
 }
 
@@ -1134,10 +1134,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectRemoveRole(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectRemoveRole(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -1146,7 +1146,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectRemoveRoleExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectRemoveRoleExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1154,7 +1154,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1226,19 +1226,19 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest struct {
+type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest struct {
 	ctx context.Context
-	ApiService *ContentguardsContentRedirectApiService
+	ApiService *ContentguardsContentRedirectAPIService
 	contentRedirectContentGuardHref string
 	contentRedirectContentGuard *ContentRedirectContentGuard
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest) ContentRedirectContentGuard(contentRedirectContentGuard ContentRedirectContentGuard) ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest) ContentRedirectContentGuard(contentRedirectContentGuard ContentRedirectContentGuard) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest {
 	r.contentRedirectContentGuard = &contentRedirectContentGuard
 	return r
 }
 
-func (r ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest) Execute() (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	return r.ApiService.ContentguardsCoreContentRedirectUpdateExecute(r)
 }
 
@@ -1249,10 +1249,10 @@ Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentRedirectContentGuardHref
- @return ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest
+ @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest
 */
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectUpdate(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest {
-	return ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest{
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectUpdate(ctx context.Context, contentRedirectContentGuardHref string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest {
+	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentRedirectContentGuardHref: contentRedirectContentGuardHref,
@@ -1261,7 +1261,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 
 // Execute executes the request
 //  @return ContentRedirectContentGuardResponse
-func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirectUpdateExecute(r ContentguardsContentRedirectApiContentguardsCoreContentRedirectUpdateRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectUpdateExecute(r ContentguardsContentRedirectAPIContentguardsCoreContentRedirectUpdateRequest) (*ContentRedirectContentGuardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1269,7 +1269,7 @@ func (a *ContentguardsContentRedirectApiService) ContentguardsCoreContentRedirec
 		localVarReturnValue  *ContentRedirectContentGuardResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectApiService.ContentguardsCoreContentRedirectUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentguardsContentRedirectAPIService.ContentguardsCoreContentRedirectUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

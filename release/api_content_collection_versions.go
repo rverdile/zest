@@ -23,64 +23,64 @@ import (
 )
 
 
-// ContentCollectionVersionsApiService ContentCollectionVersionsApi service
-type ContentCollectionVersionsApiService service
+// ContentCollectionVersionsAPIService ContentCollectionVersionsAPI service
+type ContentCollectionVersionsAPIService service
 
-type ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest struct {
+type ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionVersionsApiService
-	upload *string
+	ApiService *ContentCollectionVersionsAPIService
+	artifact *string
 	file *os.File
 	repository *string
-	artifact *string
+	upload *string
 	expectedName *string
 	expectedNamespace *string
 	expectedVersion *string
 }
 
-// An uncommitted upload that may be turned into the artifact of the content unit.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Upload(upload string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	r.upload = &upload
+// Artifact file representing the physical content
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
+	r.artifact = &artifact
 	return r
 }
 
 // An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) File(file *os.File) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) File(file *os.File) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
 	r.file = file
 	return r
 }
 
 // A URI of a repository the new content unit should be associated with.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
 	r.repository = &repository
 	return r
 }
 
-// Artifact file representing the physical content
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	r.artifact = &artifact
+// An uncommitted upload that may be turned into the artifact of the content unit.
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Upload(upload string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
+	r.upload = &upload
 	return r
 }
 
 // The name of the collection.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) ExpectedName(expectedName string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) ExpectedName(expectedName string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
 	r.expectedName = &expectedName
 	return r
 }
 
 // The namespace of the collection.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) ExpectedNamespace(expectedNamespace string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) ExpectedNamespace(expectedNamespace string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
 	r.expectedNamespace = &expectedNamespace
 	return r
 }
 
 // The version of the collection.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) ExpectedVersion(expectedVersion string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) ExpectedVersion(expectedVersion string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
 	r.expectedVersion = &expectedVersion
 	return r
 }
 
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionVersionsCreateExecute(r)
 }
 
@@ -90,10 +90,10 @@ ContentAnsibleCollectionVersionsCreate Create a collection version
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest
+ @return ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest
 */
-func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCreate(ctx context.Context) ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest {
-	return ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest{
+func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsCreate(ctx context.Context) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
+	return ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -101,7 +101,7 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCreateExecute(r ContentCollectionVersionsApiContentAnsibleCollectionVersionsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsCreateExecute(r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -109,7 +109,7 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionVersionsApiService.ContentAnsibleCollectionVersionsCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionVersionsAPIService.ContentAnsibleCollectionVersionsCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -136,8 +136,8 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.upload != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
+	if r.artifact != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
 	}
 	var fileLocalVarFormFileName string
 	var fileLocalVarFileName     string
@@ -159,8 +159,8 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	if r.repository != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
 	}
-	if r.artifact != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
+	if r.upload != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
 	}
 	if r.expectedName != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "expected_name", r.expectedName, "")
@@ -208,9 +208,9 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest struct {
+type ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionVersionsApiService
+	ApiService *ContentCollectionVersionsAPIService
 	isHighest *bool
 	limit *int32
 	name *string
@@ -229,99 +229,99 @@ type ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest str
 	excludeFields *[]string
 }
 
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) IsHighest(isHighest bool) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) IsHighest(isHighest bool) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.isHighest = &isHighest
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Limit(limit int32) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Limit(limit int32) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Name(name string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Name(name string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.name = &name
 	return r
 }
 
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Namespace(namespace string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Namespace(namespace string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Offset(offset int32) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Offset(offset int32) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;authors&#x60; - Authors * &#x60;-authors&#x60; - Authors (descending) * &#x60;contents&#x60; - Contents * &#x60;-contents&#x60; - Contents (descending) * &#x60;dependencies&#x60; - Dependencies * &#x60;-dependencies&#x60; - Dependencies (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;docs_blob&#x60; - Docs blob * &#x60;-docs_blob&#x60; - Docs blob (descending) * &#x60;manifest&#x60; - Manifest * &#x60;-manifest&#x60; - Manifest (descending) * &#x60;files&#x60; - Files * &#x60;-files&#x60; - Files (descending) * &#x60;documentation&#x60; - Documentation * &#x60;-documentation&#x60; - Documentation (descending) * &#x60;homepage&#x60; - Homepage * &#x60;-homepage&#x60; - Homepage (descending) * &#x60;issues&#x60; - Issues * &#x60;-issues&#x60; - Issues (descending) * &#x60;license&#x60; - License * &#x60;-license&#x60; - License (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;repository&#x60; - Repository * &#x60;-repository&#x60; - Repository (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;requires_ansible&#x60; - Requires ansible * &#x60;-requires_ansible&#x60; - Requires ansible (descending) * &#x60;is_highest&#x60; - Is highest * &#x60;-is_highest&#x60; - Is highest (descending) * &#x60;search_vector&#x60; - Search vector * &#x60;-search_vector&#x60; - Search vector (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Ordering(ordering []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Ordering(ordering []string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) PulpHrefIn(pulpHrefIn []string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) PulpIdIn(pulpIdIn []string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Q(q string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Q(q string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.q = &q
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) RepositoryVersion(repositoryVersion string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter by comma separate list of tags that must all be matched
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Tags(tags string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Tags(tags string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.tags = &tags
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Version(version string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Version(version string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.version = &version
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Fields(fields []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Fields(fields []string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) ExcludeFields(excludeFields []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) ExcludeFields(excludeFields []string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) Execute() (*PaginatedansibleCollectionVersionResponseList, *http.Response, error) {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) Execute() (*PaginatedansibleCollectionVersionResponseList, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionVersionsListExecute(r)
 }
 
@@ -331,10 +331,10 @@ ContentAnsibleCollectionVersionsList List collection versions
 ViewSet for Ansible Collection.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest
+ @return ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest
 */
-func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsList(ctx context.Context) ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest {
-	return ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest{
+func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsList(ctx context.Context) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest {
+	return ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -342,7 +342,7 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsLi
 
 // Execute executes the request
 //  @return PaginatedansibleCollectionVersionResponseList
-func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsListExecute(r ContentCollectionVersionsApiContentAnsibleCollectionVersionsListRequest) (*PaginatedansibleCollectionVersionResponseList, *http.Response, error) {
+func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsListExecute(r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsListRequest) (*PaginatedansibleCollectionVersionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -350,7 +350,7 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsLi
 		localVarReturnValue  *PaginatedansibleCollectionVersionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionVersionsApiService.ContentAnsibleCollectionVersionsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionVersionsAPIService.ContentAnsibleCollectionVersionsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -478,27 +478,27 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest struct {
+type ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentCollectionVersionsApiService
+	ApiService *ContentCollectionVersionsAPIService
 	ansibleCollectionVersionHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest) Fields(fields []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest) Fields(fields []string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest) ExcludeFields(excludeFields []string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest) ExcludeFields(excludeFields []string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest) Execute() (*AnsibleCollectionVersionResponse, *http.Response, error) {
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest) Execute() (*AnsibleCollectionVersionResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleCollectionVersionsReadExecute(r)
 }
 
@@ -509,10 +509,10 @@ ViewSet for Ansible Collection.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionVersionHref
- @return ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest
+ @return ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest
 */
-func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsRead(ctx context.Context, ansibleCollectionVersionHref string) ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest {
-	return ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest{
+func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsRead(ctx context.Context, ansibleCollectionVersionHref string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest {
+	return ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionVersionHref: ansibleCollectionVersionHref,
@@ -521,7 +521,7 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsRe
 
 // Execute executes the request
 //  @return AnsibleCollectionVersionResponse
-func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsReadExecute(r ContentCollectionVersionsApiContentAnsibleCollectionVersionsReadRequest) (*AnsibleCollectionVersionResponse, *http.Response, error) {
+func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsReadExecute(r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsReadRequest) (*AnsibleCollectionVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -529,7 +529,7 @@ func (a *ContentCollectionVersionsApiService) ContentAnsibleCollectionVersionsRe
 		localVarReturnValue  *AnsibleCollectionVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionVersionsApiService.ContentAnsibleCollectionVersionsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentCollectionVersionsAPIService.ContentAnsibleCollectionVersionsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

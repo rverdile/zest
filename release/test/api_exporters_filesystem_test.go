@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ExportersFilesystemApiService
+Testing ExportersFilesystemAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ExportersFilesystemApiService(t *testing.T) {
+func Test_zest_ExportersFilesystemAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ExportersFilesystemApiService ExportersCoreFilesystemCreate", func(t *testing.T) {
+	t.Run("Test ExportersFilesystemAPIService ExportersCoreFilesystemCreate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExportersFilesystemApi.ExportersCoreFilesystemCreate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemCreate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_zest_ExportersFilesystemApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersFilesystemApiService ExportersCoreFilesystemDelete", func(t *testing.T) {
+	t.Run("Test ExportersFilesystemAPIService ExportersCoreFilesystemDelete", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var filesystemExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersFilesystemApi.ExportersCoreFilesystemDelete(context.Background(), filesystemExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemDelete(context.Background(), filesystemExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_zest_ExportersFilesystemApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersFilesystemApiService ExportersCoreFilesystemList", func(t *testing.T) {
+	t.Run("Test ExportersFilesystemAPIService ExportersCoreFilesystemList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExportersFilesystemApi.ExportersCoreFilesystemList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_zest_ExportersFilesystemApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersFilesystemApiService ExportersCoreFilesystemPartialUpdate", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var filesystemExporterHref string
-
-		resp, httpRes, err := apiClient.ExportersFilesystemApi.ExportersCoreFilesystemPartialUpdate(context.Background(), filesystemExporterHref).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ExportersFilesystemApiService ExportersCoreFilesystemRead", func(t *testing.T) {
+	t.Run("Test ExportersFilesystemAPIService ExportersCoreFilesystemPartialUpdate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var filesystemExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersFilesystemApi.ExportersCoreFilesystemRead(context.Background(), filesystemExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemPartialUpdate(context.Background(), filesystemExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_zest_ExportersFilesystemApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ExportersFilesystemApiService ExportersCoreFilesystemUpdate", func(t *testing.T) {
+	t.Run("Test ExportersFilesystemAPIService ExportersCoreFilesystemRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var filesystemExporterHref string
 
-		resp, httpRes, err := apiClient.ExportersFilesystemApi.ExportersCoreFilesystemUpdate(context.Background(), filesystemExporterHref).Execute()
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemRead(context.Background(), filesystemExporterHref).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ExportersFilesystemAPIService ExportersCoreFilesystemUpdate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var filesystemExporterHref string
+
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemUpdate(context.Background(), filesystemExporterHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

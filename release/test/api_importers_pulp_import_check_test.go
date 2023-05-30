@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ImportersPulpImportCheckApiService
+Testing ImportersPulpImportCheckAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ImportersPulpImportCheckApiService(t *testing.T) {
+func Test_zest_ImportersPulpImportCheckAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ImportersPulpImportCheckApiService PulpImportCheckPost", func(t *testing.T) {
+	t.Run("Test ImportersPulpImportCheckAPIService PulpImportCheckPost", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ImportersPulpImportCheckApi.PulpImportCheckPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ImportersPulpImportCheckAPI.PulpImportCheckPost(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,12 +22,12 @@ import (
 )
 
 
-// ApiCollectionsApiService ApiCollectionsApi service
-type ApiCollectionsApiService service
+// ApiCollectionsAPIService ApiCollectionsAPI service
+type ApiCollectionsAPIService service
 
-type ApiCollectionsApiApiV2CollectionsGetRequest struct {
+type ApiCollectionsAPIApiV2CollectionsGetRequest struct {
 	ctx context.Context
-	ApiService *ApiCollectionsApiService
+	ApiService *ApiCollectionsAPIService
 	ansibleCollectionHref string
 	page *int32
 	fields *[]string
@@ -35,24 +35,24 @@ type ApiCollectionsApiApiV2CollectionsGetRequest struct {
 }
 
 // A page number within the paginated result set.
-func (r ApiCollectionsApiApiV2CollectionsGetRequest) Page(page int32) ApiCollectionsApiApiV2CollectionsGetRequest {
+func (r ApiCollectionsAPIApiV2CollectionsGetRequest) Page(page int32) ApiCollectionsAPIApiV2CollectionsGetRequest {
 	r.page = &page
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ApiCollectionsApiApiV2CollectionsGetRequest) Fields(fields []string) ApiCollectionsApiApiV2CollectionsGetRequest {
+func (r ApiCollectionsAPIApiV2CollectionsGetRequest) Fields(fields []string) ApiCollectionsAPIApiV2CollectionsGetRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ApiCollectionsApiApiV2CollectionsGetRequest) ExcludeFields(excludeFields []string) ApiCollectionsApiApiV2CollectionsGetRequest {
+func (r ApiCollectionsAPIApiV2CollectionsGetRequest) ExcludeFields(excludeFields []string) ApiCollectionsAPIApiV2CollectionsGetRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ApiCollectionsApiApiV2CollectionsGetRequest) Execute() (*PaginatedGalaxyCollectionResponseList, *http.Response, error) {
+func (r ApiCollectionsAPIApiV2CollectionsGetRequest) Execute() (*PaginatedGalaxyCollectionResponseList, *http.Response, error) {
 	return r.ApiService.ApiV2CollectionsGetExecute(r)
 }
 
@@ -63,10 +63,10 @@ View for Collection models.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionHref
- @return ApiCollectionsApiApiV2CollectionsGetRequest
+ @return ApiCollectionsAPIApiV2CollectionsGetRequest
 */
-func (a *ApiCollectionsApiService) ApiV2CollectionsGet(ctx context.Context, ansibleCollectionHref string) ApiCollectionsApiApiV2CollectionsGetRequest {
-	return ApiCollectionsApiApiV2CollectionsGetRequest{
+func (a *ApiCollectionsAPIService) ApiV2CollectionsGet(ctx context.Context, ansibleCollectionHref string) ApiCollectionsAPIApiV2CollectionsGetRequest {
+	return ApiCollectionsAPIApiV2CollectionsGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionHref: ansibleCollectionHref,
@@ -75,7 +75,7 @@ func (a *ApiCollectionsApiService) ApiV2CollectionsGet(ctx context.Context, ansi
 
 // Execute executes the request
 //  @return PaginatedGalaxyCollectionResponseList
-func (a *ApiCollectionsApiService) ApiV2CollectionsGetExecute(r ApiCollectionsApiApiV2CollectionsGetRequest) (*PaginatedGalaxyCollectionResponseList, *http.Response, error) {
+func (a *ApiCollectionsAPIService) ApiV2CollectionsGetExecute(r ApiCollectionsAPIApiV2CollectionsGetRequest) (*PaginatedGalaxyCollectionResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -83,7 +83,7 @@ func (a *ApiCollectionsApiService) ApiV2CollectionsGetExecute(r ApiCollectionsAp
 		localVarReturnValue  *PaginatedGalaxyCollectionResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiCollectionsApiService.ApiV2CollectionsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiCollectionsAPIService.ApiV2CollectionsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -175,19 +175,19 @@ func (a *ApiCollectionsApiService) ApiV2CollectionsGetExecute(r ApiCollectionsAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCollectionsApiApiV2CollectionsPostRequest struct {
+type ApiCollectionsAPIApiV2CollectionsPostRequest struct {
 	ctx context.Context
-	ApiService *ApiCollectionsApiService
+	ApiService *ApiCollectionsAPIService
 	ansibleCollectionHref string
 	galaxyCollection *GalaxyCollection
 }
 
-func (r ApiCollectionsApiApiV2CollectionsPostRequest) GalaxyCollection(galaxyCollection GalaxyCollection) ApiCollectionsApiApiV2CollectionsPostRequest {
+func (r ApiCollectionsAPIApiV2CollectionsPostRequest) GalaxyCollection(galaxyCollection GalaxyCollection) ApiCollectionsAPIApiV2CollectionsPostRequest {
 	r.galaxyCollection = &galaxyCollection
 	return r
 }
 
-func (r ApiCollectionsApiApiV2CollectionsPostRequest) Execute() (*GalaxyCollectionResponse, *http.Response, error) {
+func (r ApiCollectionsAPIApiV2CollectionsPostRequest) Execute() (*GalaxyCollectionResponse, *http.Response, error) {
 	return r.ApiService.ApiV2CollectionsPostExecute(r)
 }
 
@@ -198,12 +198,12 @@ Queues a task that creates a new Collection from an uploaded artifact.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleCollectionHref
- @return ApiCollectionsApiApiV2CollectionsPostRequest
+ @return ApiCollectionsAPIApiV2CollectionsPostRequest
 
 Deprecated
 */
-func (a *ApiCollectionsApiService) ApiV2CollectionsPost(ctx context.Context, ansibleCollectionHref string) ApiCollectionsApiApiV2CollectionsPostRequest {
-	return ApiCollectionsApiApiV2CollectionsPostRequest{
+func (a *ApiCollectionsAPIService) ApiV2CollectionsPost(ctx context.Context, ansibleCollectionHref string) ApiCollectionsAPIApiV2CollectionsPostRequest {
+	return ApiCollectionsAPIApiV2CollectionsPostRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleCollectionHref: ansibleCollectionHref,
@@ -213,7 +213,7 @@ func (a *ApiCollectionsApiService) ApiV2CollectionsPost(ctx context.Context, ans
 // Execute executes the request
 //  @return GalaxyCollectionResponse
 // Deprecated
-func (a *ApiCollectionsApiService) ApiV2CollectionsPostExecute(r ApiCollectionsApiApiV2CollectionsPostRequest) (*GalaxyCollectionResponse, *http.Response, error) {
+func (a *ApiCollectionsAPIService) ApiV2CollectionsPostExecute(r ApiCollectionsAPIApiV2CollectionsPostRequest) (*GalaxyCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -221,7 +221,7 @@ func (a *ApiCollectionsApiService) ApiV2CollectionsPostExecute(r ApiCollectionsA
 		localVarReturnValue  *GalaxyCollectionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiCollectionsApiService.ApiV2CollectionsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiCollectionsAPIService.ApiV2CollectionsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

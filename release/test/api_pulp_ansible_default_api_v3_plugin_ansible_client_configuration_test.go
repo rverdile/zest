@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService
+Testing PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService(t *testing.T) {
+func Test_zest_PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApiService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead", func(t *testing.T) {
+	t.Run("Test PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPIService PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationApi.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleDefaultApiV3PluginAnsibleClientConfigurationAPI.PulpAnsibleGalaxyDefaultApiV3PluginAnsibleClientConfigurationRead(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -22,18 +22,22 @@ var _ MappedNullable = &DebReleaseArchitecture{}
 type DebReleaseArchitecture struct {
 	// Name of the architecture.
 	Architecture string `json:"architecture"`
-	// Release this architecture is contained in.
-	Release string `json:"release"`
+	// Name of the distribution.
+	Distribution string `json:"distribution"`
+	Codename string `json:"codename"`
+	Suite string `json:"suite"`
 }
 
 // NewDebReleaseArchitecture instantiates a new DebReleaseArchitecture object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDebReleaseArchitecture(architecture string, release string) *DebReleaseArchitecture {
+func NewDebReleaseArchitecture(architecture string, distribution string, codename string, suite string) *DebReleaseArchitecture {
 	this := DebReleaseArchitecture{}
 	this.Architecture = architecture
-	this.Release = release
+	this.Distribution = distribution
+	this.Codename = codename
+	this.Suite = suite
 	return &this
 }
 
@@ -69,28 +73,76 @@ func (o *DebReleaseArchitecture) SetArchitecture(v string) {
 	o.Architecture = v
 }
 
-// GetRelease returns the Release field value
-func (o *DebReleaseArchitecture) GetRelease() string {
+// GetDistribution returns the Distribution field value
+func (o *DebReleaseArchitecture) GetDistribution() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Release
+	return o.Distribution
 }
 
-// GetReleaseOk returns a tuple with the Release field value
+// GetDistributionOk returns a tuple with the Distribution field value
 // and a boolean to check if the value has been set.
-func (o *DebReleaseArchitecture) GetReleaseOk() (*string, bool) {
+func (o *DebReleaseArchitecture) GetDistributionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Release, true
+	return &o.Distribution, true
 }
 
-// SetRelease sets field value
-func (o *DebReleaseArchitecture) SetRelease(v string) {
-	o.Release = v
+// SetDistribution sets field value
+func (o *DebReleaseArchitecture) SetDistribution(v string) {
+	o.Distribution = v
+}
+
+// GetCodename returns the Codename field value
+func (o *DebReleaseArchitecture) GetCodename() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Codename
+}
+
+// GetCodenameOk returns a tuple with the Codename field value
+// and a boolean to check if the value has been set.
+func (o *DebReleaseArchitecture) GetCodenameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Codename, true
+}
+
+// SetCodename sets field value
+func (o *DebReleaseArchitecture) SetCodename(v string) {
+	o.Codename = v
+}
+
+// GetSuite returns the Suite field value
+func (o *DebReleaseArchitecture) GetSuite() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Suite
+}
+
+// GetSuiteOk returns a tuple with the Suite field value
+// and a boolean to check if the value has been set.
+func (o *DebReleaseArchitecture) GetSuiteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Suite, true
+}
+
+// SetSuite sets field value
+func (o *DebReleaseArchitecture) SetSuite(v string) {
+	o.Suite = v
 }
 
 func (o DebReleaseArchitecture) MarshalJSON() ([]byte, error) {
@@ -104,7 +156,9 @@ func (o DebReleaseArchitecture) MarshalJSON() ([]byte, error) {
 func (o DebReleaseArchitecture) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["architecture"] = o.Architecture
-	toSerialize["release"] = o.Release
+	toSerialize["distribution"] = o.Distribution
+	toSerialize["codename"] = o.Codename
+	toSerialize["suite"] = o.Suite
 	return toSerialize, nil
 }
 

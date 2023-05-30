@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing PulpAnsibleTagsApiService
+Testing PulpAnsibleTagsAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_PulpAnsibleTagsApiService(t *testing.T) {
+func Test_zest_PulpAnsibleTagsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PulpAnsibleTagsApiService PulpAnsibleTagsList", func(t *testing.T) {
+	t.Run("Test PulpAnsibleTagsAPIService PulpAnsibleTagsList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PulpAnsibleTagsApi.PulpAnsibleTagsList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PulpAnsibleTagsAPI.PulpAnsibleTagsList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

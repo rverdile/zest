@@ -1,7 +1,7 @@
 /*
 Pulp 3 API
 
-Testing ContentNamespacesApiService
+Testing ContentNamespacesAPIService
 
 */
 
@@ -17,29 +17,29 @@ import (
 	openapiclient "github.com/content-services/zest/release/v3"
 )
 
-func Test_zest_ContentNamespacesApiService(t *testing.T) {
+func Test_zest_ContentNamespacesAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ContentNamespacesApiService ContentAnsibleNamespacesAvatar", func(t *testing.T) {
+	t.Run("Test ContentNamespacesAPIService ContentAnsibleNamespacesAvatar", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleNamespaceMetadataHref string
 
-		httpRes, err := apiClient.ContentNamespacesApi.ContentAnsibleNamespacesAvatar(context.Background(), ansibleAnsibleNamespaceMetadataHref).Execute()
+		httpRes, err := apiClient.ContentNamespacesAPI.ContentAnsibleNamespacesAvatar(context.Background(), ansibleAnsibleNamespaceMetadataHref).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ContentNamespacesApiService ContentAnsibleNamespacesList", func(t *testing.T) {
+	t.Run("Test ContentNamespacesAPIService ContentAnsibleNamespacesList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentNamespacesApi.ContentAnsibleNamespacesList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ContentNamespacesAPI.ContentAnsibleNamespacesList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -47,13 +47,13 @@ func Test_zest_ContentNamespacesApiService(t *testing.T) {
 
 	})
 
-	t.Run("Test ContentNamespacesApiService ContentAnsibleNamespacesRead", func(t *testing.T) {
+	t.Run("Test ContentNamespacesAPIService ContentAnsibleNamespacesRead", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var ansibleAnsibleNamespaceMetadataHref string
 
-		resp, httpRes, err := apiClient.ContentNamespacesApi.ContentAnsibleNamespacesRead(context.Background(), ansibleAnsibleNamespaceMetadataHref).Execute()
+		resp, httpRes, err := apiClient.ContentNamespacesAPI.ContentAnsibleNamespacesRead(context.Background(), ansibleAnsibleNamespaceMetadataHref).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

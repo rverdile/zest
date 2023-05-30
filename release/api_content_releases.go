@@ -22,42 +22,44 @@ import (
 )
 
 
-// ContentReleasesApiService ContentReleasesApi service
-type ContentReleasesApiService service
+// ContentReleasesAPIService ContentReleasesAPI service
+type ContentReleasesAPIService service
 
-type ContentReleasesApiContentDebReleasesCreateRequest struct {
+type ContentReleasesAPIContentDebReleasesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentReleasesApiService
+	ApiService *ContentReleasesAPIService
 	debRelease *DebRelease
 }
 
-func (r ContentReleasesApiContentDebReleasesCreateRequest) DebRelease(debRelease DebRelease) ContentReleasesApiContentDebReleasesCreateRequest {
+func (r ContentReleasesAPIContentDebReleasesCreateRequest) DebRelease(debRelease DebRelease) ContentReleasesAPIContentDebReleasesCreateRequest {
 	r.debRelease = &debRelease
 	return r
 }
 
-func (r ContentReleasesApiContentDebReleasesCreateRequest) Execute() (*DebReleaseResponse, *http.Response, error) {
+func (r ContentReleasesAPIContentDebReleasesCreateRequest) Execute() (*DebReleaseResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleasesCreateExecute(r)
 }
 
 /*
 ContentDebReleasesCreate Create a release
 
-A Release represents a single APT release/distribution.
+The Release contains release file fields, that are not relevant to the APT repo structure.
 
 Associated artifacts: None; contains only metadata.
 
-Note that in the context of the "Release content", the terms "distribution" and "release"
-are synonyms. An "APT repository release/distribution" is associated with a single 'Release'
-file below the 'dists/' folder. The "distribution" refers to the path between 'dists/' and the
-'Release' file. The "distribution" could be considered the name of the "release". It is often
-(but not always) equal to the "codename" or "suite".
+By non-structure relevant release file fields, we mean anything other than the Components and
+Architectures fields. These are handled by their own models and are not part of this model.
+
+Note that the distribution field is part of this model, but is not added to any published
+release files. The "distribution" is defined as the path between 'dists/' and some 'Release'
+file. As such, it encodes the path to the relevant release file within the APT repository.
+It is often (but not always) equal to the "codename" or the "suite".
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleasesApiContentDebReleasesCreateRequest
+ @return ContentReleasesAPIContentDebReleasesCreateRequest
 */
-func (a *ContentReleasesApiService) ContentDebReleasesCreate(ctx context.Context) ContentReleasesApiContentDebReleasesCreateRequest {
-	return ContentReleasesApiContentDebReleasesCreateRequest{
+func (a *ContentReleasesAPIService) ContentDebReleasesCreate(ctx context.Context) ContentReleasesAPIContentDebReleasesCreateRequest {
+	return ContentReleasesAPIContentDebReleasesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -65,7 +67,7 @@ func (a *ContentReleasesApiService) ContentDebReleasesCreate(ctx context.Context
 
 // Execute executes the request
 //  @return DebReleaseResponse
-func (a *ContentReleasesApiService) ContentDebReleasesCreateExecute(r ContentReleasesApiContentDebReleasesCreateRequest) (*DebReleaseResponse, *http.Response, error) {
+func (a *ContentReleasesAPIService) ContentDebReleasesCreateExecute(r ContentReleasesAPIContentDebReleasesCreateRequest) (*DebReleaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -73,7 +75,7 @@ func (a *ContentReleasesApiService) ContentDebReleasesCreateExecute(r ContentRel
 		localVarReturnValue  *DebReleaseResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleasesApiService.ContentDebReleasesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleasesAPIService.ContentDebReleasesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -142,9 +144,9 @@ func (a *ContentReleasesApiService) ContentDebReleasesCreateExecute(r ContentRel
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleasesApiContentDebReleasesListRequest struct {
+type ContentReleasesAPIContentDebReleasesListRequest struct {
 	ctx context.Context
-	ApiService *ContentReleasesApiService
+	ApiService *ContentReleasesAPIService
 	codename *string
 	distribution *string
 	limit *int32
@@ -161,105 +163,107 @@ type ContentReleasesApiContentDebReleasesListRequest struct {
 }
 
 // Filter results where codename matches value
-func (r ContentReleasesApiContentDebReleasesListRequest) Codename(codename string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Codename(codename string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.codename = &codename
 	return r
 }
 
 // Filter results where distribution matches value
-func (r ContentReleasesApiContentDebReleasesListRequest) Distribution(distribution string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Distribution(distribution string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.distribution = &distribution
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentReleasesApiContentDebReleasesListRequest) Limit(limit int32) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Limit(limit int32) ContentReleasesAPIContentDebReleasesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentReleasesApiContentDebReleasesListRequest) Offset(offset int32) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Offset(offset int32) ContentReleasesAPIContentDebReleasesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;codename&#x60; - Codename * &#x60;-codename&#x60; - Codename (descending) * &#x60;suite&#x60; - Suite * &#x60;-suite&#x60; - Suite (descending) * &#x60;distribution&#x60; - Distribution * &#x60;-distribution&#x60; - Distribution (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentReleasesApiContentDebReleasesListRequest) Ordering(ordering []string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Ordering(ordering []string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleasesApiContentDebReleasesListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) PulpHrefIn(pulpHrefIn []string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentReleasesApiContentDebReleasesListRequest) PulpIdIn(pulpIdIn []string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) PulpIdIn(pulpIdIn []string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleasesApiContentDebReleasesListRequest) RepositoryVersion(repositoryVersion string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) RepositoryVersion(repositoryVersion string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleasesApiContentDebReleasesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentReleasesApiContentDebReleasesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where suite matches value
-func (r ContentReleasesApiContentDebReleasesListRequest) Suite(suite string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Suite(suite string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.suite = &suite
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentReleasesApiContentDebReleasesListRequest) Fields(fields []string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Fields(fields []string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleasesApiContentDebReleasesListRequest) ExcludeFields(excludeFields []string) ContentReleasesApiContentDebReleasesListRequest {
+func (r ContentReleasesAPIContentDebReleasesListRequest) ExcludeFields(excludeFields []string) ContentReleasesAPIContentDebReleasesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleasesApiContentDebReleasesListRequest) Execute() (*PaginateddebReleaseResponseList, *http.Response, error) {
+func (r ContentReleasesAPIContentDebReleasesListRequest) Execute() (*PaginateddebReleaseResponseList, *http.Response, error) {
 	return r.ApiService.ContentDebReleasesListExecute(r)
 }
 
 /*
 ContentDebReleasesList List releases
 
-A Release represents a single APT release/distribution.
+The Release contains release file fields, that are not relevant to the APT repo structure.
 
 Associated artifacts: None; contains only metadata.
 
-Note that in the context of the "Release content", the terms "distribution" and "release"
-are synonyms. An "APT repository release/distribution" is associated with a single 'Release'
-file below the 'dists/' folder. The "distribution" refers to the path between 'dists/' and the
-'Release' file. The "distribution" could be considered the name of the "release". It is often
-(but not always) equal to the "codename" or "suite".
+By non-structure relevant release file fields, we mean anything other than the Components and
+Architectures fields. These are handled by their own models and are not part of this model.
+
+Note that the distribution field is part of this model, but is not added to any published
+release files. The "distribution" is defined as the path between 'dists/' and some 'Release'
+file. As such, it encodes the path to the relevant release file within the APT repository.
+It is often (but not always) equal to the "codename" or the "suite".
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentReleasesApiContentDebReleasesListRequest
+ @return ContentReleasesAPIContentDebReleasesListRequest
 */
-func (a *ContentReleasesApiService) ContentDebReleasesList(ctx context.Context) ContentReleasesApiContentDebReleasesListRequest {
-	return ContentReleasesApiContentDebReleasesListRequest{
+func (a *ContentReleasesAPIService) ContentDebReleasesList(ctx context.Context) ContentReleasesAPIContentDebReleasesListRequest {
+	return ContentReleasesAPIContentDebReleasesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -267,7 +271,7 @@ func (a *ContentReleasesApiService) ContentDebReleasesList(ctx context.Context) 
 
 // Execute executes the request
 //  @return PaginateddebReleaseResponseList
-func (a *ContentReleasesApiService) ContentDebReleasesListExecute(r ContentReleasesApiContentDebReleasesListRequest) (*PaginateddebReleaseResponseList, *http.Response, error) {
+func (a *ContentReleasesAPIService) ContentDebReleasesListExecute(r ContentReleasesAPIContentDebReleasesListRequest) (*PaginateddebReleaseResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -275,7 +279,7 @@ func (a *ContentReleasesApiService) ContentDebReleasesListExecute(r ContentRelea
 		localVarReturnValue  *PaginateddebReleaseResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleasesApiService.ContentDebReleasesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleasesAPIService.ContentDebReleasesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -394,49 +398,51 @@ func (a *ContentReleasesApiService) ContentDebReleasesListExecute(r ContentRelea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentReleasesApiContentDebReleasesReadRequest struct {
+type ContentReleasesAPIContentDebReleasesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentReleasesApiService
+	ApiService *ContentReleasesAPIService
 	debReleaseHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentReleasesApiContentDebReleasesReadRequest) Fields(fields []string) ContentReleasesApiContentDebReleasesReadRequest {
+func (r ContentReleasesAPIContentDebReleasesReadRequest) Fields(fields []string) ContentReleasesAPIContentDebReleasesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentReleasesApiContentDebReleasesReadRequest) ExcludeFields(excludeFields []string) ContentReleasesApiContentDebReleasesReadRequest {
+func (r ContentReleasesAPIContentDebReleasesReadRequest) ExcludeFields(excludeFields []string) ContentReleasesAPIContentDebReleasesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentReleasesApiContentDebReleasesReadRequest) Execute() (*DebReleaseResponse, *http.Response, error) {
+func (r ContentReleasesAPIContentDebReleasesReadRequest) Execute() (*DebReleaseResponse, *http.Response, error) {
 	return r.ApiService.ContentDebReleasesReadExecute(r)
 }
 
 /*
 ContentDebReleasesRead Inspect a release
 
-A Release represents a single APT release/distribution.
+The Release contains release file fields, that are not relevant to the APT repo structure.
 
 Associated artifacts: None; contains only metadata.
 
-Note that in the context of the "Release content", the terms "distribution" and "release"
-are synonyms. An "APT repository release/distribution" is associated with a single 'Release'
-file below the 'dists/' folder. The "distribution" refers to the path between 'dists/' and the
-'Release' file. The "distribution" could be considered the name of the "release". It is often
-(but not always) equal to the "codename" or "suite".
+By non-structure relevant release file fields, we mean anything other than the Components and
+Architectures fields. These are handled by their own models and are not part of this model.
+
+Note that the distribution field is part of this model, but is not added to any published
+release files. The "distribution" is defined as the path between 'dists/' and some 'Release'
+file. As such, it encodes the path to the relevant release file within the APT repository.
+It is often (but not always) equal to the "codename" or the "suite".
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param debReleaseHref
- @return ContentReleasesApiContentDebReleasesReadRequest
+ @return ContentReleasesAPIContentDebReleasesReadRequest
 */
-func (a *ContentReleasesApiService) ContentDebReleasesRead(ctx context.Context, debReleaseHref string) ContentReleasesApiContentDebReleasesReadRequest {
-	return ContentReleasesApiContentDebReleasesReadRequest{
+func (a *ContentReleasesAPIService) ContentDebReleasesRead(ctx context.Context, debReleaseHref string) ContentReleasesAPIContentDebReleasesReadRequest {
+	return ContentReleasesAPIContentDebReleasesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		debReleaseHref: debReleaseHref,
@@ -445,7 +451,7 @@ func (a *ContentReleasesApiService) ContentDebReleasesRead(ctx context.Context, 
 
 // Execute executes the request
 //  @return DebReleaseResponse
-func (a *ContentReleasesApiService) ContentDebReleasesReadExecute(r ContentReleasesApiContentDebReleasesReadRequest) (*DebReleaseResponse, *http.Response, error) {
+func (a *ContentReleasesAPIService) ContentDebReleasesReadExecute(r ContentReleasesAPIContentDebReleasesReadRequest) (*DebReleaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -453,7 +459,7 @@ func (a *ContentReleasesApiService) ContentDebReleasesReadExecute(r ContentRelea
 		localVarReturnValue  *DebReleaseResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleasesApiService.ContentDebReleasesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentReleasesAPIService.ContentDebReleasesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -22,22 +22,22 @@ import (
 )
 
 
-// RepositoriesAnsibleApiService RepositoriesAnsibleApi service
-type RepositoriesAnsibleApiService service
+// RepositoriesAnsibleAPIService RepositoriesAnsibleAPI service
+type RepositoriesAnsibleAPIService service
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleAddRoleExecute(r)
 }
 
@@ -48,10 +48,10 @@ Add a role for this object to users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleAddRole(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleAddRole(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -60,7 +60,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleAddRole(ctx co
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleAddRoleExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleAddRoleExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleAddRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleAddRoleExecute
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleAddRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleAddRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,19 +140,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleAddRoleExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	collectionVersionCopyMove *CollectionVersionCopyMove
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest) CollectionVersionCopyMove(collectionVersionCopyMove CollectionVersionCopyMove) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest) CollectionVersionCopyMove(collectionVersionCopyMove CollectionVersionCopyMove) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest {
 	r.collectionVersionCopyMove = &collectionVersionCopyMove
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleCopyCollectionVersionExecute(r)
 }
 
@@ -163,10 +163,10 @@ Trigger an asynchronous task to copy collection versions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCopyCollectionVersion(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleCopyCollectionVersion(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -175,7 +175,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCopyCollection
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCopyCollectionVersionExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCopyCollectionVersionRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleCopyCollectionVersionExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCopyCollectionVersionRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -183,7 +183,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCopyCollection
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleCopyCollectionVersion")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleCopyCollectionVersion")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -255,18 +255,18 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCopyCollection
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepository *AnsibleAnsibleRepository
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest) AnsibleAnsibleRepository(ansibleAnsibleRepository AnsibleAnsibleRepository) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest) AnsibleAnsibleRepository(ansibleAnsibleRepository AnsibleAnsibleRepository) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest {
 	r.ansibleAnsibleRepository = &ansibleAnsibleRepository
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest) Execute() (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest) Execute() (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleCreateExecute(r)
 }
 
@@ -276,10 +276,10 @@ RepositoriesAnsibleAnsibleCreate Create an ansible repository
 ViewSet for Ansible Repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCreate(ctx context.Context) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleCreate(ctx context.Context) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -287,7 +287,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCreate(ctx con
 
 // Execute executes the request
 //  @return AnsibleAnsibleRepositoryResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCreateExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleCreateRequest) (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleCreateExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleCreateRequest) (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -295,7 +295,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCreateExecute(
 		localVarReturnValue  *AnsibleAnsibleRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -364,13 +364,13 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleCreateExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleDeleteRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleDeleteRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleDeleteRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleDeleteExecute(r)
 }
 
@@ -381,10 +381,10 @@ Trigger an asynchronous delete task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleDeleteRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleDeleteRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleDelete(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleDeleteRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleDeleteRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleDelete(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleDeleteRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -393,7 +393,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleDelete(ctx con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleDeleteExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleDeleteExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleDeleteRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -401,7 +401,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleDeleteExecute(
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -468,9 +468,10 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleDeleteExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
+	latestWithContent *string
 	limit *int32
 	name *string
 	nameContains *string
@@ -491,143 +492,156 @@ type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest struct {
 	retainRepoVersionsLte *int32
 	retainRepoVersionsNe *int32
 	retainRepoVersionsRange *[]int32
+	withContent *string
 	fields *[]string
 	excludeFields *[]string
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) LatestWithContent(latestWithContent string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
+	r.latestWithContent = &latestWithContent
+	return r
+}
+
 // Number of results to return per page.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) Limit(limit int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) Limit(limit int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) Name(name string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) Name(name string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) NameContains(nameContains string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) NameContains(nameContains string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.nameContains = &nameContains
 	return r
 }
 
 // Filter results where name contains value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) NameIcontains(nameIcontains string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) NameIcontains(nameIcontains string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.nameIcontains = &nameIcontains
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) NameIn(nameIn []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) NameIn(nameIn []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // Filter results where name starts with value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) NameStartswith(nameStartswith string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) NameStartswith(nameStartswith string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.nameStartswith = &nameStartswith
 	return r
 }
 
 // The initial index from which to return the results.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) Offset(offset int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) Offset(offset int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pulp_labels&#x60; - Pulp labels * &#x60;-pulp_labels&#x60; - Pulp labels (descending) * &#x60;description&#x60; - Description * &#x60;-description&#x60; - Description (descending) * &#x60;next_version&#x60; - Next version * &#x60;-next_version&#x60; - Next version (descending) * &#x60;retain_repo_versions&#x60; - Retain repo versions * &#x60;-retain_repo_versions&#x60; - Retain repo versions (descending) * &#x60;user_hidden&#x60; - User hidden * &#x60;-user_hidden&#x60; - User hidden (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) Ordering(ordering []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) Ordering(ordering []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) PulpHrefIn(pulpHrefIn []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) PulpIdIn(pulpIdIn []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) PulpIdIn(pulpIdIn []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Filter labels by search string
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) PulpLabelSelect(pulpLabelSelect string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.pulpLabelSelect = &pulpLabelSelect
 	return r
 }
 
 // Foreign Key referenced by HREF
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) Remote(remote string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) Remote(remote string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.remote = &remote
 	return r
 }
 
 // Filter results where retain_repo_versions matches value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersions(retainRepoVersions int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersions = &retainRepoVersions
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsGt(retainRepoVersionsGt int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersionsGt = &retainRepoVersionsGt
 	return r
 }
 
 // Filter results where retain_repo_versions is greater than or equal to value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsGte(retainRepoVersionsGte int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersionsGte = &retainRepoVersionsGte
 	return r
 }
 
 // Filter results where retain_repo_versions has a null value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsIsnull(retainRepoVersionsIsnull bool) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersionsIsnull = &retainRepoVersionsIsnull
 	return r
 }
 
 // Filter results where retain_repo_versions is less than value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsLt(retainRepoVersionsLt int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersionsLt = &retainRepoVersionsLt
 	return r
 }
 
 // Filter results where retain_repo_versions is less than or equal to value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsLte(retainRepoVersionsLte int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersionsLte = &retainRepoVersionsLte
 	return r
 }
 
 // Filter results where retain_repo_versions not equal to value
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsNe(retainRepoVersionsNe int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersionsNe = &retainRepoVersionsNe
 	return r
 }
 
 // Filter results where retain_repo_versions is between two comma separated values
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) RetainRepoVersionsRange(retainRepoVersionsRange []int32) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.retainRepoVersionsRange = &retainRepoVersionsRange
 	return r
 }
 
+// Content Unit referenced by HREF
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) WithContent(withContent string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
+	r.withContent = &withContent
+	return r
+}
+
 // A list of fields to include in the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) Fields(fields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) Fields(fields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) Execute() (*PaginatedansibleAnsibleRepositoryResponseList, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) Execute() (*PaginatedansibleAnsibleRepositoryResponseList, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleListExecute(r)
 }
 
@@ -637,10 +651,10 @@ RepositoriesAnsibleAnsibleList List ansible repositorys
 ViewSet for Ansible Repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleList(ctx context.Context) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleList(ctx context.Context) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -648,7 +662,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleList(ctx conte
 
 // Execute executes the request
 //  @return PaginatedansibleAnsibleRepositoryResponseList
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRequest) (*PaginatedansibleAnsibleRepositoryResponseList, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleListExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRequest) (*PaginatedansibleAnsibleRepositoryResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -656,7 +670,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListExecute(r 
 		localVarReturnValue  *PaginatedansibleAnsibleRepositoryResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -666,6 +680,9 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListExecute(r 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.latestWithContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "latest_with_content", r.latestWithContent, "")
+	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
@@ -725,6 +742,9 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListExecute(r 
 	}
 	if r.retainRepoVersionsRange != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "retain_repo_versions__range", r.retainRepoVersionsRange, "csv")
+	}
+	if r.withContent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "with_content", r.withContent, "")
 	}
 	if r.fields != nil {
 		t := *r.fields
@@ -802,27 +822,27 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest) Fields(fields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest) Fields(fields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest) Execute() (*ObjectRolesResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleListRolesExecute(r)
 }
 
@@ -833,10 +853,10 @@ List roles assigned to this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListRoles(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleListRoles(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -845,7 +865,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListRoles(ctx 
 
 // Execute executes the request
 //  @return ObjectRolesResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListRolesExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleListRolesExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleListRolesRequest) (*ObjectRolesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -853,7 +873,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListRolesExecu
 		localVarReturnValue  *ObjectRolesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleListRoles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleListRoles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -942,19 +962,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleListRolesExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	ansibleRepositoryMark *AnsibleRepositoryMark
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest) AnsibleRepositoryMark(ansibleRepositoryMark AnsibleRepositoryMark) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest) AnsibleRepositoryMark(ansibleRepositoryMark AnsibleRepositoryMark) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest {
 	r.ansibleRepositoryMark = &ansibleRepositoryMark
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleMarkExecute(r)
 }
 
@@ -965,10 +985,10 @@ Trigger an asynchronous task to mark Ansible content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMark(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleMark(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -977,7 +997,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMark(ctx conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMarkExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMarkRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleMarkExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMarkRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -985,7 +1005,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMarkExecute(r 
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleMark")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleMark")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1057,19 +1077,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMarkExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	repositoryAddRemoveContent *RepositoryAddRemoveContent
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest) RepositoryAddRemoveContent(repositoryAddRemoveContent RepositoryAddRemoveContent) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest {
 	r.repositoryAddRemoveContent = &repositoryAddRemoveContent
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleModifyExecute(r)
 }
 
@@ -1080,10 +1100,10 @@ Trigger an asynchronous task to create a new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleModify(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleModify(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1092,7 +1112,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleModify(ctx con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleModifyExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleModifyExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleModifyRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1100,7 +1120,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleModifyExecute(
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleModify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleModify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1172,19 +1192,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleModifyExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	collectionVersionCopyMove *CollectionVersionCopyMove
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest) CollectionVersionCopyMove(collectionVersionCopyMove CollectionVersionCopyMove) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest) CollectionVersionCopyMove(collectionVersionCopyMove CollectionVersionCopyMove) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest {
 	r.collectionVersionCopyMove = &collectionVersionCopyMove
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleMoveCollectionVersionExecute(r)
 }
 
@@ -1195,10 +1215,10 @@ Trigger an asynchronous task to move collection versions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMoveCollectionVersion(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleMoveCollectionVersion(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1207,7 +1227,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMoveCollection
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMoveCollectionVersionExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMoveCollectionVersionRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleMoveCollectionVersionExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMoveCollectionVersionRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1215,7 +1235,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMoveCollection
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleMoveCollectionVersion")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleMoveCollectionVersion")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1287,27 +1307,27 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMoveCollection
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest) Fields(fields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest) Fields(fields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest) Execute() (*MyPermissionsResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleMyPermissionsExecute(r)
 }
 
@@ -1318,10 +1338,10 @@ List permissions available to the current user on this object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMyPermissions(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleMyPermissions(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1330,7 +1350,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMyPermissions(
 
 // Execute executes the request
 //  @return MyPermissionsResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMyPermissionsExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleMyPermissionsExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleMyPermissionsRequest) (*MyPermissionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1338,7 +1358,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMyPermissionsE
 		localVarReturnValue  *MyPermissionsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleMyPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleMyPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1427,19 +1447,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleMyPermissionsE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	patchedansibleAnsibleRepository *PatchedansibleAnsibleRepository
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest) PatchedansibleAnsibleRepository(patchedansibleAnsibleRepository PatchedansibleAnsibleRepository) RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest) PatchedansibleAnsibleRepository(patchedansibleAnsibleRepository PatchedansibleAnsibleRepository) RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest {
 	r.patchedansibleAnsibleRepository = &patchedansibleAnsibleRepository
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsiblePartialUpdateExecute(r)
 }
 
@@ -1450,10 +1470,10 @@ Trigger an asynchronous partial update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsiblePartialUpdate(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsiblePartialUpdate(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1462,7 +1482,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsiblePartialUpdate(
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsiblePartialUpdateExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsiblePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsiblePartialUpdateExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsiblePartialUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1470,7 +1490,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsiblePartialUpdateE
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsiblePartialUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsiblePartialUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1542,27 +1562,27 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsiblePartialUpdateE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest) Fields(fields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest) Fields(fields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest) ExcludeFields(excludeFields []string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest) Execute() (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest) Execute() (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleReadExecute(r)
 }
 
@@ -1573,10 +1593,10 @@ ViewSet for Ansible Repositories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRead(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleRead(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1585,7 +1605,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRead(ctx conte
 
 // Execute executes the request
 //  @return AnsibleAnsibleRepositoryResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleReadExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleReadRequest) (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleReadExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleReadRequest) (*AnsibleAnsibleRepositoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1593,7 +1613,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleReadExecute(r 
 		localVarReturnValue  *AnsibleAnsibleRepositoryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1682,19 +1702,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleReadExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	ansibleRepositoryRebuild *AnsibleRepositoryRebuild
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest) AnsibleRepositoryRebuild(ansibleRepositoryRebuild AnsibleRepositoryRebuild) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest) AnsibleRepositoryRebuild(ansibleRepositoryRebuild AnsibleRepositoryRebuild) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest {
 	r.ansibleRepositoryRebuild = &ansibleRepositoryRebuild
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleRebuildMetadataExecute(r)
 }
 
@@ -1705,10 +1725,10 @@ Trigger an asynchronous task to rebuild Ansible content meta.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRebuildMetadata(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleRebuildMetadata(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1717,7 +1737,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRebuildMetadat
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRebuildMetadataExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRebuildMetadataRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleRebuildMetadataExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRebuildMetadataRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1725,7 +1745,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRebuildMetadat
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleRebuildMetadata")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleRebuildMetadata")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1797,19 +1817,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRebuildMetadat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	nestedRole *NestedRole
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest) NestedRole(nestedRole NestedRole) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest {
 	r.nestedRole = &nestedRole
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest) Execute() (*NestedRoleResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleRemoveRoleExecute(r)
 }
 
@@ -1820,10 +1840,10 @@ Remove a role for this object from users/groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRemoveRole(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleRemoveRole(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1832,7 +1852,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRemoveRole(ctx
 
 // Execute executes the request
 //  @return NestedRoleResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRemoveRoleExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleRemoveRoleExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleRemoveRoleRequest) (*NestedRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1840,7 +1860,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRemoveRoleExec
 		localVarReturnValue  *NestedRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleRemoveRole")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleRemoveRole")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1912,19 +1932,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleRemoveRoleExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	ansibleRepositorySignature *AnsibleRepositorySignature
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest) AnsibleRepositorySignature(ansibleRepositorySignature AnsibleRepositorySignature) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest) AnsibleRepositorySignature(ansibleRepositorySignature AnsibleRepositorySignature) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest {
 	r.ansibleRepositorySignature = &ansibleRepositorySignature
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleSignExecute(r)
 }
 
@@ -1935,10 +1955,10 @@ Trigger an asynchronous task to sign Ansible content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSign(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleSign(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -1947,7 +1967,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSign(ctx conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSignExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSignRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleSignExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSignRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1955,7 +1975,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSignExecute(r 
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleSign")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleSign")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2027,19 +2047,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSignExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	ansibleRepositorySyncURL *AnsibleRepositorySyncURL
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest) AnsibleRepositorySyncURL(ansibleRepositorySyncURL AnsibleRepositorySyncURL) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest) AnsibleRepositorySyncURL(ansibleRepositorySyncURL AnsibleRepositorySyncURL) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest {
 	r.ansibleRepositorySyncURL = &ansibleRepositorySyncURL
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleSyncExecute(r)
 }
 
@@ -2050,10 +2070,10 @@ Trigger an asynchronous task to sync Ansible content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSync(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleSync(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -2062,7 +2082,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSync(ctx conte
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSyncExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleSyncExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleSyncRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2070,7 +2090,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSyncExecute(r 
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2142,19 +2162,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleSyncExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	ansibleRepositoryMark *AnsibleRepositoryMark
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest) AnsibleRepositoryMark(ansibleRepositoryMark AnsibleRepositoryMark) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest) AnsibleRepositoryMark(ansibleRepositoryMark AnsibleRepositoryMark) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest {
 	r.ansibleRepositoryMark = &ansibleRepositoryMark
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleUnmarkExecute(r)
 }
 
@@ -2165,10 +2185,10 @@ Trigger an asynchronous task to unmark Ansible content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUnmark(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleUnmark(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -2177,7 +2197,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUnmark(ctx con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUnmarkExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUnmarkRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleUnmarkExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUnmarkRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2185,7 +2205,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUnmarkExecute(
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleUnmark")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleUnmark")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2257,19 +2277,19 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUnmarkExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest struct {
+type RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest struct {
 	ctx context.Context
-	ApiService *RepositoriesAnsibleApiService
+	ApiService *RepositoriesAnsibleAPIService
 	ansibleAnsibleRepositoryHref string
 	ansibleAnsibleRepository *AnsibleAnsibleRepository
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest) AnsibleAnsibleRepository(ansibleAnsibleRepository AnsibleAnsibleRepository) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest) AnsibleAnsibleRepository(ansibleAnsibleRepository AnsibleAnsibleRepository) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest {
 	r.ansibleAnsibleRepository = &ansibleAnsibleRepository
 	return r
 }
 
-func (r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepositoriesAnsibleAnsibleUpdateExecute(r)
 }
 
@@ -2280,10 +2300,10 @@ Trigger an asynchronous update task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleAnsibleRepositoryHref
- @return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest
+ @return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest
 */
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUpdate(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest {
-	return RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest{
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleUpdate(ctx context.Context, ansibleAnsibleRepositoryHref string) RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest {
+	return RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleAnsibleRepositoryHref: ansibleAnsibleRepositoryHref,
@@ -2292,7 +2312,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUpdate(ctx con
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUpdateExecute(r RepositoriesAnsibleApiRepositoriesAnsibleAnsibleUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepositoriesAnsibleAPIService) RepositoriesAnsibleAnsibleUpdateExecute(r RepositoriesAnsibleAPIRepositoriesAnsibleAnsibleUpdateRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2300,7 +2320,7 @@ func (a *RepositoriesAnsibleApiService) RepositoriesAnsibleAnsibleUpdateExecute(
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleApiService.RepositoriesAnsibleAnsibleUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepositoriesAnsibleAPIService.RepositoriesAnsibleAnsibleUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

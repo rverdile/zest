@@ -20,21 +20,21 @@ import (
 )
 
 
-// RepairApiService RepairApi service
-type RepairApiService service
+// RepairAPIService RepairAPI service
+type RepairAPIService service
 
-type RepairApiRepairPostRequest struct {
+type RepairAPIRepairPostRequest struct {
 	ctx context.Context
-	ApiService *RepairApiService
+	ApiService *RepairAPIService
 	repair *Repair
 }
 
-func (r RepairApiRepairPostRequest) Repair(repair Repair) RepairApiRepairPostRequest {
+func (r RepairAPIRepairPostRequest) Repair(repair Repair) RepairAPIRepairPostRequest {
 	r.repair = &repair
 	return r
 }
 
-func (r RepairApiRepairPostRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
+func (r RepairAPIRepairPostRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
 	return r.ApiService.RepairPostExecute(r)
 }
 
@@ -44,10 +44,10 @@ RepairPost Repair Artifact Storage
 Trigger an asynchronous task that checks for missing or corrupted artifacts, and attempts to redownload them.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RepairApiRepairPostRequest
+ @return RepairAPIRepairPostRequest
 */
-func (a *RepairApiService) RepairPost(ctx context.Context) RepairApiRepairPostRequest {
-	return RepairApiRepairPostRequest{
+func (a *RepairAPIService) RepairPost(ctx context.Context) RepairAPIRepairPostRequest {
+	return RepairAPIRepairPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *RepairApiService) RepairPost(ctx context.Context) RepairApiRepairPostRe
 
 // Execute executes the request
 //  @return AsyncOperationResponse
-func (a *RepairApiService) RepairPostExecute(r RepairApiRepairPostRequest) (*AsyncOperationResponse, *http.Response, error) {
+func (a *RepairAPIService) RepairPostExecute(r RepairAPIRepairPostRequest) (*AsyncOperationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *RepairApiService) RepairPostExecute(r RepairApiRepairPostRequest) (*Asy
 		localVarReturnValue  *AsyncOperationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepairApiService.RepairPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RepairAPIService.RepairPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

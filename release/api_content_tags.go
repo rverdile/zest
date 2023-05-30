@@ -22,12 +22,12 @@ import (
 )
 
 
-// ContentTagsApiService ContentTagsApi service
-type ContentTagsApiService service
+// ContentTagsAPIService ContentTagsAPI service
+type ContentTagsAPIService service
 
-type ContentTagsApiContentContainerTagsListRequest struct {
+type ContentTagsAPIContentContainerTagsListRequest struct {
 	ctx context.Context
-	ApiService *ContentTagsApiService
+	ApiService *ContentTagsAPIService
 	digest *[]string
 	limit *int32
 	mediaType *[]string
@@ -45,90 +45,90 @@ type ContentTagsApiContentContainerTagsListRequest struct {
 }
 
 // Multiple values may be separated by commas.
-func (r ContentTagsApiContentContainerTagsListRequest) Digest(digest []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) Digest(digest []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.digest = &digest
 	return r
 }
 
 // Number of results to return per page.
-func (r ContentTagsApiContentContainerTagsListRequest) Limit(limit int32) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) Limit(limit int32) ContentTagsAPIContentContainerTagsListRequest {
 	r.limit = &limit
 	return r
 }
 
 // * &#x60;application/vnd.docker.distribution.manifest.v1+json&#x60; - application/vnd.docker.distribution.manifest.v1+json * &#x60;application/vnd.docker.distribution.manifest.v2+json&#x60; - application/vnd.docker.distribution.manifest.v2+json * &#x60;application/vnd.docker.distribution.manifest.list.v2+json&#x60; - application/vnd.docker.distribution.manifest.list.v2+json * &#x60;application/vnd.oci.image.manifest.v1+json&#x60; - application/vnd.oci.image.manifest.v1+json * &#x60;application/vnd.oci.image.index.v1+json&#x60; - application/vnd.oci.image.index.v1+json  * &#x60;application/vnd.docker.distribution.manifest.v1+json&#x60; - application/vnd.docker.distribution.manifest.v1+json * &#x60;application/vnd.docker.distribution.manifest.v2+json&#x60; - application/vnd.docker.distribution.manifest.v2+json * &#x60;application/vnd.docker.distribution.manifest.list.v2+json&#x60; - application/vnd.docker.distribution.manifest.list.v2+json * &#x60;application/vnd.oci.image.manifest.v1+json&#x60; - application/vnd.oci.image.manifest.v1+json * &#x60;application/vnd.oci.image.index.v1+json&#x60; - application/vnd.oci.image.index.v1+json
-func (r ContentTagsApiContentContainerTagsListRequest) MediaType(mediaType []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) MediaType(mediaType []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.mediaType = &mediaType
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentTagsApiContentContainerTagsListRequest) Name(name string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) Name(name string) ContentTagsAPIContentContainerTagsListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where name is in a comma-separated list of values
-func (r ContentTagsApiContentContainerTagsListRequest) NameIn(nameIn []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) NameIn(nameIn []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.nameIn = &nameIn
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentTagsApiContentContainerTagsListRequest) Offset(offset int32) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) Offset(offset int32) ContentTagsAPIContentContainerTagsListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentTagsApiContentContainerTagsListRequest) Ordering(ordering []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) Ordering(ordering []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentTagsApiContentContainerTagsListRequest) PulpHrefIn(pulpHrefIn []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) PulpHrefIn(pulpHrefIn []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentTagsApiContentContainerTagsListRequest) PulpIdIn(pulpIdIn []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) PulpIdIn(pulpIdIn []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentTagsApiContentContainerTagsListRequest) RepositoryVersion(repositoryVersion string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) RepositoryVersion(repositoryVersion string) ContentTagsAPIContentContainerTagsListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentTagsApiContentContainerTagsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentTagsAPIContentContainerTagsListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentTagsApiContentContainerTagsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentTagsAPIContentContainerTagsListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentTagsApiContentContainerTagsListRequest) Fields(fields []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) Fields(fields []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentTagsApiContentContainerTagsListRequest) ExcludeFields(excludeFields []string) ContentTagsApiContentContainerTagsListRequest {
+func (r ContentTagsAPIContentContainerTagsListRequest) ExcludeFields(excludeFields []string) ContentTagsAPIContentContainerTagsListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentTagsApiContentContainerTagsListRequest) Execute() (*PaginatedcontainerTagResponseList, *http.Response, error) {
+func (r ContentTagsAPIContentContainerTagsListRequest) Execute() (*PaginatedcontainerTagResponseList, *http.Response, error) {
 	return r.ApiService.ContentContainerTagsListExecute(r)
 }
 
@@ -138,10 +138,10 @@ ContentContainerTagsList List tags
 ViewSet for Tag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentTagsApiContentContainerTagsListRequest
+ @return ContentTagsAPIContentContainerTagsListRequest
 */
-func (a *ContentTagsApiService) ContentContainerTagsList(ctx context.Context) ContentTagsApiContentContainerTagsListRequest {
-	return ContentTagsApiContentContainerTagsListRequest{
+func (a *ContentTagsAPIService) ContentContainerTagsList(ctx context.Context) ContentTagsAPIContentContainerTagsListRequest {
+	return ContentTagsAPIContentContainerTagsListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -149,7 +149,7 @@ func (a *ContentTagsApiService) ContentContainerTagsList(ctx context.Context) Co
 
 // Execute executes the request
 //  @return PaginatedcontainerTagResponseList
-func (a *ContentTagsApiService) ContentContainerTagsListExecute(r ContentTagsApiContentContainerTagsListRequest) (*PaginatedcontainerTagResponseList, *http.Response, error) {
+func (a *ContentTagsAPIService) ContentContainerTagsListExecute(r ContentTagsAPIContentContainerTagsListRequest) (*PaginatedcontainerTagResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -157,7 +157,7 @@ func (a *ContentTagsApiService) ContentContainerTagsListExecute(r ContentTagsApi
 		localVarReturnValue  *PaginatedcontainerTagResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentTagsApiService.ContentContainerTagsList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentTagsAPIService.ContentContainerTagsList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -287,27 +287,27 @@ func (a *ContentTagsApiService) ContentContainerTagsListExecute(r ContentTagsApi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentTagsApiContentContainerTagsReadRequest struct {
+type ContentTagsAPIContentContainerTagsReadRequest struct {
 	ctx context.Context
-	ApiService *ContentTagsApiService
+	ApiService *ContentTagsAPIService
 	containerTagHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentTagsApiContentContainerTagsReadRequest) Fields(fields []string) ContentTagsApiContentContainerTagsReadRequest {
+func (r ContentTagsAPIContentContainerTagsReadRequest) Fields(fields []string) ContentTagsAPIContentContainerTagsReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentTagsApiContentContainerTagsReadRequest) ExcludeFields(excludeFields []string) ContentTagsApiContentContainerTagsReadRequest {
+func (r ContentTagsAPIContentContainerTagsReadRequest) ExcludeFields(excludeFields []string) ContentTagsAPIContentContainerTagsReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentTagsApiContentContainerTagsReadRequest) Execute() (*ContainerTagResponse, *http.Response, error) {
+func (r ContentTagsAPIContentContainerTagsReadRequest) Execute() (*ContainerTagResponse, *http.Response, error) {
 	return r.ApiService.ContentContainerTagsReadExecute(r)
 }
 
@@ -318,10 +318,10 @@ ViewSet for Tag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param containerTagHref
- @return ContentTagsApiContentContainerTagsReadRequest
+ @return ContentTagsAPIContentContainerTagsReadRequest
 */
-func (a *ContentTagsApiService) ContentContainerTagsRead(ctx context.Context, containerTagHref string) ContentTagsApiContentContainerTagsReadRequest {
-	return ContentTagsApiContentContainerTagsReadRequest{
+func (a *ContentTagsAPIService) ContentContainerTagsRead(ctx context.Context, containerTagHref string) ContentTagsAPIContentContainerTagsReadRequest {
+	return ContentTagsAPIContentContainerTagsReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		containerTagHref: containerTagHref,
@@ -330,7 +330,7 @@ func (a *ContentTagsApiService) ContentContainerTagsRead(ctx context.Context, co
 
 // Execute executes the request
 //  @return ContainerTagResponse
-func (a *ContentTagsApiService) ContentContainerTagsReadExecute(r ContentTagsApiContentContainerTagsReadRequest) (*ContainerTagResponse, *http.Response, error) {
+func (a *ContentTagsAPIService) ContentContainerTagsReadExecute(r ContentTagsAPIContentContainerTagsReadRequest) (*ContainerTagResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -338,7 +338,7 @@ func (a *ContentTagsApiService) ContentContainerTagsReadExecute(r ContentTagsApi
 		localVarReturnValue  *ContainerTagResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentTagsApiService.ContentContainerTagsRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentTagsAPIService.ContentContainerTagsRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

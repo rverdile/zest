@@ -22,21 +22,21 @@ import (
 )
 
 
-// ContentRolesApiService ContentRolesApi service
-type ContentRolesApiService service
+// ContentRolesAPIService ContentRolesAPI service
+type ContentRolesAPIService service
 
-type ContentRolesApiContentAnsibleRolesCreateRequest struct {
+type ContentRolesAPIContentAnsibleRolesCreateRequest struct {
 	ctx context.Context
-	ApiService *ContentRolesApiService
+	ApiService *ContentRolesAPIService
 	ansibleRole *AnsibleRole
 }
 
-func (r ContentRolesApiContentAnsibleRolesCreateRequest) AnsibleRole(ansibleRole AnsibleRole) ContentRolesApiContentAnsibleRolesCreateRequest {
+func (r ContentRolesAPIContentAnsibleRolesCreateRequest) AnsibleRole(ansibleRole AnsibleRole) ContentRolesAPIContentAnsibleRolesCreateRequest {
 	r.ansibleRole = &ansibleRole
 	return r
 }
 
-func (r ContentRolesApiContentAnsibleRolesCreateRequest) Execute() (*AnsibleRoleResponse, *http.Response, error) {
+func (r ContentRolesAPIContentAnsibleRolesCreateRequest) Execute() (*AnsibleRoleResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleRolesCreateExecute(r)
 }
 
@@ -46,10 +46,10 @@ ContentAnsibleRolesCreate Create a role
 ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentRolesApiContentAnsibleRolesCreateRequest
+ @return ContentRolesAPIContentAnsibleRolesCreateRequest
 */
-func (a *ContentRolesApiService) ContentAnsibleRolesCreate(ctx context.Context) ContentRolesApiContentAnsibleRolesCreateRequest {
-	return ContentRolesApiContentAnsibleRolesCreateRequest{
+func (a *ContentRolesAPIService) ContentAnsibleRolesCreate(ctx context.Context) ContentRolesAPIContentAnsibleRolesCreateRequest {
+	return ContentRolesAPIContentAnsibleRolesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +57,7 @@ func (a *ContentRolesApiService) ContentAnsibleRolesCreate(ctx context.Context) 
 
 // Execute executes the request
 //  @return AnsibleRoleResponse
-func (a *ContentRolesApiService) ContentAnsibleRolesCreateExecute(r ContentRolesApiContentAnsibleRolesCreateRequest) (*AnsibleRoleResponse, *http.Response, error) {
+func (a *ContentRolesAPIService) ContentAnsibleRolesCreateExecute(r ContentRolesAPIContentAnsibleRolesCreateRequest) (*AnsibleRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ContentRolesApiService) ContentAnsibleRolesCreateExecute(r ContentRoles
 		localVarReturnValue  *AnsibleRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRolesApiService.ContentAnsibleRolesCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRolesAPIService.ContentAnsibleRolesCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,9 +134,9 @@ func (a *ContentRolesApiService) ContentAnsibleRolesCreateExecute(r ContentRoles
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentRolesApiContentAnsibleRolesListRequest struct {
+type ContentRolesAPIContentAnsibleRolesListRequest struct {
 	ctx context.Context
-	ApiService *ContentRolesApiService
+	ApiService *ContentRolesAPIService
 	limit *int32
 	name *string
 	namespace *string
@@ -153,84 +153,84 @@ type ContentRolesApiContentAnsibleRolesListRequest struct {
 }
 
 // Number of results to return per page.
-func (r ContentRolesApiContentAnsibleRolesListRequest) Limit(limit int32) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Limit(limit int32) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.limit = &limit
 	return r
 }
 
 // Filter results where name matches value
-func (r ContentRolesApiContentAnsibleRolesListRequest) Name(name string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Name(name string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.name = &name
 	return r
 }
 
 // Filter results where namespace matches value
-func (r ContentRolesApiContentAnsibleRolesListRequest) Namespace(namespace string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Namespace(namespace string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // The initial index from which to return the results.
-func (r ContentRolesApiContentAnsibleRolesListRequest) Offset(offset int32) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Offset(offset int32) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.offset = &offset
 	return r
 }
 
 // Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;namespace&#x60; - Namespace * &#x60;-namespace&#x60; - Namespace (descending) * &#x60;name&#x60; - Name * &#x60;-name&#x60; - Name (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending)
-func (r ContentRolesApiContentAnsibleRolesListRequest) Ordering(ordering []string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Ordering(ordering []string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.ordering = &ordering
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentRolesApiContentAnsibleRolesListRequest) PulpHrefIn(pulpHrefIn []string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) PulpHrefIn(pulpHrefIn []string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.pulpHrefIn = &pulpHrefIn
 	return r
 }
 
 // Multiple values may be separated by commas.
-func (r ContentRolesApiContentAnsibleRolesListRequest) PulpIdIn(pulpIdIn []string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) PulpIdIn(pulpIdIn []string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.pulpIdIn = &pulpIdIn
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRolesApiContentAnsibleRolesListRequest) RepositoryVersion(repositoryVersion string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) RepositoryVersion(repositoryVersion string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.repositoryVersion = &repositoryVersion
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRolesApiContentAnsibleRolesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) RepositoryVersionAdded(repositoryVersionAdded string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.repositoryVersionAdded = &repositoryVersionAdded
 	return r
 }
 
 // Repository Version referenced by HREF
-func (r ContentRolesApiContentAnsibleRolesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) RepositoryVersionRemoved(repositoryVersionRemoved string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.repositoryVersionRemoved = &repositoryVersionRemoved
 	return r
 }
 
 // Filter results where version matches value
-func (r ContentRolesApiContentAnsibleRolesListRequest) Version(version string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Version(version string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.version = &version
 	return r
 }
 
 // A list of fields to include in the response.
-func (r ContentRolesApiContentAnsibleRolesListRequest) Fields(fields []string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Fields(fields []string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentRolesApiContentAnsibleRolesListRequest) ExcludeFields(excludeFields []string) ContentRolesApiContentAnsibleRolesListRequest {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) ExcludeFields(excludeFields []string) ContentRolesAPIContentAnsibleRolesListRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentRolesApiContentAnsibleRolesListRequest) Execute() (*PaginatedansibleRoleResponseList, *http.Response, error) {
+func (r ContentRolesAPIContentAnsibleRolesListRequest) Execute() (*PaginatedansibleRoleResponseList, *http.Response, error) {
 	return r.ApiService.ContentAnsibleRolesListExecute(r)
 }
 
@@ -240,10 +240,10 @@ ContentAnsibleRolesList List roles
 ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ContentRolesApiContentAnsibleRolesListRequest
+ @return ContentRolesAPIContentAnsibleRolesListRequest
 */
-func (a *ContentRolesApiService) ContentAnsibleRolesList(ctx context.Context) ContentRolesApiContentAnsibleRolesListRequest {
-	return ContentRolesApiContentAnsibleRolesListRequest{
+func (a *ContentRolesAPIService) ContentAnsibleRolesList(ctx context.Context) ContentRolesAPIContentAnsibleRolesListRequest {
+	return ContentRolesAPIContentAnsibleRolesListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -251,7 +251,7 @@ func (a *ContentRolesApiService) ContentAnsibleRolesList(ctx context.Context) Co
 
 // Execute executes the request
 //  @return PaginatedansibleRoleResponseList
-func (a *ContentRolesApiService) ContentAnsibleRolesListExecute(r ContentRolesApiContentAnsibleRolesListRequest) (*PaginatedansibleRoleResponseList, *http.Response, error) {
+func (a *ContentRolesAPIService) ContentAnsibleRolesListExecute(r ContentRolesAPIContentAnsibleRolesListRequest) (*PaginatedansibleRoleResponseList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -259,7 +259,7 @@ func (a *ContentRolesApiService) ContentAnsibleRolesListExecute(r ContentRolesAp
 		localVarReturnValue  *PaginatedansibleRoleResponseList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRolesApiService.ContentAnsibleRolesList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRolesAPIService.ContentAnsibleRolesList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -378,27 +378,27 @@ func (a *ContentRolesApiService) ContentAnsibleRolesListExecute(r ContentRolesAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ContentRolesApiContentAnsibleRolesReadRequest struct {
+type ContentRolesAPIContentAnsibleRolesReadRequest struct {
 	ctx context.Context
-	ApiService *ContentRolesApiService
+	ApiService *ContentRolesAPIService
 	ansibleRoleHref string
 	fields *[]string
 	excludeFields *[]string
 }
 
 // A list of fields to include in the response.
-func (r ContentRolesApiContentAnsibleRolesReadRequest) Fields(fields []string) ContentRolesApiContentAnsibleRolesReadRequest {
+func (r ContentRolesAPIContentAnsibleRolesReadRequest) Fields(fields []string) ContentRolesAPIContentAnsibleRolesReadRequest {
 	r.fields = &fields
 	return r
 }
 
 // A list of fields to exclude from the response.
-func (r ContentRolesApiContentAnsibleRolesReadRequest) ExcludeFields(excludeFields []string) ContentRolesApiContentAnsibleRolesReadRequest {
+func (r ContentRolesAPIContentAnsibleRolesReadRequest) ExcludeFields(excludeFields []string) ContentRolesAPIContentAnsibleRolesReadRequest {
 	r.excludeFields = &excludeFields
 	return r
 }
 
-func (r ContentRolesApiContentAnsibleRolesReadRequest) Execute() (*AnsibleRoleResponse, *http.Response, error) {
+func (r ContentRolesAPIContentAnsibleRolesReadRequest) Execute() (*AnsibleRoleResponse, *http.Response, error) {
 	return r.ApiService.ContentAnsibleRolesReadExecute(r)
 }
 
@@ -409,10 +409,10 @@ ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ansibleRoleHref
- @return ContentRolesApiContentAnsibleRolesReadRequest
+ @return ContentRolesAPIContentAnsibleRolesReadRequest
 */
-func (a *ContentRolesApiService) ContentAnsibleRolesRead(ctx context.Context, ansibleRoleHref string) ContentRolesApiContentAnsibleRolesReadRequest {
-	return ContentRolesApiContentAnsibleRolesReadRequest{
+func (a *ContentRolesAPIService) ContentAnsibleRolesRead(ctx context.Context, ansibleRoleHref string) ContentRolesAPIContentAnsibleRolesReadRequest {
+	return ContentRolesAPIContentAnsibleRolesReadRequest{
 		ApiService: a,
 		ctx: ctx,
 		ansibleRoleHref: ansibleRoleHref,
@@ -421,7 +421,7 @@ func (a *ContentRolesApiService) ContentAnsibleRolesRead(ctx context.Context, an
 
 // Execute executes the request
 //  @return AnsibleRoleResponse
-func (a *ContentRolesApiService) ContentAnsibleRolesReadExecute(r ContentRolesApiContentAnsibleRolesReadRequest) (*AnsibleRoleResponse, *http.Response, error) {
+func (a *ContentRolesAPIService) ContentAnsibleRolesReadExecute(r ContentRolesAPIContentAnsibleRolesReadRequest) (*AnsibleRoleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -429,7 +429,7 @@ func (a *ContentRolesApiService) ContentAnsibleRolesReadExecute(r ContentRolesAp
 		localVarReturnValue  *AnsibleRoleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRolesApiService.ContentAnsibleRolesRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContentRolesAPIService.ContentAnsibleRolesRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
