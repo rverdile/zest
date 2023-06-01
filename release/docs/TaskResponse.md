@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **State** | Pointer to **string** | The current state of the task. The possible values include: &#39;waiting&#39;, &#39;skipped&#39;, &#39;running&#39;, &#39;completed&#39;, &#39;failed&#39;, &#39;canceled&#39; and &#39;canceling&#39;. | [optional] [readonly] 
 **Name** | **string** | The name of task. | 
 **LoggingCid** | **string** | The logging correlation id associated with this task | 
+**CreatedBy** | Pointer to **string** | User who dispatched this task. | [optional] [readonly] 
 **StartedAt** | Pointer to **time.Time** | Timestamp of the when this task started execution. | [optional] [readonly] 
 **FinishedAt** | Pointer to **time.Time** | Timestamp of the when this task stopped execution. | [optional] [readonly] 
 **Error** | Pointer to **map[string]map[string]interface{}** | A JSON Object of a fatal error encountered during the execution of this task. | [optional] [readonly] 
@@ -153,6 +154,31 @@ and a boolean to check if the value has been set.
 
 SetLoggingCid sets LoggingCid field to given value.
 
+
+### GetCreatedBy
+
+`func (o *TaskResponse) GetCreatedBy() string`
+
+GetCreatedBy returns the CreatedBy field if non-nil, zero value otherwise.
+
+### GetCreatedByOk
+
+`func (o *TaskResponse) GetCreatedByOk() (*string, bool)`
+
+GetCreatedByOk returns a tuple with the CreatedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedBy
+
+`func (o *TaskResponse) SetCreatedBy(v string)`
+
+SetCreatedBy sets CreatedBy field to given value.
+
+### HasCreatedBy
+
+`func (o *TaskResponse) HasCreatedBy() bool`
+
+HasCreatedBy returns a boolean if a field has been set.
 
 ### GetStartedAt
 

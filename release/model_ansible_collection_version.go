@@ -21,12 +21,12 @@ var _ MappedNullable = &AnsibleCollectionVersion{}
 
 // AnsibleCollectionVersion A serializer for CollectionVersion Content.
 type AnsibleCollectionVersion struct {
-	// Artifact file representing the physical content
-	Artifact *string `json:"artifact,omitempty"`
-	// An uploaded file that may be turned into the artifact of the content unit.
-	File **os.File `json:"file,omitempty"`
 	// A URI of a repository the new content unit should be associated with.
 	Repository *string `json:"repository,omitempty"`
+	// An uploaded file that may be turned into the artifact of the content unit.
+	File **os.File `json:"file,omitempty"`
+	// Artifact file representing the physical content
+	Artifact *string `json:"artifact,omitempty"`
 	// An uncommitted upload that may be turned into the artifact of the content unit.
 	Upload *string `json:"upload,omitempty"`
 	// The name of the collection.
@@ -54,36 +54,36 @@ func NewAnsibleCollectionVersionWithDefaults() *AnsibleCollectionVersion {
 	return &this
 }
 
-// GetArtifact returns the Artifact field value if set, zero value otherwise.
-func (o *AnsibleCollectionVersion) GetArtifact() string {
-	if o == nil || IsNil(o.Artifact) {
+// GetRepository returns the Repository field value if set, zero value otherwise.
+func (o *AnsibleCollectionVersion) GetRepository() string {
+	if o == nil || IsNil(o.Repository) {
 		var ret string
 		return ret
 	}
-	return *o.Artifact
+	return *o.Repository
 }
 
-// GetArtifactOk returns a tuple with the Artifact field value if set, nil otherwise
+// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnsibleCollectionVersion) GetArtifactOk() (*string, bool) {
-	if o == nil || IsNil(o.Artifact) {
+func (o *AnsibleCollectionVersion) GetRepositoryOk() (*string, bool) {
+	if o == nil || IsNil(o.Repository) {
 		return nil, false
 	}
-	return o.Artifact, true
+	return o.Repository, true
 }
 
-// HasArtifact returns a boolean if a field has been set.
-func (o *AnsibleCollectionVersion) HasArtifact() bool {
-	if o != nil && !IsNil(o.Artifact) {
+// HasRepository returns a boolean if a field has been set.
+func (o *AnsibleCollectionVersion) HasRepository() bool {
+	if o != nil && !IsNil(o.Repository) {
 		return true
 	}
 
 	return false
 }
 
-// SetArtifact gets a reference to the given string and assigns it to the Artifact field.
-func (o *AnsibleCollectionVersion) SetArtifact(v string) {
-	o.Artifact = &v
+// SetRepository gets a reference to the given string and assigns it to the Repository field.
+func (o *AnsibleCollectionVersion) SetRepository(v string) {
+	o.Repository = &v
 }
 
 // GetFile returns the File field value if set, zero value otherwise.
@@ -118,36 +118,36 @@ func (o *AnsibleCollectionVersion) SetFile(v *os.File) {
 	o.File = &v
 }
 
-// GetRepository returns the Repository field value if set, zero value otherwise.
-func (o *AnsibleCollectionVersion) GetRepository() string {
-	if o == nil || IsNil(o.Repository) {
+// GetArtifact returns the Artifact field value if set, zero value otherwise.
+func (o *AnsibleCollectionVersion) GetArtifact() string {
+	if o == nil || IsNil(o.Artifact) {
 		var ret string
 		return ret
 	}
-	return *o.Repository
+	return *o.Artifact
 }
 
-// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
+// GetArtifactOk returns a tuple with the Artifact field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AnsibleCollectionVersion) GetRepositoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Repository) {
+func (o *AnsibleCollectionVersion) GetArtifactOk() (*string, bool) {
+	if o == nil || IsNil(o.Artifact) {
 		return nil, false
 	}
-	return o.Repository, true
+	return o.Artifact, true
 }
 
-// HasRepository returns a boolean if a field has been set.
-func (o *AnsibleCollectionVersion) HasRepository() bool {
-	if o != nil && !IsNil(o.Repository) {
+// HasArtifact returns a boolean if a field has been set.
+func (o *AnsibleCollectionVersion) HasArtifact() bool {
+	if o != nil && !IsNil(o.Artifact) {
 		return true
 	}
 
 	return false
 }
 
-// SetRepository gets a reference to the given string and assigns it to the Repository field.
-func (o *AnsibleCollectionVersion) SetRepository(v string) {
-	o.Repository = &v
+// SetArtifact gets a reference to the given string and assigns it to the Artifact field.
+func (o *AnsibleCollectionVersion) SetArtifact(v string) {
+	o.Artifact = &v
 }
 
 // GetUpload returns the Upload field value if set, zero value otherwise.
@@ -288,14 +288,14 @@ func (o AnsibleCollectionVersion) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleCollectionVersion) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Artifact) {
-		toSerialize["artifact"] = o.Artifact
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
 	}
 	if !IsNil(o.File) {
 		toSerialize["file"] = o.File
 	}
-	if !IsNil(o.Repository) {
-		toSerialize["repository"] = o.Repository
+	if !IsNil(o.Artifact) {
+		toSerialize["artifact"] = o.Artifact
 	}
 	if !IsNil(o.Upload) {
 		toSerialize["upload"] = o.Upload

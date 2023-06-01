@@ -29,18 +29,18 @@ type ContentCollectionVersionsAPIService service
 type ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentCollectionVersionsAPIService
-	artifact *string
-	file *os.File
 	repository *string
+	file *os.File
+	artifact *string
 	upload *string
 	expectedName *string
 	expectedNamespace *string
 	expectedVersion *string
 }
 
-// Artifact file representing the physical content
-func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
-	r.artifact = &artifact
+// A URI of a repository the new content unit should be associated with.
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
+	r.repository = &repository
 	return r
 }
 
@@ -50,9 +50,9 @@ func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateReques
 	return r
 }
 
-// A URI of a repository the new content unit should be associated with.
-func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
-	r.repository = &repository
+// Artifact file representing the physical content
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
+	r.artifact = &artifact
 	return r
 }
 
@@ -136,8 +136,8 @@ func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsCr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.artifact != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
+	if r.repository != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
 	}
 	var fileLocalVarFormFileName string
 	var fileLocalVarFileName     string
@@ -156,8 +156,8 @@ func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsCr
 		fileLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	}
-	if r.repository != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
+	if r.artifact != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
 	}
 	if r.upload != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")

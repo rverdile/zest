@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
-**File** | Pointer to ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | [optional] 
 **Repository** | Pointer to **string** | A URI of a repository the new content unit should be associated with. | [optional] 
+**File** | Pointer to ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | [optional] 
+**Artifact** | Pointer to **string** | Artifact file representing the physical content | [optional] 
 **Upload** | Pointer to **string** | An uncommitted upload that may be turned into the artifact of the content unit. | [optional] 
 **ExpectedName** | Pointer to **string** | The name of the collection. | [optional] 
 **ExpectedNamespace** | Pointer to **string** | The namespace of the collection. | [optional] 
@@ -31,30 +31,30 @@ NewAnsibleCollectionVersionWithDefaults instantiates a new AnsibleCollectionVers
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetArtifact
+### GetRepository
 
-`func (o *AnsibleCollectionVersion) GetArtifact() string`
+`func (o *AnsibleCollectionVersion) GetRepository() string`
 
-GetArtifact returns the Artifact field if non-nil, zero value otherwise.
+GetRepository returns the Repository field if non-nil, zero value otherwise.
 
-### GetArtifactOk
+### GetRepositoryOk
 
-`func (o *AnsibleCollectionVersion) GetArtifactOk() (*string, bool)`
+`func (o *AnsibleCollectionVersion) GetRepositoryOk() (*string, bool)`
 
-GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
+GetRepositoryOk returns a tuple with the Repository field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetArtifact
+### SetRepository
 
-`func (o *AnsibleCollectionVersion) SetArtifact(v string)`
+`func (o *AnsibleCollectionVersion) SetRepository(v string)`
 
-SetArtifact sets Artifact field to given value.
+SetRepository sets Repository field to given value.
 
-### HasArtifact
+### HasRepository
 
-`func (o *AnsibleCollectionVersion) HasArtifact() bool`
+`func (o *AnsibleCollectionVersion) HasRepository() bool`
 
-HasArtifact returns a boolean if a field has been set.
+HasRepository returns a boolean if a field has been set.
 
 ### GetFile
 
@@ -81,30 +81,30 @@ SetFile sets File field to given value.
 
 HasFile returns a boolean if a field has been set.
 
-### GetRepository
+### GetArtifact
 
-`func (o *AnsibleCollectionVersion) GetRepository() string`
+`func (o *AnsibleCollectionVersion) GetArtifact() string`
 
-GetRepository returns the Repository field if non-nil, zero value otherwise.
+GetArtifact returns the Artifact field if non-nil, zero value otherwise.
 
-### GetRepositoryOk
+### GetArtifactOk
 
-`func (o *AnsibleCollectionVersion) GetRepositoryOk() (*string, bool)`
+`func (o *AnsibleCollectionVersion) GetArtifactOk() (*string, bool)`
 
-GetRepositoryOk returns a tuple with the Repository field if it's non-nil, zero value otherwise
+GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRepository
+### SetArtifact
 
-`func (o *AnsibleCollectionVersion) SetRepository(v string)`
+`func (o *AnsibleCollectionVersion) SetArtifact(v string)`
 
-SetRepository sets Repository field to given value.
+SetArtifact sets Artifact field to given value.
 
-### HasRepository
+### HasArtifact
 
-`func (o *AnsibleCollectionVersion) HasRepository() bool`
+`func (o *AnsibleCollectionVersion) HasArtifact() bool`
 
-HasRepository returns a boolean if a field has been set.
+HasArtifact returns a boolean if a field has been set.
 
 ### GetUpload
 

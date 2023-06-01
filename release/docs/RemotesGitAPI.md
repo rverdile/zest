@@ -110,7 +110,7 @@ import (
 )
 
 func main() {
-    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Url_example", "Name_example") // AnsibleGitRemote | 
+    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Name_example", "Url_example") // AnsibleGitRemote | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -716,7 +716,7 @@ import (
 
 func main() {
     ansibleGitRemoteHref := "ansibleGitRemoteHref_example" // string | 
-    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Url_example", "Name_example") // AnsibleGitRemote | 
+    ansibleGitRemote := *openapiclient.NewAnsibleGitRemote("Name_example", "Url_example") // AnsibleGitRemote | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

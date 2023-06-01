@@ -24,6 +24,8 @@ type FileFileDistribution struct {
 	BasePath string `json:"base_path"`
 	// An optional content-guard.
 	ContentGuard NullableString `json:"content_guard,omitempty"`
+	// Whether this distribution should be shown in the content app.
+	Hidden *bool `json:"hidden,omitempty"`
 	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// A unique name. Ex, `rawhide` and `stable`.
 	Name string `json:"name"`
@@ -40,6 +42,8 @@ type FileFileDistribution struct {
 func NewFileFileDistribution(basePath string, name string) *FileFileDistribution {
 	this := FileFileDistribution{}
 	this.BasePath = basePath
+	var hidden bool = false
+	this.Hidden = &hidden
 	this.Name = name
 	return &this
 }
@@ -49,6 +53,8 @@ func NewFileFileDistribution(basePath string, name string) *FileFileDistribution
 // but it doesn't guarantee that properties required by API are set
 func NewFileFileDistributionWithDefaults() *FileFileDistribution {
 	this := FileFileDistribution{}
+	var hidden bool = false
+	this.Hidden = &hidden
 	return &this
 }
 
@@ -116,6 +122,38 @@ func (o *FileFileDistribution) SetContentGuardNil() {
 // UnsetContentGuard ensures that no value is present for ContentGuard, not even an explicit nil
 func (o *FileFileDistribution) UnsetContentGuard() {
 	o.ContentGuard.Unset()
+}
+
+// GetHidden returns the Hidden field value if set, zero value otherwise.
+func (o *FileFileDistribution) GetHidden() bool {
+	if o == nil || IsNil(o.Hidden) {
+		var ret bool
+		return ret
+	}
+	return *o.Hidden
+}
+
+// GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FileFileDistribution) GetHiddenOk() (*bool, bool) {
+	if o == nil || IsNil(o.Hidden) {
+		return nil, false
+	}
+	return o.Hidden, true
+}
+
+// HasHidden returns a boolean if a field has been set.
+func (o *FileFileDistribution) HasHidden() bool {
+	if o != nil && !IsNil(o.Hidden) {
+		return true
+	}
+
+	return false
+}
+
+// SetHidden gets a reference to the given bool and assigns it to the Hidden field.
+func (o *FileFileDistribution) SetHidden(v bool) {
+	o.Hidden = &v
 }
 
 // GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
@@ -271,6 +309,9 @@ func (o FileFileDistribution) ToMap() (map[string]interface{}, error) {
 	toSerialize["base_path"] = o.BasePath
 	if o.ContentGuard.IsSet() {
 		toSerialize["content_guard"] = o.ContentGuard.Get()
+	}
+	if !IsNil(o.Hidden) {
+		toSerialize["hidden"] = o.Hidden
 	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels

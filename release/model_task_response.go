@@ -30,6 +30,8 @@ type TaskResponse struct {
 	Name string `json:"name"`
 	// The logging correlation id associated with this task
 	LoggingCid string `json:"logging_cid"`
+	// User who dispatched this task.
+	CreatedBy *string `json:"created_by,omitempty"`
 	// Timestamp of the when this task started execution.
 	StartedAt *time.Time `json:"started_at,omitempty"`
 	// Timestamp of the when this task stopped execution.
@@ -212,6 +214,38 @@ func (o *TaskResponse) GetLoggingCidOk() (*string, bool) {
 // SetLoggingCid sets field value
 func (o *TaskResponse) SetLoggingCid(v string) {
 	o.LoggingCid = v
+}
+
+// GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
+func (o *TaskResponse) GetCreatedBy() string {
+	if o == nil || IsNil(o.CreatedBy) {
+		var ret string
+		return ret
+	}
+	return *o.CreatedBy
+}
+
+// GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskResponse) GetCreatedByOk() (*string, bool) {
+	if o == nil || IsNil(o.CreatedBy) {
+		return nil, false
+	}
+	return o.CreatedBy, true
+}
+
+// HasCreatedBy returns a boolean if a field has been set.
+func (o *TaskResponse) HasCreatedBy() bool {
+	if o != nil && !IsNil(o.CreatedBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedBy gets a reference to the given string and assigns it to the CreatedBy field.
+func (o *TaskResponse) SetCreatedBy(v string) {
+	o.CreatedBy = &v
 }
 
 // GetStartedAt returns the StartedAt field value if set, zero value otherwise.
@@ -549,6 +583,7 @@ func (o TaskResponse) ToMap() (map[string]interface{}, error) {
 	// skip: state is readOnly
 	toSerialize["name"] = o.Name
 	toSerialize["logging_cid"] = o.LoggingCid
+	// skip: created_by is readOnly
 	// skip: started_at is readOnly
 	// skip: finished_at is readOnly
 	// skip: error is readOnly

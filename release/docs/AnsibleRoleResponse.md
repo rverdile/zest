@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PulpHref** | Pointer to **string** |  | [optional] [readonly] 
-**Artifact** | **string** | Artifact file representing the physical content | 
 **PulpCreated** | Pointer to **time.Time** | Timestamp of creation. | [optional] [readonly] 
+**Artifact** | **string** | Artifact file representing the physical content | 
 **Version** | **string** |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
@@ -55,26 +55,6 @@ SetPulpHref sets PulpHref field to given value.
 
 HasPulpHref returns a boolean if a field has been set.
 
-### GetArtifact
-
-`func (o *AnsibleRoleResponse) GetArtifact() string`
-
-GetArtifact returns the Artifact field if non-nil, zero value otherwise.
-
-### GetArtifactOk
-
-`func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool)`
-
-GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetArtifact
-
-`func (o *AnsibleRoleResponse) SetArtifact(v string)`
-
-SetArtifact sets Artifact field to given value.
-
-
 ### GetPulpCreated
 
 `func (o *AnsibleRoleResponse) GetPulpCreated() time.Time`
@@ -99,6 +79,26 @@ SetPulpCreated sets PulpCreated field to given value.
 `func (o *AnsibleRoleResponse) HasPulpCreated() bool`
 
 HasPulpCreated returns a boolean if a field has been set.
+
+### GetArtifact
+
+`func (o *AnsibleRoleResponse) GetArtifact() string`
+
+GetArtifact returns the Artifact field if non-nil, zero value otherwise.
+
+### GetArtifactOk
+
+`func (o *AnsibleRoleResponse) GetArtifactOk() (*string, bool)`
+
+GetArtifactOk returns a tuple with the Artifact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArtifact
+
+`func (o *AnsibleRoleResponse) SetArtifact(v string)`
+
+SetArtifact sets Artifact field to given value.
+
 
 ### GetVersion
 

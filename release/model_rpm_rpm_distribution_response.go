@@ -30,6 +30,8 @@ type RpmRpmDistributionResponse struct {
 	BaseUrl *string `json:"base_url,omitempty"`
 	// An optional content-guard.
 	ContentGuard NullableString `json:"content_guard,omitempty"`
+	// Whether this distribution should be shown in the content app.
+	Hidden *bool `json:"hidden,omitempty"`
 	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// A unique name. Ex, `rawhide` and `stable`.
 	Name string `json:"name"`
@@ -46,6 +48,8 @@ type RpmRpmDistributionResponse struct {
 func NewRpmRpmDistributionResponse(basePath string, name string) *RpmRpmDistributionResponse {
 	this := RpmRpmDistributionResponse{}
 	this.BasePath = basePath
+	var hidden bool = false
+	this.Hidden = &hidden
 	this.Name = name
 	return &this
 }
@@ -55,6 +59,8 @@ func NewRpmRpmDistributionResponse(basePath string, name string) *RpmRpmDistribu
 // but it doesn't guarantee that properties required by API are set
 func NewRpmRpmDistributionResponseWithDefaults() *RpmRpmDistributionResponse {
 	this := RpmRpmDistributionResponse{}
+	var hidden bool = false
+	this.Hidden = &hidden
 	return &this
 }
 
@@ -220,6 +226,38 @@ func (o *RpmRpmDistributionResponse) UnsetContentGuard() {
 	o.ContentGuard.Unset()
 }
 
+// GetHidden returns the Hidden field value if set, zero value otherwise.
+func (o *RpmRpmDistributionResponse) GetHidden() bool {
+	if o == nil || IsNil(o.Hidden) {
+		var ret bool
+		return ret
+	}
+	return *o.Hidden
+}
+
+// GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RpmRpmDistributionResponse) GetHiddenOk() (*bool, bool) {
+	if o == nil || IsNil(o.Hidden) {
+		return nil, false
+	}
+	return o.Hidden, true
+}
+
+// HasHidden returns a boolean if a field has been set.
+func (o *RpmRpmDistributionResponse) HasHidden() bool {
+	if o != nil && !IsNil(o.Hidden) {
+		return true
+	}
+
+	return false
+}
+
+// SetHidden gets a reference to the given bool and assigns it to the Hidden field.
+func (o *RpmRpmDistributionResponse) SetHidden(v bool) {
+	o.Hidden = &v
+}
+
 // GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
 func (o *RpmRpmDistributionResponse) GetPulpLabels() map[string]string {
 	if o == nil || IsNil(o.PulpLabels) {
@@ -376,6 +414,9 @@ func (o RpmRpmDistributionResponse) ToMap() (map[string]interface{}, error) {
 	// skip: base_url is readOnly
 	if o.ContentGuard.IsSet() {
 		toSerialize["content_guard"] = o.ContentGuard.Get()
+	}
+	if !IsNil(o.Hidden) {
+		toSerialize["hidden"] = o.Hidden
 	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
