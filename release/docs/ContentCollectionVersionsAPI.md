@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ContentAnsibleCollectionVersionsCreate
 
-> AsyncOperationResponse ContentAnsibleCollectionVersionsCreate(ctx).Repository(repository).File(file).Artifact(artifact).Upload(upload).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
+> AsyncOperationResponse ContentAnsibleCollectionVersionsCreate(ctx).Repository(repository).Upload(upload).Artifact(artifact).File(file).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
 
 Create a collection version
 
@@ -32,16 +32,16 @@ import (
 
 func main() {
     repository := "repository_example" // string | A URI of a repository the new content unit should be associated with. (optional)
-    file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
-    artifact := "artifact_example" // string | Artifact file representing the physical content (optional)
     upload := "upload_example" // string | An uncommitted upload that may be turned into the artifact of the content unit. (optional)
+    artifact := "artifact_example" // string | Artifact file representing the physical content (optional)
+    file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
     expectedName := "expectedName_example" // string | The name of the collection. (optional)
     expectedNamespace := "expectedNamespace_example" // string | The namespace of the collection. (optional)
     expectedVersion := "expectedVersion_example" // string | The version of the collection. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentCollectionVersionsAPI.ContentAnsibleCollectionVersionsCreate(context.Background()).Repository(repository).File(file).Artifact(artifact).Upload(upload).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
+    resp, r, err := apiClient.ContentCollectionVersionsAPI.ContentAnsibleCollectionVersionsCreate(context.Background()).Repository(repository).Upload(upload).Artifact(artifact).File(file).ExpectedName(expectedName).ExpectedNamespace(expectedNamespace).ExpectedVersion(expectedVersion).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentCollectionVersionsAPI.ContentAnsibleCollectionVersionsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,9 +63,9 @@ Other parameters are passed through a pointer to a apiContentAnsibleCollectionVe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repository** | **string** | A URI of a repository the new content unit should be associated with. | 
- **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
- **artifact** | **string** | Artifact file representing the physical content | 
  **upload** | **string** | An uncommitted upload that may be turned into the artifact of the content unit. | 
+ **artifact** | **string** | Artifact file representing the physical content | 
+ **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
  **expectedName** | **string** | The name of the collection. | 
  **expectedNamespace** | **string** | The namespace of the collection. | 
  **expectedVersion** | **string** | The version of the collection. | 
