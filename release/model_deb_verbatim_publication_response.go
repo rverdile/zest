@@ -184,8 +184,12 @@ func (o DebVerbatimPublicationResponse) MarshalJSON() ([]byte, error) {
 
 func (o DebVerbatimPublicationResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	if !IsNil(o.RepositoryVersion) {
 		toSerialize["repository_version"] = o.RepositoryVersion
 	}

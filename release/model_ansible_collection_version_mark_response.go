@@ -171,8 +171,12 @@ func (o AnsibleCollectionVersionMarkResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleCollectionVersionMarkResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_created is readOnly
-	// skip: pulp_href is readOnly
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
 	toSerialize["marked_collection"] = o.MarkedCollection
 	toSerialize["value"] = o.Value
 	return toSerialize, nil

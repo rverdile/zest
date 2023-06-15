@@ -297,15 +297,27 @@ func (o PulpExportResponse) MarshalJSON() ([]byte, error) {
 
 func (o PulpExportResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	if o.Task.IsSet() {
 		toSerialize["task"] = o.Task.Get()
 	}
-	// skip: exported_resources is readOnly
-	// skip: params is readOnly
-	// skip: output_file_info is readOnly
-	// skip: toc_info is readOnly
+	if !IsNil(o.ExportedResources) {
+		toSerialize["exported_resources"] = o.ExportedResources
+	}
+	if !IsNil(o.Params) {
+		toSerialize["params"] = o.Params
+	}
+	if !IsNil(o.OutputFileInfo) {
+		toSerialize["output_file_info"] = o.OutputFileInfo
+	}
+	if !IsNil(o.TocInfo) {
+		toSerialize["toc_info"] = o.TocInfo
+	}
 	return toSerialize, nil
 }
 

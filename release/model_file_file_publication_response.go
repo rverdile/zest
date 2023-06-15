@@ -266,15 +266,21 @@ func (o FileFilePublicationResponse) MarshalJSON() ([]byte, error) {
 
 func (o FileFilePublicationResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	if !IsNil(o.RepositoryVersion) {
 		toSerialize["repository_version"] = o.RepositoryVersion
 	}
 	if !IsNil(o.Repository) {
 		toSerialize["repository"] = o.Repository
 	}
-	// skip: distributions is readOnly
+	if !IsNil(o.Distributions) {
+		toSerialize["distributions"] = o.Distributions
+	}
 	if o.Manifest.IsSet() {
 		toSerialize["manifest"] = o.Manifest.Get()
 	}

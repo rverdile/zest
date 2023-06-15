@@ -263,11 +263,21 @@ func (o ProgressReportResponse) MarshalJSON() ([]byte, error) {
 
 func (o ProgressReportResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: message is readOnly
-	// skip: code is readOnly
-	// skip: state is readOnly
-	// skip: total is readOnly
-	// skip: done is readOnly
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
+	if !IsNil(o.Total) {
+		toSerialize["total"] = o.Total
+	}
+	if !IsNil(o.Done) {
+		toSerialize["done"] = o.Done
+	}
 	if o.Suffix.IsSet() {
 		toSerialize["suffix"] = o.Suffix.Get()
 	}

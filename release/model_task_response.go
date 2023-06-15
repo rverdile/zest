@@ -578,22 +578,50 @@ func (o TaskResponse) MarshalJSON() ([]byte, error) {
 
 func (o TaskResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
-	// skip: state is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["logging_cid"] = o.LoggingCid
-	// skip: created_by is readOnly
-	// skip: started_at is readOnly
-	// skip: finished_at is readOnly
-	// skip: error is readOnly
-	// skip: worker is readOnly
-	// skip: parent_task is readOnly
-	// skip: child_tasks is readOnly
-	// skip: task_group is readOnly
-	// skip: progress_reports is readOnly
-	// skip: created_resources is readOnly
-	// skip: reserved_resources_record is readOnly
+	if !IsNil(o.CreatedBy) {
+		toSerialize["created_by"] = o.CreatedBy
+	}
+	if !IsNil(o.StartedAt) {
+		toSerialize["started_at"] = o.StartedAt
+	}
+	if !IsNil(o.FinishedAt) {
+		toSerialize["finished_at"] = o.FinishedAt
+	}
+	if !IsNil(o.Error) {
+		toSerialize["error"] = o.Error
+	}
+	if !IsNil(o.Worker) {
+		toSerialize["worker"] = o.Worker
+	}
+	if !IsNil(o.ParentTask) {
+		toSerialize["parent_task"] = o.ParentTask
+	}
+	if !IsNil(o.ChildTasks) {
+		toSerialize["child_tasks"] = o.ChildTasks
+	}
+	if !IsNil(o.TaskGroup) {
+		toSerialize["task_group"] = o.TaskGroup
+	}
+	if !IsNil(o.ProgressReports) {
+		toSerialize["progress_reports"] = o.ProgressReports
+	}
+	if !IsNil(o.CreatedResources) {
+		toSerialize["created_resources"] = o.CreatedResources
+	}
+	if !IsNil(o.ReservedResourcesRecord) {
+		toSerialize["reserved_resources_record"] = o.ReservedResourcesRecord
+	}
 	return toSerialize, nil
 }
 

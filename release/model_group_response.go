@@ -143,8 +143,12 @@ func (o GroupResponse) MarshalJSON() ([]byte, error) {
 func (o GroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	// skip: pulp_href is readOnly
-	// skip: id is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	return toSerialize, nil
 }
 

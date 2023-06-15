@@ -280,13 +280,25 @@ func (o MinimalTaskResponse) MarshalJSON() ([]byte, error) {
 
 func (o MinimalTaskResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["name"] = o.Name
-	// skip: state is readOnly
-	// skip: started_at is readOnly
-	// skip: finished_at is readOnly
-	// skip: worker is readOnly
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
+	if !IsNil(o.StartedAt) {
+		toSerialize["started_at"] = o.StartedAt
+	}
+	if !IsNil(o.FinishedAt) {
+		toSerialize["finished_at"] = o.FinishedAt
+	}
+	if !IsNil(o.Worker) {
+		toSerialize["worker"] = o.Worker
+	}
 	return toSerialize, nil
 }
 

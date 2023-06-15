@@ -115,8 +115,12 @@ func (o UploadChunkResponse) MarshalJSON() ([]byte, error) {
 
 func (o UploadChunkResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: offset is readOnly
-	// skip: size is readOnly
+	if !IsNil(o.Offset) {
+		toSerialize["offset"] = o.Offset
+	}
+	if !IsNil(o.Size) {
+		toSerialize["size"] = o.Size
+	}
 	return toSerialize, nil
 }
 

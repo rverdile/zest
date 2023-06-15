@@ -529,13 +529,21 @@ func (o AnsibleAnsibleRepositoryResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleAnsibleRepositoryResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
-	// skip: versions_href is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.VersionsHref) {
+		toSerialize["versions_href"] = o.VersionsHref
+	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
 	}
-	// skip: latest_version_href is readOnly
+	if !IsNil(o.LatestVersionHref) {
+		toSerialize["latest_version_href"] = o.LatestVersionHref
+	}
 	toSerialize["name"] = o.Name
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
@@ -552,7 +560,9 @@ func (o AnsibleAnsibleRepositoryResponse) ToMap() (map[string]interface{}, error
 	if o.Gpgkey.IsSet() {
 		toSerialize["gpgkey"] = o.Gpgkey.Get()
 	}
-	// skip: last_sync_task is readOnly
+	if !IsNil(o.LastSyncTask) {
+		toSerialize["last_sync_task"] = o.LastSyncTask
+	}
 	if !IsNil(o.Private) {
 		toSerialize["private"] = o.Private
 	}

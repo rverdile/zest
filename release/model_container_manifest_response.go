@@ -313,8 +313,12 @@ func (o ContainerManifestResponse) MarshalJSON() ([]byte, error) {
 
 func (o ContainerManifestResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["artifact"] = o.Artifact
 	toSerialize["digest"] = o.Digest
 	toSerialize["schema_version"] = o.SchemaVersion

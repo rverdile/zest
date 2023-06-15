@@ -223,8 +223,12 @@ func (o DebReleaseArchitectureResponse) MarshalJSON() ([]byte, error) {
 
 func (o DebReleaseArchitectureResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["architecture"] = o.Architecture
 	toSerialize["distribution"] = o.Distribution
 	toSerialize["codename"] = o.Codename

@@ -729,26 +729,66 @@ func (o RpmUpdateRecordResponse) MarshalJSON() ([]byte, error) {
 
 func (o RpmUpdateRecordResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
-	// skip: id is readOnly
-	// skip: updated_date is readOnly
-	// skip: description is readOnly
-	// skip: issued_date is readOnly
-	// skip: fromstr is readOnly
-	// skip: status is readOnly
-	// skip: title is readOnly
-	// skip: summary is readOnly
-	// skip: version is readOnly
-	// skip: type is readOnly
-	// skip: severity is readOnly
-	// skip: solution is readOnly
-	// skip: release is readOnly
-	// skip: rights is readOnly
-	// skip: pushcount is readOnly
-	// skip: pkglist is readOnly
-	// skip: references is readOnly
-	// skip: reboot_suggested is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.UpdatedDate) {
+		toSerialize["updated_date"] = o.UpdatedDate
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.IssuedDate) {
+		toSerialize["issued_date"] = o.IssuedDate
+	}
+	if !IsNil(o.Fromstr) {
+		toSerialize["fromstr"] = o.Fromstr
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.Title) {
+		toSerialize["title"] = o.Title
+	}
+	if !IsNil(o.Summary) {
+		toSerialize["summary"] = o.Summary
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.Severity) {
+		toSerialize["severity"] = o.Severity
+	}
+	if !IsNil(o.Solution) {
+		toSerialize["solution"] = o.Solution
+	}
+	if !IsNil(o.Release) {
+		toSerialize["release"] = o.Release
+	}
+	if !IsNil(o.Rights) {
+		toSerialize["rights"] = o.Rights
+	}
+	if !IsNil(o.Pushcount) {
+		toSerialize["pushcount"] = o.Pushcount
+	}
+	if !IsNil(o.Pkglist) {
+		toSerialize["pkglist"] = o.Pkglist
+	}
+	if !IsNil(o.References) {
+		toSerialize["references"] = o.References
+	}
+	if !IsNil(o.RebootSuggested) {
+		toSerialize["reboot_suggested"] = o.RebootSuggested
+	}
 	return toSerialize, nil
 }
 

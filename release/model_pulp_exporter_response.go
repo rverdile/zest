@@ -241,8 +241,12 @@ func (o PulpExporterResponse) MarshalJSON() ([]byte, error) {
 
 func (o PulpExporterResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["path"] = o.Path
 	toSerialize["repositories"] = o.Repositories

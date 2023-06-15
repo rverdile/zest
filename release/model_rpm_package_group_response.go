@@ -443,8 +443,12 @@ func (o RpmPackageGroupResponse) MarshalJSON() ([]byte, error) {
 
 func (o RpmPackageGroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["id"] = o.Id
 	if !IsNil(o.Default) {
 		toSerialize["default"] = o.Default

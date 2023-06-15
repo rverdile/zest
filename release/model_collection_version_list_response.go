@@ -246,14 +246,20 @@ func (o CollectionVersionListResponse) MarshalJSON() ([]byte, error) {
 
 func (o CollectionVersionListResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: version is readOnly
-	// skip: href is readOnly
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.Href) {
+		toSerialize["href"] = o.Href
+	}
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["updated_at"] = o.UpdatedAt
 	if o.RequiresAnsible.IsSet() {
 		toSerialize["requires_ansible"] = o.RequiresAnsible.Get()
 	}
-	// skip: marks is readOnly
+	if !IsNil(o.Marks) {
+		toSerialize["marks"] = o.Marks
+	}
 	return toSerialize, nil
 }
 

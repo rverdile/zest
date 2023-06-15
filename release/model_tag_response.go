@@ -82,7 +82,9 @@ func (o TagResponse) MarshalJSON() ([]byte, error) {
 
 func (o TagResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: name is readOnly
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	return toSerialize, nil
 }
 

@@ -614,25 +614,53 @@ func (o CollectionVersionResponse) MarshalJSON() ([]byte, error) {
 
 func (o CollectionVersionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: version is readOnly
-	// skip: href is readOnly
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.Href) {
+		toSerialize["href"] = o.Href
+	}
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["updated_at"] = o.UpdatedAt
 	if o.RequiresAnsible.IsSet() {
 		toSerialize["requires_ansible"] = o.RequiresAnsible.Get()
 	}
-	// skip: marks is readOnly
-	// skip: artifact is readOnly
-	// skip: collection is readOnly
-	// skip: download_url is readOnly
-	// skip: name is readOnly
-	// skip: namespace is readOnly
-	// skip: signatures is readOnly
-	// skip: metadata is readOnly
-	// skip: git_url is readOnly
-	// skip: git_commit_sha is readOnly
-	// skip: manifest is readOnly
-	// skip: files is readOnly
+	if !IsNil(o.Marks) {
+		toSerialize["marks"] = o.Marks
+	}
+	if !IsNil(o.Artifact) {
+		toSerialize["artifact"] = o.Artifact
+	}
+	if !IsNil(o.Collection) {
+		toSerialize["collection"] = o.Collection
+	}
+	if !IsNil(o.DownloadUrl) {
+		toSerialize["download_url"] = o.DownloadUrl
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Namespace) {
+		toSerialize["namespace"] = o.Namespace
+	}
+	if !IsNil(o.Signatures) {
+		toSerialize["signatures"] = o.Signatures
+	}
+	if !IsNil(o.Metadata) {
+		toSerialize["metadata"] = o.Metadata
+	}
+	if !IsNil(o.GitUrl) {
+		toSerialize["git_url"] = o.GitUrl
+	}
+	if !IsNil(o.GitCommitSha) {
+		toSerialize["git_commit_sha"] = o.GitCommitSha
+	}
+	if !IsNil(o.Manifest) {
+		toSerialize["manifest"] = o.Manifest
+	}
+	if !IsNil(o.Files) {
+		toSerialize["files"] = o.Files
+	}
 	return toSerialize, nil
 }
 

@@ -238,10 +238,18 @@ func (o GalaxyCollectionVersionResponse) MarshalJSON() ([]byte, error) {
 func (o GalaxyCollectionVersionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["version"] = o.Version
-	// skip: href is readOnly
-	// skip: namespace is readOnly
-	// skip: collection is readOnly
-	// skip: artifact is readOnly
+	if !IsNil(o.Href) {
+		toSerialize["href"] = o.Href
+	}
+	if !IsNil(o.Namespace) {
+		toSerialize["namespace"] = o.Namespace
+	}
+	if !IsNil(o.Collection) {
+		toSerialize["collection"] = o.Collection
+	}
+	if !IsNil(o.Artifact) {
+		toSerialize["artifact"] = o.Artifact
+	}
 	toSerialize["metadata"] = o.Metadata
 	return toSerialize, nil
 }

@@ -250,10 +250,18 @@ func (o RepositoryVersionResponse) MarshalJSON() ([]byte, error) {
 
 func (o RepositoryVersionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
-	// skip: number is readOnly
-	// skip: repository is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.Number) {
+		toSerialize["number"] = o.Number
+	}
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
+	}
 	if !IsNil(o.BaseVersion) {
 		toSerialize["base_version"] = o.BaseVersion
 	}

@@ -1414,8 +1414,12 @@ func (o DebPackageResponse) MarshalJSON() ([]byte, error) {
 
 func (o DebPackageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	if !IsNil(o.Artifact) {
 		toSerialize["artifact"] = o.Artifact
 	}
@@ -1428,41 +1432,111 @@ func (o DebPackageResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Component) {
 		toSerialize["component"] = o.Component
 	}
-	// skip: md5 is readOnly
-	// skip: sha1 is readOnly
-	// skip: sha224 is readOnly
-	// skip: sha256 is readOnly
-	// skip: sha384 is readOnly
-	// skip: sha512 is readOnly
-	// skip: package is readOnly
-	// skip: source is readOnly
-	// skip: version is readOnly
-	// skip: architecture is readOnly
-	// skip: section is readOnly
-	// skip: priority is readOnly
-	// skip: origin is readOnly
-	// skip: tag is readOnly
-	// skip: bugs is readOnly
-	// skip: essential is readOnly
-	// skip: build_essential is readOnly
-	// skip: installed_size is readOnly
-	// skip: maintainer is readOnly
-	// skip: original_maintainer is readOnly
-	// skip: description is readOnly
-	// skip: description_md5 is readOnly
-	// skip: homepage is readOnly
-	// skip: built_using is readOnly
-	// skip: auto_built_package is readOnly
-	// skip: multi_arch is readOnly
-	// skip: breaks is readOnly
-	// skip: conflicts is readOnly
-	// skip: depends is readOnly
-	// skip: recommends is readOnly
-	// skip: suggests is readOnly
-	// skip: enhances is readOnly
-	// skip: pre_depends is readOnly
-	// skip: provides is readOnly
-	// skip: replaces is readOnly
+	if !IsNil(o.Md5) {
+		toSerialize["md5"] = o.Md5
+	}
+	if !IsNil(o.Sha1) {
+		toSerialize["sha1"] = o.Sha1
+	}
+	if !IsNil(o.Sha224) {
+		toSerialize["sha224"] = o.Sha224
+	}
+	if !IsNil(o.Sha256) {
+		toSerialize["sha256"] = o.Sha256
+	}
+	if !IsNil(o.Sha384) {
+		toSerialize["sha384"] = o.Sha384
+	}
+	if !IsNil(o.Sha512) {
+		toSerialize["sha512"] = o.Sha512
+	}
+	if !IsNil(o.Package) {
+		toSerialize["package"] = o.Package
+	}
+	if !IsNil(o.Source) {
+		toSerialize["source"] = o.Source
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.Architecture) {
+		toSerialize["architecture"] = o.Architecture
+	}
+	if !IsNil(o.Section) {
+		toSerialize["section"] = o.Section
+	}
+	if !IsNil(o.Priority) {
+		toSerialize["priority"] = o.Priority
+	}
+	if !IsNil(o.Origin) {
+		toSerialize["origin"] = o.Origin
+	}
+	if !IsNil(o.Tag) {
+		toSerialize["tag"] = o.Tag
+	}
+	if !IsNil(o.Bugs) {
+		toSerialize["bugs"] = o.Bugs
+	}
+	if !IsNil(o.Essential) {
+		toSerialize["essential"] = o.Essential
+	}
+	if !IsNil(o.BuildEssential) {
+		toSerialize["build_essential"] = o.BuildEssential
+	}
+	if !IsNil(o.InstalledSize) {
+		toSerialize["installed_size"] = o.InstalledSize
+	}
+	if !IsNil(o.Maintainer) {
+		toSerialize["maintainer"] = o.Maintainer
+	}
+	if !IsNil(o.OriginalMaintainer) {
+		toSerialize["original_maintainer"] = o.OriginalMaintainer
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.DescriptionMd5) {
+		toSerialize["description_md5"] = o.DescriptionMd5
+	}
+	if !IsNil(o.Homepage) {
+		toSerialize["homepage"] = o.Homepage
+	}
+	if !IsNil(o.BuiltUsing) {
+		toSerialize["built_using"] = o.BuiltUsing
+	}
+	if !IsNil(o.AutoBuiltPackage) {
+		toSerialize["auto_built_package"] = o.AutoBuiltPackage
+	}
+	if !IsNil(o.MultiArch) {
+		toSerialize["multi_arch"] = o.MultiArch
+	}
+	if !IsNil(o.Breaks) {
+		toSerialize["breaks"] = o.Breaks
+	}
+	if !IsNil(o.Conflicts) {
+		toSerialize["conflicts"] = o.Conflicts
+	}
+	if !IsNil(o.Depends) {
+		toSerialize["depends"] = o.Depends
+	}
+	if !IsNil(o.Recommends) {
+		toSerialize["recommends"] = o.Recommends
+	}
+	if !IsNil(o.Suggests) {
+		toSerialize["suggests"] = o.Suggests
+	}
+	if !IsNil(o.Enhances) {
+		toSerialize["enhances"] = o.Enhances
+	}
+	if !IsNil(o.PreDepends) {
+		toSerialize["pre_depends"] = o.PreDepends
+	}
+	if !IsNil(o.Provides) {
+		toSerialize["provides"] = o.Provides
+	}
+	if !IsNil(o.Replaces) {
+		toSerialize["replaces"] = o.Replaces
+	}
 	return toSerialize, nil
 }
 

@@ -1579,53 +1579,141 @@ func (o RpmPackageResponse) MarshalJSON() ([]byte, error) {
 
 func (o RpmPackageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
-	// skip: md5 is readOnly
-	// skip: sha1 is readOnly
-	// skip: sha224 is readOnly
-	// skip: sha256 is readOnly
-	// skip: sha384 is readOnly
-	// skip: sha512 is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.Md5) {
+		toSerialize["md5"] = o.Md5
+	}
+	if !IsNil(o.Sha1) {
+		toSerialize["sha1"] = o.Sha1
+	}
+	if !IsNil(o.Sha224) {
+		toSerialize["sha224"] = o.Sha224
+	}
+	if !IsNil(o.Sha256) {
+		toSerialize["sha256"] = o.Sha256
+	}
+	if !IsNil(o.Sha384) {
+		toSerialize["sha384"] = o.Sha384
+	}
+	if !IsNil(o.Sha512) {
+		toSerialize["sha512"] = o.Sha512
+	}
 	if !IsNil(o.Artifact) {
 		toSerialize["artifact"] = o.Artifact
 	}
-	// skip: name is readOnly
-	// skip: epoch is readOnly
-	// skip: version is readOnly
-	// skip: release is readOnly
-	// skip: arch is readOnly
-	// skip: pkgId is readOnly
-	// skip: checksum_type is readOnly
-	// skip: summary is readOnly
-	// skip: description is readOnly
-	// skip: url is readOnly
-	// skip: changelogs is readOnly
-	// skip: files is readOnly
-	// skip: requires is readOnly
-	// skip: provides is readOnly
-	// skip: conflicts is readOnly
-	// skip: obsoletes is readOnly
-	// skip: suggests is readOnly
-	// skip: enhances is readOnly
-	// skip: recommends is readOnly
-	// skip: supplements is readOnly
-	// skip: location_base is readOnly
-	// skip: location_href is readOnly
-	// skip: rpm_buildhost is readOnly
-	// skip: rpm_group is readOnly
-	// skip: rpm_license is readOnly
-	// skip: rpm_packager is readOnly
-	// skip: rpm_sourcerpm is readOnly
-	// skip: rpm_vendor is readOnly
-	// skip: rpm_header_start is readOnly
-	// skip: rpm_header_end is readOnly
-	// skip: is_modular is readOnly
-	// skip: size_archive is readOnly
-	// skip: size_installed is readOnly
-	// skip: size_package is readOnly
-	// skip: time_build is readOnly
-	// skip: time_file is readOnly
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Epoch) {
+		toSerialize["epoch"] = o.Epoch
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.Release) {
+		toSerialize["release"] = o.Release
+	}
+	if !IsNil(o.Arch) {
+		toSerialize["arch"] = o.Arch
+	}
+	if !IsNil(o.PkgId) {
+		toSerialize["pkgId"] = o.PkgId
+	}
+	if !IsNil(o.ChecksumType) {
+		toSerialize["checksum_type"] = o.ChecksumType
+	}
+	if !IsNil(o.Summary) {
+		toSerialize["summary"] = o.Summary
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.Changelogs) {
+		toSerialize["changelogs"] = o.Changelogs
+	}
+	if !IsNil(o.Files) {
+		toSerialize["files"] = o.Files
+	}
+	if !IsNil(o.Requires) {
+		toSerialize["requires"] = o.Requires
+	}
+	if !IsNil(o.Provides) {
+		toSerialize["provides"] = o.Provides
+	}
+	if !IsNil(o.Conflicts) {
+		toSerialize["conflicts"] = o.Conflicts
+	}
+	if !IsNil(o.Obsoletes) {
+		toSerialize["obsoletes"] = o.Obsoletes
+	}
+	if !IsNil(o.Suggests) {
+		toSerialize["suggests"] = o.Suggests
+	}
+	if !IsNil(o.Enhances) {
+		toSerialize["enhances"] = o.Enhances
+	}
+	if !IsNil(o.Recommends) {
+		toSerialize["recommends"] = o.Recommends
+	}
+	if !IsNil(o.Supplements) {
+		toSerialize["supplements"] = o.Supplements
+	}
+	if !IsNil(o.LocationBase) {
+		toSerialize["location_base"] = o.LocationBase
+	}
+	if !IsNil(o.LocationHref) {
+		toSerialize["location_href"] = o.LocationHref
+	}
+	if !IsNil(o.RpmBuildhost) {
+		toSerialize["rpm_buildhost"] = o.RpmBuildhost
+	}
+	if !IsNil(o.RpmGroup) {
+		toSerialize["rpm_group"] = o.RpmGroup
+	}
+	if !IsNil(o.RpmLicense) {
+		toSerialize["rpm_license"] = o.RpmLicense
+	}
+	if !IsNil(o.RpmPackager) {
+		toSerialize["rpm_packager"] = o.RpmPackager
+	}
+	if !IsNil(o.RpmSourcerpm) {
+		toSerialize["rpm_sourcerpm"] = o.RpmSourcerpm
+	}
+	if !IsNil(o.RpmVendor) {
+		toSerialize["rpm_vendor"] = o.RpmVendor
+	}
+	if !IsNil(o.RpmHeaderStart) {
+		toSerialize["rpm_header_start"] = o.RpmHeaderStart
+	}
+	if !IsNil(o.RpmHeaderEnd) {
+		toSerialize["rpm_header_end"] = o.RpmHeaderEnd
+	}
+	if !IsNil(o.IsModular) {
+		toSerialize["is_modular"] = o.IsModular
+	}
+	if !IsNil(o.SizeArchive) {
+		toSerialize["size_archive"] = o.SizeArchive
+	}
+	if !IsNil(o.SizeInstalled) {
+		toSerialize["size_installed"] = o.SizeInstalled
+	}
+	if !IsNil(o.SizePackage) {
+		toSerialize["size_package"] = o.SizePackage
+	}
+	if !IsNil(o.TimeBuild) {
+		toSerialize["time_build"] = o.TimeBuild
+	}
+	if !IsNil(o.TimeFile) {
+		toSerialize["time_file"] = o.TimeFile
+	}
 	return toSerialize, nil
 }
 

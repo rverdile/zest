@@ -282,12 +282,20 @@ func (o UserRoleResponse) MarshalJSON() ([]byte, error) {
 
 func (o UserRoleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["role"] = o.Role
 	toSerialize["content_object"] = o.ContentObject.Get()
-	// skip: description is readOnly
-	// skip: permissions is readOnly
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Permissions) {
+		toSerialize["permissions"] = o.Permissions
+	}
 	if o.Domain.IsSet() {
 		toSerialize["domain"] = o.Domain.Get()
 	}

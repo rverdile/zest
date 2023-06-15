@@ -292,12 +292,20 @@ func (o GalaxyCollectionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	// skip: namespace is readOnly
-	// skip: href is readOnly
-	// skip: versions_url is readOnly
+	if !IsNil(o.Namespace) {
+		toSerialize["namespace"] = o.Namespace
+	}
+	if !IsNil(o.Href) {
+		toSerialize["href"] = o.Href
+	}
+	if !IsNil(o.VersionsUrl) {
+		toSerialize["versions_url"] = o.VersionsUrl
+	}
 	toSerialize["created"] = o.Created
 	toSerialize["modified"] = o.Modified
-	// skip: latest_version is readOnly
+	if !IsNil(o.LatestVersion) {
+		toSerialize["latest_version"] = o.LatestVersion
+	}
 	return toSerialize, nil
 }
 

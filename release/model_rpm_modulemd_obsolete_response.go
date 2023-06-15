@@ -370,8 +370,12 @@ func (o RpmModulemdObsoleteResponse) MarshalJSON() ([]byte, error) {
 
 func (o RpmModulemdObsoleteResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["modified"] = o.Modified
 	toSerialize["module_name"] = o.ModuleName
 	toSerialize["module_stream"] = o.ModuleStream

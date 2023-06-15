@@ -372,15 +372,33 @@ func (o CollectionMetadataResponse) MarshalJSON() ([]byte, error) {
 
 func (o CollectionMetadataResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: authors is readOnly
-	// skip: contents is readOnly
-	// skip: dependencies is readOnly
-	// skip: description is readOnly
-	// skip: documentation is readOnly
-	// skip: homepage is readOnly
-	// skip: issues is readOnly
-	// skip: license is readOnly
-	// skip: repository is readOnly
+	if !IsNil(o.Authors) {
+		toSerialize["authors"] = o.Authors
+	}
+	if !IsNil(o.Contents) {
+		toSerialize["contents"] = o.Contents
+	}
+	if !IsNil(o.Dependencies) {
+		toSerialize["dependencies"] = o.Dependencies
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Documentation) {
+		toSerialize["documentation"] = o.Documentation
+	}
+	if !IsNil(o.Homepage) {
+		toSerialize["homepage"] = o.Homepage
+	}
+	if !IsNil(o.Issues) {
+		toSerialize["issues"] = o.Issues
+	}
+	if !IsNil(o.License) {
+		toSerialize["license"] = o.License
+	}
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
+	}
 	toSerialize["tags"] = o.Tags
 	return toSerialize, nil
 }

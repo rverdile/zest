@@ -266,13 +266,21 @@ func (o TaskScheduleResponse) MarshalJSON() ([]byte, error) {
 
 func (o TaskScheduleResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["task_name"] = o.TaskName
 	toSerialize["dispatch_interval"] = o.DispatchInterval
-	// skip: next_dispatch is readOnly
-	// skip: last_task is readOnly
+	if !IsNil(o.NextDispatch) {
+		toSerialize["next_dispatch"] = o.NextDispatch
+	}
+	if !IsNil(o.LastTask) {
+		toSerialize["last_task"] = o.LastTask
+	}
 	return toSerialize, nil
 }
 

@@ -320,14 +320,30 @@ func (o CollectionResponse) MarshalJSON() ([]byte, error) {
 
 func (o CollectionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: href is readOnly
-	// skip: namespace is readOnly
-	// skip: name is readOnly
-	// skip: deprecated is readOnly
-	// skip: versions_url is readOnly
-	// skip: highest_version is readOnly
-	// skip: created_at is readOnly
-	// skip: updated_at is readOnly
+	if !IsNil(o.Href) {
+		toSerialize["href"] = o.Href
+	}
+	if !IsNil(o.Namespace) {
+		toSerialize["namespace"] = o.Namespace
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Deprecated) {
+		toSerialize["deprecated"] = o.Deprecated
+	}
+	if !IsNil(o.VersionsUrl) {
+		toSerialize["versions_url"] = o.VersionsUrl
+	}
+	if !IsNil(o.HighestVersion) {
+		toSerialize["highest_version"] = o.HighestVersion
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
+	}
+	if !IsNil(o.UpdatedAt) {
+		toSerialize["updated_at"] = o.UpdatedAt
+	}
 	return toSerialize, nil
 }
 

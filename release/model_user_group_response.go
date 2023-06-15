@@ -110,7 +110,9 @@ func (o UserGroupResponse) MarshalJSON() ([]byte, error) {
 func (o UserGroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	// skip: pulp_href is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
 	return toSerialize, nil
 }
 

@@ -137,7 +137,9 @@ func (o CollectionRefResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	// skip: href is readOnly
+	if !IsNil(o.Href) {
+		toSerialize["href"] = o.Href
+	}
 	return toSerialize, nil
 }
 

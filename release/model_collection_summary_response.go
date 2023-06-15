@@ -398,18 +398,36 @@ func (o CollectionSummaryResponse) MarshalJSON() ([]byte, error) {
 
 func (o CollectionSummaryResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: namespace is readOnly
-	// skip: name is readOnly
-	// skip: version is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.Namespace) {
+		toSerialize["namespace"] = o.Namespace
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
 	if o.RequiresAnsible.IsSet() {
 		toSerialize["requires_ansible"] = o.RequiresAnsible.Get()
 	}
-	// skip: pulp_created is readOnly
-	// skip: contents is readOnly
-	// skip: dependencies is readOnly
-	// skip: description is readOnly
-	// skip: tags is readOnly
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.Contents) {
+		toSerialize["contents"] = o.Contents
+	}
+	if !IsNil(o.Dependencies) {
+		toSerialize["dependencies"] = o.Dependencies
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
+	}
 	return toSerialize, nil
 }
 

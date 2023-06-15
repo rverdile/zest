@@ -83,7 +83,9 @@ func (o AnsibleTagResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleTagResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: name is readOnly
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	return toSerialize, nil
 }
 

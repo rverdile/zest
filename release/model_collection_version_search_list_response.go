@@ -242,7 +242,9 @@ func (o CollectionVersionSearchListResponse) ToMap() (map[string]interface{}, er
 	toSerialize := map[string]interface{}{}
 	toSerialize["repository"] = o.Repository
 	toSerialize["collection_version"] = o.CollectionVersion
-	// skip: repository_version is readOnly
+	if !IsNil(o.RepositoryVersion) {
+		toSerialize["repository_version"] = o.RepositoryVersion
+	}
 	toSerialize["namespace_metadata"] = o.NamespaceMetadata.Get()
 	toSerialize["is_highest"] = o.IsHighest
 	toSerialize["is_deprecated"] = o.IsDeprecated

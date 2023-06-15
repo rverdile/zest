@@ -219,11 +219,21 @@ func (o WorkerResponse) MarshalJSON() ([]byte, error) {
 
 func (o WorkerResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
-	// skip: name is readOnly
-	// skip: last_heartbeat is readOnly
-	// skip: current_task is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.LastHeartbeat) {
+		toSerialize["last_heartbeat"] = o.LastHeartbeat
+	}
+	if !IsNil(o.CurrentTask) {
+		toSerialize["current_task"] = o.CurrentTask
+	}
 	return toSerialize, nil
 }
 

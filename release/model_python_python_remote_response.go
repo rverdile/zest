@@ -1025,8 +1025,12 @@ func (o PythonPythonRemoteResponse) MarshalJSON() ([]byte, error) {
 
 func (o PythonPythonRemoteResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["url"] = o.Url
 	if o.CaCert.IsSet() {
@@ -1044,7 +1048,9 @@ func (o PythonPythonRemoteResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
 	}
-	// skip: pulp_last_updated is readOnly
+	if !IsNil(o.PulpLastUpdated) {
+		toSerialize["pulp_last_updated"] = o.PulpLastUpdated
+	}
 	if o.DownloadConcurrency.IsSet() {
 		toSerialize["download_concurrency"] = o.DownloadConcurrency.Get()
 	}
@@ -1072,7 +1078,9 @@ func (o PythonPythonRemoteResponse) ToMap() (map[string]interface{}, error) {
 	if o.RateLimit.IsSet() {
 		toSerialize["rate_limit"] = o.RateLimit.Get()
 	}
-	// skip: hidden_fields is readOnly
+	if !IsNil(o.HiddenFields) {
+		toSerialize["hidden_fields"] = o.HiddenFields
+	}
 	if !IsNil(o.Includes) {
 		toSerialize["includes"] = o.Includes
 	}

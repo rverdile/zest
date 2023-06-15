@@ -440,18 +440,38 @@ func (o TaskGroupResponse) MarshalJSON() ([]byte, error) {
 
 func (o TaskGroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
 	toSerialize["description"] = o.Description
 	toSerialize["all_tasks_dispatched"] = o.AllTasksDispatched
-	// skip: waiting is readOnly
-	// skip: skipped is readOnly
-	// skip: running is readOnly
-	// skip: completed is readOnly
-	// skip: canceled is readOnly
-	// skip: failed is readOnly
-	// skip: canceling is readOnly
-	// skip: group_progress_reports is readOnly
-	// skip: tasks is readOnly
+	if !IsNil(o.Waiting) {
+		toSerialize["waiting"] = o.Waiting
+	}
+	if !IsNil(o.Skipped) {
+		toSerialize["skipped"] = o.Skipped
+	}
+	if !IsNil(o.Running) {
+		toSerialize["running"] = o.Running
+	}
+	if !IsNil(o.Completed) {
+		toSerialize["completed"] = o.Completed
+	}
+	if !IsNil(o.Canceled) {
+		toSerialize["canceled"] = o.Canceled
+	}
+	if !IsNil(o.Failed) {
+		toSerialize["failed"] = o.Failed
+	}
+	if !IsNil(o.Canceling) {
+		toSerialize["canceling"] = o.Canceling
+	}
+	if !IsNil(o.GroupProgressReports) {
+		toSerialize["group_progress_reports"] = o.GroupProgressReports
+	}
+	if !IsNil(o.Tasks) {
+		toSerialize["tasks"] = o.Tasks
+	}
 	return toSerialize, nil
 }
 

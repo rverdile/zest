@@ -175,7 +175,9 @@ func (o RpmUpdateCollectionResponse) ToMap() (map[string]interface{}, error) {
 	if o.Module != nil {
 		toSerialize["module"] = o.Module
 	}
-	// skip: packages is readOnly
+	if !IsNil(o.Packages) {
+		toSerialize["packages"] = o.Packages
+	}
 	return toSerialize, nil
 }
 

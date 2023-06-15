@@ -109,7 +109,9 @@ func (o CollectionNamespaceResponse) MarshalJSON() ([]byte, error) {
 func (o CollectionNamespaceResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	// skip: metadata_sha256 is readOnly
+	if !IsNil(o.MetadataSha256) {
+		toSerialize["metadata_sha256"] = o.MetadataSha256
+	}
 	return toSerialize, nil
 }
 

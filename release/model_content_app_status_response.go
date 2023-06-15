@@ -118,8 +118,12 @@ func (o ContentAppStatusResponse) MarshalJSON() ([]byte, error) {
 
 func (o ContentAppStatusResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: name is readOnly
-	// skip: last_heartbeat is readOnly
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.LastHeartbeat) {
+		toSerialize["last_heartbeat"] = o.LastHeartbeat
+	}
 	return toSerialize, nil
 }
 

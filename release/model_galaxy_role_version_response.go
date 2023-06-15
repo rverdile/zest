@@ -110,7 +110,9 @@ func (o GalaxyRoleVersionResponse) MarshalJSON() ([]byte, error) {
 func (o GalaxyRoleVersionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	// skip: source is readOnly
+	if !IsNil(o.Source) {
+		toSerialize["source"] = o.Source
+	}
 	return toSerialize, nil
 }
 

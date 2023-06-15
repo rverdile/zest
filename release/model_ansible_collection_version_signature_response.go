@@ -222,10 +222,16 @@ func (o AnsibleCollectionVersionSignatureResponse) MarshalJSON() ([]byte, error)
 
 func (o AnsibleCollectionVersionSignatureResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["signed_collection"] = o.SignedCollection
-	// skip: pubkey_fingerprint is readOnly
+	if !IsNil(o.PubkeyFingerprint) {
+		toSerialize["pubkey_fingerprint"] = o.PubkeyFingerprint
+	}
 	if o.SigningService.IsSet() {
 		toSerialize["signing_service"] = o.SigningService.Get()
 	}

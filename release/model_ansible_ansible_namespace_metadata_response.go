@@ -380,7 +380,9 @@ func (o AnsibleAnsibleNamespaceMetadataResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleAnsibleNamespaceMetadataResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
 	toSerialize["name"] = o.Name
 	if !IsNil(o.Company) {
 		toSerialize["company"] = o.Company
@@ -397,9 +399,15 @@ func (o AnsibleAnsibleNamespaceMetadataResponse) ToMap() (map[string]interface{}
 	if !IsNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
-	// skip: avatar_sha256 is readOnly
-	// skip: avatar_url is readOnly
-	// skip: metadata_sha256 is readOnly
+	if !IsNil(o.AvatarSha256) {
+		toSerialize["avatar_sha256"] = o.AvatarSha256
+	}
+	if !IsNil(o.AvatarUrl) {
+		toSerialize["avatar_url"] = o.AvatarUrl
+	}
+	if !IsNil(o.MetadataSha256) {
+		toSerialize["metadata_sha256"] = o.MetadataSha256
+	}
 	return toSerialize, nil
 }
 

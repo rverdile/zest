@@ -578,7 +578,9 @@ func (o RpmDistributionTreeResponse) MarshalJSON() ([]byte, error) {
 
 func (o RpmDistributionTreeResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
 	toSerialize["header_version"] = o.HeaderVersion
 	toSerialize["release_name"] = o.ReleaseName
 	toSerialize["release_short"] = o.ReleaseShort

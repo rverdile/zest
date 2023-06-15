@@ -422,8 +422,12 @@ func (o UserResponse) MarshalJSON() ([]byte, error) {
 
 func (o UserResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: id is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	toSerialize["username"] = o.Username
 	if !IsNil(o.FirstName) {
 		toSerialize["first_name"] = o.FirstName
@@ -440,9 +444,15 @@ func (o UserResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsActive) {
 		toSerialize["is_active"] = o.IsActive
 	}
-	// skip: date_joined is readOnly
-	// skip: groups is readOnly
-	// skip: hidden_fields is readOnly
+	if !IsNil(o.DateJoined) {
+		toSerialize["date_joined"] = o.DateJoined
+	}
+	if !IsNil(o.Groups) {
+		toSerialize["groups"] = o.Groups
+	}
+	if !IsNil(o.HiddenFields) {
+		toSerialize["hidden_fields"] = o.HiddenFields
+	}
 	return toSerialize, nil
 }
 

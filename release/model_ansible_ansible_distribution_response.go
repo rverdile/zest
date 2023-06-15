@@ -370,8 +370,12 @@ func (o AnsibleAnsibleDistributionResponse) MarshalJSON() ([]byte, error) {
 
 func (o AnsibleAnsibleDistributionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["base_path"] = o.BasePath
 	if o.ContentGuard.IsSet() {
 		toSerialize["content_guard"] = o.ContentGuard.Get()
@@ -383,7 +387,9 @@ func (o AnsibleAnsibleDistributionResponse) ToMap() (map[string]interface{}, err
 	if o.RepositoryVersion.IsSet() {
 		toSerialize["repository_version"] = o.RepositoryVersion.Get()
 	}
-	// skip: client_url is readOnly
+	if !IsNil(o.ClientUrl) {
+		toSerialize["client_url"] = o.ClientUrl
+	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
 	}

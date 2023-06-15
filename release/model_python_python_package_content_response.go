@@ -1073,19 +1073,33 @@ func (o PythonPythonPackageContentResponse) MarshalJSON() ([]byte, error) {
 
 func (o PythonPythonPackageContentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	if !IsNil(o.Artifact) {
 		toSerialize["artifact"] = o.Artifact
 	}
-	// skip: filename is readOnly
-	// skip: packagetype is readOnly
-	// skip: name is readOnly
-	// skip: version is readOnly
+	if !IsNil(o.Filename) {
+		toSerialize["filename"] = o.Filename
+	}
+	if !IsNil(o.Packagetype) {
+		toSerialize["packagetype"] = o.Packagetype
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
 	if !IsNil(o.Sha256) {
 		toSerialize["sha256"] = o.Sha256
 	}
-	// skip: metadata_version is readOnly
+	if !IsNil(o.MetadataVersion) {
+		toSerialize["metadata_version"] = o.MetadataVersion
+	}
 	if !IsNil(o.Summary) {
 		toSerialize["summary"] = o.Summary
 	}

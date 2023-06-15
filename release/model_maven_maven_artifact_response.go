@@ -280,13 +280,25 @@ func (o MavenMavenArtifactResponse) MarshalJSON() ([]byte, error) {
 
 func (o MavenMavenArtifactResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	toSerialize["artifact"] = o.Artifact
-	// skip: group_id is readOnly
-	// skip: artifact_id is readOnly
-	// skip: version is readOnly
-	// skip: filename is readOnly
+	if !IsNil(o.GroupId) {
+		toSerialize["group_id"] = o.GroupId
+	}
+	if !IsNil(o.ArtifactId) {
+		toSerialize["artifact_id"] = o.ArtifactId
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.Filename) {
+		toSerialize["filename"] = o.Filename
+	}
 	return toSerialize, nil
 }
 

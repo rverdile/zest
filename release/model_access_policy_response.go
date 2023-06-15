@@ -314,8 +314,12 @@ func (o AccessPolicyResponse) MarshalJSON() ([]byte, error) {
 
 func (o AccessPolicyResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: pulp_href is readOnly
-	// skip: pulp_created is readOnly
+	if !IsNil(o.PulpHref) {
+		toSerialize["pulp_href"] = o.PulpHref
+	}
+	if !IsNil(o.PulpCreated) {
+		toSerialize["pulp_created"] = o.PulpCreated
+	}
 	if !IsNil(o.PermissionsAssignment) {
 		toSerialize["permissions_assignment"] = o.PermissionsAssignment
 	}
@@ -323,8 +327,12 @@ func (o AccessPolicyResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["creation_hooks"] = o.CreationHooks
 	}
 	toSerialize["statements"] = o.Statements
-	// skip: viewset_name is readOnly
-	// skip: customized is readOnly
+	if !IsNil(o.ViewsetName) {
+		toSerialize["viewset_name"] = o.ViewsetName
+	}
+	if !IsNil(o.Customized) {
+		toSerialize["customized"] = o.Customized
+	}
 	if !IsNil(o.QuerysetScoping) {
 		toSerialize["queryset_scoping"] = o.QuerysetScoping
 	}
