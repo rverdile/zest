@@ -23,10 +23,15 @@ jobs:
       - name: Get current pulp version
         id: pulpRelease
         run: |
-          pulpTag=v`curl https://quay.io/v1/repositories/pulp/pulp-minimal/tags | jq --raw-output 'keys[]'   |  grep -v 'nightly\|latest\|stable' |sort --version-sort --field-separator=. |tail -n 1`
-          echo "GIT_TAG=release/$pulpTag" >> $GITHUB_OUTPUT
-          echo "PULP_TAG=$pulpTag" >> $GITHUB_OUTPUT
-          echo "V_TAG=`expr $pulpTag : '^\([v][0-9]*\)'`" >> $GITHUB_OUTPUT
+          latestImage="`curl https://quay.io/v1/repositories/cloudservices/pulp-rpm-ubi/tags/latest  | jq -r`"
+          date="`curl https://quay.io/v2/cloudservices/pulp-rpm-ubi/manifests/latest | jq -r '.history[].v1Compatibility' | jq -r '.created' | head -n 1`"
+          year=`date -d "$date" +%Y`
+          month=`date -d "$date" +%m`
+          epoch=`date -d "$date" +"%s"`
+          pulpTag="$year.$month.$epoch"
+          echo "GIT_TAG=release/v$pulpTag" >> $GITHUB_OUTPUT
+          echo "PULP_TAG=$latestImage" >> $GITHUB_OUTPUT
+          echo "V_TAG=v3" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
       - name: Update version

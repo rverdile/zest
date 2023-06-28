@@ -38,7 +38,7 @@ services:
     restart: always
 
   pulp_api:
-    image: "pulp/pulp-minimal:latest"
+    image: "quay.io/cloudservices/pulp-rpm-ubi:latest"
     deploy:
       replicas: 2
     command: [ 'pulp-api' ]
@@ -55,10 +55,11 @@ services:
       POSTGRES_SERVICE_PORT: 5432
       POSTGRES_SERVICE_HOST: postgres
       PULP_ADMIN_PASSWORD: password
+      DOMAIN_ENABLED: true
     restart: always
 
   pulp_content:
-    image: "pulp/pulp-minimal:latest"
+    image: "quay.io/cloudservices/pulp-rpm-ubi:latest"
     deploy:
       replicas: 2
     command: [ 'pulp-content' ]
@@ -74,10 +75,11 @@ services:
     environment:
       POSTGRES_SERVICE_PORT: 5432
       POSTGRES_SERVICE_HOST: postgres
+      DOMAIN_ENABLED: true
     restart: always
 
   pulp_worker:
-    image: "pulp/pulp-minimal:latest"
+    image: "quay.io/cloudservices/pulp-rpm-ubi:latest"
     deploy:
       replicas: 2
     command: [ 'pulp-worker' ]
@@ -92,6 +94,7 @@ services:
     environment:
       POSTGRES_SERVICE_PORT: 5432
       POSTGRES_SERVICE_HOST: postgres
+      DOMAIN_ENABLED: true
     restart: always
 
 volumes:
