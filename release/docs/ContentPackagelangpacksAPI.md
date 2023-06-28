@@ -26,7 +26,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release/v2023"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
@@ -110,7 +110,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/content-services/zest/release/v2023"
+    openapiclient "github.com/content-services/zest/release/v3"
 )
 
 func main() {
