@@ -55,7 +55,7 @@ services:
       POSTGRES_SERVICE_PORT: 5432
       POSTGRES_SERVICE_HOST: postgres
       PULP_ADMIN_PASSWORD: password
-      PULP_DOMAIN_ENABLED: True
+      PULP_DOMAIN_ENABLED: "true"
     restart: always
 
   pulp_content:
@@ -75,7 +75,7 @@ services:
     environment:
       POSTGRES_SERVICE_PORT: 5432
       POSTGRES_SERVICE_HOST: postgres
-      PULP_DOMAIN_ENABLED: True
+      PULP_DOMAIN_ENABLED: "true"
     restart: always
 
   pulp_worker:
@@ -94,7 +94,7 @@ services:
     environment:
       POSTGRES_SERVICE_PORT: 5432
       POSTGRES_SERVICE_HOST: postgres
-      PULP_DOMAIN_ENABLED: True
+      PULP_DOMAIN_ENABLED: "true"
     restart: always
 
 volumes:
