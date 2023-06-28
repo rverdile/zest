@@ -41,7 +41,7 @@ func main() {
     pulpHrefIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     pulpIdIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     pulpLabelSelect := "pulpLabelSelect_example" // string | Filter labels by search string (optional)
-    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `container.container-push` - container.container-push * `deb.deb` - deb.deb * `file.file` - file.file * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm (optional)
+    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `rpm.rpm` - rpm.rpm (optional)
     remote := "remote_example" // string | Foreign Key referenced by HREF (optional)
     retainRepoVersions := int32(56) // int32 | Filter results where retain_repo_versions matches value (optional)
     retainRepoVersionsGt := int32(56) // int32 | Filter results where retain_repo_versions is greater than value (optional)
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
  **pulpHrefIn** | **[]string** | Multiple values may be separated by commas. | 
  **pulpIdIn** | **[]string** | Multiple values may be separated by commas. | 
  **pulpLabelSelect** | **string** | Filter labels by search string | 
- **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;container.container-push&#x60; - container.container-push * &#x60;deb.deb&#x60; - deb.deb * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm | 
+ **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;rpm.rpm&#x60; - rpm.rpm | 
  **remote** | **string** | Foreign Key referenced by HREF | 
  **retainRepoVersions** | **int32** | Filter results where retain_repo_versions matches value | 
  **retainRepoVersionsGt** | **int32** | Filter results where retain_repo_versions is greater than value | 

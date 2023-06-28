@@ -126,7 +126,7 @@ func (r PublicationsAPIPublicationsListRequest) PulpIdIn(pulpIdIn []string) Publ
 	return r
 }
 
-// Pulp type is in  * &#x60;deb.verbatim-publication&#x60; - deb.verbatim-publication * &#x60;deb.apt-publication&#x60; - deb.apt-publication * &#x60;file.file&#x60; - file.file * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm
+// Pulp type is in  * &#x60;rpm.rpm&#x60; - rpm.rpm
 func (r PublicationsAPIPublicationsListRequest) PulpTypeIn(pulpTypeIn []string) PublicationsAPIPublicationsListRequest {
 	r.pulpTypeIn = &pulpTypeIn
 	return r

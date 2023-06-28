@@ -47,7 +47,7 @@ func main() {
     pulpLastUpdatedLt := time.Now() // time.Time | Filter results where pulp_last_updated is less than value (optional)
     pulpLastUpdatedLte := time.Now() // time.Time | Filter results where pulp_last_updated is less than or equal to value (optional)
     pulpLastUpdatedRange := []time.Time{time.Now()} // []time.Time | Filter results where pulp_last_updated is between two comma separated values (optional)
-    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `ansible.role` - ansible.role * `ansible.collection` - ansible.collection * `ansible.git` - ansible.git * `container.container` - container.container * `deb.apt-remote` - deb.apt-remote * `file.file` - file.file * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln (optional)
+    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
     excludeFields := []string{"Inner_example"} // []string | A list of fields to exclude from the response. (optional)
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
  **pulpLastUpdatedLt** | **time.Time** | Filter results where pulp_last_updated is less than value | 
  **pulpLastUpdatedLte** | **time.Time** | Filter results where pulp_last_updated is less than or equal to value | 
  **pulpLastUpdatedRange** | [**[]time.Time**](time.Time.md) | Filter results where pulp_last_updated is between two comma separated values | 
- **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;ansible.role&#x60; - ansible.role * &#x60;ansible.collection&#x60; - ansible.collection * &#x60;ansible.git&#x60; - ansible.git * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-remote&#x60; - deb.apt-remote * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln | 
+ **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln | 
  **fields** | **[]string** | A list of fields to include in the response. | 
  **excludeFields** | **[]string** | A list of fields to exclude from the response. | 
 

@@ -43,7 +43,7 @@ func main() {
     pulpCreatedRange := []time.Time{time.Now()} // []time.Time | Filter results where pulp_created is between two comma separated values (optional)
     pulpHrefIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     pulpIdIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
-    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `deb.verbatim-publication` - deb.verbatim-publication * `deb.apt-publication` - deb.apt-publication * `file.file` - file.file * `python.python` - python.python * `rpm.rpm` - rpm.rpm (optional)
+    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `rpm.rpm` - rpm.rpm (optional)
     repository := "repository_example" // string | Repository referenced by HREF (optional)
     repositoryVersion := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Repository Version referenced by HREF (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
  **pulpCreatedRange** | [**[]time.Time**](time.Time.md) | Filter results where pulp_created is between two comma separated values | 
  **pulpHrefIn** | **[]string** | Multiple values may be separated by commas. | 
  **pulpIdIn** | **[]string** | Multiple values may be separated by commas. | 
- **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;deb.verbatim-publication&#x60; - deb.verbatim-publication * &#x60;deb.apt-publication&#x60; - deb.apt-publication * &#x60;file.file&#x60; - file.file * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm | 
+ **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;rpm.rpm&#x60; - rpm.rpm | 
  **repository** | **string** | Repository referenced by HREF | 
  **repositoryVersion** | **string** | Repository Version referenced by HREF | 
  **fields** | **[]string** | A list of fields to include in the response. | 

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **PulpLastUpdated** | Pointer to **time.Time** | Timestamp of the most recent update of the remote. | [optional] [readonly] 
 **DownloadConcurrency** | Pointer to **NullableInt64** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
 **MaxRetries** | Pointer to **NullableInt64** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
-**Policy** | Pointer to [**PolicyDb6Enum**](PolicyDb6Enum.md) |  | [optional] [default to POLICYDB6ENUM_IMMEDIATE]
+**Policy** | Pointer to [**RemoteResponsePolicyEnum**](RemoteResponsePolicyEnum.md) |  | [optional] [default to REMOTERESPONSEPOLICYENUM_IMMEDIATE]
 **TotalTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **ConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
 **SockConnectTimeout** | Pointer to **NullableFloat64** | aiohttp.ClientTimeout.sock_connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used. | [optional] 
@@ -386,20 +386,20 @@ HasMaxRetries returns a boolean if a field has been set.
 UnsetMaxRetries ensures that no value is present for MaxRetries, not even an explicit nil
 ### GetPolicy
 
-`func (o *RemoteResponse) GetPolicy() PolicyDb6Enum`
+`func (o *RemoteResponse) GetPolicy() RemoteResponsePolicyEnum`
 
 GetPolicy returns the Policy field if non-nil, zero value otherwise.
 
 ### GetPolicyOk
 
-`func (o *RemoteResponse) GetPolicyOk() (*PolicyDb6Enum, bool)`
+`func (o *RemoteResponse) GetPolicyOk() (*RemoteResponsePolicyEnum, bool)`
 
 GetPolicyOk returns a tuple with the Policy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPolicy
 
-`func (o *RemoteResponse) SetPolicy(v PolicyDb6Enum)`
+`func (o *RemoteResponse) SetPolicy(v RemoteResponsePolicyEnum)`
 
 SetPolicy sets Policy field to given value.
 

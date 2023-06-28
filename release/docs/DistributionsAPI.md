@@ -44,7 +44,7 @@ func main() {
     pulpHrefIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     pulpIdIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     pulpLabelSelect := "pulpLabelSelect_example" // string | Filter labels by search string (optional)
-    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `file.file` - file.file * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm (optional)
+    pulpTypeIn := []string{"PulpTypeIn_example"} // []string | Pulp type is in  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm (optional)
     repository := "repository_example" // string | Filter results where repository matches value (optional)
     repositoryIn := []string{"Inner_example"} // []string | Filter results where repository is in a comma-separated list of values (optional)
     withContent := "withContent_example" // string | Filter distributions based on the content served by them (optional)
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
  **pulpHrefIn** | **[]string** | Multiple values may be separated by commas. | 
  **pulpIdIn** | **[]string** | Multiple values may be separated by commas. | 
  **pulpLabelSelect** | **string** | Filter labels by search string | 
- **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;core.artifact&#x60; - core.artifact * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-distribution&#x60; - deb.apt-distribution * &#x60;file.file&#x60; - file.file * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm | 
+ **pulpTypeIn** | **[]string** | Pulp type is in  * &#x60;core.artifact&#x60; - core.artifact * &#x60;rpm.rpm&#x60; - rpm.rpm | 
  **repository** | **string** | Filter results where repository matches value | 
  **repositoryIn** | **[]string** | Filter results where repository is in a comma-separated list of values | 
  **withContent** | **string** | Filter distributions based on the content served by them | 

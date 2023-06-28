@@ -43,7 +43,7 @@ type RemoteResponse struct {
 	DownloadConcurrency NullableInt64 `json:"download_concurrency,omitempty"`
 	// Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used.
 	MaxRetries NullableInt64 `json:"max_retries,omitempty"`
-	Policy *PolicyDb6Enum `json:"policy,omitempty"`
+	Policy *RemoteResponsePolicyEnum `json:"policy,omitempty"`
 	// aiohttp.ClientTimeout.total (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
 	TotalTimeout NullableFloat64 `json:"total_timeout,omitempty"`
 	// aiohttp.ClientTimeout.connect (q.v.) for download-connections. The default is null, which will cause the default from the aiohttp library to be used.
@@ -68,7 +68,7 @@ func NewRemoteResponse(name string, url string) *RemoteResponse {
 	this := RemoteResponse{}
 	this.Name = name
 	this.Url = url
-	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	var policy RemoteResponsePolicyEnum = REMOTERESPONSEPOLICYENUM_IMMEDIATE
 	this.Policy = &policy
 	return &this
 }
@@ -78,7 +78,7 @@ func NewRemoteResponse(name string, url string) *RemoteResponse {
 // but it doesn't guarantee that properties required by API are set
 func NewRemoteResponseWithDefaults() *RemoteResponse {
 	this := RemoteResponse{}
-	var policy PolicyDb6Enum = POLICYDB6ENUM_IMMEDIATE
+	var policy RemoteResponsePolicyEnum = REMOTERESPONSEPOLICYENUM_IMMEDIATE
 	this.Policy = &policy
 	return &this
 }
@@ -502,9 +502,9 @@ func (o *RemoteResponse) UnsetMaxRetries() {
 }
 
 // GetPolicy returns the Policy field value if set, zero value otherwise.
-func (o *RemoteResponse) GetPolicy() PolicyDb6Enum {
+func (o *RemoteResponse) GetPolicy() RemoteResponsePolicyEnum {
 	if o == nil || IsNil(o.Policy) {
-		var ret PolicyDb6Enum
+		var ret RemoteResponsePolicyEnum
 		return ret
 	}
 	return *o.Policy
@@ -512,7 +512,7 @@ func (o *RemoteResponse) GetPolicy() PolicyDb6Enum {
 
 // GetPolicyOk returns a tuple with the Policy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RemoteResponse) GetPolicyOk() (*PolicyDb6Enum, bool) {
+func (o *RemoteResponse) GetPolicyOk() (*RemoteResponsePolicyEnum, bool) {
 	if o == nil || IsNil(o.Policy) {
 		return nil, false
 	}
@@ -528,8 +528,8 @@ func (o *RemoteResponse) HasPolicy() bool {
 	return false
 }
 
-// SetPolicy gets a reference to the given PolicyDb6Enum and assigns it to the Policy field.
-func (o *RemoteResponse) SetPolicy(v PolicyDb6Enum) {
+// SetPolicy gets a reference to the given RemoteResponsePolicyEnum and assigns it to the Policy field.
+func (o *RemoteResponse) SetPolicy(v RemoteResponsePolicyEnum) {
 	o.Policy = &v
 }
 

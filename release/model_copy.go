@@ -22,6 +22,8 @@ var _ MappedNullable = &Copy{}
 type Copy struct {
 	// A JSON document describing sources, destinations, and content to be copied
 	Config map[string]interface{} `json:"config"`
+	// Also copy dependencies of the content being copied.
+	DependencySolving *bool `json:"dependency_solving,omitempty"`
 }
 
 // NewCopy instantiates a new Copy object
@@ -31,6 +33,8 @@ type Copy struct {
 func NewCopy(config map[string]interface{}) *Copy {
 	this := Copy{}
 	this.Config = config
+	var dependencySolving bool = true
+	this.DependencySolving = &dependencySolving
 	return &this
 }
 
@@ -39,6 +43,8 @@ func NewCopy(config map[string]interface{}) *Copy {
 // but it doesn't guarantee that properties required by API are set
 func NewCopyWithDefaults() *Copy {
 	this := Copy{}
+	var dependencySolving bool = true
+	this.DependencySolving = &dependencySolving
 	return &this
 }
 
@@ -66,6 +72,38 @@ func (o *Copy) SetConfig(v map[string]interface{}) {
 	o.Config = v
 }
 
+// GetDependencySolving returns the DependencySolving field value if set, zero value otherwise.
+func (o *Copy) GetDependencySolving() bool {
+	if o == nil || IsNil(o.DependencySolving) {
+		var ret bool
+		return ret
+	}
+	return *o.DependencySolving
+}
+
+// GetDependencySolvingOk returns a tuple with the DependencySolving field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Copy) GetDependencySolvingOk() (*bool, bool) {
+	if o == nil || IsNil(o.DependencySolving) {
+		return nil, false
+	}
+	return o.DependencySolving, true
+}
+
+// HasDependencySolving returns a boolean if a field has been set.
+func (o *Copy) HasDependencySolving() bool {
+	if o != nil && !IsNil(o.DependencySolving) {
+		return true
+	}
+
+	return false
+}
+
+// SetDependencySolving gets a reference to the given bool and assigns it to the DependencySolving field.
+func (o *Copy) SetDependencySolving(v bool) {
+	o.DependencySolving = &v
+}
+
 func (o Copy) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -77,6 +115,9 @@ func (o Copy) MarshalJSON() ([]byte, error) {
 func (o Copy) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["config"] = o.Config
+	if !IsNil(o.DependencySolving) {
+		toSerialize["dependency_solving"] = o.DependencySolving
+	}
 	return toSerialize, nil
 }
 
