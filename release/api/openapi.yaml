@@ -17936,36 +17936,36 @@ components:
           format: uri
           readOnly: true
           type: string
+        content_guard:
+          description: An optional content-guard.
+          format: uri
+          nullable: true
+          type: string
         base_path:
           description: The base (relative) path component of the published url. Avoid
             paths that                     overlap with other distribution base paths
             (e.g. "foo" and "foo/bar")
-          type: string
-        name:
-          description: "A unique name. Ex, `rawhide` and `stable`."
           type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
           readOnly: true
           type: string
+        name:
+          description: "A unique name. Ex, `rawhide` and `stable`."
+          type: string
         hidden:
           default: false
           description: Whether this distribution should be shown in the content app.
           type: boolean
-        base_url:
-          description: The URL for accessing the publication as defined by this distribution.
-          readOnly: true
-          type: string
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
-        content_guard:
-          description: An optional content-guard.
-          format: uri
-          nullable: true
+        base_url:
+          description: The URL for accessing the publication as defined by this distribution.
+          readOnly: true
           type: string
       required:
       - base_path
