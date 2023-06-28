@@ -26,7 +26,7 @@ jobs:
           latestImage="`curl https://quay.io/v1/repositories/cloudservices/pulp-rpm-ubi/tags/latest  | jq -r`"
           date="`curl https://quay.io/v2/cloudservices/pulp-rpm-ubi/manifests/latest | jq -r '.history[].v1Compatibility' | jq -r '.created' | head -n 1`"
           year=`date -d "$date" +%Y`
-          month=`date -d "$date" +%m`
+          month=`date -d "$date" +%-m`
           epoch=`date -d "$date" +"%s"`
           pulpTag="$year.$month.$epoch"
           echo "GIT_TAG=release/v$pulpTag" >> $GITHUB_OUTPUT
