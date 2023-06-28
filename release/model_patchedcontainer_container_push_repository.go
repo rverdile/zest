@@ -20,15 +20,15 @@ var _ MappedNullable = &PatchedcontainerContainerPushRepository{}
 
 // PatchedcontainerContainerPushRepository Serializer for Container Push Repositories.
 type PatchedcontainerContainerPushRepository struct {
-	// Retain X versions of the repository. Default is null which retains all versions.
-	RetainRepoVersions NullableInt64 `json:"retain_repo_versions,omitempty"`
+	// A reference to an associated signing service.
+	ManifestSigningService NullableString `json:"manifest_signing_service,omitempty"`
 	// A unique name for this repository.
 	Name *string `json:"name,omitempty"`
 	// An optional description.
 	Description NullableString `json:"description,omitempty"`
-	// A reference to an associated signing service.
-	ManifestSigningService NullableString `json:"manifest_signing_service,omitempty"`
 	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
+	// Retain X versions of the repository. Default is null which retains all versions.
+	RetainRepoVersions NullableInt64 `json:"retain_repo_versions,omitempty"`
 }
 
 // NewPatchedcontainerContainerPushRepository instantiates a new PatchedcontainerContainerPushRepository object
@@ -48,46 +48,46 @@ func NewPatchedcontainerContainerPushRepositoryWithDefaults() *PatchedcontainerC
 	return &this
 }
 
-// GetRetainRepoVersions returns the RetainRepoVersions field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedcontainerContainerPushRepository) GetRetainRepoVersions() int64 {
-	if o == nil || IsNil(o.RetainRepoVersions.Get()) {
-		var ret int64
+// GetManifestSigningService returns the ManifestSigningService field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedcontainerContainerPushRepository) GetManifestSigningService() string {
+	if o == nil || IsNil(o.ManifestSigningService.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.RetainRepoVersions.Get()
+	return *o.ManifestSigningService.Get()
 }
 
-// GetRetainRepoVersionsOk returns a tuple with the RetainRepoVersions field value if set, nil otherwise
+// GetManifestSigningServiceOk returns a tuple with the ManifestSigningService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedcontainerContainerPushRepository) GetRetainRepoVersionsOk() (*int64, bool) {
+func (o *PatchedcontainerContainerPushRepository) GetManifestSigningServiceOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RetainRepoVersions.Get(), o.RetainRepoVersions.IsSet()
+	return o.ManifestSigningService.Get(), o.ManifestSigningService.IsSet()
 }
 
-// HasRetainRepoVersions returns a boolean if a field has been set.
-func (o *PatchedcontainerContainerPushRepository) HasRetainRepoVersions() bool {
-	if o != nil && o.RetainRepoVersions.IsSet() {
+// HasManifestSigningService returns a boolean if a field has been set.
+func (o *PatchedcontainerContainerPushRepository) HasManifestSigningService() bool {
+	if o != nil && o.ManifestSigningService.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRetainRepoVersions gets a reference to the given NullableInt64 and assigns it to the RetainRepoVersions field.
-func (o *PatchedcontainerContainerPushRepository) SetRetainRepoVersions(v int64) {
-	o.RetainRepoVersions.Set(&v)
+// SetManifestSigningService gets a reference to the given NullableString and assigns it to the ManifestSigningService field.
+func (o *PatchedcontainerContainerPushRepository) SetManifestSigningService(v string) {
+	o.ManifestSigningService.Set(&v)
 }
-// SetRetainRepoVersionsNil sets the value for RetainRepoVersions to be an explicit nil
-func (o *PatchedcontainerContainerPushRepository) SetRetainRepoVersionsNil() {
-	o.RetainRepoVersions.Set(nil)
+// SetManifestSigningServiceNil sets the value for ManifestSigningService to be an explicit nil
+func (o *PatchedcontainerContainerPushRepository) SetManifestSigningServiceNil() {
+	o.ManifestSigningService.Set(nil)
 }
 
-// UnsetRetainRepoVersions ensures that no value is present for RetainRepoVersions, not even an explicit nil
-func (o *PatchedcontainerContainerPushRepository) UnsetRetainRepoVersions() {
-	o.RetainRepoVersions.Unset()
+// UnsetManifestSigningService ensures that no value is present for ManifestSigningService, not even an explicit nil
+func (o *PatchedcontainerContainerPushRepository) UnsetManifestSigningService() {
+	o.ManifestSigningService.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -164,48 +164,6 @@ func (o *PatchedcontainerContainerPushRepository) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetManifestSigningService returns the ManifestSigningService field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PatchedcontainerContainerPushRepository) GetManifestSigningService() string {
-	if o == nil || IsNil(o.ManifestSigningService.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ManifestSigningService.Get()
-}
-
-// GetManifestSigningServiceOk returns a tuple with the ManifestSigningService field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PatchedcontainerContainerPushRepository) GetManifestSigningServiceOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ManifestSigningService.Get(), o.ManifestSigningService.IsSet()
-}
-
-// HasManifestSigningService returns a boolean if a field has been set.
-func (o *PatchedcontainerContainerPushRepository) HasManifestSigningService() bool {
-	if o != nil && o.ManifestSigningService.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetManifestSigningService gets a reference to the given NullableString and assigns it to the ManifestSigningService field.
-func (o *PatchedcontainerContainerPushRepository) SetManifestSigningService(v string) {
-	o.ManifestSigningService.Set(&v)
-}
-// SetManifestSigningServiceNil sets the value for ManifestSigningService to be an explicit nil
-func (o *PatchedcontainerContainerPushRepository) SetManifestSigningServiceNil() {
-	o.ManifestSigningService.Set(nil)
-}
-
-// UnsetManifestSigningService ensures that no value is present for ManifestSigningService, not even an explicit nil
-func (o *PatchedcontainerContainerPushRepository) UnsetManifestSigningService() {
-	o.ManifestSigningService.Unset()
-}
-
 // GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
 func (o *PatchedcontainerContainerPushRepository) GetPulpLabels() map[string]string {
 	if o == nil || IsNil(o.PulpLabels) {
@@ -238,6 +196,48 @@ func (o *PatchedcontainerContainerPushRepository) SetPulpLabels(v map[string]str
 	o.PulpLabels = &v
 }
 
+// GetRetainRepoVersions returns the RetainRepoVersions field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PatchedcontainerContainerPushRepository) GetRetainRepoVersions() int64 {
+	if o == nil || IsNil(o.RetainRepoVersions.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.RetainRepoVersions.Get()
+}
+
+// GetRetainRepoVersionsOk returns a tuple with the RetainRepoVersions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PatchedcontainerContainerPushRepository) GetRetainRepoVersionsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RetainRepoVersions.Get(), o.RetainRepoVersions.IsSet()
+}
+
+// HasRetainRepoVersions returns a boolean if a field has been set.
+func (o *PatchedcontainerContainerPushRepository) HasRetainRepoVersions() bool {
+	if o != nil && o.RetainRepoVersions.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRetainRepoVersions gets a reference to the given NullableInt64 and assigns it to the RetainRepoVersions field.
+func (o *PatchedcontainerContainerPushRepository) SetRetainRepoVersions(v int64) {
+	o.RetainRepoVersions.Set(&v)
+}
+// SetRetainRepoVersionsNil sets the value for RetainRepoVersions to be an explicit nil
+func (o *PatchedcontainerContainerPushRepository) SetRetainRepoVersionsNil() {
+	o.RetainRepoVersions.Set(nil)
+}
+
+// UnsetRetainRepoVersions ensures that no value is present for RetainRepoVersions, not even an explicit nil
+func (o *PatchedcontainerContainerPushRepository) UnsetRetainRepoVersions() {
+	o.RetainRepoVersions.Unset()
+}
+
 func (o PatchedcontainerContainerPushRepository) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -248,8 +248,8 @@ func (o PatchedcontainerContainerPushRepository) MarshalJSON() ([]byte, error) {
 
 func (o PatchedcontainerContainerPushRepository) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.RetainRepoVersions.IsSet() {
-		toSerialize["retain_repo_versions"] = o.RetainRepoVersions.Get()
+	if o.ManifestSigningService.IsSet() {
+		toSerialize["manifest_signing_service"] = o.ManifestSigningService.Get()
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
@@ -257,11 +257,11 @@ func (o PatchedcontainerContainerPushRepository) ToMap() (map[string]interface{}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.ManifestSigningService.IsSet() {
-		toSerialize["manifest_signing_service"] = o.ManifestSigningService.Get()
-	}
 	if !IsNil(o.PulpLabels) {
 		toSerialize["pulp_labels"] = o.PulpLabels
+	}
+	if o.RetainRepoVersions.IsSet() {
+		toSerialize["retain_repo_versions"] = o.RetainRepoVersions.Get()
 	}
 	return toSerialize, nil
 }

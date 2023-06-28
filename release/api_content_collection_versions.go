@@ -30,9 +30,9 @@ type ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest s
 	ctx context.Context
 	ApiService *ContentCollectionVersionsAPIService
 	file *os.File
-	artifact *string
 	upload *string
 	repository *string
+	artifact *string
 	expectedName *string
 	expectedNamespace *string
 	expectedVersion *string
@@ -41,12 +41,6 @@ type ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest s
 // An uploaded file that may be turned into the artifact of the content unit.
 func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) File(file *os.File) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
 	r.file = file
-	return r
-}
-
-// Artifact file representing the physical content
-func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
-	r.artifact = &artifact
 	return r
 }
 
@@ -59,6 +53,12 @@ func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateReques
 // A URI of a repository the new content unit should be associated with.
 func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Repository(repository string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
 	r.repository = &repository
+	return r
+}
+
+// Artifact file representing the physical content
+func (r ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest) Artifact(artifact string) ContentCollectionVersionsAPIContentAnsibleCollectionVersionsCreateRequest {
+	r.artifact = &artifact
 	return r
 }
 
@@ -153,14 +153,14 @@ func (a *ContentCollectionVersionsAPIService) ContentAnsibleCollectionVersionsCr
 		fileLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	}
-	if r.artifact != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
-	}
 	if r.upload != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")
 	}
 	if r.repository != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
+	}
+	if r.artifact != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
 	}
 	if r.expectedName != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "expected_name", r.expectedName, "")
