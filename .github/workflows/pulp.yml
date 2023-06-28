@@ -31,7 +31,8 @@ jobs:
           pulpTag="$year.$month.$epoch"
           echo "GIT_TAG=release/v$pulpTag" >> $GITHUB_OUTPUT
           echo "PULP_TAG=$latestImage" >> $GITHUB_OUTPUT
-          echo "V_TAG=v3" >> $GITHUB_OUTPUT
+          echo "MAJOR_VERSION=v$year" >> $GITHUB_OUTPUT
+          echo "PULP_MAJOR=v3" >> $GITHUB_OUTPUT
 
       # If check passes, latest build is up to date and the action stops
       - name: Update version
@@ -55,18 +56,18 @@ jobs:
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         run: |
           docker run --network=host --rm -v ${PWD}:/local curlimages/curl  \
-            curl --retry-all-errors --fail --retry-delay 10 --retry 32 --retry-max-time 240 http://localhost:8080/pulp/api/${{ steps.pulpRelease.outputs.V_TAG }}/docs/api.json
+            curl --retry-all-errors --fail --retry-delay 10 --retry 32 --retry-max-time 240 http://localhost:8080/pulp/api/${{ steps.pulpRelease.outputs.PULP_MAJOR }}/docs/api.json
 
       - name: Build binding
         if: steps.pulpRelease.outputs.GIT_TAG != steps.repoRelease.outputs.tag
         run: |
-          curl http://localhost:8080/pulp/api/${{ steps.pulpRelease.outputs.V_TAG }}/docs/api.json > pulp_api.json
+          curl http://localhost:8080/pulp/api/${{ steps.pulpRelease.outputs.PULP_MAJOR }}/docs/api.json > pulp_api.json
           docker run --network=host --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
           -i /local/pulp_api.json \
           -t /local/templates/ \
           -g go \
           -o /local/release --minimal-update --skip-validate-spec \
-          --git-user-id=content-services --git-repo-id=zest/release/${{ steps.pulpRelease.outputs.V_TAG }} \
+          --git-user-id=content-services --git-repo-id=zest/release/${{ steps.pulpRelease.outputs.MAJOR_VERSION }} \
           --package-name=zest -p enumClassPrefix=true  -p structPrefix=true \
           -p disallowAdditionalPropertiesIfNotPresent=true \
           -p packageVersion=${{ steps.pulpRelease.outputs.PULP_TAG }} \
