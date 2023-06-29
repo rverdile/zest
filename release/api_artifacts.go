@@ -29,6 +29,7 @@ type ArtifactsAPIService service
 type ArtifactsAPIArtifactsCreateRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsAPIService
+	pulpDomain string
 	file *os.File
 	size *int64
 	md5 *string
@@ -114,12 +115,14 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ArtifactsAPIArtifactsCreateRequest
 */
-func (a *ArtifactsAPIService) ArtifactsCreate(ctx context.Context) ArtifactsAPIArtifactsCreateRequest {
+func (a *ArtifactsAPIService) ArtifactsCreate(ctx context.Context, pulpDomain string) ArtifactsAPIArtifactsCreateRequest {
 	return ArtifactsAPIArtifactsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -138,7 +141,10 @@ func (a *ArtifactsAPIService) ArtifactsCreateExecute(r ArtifactsAPIArtifactsCrea
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/artifacts/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/artifacts/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -334,6 +340,7 @@ func (a *ArtifactsAPIService) ArtifactsDeleteExecute(r ArtifactsAPIArtifactsDele
 type ArtifactsAPIArtifactsListRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsAPIService
+	pulpDomain string
 	limit *int32
 	md5 *string
 	offset *int32
@@ -461,12 +468,14 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ArtifactsAPIArtifactsListRequest
 */
-func (a *ArtifactsAPIService) ArtifactsList(ctx context.Context) ArtifactsAPIArtifactsListRequest {
+func (a *ArtifactsAPIService) ArtifactsList(ctx context.Context, pulpDomain string) ArtifactsAPIArtifactsListRequest {
 	return ArtifactsAPIArtifactsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -485,7 +494,10 @@ func (a *ArtifactsAPIService) ArtifactsListExecute(r ArtifactsAPIArtifactsListRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/artifacts/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/artifacts/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

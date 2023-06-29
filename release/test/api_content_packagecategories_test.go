@@ -26,7 +26,9 @@ func Test_zest_ContentPackagecategoriesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentPackagecategoriesAPI.ContentRpmPackagecategoriesList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ContentPackagecategoriesAPI.ContentRpmPackagecategoriesList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

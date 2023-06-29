@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AccessPoliciesList**](AccessPoliciesAPI.md#AccessPoliciesList) | **Get** /pulp/api/v3/access_policies/ | List access policys
+[**AccessPoliciesList**](AccessPoliciesAPI.md#AccessPoliciesList) | **Get** /pulp/{pulp_domain}/api/v3/access_policies/ | List access policys
 [**AccessPoliciesPartialUpdate**](AccessPoliciesAPI.md#AccessPoliciesPartialUpdate) | **Patch** /{access_policy_href} | Update an access policy
 [**AccessPoliciesRead**](AccessPoliciesAPI.md#AccessPoliciesRead) | **Get** /{access_policy_href} | Inspect an access policy
 [**AccessPoliciesReset**](AccessPoliciesAPI.md#AccessPoliciesReset) | **Post** /{access_policy_href}reset/ | 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## AccessPoliciesList
 
-> PaginatedAccessPolicyResponseList AccessPoliciesList(ctx).Customized(customized).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ViewsetName(viewsetName).ViewsetNameContains(viewsetNameContains).ViewsetNameIcontains(viewsetNameIcontains).ViewsetNameIn(viewsetNameIn).ViewsetNameStartswith(viewsetNameStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedAccessPolicyResponseList AccessPoliciesList(ctx, pulpDomain).Customized(customized).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ViewsetName(viewsetName).ViewsetNameContains(viewsetNameContains).ViewsetNameIcontains(viewsetNameIcontains).ViewsetNameIn(viewsetNameIn).ViewsetNameStartswith(viewsetNameStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List access policys
 
@@ -33,6 +33,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     customized := true // bool | Filter results where customized matches value (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
@@ -49,7 +50,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccessPoliciesAPI.AccessPoliciesList(context.Background()).Customized(customized).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ViewsetName(viewsetName).ViewsetNameContains(viewsetNameContains).ViewsetNameIcontains(viewsetNameIcontains).ViewsetNameIn(viewsetNameIn).ViewsetNameStartswith(viewsetNameStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.AccessPoliciesAPI.AccessPoliciesList(context.Background(), pulpDomain).Customized(customized).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ViewsetName(viewsetName).ViewsetNameContains(viewsetNameContains).ViewsetNameIcontains(viewsetNameIcontains).ViewsetNameIn(viewsetNameIn).ViewsetNameStartswith(viewsetNameStartswith).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccessPoliciesAPI.AccessPoliciesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,6 +63,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -70,6 +75,7 @@ Other parameters are passed through a pointer to a apiAccessPoliciesListRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **customized** | **bool** | Filter results where customized matches value | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 

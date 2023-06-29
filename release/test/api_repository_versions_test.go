@@ -26,7 +26,9 @@ func Test_zest_RepositoryVersionsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RepositoryVersionsAPI.RepositoryVersionsList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.RepositoryVersionsAPI.RepositoryVersionsList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

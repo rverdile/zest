@@ -26,7 +26,9 @@ func Test_zest_ContentguardsRhsmAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmCreate(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmCreate(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -51,7 +53,9 @@ func Test_zest_ContentguardsRhsmAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

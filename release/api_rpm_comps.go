@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"os"
 )
 
@@ -27,6 +28,7 @@ type RpmCompsAPIService service
 type RpmCompsAPIRpmCompsUploadRequest struct {
 	ctx context.Context
 	ApiService *RpmCompsAPIService
+	pulpDomain string
 	file *os.File
 	repository *string
 	replace *bool
@@ -60,12 +62,14 @@ RpmCompsUpload Upload comps.xml
 Trigger an asynchronous task to upload a comps.xml file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RpmCompsAPIRpmCompsUploadRequest
 */
-func (a *RpmCompsAPIService) RpmCompsUpload(ctx context.Context) RpmCompsAPIRpmCompsUploadRequest {
+func (a *RpmCompsAPIService) RpmCompsUpload(ctx context.Context, pulpDomain string) RpmCompsAPIRpmCompsUploadRequest {
 	return RpmCompsAPIRpmCompsUploadRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -84,7 +88,10 @@ func (a *RpmCompsAPIService) RpmCompsUploadExecute(r RpmCompsAPIRpmCompsUploadRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/rpm/comps/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/rpm/comps/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

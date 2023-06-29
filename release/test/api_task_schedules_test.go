@@ -40,7 +40,9 @@ func Test_zest_TaskSchedulesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaskSchedulesAPI.TaskSchedulesList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.TaskSchedulesAPI.TaskSchedulesList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

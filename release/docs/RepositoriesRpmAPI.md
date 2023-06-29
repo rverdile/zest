@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**RepositoriesRpmRpmAddRole**](RepositoriesRpmAPI.md#RepositoriesRpmRpmAddRole) | **Post** /{rpm_rpm_repository_href}add_role/ | 
-[**RepositoriesRpmRpmCreate**](RepositoriesRpmAPI.md#RepositoriesRpmRpmCreate) | **Post** /pulp/api/v3/repositories/rpm/rpm/ | Create a rpm repository
+[**RepositoriesRpmRpmCreate**](RepositoriesRpmAPI.md#RepositoriesRpmRpmCreate) | **Post** /pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/ | Create a rpm repository
 [**RepositoriesRpmRpmDelete**](RepositoriesRpmAPI.md#RepositoriesRpmRpmDelete) | **Delete** /{rpm_rpm_repository_href} | Delete a rpm repository
-[**RepositoriesRpmRpmList**](RepositoriesRpmAPI.md#RepositoriesRpmRpmList) | **Get** /pulp/api/v3/repositories/rpm/rpm/ | List rpm repositorys
+[**RepositoriesRpmRpmList**](RepositoriesRpmAPI.md#RepositoriesRpmRpmList) | **Get** /pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/ | List rpm repositorys
 [**RepositoriesRpmRpmListRoles**](RepositoriesRpmAPI.md#RepositoriesRpmRpmListRoles) | **Get** /{rpm_rpm_repository_href}list_roles/ | 
 [**RepositoriesRpmRpmModify**](RepositoriesRpmAPI.md#RepositoriesRpmRpmModify) | **Post** /{rpm_rpm_repository_href}modify/ | Modify Repository Content
 [**RepositoriesRpmRpmMyPermissions**](RepositoriesRpmAPI.md#RepositoriesRpmRpmMyPermissions) | **Get** /{rpm_rpm_repository_href}my_permissions/ | 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## RepositoriesRpmRpmCreate
 
-> RpmRpmRepositoryResponse RepositoriesRpmRpmCreate(ctx).RpmRpmRepository(rpmRpmRepository).Execute()
+> RpmRpmRepositoryResponse RepositoriesRpmRpmCreate(ctx, pulpDomain).RpmRpmRepository(rpmRpmRepository).Execute()
 
 Create a rpm repository
 
@@ -112,11 +112,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rpmRpmRepository := *openapiclient.NewRpmRpmRepository("Name_example") // RpmRpmRepository | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RepositoriesRpmAPI.RepositoriesRpmRpmCreate(context.Background()).RpmRpmRepository(rpmRpmRepository).Execute()
+    resp, r, err := apiClient.RepositoriesRpmAPI.RepositoriesRpmRpmCreate(context.Background(), pulpDomain).RpmRpmRepository(rpmRpmRepository).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesRpmAPI.RepositoriesRpmRpmCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -129,6 +130,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -137,6 +142,7 @@ Other parameters are passed through a pointer to a apiRepositoriesRpmRpmCreateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rpmRpmRepository** | [**RpmRpmRepository**](RpmRpmRepository.md) |  | 
 
 ### Return type
@@ -229,7 +235,7 @@ Name | Type | Description  | Notes
 
 ## RepositoriesRpmRpmList
 
-> PaginatedrpmRpmRepositoryResponseList RepositoriesRpmRpmList(ctx).LatestWithContent(latestWithContent).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Remote(remote).RetainRepoVersions(retainRepoVersions).RetainRepoVersionsGt(retainRepoVersionsGt).RetainRepoVersionsGte(retainRepoVersionsGte).RetainRepoVersionsIsnull(retainRepoVersionsIsnull).RetainRepoVersionsLt(retainRepoVersionsLt).RetainRepoVersionsLte(retainRepoVersionsLte).RetainRepoVersionsNe(retainRepoVersionsNe).RetainRepoVersionsRange(retainRepoVersionsRange).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmRpmRepositoryResponseList RepositoriesRpmRpmList(ctx, pulpDomain).LatestWithContent(latestWithContent).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Remote(remote).RetainRepoVersions(retainRepoVersions).RetainRepoVersionsGt(retainRepoVersionsGt).RetainRepoVersionsGte(retainRepoVersionsGte).RetainRepoVersionsIsnull(retainRepoVersionsIsnull).RetainRepoVersionsLt(retainRepoVersionsLt).RetainRepoVersionsLte(retainRepoVersionsLte).RetainRepoVersionsNe(retainRepoVersionsNe).RetainRepoVersionsRange(retainRepoVersionsRange).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List rpm repositorys
 
@@ -248,6 +254,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     latestWithContent := "latestWithContent_example" // string | Content Unit referenced by HREF (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
@@ -275,7 +282,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RepositoriesRpmAPI.RepositoriesRpmRpmList(context.Background()).LatestWithContent(latestWithContent).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Remote(remote).RetainRepoVersions(retainRepoVersions).RetainRepoVersionsGt(retainRepoVersionsGt).RetainRepoVersionsGte(retainRepoVersionsGte).RetainRepoVersionsIsnull(retainRepoVersionsIsnull).RetainRepoVersionsLt(retainRepoVersionsLt).RetainRepoVersionsLte(retainRepoVersionsLte).RetainRepoVersionsNe(retainRepoVersionsNe).RetainRepoVersionsRange(retainRepoVersionsRange).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.RepositoriesRpmAPI.RepositoriesRpmRpmList(context.Background(), pulpDomain).LatestWithContent(latestWithContent).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Remote(remote).RetainRepoVersions(retainRepoVersions).RetainRepoVersionsGt(retainRepoVersionsGt).RetainRepoVersionsGte(retainRepoVersionsGte).RetainRepoVersionsIsnull(retainRepoVersionsIsnull).RetainRepoVersionsLt(retainRepoVersionsLt).RetainRepoVersionsLte(retainRepoVersionsLte).RetainRepoVersionsNe(retainRepoVersionsNe).RetainRepoVersionsRange(retainRepoVersionsRange).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesRpmAPI.RepositoriesRpmRpmList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -288,6 +295,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -296,6 +307,7 @@ Other parameters are passed through a pointer to a apiRepositoriesRpmRpmListRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **latestWithContent** | **string** | Content Unit referenced by HREF | 
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 

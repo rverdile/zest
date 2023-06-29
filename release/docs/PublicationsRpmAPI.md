@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PublicationsRpmRpmAddRole**](PublicationsRpmAPI.md#PublicationsRpmRpmAddRole) | **Post** /{rpm_rpm_publication_href}add_role/ | 
-[**PublicationsRpmRpmCreate**](PublicationsRpmAPI.md#PublicationsRpmRpmCreate) | **Post** /pulp/api/v3/publications/rpm/rpm/ | Create a rpm publication
+[**PublicationsRpmRpmCreate**](PublicationsRpmAPI.md#PublicationsRpmRpmCreate) | **Post** /pulp/{pulp_domain}/api/v3/publications/rpm/rpm/ | Create a rpm publication
 [**PublicationsRpmRpmDelete**](PublicationsRpmAPI.md#PublicationsRpmRpmDelete) | **Delete** /{rpm_rpm_publication_href} | Delete a rpm publication
-[**PublicationsRpmRpmList**](PublicationsRpmAPI.md#PublicationsRpmRpmList) | **Get** /pulp/api/v3/publications/rpm/rpm/ | List rpm publications
+[**PublicationsRpmRpmList**](PublicationsRpmAPI.md#PublicationsRpmRpmList) | **Get** /pulp/{pulp_domain}/api/v3/publications/rpm/rpm/ | List rpm publications
 [**PublicationsRpmRpmListRoles**](PublicationsRpmAPI.md#PublicationsRpmRpmListRoles) | **Get** /{rpm_rpm_publication_href}list_roles/ | 
 [**PublicationsRpmRpmMyPermissions**](PublicationsRpmAPI.md#PublicationsRpmRpmMyPermissions) | **Get** /{rpm_rpm_publication_href}my_permissions/ | 
 [**PublicationsRpmRpmRead**](PublicationsRpmAPI.md#PublicationsRpmRpmRead) | **Get** /{rpm_rpm_publication_href} | Inspect a rpm publication
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## PublicationsRpmRpmCreate
 
-> AsyncOperationResponse PublicationsRpmRpmCreate(ctx).RpmRpmPublication(rpmRpmPublication).Execute()
+> AsyncOperationResponse PublicationsRpmRpmCreate(ctx, pulpDomain).RpmRpmPublication(rpmRpmPublication).Execute()
 
 Create a rpm publication
 
@@ -108,11 +108,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rpmRpmPublication := *openapiclient.NewRpmRpmPublication() // RpmRpmPublication | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PublicationsRpmAPI.PublicationsRpmRpmCreate(context.Background()).RpmRpmPublication(rpmRpmPublication).Execute()
+    resp, r, err := apiClient.PublicationsRpmAPI.PublicationsRpmRpmCreate(context.Background(), pulpDomain).RpmRpmPublication(rpmRpmPublication).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PublicationsRpmAPI.PublicationsRpmRpmCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -125,6 +126,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -133,6 +138,7 @@ Other parameters are passed through a pointer to a apiPublicationsRpmRpmCreateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rpmRpmPublication** | [**RpmRpmPublication**](RpmRpmPublication.md) |  | 
 
 ### Return type
@@ -223,7 +229,7 @@ Name | Type | Description  | Notes
 
 ## PublicationsRpmRpmList
 
-> PaginatedrpmRpmPublicationResponseList PublicationsRpmRpmList(ctx).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmRpmPublicationResponseList PublicationsRpmRpmList(ctx, pulpDomain).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List rpm publications
 
@@ -243,6 +249,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     content := "content_example" // string | Content Unit referenced by HREF (optional)
     contentIn := "contentIn_example" // string | Content Unit referenced by HREF (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
@@ -263,7 +270,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PublicationsRpmAPI.PublicationsRpmRpmList(context.Background()).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.PublicationsRpmAPI.PublicationsRpmRpmList(context.Background(), pulpDomain).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PublicationsRpmAPI.PublicationsRpmRpmList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -276,6 +283,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -284,6 +295,7 @@ Other parameters are passed through a pointer to a apiPublicationsRpmRpmListRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **content** | **string** | Content Unit referenced by HREF | 
  **contentIn** | **string** | Content Unit referenced by HREF | 
  **limit** | **int32** | Number of results to return per page. | 

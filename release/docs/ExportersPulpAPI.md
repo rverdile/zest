@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ExportersCorePulpCreate**](ExportersPulpAPI.md#ExportersCorePulpCreate) | **Post** /pulp/api/v3/exporters/core/pulp/ | Create a pulp exporter
+[**ExportersCorePulpCreate**](ExportersPulpAPI.md#ExportersCorePulpCreate) | **Post** /pulp/{pulp_domain}/api/v3/exporters/core/pulp/ | Create a pulp exporter
 [**ExportersCorePulpDelete**](ExportersPulpAPI.md#ExportersCorePulpDelete) | **Delete** /{pulp_exporter_href} | Delete a pulp exporter
-[**ExportersCorePulpList**](ExportersPulpAPI.md#ExportersCorePulpList) | **Get** /pulp/api/v3/exporters/core/pulp/ | List pulp exporters
+[**ExportersCorePulpList**](ExportersPulpAPI.md#ExportersCorePulpList) | **Get** /pulp/{pulp_domain}/api/v3/exporters/core/pulp/ | List pulp exporters
 [**ExportersCorePulpPartialUpdate**](ExportersPulpAPI.md#ExportersCorePulpPartialUpdate) | **Patch** /{pulp_exporter_href} | Update a pulp exporter
 [**ExportersCorePulpRead**](ExportersPulpAPI.md#ExportersCorePulpRead) | **Get** /{pulp_exporter_href} | Inspect a pulp exporter
 [**ExportersCorePulpUpdate**](ExportersPulpAPI.md#ExportersCorePulpUpdate) | **Put** /{pulp_exporter_href} | Update a pulp exporter
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ExportersCorePulpCreate
 
-> PulpExporterResponse ExportersCorePulpCreate(ctx).PulpExporter(pulpExporter).Execute()
+> PulpExporterResponse ExportersCorePulpCreate(ctx, pulpDomain).PulpExporter(pulpExporter).Execute()
 
 Create a pulp exporter
 
@@ -34,11 +34,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     pulpExporter := *openapiclient.NewPulpExporter("Name_example", "Path_example", []string{"Repositories_example"}) // PulpExporter | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ExportersPulpAPI.ExportersCorePulpCreate(context.Background()).PulpExporter(pulpExporter).Execute()
+    resp, r, err := apiClient.ExportersPulpAPI.ExportersCorePulpCreate(context.Background(), pulpDomain).PulpExporter(pulpExporter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ExportersPulpAPI.ExportersCorePulpCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,6 +52,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -59,6 +64,7 @@ Other parameters are passed through a pointer to a apiExportersCorePulpCreateReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **pulpExporter** | [**PulpExporter**](PulpExporter.md) |  | 
 
 ### Return type
@@ -151,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## ExportersCorePulpList
 
-> PaginatedPulpExporterResponseList ExportersCorePulpList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedPulpExporterResponseList ExportersCorePulpList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List pulp exporters
 
@@ -170,6 +176,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -185,7 +192,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ExportersPulpAPI.ExportersCorePulpList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ExportersPulpAPI.ExportersCorePulpList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ExportersPulpAPI.ExportersCorePulpList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -198,6 +205,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -206,6 +217,7 @@ Other parameters are passed through a pointer to a apiExportersCorePulpListReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

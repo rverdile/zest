@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DomainsCreate**](DomainsAPI.md#DomainsCreate) | **Post** /pulp/api/v3/domains/ | Create a domain
+[**DomainsCreate**](DomainsAPI.md#DomainsCreate) | **Post** /pulp/{pulp_domain}/api/v3/domains/ | Create a domain
 [**DomainsDelete**](DomainsAPI.md#DomainsDelete) | **Delete** /{domain_href} | Delete a domain
-[**DomainsList**](DomainsAPI.md#DomainsList) | **Get** /pulp/api/v3/domains/ | List domains
+[**DomainsList**](DomainsAPI.md#DomainsList) | **Get** /pulp/{pulp_domain}/api/v3/domains/ | List domains
 [**DomainsPartialUpdate**](DomainsAPI.md#DomainsPartialUpdate) | **Patch** /{domain_href} | Update a domain
 [**DomainsRead**](DomainsAPI.md#DomainsRead) | **Get** /{domain_href} | Inspect a domain
 [**DomainsUpdate**](DomainsAPI.md#DomainsUpdate) | **Put** /{domain_href} | Update a domain
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## DomainsCreate
 
-> DomainResponse DomainsCreate(ctx).Domain(domain).Execute()
+> DomainResponse DomainsCreate(ctx, pulpDomain).Domain(domain).Execute()
 
 Create a domain
 
@@ -34,11 +34,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     domain := *openapiclient.NewDomain("Name_example", openapiclient.StorageClassEnum("pulpcore.app.models.storage.FileSystem"), map[string]interface{}(123)) // Domain | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DomainsAPI.DomainsCreate(context.Background()).Domain(domain).Execute()
+    resp, r, err := apiClient.DomainsAPI.DomainsCreate(context.Background(), pulpDomain).Domain(domain).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DomainsAPI.DomainsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,6 +52,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -59,6 +64,7 @@ Other parameters are passed through a pointer to a apiDomainsCreateRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **domain** | [**Domain**](Domain.md) |  | 
 
 ### Return type
@@ -151,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## DomainsList
 
-> PaginatedDomainResponseList DomainsList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedDomainResponseList DomainsList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List domains
 
@@ -170,6 +176,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -185,7 +192,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DomainsAPI.DomainsList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.DomainsAPI.DomainsList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DomainsAPI.DomainsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -198,6 +205,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -206,6 +217,7 @@ Other parameters are passed through a pointer to a apiDomainsListRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

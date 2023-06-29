@@ -28,6 +28,7 @@ type ContentModulemdsAPIService service
 type ContentModulemdsAPIContentRpmModulemdsCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentModulemdsAPIService
+	pulpDomain string
 	rpmModulemd *RpmModulemd
 }
 
@@ -46,12 +47,14 @@ ContentRpmModulemdsCreate Create a modulemd
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentModulemdsAPIContentRpmModulemdsCreateRequest
 */
-func (a *ContentModulemdsAPIService) ContentRpmModulemdsCreate(ctx context.Context) ContentModulemdsAPIContentRpmModulemdsCreateRequest {
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsCreate(ctx context.Context, pulpDomain string) ContentModulemdsAPIContentRpmModulemdsCreateRequest {
 	return ContentModulemdsAPIContentRpmModulemdsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *ContentModulemdsAPIService) ContentRpmModulemdsCreateExecute(r ContentM
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/modulemds/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/modulemds/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -137,6 +143,7 @@ func (a *ContentModulemdsAPIService) ContentRpmModulemdsCreateExecute(r ContentM
 type ContentModulemdsAPIContentRpmModulemdsListRequest struct {
 	ctx context.Context
 	ApiService *ContentModulemdsAPIService
+	pulpDomain string
 	arch *string
 	archIn *[]string
 	context *string
@@ -295,12 +302,14 @@ ContentRpmModulemdsList List modulemds
 ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentModulemdsAPIContentRpmModulemdsListRequest
 */
-func (a *ContentModulemdsAPIService) ContentRpmModulemdsList(ctx context.Context) ContentModulemdsAPIContentRpmModulemdsListRequest {
+func (a *ContentModulemdsAPIService) ContentRpmModulemdsList(ctx context.Context, pulpDomain string) ContentModulemdsAPIContentRpmModulemdsListRequest {
 	return ContentModulemdsAPIContentRpmModulemdsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -319,7 +328,10 @@ func (a *ContentModulemdsAPIService) ContentRpmModulemdsListExecute(r ContentMod
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/modulemds/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/modulemds/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

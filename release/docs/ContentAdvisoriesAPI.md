@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContentRpmAdvisoriesCreate**](ContentAdvisoriesAPI.md#ContentRpmAdvisoriesCreate) | **Post** /pulp/api/v3/content/rpm/advisories/ | Create an update record
-[**ContentRpmAdvisoriesList**](ContentAdvisoriesAPI.md#ContentRpmAdvisoriesList) | **Get** /pulp/api/v3/content/rpm/advisories/ | List update records
+[**ContentRpmAdvisoriesCreate**](ContentAdvisoriesAPI.md#ContentRpmAdvisoriesCreate) | **Post** /pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | Create an update record
+[**ContentRpmAdvisoriesList**](ContentAdvisoriesAPI.md#ContentRpmAdvisoriesList) | **Get** /pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | List update records
 [**ContentRpmAdvisoriesRead**](ContentAdvisoriesAPI.md#ContentRpmAdvisoriesRead) | **Get** /{rpm_update_record_href} | Inspect an update record
 
 
 
 ## ContentRpmAdvisoriesCreate
 
-> AsyncOperationResponse ContentRpmAdvisoriesCreate(ctx).File(file).Repository(repository).Execute()
+> AsyncOperationResponse ContentRpmAdvisoriesCreate(ctx, pulpDomain).File(file).Repository(repository).Execute()
 
 Create an update record
 
@@ -31,12 +31,13 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
     repository := "repository_example" // string | A URI of a repository the new content unit should be associated with. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesCreate(context.Background()).File(file).Repository(repository).Execute()
+    resp, r, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesCreate(context.Background(), pulpDomain).File(file).Repository(repository).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentAdvisoriesAPI.ContentRpmAdvisoriesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -49,6 +50,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -57,6 +62,7 @@ Other parameters are passed through a pointer to a apiContentRpmAdvisoriesCreate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
  **repository** | **string** | A URI of a repository the new content unit should be associated with. | 
 
@@ -80,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## ContentRpmAdvisoriesList
 
-> PaginatedrpmUpdateRecordResponseList ContentRpmAdvisoriesList(ctx).Id(id).IdIn(idIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Severity(severity).SeverityIn(severityIn).SeverityNe(severityNe).Status(status).StatusIn(statusIn).StatusNe(statusNe).Type_(type_).TypeIn(typeIn).TypeNe(typeNe).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmUpdateRecordResponseList ContentRpmAdvisoriesList(ctx, pulpDomain).Id(id).IdIn(idIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Severity(severity).SeverityIn(severityIn).SeverityNe(severityNe).Status(status).StatusIn(statusIn).StatusNe(statusNe).Type_(type_).TypeIn(typeIn).TypeNe(typeNe).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List update records
 
@@ -99,6 +105,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     id := "id_example" // string | Filter results where id matches value (optional)
     idIn := []string{"Inner_example"} // []string | Filter results where id is in a comma-separated list of values (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
@@ -123,7 +130,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesList(context.Background()).Id(id).IdIn(idIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Severity(severity).SeverityIn(severityIn).SeverityNe(severityNe).Status(status).StatusIn(statusIn).StatusNe(statusNe).Type_(type_).TypeIn(typeIn).TypeNe(typeNe).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesList(context.Background(), pulpDomain).Id(id).IdIn(idIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Severity(severity).SeverityIn(severityIn).SeverityNe(severityNe).Status(status).StatusIn(statusIn).StatusNe(statusNe).Type_(type_).TypeIn(typeIn).TypeNe(typeNe).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentAdvisoriesAPI.ContentRpmAdvisoriesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -136,6 +143,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -144,6 +155,7 @@ Other parameters are passed through a pointer to a apiContentRpmAdvisoriesListRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **id** | **string** | Filter results where id matches value | 
  **idIn** | **[]string** | Filter results where id is in a comma-separated list of values | 
  **limit** | **int32** | Number of results to return per page. | 

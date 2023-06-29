@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**TaskSchedulesAddRole**](TaskSchedulesAPI.md#TaskSchedulesAddRole) | **Post** /{task_schedule_href}add_role/ | 
-[**TaskSchedulesList**](TaskSchedulesAPI.md#TaskSchedulesList) | **Get** /pulp/api/v3/task-schedules/ | List task schedules
+[**TaskSchedulesList**](TaskSchedulesAPI.md#TaskSchedulesList) | **Get** /pulp/{pulp_domain}/api/v3/task-schedules/ | List task schedules
 [**TaskSchedulesListRoles**](TaskSchedulesAPI.md#TaskSchedulesListRoles) | **Get** /{task_schedule_href}list_roles/ | 
 [**TaskSchedulesMyPermissions**](TaskSchedulesAPI.md#TaskSchedulesMyPermissions) | **Get** /{task_schedule_href}my_permissions/ | 
 [**TaskSchedulesRead**](TaskSchedulesAPI.md#TaskSchedulesRead) | **Get** /{task_schedule_href} | Inspect a task schedule
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## TaskSchedulesList
 
-> PaginatedTaskScheduleResponseList TaskSchedulesList(ctx).Limit(limit).Name(name).NameContains(nameContains).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).TaskName(taskName).TaskNameContains(taskNameContains).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedTaskScheduleResponseList TaskSchedulesList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).TaskName(taskName).TaskNameContains(taskNameContains).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List task schedules
 
@@ -106,6 +106,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -120,7 +121,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TaskSchedulesAPI.TaskSchedulesList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).TaskName(taskName).TaskNameContains(taskNameContains).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.TaskSchedulesAPI.TaskSchedulesList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).TaskName(taskName).TaskNameContains(taskNameContains).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TaskSchedulesAPI.TaskSchedulesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,6 +134,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -141,6 +146,7 @@ Other parameters are passed through a pointer to a apiTaskSchedulesListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

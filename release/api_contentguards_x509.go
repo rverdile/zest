@@ -28,6 +28,7 @@ type ContentguardsX509APIService service
 type ContentguardsX509APIContentguardsCertguardX509CreateRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsX509APIService
+	pulpDomain string
 	certguardX509CertGuard *CertguardX509CertGuard
 }
 
@@ -46,12 +47,14 @@ ContentguardsCertguardX509Create Create a x509 cert guard
 X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsX509APIContentguardsCertguardX509CreateRequest
 */
-func (a *ContentguardsX509APIService) ContentguardsCertguardX509Create(ctx context.Context) ContentguardsX509APIContentguardsCertguardX509CreateRequest {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509Create(ctx context.Context, pulpDomain string) ContentguardsX509APIContentguardsCertguardX509CreateRequest {
 	return ContentguardsX509APIContentguardsCertguardX509CreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *ContentguardsX509APIService) ContentguardsCertguardX509CreateExecute(r 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/certguard/x509/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/certguard/x509/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -230,6 +236,7 @@ func (a *ContentguardsX509APIService) ContentguardsCertguardX509DeleteExecute(r 
 type ContentguardsX509APIContentguardsCertguardX509ListRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsX509APIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -326,12 +333,14 @@ ContentguardsCertguardX509List List x509 cert guards
 X509CertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsX509APIContentguardsCertguardX509ListRequest
 */
-func (a *ContentguardsX509APIService) ContentguardsCertguardX509List(ctx context.Context) ContentguardsX509APIContentguardsCertguardX509ListRequest {
+func (a *ContentguardsX509APIService) ContentguardsCertguardX509List(ctx context.Context, pulpDomain string) ContentguardsX509APIContentguardsCertguardX509ListRequest {
 	return ContentguardsX509APIContentguardsCertguardX509ListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -350,7 +359,10 @@ func (a *ContentguardsX509APIService) ContentguardsCertguardX509ListExecute(r Co
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/certguard/x509/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/certguard/x509/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

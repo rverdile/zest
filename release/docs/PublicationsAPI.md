@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PublicationsList**](PublicationsAPI.md#PublicationsList) | **Get** /pulp/api/v3/publications/ | List publications
+[**PublicationsList**](PublicationsAPI.md#PublicationsList) | **Get** /pulp/{pulp_domain}/api/v3/publications/ | List publications
 
 
 
 ## PublicationsList
 
-> PaginatedPublicationResponseList PublicationsList(ctx).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpTypeIn(pulpTypeIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedPublicationResponseList PublicationsList(ctx, pulpDomain).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpTypeIn(pulpTypeIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List publications
 
@@ -30,6 +30,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     content := "content_example" // string | Content Unit referenced by HREF (optional)
     contentIn := "contentIn_example" // string | Content Unit referenced by HREF (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
@@ -51,7 +52,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PublicationsAPI.PublicationsList(context.Background()).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpTypeIn(pulpTypeIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.PublicationsAPI.PublicationsList(context.Background(), pulpDomain).Content(content).ContentIn(contentIn).Limit(limit).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpTypeIn(pulpTypeIn).Repository(repository).RepositoryVersion(repositoryVersion).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PublicationsAPI.PublicationsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,6 +65,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -72,6 +77,7 @@ Other parameters are passed through a pointer to a apiPublicationsListRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **content** | **string** | Content Unit referenced by HREF | 
  **contentIn** | **string** | Content Unit referenced by HREF | 
  **limit** | **int32** | Number of results to return per page. | 

@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ExportersCoreFilesystemCreate**](ExportersFilesystemAPI.md#ExportersCoreFilesystemCreate) | **Post** /pulp/api/v3/exporters/core/filesystem/ | Create a filesystem exporter
+[**ExportersCoreFilesystemCreate**](ExportersFilesystemAPI.md#ExportersCoreFilesystemCreate) | **Post** /pulp/{pulp_domain}/api/v3/exporters/core/filesystem/ | Create a filesystem exporter
 [**ExportersCoreFilesystemDelete**](ExportersFilesystemAPI.md#ExportersCoreFilesystemDelete) | **Delete** /{filesystem_exporter_href} | Delete a filesystem exporter
-[**ExportersCoreFilesystemList**](ExportersFilesystemAPI.md#ExportersCoreFilesystemList) | **Get** /pulp/api/v3/exporters/core/filesystem/ | List filesystem exporters
+[**ExportersCoreFilesystemList**](ExportersFilesystemAPI.md#ExportersCoreFilesystemList) | **Get** /pulp/{pulp_domain}/api/v3/exporters/core/filesystem/ | List filesystem exporters
 [**ExportersCoreFilesystemPartialUpdate**](ExportersFilesystemAPI.md#ExportersCoreFilesystemPartialUpdate) | **Patch** /{filesystem_exporter_href} | Update a filesystem exporter
 [**ExportersCoreFilesystemRead**](ExportersFilesystemAPI.md#ExportersCoreFilesystemRead) | **Get** /{filesystem_exporter_href} | Inspect a filesystem exporter
 [**ExportersCoreFilesystemUpdate**](ExportersFilesystemAPI.md#ExportersCoreFilesystemUpdate) | **Put** /{filesystem_exporter_href} | Update a filesystem exporter
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ExportersCoreFilesystemCreate
 
-> FilesystemExporterResponse ExportersCoreFilesystemCreate(ctx).FilesystemExporter(filesystemExporter).Execute()
+> FilesystemExporterResponse ExportersCoreFilesystemCreate(ctx, pulpDomain).FilesystemExporter(filesystemExporter).Execute()
 
 Create a filesystem exporter
 
@@ -34,11 +34,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     filesystemExporter := *openapiclient.NewFilesystemExporter("Name_example", "Path_example") // FilesystemExporter | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemCreate(context.Background()).FilesystemExporter(filesystemExporter).Execute()
+    resp, r, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemCreate(context.Background(), pulpDomain).FilesystemExporter(filesystemExporter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ExportersFilesystemAPI.ExportersCoreFilesystemCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,6 +52,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -59,6 +64,7 @@ Other parameters are passed through a pointer to a apiExportersCoreFilesystemCre
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **filesystemExporter** | [**FilesystemExporter**](FilesystemExporter.md) |  | 
 
 ### Return type
@@ -151,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## ExportersCoreFilesystemList
 
-> PaginatedFilesystemExporterResponseList ExportersCoreFilesystemList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedFilesystemExporterResponseList ExportersCoreFilesystemList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List filesystem exporters
 
@@ -170,6 +176,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -185,7 +192,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ExportersFilesystemAPI.ExportersCoreFilesystemList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -198,6 +205,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -206,6 +217,7 @@ Other parameters are passed through a pointer to a apiExportersCoreFilesystemLis
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

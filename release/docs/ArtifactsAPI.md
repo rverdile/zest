@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ArtifactsCreate**](ArtifactsAPI.md#ArtifactsCreate) | **Post** /pulp/api/v3/artifacts/ | Create an artifact
+[**ArtifactsCreate**](ArtifactsAPI.md#ArtifactsCreate) | **Post** /pulp/{pulp_domain}/api/v3/artifacts/ | Create an artifact
 [**ArtifactsDelete**](ArtifactsAPI.md#ArtifactsDelete) | **Delete** /{artifact_href} | Delete an artifact
-[**ArtifactsList**](ArtifactsAPI.md#ArtifactsList) | **Get** /pulp/api/v3/artifacts/ | List artifacts
+[**ArtifactsList**](ArtifactsAPI.md#ArtifactsList) | **Get** /pulp/{pulp_domain}/api/v3/artifacts/ | List artifacts
 [**ArtifactsRead**](ArtifactsAPI.md#ArtifactsRead) | **Get** /{artifact_href} | Inspect an artifact
 
 
 
 ## ArtifactsCreate
 
-> ArtifactResponse ArtifactsCreate(ctx).File(file).Size(size).Md5(md5).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Execute()
+> ArtifactResponse ArtifactsCreate(ctx, pulpDomain).File(file).Size(size).Md5(md5).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Execute()
 
 Create an artifact
 
@@ -32,6 +32,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     file := os.NewFile(1234, "some_file") // *os.File | The stored file.
     size := int64(789) // int64 | The size of the file in bytes. (optional)
     md5 := "md5_example" // string | The MD5 checksum of the file if available. (optional)
@@ -43,7 +44,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ArtifactsAPI.ArtifactsCreate(context.Background()).File(file).Size(size).Md5(md5).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Execute()
+    resp, r, err := apiClient.ArtifactsAPI.ArtifactsCreate(context.Background(), pulpDomain).File(file).Size(size).Md5(md5).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsAPI.ArtifactsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,6 +57,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -64,6 +69,7 @@ Other parameters are passed through a pointer to a apiArtifactsCreateRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **file** | ***os.File** | The stored file. | 
  **size** | **int64** | The size of the file in bytes. | 
  **md5** | **string** | The MD5 checksum of the file if available. | 
@@ -161,7 +167,7 @@ Name | Type | Description  | Notes
 
 ## ArtifactsList
 
-> PaginatedArtifactResponseList ArtifactsList(ctx).Limit(limit).Md5(md5).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedArtifactResponseList ArtifactsList(ctx, pulpDomain).Limit(limit).Md5(md5).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List artifacts
 
@@ -180,6 +186,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     md5 := "md5_example" // string | Filter results where md5 matches value (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
@@ -197,7 +204,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ArtifactsAPI.ArtifactsList(context.Background()).Limit(limit).Md5(md5).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ArtifactsAPI.ArtifactsList(context.Background(), pulpDomain).Limit(limit).Md5(md5).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).Sha1(sha1).Sha224(sha224).Sha256(sha256).Sha384(sha384).Sha512(sha512).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsAPI.ArtifactsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -210,6 +217,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -218,6 +229,7 @@ Other parameters are passed through a pointer to a apiArtifactsListRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **md5** | **string** | Filter results where md5 matches value | 
  **offset** | **int32** | The initial index from which to return the results. | 

@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContentRpmModulemdsCreate**](ContentModulemdsAPI.md#ContentRpmModulemdsCreate) | **Post** /pulp/api/v3/content/rpm/modulemds/ | Create a modulemd
-[**ContentRpmModulemdsList**](ContentModulemdsAPI.md#ContentRpmModulemdsList) | **Get** /pulp/api/v3/content/rpm/modulemds/ | List modulemds
+[**ContentRpmModulemdsCreate**](ContentModulemdsAPI.md#ContentRpmModulemdsCreate) | **Post** /pulp/{pulp_domain}/api/v3/content/rpm/modulemds/ | Create a modulemd
+[**ContentRpmModulemdsList**](ContentModulemdsAPI.md#ContentRpmModulemdsList) | **Get** /pulp/{pulp_domain}/api/v3/content/rpm/modulemds/ | List modulemds
 [**ContentRpmModulemdsRead**](ContentModulemdsAPI.md#ContentRpmModulemdsRead) | **Get** /{rpm_modulemd_href} | Inspect a modulemd
 
 
 
 ## ContentRpmModulemdsCreate
 
-> AsyncOperationResponse ContentRpmModulemdsCreate(ctx).RpmModulemd(rpmModulemd).Execute()
+> AsyncOperationResponse ContentRpmModulemdsCreate(ctx, pulpDomain).RpmModulemd(rpmModulemd).Execute()
 
 Create a modulemd
 
@@ -31,11 +31,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rpmModulemd := *openapiclient.NewRpmModulemd("Name_example", "Stream_example", "Version_example", "Context_example", "Arch_example", map[string]interface{}(123), map[string]interface{}(123), "Snippet_example", map[string]interface{}(123), "Description_example") // RpmModulemd | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentModulemdsAPI.ContentRpmModulemdsCreate(context.Background()).RpmModulemd(rpmModulemd).Execute()
+    resp, r, err := apiClient.ContentModulemdsAPI.ContentRpmModulemdsCreate(context.Background(), pulpDomain).RpmModulemd(rpmModulemd).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentModulemdsAPI.ContentRpmModulemdsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -48,6 +49,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -56,6 +61,7 @@ Other parameters are passed through a pointer to a apiContentRpmModulemdsCreateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rpmModulemd** | [**RpmModulemd**](RpmModulemd.md) |  | 
 
 ### Return type
@@ -78,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## ContentRpmModulemdsList
 
-> PaginatedrpmModulemdResponseList ContentRpmModulemdsList(ctx).Arch(arch).ArchIn(archIn).Context(context).ContextIn(contextIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Version(version).VersionIn(versionIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmModulemdResponseList ContentRpmModulemdsList(ctx, pulpDomain).Arch(arch).ArchIn(archIn).Context(context).ContextIn(contextIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Version(version).VersionIn(versionIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List modulemds
 
@@ -97,6 +103,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     arch := "arch_example" // string | Filter results where arch matches value (optional)
     archIn := []string{"Inner_example"} // []string | Filter results where arch is in a comma-separated list of values (optional)
     context := "context_example" // string | Filter results where context matches value (optional)
@@ -121,7 +128,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentModulemdsAPI.ContentRpmModulemdsList(context.Background()).Arch(arch).ArchIn(archIn).Context(context).ContextIn(contextIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Version(version).VersionIn(versionIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentModulemdsAPI.ContentRpmModulemdsList(context.Background(), pulpDomain).Arch(arch).ArchIn(archIn).Context(context).ContextIn(contextIn).Limit(limit).Name(name).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Stream(stream).StreamIn(streamIn).Version(version).VersionIn(versionIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentModulemdsAPI.ContentRpmModulemdsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -134,6 +141,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -142,6 +153,7 @@ Other parameters are passed through a pointer to a apiContentRpmModulemdsListReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **arch** | **string** | Filter results where arch matches value | 
  **archIn** | **[]string** | Filter results where arch is in a comma-separated list of values | 
  **context** | **string** | Filter results where context matches value | 

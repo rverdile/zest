@@ -26,7 +26,9 @@ func Test_zest_DomainsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DomainsAPI.DomainsCreate(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsCreate(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -52,7 +54,9 @@ func Test_zest_DomainsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DomainsAPI.DomainsList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.DomainsAPI.DomainsList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

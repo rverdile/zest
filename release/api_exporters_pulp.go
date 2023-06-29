@@ -28,6 +28,7 @@ type ExportersPulpAPIService service
 type ExportersPulpAPIExportersCorePulpCreateRequest struct {
 	ctx context.Context
 	ApiService *ExportersPulpAPIService
+	pulpDomain string
 	pulpExporter *PulpExporter
 }
 
@@ -46,12 +47,14 @@ ExportersCorePulpCreate Create a pulp exporter
 ViewSet for viewing PulpExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ExportersPulpAPIExportersCorePulpCreateRequest
 */
-func (a *ExportersPulpAPIService) ExportersCorePulpCreate(ctx context.Context) ExportersPulpAPIExportersCorePulpCreateRequest {
+func (a *ExportersPulpAPIService) ExportersCorePulpCreate(ctx context.Context, pulpDomain string) ExportersPulpAPIExportersCorePulpCreateRequest {
 	return ExportersPulpAPIExportersCorePulpCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *ExportersPulpAPIService) ExportersCorePulpCreateExecute(r ExportersPulp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/exporters/core/pulp/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/exporters/core/pulp/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -241,6 +247,7 @@ func (a *ExportersPulpAPIService) ExportersCorePulpDeleteExecute(r ExportersPulp
 type ExportersPulpAPIExportersCorePulpListRequest struct {
 	ctx context.Context
 	ApiService *ExportersPulpAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -337,12 +344,14 @@ ExportersCorePulpList List pulp exporters
 ViewSet for viewing PulpExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ExportersPulpAPIExportersCorePulpListRequest
 */
-func (a *ExportersPulpAPIService) ExportersCorePulpList(ctx context.Context) ExportersPulpAPIExportersCorePulpListRequest {
+func (a *ExportersPulpAPIService) ExportersCorePulpList(ctx context.Context, pulpDomain string) ExportersPulpAPIExportersCorePulpListRequest {
 	return ExportersPulpAPIExportersCorePulpListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -361,7 +370,10 @@ func (a *ExportersPulpAPIService) ExportersCorePulpListExecute(r ExportersPulpAP
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/exporters/core/pulp/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/exporters/core/pulp/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

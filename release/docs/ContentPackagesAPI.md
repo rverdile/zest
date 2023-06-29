@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContentRpmPackagesCreate**](ContentPackagesAPI.md#ContentRpmPackagesCreate) | **Post** /pulp/api/v3/content/rpm/packages/ | Create a package
-[**ContentRpmPackagesList**](ContentPackagesAPI.md#ContentRpmPackagesList) | **Get** /pulp/api/v3/content/rpm/packages/ | List packages
+[**ContentRpmPackagesCreate**](ContentPackagesAPI.md#ContentRpmPackagesCreate) | **Post** /pulp/{pulp_domain}/api/v3/content/rpm/packages/ | Create a package
+[**ContentRpmPackagesList**](ContentPackagesAPI.md#ContentRpmPackagesList) | **Get** /pulp/{pulp_domain}/api/v3/content/rpm/packages/ | List packages
 [**ContentRpmPackagesRead**](ContentPackagesAPI.md#ContentRpmPackagesRead) | **Get** /{rpm_package_href} | Inspect a package
 
 
 
 ## ContentRpmPackagesCreate
 
-> AsyncOperationResponse ContentRpmPackagesCreate(ctx).Artifact(artifact).RelativePath(relativePath).File(file).Repository(repository).Upload(upload).Execute()
+> AsyncOperationResponse ContentRpmPackagesCreate(ctx, pulpDomain).Artifact(artifact).RelativePath(relativePath).File(file).Repository(repository).Upload(upload).Execute()
 
 Create a package
 
@@ -31,6 +31,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     artifact := "artifact_example" // string | Artifact file representing the physical content (optional)
     relativePath := "relativePath_example" // string | Path where the artifact is located relative to distributions base_path (optional)
     file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
@@ -39,7 +40,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentPackagesAPI.ContentRpmPackagesCreate(context.Background()).Artifact(artifact).RelativePath(relativePath).File(file).Repository(repository).Upload(upload).Execute()
+    resp, r, err := apiClient.ContentPackagesAPI.ContentRpmPackagesCreate(context.Background(), pulpDomain).Artifact(artifact).RelativePath(relativePath).File(file).Repository(repository).Upload(upload).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentPackagesAPI.ContentRpmPackagesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -52,6 +53,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -60,6 +65,7 @@ Other parameters are passed through a pointer to a apiContentRpmPackagesCreateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **artifact** | **string** | Artifact file representing the physical content | 
  **relativePath** | **string** | Path where the artifact is located relative to distributions base_path | 
  **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
@@ -86,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## ContentRpmPackagesList
 
-> PaginatedrpmPackageResponseList ContentRpmPackagesList(ctx).Arch(arch).ArchContains(archContains).ArchIn(archIn).ArchNe(archNe).ArchStartswith(archStartswith).ChecksumType(checksumType).ChecksumTypeIn(checksumTypeIn).ChecksumTypeNe(checksumTypeNe).Epoch(epoch).EpochIn(epochIn).EpochNe(epochNe).Limit(limit).Name(name).NameContains(nameContains).NameIn(nameIn).NameNe(nameNe).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PkgId(pkgId).PkgIdIn(pkgIdIn).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Release(release).ReleaseContains(releaseContains).ReleaseIn(releaseIn).ReleaseNe(releaseNe).ReleaseStartswith(releaseStartswith).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Version(version).VersionIn(versionIn).VersionNe(versionNe).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmPackageResponseList ContentRpmPackagesList(ctx, pulpDomain).Arch(arch).ArchContains(archContains).ArchIn(archIn).ArchNe(archNe).ArchStartswith(archStartswith).ChecksumType(checksumType).ChecksumTypeIn(checksumTypeIn).ChecksumTypeNe(checksumTypeNe).Epoch(epoch).EpochIn(epochIn).EpochNe(epochNe).Limit(limit).Name(name).NameContains(nameContains).NameIn(nameIn).NameNe(nameNe).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PkgId(pkgId).PkgIdIn(pkgIdIn).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Release(release).ReleaseContains(releaseContains).ReleaseIn(releaseIn).ReleaseNe(releaseNe).ReleaseStartswith(releaseStartswith).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Version(version).VersionIn(versionIn).VersionNe(versionNe).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List packages
 
@@ -105,6 +111,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     arch := "arch_example" // string | Filter results where arch matches value (optional)
     archContains := "archContains_example" // string | Filter results where arch contains value (optional)
     archIn := []string{"Inner_example"} // []string | Filter results where arch is in a comma-separated list of values (optional)
@@ -145,7 +152,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentPackagesAPI.ContentRpmPackagesList(context.Background()).Arch(arch).ArchContains(archContains).ArchIn(archIn).ArchNe(archNe).ArchStartswith(archStartswith).ChecksumType(checksumType).ChecksumTypeIn(checksumTypeIn).ChecksumTypeNe(checksumTypeNe).Epoch(epoch).EpochIn(epochIn).EpochNe(epochNe).Limit(limit).Name(name).NameContains(nameContains).NameIn(nameIn).NameNe(nameNe).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PkgId(pkgId).PkgIdIn(pkgIdIn).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Release(release).ReleaseContains(releaseContains).ReleaseIn(releaseIn).ReleaseNe(releaseNe).ReleaseStartswith(releaseStartswith).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Version(version).VersionIn(versionIn).VersionNe(versionNe).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentPackagesAPI.ContentRpmPackagesList(context.Background(), pulpDomain).Arch(arch).ArchContains(archContains).ArchIn(archIn).ArchNe(archNe).ArchStartswith(archStartswith).ChecksumType(checksumType).ChecksumTypeIn(checksumTypeIn).ChecksumTypeNe(checksumTypeNe).Epoch(epoch).EpochIn(epochIn).EpochNe(epochNe).Limit(limit).Name(name).NameContains(nameContains).NameIn(nameIn).NameNe(nameNe).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PkgId(pkgId).PkgIdIn(pkgIdIn).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Release(release).ReleaseContains(releaseContains).ReleaseIn(releaseIn).ReleaseNe(releaseNe).ReleaseStartswith(releaseStartswith).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Sha256(sha256).Version(version).VersionIn(versionIn).VersionNe(versionNe).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentPackagesAPI.ContentRpmPackagesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -158,6 +165,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -166,6 +177,7 @@ Other parameters are passed through a pointer to a apiContentRpmPackagesListRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **arch** | **string** | Filter results where arch matches value | 
  **archContains** | **string** | Filter results where arch contains value | 
  **archIn** | **[]string** | Filter results where arch is in a comma-separated list of values | 

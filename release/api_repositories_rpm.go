@@ -143,6 +143,7 @@ func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmAddRoleExecute(r Repositor
 type RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest struct {
 	ctx context.Context
 	ApiService *RepositoriesRpmAPIService
+	pulpDomain string
 	rpmRpmRepository *RpmRpmRepository
 }
 
@@ -161,12 +162,14 @@ RepositoriesRpmRpmCreate Create a rpm repository
 A ViewSet for RpmRepository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest
 */
-func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmCreate(ctx context.Context) RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmCreate(ctx context.Context, pulpDomain string) RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest {
 	return RepositoriesRpmAPIRepositoriesRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -185,7 +188,10 @@ func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmCreateExecute(r Repositori
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/repositories/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -356,6 +362,7 @@ func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmDeleteExecute(r Repositori
 type RepositoriesRpmAPIRepositoriesRpmRpmListRequest struct {
 	ctx context.Context
 	ApiService *RepositoriesRpmAPIService
+	pulpDomain string
 	latestWithContent *string
 	limit *int32
 	name *string
@@ -536,12 +543,14 @@ RepositoriesRpmRpmList List rpm repositorys
 A ViewSet for RpmRepository.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RepositoriesRpmAPIRepositoriesRpmRpmListRequest
 */
-func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmList(ctx context.Context) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
+func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmList(ctx context.Context, pulpDomain string) RepositoriesRpmAPIRepositoriesRpmRpmListRequest {
 	return RepositoriesRpmAPIRepositoriesRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -560,7 +569,10 @@ func (a *RepositoriesRpmAPIService) RepositoriesRpmRpmListExecute(r Repositories
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/repositories/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

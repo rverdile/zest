@@ -40,7 +40,9 @@ func Test_zest_ContentguardsRbacAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacCreate(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacCreate(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -65,7 +67,9 @@ func Test_zest_ContentguardsRbacAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

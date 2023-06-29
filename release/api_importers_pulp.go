@@ -28,6 +28,7 @@ type ImportersPulpAPIService service
 type ImportersPulpAPIImportersCorePulpCreateRequest struct {
 	ctx context.Context
 	ApiService *ImportersPulpAPIService
+	pulpDomain string
 	pulpImporter *PulpImporter
 }
 
@@ -46,12 +47,14 @@ ImportersCorePulpCreate Create a pulp importer
 ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ImportersPulpAPIImportersCorePulpCreateRequest
 */
-func (a *ImportersPulpAPIService) ImportersCorePulpCreate(ctx context.Context) ImportersPulpAPIImportersCorePulpCreateRequest {
+func (a *ImportersPulpAPIService) ImportersCorePulpCreate(ctx context.Context, pulpDomain string) ImportersPulpAPIImportersCorePulpCreateRequest {
 	return ImportersPulpAPIImportersCorePulpCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *ImportersPulpAPIService) ImportersCorePulpCreateExecute(r ImportersPulp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/importers/core/pulp/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/importers/core/pulp/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -230,6 +236,7 @@ func (a *ImportersPulpAPIService) ImportersCorePulpDeleteExecute(r ImportersPulp
 type ImportersPulpAPIImportersCorePulpListRequest struct {
 	ctx context.Context
 	ApiService *ImportersPulpAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -326,12 +333,14 @@ ImportersCorePulpList List pulp importers
 ViewSet for PulpImporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ImportersPulpAPIImportersCorePulpListRequest
 */
-func (a *ImportersPulpAPIService) ImportersCorePulpList(ctx context.Context) ImportersPulpAPIImportersCorePulpListRequest {
+func (a *ImportersPulpAPIService) ImportersCorePulpList(ctx context.Context, pulpDomain string) ImportersPulpAPIImportersCorePulpListRequest {
 	return ImportersPulpAPIImportersCorePulpListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -350,7 +359,10 @@ func (a *ImportersPulpAPIService) ImportersCorePulpListExecute(r ImportersPulpAP
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/importers/core/pulp/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/importers/core/pulp/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

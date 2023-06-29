@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DistributionsRpmRpmAddRole**](DistributionsRpmAPI.md#DistributionsRpmRpmAddRole) | **Post** /{rpm_rpm_distribution_href}add_role/ | 
-[**DistributionsRpmRpmCreate**](DistributionsRpmAPI.md#DistributionsRpmRpmCreate) | **Post** /pulp/api/v3/distributions/rpm/rpm/ | Create a rpm distribution
+[**DistributionsRpmRpmCreate**](DistributionsRpmAPI.md#DistributionsRpmRpmCreate) | **Post** /pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | Create a rpm distribution
 [**DistributionsRpmRpmDelete**](DistributionsRpmAPI.md#DistributionsRpmRpmDelete) | **Delete** /{rpm_rpm_distribution_href} | Delete a rpm distribution
-[**DistributionsRpmRpmList**](DistributionsRpmAPI.md#DistributionsRpmRpmList) | **Get** /pulp/api/v3/distributions/rpm/rpm/ | List rpm distributions
+[**DistributionsRpmRpmList**](DistributionsRpmAPI.md#DistributionsRpmRpmList) | **Get** /pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | List rpm distributions
 [**DistributionsRpmRpmListRoles**](DistributionsRpmAPI.md#DistributionsRpmRpmListRoles) | **Get** /{rpm_rpm_distribution_href}list_roles/ | 
 [**DistributionsRpmRpmMyPermissions**](DistributionsRpmAPI.md#DistributionsRpmRpmMyPermissions) | **Get** /{rpm_rpm_distribution_href}my_permissions/ | 
 [**DistributionsRpmRpmPartialUpdate**](DistributionsRpmAPI.md#DistributionsRpmRpmPartialUpdate) | **Patch** /{rpm_rpm_distribution_href} | Update a rpm distribution
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## DistributionsRpmRpmCreate
 
-> AsyncOperationResponse DistributionsRpmRpmCreate(ctx).RpmRpmDistribution(rpmRpmDistribution).Execute()
+> AsyncOperationResponse DistributionsRpmRpmCreate(ctx, pulpDomain).RpmRpmDistribution(rpmRpmDistribution).Execute()
 
 Create a rpm distribution
 
@@ -110,11 +110,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rpmRpmDistribution := *openapiclient.NewRpmRpmDistribution("BasePath_example", "Name_example") // RpmRpmDistribution | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DistributionsRpmAPI.DistributionsRpmRpmCreate(context.Background()).RpmRpmDistribution(rpmRpmDistribution).Execute()
+    resp, r, err := apiClient.DistributionsRpmAPI.DistributionsRpmRpmCreate(context.Background(), pulpDomain).RpmRpmDistribution(rpmRpmDistribution).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DistributionsRpmAPI.DistributionsRpmRpmCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +128,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -135,6 +140,7 @@ Other parameters are passed through a pointer to a apiDistributionsRpmRpmCreateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rpmRpmDistribution** | [**RpmRpmDistribution**](RpmRpmDistribution.md) |  | 
 
 ### Return type
@@ -227,7 +233,7 @@ Name | Type | Description  | Notes
 
 ## DistributionsRpmRpmList
 
-> PaginatedrpmRpmDistributionResponseList DistributionsRpmRpmList(ctx).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmRpmDistributionResponseList DistributionsRpmRpmList(ctx, pulpDomain).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List rpm distributions
 
@@ -246,6 +252,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     basePath := "basePath_example" // string | Filter results where base_path matches value (optional)
     basePathContains := "basePathContains_example" // string | Filter results where base_path contains value (optional)
     basePathIcontains := "basePathIcontains_example" // string | Filter results where base_path contains value (optional)
@@ -269,7 +276,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DistributionsRpmAPI.DistributionsRpmRpmList(context.Background()).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.DistributionsRpmAPI.DistributionsRpmRpmList(context.Background(), pulpDomain).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DistributionsRpmAPI.DistributionsRpmRpmList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -282,6 +289,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -290,6 +301,7 @@ Other parameters are passed through a pointer to a apiDistributionsRpmRpmListReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **basePath** | **string** | Filter results where base_path matches value | 
  **basePathContains** | **string** | Filter results where base_path contains value | 
  **basePathIcontains** | **string** | Filter results where base_path contains value | 

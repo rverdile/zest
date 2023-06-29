@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TaskGroupsList**](TaskGroupsAPI.md#TaskGroupsList) | **Get** /pulp/api/v3/task-groups/ | List task groups
+[**TaskGroupsList**](TaskGroupsAPI.md#TaskGroupsList) | **Get** /pulp/{pulp_domain}/api/v3/task-groups/ | List task groups
 [**TaskGroupsRead**](TaskGroupsAPI.md#TaskGroupsRead) | **Get** /{task_group_href} | Inspect a task group
 
 
 
 ## TaskGroupsList
 
-> PaginatedTaskGroupResponseList TaskGroupsList(ctx).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedTaskGroupResponseList TaskGroupsList(ctx, pulpDomain).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List task groups
 
@@ -30,6 +30,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
@@ -37,7 +38,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TaskGroupsAPI.TaskGroupsList(context.Background()).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.TaskGroupsAPI.TaskGroupsList(context.Background(), pulpDomain).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TaskGroupsAPI.TaskGroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -50,6 +51,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -58,6 +63,7 @@ Other parameters are passed through a pointer to a apiTaskGroupsListRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **fields** | **[]string** | A list of fields to include in the response. | 

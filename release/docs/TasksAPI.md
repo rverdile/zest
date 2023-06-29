@@ -7,10 +7,10 @@ Method | HTTP request | Description
 [**TasksAddRole**](TasksAPI.md#TasksAddRole) | **Post** /{task_href}add_role/ | 
 [**TasksCancel**](TasksAPI.md#TasksCancel) | **Patch** /{task_href} | Cancel a task
 [**TasksDelete**](TasksAPI.md#TasksDelete) | **Delete** /{task_href} | Delete a task
-[**TasksList**](TasksAPI.md#TasksList) | **Get** /pulp/api/v3/tasks/ | List tasks
+[**TasksList**](TasksAPI.md#TasksList) | **Get** /pulp/{pulp_domain}/api/v3/tasks/ | List tasks
 [**TasksListRoles**](TasksAPI.md#TasksListRoles) | **Get** /{task_href}list_roles/ | 
 [**TasksMyPermissions**](TasksAPI.md#TasksMyPermissions) | **Get** /{task_href}my_permissions/ | 
-[**TasksPurge**](TasksAPI.md#TasksPurge) | **Post** /pulp/api/v3/tasks/purge/ | Purge Completed Tasks
+[**TasksPurge**](TasksAPI.md#TasksPurge) | **Post** /pulp/{pulp_domain}/api/v3/tasks/purge/ | Purge Completed Tasks
 [**TasksRead**](TasksAPI.md#TasksRead) | **Get** /{task_href} | Inspect a task
 [**TasksRemoveRole**](TasksAPI.md#TasksRemoveRole) | **Post** /{task_href}remove_role/ | 
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## TasksList
 
-> PaginatedTaskResponseList TasksList(ctx).ChildTasks(childTasks).CreatedResources(createdResources).ExclusiveResources(exclusiveResources).ExclusiveResourcesIn(exclusiveResourcesIn).FinishedAt(finishedAt).FinishedAtGt(finishedAtGt).FinishedAtGte(finishedAtGte).FinishedAtLt(finishedAtLt).FinishedAtLte(finishedAtLte).FinishedAtRange(finishedAtRange).Limit(limit).LoggingCid(loggingCid).LoggingCidContains(loggingCidContains).Name(name).NameContains(nameContains).NameIn(nameIn).Offset(offset).Ordering(ordering).ParentTask(parentTask).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ReservedResources(reservedResources).ReservedResourcesIn(reservedResourcesIn).ReservedResourcesRecord(reservedResourcesRecord).SharedResources(sharedResources).SharedResourcesIn(sharedResourcesIn).StartedAt(startedAt).StartedAtGt(startedAtGt).StartedAtGte(startedAtGte).StartedAtLt(startedAtLt).StartedAtLte(startedAtLte).StartedAtRange(startedAtRange).State(state).StateIn(stateIn).TaskGroup(taskGroup).Worker(worker).WorkerIn(workerIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedTaskResponseList TasksList(ctx, pulpDomain).ChildTasks(childTasks).CreatedResources(createdResources).ExclusiveResources(exclusiveResources).ExclusiveResourcesIn(exclusiveResourcesIn).FinishedAt(finishedAt).FinishedAtGt(finishedAtGt).FinishedAtGte(finishedAtGte).FinishedAtLt(finishedAtLt).FinishedAtLte(finishedAtLte).FinishedAtRange(finishedAtRange).Limit(limit).LoggingCid(loggingCid).LoggingCidContains(loggingCidContains).Name(name).NameContains(nameContains).NameIn(nameIn).Offset(offset).Ordering(ordering).ParentTask(parentTask).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ReservedResources(reservedResources).ReservedResourcesIn(reservedResourcesIn).ReservedResourcesRecord(reservedResourcesRecord).SharedResources(sharedResources).SharedResourcesIn(sharedResourcesIn).StartedAt(startedAt).StartedAtGt(startedAtGt).StartedAtGte(startedAtGte).StartedAtLt(startedAtLt).StartedAtLte(startedAtLte).StartedAtRange(startedAtRange).State(state).StateIn(stateIn).TaskGroup(taskGroup).Worker(worker).WorkerIn(workerIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List tasks
 
@@ -250,6 +250,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     childTasks := "childTasks_example" // string | Filter results where child_tasks matches value (optional)
     createdResources := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
     exclusiveResources := "exclusiveResources_example" // string |  (optional)
@@ -292,7 +293,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TasksAPI.TasksList(context.Background()).ChildTasks(childTasks).CreatedResources(createdResources).ExclusiveResources(exclusiveResources).ExclusiveResourcesIn(exclusiveResourcesIn).FinishedAt(finishedAt).FinishedAtGt(finishedAtGt).FinishedAtGte(finishedAtGte).FinishedAtLt(finishedAtLt).FinishedAtLte(finishedAtLte).FinishedAtRange(finishedAtRange).Limit(limit).LoggingCid(loggingCid).LoggingCidContains(loggingCidContains).Name(name).NameContains(nameContains).NameIn(nameIn).Offset(offset).Ordering(ordering).ParentTask(parentTask).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ReservedResources(reservedResources).ReservedResourcesIn(reservedResourcesIn).ReservedResourcesRecord(reservedResourcesRecord).SharedResources(sharedResources).SharedResourcesIn(sharedResourcesIn).StartedAt(startedAt).StartedAtGt(startedAtGt).StartedAtGte(startedAtGte).StartedAtLt(startedAtLt).StartedAtLte(startedAtLte).StartedAtRange(startedAtRange).State(state).StateIn(stateIn).TaskGroup(taskGroup).Worker(worker).WorkerIn(workerIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.TasksAPI.TasksList(context.Background(), pulpDomain).ChildTasks(childTasks).CreatedResources(createdResources).ExclusiveResources(exclusiveResources).ExclusiveResourcesIn(exclusiveResourcesIn).FinishedAt(finishedAt).FinishedAtGt(finishedAtGt).FinishedAtGte(finishedAtGte).FinishedAtLt(finishedAtLt).FinishedAtLte(finishedAtLte).FinishedAtRange(finishedAtRange).Limit(limit).LoggingCid(loggingCid).LoggingCidContains(loggingCidContains).Name(name).NameContains(nameContains).NameIn(nameIn).Offset(offset).Ordering(ordering).ParentTask(parentTask).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).ReservedResources(reservedResources).ReservedResourcesIn(reservedResourcesIn).ReservedResourcesRecord(reservedResourcesRecord).SharedResources(sharedResources).SharedResourcesIn(sharedResourcesIn).StartedAt(startedAt).StartedAtGt(startedAtGt).StartedAtGte(startedAtGte).StartedAtLt(startedAtLt).StartedAtLte(startedAtLte).StartedAtRange(startedAtRange).State(state).StateIn(stateIn).TaskGroup(taskGroup).Worker(worker).WorkerIn(workerIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TasksAPI.TasksList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -305,6 +306,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -313,6 +318,7 @@ Other parameters are passed through a pointer to a apiTasksListRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **childTasks** | **string** | Filter results where child_tasks matches value | 
  **createdResources** | **string** |  | 
  **exclusiveResources** | **string** |  | 
@@ -521,7 +527,7 @@ Name | Type | Description  | Notes
 
 ## TasksPurge
 
-> AsyncOperationResponse TasksPurge(ctx).Purge(purge).Execute()
+> AsyncOperationResponse TasksPurge(ctx, pulpDomain).Purge(purge).Execute()
 
 Purge Completed Tasks
 
@@ -540,11 +546,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     purge := *openapiclient.NewPurge() // Purge | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TasksAPI.TasksPurge(context.Background()).Purge(purge).Execute()
+    resp, r, err := apiClient.TasksAPI.TasksPurge(context.Background(), pulpDomain).Purge(purge).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TasksAPI.TasksPurge``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -557,6 +564,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -565,6 +576,7 @@ Other parameters are passed through a pointer to a apiTasksPurgeRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **purge** | [**Purge**](Purge.md) |  | 
 
 ### Return type

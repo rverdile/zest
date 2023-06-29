@@ -26,7 +26,9 @@ func Test_zest_ExportersFilesystemAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemCreate(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemCreate(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -52,7 +54,9 @@ func Test_zest_ExportersFilesystemAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ExportersFilesystemAPI.ExportersCoreFilesystemList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

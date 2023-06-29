@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RepositoriesReclaimSpaceReclaim**](RepositoriesReclaimSpaceAPI.md#RepositoriesReclaimSpaceReclaim) | **Post** /pulp/api/v3/repositories/reclaim_space/ | 
+[**RepositoriesReclaimSpaceReclaim**](RepositoriesReclaimSpaceAPI.md#RepositoriesReclaimSpaceReclaim) | **Post** /pulp/{pulp_domain}/api/v3/repositories/reclaim_space/ | 
 
 
 
 ## RepositoriesReclaimSpaceReclaim
 
-> AsyncOperationResponse RepositoriesReclaimSpaceReclaim(ctx).ReclaimSpace(reclaimSpace).Execute()
+> AsyncOperationResponse RepositoriesReclaimSpaceReclaim(ctx, pulpDomain).ReclaimSpace(reclaimSpace).Execute()
 
 
 
@@ -29,11 +29,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     reclaimSpace := *openapiclient.NewReclaimSpace([]interface{}{nil}) // ReclaimSpace | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RepositoriesReclaimSpaceAPI.RepositoriesReclaimSpaceReclaim(context.Background()).ReclaimSpace(reclaimSpace).Execute()
+    resp, r, err := apiClient.RepositoriesReclaimSpaceAPI.RepositoriesReclaimSpaceReclaim(context.Background(), pulpDomain).ReclaimSpace(reclaimSpace).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RepositoriesReclaimSpaceAPI.RepositoriesReclaimSpaceReclaim``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -46,6 +47,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -54,6 +59,7 @@ Other parameters are passed through a pointer to a apiRepositoriesReclaimSpaceRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **reclaimSpace** | [**ReclaimSpace**](ReclaimSpace.md) |  | 
 
 ### Return type

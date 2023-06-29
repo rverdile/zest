@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 	"reflect"
 )
@@ -28,6 +29,7 @@ type RemotesAPIService service
 type RemotesAPIRemotesListRequest struct {
 	ctx context.Context
 	ApiService *RemotesAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -197,12 +199,14 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RemotesAPIRemotesListRequest
 */
-func (a *RemotesAPIService) RemotesList(ctx context.Context) RemotesAPIRemotesListRequest {
+func (a *RemotesAPIService) RemotesList(ctx context.Context, pulpDomain string) RemotesAPIRemotesListRequest {
 	return RemotesAPIRemotesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -221,7 +225,10 @@ func (a *RemotesAPIService) RemotesListExecute(r RemotesAPIRemotesListRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/remotes/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/remotes/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

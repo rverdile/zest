@@ -144,6 +144,7 @@ func (a *PublicationsRpmAPIService) PublicationsRpmRpmAddRoleExecute(r Publicati
 type PublicationsRpmAPIPublicationsRpmRpmCreateRequest struct {
 	ctx context.Context
 	ApiService *PublicationsRpmAPIService
+	pulpDomain string
 	rpmRpmPublication *RpmRpmPublication
 }
 
@@ -162,12 +163,14 @@ PublicationsRpmRpmCreate Create a rpm publication
 Trigger an asynchronous task to create a new RPM content publication.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return PublicationsRpmAPIPublicationsRpmRpmCreateRequest
 */
-func (a *PublicationsRpmAPIService) PublicationsRpmRpmCreate(ctx context.Context) PublicationsRpmAPIPublicationsRpmRpmCreateRequest {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmCreate(ctx context.Context, pulpDomain string) PublicationsRpmAPIPublicationsRpmRpmCreateRequest {
 	return PublicationsRpmAPIPublicationsRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -186,7 +189,10 @@ func (a *PublicationsRpmAPIService) PublicationsRpmRpmCreateExecute(r Publicatio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/publications/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/publications/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -346,6 +352,7 @@ func (a *PublicationsRpmAPIService) PublicationsRpmRpmDeleteExecute(r Publicatio
 type PublicationsRpmAPIPublicationsRpmRpmListRequest struct {
 	ctx context.Context
 	ApiService *PublicationsRpmAPIService
+	pulpDomain string
 	content *string
 	contentIn *string
 	limit *int32
@@ -477,12 +484,14 @@ PublicationsRpmRpmList List rpm publications
 ViewSet for Rpm Publications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return PublicationsRpmAPIPublicationsRpmRpmListRequest
 */
-func (a *PublicationsRpmAPIService) PublicationsRpmRpmList(ctx context.Context) PublicationsRpmAPIPublicationsRpmRpmListRequest {
+func (a *PublicationsRpmAPIService) PublicationsRpmRpmList(ctx context.Context, pulpDomain string) PublicationsRpmAPIPublicationsRpmRpmListRequest {
 	return PublicationsRpmAPIPublicationsRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -501,7 +510,10 @@ func (a *PublicationsRpmAPIService) PublicationsRpmRpmListExecute(r Publications
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/publications/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/publications/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

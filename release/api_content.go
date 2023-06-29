@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"reflect"
 )
 
@@ -27,6 +28,7 @@ type ContentAPIService service
 type ContentAPIContentListRequest struct {
 	ctx context.Context
 	ApiService *ContentAPIService
+	pulpDomain string
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -116,12 +118,14 @@ ContentList List content
 Endpoint to list all content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentAPIContentListRequest
 */
-func (a *ContentAPIService) ContentList(ctx context.Context) ContentAPIContentListRequest {
+func (a *ContentAPIService) ContentList(ctx context.Context, pulpDomain string) ContentAPIContentListRequest {
 	return ContentAPIContentListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -140,7 +144,10 @@ func (a *ContentAPIService) ContentListExecute(r ContentAPIContentListRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

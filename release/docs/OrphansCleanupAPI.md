@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**OrphansCleanupCleanup**](OrphansCleanupAPI.md#OrphansCleanupCleanup) | **Post** /pulp/api/v3/orphans/cleanup/ | 
+[**OrphansCleanupCleanup**](OrphansCleanupAPI.md#OrphansCleanupCleanup) | **Post** /pulp/{pulp_domain}/api/v3/orphans/cleanup/ | 
 
 
 
 ## OrphansCleanupCleanup
 
-> AsyncOperationResponse OrphansCleanupCleanup(ctx).OrphansCleanup(orphansCleanup).Execute()
+> AsyncOperationResponse OrphansCleanupCleanup(ctx, pulpDomain).OrphansCleanup(orphansCleanup).Execute()
 
 
 
@@ -29,11 +29,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     orphansCleanup := *openapiclient.NewOrphansCleanup() // OrphansCleanup | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OrphansCleanupAPI.OrphansCleanupCleanup(context.Background()).OrphansCleanup(orphansCleanup).Execute()
+    resp, r, err := apiClient.OrphansCleanupAPI.OrphansCleanupCleanup(context.Background(), pulpDomain).OrphansCleanup(orphansCleanup).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `OrphansCleanupAPI.OrphansCleanupCleanup``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -46,6 +47,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -54,6 +59,7 @@ Other parameters are passed through a pointer to a apiOrphansCleanupCleanupReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **orphansCleanup** | [**OrphansCleanup**](OrphansCleanup.md) |  | 
 
 ### Return type

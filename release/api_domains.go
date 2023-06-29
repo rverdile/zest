@@ -28,6 +28,7 @@ type DomainsAPIService service
 type DomainsAPIDomainsCreateRequest struct {
 	ctx context.Context
 	ApiService *DomainsAPIService
+	pulpDomain string
 	domain *Domain
 }
 
@@ -48,12 +49,14 @@ ViewSet for Domain.
 NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return DomainsAPIDomainsCreateRequest
 */
-func (a *DomainsAPIService) DomainsCreate(ctx context.Context) DomainsAPIDomainsCreateRequest {
+func (a *DomainsAPIService) DomainsCreate(ctx context.Context, pulpDomain string) DomainsAPIDomainsCreateRequest {
 	return DomainsAPIDomainsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -72,7 +75,10 @@ func (a *DomainsAPIService) DomainsCreateExecute(r DomainsAPIDomainsCreateReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/domains/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/domains/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -243,6 +249,7 @@ func (a *DomainsAPIService) DomainsDeleteExecute(r DomainsAPIDomainsDeleteReques
 type DomainsAPIDomainsListRequest struct {
 	ctx context.Context
 	ApiService *DomainsAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -341,12 +348,14 @@ ViewSet for Domain.
 NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return DomainsAPIDomainsListRequest
 */
-func (a *DomainsAPIService) DomainsList(ctx context.Context) DomainsAPIDomainsListRequest {
+func (a *DomainsAPIService) DomainsList(ctx context.Context, pulpDomain string) DomainsAPIDomainsListRequest {
 	return DomainsAPIDomainsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -365,7 +374,10 @@ func (a *DomainsAPIService) DomainsListExecute(r DomainsAPIDomainsListRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/domains/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/domains/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

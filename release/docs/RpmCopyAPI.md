@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CopyContent**](RpmCopyAPI.md#CopyContent) | **Post** /pulp/api/v3/rpm/copy/ | Copy content
+[**CopyContent**](RpmCopyAPI.md#CopyContent) | **Post** /pulp/{pulp_domain}/api/v3/rpm/copy/ | Copy content
 
 
 
 ## CopyContent
 
-> AsyncOperationResponse CopyContent(ctx).Copy(copy).Execute()
+> AsyncOperationResponse CopyContent(ctx, pulpDomain).Copy(copy).Execute()
 
 Copy content
 
@@ -29,11 +29,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     copy := *openapiclient.NewCopy(map[string]interface{}(123)) // Copy | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RpmCopyAPI.CopyContent(context.Background()).Copy(copy).Execute()
+    resp, r, err := apiClient.RpmCopyAPI.CopyContent(context.Background(), pulpDomain).Copy(copy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RpmCopyAPI.CopyContent``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -46,6 +47,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -54,6 +59,7 @@ Other parameters are passed through a pointer to a apiCopyContentRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **copy** | [**Copy**](Copy.md) |  | 
 
 ### Return type

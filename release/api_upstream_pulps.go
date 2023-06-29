@@ -28,6 +28,7 @@ type UpstreamPulpsAPIService service
 type UpstreamPulpsAPIUpstreamPulpsCreateRequest struct {
 	ctx context.Context
 	ApiService *UpstreamPulpsAPIService
+	pulpDomain string
 	upstreamPulp *UpstreamPulp
 }
 
@@ -46,12 +47,14 @@ UpstreamPulpsCreate Create an upstream pulp
 API for configuring an upstream Pulp to replicate. This API is provided as a tech preview.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return UpstreamPulpsAPIUpstreamPulpsCreateRequest
 */
-func (a *UpstreamPulpsAPIService) UpstreamPulpsCreate(ctx context.Context) UpstreamPulpsAPIUpstreamPulpsCreateRequest {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsCreate(ctx context.Context, pulpDomain string) UpstreamPulpsAPIUpstreamPulpsCreateRequest {
 	return UpstreamPulpsAPIUpstreamPulpsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *UpstreamPulpsAPIService) UpstreamPulpsCreateExecute(r UpstreamPulpsAPIU
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/upstream-pulps/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/upstream-pulps/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -230,6 +236,7 @@ func (a *UpstreamPulpsAPIService) UpstreamPulpsDeleteExecute(r UpstreamPulpsAPIU
 type UpstreamPulpsAPIUpstreamPulpsListRequest struct {
 	ctx context.Context
 	ApiService *UpstreamPulpsAPIService
+	pulpDomain string
 	limit *int32
 	offset *int32
 	fields *[]string
@@ -270,12 +277,14 @@ UpstreamPulpsList List upstream pulps
 API for configuring an upstream Pulp to replicate. This API is provided as a tech preview.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return UpstreamPulpsAPIUpstreamPulpsListRequest
 */
-func (a *UpstreamPulpsAPIService) UpstreamPulpsList(ctx context.Context) UpstreamPulpsAPIUpstreamPulpsListRequest {
+func (a *UpstreamPulpsAPIService) UpstreamPulpsList(ctx context.Context, pulpDomain string) UpstreamPulpsAPIUpstreamPulpsListRequest {
 	return UpstreamPulpsAPIUpstreamPulpsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -294,7 +303,10 @@ func (a *UpstreamPulpsAPIService) UpstreamPulpsListExecute(r UpstreamPulpsAPIUps
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/upstream-pulps/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/upstream-pulps/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

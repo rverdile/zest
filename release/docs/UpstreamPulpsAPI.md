@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UpstreamPulpsCreate**](UpstreamPulpsAPI.md#UpstreamPulpsCreate) | **Post** /pulp/api/v3/upstream-pulps/ | Create an upstream pulp
+[**UpstreamPulpsCreate**](UpstreamPulpsAPI.md#UpstreamPulpsCreate) | **Post** /pulp/{pulp_domain}/api/v3/upstream-pulps/ | Create an upstream pulp
 [**UpstreamPulpsDelete**](UpstreamPulpsAPI.md#UpstreamPulpsDelete) | **Delete** /{upstream_pulp_href} | Delete an upstream pulp
-[**UpstreamPulpsList**](UpstreamPulpsAPI.md#UpstreamPulpsList) | **Get** /pulp/api/v3/upstream-pulps/ | List upstream pulps
+[**UpstreamPulpsList**](UpstreamPulpsAPI.md#UpstreamPulpsList) | **Get** /pulp/{pulp_domain}/api/v3/upstream-pulps/ | List upstream pulps
 [**UpstreamPulpsPartialUpdate**](UpstreamPulpsAPI.md#UpstreamPulpsPartialUpdate) | **Patch** /{upstream_pulp_href} | Update an upstream pulp
 [**UpstreamPulpsRead**](UpstreamPulpsAPI.md#UpstreamPulpsRead) | **Get** /{upstream_pulp_href} | Inspect an upstream pulp
 [**UpstreamPulpsReplicate**](UpstreamPulpsAPI.md#UpstreamPulpsReplicate) | **Post** /{upstream_pulp_href}replicate/ | Replicate
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## UpstreamPulpsCreate
 
-> UpstreamPulpResponse UpstreamPulpsCreate(ctx).UpstreamPulp(upstreamPulp).Execute()
+> UpstreamPulpResponse UpstreamPulpsCreate(ctx, pulpDomain).UpstreamPulp(upstreamPulp).Execute()
 
 Create an upstream pulp
 
@@ -35,11 +35,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     upstreamPulp := *openapiclient.NewUpstreamPulp("Name_example", "BaseUrl_example", "ApiRoot_example") // UpstreamPulp | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsCreate(context.Background()).UpstreamPulp(upstreamPulp).Execute()
+    resp, r, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsCreate(context.Background(), pulpDomain).UpstreamPulp(upstreamPulp).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UpstreamPulpsAPI.UpstreamPulpsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -52,6 +53,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -60,6 +65,7 @@ Other parameters are passed through a pointer to a apiUpstreamPulpsCreateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **upstreamPulp** | [**UpstreamPulp**](UpstreamPulp.md) |  | 
 
 ### Return type
@@ -150,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## UpstreamPulpsList
 
-> PaginatedUpstreamPulpResponseList UpstreamPulpsList(ctx).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedUpstreamPulpResponseList UpstreamPulpsList(ctx, pulpDomain).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List upstream pulps
 
@@ -169,6 +175,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     fields := []string{"Inner_example"} // []string | A list of fields to include in the response. (optional)
@@ -176,7 +183,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsList(context.Background()).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsList(context.Background(), pulpDomain).Limit(limit).Offset(offset).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UpstreamPulpsAPI.UpstreamPulpsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -189,6 +196,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -197,6 +208,7 @@ Other parameters are passed through a pointer to a apiUpstreamPulpsListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **fields** | **[]string** | A list of fields to include in the response. | 

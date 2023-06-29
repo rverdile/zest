@@ -28,6 +28,7 @@ type RolesAPIService service
 type RolesAPIRolesCreateRequest struct {
 	ctx context.Context
 	ApiService *RolesAPIService
+	pulpDomain string
 	role *Role
 }
 
@@ -46,12 +47,14 @@ RolesCreate Create a role
 ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RolesAPIRolesCreateRequest
 */
-func (a *RolesAPIService) RolesCreate(ctx context.Context) RolesAPIRolesCreateRequest {
+func (a *RolesAPIService) RolesCreate(ctx context.Context, pulpDomain string) RolesAPIRolesCreateRequest {
 	return RolesAPIRolesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *RolesAPIService) RolesCreateExecute(r RolesAPIRolesCreateRequest) (*Rol
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/roles/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/roles/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -230,6 +236,7 @@ func (a *RolesAPIService) RolesDeleteExecute(r RolesAPIRolesDeleteRequest) (*htt
 type RolesAPIRolesListRequest struct {
 	ctx context.Context
 	ApiService *RolesAPIService
+	pulpDomain string
 	containsPermission *[]string
 	description *string
 	descriptionContains *string
@@ -375,12 +382,14 @@ RolesList List roles
 ViewSet for Role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RolesAPIRolesListRequest
 */
-func (a *RolesAPIService) RolesList(ctx context.Context) RolesAPIRolesListRequest {
+func (a *RolesAPIService) RolesList(ctx context.Context, pulpDomain string) RolesAPIRolesListRequest {
 	return RolesAPIRolesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -399,7 +408,10 @@ func (a *RolesAPIService) RolesListExecute(r RolesAPIRolesListRequest) (*Paginat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/roles/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/roles/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

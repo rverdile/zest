@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 	"reflect"
 )
@@ -28,6 +29,7 @@ type RepositoryVersionsAPIService service
 type RepositoryVersionsAPIRepositoryVersionsListRequest struct {
 	ctx context.Context
 	ApiService *RepositoryVersionsAPIService
+	pulpDomain string
 	content *string
 	contentIn *string
 	limit *int32
@@ -180,12 +182,14 @@ RepositoryVersionsList List repository versions
 A mixin to hold the shared get_queryset logic used by RepositoryVersionViewSets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RepositoryVersionsAPIRepositoryVersionsListRequest
 */
-func (a *RepositoryVersionsAPIService) RepositoryVersionsList(ctx context.Context) RepositoryVersionsAPIRepositoryVersionsListRequest {
+func (a *RepositoryVersionsAPIService) RepositoryVersionsList(ctx context.Context, pulpDomain string) RepositoryVersionsAPIRepositoryVersionsListRequest {
 	return RepositoryVersionsAPIRepositoryVersionsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -204,7 +208,10 @@ func (a *RepositoryVersionsAPIService) RepositoryVersionsListExecute(r Repositor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/repository_versions/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/repository_versions/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

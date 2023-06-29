@@ -6,9 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**UploadsAddRole**](UploadsAPI.md#UploadsAddRole) | **Post** /{upload_href}add_role/ | 
 [**UploadsCommit**](UploadsAPI.md#UploadsCommit) | **Post** /{upload_href}commit/ | Finish an Upload
-[**UploadsCreate**](UploadsAPI.md#UploadsCreate) | **Post** /pulp/api/v3/uploads/ | Create an upload
+[**UploadsCreate**](UploadsAPI.md#UploadsCreate) | **Post** /pulp/{pulp_domain}/api/v3/uploads/ | Create an upload
 [**UploadsDelete**](UploadsAPI.md#UploadsDelete) | **Delete** /{upload_href} | Delete an upload
-[**UploadsList**](UploadsAPI.md#UploadsList) | **Get** /pulp/api/v3/uploads/ | List uploads
+[**UploadsList**](UploadsAPI.md#UploadsList) | **Get** /pulp/{pulp_domain}/api/v3/uploads/ | List uploads
 [**UploadsListRoles**](UploadsAPI.md#UploadsListRoles) | **Get** /{upload_href}list_roles/ | 
 [**UploadsMyPermissions**](UploadsAPI.md#UploadsMyPermissions) | **Get** /{upload_href}my_permissions/ | 
 [**UploadsRead**](UploadsAPI.md#UploadsRead) | **Get** /{upload_href} | Inspect an upload
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## UploadsCreate
 
-> UploadResponse UploadsCreate(ctx).Upload(upload).Execute()
+> UploadResponse UploadsCreate(ctx, pulpDomain).Upload(upload).Execute()
 
 Create an upload
 
@@ -182,11 +182,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     upload := *openapiclient.NewUpload(int64(123)) // Upload | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UploadsAPI.UploadsCreate(context.Background()).Upload(upload).Execute()
+    resp, r, err := apiClient.UploadsAPI.UploadsCreate(context.Background(), pulpDomain).Upload(upload).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UploadsAPI.UploadsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -199,6 +200,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -207,6 +212,7 @@ Other parameters are passed through a pointer to a apiUploadsCreateRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **upload** | [**Upload**](Upload.md) |  | 
 
 ### Return type
@@ -297,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## UploadsList
 
-> PaginatedUploadResponseList UploadsList(ctx).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Size(size).SizeGt(sizeGt).SizeLt(sizeLt).SizeRange(sizeRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedUploadResponseList UploadsList(ctx, pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Size(size).SizeGt(sizeGt).SizeLt(sizeLt).SizeRange(sizeRange).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List uploads
 
@@ -316,6 +322,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     ordering := []string{"Ordering_example"} // []string | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `size` - Size * `-size` - Size (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
@@ -330,7 +337,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UploadsAPI.UploadsList(context.Background()).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Size(size).SizeGt(sizeGt).SizeLt(sizeLt).SizeRange(sizeRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.UploadsAPI.UploadsList(context.Background(), pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Size(size).SizeGt(sizeGt).SizeLt(sizeLt).SizeRange(sizeRange).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UploadsAPI.UploadsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -343,6 +350,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -351,6 +362,7 @@ Other parameters are passed through a pointer to a apiUploadsListRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **ordering** | **[]string** | Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;size&#x60; - Size * &#x60;-size&#x60; - Size (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | 

@@ -29,6 +29,7 @@ type ContentPackagesAPIService service
 type ContentPackagesAPIContentRpmPackagesCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentPackagesAPIService
+	pulpDomain string
 	artifact *string
 	relativePath *string
 	file *os.File
@@ -76,12 +77,14 @@ ContentRpmPackagesCreate Create a package
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentPackagesAPIContentRpmPackagesCreateRequest
 */
-func (a *ContentPackagesAPIService) ContentRpmPackagesCreate(ctx context.Context) ContentPackagesAPIContentRpmPackagesCreateRequest {
+func (a *ContentPackagesAPIService) ContentRpmPackagesCreate(ctx context.Context, pulpDomain string) ContentPackagesAPIContentRpmPackagesCreateRequest {
 	return ContentPackagesAPIContentRpmPackagesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -100,7 +103,10 @@ func (a *ContentPackagesAPIService) ContentRpmPackagesCreateExecute(r ContentPac
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/packages/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/packages/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -191,6 +197,7 @@ func (a *ContentPackagesAPIService) ContentRpmPackagesCreateExecute(r ContentPac
 type ContentPackagesAPIContentRpmPackagesListRequest struct {
 	ctx context.Context
 	ApiService *ContentPackagesAPIService
+	pulpDomain string
 	arch *string
 	archContains *string
 	archIn *[]string
@@ -467,12 +474,14 @@ For example::
 Also specify queryset and serializer for Package.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentPackagesAPIContentRpmPackagesListRequest
 */
-func (a *ContentPackagesAPIService) ContentRpmPackagesList(ctx context.Context) ContentPackagesAPIContentRpmPackagesListRequest {
+func (a *ContentPackagesAPIService) ContentRpmPackagesList(ctx context.Context, pulpDomain string) ContentPackagesAPIContentRpmPackagesListRequest {
 	return ContentPackagesAPIContentRpmPackagesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -491,7 +500,10 @@ func (a *ContentPackagesAPIService) ContentRpmPackagesListExecute(r ContentPacka
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/packages/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/packages/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

@@ -28,6 +28,7 @@ type ContentguardsRhsmAPIService service
 type ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsRhsmAPIService
+	pulpDomain string
 	certguardRHSMCertGuard *CertguardRHSMCertGuard
 }
 
@@ -46,12 +47,14 @@ ContentguardsCertguardRhsmCreate Create a rhsm cert guard
 RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest
 */
-func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmCreate(ctx context.Context) ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmCreate(ctx context.Context, pulpDomain string) ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest {
 	return ContentguardsRhsmAPIContentguardsCertguardRhsmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmCreateExecute(r 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/certguard/rhsm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/certguard/rhsm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -230,6 +236,7 @@ func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmDeleteExecute(r 
 type ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsRhsmAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -326,12 +333,14 @@ ContentguardsCertguardRhsmList List rhsm cert guards
 RHSMCertGuard API Viewsets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest
 */
-func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmList(ctx context.Context) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
+func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmList(ctx context.Context, pulpDomain string) ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest {
 	return ContentguardsRhsmAPIContentguardsCertguardRhsmListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -350,7 +359,10 @@ func (a *ContentguardsRhsmAPIService) ContentguardsCertguardRhsmListExecute(r Co
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/certguard/rhsm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/certguard/rhsm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

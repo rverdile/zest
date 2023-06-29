@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ContentguardsCoreContentRedirectAddRole**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectAddRole) | **Post** /{content_redirect_content_guard_href}add_role/ | 
-[**ContentguardsCoreContentRedirectCreate**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectCreate) | **Post** /pulp/api/v3/contentguards/core/content_redirect/ | Create a content redirect content guard
+[**ContentguardsCoreContentRedirectCreate**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectCreate) | **Post** /pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/ | Create a content redirect content guard
 [**ContentguardsCoreContentRedirectDelete**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectDelete) | **Delete** /{content_redirect_content_guard_href} | Delete a content redirect content guard
-[**ContentguardsCoreContentRedirectList**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectList) | **Get** /pulp/api/v3/contentguards/core/content_redirect/ | List content redirect content guards
+[**ContentguardsCoreContentRedirectList**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectList) | **Get** /pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/ | List content redirect content guards
 [**ContentguardsCoreContentRedirectListRoles**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectListRoles) | **Get** /{content_redirect_content_guard_href}list_roles/ | 
 [**ContentguardsCoreContentRedirectMyPermissions**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectMyPermissions) | **Get** /{content_redirect_content_guard_href}my_permissions/ | 
 [**ContentguardsCoreContentRedirectPartialUpdate**](ContentguardsContentRedirectAPI.md#ContentguardsCoreContentRedirectPartialUpdate) | **Patch** /{content_redirect_content_guard_href} | Update a content redirect content guard
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## ContentguardsCoreContentRedirectCreate
 
-> ContentRedirectContentGuardResponse ContentguardsCoreContentRedirectCreate(ctx).ContentRedirectContentGuard(contentRedirectContentGuard).Execute()
+> ContentRedirectContentGuardResponse ContentguardsCoreContentRedirectCreate(ctx, pulpDomain).ContentRedirectContentGuard(contentRedirectContentGuard).Execute()
 
 Create a content redirect content guard
 
@@ -110,11 +110,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     contentRedirectContentGuard := *openapiclient.NewContentRedirectContentGuard("Name_example") // ContentRedirectContentGuard | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectCreate(context.Background()).ContentRedirectContentGuard(contentRedirectContentGuard).Execute()
+    resp, r, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectCreate(context.Background(), pulpDomain).ContentRedirectContentGuard(contentRedirectContentGuard).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +128,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -135,6 +140,7 @@ Other parameters are passed through a pointer to a apiContentguardsCoreContentRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **contentRedirectContentGuard** | [**ContentRedirectContentGuard**](ContentRedirectContentGuard.md) |  | 
 
 ### Return type
@@ -225,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## ContentguardsCoreContentRedirectList
 
-> PaginatedContentRedirectContentGuardResponseList ContentguardsCoreContentRedirectList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedContentRedirectContentGuardResponseList ContentguardsCoreContentRedirectList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List content redirect content guards
 
@@ -244,6 +250,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -259,7 +266,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentguardsContentRedirectAPI.ContentguardsCoreContentRedirectList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -272,6 +279,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -280,6 +291,7 @@ Other parameters are passed through a pointer to a apiContentguardsCoreContentRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

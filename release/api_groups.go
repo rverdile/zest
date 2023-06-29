@@ -143,6 +143,7 @@ func (a *GroupsAPIService) GroupsAddRoleExecute(r GroupsAPIGroupsAddRoleRequest)
 type GroupsAPIGroupsCreateRequest struct {
 	ctx context.Context
 	ApiService *GroupsAPIService
+	pulpDomain string
 	group *Group
 }
 
@@ -161,12 +162,14 @@ GroupsCreate Create a group
 ViewSet for Group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return GroupsAPIGroupsCreateRequest
 */
-func (a *GroupsAPIService) GroupsCreate(ctx context.Context) GroupsAPIGroupsCreateRequest {
+func (a *GroupsAPIService) GroupsCreate(ctx context.Context, pulpDomain string) GroupsAPIGroupsCreateRequest {
 	return GroupsAPIGroupsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -185,7 +188,10 @@ func (a *GroupsAPIService) GroupsCreateExecute(r GroupsAPIGroupsCreateRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/groups/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/groups/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -345,6 +351,7 @@ func (a *GroupsAPIService) GroupsDeleteExecute(r GroupsAPIGroupsDeleteRequest) (
 type GroupsAPIGroupsListRequest struct {
 	ctx context.Context
 	ApiService *GroupsAPIService
+	pulpDomain string
 	id *int32
 	idIn *[]int32
 	limit *int32
@@ -455,12 +462,14 @@ GroupsList List groups
 ViewSet for Group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return GroupsAPIGroupsListRequest
 */
-func (a *GroupsAPIService) GroupsList(ctx context.Context) GroupsAPIGroupsListRequest {
+func (a *GroupsAPIService) GroupsList(ctx context.Context, pulpDomain string) GroupsAPIGroupsListRequest {
 	return GroupsAPIGroupsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -479,7 +488,10 @@ func (a *GroupsAPIService) GroupsListExecute(r GroupsAPIGroupsListRequest) (*Pag
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/groups/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/groups/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

@@ -28,6 +28,7 @@ type ContentModulemdObsoletesAPIService service
 type ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentModulemdObsoletesAPIService
+	pulpDomain string
 	rpmModulemdObsolete *RpmModulemdObsolete
 }
 
@@ -46,12 +47,14 @@ ContentRpmModulemdObsoletesCreate Create a modulemd obsolete
 Trigger an asynchronous task to create content,optionally create new repository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest
 */
-func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesCreate(ctx context.Context) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest {
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesCreate(ctx context.Context, pulpDomain string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest {
 	return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesCreateEx
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/modulemd_obsoletes/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_obsoletes/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -137,6 +143,7 @@ func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesCreateEx
 type ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest struct {
 	ctx context.Context
 	ApiService *ContentModulemdObsoletesAPIService
+	pulpDomain string
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -219,12 +226,14 @@ ContentRpmModulemdObsoletesList List modulemd obsoletes
 ViewSet for Modulemd.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest
 */
-func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesList(ctx context.Context) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
+func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesList(ctx context.Context, pulpDomain string) ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest {
 	return ContentModulemdObsoletesAPIContentRpmModulemdObsoletesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -243,7 +252,10 @@ func (a *ContentModulemdObsoletesAPIService) ContentRpmModulemdObsoletesListExec
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/modulemd_obsoletes/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_obsoletes/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

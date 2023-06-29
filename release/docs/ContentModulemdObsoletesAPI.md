@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContentRpmModulemdObsoletesCreate**](ContentModulemdObsoletesAPI.md#ContentRpmModulemdObsoletesCreate) | **Post** /pulp/api/v3/content/rpm/modulemd_obsoletes/ | Create a modulemd obsolete
-[**ContentRpmModulemdObsoletesList**](ContentModulemdObsoletesAPI.md#ContentRpmModulemdObsoletesList) | **Get** /pulp/api/v3/content/rpm/modulemd_obsoletes/ | List modulemd obsoletes
+[**ContentRpmModulemdObsoletesCreate**](ContentModulemdObsoletesAPI.md#ContentRpmModulemdObsoletesCreate) | **Post** /pulp/{pulp_domain}/api/v3/content/rpm/modulemd_obsoletes/ | Create a modulemd obsolete
+[**ContentRpmModulemdObsoletesList**](ContentModulemdObsoletesAPI.md#ContentRpmModulemdObsoletesList) | **Get** /pulp/{pulp_domain}/api/v3/content/rpm/modulemd_obsoletes/ | List modulemd obsoletes
 [**ContentRpmModulemdObsoletesRead**](ContentModulemdObsoletesAPI.md#ContentRpmModulemdObsoletesRead) | **Get** /{rpm_modulemd_obsolete_href} | Inspect a modulemd obsolete
 
 
 
 ## ContentRpmModulemdObsoletesCreate
 
-> AsyncOperationResponse ContentRpmModulemdObsoletesCreate(ctx).RpmModulemdObsolete(rpmModulemdObsolete).Execute()
+> AsyncOperationResponse ContentRpmModulemdObsoletesCreate(ctx, pulpDomain).RpmModulemdObsolete(rpmModulemdObsolete).Execute()
 
 Create a modulemd obsolete
 
@@ -31,11 +31,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rpmModulemdObsolete := *openapiclient.NewRpmModulemdObsolete("Modified_example", "ModuleName_example", "ModuleStream_example", "Message_example", "OverridePrevious_example", "ModuleContext_example", "EolDate_example", "ObsoletedByModuleName_example", "ObsoletedByModuleStream_example", "Snippet_example") // RpmModulemdObsolete | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesCreate(context.Background()).RpmModulemdObsolete(rpmModulemdObsolete).Execute()
+    resp, r, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesCreate(context.Background(), pulpDomain).RpmModulemdObsolete(rpmModulemdObsolete).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -48,6 +49,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -56,6 +61,7 @@ Other parameters are passed through a pointer to a apiContentRpmModulemdObsolete
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rpmModulemdObsolete** | [**RpmModulemdObsolete**](RpmModulemdObsolete.md) |  | 
 
 ### Return type
@@ -78,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## ContentRpmModulemdObsoletesList
 
-> PaginatedrpmModulemdObsoleteResponseList ContentRpmModulemdObsoletesList(ctx).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmModulemdObsoleteResponseList ContentRpmModulemdObsoletesList(ctx, pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List modulemd obsoletes
 
@@ -97,6 +103,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     ordering := []string{"Ordering_example"} // []string | Ordering  * `pk` - Pk * `-pk` - Pk (descending) (optional)
@@ -110,7 +117,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesList(context.Background()).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesList(context.Background(), pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -123,6 +130,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -131,6 +142,7 @@ Other parameters are passed through a pointer to a apiContentRpmModulemdObsolete
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **ordering** | **[]string** | Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | 

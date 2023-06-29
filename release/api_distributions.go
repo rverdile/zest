@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"reflect"
 )
 
@@ -27,6 +28,7 @@ type DistributionsAPIService service
 type DistributionsAPIDistributionsListRequest struct {
 	ctx context.Context
 	ApiService *DistributionsAPIService
+	pulpDomain string
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -186,12 +188,14 @@ DistributionsList List distributions
 Provides base viewset for Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return DistributionsAPIDistributionsListRequest
 */
-func (a *DistributionsAPIService) DistributionsList(ctx context.Context) DistributionsAPIDistributionsListRequest {
+func (a *DistributionsAPIService) DistributionsList(ctx context.Context, pulpDomain string) DistributionsAPIDistributionsListRequest {
 	return DistributionsAPIDistributionsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -210,7 +214,10 @@ func (a *DistributionsAPIService) DistributionsListExecute(r DistributionsAPIDis
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/distributions/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/distributions/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

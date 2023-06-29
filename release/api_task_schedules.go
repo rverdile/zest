@@ -143,6 +143,7 @@ func (a *TaskSchedulesAPIService) TaskSchedulesAddRoleExecute(r TaskSchedulesAPI
 type TaskSchedulesAPITaskSchedulesListRequest struct {
 	ctx context.Context
 	ApiService *TaskSchedulesAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -232,12 +233,14 @@ TaskSchedulesList List task schedules
 ViewSet to monitor task schedules.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return TaskSchedulesAPITaskSchedulesListRequest
 */
-func (a *TaskSchedulesAPIService) TaskSchedulesList(ctx context.Context) TaskSchedulesAPITaskSchedulesListRequest {
+func (a *TaskSchedulesAPIService) TaskSchedulesList(ctx context.Context, pulpDomain string) TaskSchedulesAPITaskSchedulesListRequest {
 	return TaskSchedulesAPITaskSchedulesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -256,7 +259,10 @@ func (a *TaskSchedulesAPIService) TaskSchedulesListExecute(r TaskSchedulesAPITas
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/task-schedules/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/task-schedules/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

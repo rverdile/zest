@@ -26,7 +26,9 @@ func Test_zest_ContentModulemdObsoletesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesCreate(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesCreate(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -38,7 +40,9 @@ func Test_zest_ContentModulemdObsoletesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.ContentModulemdObsoletesAPI.ContentRpmModulemdObsoletesList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

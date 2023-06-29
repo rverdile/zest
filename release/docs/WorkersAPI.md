@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**WorkersList**](WorkersAPI.md#WorkersList) | **Get** /pulp/api/v3/workers/ | List workers
+[**WorkersList**](WorkersAPI.md#WorkersList) | **Get** /pulp/{pulp_domain}/api/v3/workers/ | List workers
 [**WorkersRead**](WorkersAPI.md#WorkersRead) | **Get** /{worker_href} | Inspect a worker
 
 
 
 ## WorkersList
 
-> PaginatedWorkerResponseList WorkersList(ctx).LastHeartbeat(lastHeartbeat).LastHeartbeatGt(lastHeartbeatGt).LastHeartbeatGte(lastHeartbeatGte).LastHeartbeatLt(lastHeartbeatLt).LastHeartbeatLte(lastHeartbeatLte).LastHeartbeatRange(lastHeartbeatRange).Limit(limit).Missing(missing).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Online(online).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedWorkerResponseList WorkersList(ctx, pulpDomain).LastHeartbeat(lastHeartbeat).LastHeartbeatGt(lastHeartbeatGt).LastHeartbeatGte(lastHeartbeatGte).LastHeartbeatLt(lastHeartbeatLt).LastHeartbeatLte(lastHeartbeatLte).LastHeartbeatRange(lastHeartbeatRange).Limit(limit).Missing(missing).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Online(online).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List workers
 
@@ -31,6 +31,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     lastHeartbeat := time.Now() // time.Time | Filter results where last_heartbeat matches value (optional)
     lastHeartbeatGt := time.Now() // time.Time | Filter results where last_heartbeat is greater than value (optional)
     lastHeartbeatGte := time.Now() // time.Time | Filter results where last_heartbeat is greater than or equal to value (optional)
@@ -54,7 +55,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkersAPI.WorkersList(context.Background()).LastHeartbeat(lastHeartbeat).LastHeartbeatGt(lastHeartbeatGt).LastHeartbeatGte(lastHeartbeatGte).LastHeartbeatLt(lastHeartbeatLt).LastHeartbeatLte(lastHeartbeatLte).LastHeartbeatRange(lastHeartbeatRange).Limit(limit).Missing(missing).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Online(online).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.WorkersAPI.WorkersList(context.Background(), pulpDomain).LastHeartbeat(lastHeartbeat).LastHeartbeatGt(lastHeartbeatGt).LastHeartbeatGte(lastHeartbeatGte).LastHeartbeatLt(lastHeartbeatLt).LastHeartbeatLte(lastHeartbeatLte).LastHeartbeatRange(lastHeartbeatRange).Limit(limit).Missing(missing).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Online(online).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkersAPI.WorkersList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -67,6 +68,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -75,6 +80,7 @@ Other parameters are passed through a pointer to a apiWorkersListRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **lastHeartbeat** | **time.Time** | Filter results where last_heartbeat matches value | 
  **lastHeartbeatGt** | **time.Time** | Filter results where last_heartbeat is greater than value | 
  **lastHeartbeatGte** | **time.Time** | Filter results where last_heartbeat is greater than or equal to value | 

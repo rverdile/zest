@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
@@ -26,6 +27,7 @@ type ImportersPulpImportCheckAPIService service
 type ImportersPulpImportCheckAPIPulpImportCheckPostRequest struct {
 	ctx context.Context
 	ApiService *ImportersPulpImportCheckAPIService
+	pulpDomain string
 	pulpImportCheck *PulpImportCheck
 }
 
@@ -50,12 +52,14 @@ Evaluates validity of proposed PulpImport parameters 'toc', 'path', and 'repo_ma
 * Checks that repo_mapping is valid JSON
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ImportersPulpImportCheckAPIPulpImportCheckPostRequest
 */
-func (a *ImportersPulpImportCheckAPIService) PulpImportCheckPost(ctx context.Context) ImportersPulpImportCheckAPIPulpImportCheckPostRequest {
+func (a *ImportersPulpImportCheckAPIService) PulpImportCheckPost(ctx context.Context, pulpDomain string) ImportersPulpImportCheckAPIPulpImportCheckPostRequest {
 	return ImportersPulpImportCheckAPIPulpImportCheckPostRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -74,7 +78,10 @@ func (a *ImportersPulpImportCheckAPIService) PulpImportCheckPostExecute(r Import
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/importers/core/pulp/import-check/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/importers/core/pulp/import-check/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

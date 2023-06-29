@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RpmCompsUpload**](RpmCompsAPI.md#RpmCompsUpload) | **Post** /pulp/api/v3/rpm/comps/ | Upload comps.xml
+[**RpmCompsUpload**](RpmCompsAPI.md#RpmCompsUpload) | **Post** /pulp/{pulp_domain}/api/v3/rpm/comps/ | Upload comps.xml
 
 
 
 ## RpmCompsUpload
 
-> AsyncOperationResponse RpmCompsUpload(ctx).File(file).Repository(repository).Replace(replace).Execute()
+> AsyncOperationResponse RpmCompsUpload(ctx, pulpDomain).File(file).Repository(repository).Replace(replace).Execute()
 
 Upload comps.xml
 
@@ -29,13 +29,14 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     file := os.NewFile(1234, "some_file") // *os.File | Full path of a comps.xml file that may be parsed into comps.xml Content units.
     repository := "repository_example" // string | URI of an RPM repository the comps.xml content units should be associated to. (optional)
     replace := true // bool | If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RpmCompsAPI.RpmCompsUpload(context.Background()).File(file).Repository(repository).Replace(replace).Execute()
+    resp, r, err := apiClient.RpmCompsAPI.RpmCompsUpload(context.Background(), pulpDomain).File(file).Repository(repository).Replace(replace).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RpmCompsAPI.RpmCompsUpload``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -48,6 +49,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -56,6 +61,7 @@ Other parameters are passed through a pointer to a apiRpmCompsUploadRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **file** | ***os.File** | Full path of a comps.xml file that may be parsed into comps.xml Content units. | 
  **repository** | **string** | URI of an RPM repository the comps.xml content units should be associated to. | 
  **replace** | **bool** | If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository. | 

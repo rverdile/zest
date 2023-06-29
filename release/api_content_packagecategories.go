@@ -28,6 +28,7 @@ type ContentPackagecategoriesAPIService service
 type ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest struct {
 	ctx context.Context
 	ApiService *ContentPackagecategoriesAPIService
+	pulpDomain string
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -110,12 +111,14 @@ ContentRpmPackagecategoriesList List package categorys
 PackageCategory ViewSet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest
 */
-func (a *ContentPackagecategoriesAPIService) ContentRpmPackagecategoriesList(ctx context.Context) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
+func (a *ContentPackagecategoriesAPIService) ContentRpmPackagecategoriesList(ctx context.Context, pulpDomain string) ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest {
 	return ContentPackagecategoriesAPIContentRpmPackagecategoriesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -134,7 +137,10 @@ func (a *ContentPackagecategoriesAPIService) ContentRpmPackagecategoriesListExec
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/packagecategories/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/packagecategories/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

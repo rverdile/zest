@@ -28,6 +28,7 @@ type ContentRepoMetadataFilesAPIService service
 type ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest struct {
 	ctx context.Context
 	ApiService *ContentRepoMetadataFilesAPIService
+	pulpDomain string
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -110,12 +111,14 @@ ContentRpmRepoMetadataFilesList List repo metadata files
 RepoMetadataFile Viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest
 */
-func (a *ContentRepoMetadataFilesAPIService) ContentRpmRepoMetadataFilesList(ctx context.Context) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
+func (a *ContentRepoMetadataFilesAPIService) ContentRpmRepoMetadataFilesList(ctx context.Context, pulpDomain string) ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest {
 	return ContentRepoMetadataFilesAPIContentRpmRepoMetadataFilesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -134,7 +137,10 @@ func (a *ContentRepoMetadataFilesAPIService) ContentRpmRepoMetadataFilesListExec
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/content/rpm/repo_metadata_files/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/content/rpm/repo_metadata_files/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

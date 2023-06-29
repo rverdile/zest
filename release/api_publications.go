@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 	"reflect"
 )
@@ -28,6 +29,7 @@ type PublicationsAPIService service
 type PublicationsAPIPublicationsListRequest struct {
 	ctx context.Context
 	ApiService *PublicationsAPIService
+	pulpDomain string
 	content *string
 	contentIn *string
 	limit *int32
@@ -166,12 +168,14 @@ PublicationsList List publications
 A base class for any publication viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return PublicationsAPIPublicationsListRequest
 */
-func (a *PublicationsAPIService) PublicationsList(ctx context.Context) PublicationsAPIPublicationsListRequest {
+func (a *PublicationsAPIService) PublicationsList(ctx context.Context, pulpDomain string) PublicationsAPIPublicationsListRequest {
 	return PublicationsAPIPublicationsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -190,7 +194,10 @@ func (a *PublicationsAPIService) PublicationsListExecute(r PublicationsAPIPublic
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/publications/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/publications/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

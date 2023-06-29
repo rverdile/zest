@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContentRpmDistributionTreesList**](ContentDistributionTreesAPI.md#ContentRpmDistributionTreesList) | **Get** /pulp/api/v3/content/rpm/distribution_trees/ | List distribution trees
+[**ContentRpmDistributionTreesList**](ContentDistributionTreesAPI.md#ContentRpmDistributionTreesList) | **Get** /pulp/{pulp_domain}/api/v3/content/rpm/distribution_trees/ | List distribution trees
 [**ContentRpmDistributionTreesRead**](ContentDistributionTreesAPI.md#ContentRpmDistributionTreesRead) | **Get** /{rpm_distribution_tree_href} | Inspect a distribution tree
 
 
 
 ## ContentRpmDistributionTreesList
 
-> PaginatedrpmDistributionTreeResponseList ContentRpmDistributionTreesList(ctx).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmDistributionTreeResponseList ContentRpmDistributionTreesList(ctx, pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List distribution trees
 
@@ -30,6 +30,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     ordering := []string{"Ordering_example"} // []string | Ordering  * `pk` - Pk * `-pk` - Pk (descending) (optional)
@@ -43,7 +44,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentDistributionTreesAPI.ContentRpmDistributionTreesList(context.Background()).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentDistributionTreesAPI.ContentRpmDistributionTreesList(context.Background(), pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentDistributionTreesAPI.ContentRpmDistributionTreesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,6 +57,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -64,6 +69,7 @@ Other parameters are passed through a pointer to a apiContentRpmDistributionTree
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **ordering** | **[]string** | Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | 

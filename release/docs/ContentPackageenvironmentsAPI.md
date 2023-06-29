@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContentRpmPackageenvironmentsList**](ContentPackageenvironmentsAPI.md#ContentRpmPackageenvironmentsList) | **Get** /pulp/api/v3/content/rpm/packageenvironments/ | List package environments
+[**ContentRpmPackageenvironmentsList**](ContentPackageenvironmentsAPI.md#ContentRpmPackageenvironmentsList) | **Get** /pulp/{pulp_domain}/api/v3/content/rpm/packageenvironments/ | List package environments
 [**ContentRpmPackageenvironmentsRead**](ContentPackageenvironmentsAPI.md#ContentRpmPackageenvironmentsRead) | **Get** /{rpm_package_environment_href} | Inspect a package environment
 
 
 
 ## ContentRpmPackageenvironmentsList
 
-> PaginatedrpmPackageEnvironmentResponseList ContentRpmPackageenvironmentsList(ctx).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmPackageEnvironmentResponseList ContentRpmPackageenvironmentsList(ctx, pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List package environments
 
@@ -30,6 +30,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     offset := int32(56) // int32 | The initial index from which to return the results. (optional)
     ordering := []string{"Ordering_example"} // []string | Ordering  * `pk` - Pk * `-pk` - Pk (descending) (optional)
@@ -43,7 +44,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentPackageenvironmentsAPI.ContentRpmPackageenvironmentsList(context.Background()).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentPackageenvironmentsAPI.ContentRpmPackageenvironmentsList(context.Background(), pulpDomain).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).RepositoryVersion(repositoryVersion).RepositoryVersionAdded(repositoryVersionAdded).RepositoryVersionRemoved(repositoryVersionRemoved).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentPackageenvironmentsAPI.ContentRpmPackageenvironmentsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,6 +57,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -64,6 +69,7 @@ Other parameters are passed through a pointer to a apiContentRpmPackageenvironme
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **ordering** | **[]string** | Ordering  * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | 

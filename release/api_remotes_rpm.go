@@ -144,6 +144,7 @@ func (a *RemotesRpmAPIService) RemotesRpmRpmAddRoleExecute(r RemotesRpmAPIRemote
 type RemotesRpmAPIRemotesRpmRpmCreateRequest struct {
 	ctx context.Context
 	ApiService *RemotesRpmAPIService
+	pulpDomain string
 	rpmRpmRemote *RpmRpmRemote
 }
 
@@ -162,12 +163,14 @@ RemotesRpmRpmCreate Create a rpm remote
 A ViewSet for RpmRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RemotesRpmAPIRemotesRpmRpmCreateRequest
 */
-func (a *RemotesRpmAPIService) RemotesRpmRpmCreate(ctx context.Context) RemotesRpmAPIRemotesRpmRpmCreateRequest {
+func (a *RemotesRpmAPIService) RemotesRpmRpmCreate(ctx context.Context, pulpDomain string) RemotesRpmAPIRemotesRpmRpmCreateRequest {
 	return RemotesRpmAPIRemotesRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -186,7 +189,10 @@ func (a *RemotesRpmAPIService) RemotesRpmRpmCreateExecute(r RemotesRpmAPIRemotes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/remotes/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -357,6 +363,7 @@ func (a *RemotesRpmAPIService) RemotesRpmRpmDeleteExecute(r RemotesRpmAPIRemotes
 type RemotesRpmAPIRemotesRpmRpmListRequest struct {
 	ctx context.Context
 	ApiService *RemotesRpmAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -502,12 +509,14 @@ RemotesRpmRpmList List rpm remotes
 A ViewSet for RpmRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RemotesRpmAPIRemotesRpmRpmListRequest
 */
-func (a *RemotesRpmAPIService) RemotesRpmRpmList(ctx context.Context) RemotesRpmAPIRemotesRpmRpmListRequest {
+func (a *RemotesRpmAPIService) RemotesRpmRpmList(ctx context.Context, pulpDomain string) RemotesRpmAPIRemotesRpmRpmListRequest {
 	return RemotesRpmAPIRemotesRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -526,7 +535,10 @@ func (a *RemotesRpmAPIService) RemotesRpmRpmListExecute(r RemotesRpmAPIRemotesRp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/remotes/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

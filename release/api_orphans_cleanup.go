@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
@@ -26,6 +27,7 @@ type OrphansCleanupAPIService service
 type OrphansCleanupAPIOrphansCleanupCleanupRequest struct {
 	ctx context.Context
 	ApiService *OrphansCleanupAPIService
+	pulpDomain string
 	orphansCleanup *OrphansCleanup
 }
 
@@ -44,12 +46,14 @@ OrphansCleanupCleanup Method for OrphansCleanupCleanup
 Trigger an asynchronous orphan cleanup operation.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return OrphansCleanupAPIOrphansCleanupCleanupRequest
 */
-func (a *OrphansCleanupAPIService) OrphansCleanupCleanup(ctx context.Context) OrphansCleanupAPIOrphansCleanupCleanupRequest {
+func (a *OrphansCleanupAPIService) OrphansCleanupCleanup(ctx context.Context, pulpDomain string) OrphansCleanupAPIOrphansCleanupCleanupRequest {
 	return OrphansCleanupAPIOrphansCleanupCleanupRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -68,7 +72,10 @@ func (a *OrphansCleanupAPIService) OrphansCleanupCleanupExecute(r OrphansCleanup
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/orphans/cleanup/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/orphans/cleanup/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

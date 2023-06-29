@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContentguardsCertguardRhsmCreate**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmCreate) | **Post** /pulp/api/v3/contentguards/certguard/rhsm/ | Create a rhsm cert guard
+[**ContentguardsCertguardRhsmCreate**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmCreate) | **Post** /pulp/{pulp_domain}/api/v3/contentguards/certguard/rhsm/ | Create a rhsm cert guard
 [**ContentguardsCertguardRhsmDelete**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmDelete) | **Delete** /{certguard_r_h_s_m_cert_guard_href} | Delete a rhsm cert guard
-[**ContentguardsCertguardRhsmList**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmList) | **Get** /pulp/api/v3/contentguards/certguard/rhsm/ | List rhsm cert guards
+[**ContentguardsCertguardRhsmList**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmList) | **Get** /pulp/{pulp_domain}/api/v3/contentguards/certguard/rhsm/ | List rhsm cert guards
 [**ContentguardsCertguardRhsmPartialUpdate**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmPartialUpdate) | **Patch** /{certguard_r_h_s_m_cert_guard_href} | Update a rhsm cert guard
 [**ContentguardsCertguardRhsmRead**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmRead) | **Get** /{certguard_r_h_s_m_cert_guard_href} | Inspect a rhsm cert guard
 [**ContentguardsCertguardRhsmUpdate**](ContentguardsRhsmAPI.md#ContentguardsCertguardRhsmUpdate) | **Put** /{certguard_r_h_s_m_cert_guard_href} | Update a rhsm cert guard
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ContentguardsCertguardRhsmCreate
 
-> CertguardRHSMCertGuardResponse ContentguardsCertguardRhsmCreate(ctx).CertguardRHSMCertGuard(certguardRHSMCertGuard).Execute()
+> CertguardRHSMCertGuardResponse ContentguardsCertguardRhsmCreate(ctx, pulpDomain).CertguardRHSMCertGuard(certguardRHSMCertGuard).Execute()
 
 Create a rhsm cert guard
 
@@ -34,11 +34,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     certguardRHSMCertGuard := *openapiclient.NewCertguardRHSMCertGuard("Name_example", "CaCertificate_example") // CertguardRHSMCertGuard | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmCreate(context.Background()).CertguardRHSMCertGuard(certguardRHSMCertGuard).Execute()
+    resp, r, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmCreate(context.Background(), pulpDomain).CertguardRHSMCertGuard(certguardRHSMCertGuard).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentguardsRhsmAPI.ContentguardsCertguardRhsmCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,6 +52,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -59,6 +64,7 @@ Other parameters are passed through a pointer to a apiContentguardsCertguardRhsm
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **certguardRHSMCertGuard** | [**CertguardRHSMCertGuard**](CertguardRHSMCertGuard.md) |  | 
 
 ### Return type
@@ -149,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## ContentguardsCertguardRhsmList
 
-> PaginatedcertguardRHSMCertGuardResponseList ContentguardsCertguardRhsmList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedcertguardRHSMCertGuardResponseList ContentguardsCertguardRhsmList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List rhsm cert guards
 
@@ -168,6 +174,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -183,7 +190,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentguardsRhsmAPI.ContentguardsCertguardRhsmList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentguardsRhsmAPI.ContentguardsCertguardRhsmList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,6 +203,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -204,6 +215,7 @@ Other parameters are passed through a pointer to a apiContentguardsCertguardRhsm
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

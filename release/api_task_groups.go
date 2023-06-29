@@ -28,6 +28,7 @@ type TaskGroupsAPIService service
 type TaskGroupsAPITaskGroupsListRequest struct {
 	ctx context.Context
 	ApiService *TaskGroupsAPIService
+	pulpDomain string
 	limit *int32
 	offset *int32
 	fields *[]string
@@ -85,12 +86,14 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return TaskGroupsAPITaskGroupsListRequest
 */
-func (a *TaskGroupsAPIService) TaskGroupsList(ctx context.Context) TaskGroupsAPITaskGroupsListRequest {
+func (a *TaskGroupsAPIService) TaskGroupsList(ctx context.Context, pulpDomain string) TaskGroupsAPITaskGroupsListRequest {
 	return TaskGroupsAPITaskGroupsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -109,7 +112,10 @@ func (a *TaskGroupsAPIService) TaskGroupsListExecute(r TaskGroupsAPITaskGroupsLi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/task-groups/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/task-groups/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

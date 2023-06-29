@@ -143,6 +143,7 @@ func (a *DistributionsRpmAPIService) DistributionsRpmRpmAddRoleExecute(r Distrib
 type DistributionsRpmAPIDistributionsRpmRpmCreateRequest struct {
 	ctx context.Context
 	ApiService *DistributionsRpmAPIService
+	pulpDomain string
 	rpmRpmDistribution *RpmRpmDistribution
 }
 
@@ -161,12 +162,14 @@ DistributionsRpmRpmCreate Create a rpm distribution
 Trigger an asynchronous create task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return DistributionsRpmAPIDistributionsRpmRpmCreateRequest
 */
-func (a *DistributionsRpmAPIService) DistributionsRpmRpmCreate(ctx context.Context) DistributionsRpmAPIDistributionsRpmRpmCreateRequest {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmCreate(ctx context.Context, pulpDomain string) DistributionsRpmAPIDistributionsRpmRpmCreateRequest {
 	return DistributionsRpmAPIDistributionsRpmRpmCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -185,7 +188,10 @@ func (a *DistributionsRpmAPIService) DistributionsRpmRpmCreateExecute(r Distribu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/distributions/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -356,6 +362,7 @@ func (a *DistributionsRpmAPIService) DistributionsRpmRpmDeleteExecute(r Distribu
 type DistributionsRpmAPIDistributionsRpmRpmListRequest struct {
 	ctx context.Context
 	ApiService *DistributionsRpmAPIService
+	pulpDomain string
 	basePath *string
 	basePathContains *string
 	basePathIcontains *string
@@ -508,12 +515,14 @@ DistributionsRpmRpmList List rpm distributions
 ViewSet for RPM Distributions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return DistributionsRpmAPIDistributionsRpmRpmListRequest
 */
-func (a *DistributionsRpmAPIService) DistributionsRpmRpmList(ctx context.Context) DistributionsRpmAPIDistributionsRpmRpmListRequest {
+func (a *DistributionsRpmAPIService) DistributionsRpmRpmList(ctx context.Context, pulpDomain string) DistributionsRpmAPIDistributionsRpmRpmListRequest {
 	return DistributionsRpmAPIDistributionsRpmRpmListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -532,7 +541,10 @@ func (a *DistributionsRpmAPIService) DistributionsRpmRpmListExecute(r Distributi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/distributions/rpm/rpm/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

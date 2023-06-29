@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
@@ -26,6 +27,7 @@ type RepositoriesReclaimSpaceAPIService service
 type RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest struct {
 	ctx context.Context
 	ApiService *RepositoriesReclaimSpaceAPIService
+	pulpDomain string
 	reclaimSpace *ReclaimSpace
 }
 
@@ -44,12 +46,14 @@ RepositoriesReclaimSpaceReclaim Method for RepositoriesReclaimSpaceReclaim
 Trigger an asynchronous space reclaim operation.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest
 */
-func (a *RepositoriesReclaimSpaceAPIService) RepositoriesReclaimSpaceReclaim(ctx context.Context) RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest {
+func (a *RepositoriesReclaimSpaceAPIService) RepositoriesReclaimSpaceReclaim(ctx context.Context, pulpDomain string) RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest {
 	return RepositoriesReclaimSpaceAPIRepositoriesReclaimSpaceReclaimRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -68,7 +72,10 @@ func (a *RepositoriesReclaimSpaceAPIService) RepositoriesReclaimSpaceReclaimExec
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/repositories/reclaim_space/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/repositories/reclaim_space/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

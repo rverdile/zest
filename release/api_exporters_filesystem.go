@@ -28,6 +28,7 @@ type ExportersFilesystemAPIService service
 type ExportersFilesystemAPIExportersCoreFilesystemCreateRequest struct {
 	ctx context.Context
 	ApiService *ExportersFilesystemAPIService
+	pulpDomain string
 	filesystemExporter *FilesystemExporter
 }
 
@@ -46,12 +47,14 @@ ExportersCoreFilesystemCreate Create a filesystem exporter
 Endpoint for managing FilesystemExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ExportersFilesystemAPIExportersCoreFilesystemCreateRequest
 */
-func (a *ExportersFilesystemAPIService) ExportersCoreFilesystemCreate(ctx context.Context) ExportersFilesystemAPIExportersCoreFilesystemCreateRequest {
+func (a *ExportersFilesystemAPIService) ExportersCoreFilesystemCreate(ctx context.Context, pulpDomain string) ExportersFilesystemAPIExportersCoreFilesystemCreateRequest {
 	return ExportersFilesystemAPIExportersCoreFilesystemCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *ExportersFilesystemAPIService) ExportersCoreFilesystemCreateExecute(r E
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/exporters/core/filesystem/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/exporters/core/filesystem/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -241,6 +247,7 @@ func (a *ExportersFilesystemAPIService) ExportersCoreFilesystemDeleteExecute(r E
 type ExportersFilesystemAPIExportersCoreFilesystemListRequest struct {
 	ctx context.Context
 	ApiService *ExportersFilesystemAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -337,12 +344,14 @@ ExportersCoreFilesystemList List filesystem exporters
 Endpoint for managing FilesystemExporters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ExportersFilesystemAPIExportersCoreFilesystemListRequest
 */
-func (a *ExportersFilesystemAPIService) ExportersCoreFilesystemList(ctx context.Context) ExportersFilesystemAPIExportersCoreFilesystemListRequest {
+func (a *ExportersFilesystemAPIService) ExportersCoreFilesystemList(ctx context.Context, pulpDomain string) ExportersFilesystemAPIExportersCoreFilesystemListRequest {
 	return ExportersFilesystemAPIExportersCoreFilesystemListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -361,7 +370,10 @@ func (a *ExportersFilesystemAPIService) ExportersCoreFilesystemListExecute(r Exp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/exporters/core/filesystem/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/exporters/core/filesystem/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

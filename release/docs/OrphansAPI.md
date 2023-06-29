@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**OrphansDelete**](OrphansAPI.md#OrphansDelete) | **Delete** /pulp/api/v3/orphans/ | Delete orphans
+[**OrphansDelete**](OrphansAPI.md#OrphansDelete) | **Delete** /pulp/{pulp_domain}/api/v3/orphans/ | Delete orphans
 
 
 
 ## OrphansDelete
 
-> AsyncOperationResponse OrphansDelete(ctx).Execute()
+> AsyncOperationResponse OrphansDelete(ctx, pulpDomain).Execute()
 
 Delete orphans
 
@@ -29,10 +29,11 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OrphansAPI.OrphansDelete(context.Background()).Execute()
+    resp, r, err := apiClient.OrphansAPI.OrphansDelete(context.Background(), pulpDomain).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `OrphansAPI.OrphansDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -44,11 +45,19 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiOrphansDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

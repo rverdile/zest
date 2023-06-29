@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RepositoryVersionsList**](RepositoryVersionsAPI.md#RepositoryVersionsList) | **Get** /pulp/api/v3/repository_versions/ | List repository versions
+[**RepositoryVersionsList**](RepositoryVersionsAPI.md#RepositoryVersionsList) | **Get** /pulp/{pulp_domain}/api/v3/repository_versions/ | List repository versions
 
 
 
 ## RepositoryVersionsList
 
-> PaginatedRepositoryVersionResponseList RepositoryVersionsList(ctx).Content(content).ContentIn(contentIn).Limit(limit).Number(number).NumberGt(numberGt).NumberGte(numberGte).NumberLt(numberLt).NumberLte(numberLte).NumberRange(numberRange).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedRepositoryVersionResponseList RepositoryVersionsList(ctx, pulpDomain).Content(content).ContentIn(contentIn).Limit(limit).Number(number).NumberGt(numberGt).NumberGte(numberGte).NumberLt(numberLt).NumberLte(numberLte).NumberRange(numberRange).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List repository versions
 
@@ -30,6 +30,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     content := "content_example" // string | Content Unit referenced by HREF (optional)
     contentIn := "contentIn_example" // string | Content Unit referenced by HREF (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
@@ -53,7 +54,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RepositoryVersionsAPI.RepositoryVersionsList(context.Background()).Content(content).ContentIn(contentIn).Limit(limit).Number(number).NumberGt(numberGt).NumberGte(numberGte).NumberLt(numberLt).NumberLte(numberLte).NumberRange(numberRange).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.RepositoryVersionsAPI.RepositoryVersionsList(context.Background(), pulpDomain).Content(content).ContentIn(contentIn).Limit(limit).Number(number).NumberGt(numberGt).NumberGte(numberGte).NumberLt(numberLt).NumberLte(numberLte).NumberRange(numberRange).Offset(offset).Ordering(ordering).PulpCreated(pulpCreated).PulpCreatedGt(pulpCreatedGt).PulpCreatedGte(pulpCreatedGte).PulpCreatedLt(pulpCreatedLt).PulpCreatedLte(pulpCreatedLte).PulpCreatedRange(pulpCreatedRange).PulpHrefIn(pulpHrefIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RepositoryVersionsAPI.RepositoryVersionsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,6 +67,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -74,6 +79,7 @@ Other parameters are passed through a pointer to a apiRepositoryVersionsListRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **content** | **string** | Content Unit referenced by HREF | 
  **contentIn** | **string** | Content Unit referenced by HREF | 
  **limit** | **int32** | Number of results to return per page. | 

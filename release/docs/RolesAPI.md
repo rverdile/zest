@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RolesCreate**](RolesAPI.md#RolesCreate) | **Post** /pulp/api/v3/roles/ | Create a role
+[**RolesCreate**](RolesAPI.md#RolesCreate) | **Post** /pulp/{pulp_domain}/api/v3/roles/ | Create a role
 [**RolesDelete**](RolesAPI.md#RolesDelete) | **Delete** /{role_href} | Delete a role
-[**RolesList**](RolesAPI.md#RolesList) | **Get** /pulp/api/v3/roles/ | List roles
+[**RolesList**](RolesAPI.md#RolesList) | **Get** /pulp/{pulp_domain}/api/v3/roles/ | List roles
 [**RolesPartialUpdate**](RolesAPI.md#RolesPartialUpdate) | **Patch** /{role_href} | Update a role
 [**RolesRead**](RolesAPI.md#RolesRead) | **Get** /{role_href} | Inspect a role
 [**RolesUpdate**](RolesAPI.md#RolesUpdate) | **Put** /{role_href} | Update a role
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## RolesCreate
 
-> RoleResponse RolesCreate(ctx).Role(role).Execute()
+> RoleResponse RolesCreate(ctx, pulpDomain).Role(role).Execute()
 
 Create a role
 
@@ -34,11 +34,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     role := *openapiclient.NewRole("Name_example", []string{"Permissions_example"}) // Role | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RolesAPI.RolesCreate(context.Background()).Role(role).Execute()
+    resp, r, err := apiClient.RolesAPI.RolesCreate(context.Background(), pulpDomain).Role(role).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.RolesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,6 +52,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -59,6 +64,7 @@ Other parameters are passed through a pointer to a apiRolesCreateRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **role** | [**Role**](Role.md) |  | 
 
 ### Return type
@@ -149,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## RolesList
 
-> PaginatedRoleResponseList RolesList(ctx).ContainsPermission(containsPermission).Description(description).DescriptionContains(descriptionContains).DescriptionIcontains(descriptionIcontains).DescriptionIexact(descriptionIexact).ForObjectType(forObjectType).Limit(limit).Locked(locked).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedRoleResponseList RolesList(ctx, pulpDomain).ContainsPermission(containsPermission).Description(description).DescriptionContains(descriptionContains).DescriptionIcontains(descriptionIcontains).DescriptionIexact(descriptionIexact).ForObjectType(forObjectType).Limit(limit).Locked(locked).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List roles
 
@@ -168,6 +174,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     containsPermission := []string{"Inner_example"} // []string | Filter roles that have any of the permissions in the list. (optional)
     description := "description_example" // string | Filter results where description matches value (optional)
     descriptionContains := "descriptionContains_example" // string | Filter results where description contains value (optional)
@@ -190,7 +197,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RolesAPI.RolesList(context.Background()).ContainsPermission(containsPermission).Description(description).DescriptionContains(descriptionContains).DescriptionIcontains(descriptionIcontains).DescriptionIexact(descriptionIexact).ForObjectType(forObjectType).Limit(limit).Locked(locked).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.RolesAPI.RolesList(context.Background(), pulpDomain).ContainsPermission(containsPermission).Description(description).DescriptionContains(descriptionContains).DescriptionIcontains(descriptionIcontains).DescriptionIexact(descriptionIexact).ForObjectType(forObjectType).Limit(limit).Locked(locked).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.RolesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -203,6 +210,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -211,6 +222,7 @@ Other parameters are passed through a pointer to a apiRolesListRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **containsPermission** | **[]string** | Filter roles that have any of the permissions in the list. | 
  **description** | **string** | Filter results where description matches value | 
  **descriptionContains** | **string** | Filter results where description contains value | 

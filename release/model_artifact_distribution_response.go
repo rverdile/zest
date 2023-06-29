@@ -21,20 +21,20 @@ var _ MappedNullable = &ArtifactDistributionResponse{}
 
 // ArtifactDistributionResponse A serializer for ArtifactDistribution.
 type ArtifactDistributionResponse struct {
-	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	PulpHref *string `json:"pulp_href,omitempty"`
+	// An optional content-guard.
+	ContentGuard NullableString `json:"content_guard,omitempty"`
 	// A unique name. Ex, `rawhide` and `stable`.
 	Name string `json:"name"`
-	// Whether this distribution should be shown in the content app.
-	Hidden *bool `json:"hidden,omitempty"`
-	// The URL for accessing the publication as defined by this distribution.
-	BaseUrl *string `json:"base_url,omitempty"`
+	PulpLabels *map[string]string `json:"pulp_labels,omitempty"`
 	// Timestamp of creation.
 	PulpCreated *time.Time `json:"pulp_created,omitempty"`
 	// The base (relative) path component of the published url. Avoid paths that                     overlap with other distribution base paths (e.g. \"foo\" and \"foo/bar\")
 	BasePath string `json:"base_path"`
-	// An optional content-guard.
-	ContentGuard NullableString `json:"content_guard,omitempty"`
+	// The URL for accessing the publication as defined by this distribution.
+	BaseUrl *string `json:"base_url,omitempty"`
+	// Whether this distribution should be shown in the content app.
+	Hidden *bool `json:"hidden,omitempty"`
 }
 
 // NewArtifactDistributionResponse instantiates a new ArtifactDistributionResponse object
@@ -44,9 +44,9 @@ type ArtifactDistributionResponse struct {
 func NewArtifactDistributionResponse(name string, basePath string) *ArtifactDistributionResponse {
 	this := ArtifactDistributionResponse{}
 	this.Name = name
+	this.BasePath = basePath
 	var hidden bool = false
 	this.Hidden = &hidden
-	this.BasePath = basePath
 	return &this
 }
 
@@ -58,38 +58,6 @@ func NewArtifactDistributionResponseWithDefaults() *ArtifactDistributionResponse
 	var hidden bool = false
 	this.Hidden = &hidden
 	return &this
-}
-
-// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
-func (o *ArtifactDistributionResponse) GetPulpLabels() map[string]string {
-	if o == nil || IsNil(o.PulpLabels) {
-		var ret map[string]string
-		return ret
-	}
-	return *o.PulpLabels
-}
-
-// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ArtifactDistributionResponse) GetPulpLabelsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.PulpLabels) {
-		return nil, false
-	}
-	return o.PulpLabels, true
-}
-
-// HasPulpLabels returns a boolean if a field has been set.
-func (o *ArtifactDistributionResponse) HasPulpLabels() bool {
-	if o != nil && !IsNil(o.PulpLabels) {
-		return true
-	}
-
-	return false
-}
-
-// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
-func (o *ArtifactDistributionResponse) SetPulpLabels(v map[string]string) {
-	o.PulpLabels = &v
 }
 
 // GetPulpHref returns the PulpHref field value if set, zero value otherwise.
@@ -124,6 +92,48 @@ func (o *ArtifactDistributionResponse) SetPulpHref(v string) {
 	o.PulpHref = &v
 }
 
+// GetContentGuard returns the ContentGuard field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ArtifactDistributionResponse) GetContentGuard() string {
+	if o == nil || IsNil(o.ContentGuard.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ContentGuard.Get()
+}
+
+// GetContentGuardOk returns a tuple with the ContentGuard field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ArtifactDistributionResponse) GetContentGuardOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ContentGuard.Get(), o.ContentGuard.IsSet()
+}
+
+// HasContentGuard returns a boolean if a field has been set.
+func (o *ArtifactDistributionResponse) HasContentGuard() bool {
+	if o != nil && o.ContentGuard.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetContentGuard gets a reference to the given NullableString and assigns it to the ContentGuard field.
+func (o *ArtifactDistributionResponse) SetContentGuard(v string) {
+	o.ContentGuard.Set(&v)
+}
+// SetContentGuardNil sets the value for ContentGuard to be an explicit nil
+func (o *ArtifactDistributionResponse) SetContentGuardNil() {
+	o.ContentGuard.Set(nil)
+}
+
+// UnsetContentGuard ensures that no value is present for ContentGuard, not even an explicit nil
+func (o *ArtifactDistributionResponse) UnsetContentGuard() {
+	o.ContentGuard.Unset()
+}
+
 // GetName returns the Name field value
 func (o *ArtifactDistributionResponse) GetName() string {
 	if o == nil {
@@ -148,68 +158,36 @@ func (o *ArtifactDistributionResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetHidden returns the Hidden field value if set, zero value otherwise.
-func (o *ArtifactDistributionResponse) GetHidden() bool {
-	if o == nil || IsNil(o.Hidden) {
-		var ret bool
+// GetPulpLabels returns the PulpLabels field value if set, zero value otherwise.
+func (o *ArtifactDistributionResponse) GetPulpLabels() map[string]string {
+	if o == nil || IsNil(o.PulpLabels) {
+		var ret map[string]string
 		return ret
 	}
-	return *o.Hidden
+	return *o.PulpLabels
 }
 
-// GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
+// GetPulpLabelsOk returns a tuple with the PulpLabels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ArtifactDistributionResponse) GetHiddenOk() (*bool, bool) {
-	if o == nil || IsNil(o.Hidden) {
+func (o *ArtifactDistributionResponse) GetPulpLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.PulpLabels) {
 		return nil, false
 	}
-	return o.Hidden, true
+	return o.PulpLabels, true
 }
 
-// HasHidden returns a boolean if a field has been set.
-func (o *ArtifactDistributionResponse) HasHidden() bool {
-	if o != nil && !IsNil(o.Hidden) {
+// HasPulpLabels returns a boolean if a field has been set.
+func (o *ArtifactDistributionResponse) HasPulpLabels() bool {
+	if o != nil && !IsNil(o.PulpLabels) {
 		return true
 	}
 
 	return false
 }
 
-// SetHidden gets a reference to the given bool and assigns it to the Hidden field.
-func (o *ArtifactDistributionResponse) SetHidden(v bool) {
-	o.Hidden = &v
-}
-
-// GetBaseUrl returns the BaseUrl field value if set, zero value otherwise.
-func (o *ArtifactDistributionResponse) GetBaseUrl() string {
-	if o == nil || IsNil(o.BaseUrl) {
-		var ret string
-		return ret
-	}
-	return *o.BaseUrl
-}
-
-// GetBaseUrlOk returns a tuple with the BaseUrl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ArtifactDistributionResponse) GetBaseUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.BaseUrl) {
-		return nil, false
-	}
-	return o.BaseUrl, true
-}
-
-// HasBaseUrl returns a boolean if a field has been set.
-func (o *ArtifactDistributionResponse) HasBaseUrl() bool {
-	if o != nil && !IsNil(o.BaseUrl) {
-		return true
-	}
-
-	return false
-}
-
-// SetBaseUrl gets a reference to the given string and assigns it to the BaseUrl field.
-func (o *ArtifactDistributionResponse) SetBaseUrl(v string) {
-	o.BaseUrl = &v
+// SetPulpLabels gets a reference to the given map[string]string and assigns it to the PulpLabels field.
+func (o *ArtifactDistributionResponse) SetPulpLabels(v map[string]string) {
+	o.PulpLabels = &v
 }
 
 // GetPulpCreated returns the PulpCreated field value if set, zero value otherwise.
@@ -268,46 +246,68 @@ func (o *ArtifactDistributionResponse) SetBasePath(v string) {
 	o.BasePath = v
 }
 
-// GetContentGuard returns the ContentGuard field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ArtifactDistributionResponse) GetContentGuard() string {
-	if o == nil || IsNil(o.ContentGuard.Get()) {
+// GetBaseUrl returns the BaseUrl field value if set, zero value otherwise.
+func (o *ArtifactDistributionResponse) GetBaseUrl() string {
+	if o == nil || IsNil(o.BaseUrl) {
 		var ret string
 		return ret
 	}
-	return *o.ContentGuard.Get()
+	return *o.BaseUrl
 }
 
-// GetContentGuardOk returns a tuple with the ContentGuard field value if set, nil otherwise
+// GetBaseUrlOk returns a tuple with the BaseUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ArtifactDistributionResponse) GetContentGuardOk() (*string, bool) {
-	if o == nil {
+func (o *ArtifactDistributionResponse) GetBaseUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.BaseUrl) {
 		return nil, false
 	}
-	return o.ContentGuard.Get(), o.ContentGuard.IsSet()
+	return o.BaseUrl, true
 }
 
-// HasContentGuard returns a boolean if a field has been set.
-func (o *ArtifactDistributionResponse) HasContentGuard() bool {
-	if o != nil && o.ContentGuard.IsSet() {
+// HasBaseUrl returns a boolean if a field has been set.
+func (o *ArtifactDistributionResponse) HasBaseUrl() bool {
+	if o != nil && !IsNil(o.BaseUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetContentGuard gets a reference to the given NullableString and assigns it to the ContentGuard field.
-func (o *ArtifactDistributionResponse) SetContentGuard(v string) {
-	o.ContentGuard.Set(&v)
-}
-// SetContentGuardNil sets the value for ContentGuard to be an explicit nil
-func (o *ArtifactDistributionResponse) SetContentGuardNil() {
-	o.ContentGuard.Set(nil)
+// SetBaseUrl gets a reference to the given string and assigns it to the BaseUrl field.
+func (o *ArtifactDistributionResponse) SetBaseUrl(v string) {
+	o.BaseUrl = &v
 }
 
-// UnsetContentGuard ensures that no value is present for ContentGuard, not even an explicit nil
-func (o *ArtifactDistributionResponse) UnsetContentGuard() {
-	o.ContentGuard.Unset()
+// GetHidden returns the Hidden field value if set, zero value otherwise.
+func (o *ArtifactDistributionResponse) GetHidden() bool {
+	if o == nil || IsNil(o.Hidden) {
+		var ret bool
+		return ret
+	}
+	return *o.Hidden
+}
+
+// GetHiddenOk returns a tuple with the Hidden field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ArtifactDistributionResponse) GetHiddenOk() (*bool, bool) {
+	if o == nil || IsNil(o.Hidden) {
+		return nil, false
+	}
+	return o.Hidden, true
+}
+
+// HasHidden returns a boolean if a field has been set.
+func (o *ArtifactDistributionResponse) HasHidden() bool {
+	if o != nil && !IsNil(o.Hidden) {
+		return true
+	}
+
+	return false
+}
+
+// SetHidden gets a reference to the given bool and assigns it to the Hidden field.
+func (o *ArtifactDistributionResponse) SetHidden(v bool) {
+	o.Hidden = &v
 }
 
 func (o ArtifactDistributionResponse) MarshalJSON() ([]byte, error) {
@@ -320,25 +320,25 @@ func (o ArtifactDistributionResponse) MarshalJSON() ([]byte, error) {
 
 func (o ArtifactDistributionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PulpLabels) {
-		toSerialize["pulp_labels"] = o.PulpLabels
-	}
 	if !IsNil(o.PulpHref) {
 		toSerialize["pulp_href"] = o.PulpHref
 	}
-	toSerialize["name"] = o.Name
-	if !IsNil(o.Hidden) {
-		toSerialize["hidden"] = o.Hidden
+	if o.ContentGuard.IsSet() {
+		toSerialize["content_guard"] = o.ContentGuard.Get()
 	}
-	if !IsNil(o.BaseUrl) {
-		toSerialize["base_url"] = o.BaseUrl
+	toSerialize["name"] = o.Name
+	if !IsNil(o.PulpLabels) {
+		toSerialize["pulp_labels"] = o.PulpLabels
 	}
 	if !IsNil(o.PulpCreated) {
 		toSerialize["pulp_created"] = o.PulpCreated
 	}
 	toSerialize["base_path"] = o.BasePath
-	if o.ContentGuard.IsSet() {
-		toSerialize["content_guard"] = o.ContentGuard.Get()
+	if !IsNil(o.BaseUrl) {
+		toSerialize["base_url"] = o.BaseUrl
+	}
+	if !IsNil(o.Hidden) {
+		toSerialize["hidden"] = o.Hidden
 	}
 	return toSerialize, nil
 }

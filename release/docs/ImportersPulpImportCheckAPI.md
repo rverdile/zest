@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PulpImportCheckPost**](ImportersPulpImportCheckAPI.md#PulpImportCheckPost) | **Post** /pulp/api/v3/importers/core/pulp/import-check/ | Validate the parameters to be used for a PulpImport call
+[**PulpImportCheckPost**](ImportersPulpImportCheckAPI.md#PulpImportCheckPost) | **Post** /pulp/{pulp_domain}/api/v3/importers/core/pulp/import-check/ | Validate the parameters to be used for a PulpImport call
 
 
 
 ## PulpImportCheckPost
 
-> PulpImportCheckResponse PulpImportCheckPost(ctx).PulpImportCheck(pulpImportCheck).Execute()
+> PulpImportCheckResponse PulpImportCheckPost(ctx, pulpDomain).PulpImportCheck(pulpImportCheck).Execute()
 
 Validate the parameters to be used for a PulpImport call
 
@@ -29,11 +29,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     pulpImportCheck := *openapiclient.NewPulpImportCheck() // PulpImportCheck | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ImportersPulpImportCheckAPI.PulpImportCheckPost(context.Background()).PulpImportCheck(pulpImportCheck).Execute()
+    resp, r, err := apiClient.ImportersPulpImportCheckAPI.PulpImportCheckPost(context.Background(), pulpDomain).PulpImportCheck(pulpImportCheck).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ImportersPulpImportCheckAPI.PulpImportCheckPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -46,6 +47,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -54,6 +59,7 @@ Other parameters are passed through a pointer to a apiPulpImportCheckPostRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **pulpImportCheck** | [**PulpImportCheck**](PulpImportCheck.md) |  | 
 
 ### Return type

@@ -144,6 +144,7 @@ func (a *RemotesUlnAPIService) RemotesRpmUlnAddRoleExecute(r RemotesUlnAPIRemote
 type RemotesUlnAPIRemotesRpmUlnCreateRequest struct {
 	ctx context.Context
 	ApiService *RemotesUlnAPIService
+	pulpDomain string
 	rpmUlnRemote *RpmUlnRemote
 }
 
@@ -162,12 +163,14 @@ RemotesRpmUlnCreate Create an uln remote
 A ViewSet for UlnRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RemotesUlnAPIRemotesRpmUlnCreateRequest
 */
-func (a *RemotesUlnAPIService) RemotesRpmUlnCreate(ctx context.Context) RemotesUlnAPIRemotesRpmUlnCreateRequest {
+func (a *RemotesUlnAPIService) RemotesRpmUlnCreate(ctx context.Context, pulpDomain string) RemotesUlnAPIRemotesRpmUlnCreateRequest {
 	return RemotesUlnAPIRemotesRpmUlnCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -186,7 +189,10 @@ func (a *RemotesUlnAPIService) RemotesRpmUlnCreateExecute(r RemotesUlnAPIRemotes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/remotes/rpm/uln/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/remotes/rpm/uln/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -357,6 +363,7 @@ func (a *RemotesUlnAPIService) RemotesRpmUlnDeleteExecute(r RemotesUlnAPIRemotes
 type RemotesUlnAPIRemotesRpmUlnListRequest struct {
 	ctx context.Context
 	ApiService *RemotesUlnAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -502,12 +509,14 @@ RemotesRpmUlnList List uln remotes
 A ViewSet for UlnRemote.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RemotesUlnAPIRemotesRpmUlnListRequest
 */
-func (a *RemotesUlnAPIService) RemotesRpmUlnList(ctx context.Context) RemotesUlnAPIRemotesRpmUlnListRequest {
+func (a *RemotesUlnAPIService) RemotesRpmUlnList(ctx context.Context, pulpDomain string) RemotesUlnAPIRemotesRpmUlnListRequest {
 	return RemotesUlnAPIRemotesRpmUlnListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -526,7 +535,10 @@ func (a *RemotesUlnAPIService) RemotesRpmUlnListExecute(r RemotesUlnAPIRemotesRp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/remotes/rpm/uln/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/remotes/rpm/uln/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

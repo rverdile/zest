@@ -28,6 +28,7 @@ type UsersAPIService service
 type UsersAPIUsersCreateRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
+	pulpDomain string
 	user *User
 }
 
@@ -46,12 +47,14 @@ UsersCreate Create an user
 ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return UsersAPIUsersCreateRequest
 */
-func (a *UsersAPIService) UsersCreate(ctx context.Context) UsersAPIUsersCreateRequest {
+func (a *UsersAPIService) UsersCreate(ctx context.Context, pulpDomain string) UsersAPIUsersCreateRequest {
 	return UsersAPIUsersCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -70,7 +73,10 @@ func (a *UsersAPIService) UsersCreateExecute(r UsersAPIUsersCreateRequest) (*Use
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/users/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/users/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -230,6 +236,7 @@ func (a *UsersAPIService) UsersDeleteExecute(r UsersAPIUsersDeleteRequest) (*htt
 type UsersAPIUsersListRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
+	pulpDomain string
 	email *string
 	emailContains *string
 	emailIcontains *string
@@ -445,12 +452,14 @@ UsersList List users
 ViewSet for User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return UsersAPIUsersListRequest
 */
-func (a *UsersAPIService) UsersList(ctx context.Context) UsersAPIUsersListRequest {
+func (a *UsersAPIService) UsersList(ctx context.Context, pulpDomain string) UsersAPIUsersListRequest {
 	return UsersAPIUsersListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -469,7 +478,10 @@ func (a *UsersAPIService) UsersListExecute(r UsersAPIUsersListRequest) (*Paginat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/users/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/users/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

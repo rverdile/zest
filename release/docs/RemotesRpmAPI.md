@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**RemotesRpmRpmAddRole**](RemotesRpmAPI.md#RemotesRpmRpmAddRole) | **Post** /{rpm_rpm_remote_href}add_role/ | 
-[**RemotesRpmRpmCreate**](RemotesRpmAPI.md#RemotesRpmRpmCreate) | **Post** /pulp/api/v3/remotes/rpm/rpm/ | Create a rpm remote
+[**RemotesRpmRpmCreate**](RemotesRpmAPI.md#RemotesRpmRpmCreate) | **Post** /pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/ | Create a rpm remote
 [**RemotesRpmRpmDelete**](RemotesRpmAPI.md#RemotesRpmRpmDelete) | **Delete** /{rpm_rpm_remote_href} | Delete a rpm remote
-[**RemotesRpmRpmList**](RemotesRpmAPI.md#RemotesRpmRpmList) | **Get** /pulp/api/v3/remotes/rpm/rpm/ | List rpm remotes
+[**RemotesRpmRpmList**](RemotesRpmAPI.md#RemotesRpmRpmList) | **Get** /pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/ | List rpm remotes
 [**RemotesRpmRpmListRoles**](RemotesRpmAPI.md#RemotesRpmRpmListRoles) | **Get** /{rpm_rpm_remote_href}list_roles/ | 
 [**RemotesRpmRpmMyPermissions**](RemotesRpmAPI.md#RemotesRpmRpmMyPermissions) | **Get** /{rpm_rpm_remote_href}my_permissions/ | 
 [**RemotesRpmRpmPartialUpdate**](RemotesRpmAPI.md#RemotesRpmRpmPartialUpdate) | **Patch** /{rpm_rpm_remote_href} | Update a rpm remote
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## RemotesRpmRpmCreate
 
-> RpmRpmRemoteResponse RemotesRpmRpmCreate(ctx).RpmRpmRemote(rpmRpmRemote).Execute()
+> RpmRpmRemoteResponse RemotesRpmRpmCreate(ctx, pulpDomain).RpmRpmRemote(rpmRpmRemote).Execute()
 
 Create a rpm remote
 
@@ -110,11 +110,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rpmRpmRemote := *openapiclient.NewRpmRpmRemote("Name_example", "Url_example") // RpmRpmRemote | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RemotesRpmAPI.RemotesRpmRpmCreate(context.Background()).RpmRpmRemote(rpmRpmRemote).Execute()
+    resp, r, err := apiClient.RemotesRpmAPI.RemotesRpmRpmCreate(context.Background(), pulpDomain).RpmRpmRemote(rpmRpmRemote).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RemotesRpmAPI.RemotesRpmRpmCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +128,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -135,6 +140,7 @@ Other parameters are passed through a pointer to a apiRemotesRpmRpmCreateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rpmRpmRemote** | [**RpmRpmRemote**](RpmRpmRemote.md) |  | 
 
 ### Return type
@@ -227,7 +233,7 @@ Name | Type | Description  | Notes
 
 ## RemotesRpmRpmList
 
-> PaginatedrpmRpmRemoteResponseList RemotesRpmRpmList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmRpmRemoteResponseList RemotesRpmRpmList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List rpm remotes
 
@@ -247,6 +253,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -269,7 +276,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RemotesRpmAPI.RemotesRpmRpmList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.RemotesRpmAPI.RemotesRpmRpmList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RemotesRpmAPI.RemotesRpmRpmList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -282,6 +289,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -290,6 +301,7 @@ Other parameters are passed through a pointer to a apiRemotesRpmRpmListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

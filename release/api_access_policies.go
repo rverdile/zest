@@ -28,6 +28,7 @@ type AccessPoliciesAPIService service
 type AccessPoliciesAPIAccessPoliciesListRequest struct {
 	ctx context.Context
 	ApiService *AccessPoliciesAPIService
+	pulpDomain string
 	customized *bool
 	limit *int32
 	offset *int32
@@ -133,12 +134,14 @@ ViewSet for AccessPolicy.
 NOTE: This API endpoint is in "tech preview" and subject to change
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return AccessPoliciesAPIAccessPoliciesListRequest
 */
-func (a *AccessPoliciesAPIService) AccessPoliciesList(ctx context.Context) AccessPoliciesAPIAccessPoliciesListRequest {
+func (a *AccessPoliciesAPIService) AccessPoliciesList(ctx context.Context, pulpDomain string) AccessPoliciesAPIAccessPoliciesListRequest {
 	return AccessPoliciesAPIAccessPoliciesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -157,7 +160,10 @@ func (a *AccessPoliciesAPIService) AccessPoliciesListExecute(r AccessPoliciesAPI
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/access_policies/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/access_policies/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RepairPost**](RepairAPI.md#RepairPost) | **Post** /pulp/api/v3/repair/ | Repair Artifact Storage
+[**RepairPost**](RepairAPI.md#RepairPost) | **Post** /pulp/{pulp_domain}/api/v3/repair/ | Repair Artifact Storage
 
 
 
 ## RepairPost
 
-> AsyncOperationResponse RepairPost(ctx).Repair(repair).Execute()
+> AsyncOperationResponse RepairPost(ctx, pulpDomain).Repair(repair).Execute()
 
 Repair Artifact Storage
 
@@ -29,11 +29,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     repair := *openapiclient.NewRepair() // Repair | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RepairAPI.RepairPost(context.Background()).Repair(repair).Execute()
+    resp, r, err := apiClient.RepairAPI.RepairPost(context.Background(), pulpDomain).Repair(repair).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RepairAPI.RepairPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -46,6 +47,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -54,6 +59,7 @@ Other parameters are passed through a pointer to a apiRepairPostRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **repair** | [**Repair**](Repair.md) |  | 
 
 ### Return type

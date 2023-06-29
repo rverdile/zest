@@ -13,14 +13,14 @@ info:
   x-logo:
     url: https://pulp.plan.io/attachments/download/517478/pulp_logo_word_rectangle.svg
   x-pulp-app-versions:
-    core: 3.28.0
+    core: 3.28.1
     certguard: 1.6.5
     rpm: 3.22.1
-  x-pulp-domain-enabled: false
+  x-pulp-domain-enabled: true
 servers:
 - url: http://localhost:8080/
 paths:
-  /pulp/api/v3/access_policies/:
+  /pulp/{pulp_domain}/api/v3/access_policies/:
     get:
       description: |-
         ViewSet for AccessPolicy.
@@ -101,6 +101,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -348,7 +356,7 @@ paths:
       - cookieAuth: []
       tags:
       - Access_Policies
-  /pulp/api/v3/acs/rpm/rpm/:
+  /pulp/{pulp_domain}/api/v3/acs/rpm/rpm/:
     get:
       description: ViewSet for ACS.
       operationId: acs_rpm_rpm_list
@@ -452,6 +460,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -509,6 +525,15 @@ paths:
     post:
       description: ViewSet for ACS.
       operationId: acs_rpm_rpm_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -860,7 +885,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Acs: Rpm"
-  /pulp/api/v3/artifacts/:
+  /pulp/{pulp_domain}/api/v3/artifacts/:
     get:
       description: |-
         A customized named ModelViewSet that knows how to register itself with the Pulp API router.
@@ -972,6 +997,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -1095,6 +1128,15 @@ paths:
                 identity.
             schema (DefaultSchema): The schema class to use by default in a viewset.
       operationId: artifacts_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           multipart/form-data:
@@ -1200,7 +1242,7 @@ paths:
       summary: Inspect an artifact
       tags:
       - Artifacts
-  /pulp/api/v3/content/:
+  /pulp/{pulp_domain}/api/v3/content/:
     get:
       description: Endpoint to list all content.
       operationId: content_list
@@ -1238,6 +1280,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -1353,7 +1403,7 @@ paths:
       summary: List content
       tags:
       - Content
-  /pulp/api/v3/content/rpm/advisories/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/advisories/:
     get:
       description: |-
         A ViewSet for UpdateRecord.
@@ -1508,6 +1558,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -1669,6 +1727,15 @@ paths:
       description: "Trigger an asynchronous task to create content,optionally create\
         \ new repository version."
       operationId: content_rpm_advisories_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           multipart/form-data:
@@ -1743,7 +1810,7 @@ paths:
       summary: Inspect an update record
       tags:
       - "Content: Advisories"
-  /pulp/api/v3/content/rpm/distribution_trees/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/distribution_trees/:
     get:
       description: Distribution Tree Viewset.
       operationId: content_rpm_distribution_trees_list
@@ -1781,6 +1848,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -1904,7 +1979,7 @@ paths:
       summary: Inspect a distribution tree
       tags:
       - "Content: Distribution_Trees"
-  /pulp/api/v3/content/rpm/modulemd_defaults/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/:
     get:
       description: ViewSet for Modulemd.
       operationId: content_rpm_modulemd_defaults_list
@@ -2004,6 +2079,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -2111,6 +2194,15 @@ paths:
       description: "Trigger an asynchronous task to create content,optionally create\
         \ new repository version."
       operationId: content_rpm_modulemd_defaults_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -2181,7 +2273,7 @@ paths:
       summary: Inspect a modulemd defaults
       tags:
       - "Content: Modulemd_Defaults"
-  /pulp/api/v3/content/rpm/modulemd_obsoletes/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/modulemd_obsoletes/:
     get:
       description: ViewSet for Modulemd.
       operationId: content_rpm_modulemd_obsoletes_list
@@ -2219,6 +2311,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -2301,6 +2401,15 @@ paths:
       description: "Trigger an asynchronous task to create content,optionally create\
         \ new repository version."
       operationId: content_rpm_modulemd_obsoletes_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -2371,7 +2480,7 @@ paths:
       summary: Inspect a modulemd obsolete
       tags:
       - "Content: Modulemd_Obsoletes"
-  /pulp/api/v3/content/rpm/modulemds/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/modulemds/:
     get:
       description: ViewSet for Modulemd.
       operationId: content_rpm_modulemds_list
@@ -2532,6 +2641,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -2658,6 +2775,15 @@ paths:
       description: "Trigger an asynchronous task to create content,optionally create\
         \ new repository version."
       operationId: content_rpm_modulemds_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -2728,7 +2854,7 @@ paths:
       summary: Inspect a modulemd
       tags:
       - "Content: Modulemds"
-  /pulp/api/v3/content/rpm/packagecategories/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/packagecategories/:
     get:
       description: PackageCategory ViewSet.
       operationId: content_rpm_packagecategories_list
@@ -2766,6 +2892,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -2889,7 +3023,7 @@ paths:
       summary: Inspect a package category
       tags:
       - "Content: Packagecategories"
-  /pulp/api/v3/content/rpm/packageenvironments/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/packageenvironments/:
     get:
       description: PackageEnvironment ViewSet.
       operationId: content_rpm_packageenvironments_list
@@ -2927,6 +3061,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -3050,7 +3192,7 @@ paths:
       summary: Inspect a package environment
       tags:
       - "Content: Packageenvironments"
-  /pulp/api/v3/content/rpm/packagegroups/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/packagegroups/:
     get:
       description: PackageGroup ViewSet.
       operationId: content_rpm_packagegroups_list
@@ -3088,6 +3230,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -3211,7 +3361,7 @@ paths:
       summary: Inspect a package group
       tags:
       - "Content: Packagegroups"
-  /pulp/api/v3/content/rpm/packagelangpacks/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/packagelangpacks/:
     get:
       description: PackageLangpacks ViewSet.
       operationId: content_rpm_packagelangpacks_list
@@ -3249,6 +3399,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -3372,7 +3530,7 @@ paths:
       summary: Inspect a package langpacks
       tags:
       - "Content: Packagelangpacks"
-  /pulp/api/v3/content/rpm/packages/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/packages/:
     get:
       description: |-
         A ViewSet for Package.
@@ -3763,6 +3921,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -3922,6 +4088,15 @@ paths:
       description: "Trigger an asynchronous task to create content,optionally create\
         \ new repository version."
       operationId: content_rpm_packages_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           multipart/form-data:
@@ -3996,7 +4171,7 @@ paths:
       summary: Inspect a package
       tags:
       - "Content: Packages"
-  /pulp/api/v3/content/rpm/repo_metadata_files/:
+  /pulp/{pulp_domain}/api/v3/content/rpm/repo_metadata_files/:
     get:
       description: RepoMetadataFile Viewset.
       operationId: content_rpm_repo_metadata_files_list
@@ -4034,6 +4209,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -4157,7 +4340,7 @@ paths:
       summary: Inspect a repo metadata file
       tags:
       - "Content: Repo_Metadata_Files"
-  /pulp/api/v3/contentguards/:
+  /pulp/{pulp_domain}/api/v3/contentguards/:
     get:
       description: Endpoint to list all contentguards.
       operationId: contentguards_list
@@ -4261,6 +4444,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -4336,7 +4527,7 @@ paths:
       summary: List content guards
       tags:
       - Contentguards
-  /pulp/api/v3/contentguards/certguard/rhsm/:
+  /pulp/{pulp_domain}/api/v3/contentguards/certguard/rhsm/:
     get:
       description: RHSMCertGuard API Viewsets.
       operationId: contentguards_certguard_rhsm_list
@@ -4440,6 +4631,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -4497,6 +4696,15 @@ paths:
     post:
       description: RHSMCertGuard API Viewsets.
       operationId: contentguards_certguard_rhsm_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -4659,7 +4867,7 @@ paths:
       summary: Update a rhsm cert guard
       tags:
       - "Contentguards: Rhsm"
-  /pulp/api/v3/contentguards/certguard/x509/:
+  /pulp/{pulp_domain}/api/v3/contentguards/certguard/x509/:
     get:
       description: X509CertGuard API Viewsets.
       operationId: contentguards_certguard_x509_list
@@ -4763,6 +4971,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -4820,6 +5036,15 @@ paths:
     post:
       description: X509CertGuard API Viewsets.
       operationId: contentguards_certguard_x509_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -4982,7 +5207,7 @@ paths:
       summary: Update a x509 cert guard
       tags:
       - "Contentguards: X509"
-  /pulp/api/v3/contentguards/core/content_redirect/:
+  /pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/:
     get:
       description: Content guard to protect preauthenticated redirects to the content
         app.
@@ -5087,6 +5312,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -5145,6 +5378,15 @@ paths:
       description: Content guard to protect preauthenticated redirects to the content
         app.
       operationId: contentguards_core_content_redirect_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -5471,7 +5713,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Contentguards: Content_Redirect"
-  /pulp/api/v3/contentguards/core/rbac/:
+  /pulp/{pulp_domain}/api/v3/contentguards/core/rbac/:
     get:
       description: |-
         Viewset for creating contentguards that use RBAC to protect content.
@@ -5578,6 +5820,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -5638,6 +5888,15 @@ paths:
         Has add and remove actions for managing permission for users and groups to download content
         protected by this guard.
       operationId: contentguards_core_rbac_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -5972,7 +6231,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Contentguards: Rbac"
-  /pulp/api/v3/distributions/:
+  /pulp/{pulp_domain}/api/v3/distributions/:
     get:
       description: Provides base viewset for Distributions.
       operationId: distributions_list
@@ -6119,6 +6378,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -6227,7 +6494,7 @@ paths:
       summary: List distributions
       tags:
       - Distributions
-  /pulp/api/v3/distributions/core/artifacts/:
+  /pulp/{pulp_domain}/api/v3/distributions/core/artifacts/:
     get:
       description: ViewSet for ArtifactDistribution.
       operationId: distributions_core_artifacts_list
@@ -6374,6 +6641,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -6510,7 +6785,7 @@ paths:
       summary: Inspect an artifact distribution
       tags:
       - "Distributions: Artifacts"
-  /pulp/api/v3/distributions/rpm/rpm/:
+  /pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/:
     get:
       description: ViewSet for RPM Distributions.
       operationId: distributions_rpm_rpm_list
@@ -6657,6 +6932,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -6751,6 +7034,15 @@ paths:
     post:
       description: Trigger an asynchronous create task
       operationId: distributions_rpm_rpm_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -7077,14 +7369,14 @@ paths:
       - cookieAuth: []
       tags:
       - "Distributions: Rpm"
-  /pulp/api/v3/docs/api.json:
+  /pulp/{pulp_domain}/api/v3/docs/api.json:
     get:
       description: |-
         OpenApi3 schema for this API. Format can be selected via content negotiation.
 
         - YAML: application/vnd.oai.openapi
         - JSON: application/vnd.oai.openapi+json
-      operationId: docs_api.json_get
+      operationId: docs_api.json_get_1
       parameters:
       - explode: true
         in: query
@@ -7192,6 +7484,14 @@ paths:
           - zh-hant
           type: string
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -7224,14 +7524,14 @@ paths:
           description: ""
       tags:
       - "Docs: Api.Json"
-  /pulp/api/v3/docs/api.yaml:
+  /pulp/{pulp_domain}/api/v3/docs/api.yaml:
     get:
       description: |-
         OpenApi3 schema for this API. Format can be selected via content negotiation.
 
         - YAML: application/vnd.oai.openapi
         - JSON: application/vnd.oai.openapi+json
-      operationId: docs_api.yaml_get
+      operationId: docs_api.yaml_get_1
       parameters:
       - explode: true
         in: query
@@ -7339,6 +7639,14 @@ paths:
           - zh-hant
           type: string
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -7371,7 +7679,7 @@ paths:
           description: ""
       tags:
       - "Docs: Api.Yaml"
-  /pulp/api/v3/domains/:
+  /pulp/{pulp_domain}/api/v3/domains/:
     get:
       description: |-
         ViewSet for Domain.
@@ -7490,6 +7798,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -7550,6 +7866,15 @@ paths:
 
         NOTE: This API endpoint is in "tech preview" and subject to change
       operationId: domains_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -7719,7 +8044,7 @@ paths:
       summary: Update a domain
       tags:
       - Domains
-  /pulp/api/v3/exporters/core/filesystem/:
+  /pulp/{pulp_domain}/api/v3/exporters/core/filesystem/:
     get:
       description: Endpoint for managing FilesystemExporters.
       operationId: exporters_core_filesystem_list
@@ -7827,6 +8152,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -7884,6 +8217,15 @@ paths:
     post:
       description: Endpoint for managing FilesystemExporters.
       operationId: exporters_core_filesystem_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -8212,7 +8554,7 @@ paths:
       summary: Update a filesystem exporter
       tags:
       - "Exporters: Filesystem"
-  /pulp/api/v3/exporters/core/pulp/:
+  /pulp/{pulp_domain}/api/v3/exporters/core/pulp/:
     get:
       description: ViewSet for viewing PulpExporters.
       operationId: exporters_core_pulp_list
@@ -8316,6 +8658,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -8373,6 +8723,15 @@ paths:
     post:
       description: ViewSet for viewing PulpExporters.
       operationId: exporters_core_pulp_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -8701,7 +9060,7 @@ paths:
       summary: Update a pulp exporter
       tags:
       - "Exporters: Pulp"
-  /pulp/api/v3/groups/:
+  /pulp/{pulp_domain}/api/v3/groups/:
     get:
       description: ViewSet for Group.
       operationId: groups_list
@@ -8807,6 +9166,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -8864,6 +9231,15 @@ paths:
     post:
       description: ViewSet for Group.
       operationId: groups_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -9571,7 +9947,7 @@ paths:
       - cookieAuth: []
       tags:
       - Groups
-  /pulp/api/v3/importers/core/pulp/:
+  /pulp/{pulp_domain}/api/v3/importers/core/pulp/:
     get:
       description: ViewSet for PulpImporters.
       operationId: importers_core_pulp_list
@@ -9671,6 +10047,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -9728,6 +10112,15 @@ paths:
     post:
       description: ViewSet for PulpImporters.
       operationId: importers_core_pulp_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -10052,7 +10445,7 @@ paths:
       summary: Update a pulp importer
       tags:
       - "Importers: Pulp"
-  /pulp/api/v3/importers/core/pulp/import-check/:
+  /pulp/{pulp_domain}/api/v3/importers/core/pulp/import-check/:
     post:
       description: |-
         Evaluates validity of proposed PulpImport parameters 'toc', 'path', and 'repo_mapping'.
@@ -10063,6 +10456,15 @@ paths:
           * If toc specified, checks that containing dir is writeable
         * Checks that repo_mapping is valid JSON
       operationId: pulp_import_check_post
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -10088,11 +10490,20 @@ paths:
       summary: Validate the parameters to be used for a PulpImport call
       tags:
       - "Importers: Pulp Import-Check"
-  /pulp/api/v3/orphans/:
+  /pulp/{pulp_domain}/api/v3/orphans/:
     delete:
       description: DEPRECATED! Trigger an asynchronous task that deletes all orphaned
         content and artifacts. Use the `POST /pulp/api/v3/orphans/cleanup/` call instead.
       operationId: orphans_delete
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       responses:
         "202":
           content:
@@ -10106,10 +10517,19 @@ paths:
       summary: Delete orphans
       tags:
       - Orphans
-  /pulp/api/v3/orphans/cleanup/:
+  /pulp/{pulp_domain}/api/v3/orphans/cleanup/:
     post:
       description: Trigger an asynchronous orphan cleanup operation.
       operationId: orphans_cleanup_cleanup
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -10134,7 +10554,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Orphans: Cleanup"
-  /pulp/api/v3/publications/:
+  /pulp/{pulp_domain}/api/v3/publications/:
     get:
       description: A base class for any publication viewset.
       operationId: publications_list
@@ -10270,6 +10690,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -10356,7 +10784,7 @@ paths:
       summary: List publications
       tags:
       - Publications
-  /pulp/api/v3/publications/rpm/rpm/:
+  /pulp/{pulp_domain}/api/v3/publications/rpm/rpm/:
     get:
       description: ViewSet for Rpm Publications.
       operationId: publications_rpm_rpm_list
@@ -10492,6 +10920,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -10566,6 +11002,15 @@ paths:
     post:
       description: Trigger an asynchronous task to create a new RPM content publication.
       operationId: publications_rpm_rpm_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -10816,7 +11261,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Publications: Rpm"
-  /pulp/api/v3/remotes/:
+  /pulp/{pulp_domain}/api/v3/remotes/:
     get:
       description: |-
         A customized named ModelViewSet that knows how to register itself with the Pulp API router.
@@ -11014,6 +11459,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -11152,7 +11605,7 @@ paths:
       summary: List remotes
       tags:
       - Remotes
-  /pulp/api/v3/remotes/rpm/rpm/:
+  /pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/:
     get:
       description: A ViewSet for RpmRemote.
       operationId: remotes_rpm_rpm_list
@@ -11332,6 +11785,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -11456,6 +11917,15 @@ paths:
     post:
       description: A ViewSet for RpmRemote.
       operationId: remotes_rpm_rpm_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -11782,7 +12252,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Remotes: Rpm"
-  /pulp/api/v3/remotes/rpm/uln/:
+  /pulp/{pulp_domain}/api/v3/remotes/rpm/uln/:
     get:
       description: A ViewSet for UlnRemote.
       operationId: remotes_rpm_uln_list
@@ -11962,6 +12432,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -12086,6 +12564,15 @@ paths:
     post:
       description: A ViewSet for UlnRemote.
       operationId: remotes_rpm_uln_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -12412,11 +12899,20 @@ paths:
       - cookieAuth: []
       tags:
       - "Remotes: Uln"
-  /pulp/api/v3/repair/:
+  /pulp/{pulp_domain}/api/v3/repair/:
     post:
       description: "Trigger an asynchronous task that checks for missing or corrupted\
         \ artifacts, and attempts to redownload them."
       operationId: repair_post
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -12442,7 +12938,7 @@ paths:
       summary: Repair Artifact Storage
       tags:
       - Repair
-  /pulp/api/v3/repositories/:
+  /pulp/{pulp_domain}/api/v3/repositories/:
     get:
       description: Endpoint to list all repositories.
       operationId: repositories_list
@@ -12570,6 +13066,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -12733,10 +13237,19 @@ paths:
       summary: List repositories
       tags:
       - Repositories
-  /pulp/api/v3/repositories/reclaim_space/:
+  /pulp/{pulp_domain}/api/v3/repositories/reclaim_space/:
     post:
       description: Trigger an asynchronous space reclaim operation.
       operationId: repositories_reclaim_space_reclaim
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -12761,7 +13274,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Repositories: Reclaim_Space"
-  /pulp/api/v3/repositories/rpm/rpm/:
+  /pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/:
     get:
       description: A ViewSet for RpmRepository.
       operationId: repositories_rpm_rpm_list
@@ -12889,6 +13402,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -13040,6 +13561,15 @@ paths:
     post:
       description: A ViewSet for RpmRepository.
       operationId: repositories_rpm_rpm_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -13781,7 +14311,7 @@ paths:
       - cookieAuth: []
       tags:
       - "Repositories: Rpm Versions"
-  /pulp/api/v3/repository_versions/:
+  /pulp/{pulp_domain}/api/v3/repository_versions/:
     get:
       description: A mixin to hold the shared get_queryset logic used by RepositoryVersionViewSets.
       operationId: repository_versions_list
@@ -13967,6 +14497,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -14010,7 +14548,7 @@ paths:
       summary: List repository versions
       tags:
       - Repository_Versions
-  /pulp/api/v3/roles/:
+  /pulp/{pulp_domain}/api/v3/roles/:
     get:
       description: ViewSet for Role.
       operationId: roles_list
@@ -14173,6 +14711,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -14230,6 +14776,15 @@ paths:
     post:
       description: ViewSet for Role.
       operationId: roles_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -14392,10 +14947,19 @@ paths:
       summary: Update a role
       tags:
       - Roles
-  /pulp/api/v3/rpm/comps/:
+  /pulp/{pulp_domain}/api/v3/rpm/comps/:
     post:
       description: Trigger an asynchronous task to upload a comps.xml file.
       operationId: rpm_comps_upload
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           multipart/form-data:
@@ -14418,11 +14982,20 @@ paths:
       summary: Upload comps.xml
       tags:
       - "Rpm: Comps"
-  /pulp/api/v3/rpm/copy/:
+  /pulp/{pulp_domain}/api/v3/rpm/copy/:
     post:
       description: "Trigger an asynchronous task to copy RPM contentfrom one repository\
         \ into another, creating a newrepository version."
       operationId: copy_content
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -14448,7 +15021,7 @@ paths:
       summary: Copy content
       tags:
       - "Rpm: Copy"
-  /pulp/api/v3/signing-services/:
+  /pulp/{pulp_domain}/api/v3/signing-services/:
     get:
       description: A ViewSet that supports browsing of existing signing services.
       operationId: signing_services_list
@@ -14522,6 +15095,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -14621,7 +15202,7 @@ paths:
       summary: Inspect a signing service
       tags:
       - Signing-Services
-  /pulp/api/v3/status/:
+  /pulp/{pulp_domain}/api/v3/status/:
     get:
       description: |-
         Returns status and app information about Pulp.
@@ -14633,7 +15214,36 @@ paths:
          * database connection status
          * redis connection status
          * disk usage information
-      operationId: status_read
+      operationId: status_read_1
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -14644,7 +15254,7 @@ paths:
       summary: Inspect status of Pulp
       tags:
       - Status
-  /pulp/api/v3/task-groups/:
+  /pulp/{pulp_domain}/api/v3/task-groups/:
     get:
       description: |-
         A customized named ModelViewSet that knows how to register itself with the Pulp API router.
@@ -14683,6 +15293,14 @@ paths:
         schema:
           type: integer
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -14779,7 +15397,7 @@ paths:
       summary: Inspect a task group
       tags:
       - Task-Groups
-  /pulp/api/v3/task-schedules/:
+  /pulp/{pulp_domain}/api/v3/task-schedules/:
     get:
       description: ViewSet to monitor task schedules.
       operationId: task_schedules_list
@@ -14861,6 +15479,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -15136,7 +15762,7 @@ paths:
       - cookieAuth: []
       tags:
       - Task-Schedules
-  /pulp/api/v3/tasks/:
+  /pulp/{pulp_domain}/api/v3/tasks/:
     get:
       description: |-
         A customized named ModelViewSet that knows how to register itself with the Pulp API router.
@@ -15383,6 +16009,14 @@ paths:
           format: uri
           type: string
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -15905,11 +16539,20 @@ paths:
       - cookieAuth: []
       tags:
       - Tasks
-  /pulp/api/v3/tasks/purge/:
+  /pulp/{pulp_domain}/api/v3/tasks/purge/:
     post:
       description: Trigger an asynchronous task that deletes completed tasks that
         finished prior to a specified timestamp.
       operationId: tasks_purge
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -15935,7 +16578,7 @@ paths:
       summary: Purge Completed Tasks
       tags:
       - Tasks
-  /pulp/api/v3/uploads/:
+  /pulp/{pulp_domain}/api/v3/uploads/:
     get:
       description: View for chunked uploads.
       operationId: uploads_list
@@ -15989,6 +16632,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -16080,6 +16731,15 @@ paths:
     post:
       description: View for chunked uploads.
       operationId: uploads_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -16410,7 +17070,7 @@ paths:
       - cookieAuth: []
       tags:
       - Uploads
-  /pulp/api/v3/upstream-pulps/:
+  /pulp/{pulp_domain}/api/v3/upstream-pulps/:
     get:
       description: API for configuring an upstream Pulp to replicate. This API is
         provided as a tech preview.
@@ -16432,6 +17092,14 @@ paths:
         schema:
           type: integer
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: A list of fields to include in the response.
         explode: true
         in: query
@@ -16469,6 +17137,15 @@ paths:
       description: API for configuring an upstream Pulp to replicate. This API is
         provided as a tech preview.
       operationId: upstream_pulps_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -16673,7 +17350,7 @@ paths:
       summary: Replicate
       tags:
       - Upstream-Pulps
-  /pulp/api/v3/users/:
+  /pulp/{pulp_domain}/api/v3/users/:
     get:
       description: ViewSet for User.
       operationId: users_list
@@ -16899,6 +17576,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -16999,6 +17684,15 @@ paths:
     post:
       description: ViewSet for User.
       operationId: users_create
+      parameters:
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       requestBody:
         content:
           application/json:
@@ -17428,7 +18122,7 @@ paths:
       summary: Inspect an user role
       tags:
       - "Users: Roles"
-  /pulp/api/v3/workers/:
+  /pulp/{pulp_domain}/api/v3/workers/:
     get:
       description: |-
         A customized named ModelViewSet that knows how to register itself with the Pulp API router.
@@ -17623,6 +18317,14 @@ paths:
             type: string
           type: array
         style: form
+      - explode: false
+        in: path
+        name: pulp_domain
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-isDomain: true
       - description: Multiple values may be separated by commas.
         explode: false
         in: query
@@ -17740,6 +18442,323 @@ paths:
       summary: Inspect a worker
       tags:
       - Workers
+  /pulp/api/v3/docs/api.json:
+    get:
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      operationId: docs_api.json_get
+      parameters:
+      - explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+          type: string
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+          description: ""
+      tags:
+      - "Docs: Api.Json"
+  /pulp/api/v3/docs/api.yaml:
+    get:
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      operationId: docs_api.yaml_get
+      parameters:
+      - explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+          type: string
+        style: form
+      - description: A list of fields to include in the response.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of fields to exclude from the response.
+        explode: true
+        in: query
+        name: exclude_fields
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+            application/yaml:
+              schema:
+                type: object
+          description: ""
+      tags:
+      - "Docs: Api.Yaml"
+  /pulp/api/v3/status/:
+    get:
+      description: |-
+        Returns status and app information about Pulp.
+
+        Information includes:
+         * version of pulpcore and loaded pulp plugins
+         * known workers
+         * known content apps
+         * database connection status
+         * redis connection status
+         * disk usage information
+      operationId: status_read
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: ""
+      summary: Inspect status of Pulp
+      tags:
+      - Status
 components:
   schemas:
     AccessPolicy:
@@ -17922,9 +18941,9 @@ components:
     ArtifactDistributionResponse:
       description: A serializer for ArtifactDistribution.
       example:
+        pulp_href: https://openapi-generator.tech
         pulp_labels:
           key: pulp_labels
-        pulp_href: https://openapi-generator.tech
         hidden: false
         name: name
         base_url: base_url
@@ -17932,26 +18951,23 @@ components:
         base_path: base_path
         content_guard: https://openapi-generator.tech
       properties:
+        pulp_href:
+          format: uri
+          readOnly: true
+          type: string
+        content_guard:
+          description: An optional content-guard.
+          format: uri
+          nullable: true
+          type: string
+        name:
+          description: "A unique name. Ex, `rawhide` and `stable`."
+          type: string
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
-        pulp_href:
-          format: uri
-          readOnly: true
-          type: string
-        name:
-          description: "A unique name. Ex, `rawhide` and `stable`."
-          type: string
-        hidden:
-          default: false
-          description: Whether this distribution should be shown in the content app.
-          type: boolean
-        base_url:
-          description: The URL for accessing the publication as defined by this distribution.
-          readOnly: true
-          type: string
         pulp_created:
           description: Timestamp of creation.
           format: date-time
@@ -17962,11 +18978,14 @@ components:
             paths that                     overlap with other distribution base paths
             (e.g. "foo" and "foo/bar")
           type: string
-        content_guard:
-          description: An optional content-guard.
-          format: uri
-          nullable: true
+        base_url:
+          description: The URL for accessing the publication as defined by this distribution.
+          readOnly: true
           type: string
+        hidden:
+          default: false
+          description: Whether this distribution should be shown in the content app.
+          type: boolean
       required:
       - base_path
       - name
@@ -19143,18 +20162,18 @@ components:
         previous: http://api.example.org/accounts/?offset=200&limit=100
         count: 123
         results:
-        - pulp_labels:
+        - pulp_href: https://openapi-generator.tech
+          pulp_labels:
             key: pulp_labels
-          pulp_href: https://openapi-generator.tech
           hidden: false
           name: name
           base_url: base_url
           pulp_created: 2000-01-23T04:56:07.000+00:00
           base_path: base_path
           content_guard: https://openapi-generator.tech
-        - pulp_labels:
+        - pulp_href: https://openapi-generator.tech
+          pulp_labels:
             key: pulp_labels
-          pulp_href: https://openapi-generator.tech
           hidden: false
           name: name
           base_url: base_url

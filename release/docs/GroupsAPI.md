@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GroupsAddRole**](GroupsAPI.md#GroupsAddRole) | **Post** /{group_href}add_role/ | 
-[**GroupsCreate**](GroupsAPI.md#GroupsCreate) | **Post** /pulp/api/v3/groups/ | Create a group
+[**GroupsCreate**](GroupsAPI.md#GroupsCreate) | **Post** /pulp/{pulp_domain}/api/v3/groups/ | Create a group
 [**GroupsDelete**](GroupsAPI.md#GroupsDelete) | **Delete** /{group_href} | Delete a group
-[**GroupsList**](GroupsAPI.md#GroupsList) | **Get** /pulp/api/v3/groups/ | List groups
+[**GroupsList**](GroupsAPI.md#GroupsList) | **Get** /pulp/{pulp_domain}/api/v3/groups/ | List groups
 [**GroupsListRoles**](GroupsAPI.md#GroupsListRoles) | **Get** /{group_href}list_roles/ | 
 [**GroupsMyPermissions**](GroupsAPI.md#GroupsMyPermissions) | **Get** /{group_href}my_permissions/ | 
 [**GroupsPartialUpdate**](GroupsAPI.md#GroupsPartialUpdate) | **Patch** /{group_href} | Update a group
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## GroupsCreate
 
-> GroupResponse GroupsCreate(ctx).Group(group).Execute()
+> GroupResponse GroupsCreate(ctx, pulpDomain).Group(group).Execute()
 
 Create a group
 
@@ -110,11 +110,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     group := *openapiclient.NewGroup("Name_example") // Group | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsAPI.GroupsCreate(context.Background()).Group(group).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsCreate(context.Background(), pulpDomain).Group(group).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +128,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -135,6 +140,7 @@ Other parameters are passed through a pointer to a apiGroupsCreateRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **group** | [**Group**](Group.md) |  | 
 
 ### Return type
@@ -225,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## GroupsList
 
-> PaginatedGroupResponseList GroupsList(ctx).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedGroupResponseList GroupsList(ctx, pulpDomain).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List groups
 
@@ -244,6 +250,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     id := int32(56) // int32 | Filter results where id matches value (optional)
     idIn := []int32{int32(123)} // []int32 | Filter results where id is in a comma-separated list of values (optional)
     limit := int32(56) // int32 | Number of results to return per page. (optional)
@@ -261,7 +268,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsAPI.GroupsList(context.Background()).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsList(context.Background(), pulpDomain).Id(id).IdIn(idIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIexact(nameIexact).NameIn(nameIn).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,6 +281,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -282,6 +293,7 @@ Other parameters are passed through a pointer to a apiGroupsListRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **id** | **int32** | Filter results where id matches value | 
  **idIn** | **[]int32** | Filter results where id is in a comma-separated list of values | 
  **limit** | **int32** | Number of results to return per page. | 

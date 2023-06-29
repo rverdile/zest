@@ -379,6 +379,7 @@ func (a *TasksAPIService) TasksDeleteExecute(r TasksAPITasksDeleteRequest) (*htt
 type TasksAPITasksListRequest struct {
 	ctx context.Context
 	ApiService *TasksAPIService
+	pulpDomain string
 	childTasks *string
 	createdResources *string
 	exclusiveResources *string
@@ -676,12 +677,14 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return TasksAPITasksListRequest
 */
-func (a *TasksAPIService) TasksList(ctx context.Context) TasksAPITasksListRequest {
+func (a *TasksAPIService) TasksList(ctx context.Context, pulpDomain string) TasksAPITasksListRequest {
 	return TasksAPITasksListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -700,7 +703,10 @@ func (a *TasksAPIService) TasksListExecute(r TasksAPITasksListRequest) (*Paginat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/tasks/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/tasks/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -1183,6 +1189,7 @@ func (a *TasksAPIService) TasksMyPermissionsExecute(r TasksAPITasksMyPermissions
 type TasksAPITasksPurgeRequest struct {
 	ctx context.Context
 	ApiService *TasksAPIService
+	pulpDomain string
 	purge *Purge
 }
 
@@ -1201,12 +1208,14 @@ TasksPurge Purge Completed Tasks
 Trigger an asynchronous task that deletes completed tasks that finished prior to a specified timestamp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return TasksAPITasksPurgeRequest
 */
-func (a *TasksAPIService) TasksPurge(ctx context.Context) TasksAPITasksPurgeRequest {
+func (a *TasksAPIService) TasksPurge(ctx context.Context, pulpDomain string) TasksAPITasksPurgeRequest {
 	return TasksAPITasksPurgeRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -1225,7 +1234,10 @@ func (a *TasksAPIService) TasksPurgeExecute(r TasksAPITasksPurgeRequest) (*Async
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/tasks/purge/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/tasks/purge/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

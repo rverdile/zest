@@ -26,7 +26,9 @@ func Test_zest_TaskGroupsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaskGroupsAPI.TaskGroupsList(context.Background()).Execute()
+		var pulpDomain string
+
+		resp, httpRes, err := apiClient.TaskGroupsAPI.TaskGroupsList(context.Background(), pulpDomain).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

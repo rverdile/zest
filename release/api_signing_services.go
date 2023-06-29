@@ -28,6 +28,7 @@ type SigningServicesAPIService service
 type SigningServicesAPISigningServicesListRequest struct {
 	ctx context.Context
 	ApiService *SigningServicesAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	offset *int32
@@ -96,12 +97,14 @@ SigningServicesList List signing services
 A ViewSet that supports browsing of existing signing services.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return SigningServicesAPISigningServicesListRequest
 */
-func (a *SigningServicesAPIService) SigningServicesList(ctx context.Context) SigningServicesAPISigningServicesListRequest {
+func (a *SigningServicesAPIService) SigningServicesList(ctx context.Context, pulpDomain string) SigningServicesAPISigningServicesListRequest {
 	return SigningServicesAPISigningServicesListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -120,7 +123,10 @@ func (a *SigningServicesAPIService) SigningServicesListExecute(r SigningServices
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/signing-services/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/signing-services/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

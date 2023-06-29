@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ContentguardsCoreRbacAddRole**](ContentguardsRbacAPI.md#ContentguardsCoreRbacAddRole) | **Post** /{r_b_a_c_content_guard_href}add_role/ | 
-[**ContentguardsCoreRbacCreate**](ContentguardsRbacAPI.md#ContentguardsCoreRbacCreate) | **Post** /pulp/api/v3/contentguards/core/rbac/ | Create a rbac content guard
+[**ContentguardsCoreRbacCreate**](ContentguardsRbacAPI.md#ContentguardsCoreRbacCreate) | **Post** /pulp/{pulp_domain}/api/v3/contentguards/core/rbac/ | Create a rbac content guard
 [**ContentguardsCoreRbacDelete**](ContentguardsRbacAPI.md#ContentguardsCoreRbacDelete) | **Delete** /{r_b_a_c_content_guard_href} | Delete a rbac content guard
-[**ContentguardsCoreRbacList**](ContentguardsRbacAPI.md#ContentguardsCoreRbacList) | **Get** /pulp/api/v3/contentguards/core/rbac/ | List rbac content guards
+[**ContentguardsCoreRbacList**](ContentguardsRbacAPI.md#ContentguardsCoreRbacList) | **Get** /pulp/{pulp_domain}/api/v3/contentguards/core/rbac/ | List rbac content guards
 [**ContentguardsCoreRbacListRoles**](ContentguardsRbacAPI.md#ContentguardsCoreRbacListRoles) | **Get** /{r_b_a_c_content_guard_href}list_roles/ | 
 [**ContentguardsCoreRbacMyPermissions**](ContentguardsRbacAPI.md#ContentguardsCoreRbacMyPermissions) | **Get** /{r_b_a_c_content_guard_href}my_permissions/ | 
 [**ContentguardsCoreRbacPartialUpdate**](ContentguardsRbacAPI.md#ContentguardsCoreRbacPartialUpdate) | **Patch** /{r_b_a_c_content_guard_href} | Update a rbac content guard
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## ContentguardsCoreRbacCreate
 
-> RBACContentGuardResponse ContentguardsCoreRbacCreate(ctx).RBACContentGuard(rBACContentGuard).Execute()
+> RBACContentGuardResponse ContentguardsCoreRbacCreate(ctx, pulpDomain).RBACContentGuard(rBACContentGuard).Execute()
 
 Create a rbac content guard
 
@@ -110,11 +110,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rBACContentGuard := *openapiclient.NewRBACContentGuard("Name_example") // RBACContentGuard | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacCreate(context.Background()).RBACContentGuard(rBACContentGuard).Execute()
+    resp, r, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacCreate(context.Background(), pulpDomain).RBACContentGuard(rBACContentGuard).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentguardsRbacAPI.ContentguardsCoreRbacCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +128,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -135,6 +140,7 @@ Other parameters are passed through a pointer to a apiContentguardsCoreRbacCreat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rBACContentGuard** | [**RBACContentGuard**](RBACContentGuard.md) |  | 
 
 ### Return type
@@ -225,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## ContentguardsCoreRbacList
 
-> PaginatedRBACContentGuardResponseList ContentguardsCoreRbacList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedRBACContentGuardResponseList ContentguardsCoreRbacList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List rbac content guards
 
@@ -244,6 +250,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -259,7 +266,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.ContentguardsRbacAPI.ContentguardsCoreRbacList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentguardsRbacAPI.ContentguardsCoreRbacList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -272,6 +279,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -280,6 +291,7 @@ Other parameters are passed through a pointer to a apiContentguardsCoreRbacListR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

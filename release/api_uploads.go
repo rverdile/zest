@@ -259,6 +259,7 @@ func (a *UploadsAPIService) UploadsCommitExecute(r UploadsAPIUploadsCommitReques
 type UploadsAPIUploadsCreateRequest struct {
 	ctx context.Context
 	ApiService *UploadsAPIService
+	pulpDomain string
 	upload *Upload
 }
 
@@ -277,12 +278,14 @@ UploadsCreate Create an upload
 View for chunked uploads.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return UploadsAPIUploadsCreateRequest
 */
-func (a *UploadsAPIService) UploadsCreate(ctx context.Context) UploadsAPIUploadsCreateRequest {
+func (a *UploadsAPIService) UploadsCreate(ctx context.Context, pulpDomain string) UploadsAPIUploadsCreateRequest {
 	return UploadsAPIUploadsCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -301,7 +304,10 @@ func (a *UploadsAPIService) UploadsCreateExecute(r UploadsAPIUploadsCreateReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/uploads/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/uploads/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -461,6 +467,7 @@ func (a *UploadsAPIService) UploadsDeleteExecute(r UploadsAPIUploadsDeleteReques
 type UploadsAPIUploadsListRequest struct {
 	ctx context.Context
 	ApiService *UploadsAPIService
+	pulpDomain string
 	limit *int32
 	offset *int32
 	ordering *[]string
@@ -550,12 +557,14 @@ UploadsList List uploads
 View for chunked uploads.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return UploadsAPIUploadsListRequest
 */
-func (a *UploadsAPIService) UploadsList(ctx context.Context) UploadsAPIUploadsListRequest {
+func (a *UploadsAPIService) UploadsList(ctx context.Context, pulpDomain string) UploadsAPIUploadsListRequest {
 	return UploadsAPIUploadsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -574,7 +583,10 @@ func (a *UploadsAPIService) UploadsListExecute(r UploadsAPIUploadsListRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/uploads/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/uploads/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

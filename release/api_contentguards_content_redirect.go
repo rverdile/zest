@@ -143,6 +143,7 @@ func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirec
 type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsContentRedirectAPIService
+	pulpDomain string
 	contentRedirectContentGuard *ContentRedirectContentGuard
 }
 
@@ -161,12 +162,14 @@ ContentguardsCoreContentRedirectCreate Create a content redirect content guard
 Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest
 */
-func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectCreate(ctx context.Context) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectCreate(ctx context.Context, pulpDomain string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest {
 	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -185,7 +188,10 @@ func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirec
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/core/content_redirect/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -345,6 +351,7 @@ func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirec
 type ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsContentRedirectAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -441,12 +448,14 @@ ContentguardsCoreContentRedirectList List content redirect content guards
 Content guard to protect preauthenticated redirects to the content app.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest
 */
-func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectList(ctx context.Context) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
+func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirectList(ctx context.Context, pulpDomain string) ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest {
 	return ContentguardsContentRedirectAPIContentguardsCoreContentRedirectListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -465,7 +474,10 @@ func (a *ContentguardsContentRedirectAPIService) ContentguardsCoreContentRedirec
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/core/content_redirect/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

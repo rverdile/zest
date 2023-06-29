@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:8080*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**RemotesRpmUlnAddRole**](RemotesUlnAPI.md#RemotesRpmUlnAddRole) | **Post** /{rpm_uln_remote_href}add_role/ | 
-[**RemotesRpmUlnCreate**](RemotesUlnAPI.md#RemotesRpmUlnCreate) | **Post** /pulp/api/v3/remotes/rpm/uln/ | Create an uln remote
+[**RemotesRpmUlnCreate**](RemotesUlnAPI.md#RemotesRpmUlnCreate) | **Post** /pulp/{pulp_domain}/api/v3/remotes/rpm/uln/ | Create an uln remote
 [**RemotesRpmUlnDelete**](RemotesUlnAPI.md#RemotesRpmUlnDelete) | **Delete** /{rpm_uln_remote_href} | Delete an uln remote
-[**RemotesRpmUlnList**](RemotesUlnAPI.md#RemotesRpmUlnList) | **Get** /pulp/api/v3/remotes/rpm/uln/ | List uln remotes
+[**RemotesRpmUlnList**](RemotesUlnAPI.md#RemotesRpmUlnList) | **Get** /pulp/{pulp_domain}/api/v3/remotes/rpm/uln/ | List uln remotes
 [**RemotesRpmUlnListRoles**](RemotesUlnAPI.md#RemotesRpmUlnListRoles) | **Get** /{rpm_uln_remote_href}list_roles/ | 
 [**RemotesRpmUlnMyPermissions**](RemotesUlnAPI.md#RemotesRpmUlnMyPermissions) | **Get** /{rpm_uln_remote_href}my_permissions/ | 
 [**RemotesRpmUlnPartialUpdate**](RemotesUlnAPI.md#RemotesRpmUlnPartialUpdate) | **Patch** /{rpm_uln_remote_href} | Update an uln remote
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## RemotesRpmUlnCreate
 
-> RpmUlnRemoteResponse RemotesRpmUlnCreate(ctx).RpmUlnRemote(rpmUlnRemote).Execute()
+> RpmUlnRemoteResponse RemotesRpmUlnCreate(ctx, pulpDomain).RpmUlnRemote(rpmUlnRemote).Execute()
 
 Create an uln remote
 
@@ -110,11 +110,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     rpmUlnRemote := *openapiclient.NewRpmUlnRemote("Name_example", "Url_example", "Username_example", "Password_example") // RpmUlnRemote | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RemotesUlnAPI.RemotesRpmUlnCreate(context.Background()).RpmUlnRemote(rpmUlnRemote).Execute()
+    resp, r, err := apiClient.RemotesUlnAPI.RemotesRpmUlnCreate(context.Background(), pulpDomain).RpmUlnRemote(rpmUlnRemote).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RemotesUlnAPI.RemotesRpmUlnCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +128,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -135,6 +140,7 @@ Other parameters are passed through a pointer to a apiRemotesRpmUlnCreateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **rpmUlnRemote** | [**RpmUlnRemote**](RpmUlnRemote.md) |  | 
 
 ### Return type
@@ -227,7 +233,7 @@ Name | Type | Description  | Notes
 
 ## RemotesRpmUlnList
 
-> PaginatedrpmUlnRemoteResponseList RemotesRpmUlnList(ctx).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedrpmUlnRemoteResponseList RemotesRpmUlnList(ctx, pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List uln remotes
 
@@ -247,6 +253,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     limit := int32(56) // int32 | Number of results to return per page. (optional)
     name := "name_example" // string | Filter results where name matches value (optional)
     nameContains := "nameContains_example" // string | Filter results where name contains value (optional)
@@ -269,7 +276,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RemotesUlnAPI.RemotesRpmUlnList(context.Background()).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.RemotesUlnAPI.RemotesRpmUlnList(context.Background(), pulpDomain).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).PulpLastUpdated(pulpLastUpdated).PulpLastUpdatedGt(pulpLastUpdatedGt).PulpLastUpdatedGte(pulpLastUpdatedGte).PulpLastUpdatedLt(pulpLastUpdatedLt).PulpLastUpdatedLte(pulpLastUpdatedLte).PulpLastUpdatedRange(pulpLastUpdatedRange).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RemotesUlnAPI.RemotesRpmUlnList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -282,6 +289,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -290,6 +301,7 @@ Other parameters are passed through a pointer to a apiRemotesRpmUlnListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** | Filter results where name matches value | 
  **nameContains** | **string** | Filter results where name contains value | 

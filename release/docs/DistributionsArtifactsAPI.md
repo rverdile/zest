@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DistributionsCoreArtifactsList**](DistributionsArtifactsAPI.md#DistributionsCoreArtifactsList) | **Get** /pulp/api/v3/distributions/core/artifacts/ | List artifact distributions
+[**DistributionsCoreArtifactsList**](DistributionsArtifactsAPI.md#DistributionsCoreArtifactsList) | **Get** /pulp/{pulp_domain}/api/v3/distributions/core/artifacts/ | List artifact distributions
 [**DistributionsCoreArtifactsRead**](DistributionsArtifactsAPI.md#DistributionsCoreArtifactsRead) | **Get** /{artifact_distribution_href} | Inspect an artifact distribution
 
 
 
 ## DistributionsCoreArtifactsList
 
-> PaginatedArtifactDistributionResponseList DistributionsCoreArtifactsList(ctx).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedArtifactDistributionResponseList DistributionsCoreArtifactsList(ctx, pulpDomain).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List artifact distributions
 
@@ -30,6 +30,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     basePath := "basePath_example" // string | Filter results where base_path matches value (optional)
     basePathContains := "basePathContains_example" // string | Filter results where base_path contains value (optional)
     basePathIcontains := "basePathIcontains_example" // string | Filter results where base_path contains value (optional)
@@ -53,7 +54,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DistributionsArtifactsAPI.DistributionsCoreArtifactsList(context.Background()).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.DistributionsArtifactsAPI.DistributionsCoreArtifactsList(context.Background(), pulpDomain).BasePath(basePath).BasePathContains(basePathContains).BasePathIcontains(basePathIcontains).BasePathIn(basePathIn).Limit(limit).Name(name).NameContains(nameContains).NameIcontains(nameIcontains).NameIn(nameIn).NameStartswith(nameStartswith).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).PulpLabelSelect(pulpLabelSelect).Repository(repository).RepositoryIn(repositoryIn).WithContent(withContent).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DistributionsArtifactsAPI.DistributionsCoreArtifactsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,6 +67,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -74,6 +79,7 @@ Other parameters are passed through a pointer to a apiDistributionsCoreArtifacts
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **basePath** | **string** | Filter results where base_path matches value | 
  **basePathContains** | **string** | Filter results where base_path contains value | 
  **basePathIcontains** | **string** | Filter results where base_path contains value | 

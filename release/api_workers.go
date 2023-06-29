@@ -29,6 +29,7 @@ type WorkersAPIService service
 type WorkersAPIWorkersListRequest struct {
 	ctx context.Context
 	ApiService *WorkersAPIService
+	pulpDomain string
 	lastHeartbeat *time.Time
 	lastHeartbeatGt *time.Time
 	lastHeartbeatGte *time.Time
@@ -196,12 +197,14 @@ Attributes:
     schema (DefaultSchema): The schema class to use by default in a viewset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return WorkersAPIWorkersListRequest
 */
-func (a *WorkersAPIService) WorkersList(ctx context.Context) WorkersAPIWorkersListRequest {
+func (a *WorkersAPIService) WorkersList(ctx context.Context, pulpDomain string) WorkersAPIWorkersListRequest {
 	return WorkersAPIWorkersListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -220,7 +223,10 @@ func (a *WorkersAPIService) WorkersListExecute(r WorkersAPIWorkersListRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/workers/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/workers/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

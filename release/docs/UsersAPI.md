@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UsersCreate**](UsersAPI.md#UsersCreate) | **Post** /pulp/api/v3/users/ | Create an user
+[**UsersCreate**](UsersAPI.md#UsersCreate) | **Post** /pulp/{pulp_domain}/api/v3/users/ | Create an user
 [**UsersDelete**](UsersAPI.md#UsersDelete) | **Delete** /{auth_user_href} | Delete an user
-[**UsersList**](UsersAPI.md#UsersList) | **Get** /pulp/api/v3/users/ | List users
+[**UsersList**](UsersAPI.md#UsersList) | **Get** /pulp/{pulp_domain}/api/v3/users/ | List users
 [**UsersPartialUpdate**](UsersAPI.md#UsersPartialUpdate) | **Patch** /{auth_user_href} | Update an user
 [**UsersRead**](UsersAPI.md#UsersRead) | **Get** /{auth_user_href} | Inspect an user
 [**UsersUpdate**](UsersAPI.md#UsersUpdate) | **Put** /{auth_user_href} | Update an user
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## UsersCreate
 
-> UserResponse UsersCreate(ctx).User(user).Execute()
+> UserResponse UsersCreate(ctx, pulpDomain).User(user).Execute()
 
 Create an user
 
@@ -34,11 +34,12 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     user := *openapiclient.NewUser("Username_example") // User | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.UsersCreate(context.Background()).User(user).Execute()
+    resp, r, err := apiClient.UsersAPI.UsersCreate(context.Background(), pulpDomain).User(user).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UsersCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -51,6 +52,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -59,6 +64,7 @@ Other parameters are passed through a pointer to a apiUsersCreateRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **user** | [**User**](User.md) |  | 
 
 ### Return type
@@ -149,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## UsersList
 
-> PaginatedUserResponseList UsersList(ctx).Email(email).EmailContains(emailContains).EmailIcontains(emailIcontains).EmailIexact(emailIexact).EmailIn(emailIn).FirstName(firstName).FirstNameContains(firstNameContains).FirstNameIcontains(firstNameIcontains).FirstNameIexact(firstNameIexact).FirstNameIn(firstNameIn).IsActive(isActive).IsStaff(isStaff).LastName(lastName).LastNameContains(lastNameContains).LastNameIcontains(lastNameIcontains).LastNameIexact(lastNameIexact).LastNameIn(lastNameIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Username(username).UsernameContains(usernameContains).UsernameIcontains(usernameIcontains).UsernameIexact(usernameIexact).UsernameIn(usernameIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+> PaginatedUserResponseList UsersList(ctx, pulpDomain).Email(email).EmailContains(emailContains).EmailIcontains(emailIcontains).EmailIexact(emailIexact).EmailIn(emailIn).FirstName(firstName).FirstNameContains(firstNameContains).FirstNameIcontains(firstNameIcontains).FirstNameIexact(firstNameIexact).FirstNameIn(firstNameIn).IsActive(isActive).IsStaff(isStaff).LastName(lastName).LastNameContains(lastNameContains).LastNameIcontains(lastNameIcontains).LastNameIexact(lastNameIexact).LastNameIn(lastNameIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Username(username).UsernameContains(usernameContains).UsernameIcontains(usernameIcontains).UsernameIexact(usernameIexact).UsernameIn(usernameIn).Fields(fields).ExcludeFields(excludeFields).Execute()
 
 List users
 
@@ -168,6 +174,7 @@ import (
 )
 
 func main() {
+    pulpDomain := "pulpDomain_example" // string | 
     email := "email_example" // string | Filter results where email matches value (optional)
     emailContains := "emailContains_example" // string | Filter results where email contains value (optional)
     emailIcontains := "emailIcontains_example" // string | Filter results where email contains value (optional)
@@ -200,7 +207,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.UsersList(context.Background()).Email(email).EmailContains(emailContains).EmailIcontains(emailIcontains).EmailIexact(emailIexact).EmailIn(emailIn).FirstName(firstName).FirstNameContains(firstNameContains).FirstNameIcontains(firstNameIcontains).FirstNameIexact(firstNameIexact).FirstNameIn(firstNameIn).IsActive(isActive).IsStaff(isStaff).LastName(lastName).LastNameContains(lastNameContains).LastNameIcontains(lastNameIcontains).LastNameIexact(lastNameIexact).LastNameIn(lastNameIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Username(username).UsernameContains(usernameContains).UsernameIcontains(usernameIcontains).UsernameIexact(usernameIexact).UsernameIn(usernameIn).Fields(fields).ExcludeFields(excludeFields).Execute()
+    resp, r, err := apiClient.UsersAPI.UsersList(context.Background(), pulpDomain).Email(email).EmailContains(emailContains).EmailIcontains(emailIcontains).EmailIexact(emailIexact).EmailIn(emailIn).FirstName(firstName).FirstNameContains(firstNameContains).FirstNameIcontains(firstNameIcontains).FirstNameIexact(firstNameIexact).FirstNameIn(firstNameIn).IsActive(isActive).IsStaff(isStaff).LastName(lastName).LastNameContains(lastNameContains).LastNameIcontains(lastNameIcontains).LastNameIexact(lastNameIexact).LastNameIn(lastNameIn).Limit(limit).Offset(offset).Ordering(ordering).PulpHrefIn(pulpHrefIn).PulpIdIn(pulpIdIn).Username(username).UsernameContains(usernameContains).UsernameIcontains(usernameIcontains).UsernameIexact(usernameIexact).UsernameIn(usernameIn).Fields(fields).ExcludeFields(excludeFields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UsersList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -213,6 +220,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pulpDomain** | **string** |  | 
 
 ### Other Parameters
 
@@ -221,6 +232,7 @@ Other parameters are passed through a pointer to a apiUsersListRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **email** | **string** | Filter results where email matches value | 
  **emailContains** | **string** | Filter results where email contains value | 
  **emailIcontains** | **string** | Filter results where email contains value | 

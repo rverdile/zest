@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"reflect"
 )
 
@@ -27,6 +28,7 @@ type ContentguardsAPIService service
 type ContentguardsAPIContentguardsListRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -130,12 +132,14 @@ ContentguardsList List content guards
 Endpoint to list all contentguards.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsAPIContentguardsListRequest
 */
-func (a *ContentguardsAPIService) ContentguardsList(ctx context.Context) ContentguardsAPIContentguardsListRequest {
+func (a *ContentguardsAPIService) ContentguardsList(ctx context.Context, pulpDomain string) ContentguardsAPIContentguardsListRequest {
 	return ContentguardsAPIContentguardsListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -154,7 +158,10 @@ func (a *ContentguardsAPIService) ContentguardsListExecute(r ContentguardsAPICon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

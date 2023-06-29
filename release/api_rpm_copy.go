@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
@@ -26,6 +27,7 @@ type RpmCopyAPIService service
 type RpmCopyAPICopyContentRequest struct {
 	ctx context.Context
 	ApiService *RpmCopyAPIService
+	pulpDomain string
 	copy *Copy
 }
 
@@ -44,12 +46,14 @@ CopyContent Copy content
 Trigger an asynchronous task to copy RPM contentfrom one repository into another, creating a newrepository version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return RpmCopyAPICopyContentRequest
 */
-func (a *RpmCopyAPIService) CopyContent(ctx context.Context) RpmCopyAPICopyContentRequest {
+func (a *RpmCopyAPIService) CopyContent(ctx context.Context, pulpDomain string) RpmCopyAPICopyContentRequest {
 	return RpmCopyAPICopyContentRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -68,7 +72,10 @@ func (a *RpmCopyAPIService) CopyContentExecute(r RpmCopyAPICopyContentRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/rpm/copy/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/rpm/copy/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}

@@ -143,6 +143,7 @@ func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacAddRoleExecute(r Cont
 type ContentguardsRbacAPIContentguardsCoreRbacCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsRbacAPIService
+	pulpDomain string
 	rBACContentGuard *RBACContentGuard
 }
 
@@ -163,12 +164,14 @@ Has add and remove actions for managing permission for users and groups to downl
 protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsRbacAPIContentguardsCoreRbacCreateRequest
 */
-func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacCreate(ctx context.Context) ContentguardsRbacAPIContentguardsCoreRbacCreateRequest {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacCreate(ctx context.Context, pulpDomain string) ContentguardsRbacAPIContentguardsCoreRbacCreateRequest {
 	return ContentguardsRbacAPIContentguardsCoreRbacCreateRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -187,7 +190,10 @@ func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacCreateExecute(r Conte
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/core/rbac/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
@@ -349,6 +355,7 @@ func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacDeleteExecute(r Conte
 type ContentguardsRbacAPIContentguardsCoreRbacListRequest struct {
 	ctx context.Context
 	ApiService *ContentguardsRbacAPIService
+	pulpDomain string
 	limit *int32
 	name *string
 	nameContains *string
@@ -447,12 +454,14 @@ Has add and remove actions for managing permission for users and groups to downl
 protected by this guard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pulpDomain
  @return ContentguardsRbacAPIContentguardsCoreRbacListRequest
 */
-func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacList(ctx context.Context) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
+func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacList(ctx context.Context, pulpDomain string) ContentguardsRbacAPIContentguardsCoreRbacListRequest {
 	return ContentguardsRbacAPIContentguardsCoreRbacListRequest{
 		ApiService: a,
 		ctx: ctx,
+		pulpDomain: pulpDomain,
 	}
 }
 
@@ -471,7 +480,10 @@ func (a *ContentguardsRbacAPIService) ContentguardsCoreRbacListExecute(r Content
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/pulp/api/v3/contentguards/core/rbac/"
+	localVarPath := localBasePath + "/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/"
+	localVarPath = strings.Replace(localVarPath, "{"+"pulp_domain"+"}", url.PathEscape(parameterValueToString(r.pulpDomain, "pulpDomain")), -1)
+        localVarPath = strings.Replace(localVarPath, "/%2F", "/", -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
