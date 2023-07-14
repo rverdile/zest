@@ -20,6 +20,8 @@ var _ MappedNullable = &RpmModulemd{}
 
 // RpmModulemd Modulemd serializer.
 type RpmModulemd struct {
+	// A URI of a repository the new content unit should be associated with.
+	Repository *string `json:"repository,omitempty"`
 	// Modulemd name.
 	Name string `json:"name"`
 	// Stream name.
@@ -71,6 +73,38 @@ func NewRpmModulemd(name string, stream string, version string, context string, 
 func NewRpmModulemdWithDefaults() *RpmModulemd {
 	this := RpmModulemd{}
 	return &this
+}
+
+// GetRepository returns the Repository field value if set, zero value otherwise.
+func (o *RpmModulemd) GetRepository() string {
+	if o == nil || IsNil(o.Repository) {
+		var ret string
+		return ret
+	}
+	return *o.Repository
+}
+
+// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RpmModulemd) GetRepositoryOk() (*string, bool) {
+	if o == nil || IsNil(o.Repository) {
+		return nil, false
+	}
+	return o.Repository, true
+}
+
+// HasRepository returns a boolean if a field has been set.
+func (o *RpmModulemd) HasRepository() bool {
+	if o != nil && !IsNil(o.Repository) {
+		return true
+	}
+
+	return false
+}
+
+// SetRepository gets a reference to the given string and assigns it to the Repository field.
+func (o *RpmModulemd) SetRepository(v string) {
+	o.Repository = &v
 }
 
 // GetName returns the Name field value
@@ -393,6 +427,9 @@ func (o RpmModulemd) MarshalJSON() ([]byte, error) {
 
 func (o RpmModulemd) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
+	}
 	toSerialize["name"] = o.Name
 	toSerialize["stream"] = o.Stream
 	toSerialize["version"] = o.Version

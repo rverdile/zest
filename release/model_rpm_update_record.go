@@ -21,10 +21,10 @@ var _ MappedNullable = &RpmUpdateRecord{}
 
 // RpmUpdateRecord A Serializer for UpdateRecord.
 type RpmUpdateRecord struct {
-	// An uploaded file that may be turned into the artifact of the content unit.
-	File **os.File `json:"file,omitempty"`
 	// A URI of a repository the new content unit should be associated with.
 	Repository *string `json:"repository,omitempty"`
+	// An uploaded file that may be turned into the artifact of the content unit.
+	File **os.File `json:"file,omitempty"`
 }
 
 // NewRpmUpdateRecord instantiates a new RpmUpdateRecord object
@@ -42,38 +42,6 @@ func NewRpmUpdateRecord() *RpmUpdateRecord {
 func NewRpmUpdateRecordWithDefaults() *RpmUpdateRecord {
 	this := RpmUpdateRecord{}
 	return &this
-}
-
-// GetFile returns the File field value if set, zero value otherwise.
-func (o *RpmUpdateRecord) GetFile() *os.File {
-	if o == nil || IsNil(o.File) {
-		var ret *os.File
-		return ret
-	}
-	return *o.File
-}
-
-// GetFileOk returns a tuple with the File field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *RpmUpdateRecord) GetFileOk() (**os.File, bool) {
-	if o == nil || IsNil(o.File) {
-		return nil, false
-	}
-	return o.File, true
-}
-
-// HasFile returns a boolean if a field has been set.
-func (o *RpmUpdateRecord) HasFile() bool {
-	if o != nil && !IsNil(o.File) {
-		return true
-	}
-
-	return false
-}
-
-// SetFile gets a reference to the given *os.File and assigns it to the File field.
-func (o *RpmUpdateRecord) SetFile(v *os.File) {
-	o.File = &v
 }
 
 // GetRepository returns the Repository field value if set, zero value otherwise.
@@ -108,6 +76,38 @@ func (o *RpmUpdateRecord) SetRepository(v string) {
 	o.Repository = &v
 }
 
+// GetFile returns the File field value if set, zero value otherwise.
+func (o *RpmUpdateRecord) GetFile() *os.File {
+	if o == nil || IsNil(o.File) {
+		var ret *os.File
+		return ret
+	}
+	return *o.File
+}
+
+// GetFileOk returns a tuple with the File field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RpmUpdateRecord) GetFileOk() (**os.File, bool) {
+	if o == nil || IsNil(o.File) {
+		return nil, false
+	}
+	return o.File, true
+}
+
+// HasFile returns a boolean if a field has been set.
+func (o *RpmUpdateRecord) HasFile() bool {
+	if o != nil && !IsNil(o.File) {
+		return true
+	}
+
+	return false
+}
+
+// SetFile gets a reference to the given *os.File and assigns it to the File field.
+func (o *RpmUpdateRecord) SetFile(v *os.File) {
+	o.File = &v
+}
+
 func (o RpmUpdateRecord) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -118,11 +118,11 @@ func (o RpmUpdateRecord) MarshalJSON() ([]byte, error) {
 
 func (o RpmUpdateRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.File) {
-		toSerialize["file"] = o.File
-	}
 	if !IsNil(o.Repository) {
 		toSerialize["repository"] = o.Repository
+	}
+	if !IsNil(o.File) {
+		toSerialize["file"] = o.File
 	}
 	return toSerialize, nil
 }

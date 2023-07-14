@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Repository** | Pointer to **string** | A URI of a repository the new content unit should be associated with. | [optional] 
 **Modified** | **string** | Obsolete modified time. | 
 **ModuleName** | **string** | Modulemd name. | 
 **ModuleStream** | **string** | Modulemd&#39;s stream. | 
@@ -33,6 +34,31 @@ will change when the set of required properties is changed
 NewRpmModulemdObsoleteWithDefaults instantiates a new RpmModulemdObsolete object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetRepository
+
+`func (o *RpmModulemdObsolete) GetRepository() string`
+
+GetRepository returns the Repository field if non-nil, zero value otherwise.
+
+### GetRepositoryOk
+
+`func (o *RpmModulemdObsolete) GetRepositoryOk() (*string, bool)`
+
+GetRepositoryOk returns a tuple with the Repository field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRepository
+
+`func (o *RpmModulemdObsolete) SetRepository(v string)`
+
+SetRepository sets Repository field to given value.
+
+### HasRepository
+
+`func (o *RpmModulemdObsolete) HasRepository() bool`
+
+HasRepository returns a boolean if a field has been set.
 
 ### GetModified
 

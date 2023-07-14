@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Repository** | Pointer to **string** | A URI of a repository the new content unit should be associated with. | [optional] 
 **Module** | **string** | Modulemd name. | 
 **Stream** | **string** | Modulemd default stream. | 
 **Profiles** | **map[string]interface{}** | Default profiles for modulemd streams. | 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewRpmModulemdDefaultsWithDefaults instantiates a new RpmModulemdDefaults object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetRepository
+
+`func (o *RpmModulemdDefaults) GetRepository() string`
+
+GetRepository returns the Repository field if non-nil, zero value otherwise.
+
+### GetRepositoryOk
+
+`func (o *RpmModulemdDefaults) GetRepositoryOk() (*string, bool)`
+
+GetRepositoryOk returns a tuple with the Repository field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRepository
+
+`func (o *RpmModulemdDefaults) SetRepository(v string)`
+
+SetRepository sets Repository field to given value.
+
+### HasRepository
+
+`func (o *RpmModulemdDefaults) HasRepository() bool`
+
+HasRepository returns a boolean if a field has been set.
 
 ### GetModule
 

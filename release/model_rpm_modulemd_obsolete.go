@@ -20,6 +20,8 @@ var _ MappedNullable = &RpmModulemdObsolete{}
 
 // RpmModulemdObsolete ModulemdObsolete serializer.
 type RpmModulemdObsolete struct {
+	// A URI of a repository the new content unit should be associated with.
+	Repository *string `json:"repository,omitempty"`
 	// Obsolete modified time.
 	Modified string `json:"modified"`
 	// Modulemd name.
@@ -67,6 +69,38 @@ func NewRpmModulemdObsolete(modified string, moduleName string, moduleStream str
 func NewRpmModulemdObsoleteWithDefaults() *RpmModulemdObsolete {
 	this := RpmModulemdObsolete{}
 	return &this
+}
+
+// GetRepository returns the Repository field value if set, zero value otherwise.
+func (o *RpmModulemdObsolete) GetRepository() string {
+	if o == nil || IsNil(o.Repository) {
+		var ret string
+		return ret
+	}
+	return *o.Repository
+}
+
+// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RpmModulemdObsolete) GetRepositoryOk() (*string, bool) {
+	if o == nil || IsNil(o.Repository) {
+		return nil, false
+	}
+	return o.Repository, true
+}
+
+// HasRepository returns a boolean if a field has been set.
+func (o *RpmModulemdObsolete) HasRepository() bool {
+	if o != nil && !IsNil(o.Repository) {
+		return true
+	}
+
+	return false
+}
+
+// SetRepository gets a reference to the given string and assigns it to the Repository field.
+func (o *RpmModulemdObsolete) SetRepository(v string) {
+	o.Repository = &v
 }
 
 // GetModified returns the Modified field value
@@ -329,6 +363,9 @@ func (o RpmModulemdObsolete) MarshalJSON() ([]byte, error) {
 
 func (o RpmModulemdObsolete) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
+	}
 	toSerialize["modified"] = o.Modified
 	toSerialize["module_name"] = o.ModuleName
 	toSerialize["module_stream"] = o.ModuleStream

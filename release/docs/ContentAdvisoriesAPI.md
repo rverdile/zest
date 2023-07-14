@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ContentRpmAdvisoriesCreate
 
-> AsyncOperationResponse ContentRpmAdvisoriesCreate(ctx, pulpDomain).File(file).Repository(repository).Execute()
+> AsyncOperationResponse ContentRpmAdvisoriesCreate(ctx, pulpDomain).Repository(repository).File(file).Execute()
 
 Create an update record
 
@@ -32,12 +32,12 @@ import (
 
 func main() {
     pulpDomain := "pulpDomain_example" // string | 
-    file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
     repository := "repository_example" // string | A URI of a repository the new content unit should be associated with. (optional)
+    file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesCreate(context.Background(), pulpDomain).File(file).Repository(repository).Execute()
+    resp, r, err := apiClient.ContentAdvisoriesAPI.ContentRpmAdvisoriesCreate(context.Background(), pulpDomain).Repository(repository).File(file).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentAdvisoriesAPI.ContentRpmAdvisoriesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,8 +63,8 @@ Other parameters are passed through a pointer to a apiContentRpmAdvisoriesCreate
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
  **repository** | **string** | A URI of a repository the new content unit should be associated with. | 
+ **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
 
 ### Return type
 

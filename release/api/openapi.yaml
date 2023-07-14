@@ -13,9 +13,9 @@ info:
   x-logo:
     url: https://pulp.plan.io/attachments/download/517478/pulp_logo_word_rectangle.svg
   x-pulp-app-versions:
-    core: 3.28.1
+    core: 3.29.0
     certguard: 1.6.5
-    rpm: 3.22.1
+    rpm: 3.22.2
   x-pulp-domain-enabled: true
 servers:
 - url: http://localhost:8080/
@@ -15962,6 +15962,8 @@ paths:
           * `-kwargs` - Kwargs (descending)
           * `reserved_resources_record` - Reserved resources record
           * `-reserved_resources_record` - Reserved resources record (descending)
+          * `versions` - Versions
+          * `-versions` - Versions (descending)
           * `pk` - Pk
           * `-pk` - Pk (descending)
         explode: false
@@ -15984,6 +15986,7 @@ paths:
             - -reserved_resources_record
             - -started_at
             - -state
+            - -versions
             - args
             - error
             - finished_at
@@ -15997,6 +16000,7 @@ paths:
             - reserved_resources_record
             - started_at
             - state
+            - versions
             type: string
           type: array
         style: form
@@ -17325,18 +17329,6 @@ paths:
         schema:
           type: string
         style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpstreamPulp'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UpstreamPulp'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/UpstreamPulp'
-        required: true
       responses:
         "202":
           content:
@@ -18941,43 +18933,25 @@ components:
     ArtifactDistributionResponse:
       description: A serializer for ArtifactDistribution.
       example:
-        hidden: false
         pulp_labels:
           key: pulp_labels
         pulp_href: https://openapi-generator.tech
-        base_url: base_url
+        hidden: false
         name: name
+        base_url: base_url
         base_path: base_path
         pulp_created: 2000-01-23T04:56:07.000+00:00
         content_guard: https://openapi-generator.tech
       properties:
-        content_guard:
-          description: An optional content-guard.
-          format: uri
-          nullable: true
-          type: string
-        base_url:
-          description: The URL for accessing the publication as defined by this distribution.
-          readOnly: true
-          type: string
-        hidden:
-          default: false
-          description: Whether this distribution should be shown in the content app.
-          type: boolean
-        base_path:
-          description: The base (relative) path component of the published url. Avoid
-            paths that                     overlap with other distribution base paths
-            (e.g. "foo" and "foo/bar")
-          type: string
         pulp_labels:
           additionalProperties:
             nullable: true
             type: string
           type: object
-        pulp_created:
-          description: Timestamp of creation.
-          format: date-time
-          readOnly: true
+        content_guard:
+          description: An optional content-guard.
+          format: uri
+          nullable: true
           type: string
         pulp_href:
           format: uri
@@ -18985,6 +18959,24 @@ components:
           type: string
         name:
           description: "A unique name. Ex, `rawhide` and `stable`."
+          type: string
+        base_path:
+          description: The base (relative) path component of the published url. Avoid
+            paths that                     overlap with other distribution base paths
+            (e.g. "foo" and "foo/bar")
+          type: string
+        hidden:
+          default: false
+          description: Whether this distribution should be shown in the content app.
+          type: boolean
+        base_url:
+          description: The URL for accessing the publication as defined by this distribution.
+          readOnly: true
+          type: string
+        pulp_created:
+          description: Timestamp of creation.
+          format: date-time
+          readOnly: true
           type: string
       required:
       - base_path
@@ -20162,21 +20154,21 @@ components:
         previous: http://api.example.org/accounts/?offset=200&limit=100
         count: 123
         results:
-        - hidden: false
-          pulp_labels:
+        - pulp_labels:
             key: pulp_labels
           pulp_href: https://openapi-generator.tech
-          base_url: base_url
+          hidden: false
           name: name
+          base_url: base_url
           base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
           content_guard: https://openapi-generator.tech
-        - hidden: false
-          pulp_labels:
+        - pulp_labels:
             key: pulp_labels
           pulp_href: https://openapi-generator.tech
-          base_url: base_url
+          hidden: false
           name: name
+          base_url: base_url
           base_path: base_path
           pulp_created: 2000-01-23T04:56:07.000+00:00
           content_guard: https://openapi-generator.tech
@@ -25829,6 +25821,12 @@ components:
     rpm.Modulemd:
       description: Modulemd serializer.
       properties:
+        repository:
+          description: A URI of a repository the new content unit should be associated
+            with.
+          format: uri
+          type: string
+          writeOnly: true
         name:
           description: Modulemd name.
           minLength: 1
@@ -25895,6 +25893,12 @@ components:
     rpm.ModulemdDefaults:
       description: ModulemdDefaults serializer.
       properties:
+        repository:
+          description: A URI of a repository the new content unit should be associated
+            with.
+          format: uri
+          type: string
+          writeOnly: true
         module:
           description: Modulemd name.
           minLength: 1
@@ -25952,6 +25956,12 @@ components:
     rpm.ModulemdObsolete:
       description: ModulemdObsolete serializer.
       properties:
+        repository:
+          description: A URI of a repository the new content unit should be associated
+            with.
+          format: uri
+          type: string
+          writeOnly: true
         modified:
           description: Obsolete modified time.
           minLength: 1
@@ -26163,6 +26173,12 @@ components:
         Add serializers for the new fields defined in Package and add those fields to the Meta class
         keeping fields from the parent class as well. Provide help_text.
       properties:
+        repository:
+          description: A URI of a repository the new content unit should be associated
+            with.
+          format: uri
+          type: string
+          writeOnly: true
         artifact:
           description: Artifact file representing the physical content
           format: uri
@@ -26177,12 +26193,6 @@ components:
           description: An uploaded file that may be turned into the artifact of the
             content unit.
           format: binary
-          type: string
-          writeOnly: true
-        repository:
-          description: A URI of a repository the new content unit should be associated
-            with.
-          format: uri
           type: string
           writeOnly: true
         upload:
@@ -27926,16 +27936,16 @@ components:
     rpm.UpdateRecord:
       description: A Serializer for UpdateRecord.
       properties:
-        file:
-          description: An uploaded file that may be turned into the artifact of the
-            content unit.
-          format: binary
-          type: string
-          writeOnly: true
         repository:
           description: A URI of a repository the new content unit should be associated
             with.
           format: uri
+          type: string
+          writeOnly: true
+        file:
+          description: An uploaded file that may be turned into the artifact of the
+            content unit.
+          format: binary
           type: string
           writeOnly: true
       type: object

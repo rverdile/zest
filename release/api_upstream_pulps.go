@@ -652,12 +652,6 @@ type UpstreamPulpsAPIUpstreamPulpsReplicateRequest struct {
 	ctx context.Context
 	ApiService *UpstreamPulpsAPIService
 	upstreamPulpHref string
-	upstreamPulp *UpstreamPulp
-}
-
-func (r UpstreamPulpsAPIUpstreamPulpsReplicateRequest) UpstreamPulp(upstreamPulp UpstreamPulp) UpstreamPulpsAPIUpstreamPulpsReplicateRequest {
-	r.upstreamPulp = &upstreamPulp
-	return r
 }
 
 func (r UpstreamPulpsAPIUpstreamPulpsReplicateRequest) Execute() (*AsyncOperationResponse, *http.Response, error) {
@@ -703,12 +697,9 @@ func (a *UpstreamPulpsAPIService) UpstreamPulpsReplicateExecute(r UpstreamPulpsA
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.upstreamPulp == nil {
-		return localVarReturnValue, nil, reportError("upstreamPulp is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/x-www-form-urlencoded", "multipart/form-data"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -724,8 +715,6 @@ func (a *UpstreamPulpsAPIService) UpstreamPulpsReplicateExecute(r UpstreamPulpsA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.upstreamPulp
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

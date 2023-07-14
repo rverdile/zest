@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## ContentRpmPackagesCreate
 
-> AsyncOperationResponse ContentRpmPackagesCreate(ctx, pulpDomain).Artifact(artifact).RelativePath(relativePath).File(file).Repository(repository).Upload(upload).Execute()
+> AsyncOperationResponse ContentRpmPackagesCreate(ctx, pulpDomain).Repository(repository).Artifact(artifact).RelativePath(relativePath).File(file).Upload(upload).Execute()
 
 Create a package
 
@@ -32,15 +32,15 @@ import (
 
 func main() {
     pulpDomain := "pulpDomain_example" // string | 
+    repository := "repository_example" // string | A URI of a repository the new content unit should be associated with. (optional)
     artifact := "artifact_example" // string | Artifact file representing the physical content (optional)
     relativePath := "relativePath_example" // string | Path where the artifact is located relative to distributions base_path (optional)
     file := os.NewFile(1234, "some_file") // *os.File | An uploaded file that may be turned into the artifact of the content unit. (optional)
-    repository := "repository_example" // string | A URI of a repository the new content unit should be associated with. (optional)
     upload := "upload_example" // string | An uncommitted upload that may be turned into the artifact of the content unit. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContentPackagesAPI.ContentRpmPackagesCreate(context.Background(), pulpDomain).Artifact(artifact).RelativePath(relativePath).File(file).Repository(repository).Upload(upload).Execute()
+    resp, r, err := apiClient.ContentPackagesAPI.ContentRpmPackagesCreate(context.Background(), pulpDomain).Repository(repository).Artifact(artifact).RelativePath(relativePath).File(file).Upload(upload).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ContentPackagesAPI.ContentRpmPackagesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,10 +66,10 @@ Other parameters are passed through a pointer to a apiContentRpmPackagesCreateRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **repository** | **string** | A URI of a repository the new content unit should be associated with. | 
  **artifact** | **string** | Artifact file representing the physical content | 
  **relativePath** | **string** | Path where the artifact is located relative to distributions base_path | 
  **file** | ***os.File** | An uploaded file that may be turned into the artifact of the content unit. | 
- **repository** | **string** | A URI of a repository the new content unit should be associated with. | 
  **upload** | **string** | An uncommitted upload that may be turned into the artifact of the content unit. | 
 
 ### Return type

@@ -30,11 +30,17 @@ type ContentPackagesAPIContentRpmPackagesCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentPackagesAPIService
 	pulpDomain string
+	repository *string
 	artifact *string
 	relativePath *string
 	file *os.File
-	repository *string
 	upload *string
+}
+
+// A URI of a repository the new content unit should be associated with.
+func (r ContentPackagesAPIContentRpmPackagesCreateRequest) Repository(repository string) ContentPackagesAPIContentRpmPackagesCreateRequest {
+	r.repository = &repository
+	return r
 }
 
 // Artifact file representing the physical content
@@ -52,12 +58,6 @@ func (r ContentPackagesAPIContentRpmPackagesCreateRequest) RelativePath(relative
 // An uploaded file that may be turned into the artifact of the content unit.
 func (r ContentPackagesAPIContentRpmPackagesCreateRequest) File(file *os.File) ContentPackagesAPIContentRpmPackagesCreateRequest {
 	r.file = file
-	return r
-}
-
-// A URI of a repository the new content unit should be associated with.
-func (r ContentPackagesAPIContentRpmPackagesCreateRequest) Repository(repository string) ContentPackagesAPIContentRpmPackagesCreateRequest {
-	r.repository = &repository
 	return r
 }
 
@@ -128,6 +128,9 @@ func (a *ContentPackagesAPIService) ContentRpmPackagesCreateExecute(r ContentPac
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.repository != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
+	}
 	if r.artifact != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "artifact", r.artifact, "")
 	}
@@ -150,9 +153,6 @@ func (a *ContentPackagesAPIService) ContentRpmPackagesCreateExecute(r ContentPac
 		fileLocalVarFileName = fileLocalVarFile.Name()
 		fileLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
-	}
-	if r.repository != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
 	}
 	if r.upload != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "upload", r.upload, "")

@@ -21,14 +21,14 @@ var _ MappedNullable = &RpmPackage{}
 
 // RpmPackage A Serializer for Package.  Add serializers for the new fields defined in Package and add those fields to the Meta class keeping fields from the parent class as well. Provide help_text.
 type RpmPackage struct {
+	// A URI of a repository the new content unit should be associated with.
+	Repository *string `json:"repository,omitempty"`
 	// Artifact file representing the physical content
 	Artifact *string `json:"artifact,omitempty"`
 	// Path where the artifact is located relative to distributions base_path
 	RelativePath *string `json:"relative_path,omitempty"`
 	// An uploaded file that may be turned into the artifact of the content unit.
 	File **os.File `json:"file,omitempty"`
-	// A URI of a repository the new content unit should be associated with.
-	Repository *string `json:"repository,omitempty"`
 	// An uncommitted upload that may be turned into the artifact of the content unit.
 	Upload *string `json:"upload,omitempty"`
 }
@@ -48,6 +48,38 @@ func NewRpmPackage() *RpmPackage {
 func NewRpmPackageWithDefaults() *RpmPackage {
 	this := RpmPackage{}
 	return &this
+}
+
+// GetRepository returns the Repository field value if set, zero value otherwise.
+func (o *RpmPackage) GetRepository() string {
+	if o == nil || IsNil(o.Repository) {
+		var ret string
+		return ret
+	}
+	return *o.Repository
+}
+
+// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RpmPackage) GetRepositoryOk() (*string, bool) {
+	if o == nil || IsNil(o.Repository) {
+		return nil, false
+	}
+	return o.Repository, true
+}
+
+// HasRepository returns a boolean if a field has been set.
+func (o *RpmPackage) HasRepository() bool {
+	if o != nil && !IsNil(o.Repository) {
+		return true
+	}
+
+	return false
+}
+
+// SetRepository gets a reference to the given string and assigns it to the Repository field.
+func (o *RpmPackage) SetRepository(v string) {
+	o.Repository = &v
 }
 
 // GetArtifact returns the Artifact field value if set, zero value otherwise.
@@ -146,38 +178,6 @@ func (o *RpmPackage) SetFile(v *os.File) {
 	o.File = &v
 }
 
-// GetRepository returns the Repository field value if set, zero value otherwise.
-func (o *RpmPackage) GetRepository() string {
-	if o == nil || IsNil(o.Repository) {
-		var ret string
-		return ret
-	}
-	return *o.Repository
-}
-
-// GetRepositoryOk returns a tuple with the Repository field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *RpmPackage) GetRepositoryOk() (*string, bool) {
-	if o == nil || IsNil(o.Repository) {
-		return nil, false
-	}
-	return o.Repository, true
-}
-
-// HasRepository returns a boolean if a field has been set.
-func (o *RpmPackage) HasRepository() bool {
-	if o != nil && !IsNil(o.Repository) {
-		return true
-	}
-
-	return false
-}
-
-// SetRepository gets a reference to the given string and assigns it to the Repository field.
-func (o *RpmPackage) SetRepository(v string) {
-	o.Repository = &v
-}
-
 // GetUpload returns the Upload field value if set, zero value otherwise.
 func (o *RpmPackage) GetUpload() string {
 	if o == nil || IsNil(o.Upload) {
@@ -220,6 +220,9 @@ func (o RpmPackage) MarshalJSON() ([]byte, error) {
 
 func (o RpmPackage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Repository) {
+		toSerialize["repository"] = o.Repository
+	}
 	if !IsNil(o.Artifact) {
 		toSerialize["artifact"] = o.Artifact
 	}
@@ -228,9 +231,6 @@ func (o RpmPackage) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.File) {
 		toSerialize["file"] = o.File
-	}
-	if !IsNil(o.Repository) {
-		toSerialize["repository"] = o.Repository
 	}
 	if !IsNil(o.Upload) {
 		toSerialize["upload"] = o.Upload

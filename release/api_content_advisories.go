@@ -30,19 +30,19 @@ type ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest struct {
 	ctx context.Context
 	ApiService *ContentAdvisoriesAPIService
 	pulpDomain string
-	file *os.File
 	repository *string
-}
-
-// An uploaded file that may be turned into the artifact of the content unit.
-func (r ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest) File(file *os.File) ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest {
-	r.file = file
-	return r
+	file *os.File
 }
 
 // A URI of a repository the new content unit should be associated with.
 func (r ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest) Repository(repository string) ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest {
 	r.repository = &repository
+	return r
+}
+
+// An uploaded file that may be turned into the artifact of the content unit.
+func (r ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest) File(file *os.File) ContentAdvisoriesAPIContentRpmAdvisoriesCreateRequest {
+	r.file = file
 	return r
 }
 
@@ -107,6 +107,9 @@ func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesCreateExecute(r Conten
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.repository != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
+	}
 	var fileLocalVarFormFileName string
 	var fileLocalVarFileName     string
 	var fileLocalVarFileBytes    []byte
@@ -123,9 +126,6 @@ func (a *ContentAdvisoriesAPIService) ContentRpmAdvisoriesCreateExecute(r Conten
 		fileLocalVarFileName = fileLocalVarFile.Name()
 		fileLocalVarFile.Close()
 		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
-	}
-	if r.repository != nil {
-		parameterAddToHeaderOrQuery(localVarFormParams, "repository", r.repository, "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

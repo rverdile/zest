@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 ## UpstreamPulpsReplicate
 
-> AsyncOperationResponse UpstreamPulpsReplicate(ctx, upstreamPulpHref).UpstreamPulp(upstreamPulp).Execute()
+> AsyncOperationResponse UpstreamPulpsReplicate(ctx, upstreamPulpHref).Execute()
 
 Replicate
 
@@ -400,11 +400,10 @@ import (
 
 func main() {
     upstreamPulpHref := "upstreamPulpHref_example" // string | 
-    upstreamPulp := *openapiclient.NewUpstreamPulp("Name_example", "BaseUrl_example", "ApiRoot_example") // UpstreamPulp | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsReplicate(context.Background(), upstreamPulpHref).UpstreamPulp(upstreamPulp).Execute()
+    resp, r, err := apiClient.UpstreamPulpsAPI.UpstreamPulpsReplicate(context.Background(), upstreamPulpHref).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UpstreamPulpsAPI.UpstreamPulpsReplicate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -430,7 +429,6 @@ Other parameters are passed through a pointer to a apiUpstreamPulpsReplicateRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **upstreamPulp** | [**UpstreamPulp**](UpstreamPulp.md) |  | 
 
 ### Return type
 
@@ -442,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
